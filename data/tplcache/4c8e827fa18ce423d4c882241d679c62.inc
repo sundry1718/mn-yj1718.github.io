@@ -1,1 +1,0 @@
-<li><a v target="_blank">[field:title /]</a></li>

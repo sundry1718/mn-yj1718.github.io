@@ -1,1 +1,0 @@
-<a href="{dede:field name='typeurl'/}" target="_blank">{dede:field name='typename'/}</a>
