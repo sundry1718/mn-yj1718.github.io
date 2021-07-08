@@ -1,9 +1,9 @@
-»áÔ±ĞÅÏ¢µ÷ÓÃ±êÇ©
+ä¼šå‘˜ä¿¡æ¯è°ƒç”¨æ ‡ç­¾
 >>dede>>
 {dede:memberlist orderby='scores' row='20'}
 <a href="../member/index.php?uid={dede:field.userid /}">{dede:field.userid /}</a>
 <span>{dede:field.scores /}</span>
 {/dede:memberlist}
 >>dede>>
-orderby = 'scores' °´»ı·ÖÅÅĞò
-row = '6' µ÷ÓÃÊıÄ¿
+orderby = 'scores' æŒ‰ç§¯åˆ†æ’åº
+row = '6' è°ƒç”¨æ•°ç›®

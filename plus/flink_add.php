@@ -1,14 +1,14 @@
 <?php
 /**
  *
- * Ôö¼ÓÓÑÇéÁ´½Ó
+ * å¢žåŠ å‹æƒ…é“¾æŽ¥
  *
- * @version        $Id: flink_add.php 1 15:38 2010Äê7ÔÂ8ÈÕZ tianya $
+ * @version        $Id: flink_add.php 1 15:38 2010å¹´7æœˆ8æ—¥Z tianya $
  * @package        DedeCMS.Site
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
  * @link           http://www.dedecms.com
  */
 require_once(dirname(__FILE__).'/../include/common.inc.php');
-//ÏÔÊ¾Ä£°å(¼òµ¥PHPÎÄ¼þ)
+//æ˜¾ç¤ºæ¨¡æ¿(ç®€å•PHPæ–‡ä»¶)
 include_once(DEDETEMPLATE.'/plus/flink-add.htm');

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=<?php echo $cfg_soft_lang; ?>" />
-<title><?php echo $cfg_webname; ?> - ÁôÑÔ±¾</title>
+<title><?php echo $cfg_webname; ?> - ç•™è¨€æœ¬</title>
 <link href="<?php echo $cfg_templeturl; ?>/default/style/dedecms.css" rel="stylesheet" type="text/css" media="screen" />
 <style>
 	.lefttd {
@@ -79,10 +79,10 @@
 </div><!-- /header -->
 <div class="w960 clear center mt1">
   <div class="sp-title">
-    <h2>ÁôÑÔ±¾</h2>
+    <h2>ç•™è¨€æœ¬</h2>
     <span class="more">
-    	 <a href="#write">[·¢²¼ÁôÑÔ]</a> &nbsp; 
-    	 <a href="<?php echo $cfg_basehost;?>/">[·µ»ØÖ÷Ò³]</a>
+    	 <a href="#write">[å‘å¸ƒç•™è¨€]</a> &nbsp; 
+    	 <a href="<?php echo $cfg_basehost;?>/">[è¿”å›žä¸»é¡µ]</a>
     </span> 
   </div>
   <?php 
@@ -96,9 +96,9 @@
         	<b><?php echo $fields['uname']; ?></b>
         </td>
       	<td height="26" class='timetd'>
-      		<img height='16' src='guestbook/images/time.gif' width='16' /> Ê±¼ä: <?php echo MyDate('m-d H:i',$fields['dtime']); ?>
+      		<img height='16' src='guestbook/images/time.gif' width='16' /> æ—¶é—´: <?php echo MyDate('m-d H:i',$fields['dtime']); ?>
       	  &nbsp; 
-      	  Ö÷Ìâ£º<?php echo $fields['title']; ?>
+      	  ä¸»é¢˜ï¼š<?php echo $fields['title']; ?>
       	</td>
       </tr>
       <tr>
@@ -110,10 +110,10 @@
             	</td>
           	</tr>
           	<tr>
-            	<td height="20">&nbsp;À´×Ô£º<?php echo preg_replace("#[^\.]*\.[^\.]*$#","*.*",$fields['ip']); ?></td>
+            	<td height="20">&nbsp;æ¥è‡ªï¼š<?php echo preg_replace("#[^\.]*\.[^\.]*$#","*.*",$fields['ip']); ?></td>
           	</tr>
           	<tr>
-            	<td height="20">&nbsp;QQ£º<?php echo $fields['qq']?></td>
+            	<td height="20">&nbsp;QQï¼š<?php echo $fields['qq']?></td>
           	</tr>
         	</table>
         </td>
@@ -121,11 +121,11 @@
       </tr>
       <tr>
       	<td height="26" class="bottomtd">
-      		<a href='mailto:<?php echo $fields["email"]?>'><img src='guestbook/images/mail.gif' border=0 width='16' height='16' />[ÓÊ¼þ]</a> &nbsp;
-      		<a href='http://<?php echo $fields['homepage']?>' target='_blank'><img src='guestbook/images/home.gif' border=0 width='16' height='16' />[Ö÷Ò³]</a> &nbsp;
-      		<a href='guestbook.php?action=admin&id=<?php echo $fields['id']; ?>'><img src='guestbook/images/quote.gif' border=0 height=16 width=16 />[»Ø¸´/±à¼­]</a> &nbsp;
+      		<a href='mailto:<?php echo $fields["email"]?>'><img src='guestbook/images/mail.gif' border=0 width='16' height='16' />[é‚®ä»¶]</a> &nbsp;
+      		<a href='http://<?php echo $fields['homepage']?>' target='_blank'><img src='guestbook/images/home.gif' border=0 width='16' height='16' />[ä¸»é¡µ]</a> &nbsp;
+      		<a href='guestbook.php?action=admin&id=<?php echo $fields['id']; ?>'><img src='guestbook/images/quote.gif' border=0 height=16 width=16 />[å›žå¤/ç¼–è¾‘]</a> &nbsp;
       		<?php if($g_isadmin) { ?>
-      		<a href='guestbook.php?action=admin&id=<?php echo $fields['id']; ?>&job=del'><img src='guestbook/images/del.gif' border=0 height=16 width=16 />[É¾³ý]</a>
+      		<a href='guestbook.php?action=admin&id=<?php echo $fields['id']; ?>&job=del'><img src='guestbook/images/del.gif' border=0 height=16 width=16 />[åˆ é™¤]</a>
       	  <?php }  ?>
       	</td>
       </tr>
@@ -143,12 +143,12 @@
       <form method="post" action="guestbook.php" name="form1">
         <input type='hidden' name='action' value='save' />
         <tr>
-          <td colspan='4' class='writetd'><b>·¢²¼ÁôÑÔ£º</b><a name='write'></a></td>
+          <td colspan='4' class='writetd'><b>å‘å¸ƒç•™è¨€ï¼š</b><a name='write'></a></td>
         </tr>
         <tr bgcolor="#ffffff">
-          <td width="10%" align="center" nowrap><font color="#FF0000">*</font>±êÌâ£º</td>
+          <td width="10%" align="center" nowrap><font color="#FF0000">*</font>æ ‡é¢˜ï¼š</td>
           <td width="40%"><input type="text" maxlength="50" name="title" size="30" class="ipt-txt"/></td>
-          <td width="10%" align="center" nowrap>Ñé Ö¤ Âë£º</td>
+          <td width="10%" align="center" nowrap>éªŒ è¯ ç ï¼š</td>
           <td>
           	<table border="0" cellspacing="0" cellpadding="0">
             <tr>
@@ -159,24 +159,24 @@
          </td>
         </tr>
         <tr bgcolor="#ffffff">
-          <td width="10%" align="center" nowrap><font color="#FF0000">*</font>ÄãµÄÐÕÃû£º</td>
+          <td width="10%" align="center" nowrap><font color="#FF0000">*</font>ä½ çš„å§“åï¼š</td>
           <td width="40%"><input type="text" maxlength="10" name="uname" size="30" value="<?php echo $g_name; ?>" class="ipt-txt"/></td>
-          <td width="10%" align="center" nowrap>OICQºÅÂë£º</td>
+          <td width="10%" align="center" nowrap>OICQå·ç ï¼š</td>
           <td width="40%"><input maxlength="20" type="text" name="qq" size="20" class="ipt-txt" /></td>
         </tr>
         <tr bgcolor="#ffffff">
-          <td align="center" nowrap>&nbsp;µç×ÓÓÊ¼þ£º</td>
+          <td align="center" nowrap>&nbsp;ç”µå­é‚®ä»¶ï¼š</td>
           <td><input maxlength="80" type="text" name="email" size="30" class="ipt-txt"/></td>
-          <td align="center" nowrap height="12">¸öÈËÖ÷Ò³£º</td>
+          <td align="center" nowrap height="12">ä¸ªäººä¸»é¡µï¼š</td>
           <td height="12"><input maxlength="80" type="text" name="homepage" size="20" class="ipt-txt" /></td>
         </tr>
         <tr bgcolor="#ffffff">
-          <td align="center" nowrap width="10%"><font color="#FF0000">*</font>ÁôÑÔÄÚÈÝ£º<br />
-            (1000×ÖÄÚ) </td>
+          <td align="center" nowrap width="10%"><font color="#FF0000">*</font>ç•™è¨€å†…å®¹ï¼š<br />
+            (1000å­—å†…) </td>
           <td align="left" width="40%">
           	<textarea name="msg" cols="38" rows="5" class="textarea ipt-txt"></textarea>
           </td>
-          <td align="center" nowrap height="2" width="10%">Ñ¡ÔñÍ·Ïñ£º</td>
+          <td align="center" nowrap height="2" width="10%">é€‰æ‹©å¤´åƒï¼š</td>
           <td nowrap height="2" width="40%">
           	<input type="radio" name="img" value="01" checked />
             <img src="guestbook/images/01.gif" width="25" height="25" />
@@ -210,9 +210,9 @@
            </td>
         </tr>
         <tr bgcolor="#ffffff">
-          <td colspan="4" align="center" nowrap><input maxlength="1000" type="submit" name="Submit" value="Ìá ½»" class="btn-2" />
+          <td colspan="4" align="center" nowrap><input maxlength="1000" type="submit" name="Submit" value="æ äº¤" class="btn-2" />
             &nbsp;&nbsp;
-            <input type="reset" name="Submit2" value="È¡ Ïû" class="btn-2" /></td>
+            <input type="reset" name="Submit2" value="å– æ¶ˆ" class="btn-2" /></td>
         </tr>
       </form>
     </table>

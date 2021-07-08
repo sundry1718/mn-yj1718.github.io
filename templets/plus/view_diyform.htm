@@ -12,12 +12,12 @@
 		<div class="logo">
 				<a href="/"><img src="<?php echo $cfg_templeturl; ?>/default/images/logo.gif" /></a>		</div>
 		<div class="title">
-			<a href='diy.php?action=list&diyid=<?php echo $diy->diyid; ?>'><?php echo $diy->name; ?></a>	&gt; 详细内容
+			<a href='diy.php?action=list&diyid=<?php echo $diy->diyid; ?>'><?php echo $diy->name; ?></a>	&gt; 璇︾粏鍐呭
 		</div>
 	</div>
 	<div class="cmain">
 		<div class="ctitle">
-			<h1><?php echo $diy->name;?>详细内容</h1>
+			<h1><?php echo $diy->name;?>璇︾粏鍐呭</h1>
 			<span></span>
 		</div>
 		<div class="cbox mceneter">
@@ -37,13 +37,13 @@ foreach($fieldlist as $field=>$fielddata)
 	}
 	else if($fielddata[1]=='addon')
 	{
-			$row[$field] = "<a href='{$row[$field]}' target='_blank'><img src='img/addon.gif' border='0' /> 相关附件</a>";
+			$row[$field] = "<a href='{$row[$field]}' target='_blank'><img src='img/addon.gif' border='0' /> 鐩稿叧闄勪欢</a>";
 	}
 	else
 	{
 		if(!in_array($fielddata[1], $allowhtml))
 		{
-			$row[$field] = dede_htmlspecialchars($row[$field]);
+			$row[$field] = htmlspecialchars($row[$field]);
 		}
 	}
 	echo '<tr><td bgcolor="#ffffff">'.$fielddata[0].'</td><td bgcolor="#ffffff">'.$row[$field].'</td></tr>';

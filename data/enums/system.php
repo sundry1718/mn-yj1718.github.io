@@ -1,5 +1,5 @@
 <?php
 global $em_systems;
 $em_systems = array();
-$em_systems['0'] = '½öÓÃÓÚÅÐ¶Ï»º´æÊÇ·ñ´æÔÚ';
+$em_systems['0'] = 'ä»…ç”¨äºŽåˆ¤æ–­ç¼“å­˜æ˜¯å¦å­˜åœ¨';
 ?>

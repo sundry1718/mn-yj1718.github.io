@@ -1,8 +1,8 @@
 <?php   if(!defined('DEDEINC')) exit("Request Error!");
 /**
- * ¹ýÂËºËÐÄ´¦ÀíÎÄ¼þ
+ * è¿‡æ»¤æ ¸å¿ƒå¤„ç†æ–‡ä»¶
  *
- * @version        $Id: filter.inc.php 1 15:59 2010Äê7ÔÂ5ÈÕZ tianya $
+ * @version        $Id: filter.inc.php 1 15:59 2010å¹´7æœˆ5æ—¥Z tianya $
  * @package        DedeCMS.Libraries
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -10,11 +10,11 @@
  */
 
 /**
- *  ¹ýÂË²»Ïà¹ØÄÚÈÝ
+ *  è¿‡æ»¤ä¸ç›¸å…³å†…å®¹
  *
  * @access    public
- * @param     string  $fk ¹ýÂË¼ü
- * @param     string  $svar ¹ýÂËÖµ
+ * @param     string  $fk è¿‡æ»¤é”®
+ * @param     string  $svar è¿‡æ»¤å€¼
  * @return    string
  */
 $magic_quotes_gpc = ini_get('magic_quotes_gpc');
@@ -43,10 +43,10 @@ function _FilterAll($fk, &$svar)
     if (!$magic_quotes_gpc) {
         $svar = addslashes($svar);
     }
-    return $svar;
+    return addslashes($svar);
 }
 
-/* ¶Ô_GET,_POST,_COOKIE½øÐÐ¹ýÂË */
+/* å¯¹_GET,_POST,_COOKIEè¿›è¡Œè¿‡æ»¤ */
 foreach(Array('_GET','_POST','_COOKIE') as $_request)
 {
     foreach($$_request as $_k => $_v)

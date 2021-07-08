@@ -1,9 +1,9 @@
 <?php
 /**
  *
- * ÏÂÔØ
+ * ä¸‹è½½
  *
- * @version        $Id: download.php 1 15:38 2010Äê7ÔÂ8ÈÕZ tianya $
+ * @version        $Id: download.php 1 15:38 2010å¹´7æœˆ8æ—¥Z tianya $
  * @package        DedeCMS.Site
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -13,7 +13,7 @@ require_once(dirname(__FILE__)."/../include/common.inc.php");
 require_once(DEDEINC."/channelunit.class.php");
 if(!isset($open)) $open = 0;
 
-//¶ÁÈ¡Á´½ÓÁĞ±í
+//è¯»å–é“¾æ¥åˆ—è¡¨
 if($open==0)
 {
     $aid = (isset($aid) && is_numeric($aid)) ? $aid : 0;
@@ -22,7 +22,7 @@ if($open==0)
     $arcRow = GetOneArchive($aid);
     if($arcRow['aid']=='')
     {
-        ShowMsg('ÎŞ·¨»ñÈ¡Î´ÖªÎÄµµµÄĞÅÏ¢!','-1');
+        ShowMsg('æ— æ³•è·å–æœªçŸ¥æ–‡æ¡£çš„ä¿¡æ¯!','-1');
         exit();
     }
     extract($arcRow, EXTR_SKIP);
@@ -30,7 +30,7 @@ if($open==0)
     $cu = new ChannelUnit($arcRow['channel'],$aid);
     if(!is_array($cu->ChannelFields))
     {
-        ShowMsg('»ñÈ¡ÎÄµµĞÅÏ¢Ê§°Ü£¡','-1');
+        ShowMsg('è·å–æ–‡æ¡£ä¿¡æ¯å¤±è´¥ï¼','-1');
         exit();
     }
 
@@ -49,17 +49,17 @@ if($open==0)
     exit();
 }
 /*------------------------
-//Ìá¹©Èí¼ş¸øÓÃ»§ÏÂÔØ(¾ÉÄ£Ê½)
+//æä¾›è½¯ä»¶ç»™ç”¨æˆ·ä¸‹è½½(æ—§æ¨¡å¼)
 function getSoft_old()
 ------------------------*/
 else if($open==1)
 {
-    //¸üĞÂÏÂÔØ´ÎÊı
+    //æ›´æ–°ä¸‹è½½æ¬¡æ•°
     $id = isset($id) && is_numeric($id) ? $id : 0;
     $link = base64_decode(urldecode($link));
     if ( !$link )
     {
-        ShowMsg('ÎŞĞ§µØÖ·','javascript:;');
+        ShowMsg('æ— æ•ˆåœ°å€','javascript:;');
         exit;
     }
     $hash = md5($link);
@@ -82,7 +82,7 @@ else if($open==1)
     
     if ( !in_array($linkinfo['host'], $allowed) )
     {
-        ShowMsg('·ÇÏÂÔØµØÖ·£¬½ûÖ¹·ÃÎÊ','javascript:;');
+        ShowMsg('éä¸‹è½½åœ°å€ï¼Œç¦æ­¢è®¿é—®','javascript:;');
         exit;
     }
     
@@ -90,26 +90,26 @@ else if($open==1)
     exit();
 }
 /*------------------------
-//Ìá¹©Èí¼ş¸øÓÃ»§ÏÂÔØ(ĞÂÄ£Ê½)
+//æä¾›è½¯ä»¶ç»™ç”¨æˆ·ä¸‹è½½(æ–°æ¨¡å¼)
 function getSoft_new()
 ------------------------*/
 else if($open==2)
 {
     $id = intval($id);
-    //»ñµÃ¸½¼Ó±íĞÅÏ¢
+    //è·å¾—é™„åŠ è¡¨ä¿¡æ¯
     $row = $dsql->GetOne("SELECT ch.addtable,arc.mid FROM `#@__arctiny` arc LEFT JOIN `#@__channeltype` ch ON ch.id=arc.channel WHERE arc.id='$id' ");
     if(empty($row['addtable']))
     {
-        ShowMsg('ÕÒ²»µ½ËùĞèÒªµÄÈí¼ş×ÊÔ´£¡', 'javascript:;');
+        ShowMsg('æ‰¾ä¸åˆ°æ‰€éœ€è¦çš„è½¯ä»¶èµ„æºï¼', 'javascript:;');
         exit();
     }
     $mid = $row['mid'];
     
-    //¶ÁÈ¡Á¬½ÓÁĞ±í¡¢ÏÂÔØÈ¨ÏŞĞÅÏ¢
+    //è¯»å–è¿æ¥åˆ—è¡¨ã€ä¸‹è½½æƒé™ä¿¡æ¯
     $row = $dsql->GetOne("SELECT softlinks,daccess,needmoney FROM `{$row['addtable']}` WHERE aid='$id' ");
     if(empty($row['softlinks']))
     {
-        ShowMsg('ÕÒ²»µ½ËùĞèÒªµÄÈí¼ş×ÊÔ´£¡', 'javascript:;');
+        ShowMsg('æ‰¾ä¸åˆ°æ‰€éœ€è¦çš„è½¯ä»¶èµ„æºï¼', 'javascript:;');
         exit();
     }
     $softconfig = $dsql->GetOne("SELECT * FROM `#@__softconfig` ");
@@ -121,7 +121,7 @@ else if($open==2)
         $needMoney = $row['needmoney'];
     }
     
-    //·ÖÎöÁ¬½ÓÁĞ±í
+    //åˆ†æè¿æ¥åˆ—è¡¨
     require_once(DEDEINC.'/dedetag.class.php');
     $softUrl = '';
     $islocal = 0;
@@ -130,7 +130,7 @@ else if($open==2)
     if( !is_array($dtp->CTags) )
     {
         $dtp->Clear();
-        ShowMsg('ÕÒ²»µ½ËùĞèÒªµÄÈí¼ş×ÊÔ´£¡', 'javascript:;');
+        ShowMsg('æ‰¾ä¸åˆ°æ‰€éœ€è¦çš„è½¯ä»¶èµ„æºï¼', 'javascript:;');
         exit();
     }
     foreach($dtp->CTags as $ctag)
@@ -139,11 +139,11 @@ else if($open==2)
         {
             $link = trim($ctag->GetInnerText());
             $islocal = $ctag->GetAtt('islocal');
-            //·ÖÎö±¾µØÁ´½Ó
+            //åˆ†ææœ¬åœ°é“¾æ¥
             if(!isset($firstLink) && $islocal==1) $firstLink = $link;
             if($islocal==1 && $softconfig['islocal'] != 1) continue;
             
-            //Ö§³Öhttp,Ñ¸À×ÏÂÔØ,ftp,flashget
+            //æ”¯æŒhttp,è¿…é›·ä¸‹è½½,ftp,flashget
             if(!preg_match("#^http:\/\/|^thunder:\/\/|^ftp:\/\/|^flashget:\/\/#i", $link))
             {
                  $link = $cfg_mainsite.$link;
@@ -170,21 +170,21 @@ else if($open==2)
     }
     if( $softUrl == '' )
     {
-        ShowMsg('ÕÒ²»µ½ËùĞèÒªµÄÈí¼ş×ÊÔ´£¡', 'javascript:;');
+        ShowMsg('æ‰¾ä¸åˆ°æ‰€éœ€è¦çš„è½¯ä»¶èµ„æºï¼', 'javascript:;');
         exit();
     }
     //-------------------------
-    // ¶ÁÈ¡ÎÄµµĞÅÏ¢£¬ÅĞ¶ÏÈ¨ÏŞ
+    // è¯»å–æ–‡æ¡£ä¿¡æ¯ï¼Œåˆ¤æ–­æƒé™
     //-------------------------
     $arcRow = GetOneArchive($id);
     if($arcRow['aid']=='')
     {
-        ShowMsg('ÎŞ·¨»ñÈ¡Î´ÖªÎÄµµµÄĞÅÏ¢!','-1');
+        ShowMsg('æ— æ³•è·å–æœªçŸ¥æ–‡æ¡£çš„ä¿¡æ¯!','-1');
         exit();
     }
     extract($arcRow, EXTR_SKIP);
 
-    //´¦ÀíĞèÒªÏÂÔØÈ¨ÏŞµÄÈí¼ş
+    //å¤„ç†éœ€è¦ä¸‹è½½æƒé™çš„è½¯ä»¶
     if($needRank>0 || $needMoney>0)
     {
         require_once(DEDEINC.'/memberlogin.class.php');
@@ -194,7 +194,7 @@ else if($open==2)
         $arcLinktitle = "<a href=\"{$arcurl}\"><u>".$arctitle."</u></a>";
         $pubdate = GetDateTimeMk($pubdate);
     
-        //»áÔ±¼¶±ğ²»×ã
+        //ä¼šå‘˜çº§åˆ«ä¸è¶³
         if(($needRank>1 && $cfg_ml->M_Rank < $needRank && $mid != $cfg_ml->M_ID))
         {
             $dsql->Execute('me' , "SELECT * FROM `#@__arcrank` ");
@@ -202,45 +202,45 @@ else if($open==2)
             {
                 $memberTypes[$row->rank] = $row->membername;
             }
-            $memberTypes[0] = "ÓÎ¿Í";
-            $msgtitle = "ÄãÃ»ÓĞÈ¨ÏŞÏÂÔØÈí¼ş£º{$arctitle}£¡";
-            $moremsg = "Õâ¸öÈí¼şĞèÒª <font color='red'>".$memberTypes[$needRank]."</font> ²ÅÄÜÏÂÔØ£¬ÄãÄ¿Ç°ÊÇ£º<font color='red'>".$memberTypes[$cfg_ml->M_Rank]."</font> £¡";
+            $memberTypes[0] = "æ¸¸å®¢";
+            $msgtitle = "ä½ æ²¡æœ‰æƒé™ä¸‹è½½è½¯ä»¶ï¼š{$arctitle}ï¼";
+            $moremsg = "è¿™ä¸ªè½¯ä»¶éœ€è¦ <font color='red'>".$memberTypes[$needRank]."</font> æ‰èƒ½ä¸‹è½½ï¼Œä½ ç›®å‰æ˜¯ï¼š<font color='red'>".$memberTypes[$cfg_ml->M_Rank]."</font> ï¼";
             include_once(DEDETEMPLATE.'/plus/view_msg.htm');
             exit();
         }
 
-        //ÒÔÏÂÎªÕı³£Çé¿ö£¬×Ô¶¯¿ÛµãÊı
-        //Èç¹ûÎÄÕÂĞèÒª½ğ±Ò£¬¼ì²éÓÃ»§ÊÇ·ñä¯ÀÀ¹ı±¾ÎÄµµ
+        //ä»¥ä¸‹ä¸ºæ­£å¸¸æƒ…å†µï¼Œè‡ªåŠ¨æ‰£ç‚¹æ•°
+        //å¦‚æœæ–‡ç« éœ€è¦é‡‘å¸ï¼Œæ£€æŸ¥ç”¨æˆ·æ˜¯å¦æµè§ˆè¿‡æœ¬æ–‡æ¡£
         if($needMoney > 0  && $mid != $cfg_ml->M_ID)
         {
             $sql = "SELECT aid,money FROM `#@__member_operation` WHERE buyid='ARCHIVE".$id."' AND mid='".$cfg_ml->M_ID."'";
             $row = $dsql->GetOne($sql);
-            //Î´¹ºÂò¹ı´ËÎÄÕÂ
+            //æœªè´­ä¹°è¿‡æ­¤æ–‡ç« 
             if( !is_array($row) )
             {
-                //Ã»ÓĞ×ã¹»µÄ½ğ±Ò
+                //æ²¡æœ‰è¶³å¤Ÿçš„é‡‘å¸
                 if( $needMoney > $cfg_ml->M_Money || $cfg_ml->M_Money=='')
                 {
-                    $msgtitle = "ÄãÃ»ÓĞÈ¨ÏŞÏÂÔØÈí¼ş£º{$arctitle}£¡";
-                    $moremsg = "Õâ¸öÈí¼şĞèÒª <font color='red'>".$needMoney." ½ğ±Ò</font> ²ÅÄÜÏÂÔØ£¬ÄãÄ¿Ç°ÓµÓĞ½ğ±Ò£º<font color='red'>".$cfg_ml->M_Money." ¸ö</font> £¡";
+                    $msgtitle = "ä½ æ²¡æœ‰æƒé™ä¸‹è½½è½¯ä»¶ï¼š{$arctitle}ï¼";
+                    $moremsg = "è¿™ä¸ªè½¯ä»¶éœ€è¦ <font color='red'>".$needMoney." é‡‘å¸</font> æ‰èƒ½ä¸‹è½½ï¼Œä½ ç›®å‰æ‹¥æœ‰é‡‘å¸ï¼š<font color='red'>".$cfg_ml->M_Money." ä¸ª</font> ï¼";
                     include_once(DEDETEMPLATE.'/plus/view_msg.htm');
                     exit(0);
                 }
-                //ÓĞ×ã¹»½ğ±Ò£¬¼ÇÂ¼ÓÃ»§ĞÅÏ¢
+                //æœ‰è¶³å¤Ÿé‡‘å¸ï¼Œè®°å½•ç”¨æˆ·ä¿¡æ¯
                 $inquery = "INSERT INTO `#@__member_operation`(mid,oldinfo,money,mtime,buyid,product,pname,sta)
-                  VALUES ('".$cfg_ml->M_ID."','$arctitle','$needMoney','".time()."', 'ARCHIVE".$id."', 'archive','ÏÂÔØÈí¼ş', 2); ";
-                //¼ÇÂ¼¶¨µ¥
+                  VALUES ('".$cfg_ml->M_ID."','$arctitle','$needMoney','".time()."', 'ARCHIVE".$id."', 'archive','ä¸‹è½½è½¯ä»¶', 2); ";
+                //è®°å½•å®šå•
                 if( !$dsql->ExecuteNoneQuery($inquery) )
                 {
-                    ShowMsg('¼ÇÂ¼¶¨µ¥Ê§°Ü, Çë·µ»Ø', '-1');
+                    ShowMsg('è®°å½•å®šå•å¤±è´¥, è¯·è¿”å›', '-1');
                     exit(0);
                 }
-                //¿Û³ı½ğ±Ò
+                //æ‰£é™¤é‡‘å¸
                 $dsql->ExecuteNoneQuery("UPDATE `#@__member` SET money = money - $needMoney WHERE mid='".$cfg_ml->M_ID."'");
             }
         }
     }
-    //¸üĞÂÏÂÔØ´ÎÊı
+    //æ›´æ–°ä¸‹è½½æ¬¡æ•°
     $hash = md5($softUrl);
     $rs = $dsql->ExecuteNoneQuery2("UPDATE `#@__downloads` SET downloads = downloads+1 WHERE hash='$hash' ");
     if($rs <= 0)

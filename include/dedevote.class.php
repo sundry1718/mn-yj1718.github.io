@@ -1,8 +1,8 @@
 <?php   if(!defined('DEDEINC')) exit("Request Error!");
 /**
- * Í¶Æ±Àà
+ * æŠ•ç¥¨ç±»
  *
- * @version        $Id: dedevote.class.php 1 10:31 2010Äê7ÔÂ6ÈÕZ tianya $
+ * @version        $Id: dedevote.class.php 1 10:31 2010å¹´7æœˆ6æ—¥Z tianya $
  * @package        DedeCMS.Libraries
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -11,7 +11,7 @@
 require_once(DEDEINC."/dedetag.class.php");
 
 /**
- * Í¶Æ±Àà
+ * æŠ•ç¥¨ç±»
  *
  * @package          DedeVote
  * @subpackage       DedeCMS.Libraries
@@ -25,7 +25,7 @@ class DedeVote
     var $VoteID;
     var $dsql;
 
-    //php5¹¹Ôìº¯Êı
+    //php5æ„é€ å‡½æ•°
     function __construct($aid)
     {
         $this->dsql = $GLOBALS['dsql'];
@@ -51,7 +51,7 @@ class DedeVote
         }
         $dtp->Clear();
     }
-    //¼æÈİphp4µÄ¹¹Ôìº¯Êı
+    //å…¼å®¹php4çš„æ„é€ å‡½æ•°
     function DedeVote($aid)
     {
         $this->__construct($aid);
@@ -62,7 +62,7 @@ class DedeVote
     }
 
     /**
-     *  »ñµÃÍ¶Æ±ÏîÄ¿×ÜÍ¶Æ±´ÎÊı
+     *  è·å¾—æŠ•ç¥¨é¡¹ç›®æ€»æŠ•ç¥¨æ¬¡æ•°
      *
      * @access    public
      * @return    int
@@ -80,10 +80,10 @@ class DedeVote
     }
 
     /**
-     *  Ôö¼ÓÖ¸¶¨µÄÍ¶Æ±½ÚµãµÄÆ±Êı
+     *  å¢åŠ æŒ‡å®šçš„æŠ•ç¥¨èŠ‚ç‚¹çš„ç¥¨æ•°
      *
      * @access    public
-     * @param     int    $aid  Í¶Æ±ID
+     * @param     int    $aid  æŠ•ç¥¨ID
      * @return    string
      */
     function AddVoteCount($aid)
@@ -95,20 +95,20 @@ class DedeVote
     }
 
     /**
-     *  »ñµÃÏîÄ¿µÄÍ¶Æ±±íµ¥
+     *  è·å¾—é¡¹ç›®çš„æŠ•ç¥¨è¡¨å•
      *
      * @access    public
-     * @param     int   $lineheight  ĞĞ¸ß
-     * @param     string   $tablewidth  ±í¸ñ¿í¶È
-     * @param     string   $titlebgcolor  ±êÌâÑÕÉ«
-     * @param     string   $titlebackgroup  ±êÌâ±³¾°
-     * @param     string   $tablebg  ±í¸ñ±³¾°
-     * @param     string   $itembgcolor  ÏîÄ¿±³¾°
+     * @param     int   $lineheight  è¡Œé«˜
+     * @param     string   $tablewidth  è¡¨æ ¼å®½åº¦
+     * @param     string   $titlebgcolor  æ ‡é¢˜é¢œè‰²
+     * @param     string   $titlebackgroup  æ ‡é¢˜èƒŒæ™¯
+     * @param     string   $tablebg  è¡¨æ ¼èƒŒæ™¯
+     * @param     string   $itembgcolor  é¡¹ç›®èƒŒæ™¯
      * @return    string
      */
     function GetVoteForm($lineheight=30,$tablewidth="100%",$titlebgcolor="#EDEDE2",$titlebackgroup="",$tablebg="#FFFFFF",$itembgcolor="#FFFFFF")
     {
-        //Ê¡ÂÔ²ÎÊı
+        //çœç•¥å‚æ•°
         if($lineheight=="")
         {
             $lineheight=24;
@@ -154,20 +154,20 @@ class DedeVote
                 }
             }
             $items .= "<tr><td height='$lineheight'>\r\n";
-            $items .= "<input type='submit' class='btn-1' name='vbt1' value='Í¶Æ±' />\r\n";
+            $items .= "<input type='submit' class='btn-1' name='vbt1' value='æŠ•ç¥¨' />\r\n";
             $items .= "<input type='button' class='btn-1' name='vbt2' ";
-            $items .= "value='²é¿´½á¹û' onClick=window.open('".$GLOBALS['cfg_phpurl']."/vote.php?dopost=view&aid=".$this->VoteID."'); /></td></tr>\r\n";
+            $items .= "value='æŸ¥çœ‹ç»“æœ' onClick=window.open('".$GLOBALS['cfg_phpurl']."/vote.php?dopost=view&aid=".$this->VoteID."'); /></td></tr>\r\n";
         }
         $items.="</form>\r\n</table>\r\n";
         return $items;
     }
 
     /**
-     * ±£´æÍ¶Æ±Êı¾İ
-     * Çë²»ÒªÔÚÊä³öÈÎºÎÄÚÈİÖ®Ç°Ê¹ÓÃSaveVote()·½·¨!
+     * ä¿å­˜æŠ•ç¥¨æ•°æ®
+     * è¯·ä¸è¦åœ¨è¾“å‡ºä»»ä½•å†…å®¹ä¹‹å‰ä½¿ç”¨SaveVote()æ–¹æ³•!
      *
      * @access    public
-     * @param     string   $voteitem  Í¶Æ±ÏîÄ¿
+     * @param     string   $voteitem  æŠ•ç¥¨é¡¹ç›®
      * @return    string
      */
     function SaveVote($voteitem)
@@ -175,30 +175,30 @@ class DedeVote
         global $ENV_GOBACK_URL,$file,$memberID,$row,$content;
         if(empty($voteitem))
         {
-            return 'ÄãÃ»Ñ¡ÖĞÈÎºÎÏîÄ¿£¡';
+            return 'ä½ æ²¡é€‰ä¸­ä»»ä½•é¡¹ç›®ï¼';
         }
         $items = '';
 
-        //¼ì²éÍ¶Æ±ÊÇ·ñÒÑ¹ıÆÚ
+        //æ£€æŸ¥æŠ•ç¥¨æ˜¯å¦å·²è¿‡æœŸ
         $nowtime = time();
         if($nowtime > $this->VoteInfos['endtime'])
         {
             
-            ShowMsg('Í¶Æ±ÒÑ¾­¹ıÆÚ£¡',$ENV_GOBACK_URL);
+            ShowMsg('æŠ•ç¥¨å·²ç»è¿‡æœŸï¼',$ENV_GOBACK_URL);
             exit();
         }
         if($nowtime < $this->VoteInfos['starttime'])
         {
-            ShowMsg('Í¶Æ±»¹Ã»ÓĞ¿ªÊ¼£¡',$ENV_GOBACK_URL);
+            ShowMsg('æŠ•ç¥¨è¿˜æ²¡æœ‰å¼€å§‹ï¼',$ENV_GOBACK_URL);
             exit();
         }
         
-        //¼ì²âÓÎ¿ÍÊÇ·ñÒÑÍ¶¹ıÆ±
+        //æ£€æµ‹æ¸¸å®¢æ˜¯å¦å·²æŠ•è¿‡ç¥¨
         if(isset($_COOKIE['VOTE_MEMBER_IP']))
         {
             if($_COOKIE['VOTE_MEMBER_IP'] == $_SERVER['REMOTE_ADDR'])
             {
-                ShowMsg('ÄúÒÑÍ¶¹ıÆ±',$ENV_GOBACK_URL);
+                ShowMsg('æ‚¨å·²æŠ•è¿‡ç¥¨',$ENV_GOBACK_URL);
                 exit();
             } else {
                 setcookie('VOTE_MEMBER_IP',$_SERVER['REMOTE_ADDR'],time()*$row['spec']*3600,'/');
@@ -207,7 +207,7 @@ class DedeVote
             setcookie('VOTE_MEMBER_IP',$_SERVER['REMOTE_ADDR'],time()*$row['spec']*3600,'/');
         }
 
-        //¼ì²éÓÃ»§ÊÇ·ñÒÑÍ¶¹ıÆ±
+        //æ£€æŸ¥ç”¨æˆ·æ˜¯å¦å·²æŠ•è¿‡ç¥¨
         $nowtime = time();
         $VoteMem = $this->dsql->GetOne("SELECT * FROM #@__vote_member WHERE voteid = '$this->VoteID' and userid='$memberID'");
         if(!empty($memberID))
@@ -219,13 +219,13 @@ class DedeVote
                 $day = date("Y-m-d",$day);
                 if($day < $voteday)
                 {
-                    ShowMsg('ÔÚ'.$row['spec'].'ÌìÄÚ²»ÄÜÖØ¸´Í¶Æ±',$ENV_GOBACK_URL);
+                    ShowMsg('åœ¨'.$row['spec'].'å¤©å†…ä¸èƒ½é‡å¤æŠ•ç¥¨',$ENV_GOBACK_URL);
                     exit();
                 }else{
                     $query = "UPDATE #@__vote_member SET uptime='$nowtime' WHERE voteid='$this->VoteID' AND userid='$memberID'";
                     if($this->dsql->ExecuteNoneQuery($query) == false)
                     {
-                        ShowMsg('²åÈëÊı¾İ¹ı³ÌÖĞ³öÏÖ´íÎó',$ENV_GOBACK_URL);
+                        ShowMsg('æ’å…¥æ•°æ®è¿‡ç¨‹ä¸­å‡ºç°é”™è¯¯',$ENV_GOBACK_URL);
                         exit();
                     }
                 }
@@ -233,19 +233,19 @@ class DedeVote
                 $query = "INSERT INTO #@__vote_member(id,voteid,userid,uptime) VALUES('','$this->VoteID','$memberID','$nowtime')";
                 if($this->dsql->ExecuteNoneQuery($query) == false)
                 {
-                    ShowMsg('²åÈëÊı¾İ¹ı³ÌÖĞ³öÏÖ´íÎó',$ENV_GOBACK_URL);
+                    ShowMsg('æ’å…¥æ•°æ®è¿‡ç¨‹ä¸­å‡ºç°é”™è¯¯',$ENV_GOBACK_URL);
                     exit();
                 }
             }
         }
-        //±ØĞë´æÔÚÍ¶Æ±ÏîÄ¿
+        //å¿…é¡»å­˜åœ¨æŠ•ç¥¨é¡¹ç›®
         if($this->VoteCount > 0)
         {
             foreach($this->VoteNotes as $k=>$v)
             {
                 if($this->VoteInfos['ismore']==0)
                 {
-                    //µ¥Ñ¡Ïî
+                    //å•é€‰é¡¹
                     if($voteitem == $k)
                     {
                         $this->VoteNotes[$k]['count']++; break;
@@ -253,7 +253,7 @@ class DedeVote
                 }
                 else
                 {
-                    //¶àÑ¡Ïî
+                    //å¤šé€‰é¡¹
                     if(is_array($voteitem) && in_array($k,$voteitem))
                     {
                         $this->VoteNotes[$k]['count']++;
@@ -266,16 +266,16 @@ class DedeVote
             }
         }
         $this->dsql->ExecuteNoneQuery("UPDATE `#@__vote` SET totalcount='".($this->VoteInfos['totalcount']+1)."',votenote='".addslashes($items)."' WHERE aid='".$this->VoteID."'");
-        return "Í¶Æ±³É¹¦£¡";
+        return "æŠ•ç¥¨æˆåŠŸï¼";
     }
 
     /**
-     *  »ñµÃÏîÄ¿µÄÍ¶Æ±½á¹û
+     *  è·å¾—é¡¹ç›®çš„æŠ•ç¥¨ç»“æœ
      *
      * @access    public
-     * @param     string   $tablewidth  ±í¸ñ¿í¶È
-     * @param     string   $lineheight  ĞĞ¸ß
-     * @param     string   $tablesplit  ±í¸ñ·Ö¸ô
+     * @param     string   $tablewidth  è¡¨æ ¼å®½åº¦
+     * @param     string   $lineheight  è¡Œé«˜
+     * @param     string   $tablesplit  è¡¨æ ¼åˆ†éš”
      * @return    string
      */
     function GetVoteResult($tablewidth="600", $lineheight="24", $tablesplit="40%")
@@ -290,7 +290,7 @@ class DedeVote
         $i=1;
         foreach($this->VoteNotes as $k=>$arr)
         {
-            $res .= "<tr height='$lineheight'><td style='border-bottom:1px solid'>".$i."¡¢".$arr['name']."</td>";
+            $res .= "<tr height='$lineheight'><td style='border-bottom:1px solid'>".$i."ã€".$arr['name']."</td>";
             $c = $arr['count'];
             $res .= "<td style='border-bottom:1px solid'>
             <table border='0' cellspacing='0' cellpadding='2' width='".(($c/$totalcount)*100)."%'><tr><td height='16' background='img/votebg.gif' style='border:1px solid #666666;font-size:9pt;line-height:110%'>".$arr['count']."</td></tr></table>

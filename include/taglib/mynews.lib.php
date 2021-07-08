@@ -1,8 +1,8 @@
 <?php
 /**
- * у╬дзпбне╣Всц╠Йг╘
+ * Г╚≥Е├┘Ф√╟И≈╩Х╟┐Г■╗Ф═┤Г╜╬
  *
- * @version        $Id:mynews.lib.php 1 9:29 2010дЙ7тб6хуZ tianya $
+ * @version        $Id:mynews.lib.php 1 9:29 2010Е╧╢7Ф°┬6Ф≈╔Z tianya $
  * @package        DedeCMS.Taglib
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -10,23 +10,23 @@
  */
  
 /*>>dede>>
-<name>у╬дзпбне</name>
-<type>х╚╬ж╠Й╪г</type>
+<name>Г╚≥Е├┘Ф√╟И≈╩</name>
+<type>Е┘╗Е╠─Ф═┤Х╝╟</type>
 <for>V55,V56,V57</for>
-<description>у╬дзпбне╣Всц╠Йг╘</description>
+<description>Г╚≥Е├┘Ф√╟И≈╩Х╟┐Г■╗Ф═┤Г╜╬</description>
 <demo>
 {dede:mynews row='' titlelen=''/}
 </demo>
 <attributes>
-    <iterm>row:╣Всцу╬дзпбнейЩ</iterm> 
-    <iterm>titlelen:пбне╠ЙлБЁ╓╤х</iterm>
+    <iterm>row:Х╟┐Г■╗Г╚≥Е├┘Ф√╟И≈╩Ф∙╟</iterm> 
+    <iterm>titlelen:Ф√╟И≈╩Ф═┤И╒≤И∙©Е╨╕</iterm>
 </attributes> 
 >>dede>>*/
  
 function lib_mynews(&$ctag,&$refObj)
 {
     global $dsql,$envs;
-    //йТпт╢╕юМ
+    //Е╠·Ф─╖Е╓└Г░├
     $attlist="row|1,titlelen|24";
     FillAttsDefault($ctag->CAttribute->Items,$attlist);
     extract($ctag->CAttribute->Items, EXTR_SKIP);

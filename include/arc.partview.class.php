@@ -1,8 +1,8 @@
 <?php   if(!defined('DEDEINC')) exit('Request Error!');
 /**
- * ��ͼ��
+ * 视图类
  *
- * @version        $Id: arc.partview.class.php 1 14:17 2010��7��7��Z tianya $
+ * @version        $Id: arc.partview.class.php 1 14:17 2010年7月7日Z tianya $
  * @package        DedeCMS.Libraries
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -13,7 +13,7 @@ require_once(DEDEINC.'/typelink.class.php');
 require_once(DEDEINC.'/ftp.class.php');
 
 /**
- * ��ͼ��
+ * 视图类
  *
  * @package          PartView
  * @subpackage       DedeCMS.Libraries
@@ -32,11 +32,11 @@ class PartView
     var $remoteDir;
 
     /**
-     *  php5���캯��
+     *  php5构造函数
      *
      * @access    public
-     * @param     int  $typeid  ��ĿID
-     * @param     int  $needtypelink  �Ƿ���Ҫ��Ŀ����
+     * @param     int  $typeid  栏目ID
+     * @param     int  $needtypelink  是否需要栏目连接
      * @return    void
      */
     function __construct($typeid=0,$needtypelink=TRUE)
@@ -66,30 +66,30 @@ class PartView
             $_sys_globals['curfile'] = 'partview';
             $_sys_globals['typename'] = $this->Fields['typename'];
 
-            //���û�������
+            //设置环境变量
             SetSysEnv($this->TypeID,$this->Fields['typename'],0,'','partview');
         }
         SetSysEnv($this->TypeID,'',0,'','partview');
         $this->Fields['typeid'] = $this->TypeID;
 
-        //����һЩȫ�ֲ�����ֵ
+        //设置一些全局参数的值
         foreach($GLOBALS['PubFields'] as $k=>$v)
         {
             $this->Fields[$k] = $v;
         }
     }
     
-    //php4���캯��
+    //php4构造函数
     function PartView($typeid=0,$needtypelink=TRUE)
     {
         $this->__construct($typeid,$needtypelink);
     }
 
     /**
-     *  ����ָ������Ķ���
+     *  重新指定引入的对象
      *
      * @access    private
-     * @param     object  $refObj  ���ö���
+     * @param     object  $refObj  引用对象
      * @return    void
      */
     function SetRefObj(&$refObj)
@@ -102,10 +102,10 @@ class PartView
     }
 
     /**
-     *  ָ��typelink�������ǰ��ʵ��
+     *  指定typelink对象给当前类实例
      *
      * @access    public
-     * @param     string  $typelink  ��Ŀ����
+     * @param     string  $typelink  栏目链接
      * @return    string
      */
     function SetTypeLink(&$typelink)
@@ -124,11 +124,11 @@ class PartView
     }
 
     /**
-     *  ����Ҫ������ģ��
+     *  设置要解析的模板
      *
      * @access    public
-     * @param     string  $temp  ģ��
-     * @param     string  $stype  ��������
+     * @param     string  $temp  模板
+     * @param     string  $stype  设置类型
      * @return    string
      */
     function SetTemplet($temp,$stype="file")
@@ -150,7 +150,7 @@ class PartView
     }
 
     /**
-     *  ��ʾ����
+     *  显示内容
      *
      * @access    public
      * @return    void
@@ -161,7 +161,7 @@ class PartView
     }
 
     /**
-     *  ��ȡ����
+     *  获取内容
      *
      * @access    public
      * @return    string
@@ -172,23 +172,23 @@ class PartView
     }
 
     /**
-     *  ������Ϊ�ļ�
+     *  保存结果为文件
      *
      * @access    public
-     * @param     string  $filename  �ļ���
-     * @param     string  $isremote  �Ƿ�Զ��
+     * @param     string  $filename  文件名
+     * @param     string  $isremote  是否远程
      * @return    string
      */
     function SaveToHtml($filename,$isremote=0)
     {
         global $cfg_remote_site;
-        //�������Զ�̷�������Ҫ�����ж�
+        //如果启用远程发布则需要进行判断
         if($cfg_remote_site=='Y' && $isremote == 1)
         {
-            //����Զ���ļ�·��
+            //分析远程文件路径
             $remotefile = str_replace(DEDEROOT, '', $filename);
             $localfile = '..'.$remotefile;
-            //����Զ���ļ���
+            //创建远程文件夹
             $remotedir = preg_replace('/[^\/]*\.js/', '', $remotefile);
             $this->ftp->rmkdir($remotedir);
             $this->ftp->upload($localfile, $remotefile, 'ascii');
@@ -197,7 +197,7 @@ class PartView
     }
 
     /**
-     *  ����ģ����ı�ǩ
+     *  解析模板里的标签
      *
      * @access    private
      * @return    void
@@ -221,12 +221,12 @@ class PartView
         {
           $GLOBALS['envs']['channelid'] = $this->TypeLink->TypeInfos['channeltype'];
         }
-        MakeOneTag($this->dtp,$this); //����������� channelunit.func.php �ļ���
+        MakeOneTag($this->dtp,$this); //这个函数放在 channelunit.func.php 文件中
     }
 
     /**
-     * ����޶�ģ�ͻ���Ŀ��һ��ָ���ĵ��б�
-     * ����������ʹ���˻��棬���Ҵ���������֧�ֱַ�ģʽ�ģ�����ٶȸ��죬�����ܽ�����վ�����ݵ���
+     * 获得限定模型或栏目的一个指定文档列表
+     * 这个标记由于使用了缓存，并且处理数据是支持分表模式的，因此速度更快，但不能进行整站的数据调用
      * @param string $templets
      * @param int $typeid
      * @param int $row
@@ -284,7 +284,7 @@ class PartView
         $order,$subday,$ismember,$maintable,$ctag);
     }
 
-    //�ر���ռ�õ���Դ
+    //关闭所占用的资源
     function Close()
     {
     }

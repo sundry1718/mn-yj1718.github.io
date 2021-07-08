@@ -1,1 +1,0 @@
-INSERT INTO `dede346_homepageset` VALUES('default/index.html','../index.html','1');

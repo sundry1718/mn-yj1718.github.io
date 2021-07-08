@@ -1,8 +1,8 @@
 <?php   if(!defined('DEDEINC')) exit("Request Error!");
 /**
- * Í¼Ïñ´¦ÀíÏà¹Øº¯Êý
+ * å›¾åƒå¤„ç†ç›¸å…³å‡½æ•°
  *
- * @version        $Id: image.func.php 1 15:59 2010Äê7ÔÂ5ÈÕZ tianya $
+ * @version        $Id: image.func.php 1 15:59 2010å¹´7æœˆ5æ—¥Z tianya $
  * @package        DedeCMS.Helpers
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -11,14 +11,14 @@
 // ------------------------------------------------------------------------
 
 /**
- *  ËõÍ¼Æ¬×Ô¶¯Éú³Éº¯Êý£¬À´Ô´Ö§³Öbmp¡¢gif¡¢jpg¡¢png
- *  µ«Éú³ÉµÄÐ¡Í¼Ö»ÓÃjpg»òpng¸ñÊ½
+ *  ç¼©å›¾ç‰‡è‡ªåŠ¨ç”Ÿæˆå‡½æ•°ï¼Œæ¥æºæ”¯æŒbmpã€gifã€jpgã€png
+ *  ä½†ç”Ÿæˆçš„å°å›¾åªç”¨jpgæˆ–pngæ ¼å¼
  *
  * @access    public
- * @param     string  $srcFile  Í¼Æ¬Â·¾¶
- * @param     string  $toW  ×ª»»µ½µÄ¿í¶È
- * @param     string  $toH  ×ª»»µ½µÄ¸ß¶È
- * @param     string  $toFile  Êä³öÎÄ¼þµ½
+ * @param     string  $srcFile  å›¾ç‰‡è·¯å¾„
+ * @param     string  $toW  è½¬æ¢åˆ°çš„å®½åº¦
+ * @param     string  $toH  è½¬æ¢åˆ°çš„é«˜åº¦
+ * @param     string  $toFile  è¾“å‡ºæ–‡ä»¶åˆ°
  * @return    string
  */
 if ( ! function_exists('ImageResize'))
@@ -110,7 +110,7 @@ if ( ! function_exists('ImageResize'))
 
 
 /**
- *  »ñµÃGDµÄ°æ±¾
+ *  èŽ·å¾—GDçš„ç‰ˆæœ¬
  *
  * @access    public
  * @return    int
@@ -119,7 +119,7 @@ if ( ! function_exists('gdversion'))
 {
     function gdversion()
     {
-        //Ã»ÆôÓÃphp.iniº¯ÊýµÄÇé¿öÏÂÈç¹ûÓÐGDÄ¬ÈÏÊÓ×÷2.0ÒÔÉÏ°æ±¾
+        //æ²¡å¯ç”¨php.iniå‡½æ•°çš„æƒ…å†µä¸‹å¦‚æžœæœ‰GDé»˜è®¤è§†ä½œ2.0ä»¥ä¸Šç‰ˆæœ¬
         if(!function_exists('phpinfo'))
         {
             if(function_exists('imagecreate'))
@@ -152,11 +152,11 @@ if ( ! function_exists('gdversion'))
 
 
 /**
- *  Í¼Æ¬×Ô¶¯¼ÓË®Ó¡º¯Êý
+ *  å›¾ç‰‡è‡ªåŠ¨åŠ æ°´å°å‡½æ•°
  *
  * @access    public
- * @param     string  $srcFile  Í¼Æ¬Ô´ÎÄ¼þ
- * @param     string  $fromGo  Î»ÖÃ
+ * @param     string  $srcFile  å›¾ç‰‡æºæ–‡ä»¶
+ * @param     string  $fromGo  ä½ç½®
  * @return    string
  */
 if ( ! function_exists('WaterImg'))
@@ -225,14 +225,14 @@ if ( ! function_exists('WaterImg'))
 }
 
 /**
- *  »á¶Ô¿Õ°×µØ·½Ìî³äÂú
+ *  ä¼šå¯¹ç©ºç™½åœ°æ–¹å¡«å……æ»¡
  *
  * @access    public
- * @param     string  $srcFile  Í¼Æ¬Â·¾¶
- * @param     string  $toW  ×ª»»µ½µÄ¿í¶È
- * @param     string  $toH  ×ª»»µ½µÄ¸ß¶È
- * @param     string  $toFile  Êä³öÎÄ¼þµ½
- * @param     string  $issave  ÊÇ·ñ±£´æ
+ * @param     string  $srcFile  å›¾ç‰‡è·¯å¾„
+ * @param     string  $toW  è½¬æ¢åˆ°çš„å®½åº¦
+ * @param     string  $toH  è½¬æ¢åˆ°çš„é«˜åº¦
+ * @param     string  $toFile  è¾“å‡ºæ–‡ä»¶åˆ°
+ * @param     string  $issave  æ˜¯å¦ä¿å­˜
  * @return    bool
  */
 if ( ! function_exists('ImageResizeNew'))
@@ -306,7 +306,7 @@ if ( ! function_exists('ImageResizeNew'))
             return FALSE;
         }
         
-        //±£´æÎªÄ¿±êÎÄ¼þ
+        //ä¿å­˜ä¸ºç›®æ ‡æ–‡ä»¶
         if($issave)
         {
             switch ($srcInfo[2])
@@ -327,7 +327,7 @@ if ( ! function_exists('ImageResizeNew'))
                     return FALSE;
             }
         }
-        //²»±£´æ
+        //ä¸ä¿å­˜
         else
         {
             switch ($srcInfo[2])

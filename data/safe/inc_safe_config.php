@@ -9,5 +9,5 @@ $safe_codelen = '4';
 $safe_faq_reg = '0';
 $safe_faq_send = '0';
 $safe_faq_msg = '1';
-$safe_faqs = 'a:4:{i:1;a:2:{s:8:"question";s:25:"Äú×îÏ²»¶µÄÍø½¨³ÌĞòÊÇÊ²Ã´?";s:6:"answer";s:7:"DedeCMS";}i:2;a:2:{s:8:"question";s:6:"1+11=?";s:6:"answer";s:2:"12";}i:3;a:2:{s:8:"question";s:40:"ÖĞ¹úÄÄÏîÌåÓıÔË¶¯×îÈÃÈËÌı×ÅÉËĞÄ,¿´×Å¾¾ĞÄ?";s:6:"answer";s:4:"×ãÇò";}i:4;a:2:{s:8:"question";s:29:"<img src="/images/dede.gif"/>";s:6:"answer";s:16:"Ö¯ÃÎÄÚÈİ¹ÜÀíÏµÍ³";}}';
+$safe_faqs = 'a:4:{i:1;a:2:{s:8:"question";s:37:"æ‚¨æœ€å–œæ¬¢çš„ç½‘å»ºç¨‹åºæ˜¯ä»€ä¹ˆ?";s:6:"answer";s:15:"www.adminbuy.cn";}i:2;a:2:{s:8:"question";s:6:"1+11=?";s:6:"answer";s:2:"12";}i:3;a:2:{s:8:"question";s:59:"ä¸­å›½å“ªé¡¹ä½“è‚²è¿åŠ¨æœ€è®©äººå¬ç€ä¼¤å¿ƒ,çœ‹ç€æªå¿ƒ?";s:6:"answer";s:6:"è¶³çƒ";}i:4;a:2:{s:8:"question";s:29:"<img src="/images/dede.gif"/>";s:6:"answer";s:11:"ABæ¨¡æ¿ç½‘";}}';
 ?>

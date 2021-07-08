@@ -1,8 +1,8 @@
 <?php   if(!defined('DEDEINC')) exit("Request Error!");
 /**
- * »áÔ±ÁĞ±íÊÓÍ¼Àà
+ * ä¼šå‘˜åˆ—è¡¨è§†å›¾ç±»
  *
- * @version        $Id: arc.memberlistview.class.php 1 14:49 2010Äê7ÔÂ7ÈÕZ tianya $
+ * @version        $Id: arc.memberlistview.class.php 1 14:49 2010å¹´7æœˆ7æ—¥Z tianya $
  * @package        DedeCMS.Libraries
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -10,16 +10,16 @@
  */
 
 require_once(DEDEINC."/dedetemplate.class.php");
-$lang_pre_page = 'ÉÏÒ³';
-$lang_next_page = 'ÏÂÒ³';
-$lang_index_page = 'Ê×Ò³';
-$lang_end_page = 'Ä©Ò³';
-$lang_record_number = 'Ìõ¼ÇÂ¼';
-$lang_page = 'Ò³';
-$lang_total = '¹²';
+$lang_pre_page = 'ä¸Šé¡µ';
+$lang_next_page = 'ä¸‹é¡µ';
+$lang_index_page = 'é¦–é¡µ';
+$lang_end_page = 'æœ«é¡µ';
+$lang_record_number = 'æ¡è®°å½•';
+$lang_page = 'é¡µ';
+$lang_total = 'å…±';
 
 /**
- * µµ°¸Õ¹Ê¾Àà
+ * æ¡£æ¡ˆå±•ç¤ºç±»
  *
  * @package          FreeList
  * @subpackage       DedeCMS.Libraries
@@ -39,10 +39,10 @@ class MemberListview
     var $randts = 0;
 
     /**
-     *  ÓÃÖ¸¶¨µÄÎÄµµID½øĞĞ³õÊ¼»¯
+     *  ç”¨æŒ‡å®šçš„æ–‡æ¡£IDè¿›è¡Œåˆå§‹åŒ–
      *
      * @access    public
-     * @param     string  $tplfile  Ä£°åÎÄ¼ş
+     * @param     string  $tplfile  æ¨¡æ¿æ–‡ä»¶
      * @return    void
      */
     function __construct($tplfile='')
@@ -65,17 +65,17 @@ class MemberListview
         }
     }
 
-    //¼æÈİPHP4
+    //å…¼å®¹PHP4
     function MemberListview($tplfile='')
     {
         $this->__construct($tplfile);
     }
 
     /**
-     *  ÉèÖÃSQLÓï¾ä
+     *  è®¾ç½®SQLè¯­å¥
      *
      * @access    public
-     * @param     string  $sql  SQLÓï¾ä
+     * @param     string  $sql  SQLè¯­å¥
      * @return    void
      */
     function SetSource($sql)
@@ -84,11 +84,11 @@ class MemberListview
     }
 
     /**
-     *  ÉèÖÃÄ£°å
-     *  Èç¹ûÏëÒªÊ¹ÓÃÄ£°åÖĞÖ¸¶¨µÄpagesize£¬±ØĞëÔÚµ÷ÓÃÄ£°åºó²Åµ÷ÓÃ SetSource($sql)
+     *  è®¾ç½®æ¨¡æ¿
+     *  å¦‚æœæƒ³è¦ä½¿ç”¨æ¨¡æ¿ä¸­æŒ‡å®šçš„pagesizeï¼Œå¿…é¡»åœ¨è°ƒç”¨æ¨¡æ¿åæ‰è°ƒç”¨ SetSource($sql)
      *
      * @access    public
-     * @param     string  $tplfile  Ä£°åÎÄ¼ş
+     * @param     string  $tplfile  æ¨¡æ¿æ–‡ä»¶
      * @return    void
      */
     function SetTemplate($tplfile)
@@ -97,10 +97,10 @@ class MemberListview
     }
 
     /**
-     *  ÉèÖÃÄ£°å
+     *  è®¾ç½®æ¨¡æ¿
      *
      * @access    public
-     * @param     string  $tplfile  Ä£°åÎÄ¼ş
+     * @param     string  $tplfile  æ¨¡æ¿æ–‡ä»¶
      * @return    void
      */
     function SetTemplet($tplfile)
@@ -109,7 +109,7 @@ class MemberListview
     }
 
     /**
-     *  ¶Ôconfig²ÎÊı¼°get²ÎÊıµÈ½øĞĞÔ¤´¦Àí
+     *  å¯¹configå‚æ•°åŠgetå‚æ•°ç­‰è¿›è¡Œé¢„å¤„ç†
      *
      * @access    private
      * @return    void
@@ -151,11 +151,11 @@ class MemberListview
     }
 
     /**
-     *  ÉèÖÃÍøÖ·µÄGet²ÎÊı¼üÖµ
+     *  è®¾ç½®ç½‘å€çš„Getå‚æ•°é”®å€¼
      *
      * @access    public
-     * @param     string  $key  ¼ü
-     * @param     string  $value  Öµ
+     * @param     string  $key  é”®
+     * @param     string  $value  å€¼
      * @return    void
      */
     function SetParameter($key, $value)
@@ -164,11 +164,11 @@ class MemberListview
     }
 
     /**
-     *  ÉèÖÃ/»ñÈ¡ÎÄµµÏà¹ØµÄ¸÷ÖÖ±äÁ¿
+     *  è®¾ç½®/è·å–æ–‡æ¡£ç›¸å…³çš„å„ç§å˜é‡
      *
      * @access    public
-     * @param     string  $k  ¼ü
-     * @param     string  $v  Öµ
+     * @param     string  $k  é”®
+     * @param     string  $v  å€¼
      * @return    void
      */
     function SetVar($k, $v)
@@ -178,7 +178,7 @@ class MemberListview
     }
 
     /**
-     *  »ñÈ¡Öµ
+     *  è·å–å€¼
      *
      * @param     string  $k
      * @return    string
@@ -191,12 +191,12 @@ class MemberListview
     }
 
     /**
-     *  »ñÈ¡µ±Ç°Ò³Êı¾İÁĞ±í
+     *  è·å–å½“å‰é¡µæ•°æ®åˆ—è¡¨
      *
      * @access    public
-     * @param     string  $atts  ÊôĞÔ
-     * @param     string  $refObj  ÊµÀı»¯¶ÔÏó
-     * @param     string  $fields  ×Ö¶Î
+     * @param     string  $atts  å±æ€§
+     * @param     string  $refObj  å®ä¾‹åŒ–å¯¹è±¡
+     * @param     string  $fields  å­—æ®µ
      * @return    array
      */
     function GetArcList($atts,$refObj='',$fields=array())
@@ -221,7 +221,7 @@ class MemberListview
             if(!isset($row['description'])) $row['description'] = '';
             if(!isset($row['color'])) $row['color'] = '';
             if(!isset($row['pubdate'])) $row['pubdate'] = $row['senddate'];
-            //´¦ÀíÒ»Ğ©ÌØÊâ×Ö¶Î
+            //å¤„ç†ä¸€äº›ç‰¹æ®Šå­—æ®µ
             $row['infos'] = cn_substr($row['description'],$infolen);
             $row['id'] =  $row['id'];
             $row['filename'] = $row['arcurl'] = GetFileUrl($row['id'],$row['typeid'],$row['senddate'],$row['title'],$row['ismake'],
@@ -265,17 +265,17 @@ class MemberListview
         }
         $this->dsql->FreeResult();
 
-        //echo "Ö´ĞĞÊ±¼ä£º".(Exectime() - $t1);
+        //echo "æ‰§è¡Œæ—¶é—´ï¼š".(Exectime() - $t1);
         return $rsArray;
     }
 
     /**
-     *  »ñÈ¡·ÖÒ³µ¼º½ÁĞ±í
+     *  è·å–åˆ†é¡µå¯¼èˆªåˆ—è¡¨
      *
      * @access    public
-     * @param     string  $atts  ÊôĞÔ
-     * @param     string  $refObj  ÊµÀı»¯¶ÔÏó
-     * @param     string  $fields  ×Ö¶Î
+     * @param     string  $atts  å±æ€§
+     * @param     string  $refObj  å®ä¾‹åŒ–å¯¹è±¡
+     * @param     string  $fields  å­—æ®µ
      * @return    string
      */
     function GetPageList($atts,$refObj='',$fields=array())
@@ -297,7 +297,7 @@ class MemberListview
 
         //echo " {$totalpage}=={$this->totalResult}=={$this->pageSize}";
 
-        //ÎŞ½á¹û»òÖ»ÓĞÒ»Ò³µÄÇé¿ö
+        //æ— ç»“æœæˆ–åªæœ‰ä¸€é¡µçš„æƒ…å†µ
         if($totalpage<=1 && $this->totalResult > 0)
         {
             return "{$lang_total} 1 {$lang_page}/".$this->totalResult.$lang_record_number;
@@ -322,7 +322,7 @@ class MemberListview
         }
         $purl .= "?".$geturl;
 
-        //»ñµÃÉÏÒ»Ò³ºÍÏÂÒ»Ò³µÄÁ´½Ó
+        //è·å¾—ä¸Šä¸€é¡µå’Œä¸‹ä¸€é¡µçš„é“¾æ¥
         if($this->pageNO!=1)
         {
             $prepage.="<a href='".$purl."pageno=$prepagenum'>$lang_pre_page</a> \r\n";
@@ -342,7 +342,7 @@ class MemberListview
             $endpage=" $lang_end_page \r\n";
         }
 
-        //»ñµÃÊı×ÖÁ´½Ó
+        //è·å¾—æ•°å­—é“¾æ¥
         $listdd="";
         $total_list = $atts['listsize'] * 2 + 1;
         if($this->pageNO>=$total_list)
@@ -412,7 +412,7 @@ class MemberListview
     }
 
     /**
-     *  »ñµÃµ±Ç°ÍøÖ·
+     *  è·å¾—å½“å‰ç½‘å€
      *
      * @access    public
      * @return    string
@@ -432,13 +432,13 @@ class MemberListview
         return $nowurl;
     }
 
-    //¹Ø±Õ
+    //å…³é—­
     function Close()
     {
     }
 
     /**
-     *  ÏÔÊ¾Êı¾İ
+     *  æ˜¾ç¤ºæ•°æ®
      *
      * @access    public
      * @return    void
@@ -448,16 +448,16 @@ class MemberListview
         
         if($this->sourceSql != '') $this->PreLoad();
 
-        //ÔÚPHP4ÖĞ£¬¶ÔÏóÒıÓÃ±ØĞë·ÅÔÚdisplayÖ®Ç°£¬·ÅÔÚÆäËüÎ»ÖÃÖĞÎŞĞ§
+        //åœ¨PHP4ä¸­ï¼Œå¯¹è±¡å¼•ç”¨å¿…é¡»æ”¾åœ¨displayä¹‹å‰ï¼Œæ”¾åœ¨å…¶å®ƒä½ç½®ä¸­æ— æ•ˆ
         $this->tpl->SetObject($this);
         $this->tpl->Display();
     }
 
     /**
-     *  ±£´æÎªHTML
+     *  ä¿å­˜ä¸ºHTML
      *
      * @access    public
-     * @param     string  $filename  ÎÄ¼şÃû³Æ
+     * @param     string  $filename  æ–‡ä»¶åç§°
      * @return    string
      */
     function SaveTo($filename)

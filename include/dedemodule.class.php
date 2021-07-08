@@ -1,8 +1,8 @@
 <?php   if(!defined('DEDEINC')) exit("Request Error!");
 /**
- * Ö¯ÃÎÄ£¿éÀà
+ * ç»‡æ¢¦æ¨¡å—ç±»
  *
- * @version        $Id: dedemodule.class.php 1 10:31 2010Äê7ÔÂ6ÈÕZ tianya $
+ * @version        $Id: dedemodule.class.php 1 10:31 2010å¹´7æœˆ6æ—¥Z tianya $
  * @package        DedeCMS.Libraries
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -34,19 +34,19 @@ class DedeModule
     }
 
     /**
-     *  Ã¶¾ÙÏµÍ³ÀïÒÑ¾­´æÔÚµÄÄ£¿é(»º´æ¹¦ÄÜÊµ¼ÊÉÏÖ»×÷hashÓëÎÄ¼şÃûµÄ½âÎö£¬ÔÚ´Ë²»ÌØ±ğ´¦Àí)
+     *  æšä¸¾ç³»ç»Ÿé‡Œå·²ç»å­˜åœ¨çš„æ¨¡å—(ç¼“å­˜åŠŸèƒ½å®é™…ä¸Šåªä½œhashä¸æ–‡ä»¶åçš„è§£æï¼Œåœ¨æ­¤ä¸ç‰¹åˆ«å¤„ç†)
      *
      * @access    public
-     * @param     string   $moduletype   Ä£¿éÀàĞÍ
+     * @param     string   $moduletype   æ¨¡å—ç±»å‹
      * @return    string
      */
     function GetModuleList($moduletype='')
     {
         if(is_array($this->modules)) return $this->modules;
 
-        $dh = dir($this->modulesPath) or die("Ã»ÕÒµ½Ä£¿éÄ¿Â¼£º({$this->modulesPath})£¡");
+        $dh = dir($this->modulesPath) or die("æ²¡æ‰¾åˆ°æ¨¡å—ç›®å½•ï¼š({$this->modulesPath})ï¼");
 
-        $fp = @fopen($this->modulesPath.'/modulescache.php','w') or die('¶ÁÈ¡ÎÄ¼şÈ¨ÏŞ³ö´í,Ä¿Â¼ÎÄ¼ş'.$this->modulesPath.'/modulescache.php²»¿ÉĞ´!');
+        $fp = @fopen($this->modulesPath.'/modulescache.php','w') or die('è¯»å–æ–‡ä»¶æƒé™å‡ºé”™,ç›®å½•æ–‡ä»¶'.$this->modulesPath.'/modulescache.phpä¸å¯å†™!');
 
         fwrite($fp, "<"."?php\r\n");
         fwrite($fp, "global \$allmodules;\r\n");
@@ -73,21 +73,21 @@ class DedeModule
     }
 
 	/**
-     *  ´ÓÔ¶³Ì»ñÈ¡Ä£¿éĞÅÏ¢
+     *  ä»è¿œç¨‹è·å–æ¨¡å—ä¿¡æ¯
      *
      * @access    public
-     * @param     string   $moduletype   Ä£¿éÀàĞÍ
+     * @param     string   $moduletype   æ¨¡å—ç±»å‹
      * @return    string
      */
     function GetModuleUrlList($moduletype='',$url='')
     {
-		$dh = dir($this->modulesPath) or die("Ã»ÕÒµ½Ä£¿éÄ¿Â¼£º({$this->modulesPath})£¡");
-        $fp = @fopen($this->modulesPath.'/modulescache.php','w') or die('¶ÁÈ¡ÎÄ¼şÈ¨ÏŞ³ö´í,Ä¿Â¼ÎÄ¼ş'.$this->modulesPath.'/modulescache.php²»¿ÉĞ´!');
+		$dh = dir($this->modulesPath) or die("æ²¡æ‰¾åˆ°æ¨¡å—ç›®å½•ï¼š({$this->modulesPath})ï¼");
+        $fp = @fopen($this->modulesPath.'/modulescache.php','w') or die('è¯»å–æ–‡ä»¶æƒé™å‡ºé”™,ç›®å½•æ–‡ä»¶'.$this->modulesPath.'/modulescache.phpä¸å¯å†™!');
 		$cachefile = DEDEDATA.'/module/moduleurllist.txt';
 		$remotelist = '';
 		if(file_exists($cachefile) && (filemtime($cachefile) + 60 * 30) > time())
 		{
-			// 30·ÖÖÓ±¾µØ»º´æÒ»´Î
+			// 30åˆ†é’Ÿæœ¬åœ°ç¼“å­˜ä¸€æ¬¡
 			$remotelist = file_get_contents($cachefile);
 		} else {
 			$del = new DedeHttpDown();
@@ -109,10 +109,10 @@ class DedeModule
 		return $return;
     }
     /**
-     *  ×ª»»±àÂë
+     *  è½¬æ¢ç¼–ç 
      *
      * @access    public
-     * @param     string    $str  ×Ö·û´®
+     * @param     string    $str  å­—ç¬¦ä¸²
      * @return    string
      */
     function AppCode(&$str)
@@ -146,10 +146,10 @@ class DedeModule
     }
 
     /**
-     *  »ñµÃÖ¸¶¨hashµÄÄ£¿éÎÄ¼ş
+     *  è·å¾—æŒ‡å®šhashçš„æ¨¡å—æ–‡ä»¶
      *
      * @access    public
-     * @param     string  $hash  hashÎÄ¼ş
+     * @param     string  $hash  hashæ–‡ä»¶
      * @return    string
      */
     function GetHashFile($hash)
@@ -160,11 +160,11 @@ class DedeModule
     }
 
     /**
-     *  »ñµÃÄ³Ä£¿éµÄ»ù±¾ĞÅÏ¢
+     *  è·å¾—æŸæ¨¡å—çš„åŸºæœ¬ä¿¡æ¯
      *
      * @access    public
      * @param     string   $hash  hash
-     * @param     string   $ftype  ÎÄ¼şÀàĞÍ
+     * @param     string   $ftype  æ–‡ä»¶ç±»å‹
      * @return    string
      */
     function GetModuleInfo($hash, $ftype='hash')
@@ -183,7 +183,7 @@ class DedeModule
 			$minfos['filesize'] = filesize($filename)/1024;
 			$minfos['filesize'] = number_format($minfos['filesize'],2,'.','').' Kb';
 		}
-        $fp = fopen($filename,'r') or die("ÎÄ¼ş {$filename} ²»´æÔÚ»ò²»¿É¶Á!");
+        $fp = fopen($filename,'r') or die("æ–‡ä»¶ {$filename} ä¸å­˜åœ¨æˆ–ä¸å¯è¯»!");
         $n = 0;
         while(!feof($fp))
         {
@@ -218,11 +218,11 @@ class DedeModule
     }
 
     /**
-     *  »ñµÃÄ³Ä£¿éµÄ»ù±¾ĞÅÏ¢
+     *  è·å¾—æŸæ¨¡å—çš„åŸºæœ¬ä¿¡æ¯
      *
      * @access    public
      * @param     string   $hash  hash
-     * @param     string   $ftype  ÎÄ¼şÀàĞÍ
+     * @param     string   $ftype  æ–‡ä»¶ç±»å‹
      * @return    string
      */
     function GetFileXml($hash, $ftype='hash')
@@ -230,7 +230,7 @@ class DedeModule
         if($ftype=='file') $filename = $hash;
         else $filename = $this->modulesPath.'/'.$this->GetHashFile($hash);
         $filexml = '';
-        $fp = fopen($filename,'r') or die("ÎÄ¼ş {$filename} ²»´æÔÚ»ò²»¿É¶Á!");
+        $fp = fopen($filename,'r') or die("æ–‡ä»¶ {$filename} ä¸å­˜åœ¨æˆ–ä¸å¯è¯»!");
         $start = 0;
         while(!feof($fp))
         {
@@ -254,13 +254,13 @@ class DedeModule
     }
 
     /**
-     *  »ñµÃÏµÍ³ÎÄ¼şµÄÄÚÈİ
-     *  Ö¸°²×°¡¢É¾³ı¡¢Ğ­ÒéÎÄ¼ş
+     *  è·å¾—ç³»ç»Ÿæ–‡ä»¶çš„å†…å®¹
+     *  æŒ‡å®‰è£…ã€åˆ é™¤ã€åè®®æ–‡ä»¶
      *
      * @access    public
-     * @param     string   $hashcode  hashÂë
-     * @param     string   $ntype  ÎÄ¼şÀàĞÍ
-     * @param     string   $enCode  ÊÇ·ñ¼ÓÃÜ
+     * @param     string   $hashcode  hashç 
+     * @param     string   $ntype  æ–‡ä»¶ç±»å‹
+     * @param     string   $enCode  æ˜¯å¦åŠ å¯†
      * @return    string
      */
     function GetSystemFile($hashcode, $ntype, $enCode=TRUE)
@@ -268,14 +268,14 @@ class DedeModule
         $this->GetModuleInfo($hashcode,$ntype);
         $start = FALSE;
         $filename = $this->modulesPath.'/'.$this->GetHashFile($hashcode);
-        $fp = fopen($filename,'r') or die("ÎÄ¼ş {$filename} ²»´æÔÚ»ò²»¿É¶Á!");
+        $fp = fopen($filename,'r') or die("æ–‡ä»¶ {$filename} ä¸å­˜åœ¨æˆ–ä¸å¯è¯»!");
         $okdata = '';
         while(!feof($fp))
         {
             $line = fgets($fp,1024);
             if(!$start)
             {
-                //  2011-6-7 ĞŞ¸´Ä£¿é´ò°ü³ÌĞòÖĞÉÏ´«°²×°³ÌĞòÉú³ÉÎª¿Õ°×ÎÄ¼ş(by:»ªÇ¿)
+                //  2011-6-7 ä¿®å¤æ¨¡å—æ‰“åŒ…ç¨‹åºä¸­ä¸Šä¼ å®‰è£…ç¨‹åºç”Ÿæˆä¸ºç©ºç™½æ–‡ä»¶(by:åå¼º)
                 if(preg_match("#<{$ntype}>#i", $line)) $start = TRUE;
             }
             else
@@ -293,30 +293,30 @@ class DedeModule
     }
 
     /**
-     *  °ÑÄ³ÏµÍ³ÎÄ¼ş×ª»»ÎªÎÄ¼ş
+     *  æŠŠæŸç³»ç»Ÿæ–‡ä»¶è½¬æ¢ä¸ºæ–‡ä»¶
      *
      * @access    public
-     * @param     string  $hashcode  hashÂë
-     * @param     string   $ntype  ÎÄ¼şÀàĞÍ
-     * @return    string  ·µ»ØÎÄ¼şÃû
+     * @param     string  $hashcode  hashç 
+     * @param     string   $ntype  æ–‡ä»¶ç±»å‹
+     * @return    string  è¿”å›æ–‡ä»¶å
      */
     function WriteSystemFile($hashcode, $ntype)
     {
         $filename = $hashcode."-{$ntype}.php";
         $fname = $this->modulesPath.'/'.$filename;
         $filect = $this->GetSystemFile($hashcode,$ntype);
-        $fp = fopen($fname,'w') or die('Éú³É {$ntype} ÎÄ¼şÊ§°Ü£¡');
+        $fp = fopen($fname,'w') or die('ç”Ÿæˆ {$ntype} æ–‡ä»¶å¤±è´¥ï¼');
         fwrite($fp,$filect);
         fclose($fp);
         return $filename;
     }
 
     /**
-     *  É¾³ıÏµÍ³ÎÄ¼ş
+     *  åˆ é™¤ç³»ç»Ÿæ–‡ä»¶
      *
      * @access    public
-     * @param     string   $hashcode  hashÂë
-     * @param     string   $ntype  ÎÄ¼şÀàĞÍ
+     * @param     string   $hashcode  hashç 
+     * @param     string   $ntype  æ–‡ä»¶ç±»å‹
      * @return    void
      */
     function DelSystemFile($hashcode,$ntype)
@@ -326,11 +326,11 @@ class DedeModule
     }
 
     /**
-     *  ¼ì²éÊÇ·ñÒÑ¾­´æÔÚÖ¸¶¨µÄÄ£¿é
+     *  æ£€æŸ¥æ˜¯å¦å·²ç»å­˜åœ¨æŒ‡å®šçš„æ¨¡å—
      *
      * @access    public
-     * @param     string  $hashcode  hashÂë
-     * @return    bool  Èç¹û´æÔÚÔò·µ»ØTrue,·ñÔòÎªFalse
+     * @param     string  $hashcode  hashç 
+     * @return    bool  å¦‚æœå­˜åœ¨åˆ™è¿”å›True,å¦åˆ™ä¸ºFalse
      */
     function HasModule($hashcode)
     {
@@ -340,16 +340,16 @@ class DedeModule
     }
 
     /**
-     *  ¶ÁÈ¡ÎÄ¼ş£¬·µ»Ø±àÂëºóµÄÎÄ¼şÄÚÈİ
+     *  è¯»å–æ–‡ä»¶ï¼Œè¿”å›ç¼–ç åçš„æ–‡ä»¶å†…å®¹
      *
      * @access    public
-     * @param     string   $filename  ÎÄ¼şÃû
-     * @param     string   $isremove  ÊÇ·ñÉ¾³ı
+     * @param     string   $filename  æ–‡ä»¶å
+     * @param     string   $isremove  æ˜¯å¦åˆ é™¤
      * @return    string
      */
     function GetEncodeFile($filename,$isremove=FALSE)
     {
-        $fp = fopen($filename,'r') or die("ÎÄ¼ş {$filename} ²»´æÔÚ»ò²»¿É¶Á!");
+        $fp = fopen($filename,'r') or die("æ–‡ä»¶ {$filename} ä¸å­˜åœ¨æˆ–ä¸å¯è¯»!");
         $str = @fread($fp,filesize($filename));
         fclose($fp);
         if($isremove) @unlink($filename);
@@ -358,18 +358,18 @@ class DedeModule
     }
 
     /**
-     *  »ñÈ¡Ä£¿é°üÀïµÄÎÄ¼şÃûÁĞ±í
+     *  è·å–æ¨¡å—åŒ…é‡Œçš„æ–‡ä»¶ååˆ—è¡¨
      *
      * @access    public
-     * @param     string   $hashcode  hashÂë
-     * @return    string  ·µ»ØÎÄ¼şÁĞ±í
+     * @param     string   $hashcode  hashç 
+     * @return    string  è¿”å›æ–‡ä»¶åˆ—è¡¨
      */
     function GetFileLists($hashcode)
     {
         $dap = new DedeAttParse();
         $filelists = array();
         $modulefile = $this->modulesPath.'/'.$this->GetHashFile($hashcode);
-        $fp = fopen($modulefile,'r') or die("ÎÄ¼ş {$modulefile} ²»´æÔÚ»ò²»¿É¶Á!");
+        $fp = fopen($modulefile,'r') or die("æ–‡ä»¶ {$modulefile} ä¸å­˜åœ¨æˆ–ä¸å¯è¯»!");
         $i = 0;
         while(!feof($fp))
         {
@@ -388,11 +388,11 @@ class DedeModule
     }
 
     /**
-     *  É¾³ıÒÑ°²×°Ä£¿é¸½´øµÄÎÄ¼ş
+     *  åˆ é™¤å·²å®‰è£…æ¨¡å—é™„å¸¦çš„æ–‡ä»¶
      *
      * @access    public
-     * @param     string   $hashcode   hashÂë
-     * @param     string   $isreplace  ÊÇ·ñÌæ»»
+     * @param     string   $hashcode   hashç 
+     * @param     string   $isreplace  æ˜¯å¦æ›¿æ¢
      * @return    string
      */
     function DeleteFiles($hashcode,$isreplace=0)
@@ -402,7 +402,7 @@ class DedeModule
         {
             $dap = new DedeAttParse();
             $modulefile = $this->modulesPath.'/'.$this->GetHashFile($hashcode);
-            $fp = fopen($modulefile,'r') or die("ÎÄ¼ş {$modulefile} ²»´æÔÚ»ò²»¿É¶Á!");
+            $fp = fopen($modulefile,'r') or die("æ–‡ä»¶ {$modulefile} ä¸å­˜åœ¨æˆ–ä¸å¯è¯»!");
             $i = 0;
             $dirs = '';
             while(!feof($fp))
@@ -431,11 +431,11 @@ class DedeModule
     }
 
     /**
-     *  °ÑÄ£¿é°üÀïµÄÎÄ¼şĞ´Èë·şÎñÆ÷
+     *  æŠŠæ¨¡å—åŒ…é‡Œçš„æ–‡ä»¶å†™å…¥æœåŠ¡å™¨
      *
      * @access    public
-     * @param     string   $hashcode   hashÂë
-     * @param     string   $isreplace   ÊÇ·ñÌæ»»
+     * @param     string   $hashcode   hashç 
+     * @param     string   $isreplace   æ˜¯å¦æ›¿æ¢
      * @return    string
      */
     function WriteFiles($hashcode, $isreplace=3)
@@ -443,7 +443,7 @@ class DedeModule
         global $AdminBaseDir;
         $dap = new DedeAttParse();
         $modulefile = $this->modulesPath.'/'.$this->GetHashFile($hashcode);
-        $fp = fopen($modulefile,'r') or die("ÎÄ¼ş {$modulefile} ²»´æÔÚ»ò²»¿É¶Á!");
+        $fp = fopen($modulefile,'r') or die("æ–‡ä»¶ {$modulefile} ä¸å­˜åœ¨æˆ–ä¸å¯è¯»!");
         $i = 0;
         while(!feof($fp))
         {
@@ -479,7 +479,7 @@ class DedeModule
                     }
                     if(!empty($filename))
                     {
-                        $fw = fopen($filename,'w') or die("Ğ´ÈëÎÄ¼ş {$filename} Ê§°Ü£¬Çë¼ì²éÏà¹ØÄ¿Â¼µÄÈ¨ÏŞ£¡");
+                        $fw = fopen($filename,'w') or die("å†™å…¥æ–‡ä»¶ {$filename} å¤±è´¥ï¼Œè¯·æ£€æŸ¥ç›¸å…³ç›®å½•çš„æƒé™ï¼");
                         $ct = '';
                         while(!feof($fp))
                         {
@@ -490,12 +490,12 @@ class DedeModule
                         $ct = base64_decode($ct);
                         if($this->sysLang!=$this->moduleLang)
                         {
-                            //×ª»»ÄÚÂë
+                            //è½¬æ¢å†…ç 
                             if(preg_match('/\.(xml|php|inc|txt|htm|html|shtml|tpl|css)$/', $filename))
                             {
                                 $ct = $this->AppCode($ct);
                             }
-                            //×ª»»HTML±àÂë±êÊ¶
+                            //è½¬æ¢HTMLç¼–ç æ ‡è¯†
                             if(preg_match('/\.(php|htm|html|shtml|inc|tpl)$/i', $filename))
                             {
                                 if($this->sysLang=='big5') $charset = 'charset=big5';
@@ -515,10 +515,10 @@ class DedeModule
     }
 
     /**
-     *  ²âÊÔÄ³ÎÄ¼şµÄÎÄ¼ş¼ĞÊÇ·ñ´´½¨
+     *  æµ‹è¯•æŸæ–‡ä»¶çš„æ–‡ä»¶å¤¹æ˜¯å¦åˆ›å»º
      *
      * @access    public
-     * @param     string   $filename  ÎÄ¼şÃû³Æ
+     * @param     string   $filename  æ–‡ä»¶åç§°
      * @return    string
      */
     function TestDir($filename)
@@ -540,12 +540,12 @@ class DedeModule
     }
 
     /**
-     *  »ñÈ¡Ä³¸öÄ¿Â¼»òÎÄ¼şµÄ´ò°üÊı¾İ
+     *  è·å–æŸä¸ªç›®å½•æˆ–æ–‡ä»¶çš„æ‰“åŒ…æ•°æ®
      *
      * @access    public
-     * @param     string    $basedir   »ù±¾Ä¿Â¼
+     * @param     string    $basedir   åŸºæœ¬ç›®å½•
      * @param     string    $f
-     * @param     string    $fp  ÎÄ¼şÖ¸Õë
+     * @param     string    $fp  æ–‡ä»¶æŒ‡é’ˆ
      * @return    bool
      */
     function MakeEncodeFile($basedir,$f,$fp)
@@ -556,10 +556,10 @@ class DedeModule
     }
 
     /**
-     *  ²âÊÔÄ¿±êÎÄ¼ş
+     *  æµ‹è¯•ç›®æ ‡æ–‡ä»¶
      *
      * @access    public
-     * @param     string    $basedir   »ù±¾Ä¿Â¼
+     * @param     string    $basedir   åŸºæœ¬ç›®å½•
      * @param     string    $f
      * @return    bool
      */
@@ -571,10 +571,10 @@ class DedeModule
     }
 
     /**
-     *  ¼ì²âÄ³¸öÄ¿Â¼»òÎÄ¼şµÄ´ò°üÊı¾İ£¬µİ¹é
+     *  æ£€æµ‹æŸä¸ªç›®å½•æˆ–æ–‡ä»¶çš„æ‰“åŒ…æ•°æ®ï¼Œé€’å½’
      *
      * @access    public
-     * @param     string    $basedir   »ù±¾Ä¿Â¼
+     * @param     string    $basedir   åŸºæœ¬ç›®å½•
      * @param     string    $f
      * @return    void
      */
@@ -587,7 +587,7 @@ class DedeModule
         $fileList = '';
         if(!file_exists($filename))
         {
-            ShowMsg("ÎÄ¼ş»òÎÄ¼ş¼Ğ: {$filename} ²»´æÔÚ£¬ÎŞ·¨½øĞĞ±àÒë!","-1");
+            ShowMsg("æ–‡ä»¶æˆ–æ–‡ä»¶å¤¹: {$filename} ä¸å­˜åœ¨ï¼Œæ— æ³•è¿›è¡Œç¼–è¯‘!","-1");
             exit();
         }
         if(is_dir($filename))
@@ -603,12 +603,12 @@ class DedeModule
     }
 
     /**
-     *  »ñÈ¡¸öÄ¿Â¼»òÎÄ¼şµÄ´ò°üÊı¾İ£¬µİ¹é
+     *  è·å–ä¸ªç›®å½•æˆ–æ–‡ä»¶çš„æ‰“åŒ…æ•°æ®ï¼Œé€’å½’
      *
      * @access    public
-     * @param     string    $basedir   »ù±¾Ä¿Â¼
+     * @param     string    $basedir   åŸºæœ¬ç›®å½•
      * @param     string    $f
-     * @param     string    $fp  ÎÄ¼şÖ¸Õë
+     * @param     string    $fp  æ–‡ä»¶æŒ‡é’ˆ
      * @return    string
      */
     function MakeEncodeFileRun($basedir,$f,$fp)
@@ -641,7 +641,7 @@ class DedeModule
     }
 
     /**
-     *  ÇåÀí
+     *  æ¸…ç†
      *
      * @access    public
      * @return    void

@@ -3,7 +3,7 @@ $GLOBALS['qrcode_id'] = isset($GLOBALS['qrcode_id'])? $GLOBALS['qrcode_id'] : 1;
 function lib_qrcode(&$ctag,&$refObj)
 {
     global $dsql, $envs;
-    //ÊôĞÔ´¦Àí
+    //å±æ€§å¤„ç†
     $attlist="type|,id|";
     FillAttsDefault($ctag->CAttribute->Items,$attlist);
     extract($ctag->CAttribute->Items, EXTR_SKIP);
@@ -32,7 +32,7 @@ function lib_qrcode(&$ctag,&$refObj)
     }
     
     $reval=<<<EOT
-  <a href='http://2v.dedecms.com/' id='__dedeqrcode_{$GLOBALS['qrcode_id']}'>Ö¯ÃÎ¶şÎ¬ÂëÉú³ÉÆ÷</a>
+  <a href='http://2v.dedecms.com/' id='__dedeqrcode_{$GLOBALS['qrcode_id']}'>ç»‡æ¢¦äºŒç»´ç ç”Ÿæˆå™¨</a>
   <script type="text/javascript">
   	var __dedeqrcode_id={$GLOBALS['qrcode_id']};
   	var __dedeqrcode_aid={$id};

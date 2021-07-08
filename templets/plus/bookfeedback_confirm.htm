@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset={dede:global.cfg_soft_lang/}" />
-<title>ÓÃ»§ÆÀÂÛ£º{dede:global.title/}</title>
+<title>ç”¨æˆ·è¯„è®ºï¼š{dede:global.title/}</title>
 <link href="{dede:global.cfg_templets_skin/}/style/dedecms.css" rel="stylesheet" media="screen" type="text/css" />
 <script language="javascript" type="text/javascript" src="../include/js/dedeajax2.js"></script>
 <script language="javascript">
@@ -27,7 +27,7 @@ function postDigg(ftype,aid)
 		 	  	if(j==9 && !hasid) break;
 		 	  }
 		 }
-     if(hasid) { alert("²»ÒªÖØ¸´¶¥Ìù£¡"); return false; }
+     if(hasid) { alert("ä¸è¦é‡å¤é¡¶è´´ï¼"); return false; }
      else saveid += ','+aid;
 		 SetCookie('diggid',saveid,1);
 	}
@@ -60,14 +60,14 @@ function postBadGood(ftype,fid)
       <!-- /title -->
 		<div class="welcome">
         <?php if($cfg_ml->M_ID <= 0) { ?>
-            ÄúºÃ,»¶Ó­À´µ½±¾ÍøÕ¾,Äú»¹Ã»ÓĞµÇÂ½,ÇëÏÈ<a href="<?php echo $cfg_memberurl; ?>/index.php">µÇÂ½</a>»òÕß<a href="<?php echo $cfg_memberurl; ?>/index_do.php?fmdo=user&dopost=regnew">×¢²á</a>.
+            æ‚¨å¥½,æ¬¢è¿æ¥åˆ°æœ¬ç½‘ç«™,æ‚¨è¿˜æ²¡æœ‰ç™»é™†,è¯·å…ˆ<a href="<?php echo $cfg_memberurl; ?>/index.php">ç™»é™†</a>æˆ–è€…<a href="<?php echo $cfg_memberurl; ?>/index_do.php?fmdo=user&dopost=regnew">æ³¨å†Œ</a>.
         <?php }else{ ?>
 
-        <?php echo $cfg_ml->M_LoginID; ?>,»¶Ó­ÄúµÄµÇÂ½¡£
-                <a href="<?php echo $cfg_memberurl; ?>/index.php">»áÔ±ÖĞĞÄ</a> |
-                <a href="<?php echo $cfg_memberurl; ?>/edit_fullinfo.php">ÎÒµÄ×ÊÁÏ</a> |
-                <a href="<?php echo $myurl;?>">ÎÒµÄ¿Õ¼ä</a> |
-                <a href="<?php echo $cfg_memberurl; ?>/index_do.php?fmdo=login&dopost=exit">ÍË³öµÇÂ¼</a>
+        <?php echo $cfg_ml->M_LoginID; ?>,æ¬¢è¿æ‚¨çš„ç™»é™†ã€‚
+                <a href="<?php echo $cfg_memberurl; ?>/index.php">ä¼šå‘˜ä¸­å¿ƒ</a> |
+                <a href="<?php echo $cfg_memberurl; ?>/edit_fullinfo.php">æˆ‘çš„èµ„æ–™</a> |
+                <a href="<?php echo $myurl;?>">æˆ‘çš„ç©ºé—´</a> |
+                <a href="<?php echo $cfg_memberurl; ?>/index_do.php?fmdo=login&dopost=exit">é€€å‡ºç™»å½•</a>
         <?php
         }
         ?>
@@ -81,26 +81,26 @@ function postBadGood(ftype,fid)
 
 <div class="w960 clear center mt1 cmt-box">
 	<div class="sp-title">
-		<h2>ÆÀÂÛ:<a href='{dede:global.arcurl/}' >{dede:global.title/}</a></h2>
+		<h2>è¯„è®º:<a href='{dede:global.arcurl/}' >{dede:global.title/}</a></h2>
 
 	</div>
 	<div>
 		<dl class="tbox">
 			<dt>
-				<strong>ÕªÒª£º</strong>
+				<strong>æ‘˜è¦ï¼š</strong>
 			</dt>
 			<dd>
 				<div class="dede_comment">
 
               <div class="decmt-box">
-				<span class="date">·¢²¼Ê±¼ä£º{dede:global.pubdate function="MyDate('Y-m-d H:i',@me)" /}</span>
+				<span class="date">å‘å¸ƒæ—¶é—´ï¼š{dede:global.pubdate function="MyDate('Y-m-d H:i',@me)" /}</span>
               </div><!-- /decmt-title -->
 			<div class="decmt-act">
-     			<span>×Ü»ı·Ö[{dede:global.scores/}]</span>
-				<span id='good{dede:global.id/}'><a href="#" onclick="postDigg('good',{dede:global.id/})">ºÃÆÀ</a>[{dede:field.goodpost/}]</span>
-				<span id='bad{dede:global.id/}'><a href="#" onclick="postDigg('bad',{dede:global.id/})">²îÆÀ</a>[{dede:field.badpost/}]</span>
+     			<span>æ€»ç§¯åˆ†[{dede:global.scores/}]</span>
+				<span id='good{dede:global.id/}'><a href="#" onclick="postDigg('good',{dede:global.id/})">å¥½è¯„</a>[{dede:field.goodpost/}]</span>
+				<span id='bad{dede:global.id/}'><a href="#" onclick="postDigg('bad',{dede:global.id/})">å·®è¯„</a>[{dede:field.badpost/}]</span>
 
-				<span><a href="stow.php?aid={dede:global.id/}">ÊÕ²Ø</a></span>
+				<span><a href="stow.php?aid={dede:global.id/}">æ”¶è—</a></span>
 			</div><!-- /decmt-act -->
             <div class="decmt-content">
 			 {dede:global.description/}...
@@ -112,7 +112,7 @@ function postBadGood(ftype,fid)
 
 	<div class="mt1">
 		<dl class="tbox">
-			<dt><strong>·¢±íÆÀÂÛ</strong></dt>
+			<dt><strong>å‘è¡¨è¯„è®º</strong></dt>
 			<dd>
 				<div class="dede_comment_post">
           <form action="bookfeedback.php" method="post" name="feedback">
@@ -121,7 +121,7 @@ function postBadGood(ftype,fid)
 
           <input type="hidden" name="isconfirm" value="yes" />
 					<div class="dcmp-mood">
-						<strong>±íÇé:</strong>
+						<strong>è¡¨æƒ…:</strong>
 						<ul>
 								<li><input type="radio" name='face' value='6' checked="1" /><img src="{dede:global.cfg_templets_skin/}/images/mood/ico-mood-6.gif" /></li>
 								<li><input type="radio" name='face' value='4'/><img src="{dede:global.cfg_templets_skin/}/images/mood/ico-mood-4.gif" /></li>
@@ -133,38 +133,38 @@ function postBadGood(ftype,fid)
 						</ul>
 					</div><!-- /dcmp-mood -->
 					<div class="dcmp-stand">
-						<strong>ÆÀ¼Û:</strong>
-							<input type="radio" name="feedbacktype" checked="1" value="feedback" id="dcmp-stand-neu" /><label for="dcmp-stand-neu"><img src="{dede:global.cfg_templets_skin/}/images/cmt-neu.gif" />ÖĞÁ¢</label>
-							<input type="radio" name="feedbacktype" value="good" id="dcmp-stand-good" /><label for="dcmp-stand-good"><img src="{dede:global.cfg_templets_skin/}/images/cmt-good.gif" />ºÃÆÀ</label>
-							<input type="radio" name="feedbacktype" value="bad" id="dcmp-stand-bad" /><label for="dcmp-stand-bad"><img src="{dede:global.cfg_templets_skin/}/images/cmt-bad.gif" />²îÆÀ</label>
+						<strong>è¯„ä»·:</strong>
+							<input type="radio" name="feedbacktype" checked="1" value="feedback" id="dcmp-stand-neu" /><label for="dcmp-stand-neu"><img src="{dede:global.cfg_templets_skin/}/images/cmt-neu.gif" />ä¸­ç«‹</label>
+							<input type="radio" name="feedbacktype" value="good" id="dcmp-stand-good" /><label for="dcmp-stand-good"><img src="{dede:global.cfg_templets_skin/}/images/cmt-good.gif" />å¥½è¯„</label>
+							<input type="radio" name="feedbacktype" value="bad" id="dcmp-stand-bad" /><label for="dcmp-stand-bad"><img src="{dede:global.cfg_templets_skin/}/images/cmt-bad.gif" />å·®è¯„</label>
 					</div><!-- /dcmp-stand -->
 					<div class="dcmp-content">
                     	<textarea cols="60" name="msg" rows="5" class="ipt-txt"></textarea>
 					</div><!-- /dcmp-content -->
                     <div class="dcmp-title">
 
-						<small>Çë×Ô¾õ×ñÊØ»¥ÁªÍøÏà¹ØµÄÕş²ß·¨¹æ£¬ÑÏ½û·¢²¼É«Çé¡¢±©Á¦¡¢·´¶¯µÄÑÔÂÛ¡£</small>
+						<small>è¯·è‡ªè§‰éµå®ˆäº’è”ç½‘ç›¸å…³çš„æ”¿ç­–æ³•è§„ï¼Œä¸¥ç¦å‘å¸ƒè‰²æƒ…ã€æš´åŠ›ã€ååŠ¨çš„è¨€è®ºã€‚</small>
 					</div><!-- /dcmp-title -->
-					<div class="dcmp-post"><!--Î´µÇÂ½-->
+					<div class="dcmp-post"><!--æœªç™»é™†-->
 						<div class="dcmp-userinfo">
-ÓÃ»§Ãû£º
+ç”¨æˆ·åï¼š
                     <?php if($cfg_ml->M_ID <= 0) { ?>
                     <input name="username" type="text" id="username" size="10" class="nb" />
-                    £¨<a href="../member/index_do.php?fmdo=user&dopost=regnew" target="_blank"><u>×¢²áĞÂÓÃ»§</u></a>£©
-                    ÃÜÂë£º
+                    ï¼ˆ<a href="../member/index_do.php?fmdo=user&dopost=regnew" target="_blank"><u>æ³¨å†Œæ–°ç”¨æˆ·</u></a>ï¼‰
+                    å¯†ç ï¼š
                     <input name="pwd" type="password" id="pwd" size="10"class="nb" />
 
                    <?php
                     }else{  echo $cfg_ml->M_LoginID."&nbsp;"; }
                    ?>
                     <input name="notuser" type="checkbox" id="notuser" value="1" />
-                    ÄäÃûÆÀÂÛ
+                    åŒ¿åè¯„è®º
                 <?php if($cfg_feedback_ck=='Y') { ?>
-                ÑéÖ¤Âë£º<input name="validate" type="text" id="validate" size="10" style="height:18px;width:60px;margin-right:6px;text-transform: uppercase;" class="nb" />
+                éªŒè¯ç ï¼š<input name="validate" type="text" id="validate" size="10" style="height:18px;width:60px;margin-right:6px;text-transform: uppercase;" class="nb" />
                                    <img src='../include/vdimgck.php' />
 
 				<?php } ?>
-                 <button type="button" onClick='javascript:if(document.feedback.msg.value!="") document.feedback.submit(); else alert("ÆÀÂÛÄÚÈİ²»ÄÜÎª¿Õ£¡");' class="btn-2">·¢±íÆÀÂÛ</button>
+                 <button type="button" onClick='javascript:if(document.feedback.msg.value!="") document.feedback.submit(); else alert("è¯„è®ºå†…å®¹ä¸èƒ½ä¸ºç©ºï¼");' class="btn-2">å‘è¡¨è¯„è®º</button>
 
 						</div><!-- /dcmp-submit -->
 					</div><!-- /dcmp-post -->

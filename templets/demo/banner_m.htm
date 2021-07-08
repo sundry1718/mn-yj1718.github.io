@@ -1,0 +1,55 @@
+<div class="headbox clearfix"><img src="/m/style/images/2015081717236623.jpg" alt=""/>
+  <div class="menuiocn"><a href="#"><img src="/m/style/images/menuioc.png" alt=""/></a></div>
+  <script type="text/javascript">
+            $(document).ready(function () {
+                var flbox = $('.menuiocn');
+                nav = $('.menu');
+                box = $('.boxbg');
+                flbox.click(function () {
+                    box.animate({ right: '50%' }, '500');
+                    nav.animate({ right: '0px' }, '500');
+                    $('.menu').css("display", "block");
+                    $('.boxbg').css("display", "block");
+                    return;
+
+                });
+                $('.boxbg').click(function () {
+                    box.animate({ right: '0' }, '500');
+                    nav.animate({ right: '-50%' }, '500');
+                    $(this).hide();
+                    return;
+
+                }
+
+								   )
+
+
+            });
+</script> 
+</div>
+<div id="focus" class="focus">
+  <div class="hd">
+    <ul>
+    </ul>
+  </div>
+  <div class="bd">
+    <ul>
+    
+     {dede:arclist typeid='156' row='3'} 
+     <li><a><img src="[field:picname/]" /></a></li>
+     {/dede:arclist}
+     
+    </ul>
+  </div>
+</div>
+<script type="text/javascript">
+        TouchSlide({
+            slideCell: "#focus",
+            titCell: ".hd ul", //开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层
+            mainCell: ".bd ul",
+            effect: "left",
+            autoPlay: true, //自动播放
+            autoPage: true, //自动分页
+            switchLoad: "_src" //切换加载，真实图片路径为"_src" 
+        });
+	</script> 

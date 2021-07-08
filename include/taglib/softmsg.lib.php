@@ -4,9 +4,9 @@ if(!defined('DEDEINC'))
     exit("Request Error!");
 }
 /**
- * обтьк╣цВ╠Йг╘
+ * Д╦▀Х╫╫Х╞╢Ф≤▌Ф═┤Г╜╬
  *
- * @version        $Id: softmsg.lib.php 1 9:29 2010дЙ7тб6хуZ tianya $
+ * @version        $Id: softmsg.lib.php 1 9:29 2010Е╧╢7Ф°┬6Ф≈╔Z tianya $
  * @package        DedeCMS.Taglib
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -14,10 +14,10 @@ if(!defined('DEDEINC'))
  */
  
 /*>>dede>>
-<name>обтьк╣цВ</name>
-<type>хМ╪Чдзхщдё╟Е</type>
+<name>Д╦▀Х╫╫Х╞╢Ф≤▌</name>
+<type>Х╫╞Д╩╤Е├┘Е╝╧Ф╗║Ф²©</type>
 <for>V55,V56,V57</for>
-<description>обтьк╣цВ╠Йг╘</description>
+<description>Д╦▀Х╫╫Х╞╢Ф≤▌Ф═┤Г╜╬</description>
 <demo>
 {dede:softmsg /}
 </demo>

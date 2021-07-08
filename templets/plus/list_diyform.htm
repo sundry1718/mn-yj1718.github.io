@@ -14,12 +14,12 @@
 		</div>
 		<div class="title">
 			<?php echo $diy->name; ?>
-			&nbsp; [<a href='diy.php?action=post&diyid=<?php echo $diy->diyid; ?>'>发布信息</a>]
+			&nbsp; [<a href='diy.php?action=post&diyid=<?php echo $diy->diyid; ?>'>鍙戝竷淇℃伅</a>]
 		</div>
 	</div>
 	<div class="cmain">
 		<div class="ctitle">
-			<h1><?php echo $diy->name; ?>内容列表</h1>
+			<h1><?php echo $diy->name; ?>鍐呭鍒楄〃</h1>
 			<span></span>
 		</div>
 		<div class="cbox mceneter">
@@ -32,17 +32,17 @@ if(!empty($fields))
 {
 		echo '<tbody>';
 		echo '<tr><td bgcolor="#eeeeee" width="20%">id</td>';
-		echo '<td bgcolor="#eeeeee"><div class="left">'.$fields['id'].'</div><div class="right"><a href="diy.php?action=view&diyid='.$diy->diyid.'&id='.$fields['id'].'" target="_blank">详细...</a> &nbsp;</div></td></tr>';
+		echo '<td bgcolor="#eeeeee"><div class="left">'.$fields['id'].'</div><div class="right"><a href="diy.php?action=view&diyid='.$diy->diyid.'&id='.$fields['id'].'" target="_blank">璇︾粏...</a> &nbsp;</div></td></tr>';
 		foreach($fieldlist as $field=>$fielddata)
 		{
 			if($fields[$field]=='') continue;
 			if($fielddata[1]=='img')
 			{
-				$fields[$field] = "<a href='{$fields[$field]}' target='_blank'><img src='img/addon.gif' border='0' /> 图片附件</a>\r\n";
+				$fields[$field] = "<a href='{$fields[$field]}' target='_blank'><img src='img/addon.gif' border='0' /> 鍥剧墖闄勪欢</a>\r\n";
 			}
 			else if($fielddata[1]=='addon')
 			{
-				$fields[$field] = "<a href='{$fields[$field]}' target='_blank'><img src='img/addon.gif' border='0' /> 其它附件</a>";
+				$fields[$field] = "<a href='{$fields[$field]}' target='_blank'><img src='img/addon.gif' border='0' /> 鍏跺畠闄勪欢</a>";
 			}
 			else
 			{
@@ -57,7 +57,7 @@ if(!empty($fields))
 		}
 		echo '</tbody>';
 }else{
-	echo "<tr><td bgcolor='#ffffff'>暂无记录</td></tr>";
+	echo "<tr><td bgcolor='#ffffff'>鏆傛棤璁板綍</td></tr>";
 }
 ?>
 </table>

@@ -2,7 +2,7 @@
 /**
  * 
  *
- * @version        $Id: cattree.lib.php 1 9:29 2010Äê7ÔÂ6ÈÕZ tianya $
+ * @version        $Id: cattree.lib.php 1 9:29 2010å¹´7æœˆ6æ—¥Z tianya $
  * @package        DedeCMS.Taglib
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -10,26 +10,26 @@
  */
  
  /*>>dede>>
-<name>Ê÷ÐÎÀàÄ¿±êÇ©</name>
-<type>È«¾Ö±ê¼Ç</type>
+<name>æ ‘å½¢ç±»ç›®æ ‡ç­¾</name>
+<type>å…¨å±€æ ‡è®°</type>
 <for>V55,V56,V57</for>
-<description>µ÷ÓÃÊ÷ÐÎÀàÄ¿</description>
+<description>è°ƒç”¨æ ‘å½¢ç±»ç›®</description>
 <demo>
 {dede:cattree typeid='' catid='' showall=''/}
 </demo>
 <attributes>
-    <iterm>typeid:¶¥¼¶Ê÷id</iterm> 
-    <iterm>catid:ÉÏ¼¶À¸Ä¿id</iterm>
-    <iterm>showall:ÔÚ¿Õ»ò²»´æÔÚÊ±£¬Ç¿ÖÆÓÃ²úÆ·Ä£ÐÍid£»Èç¹ûÊÇ yes ¸ÕÏÔÊ¾Õû¸öÓïÑÔÇøÀ¸Ä¿Ê÷£»ÎªÆäËüÊý×ÖÔòÊÇÕâ¸öÊý×ÖµÄÄ£ÐÍµÄid</iterm>
+    <iterm>typeid:é¡¶çº§æ ‘id</iterm> 
+    <iterm>catid:ä¸Šçº§æ ç›®id</iterm>
+    <iterm>showall:åœ¨ç©ºæˆ–ä¸å­˜åœ¨æ—¶ï¼Œå¼ºåˆ¶ç”¨äº§å“æ¨¡åž‹idï¼›å¦‚æžœæ˜¯ yes åˆšæ˜¾ç¤ºæ•´ä¸ªè¯­è¨€åŒºæ ç›®æ ‘ï¼›ä¸ºå…¶å®ƒæ•°å­—åˆ™æ˜¯è¿™ä¸ªæ•°å­—çš„æ¨¡åž‹çš„id</iterm>
 </attributes> 
 >>dede>>*/
  
 function lib_cattree(&$ctag, &$refObj)
 {
     global $dsql;
-    //ÊôÐÔ´¦Àí
-    //ÊôÐÔ showall ÔÚ¿Õ»ò²»´æÔÚÊ±£¬Ç¿ÖÆÓÃ²úÆ·Ä£ÐÍid£»Èç¹ûÊÇ yes ¸ÕÏÔÊ¾Õû¸öÓïÑÔÇøÀ¸Ä¿Ê÷£»ÎªÆäËüÊý×ÖÔòÊÇÕâ¸öÊý×ÖµÄÄ£ÐÍµÄid
-    //typeid Ö¸¶¨¶¥¼¶Ê÷ id £¬Ö¸¶¨ºó£¬Ç°Ò»¸öÊôÐÔ½«ÎÞÐ§
+    //å±žæ€§å¤„ç†
+    //å±žæ€§ showall åœ¨ç©ºæˆ–ä¸å­˜åœ¨æ—¶ï¼Œå¼ºåˆ¶ç”¨äº§å“æ¨¡åž‹idï¼›å¦‚æžœæ˜¯ yes åˆšæ˜¾ç¤ºæ•´ä¸ªè¯­è¨€åŒºæ ç›®æ ‘ï¼›ä¸ºå…¶å®ƒæ•°å­—åˆ™æ˜¯è¿™ä¸ªæ•°å­—çš„æ¨¡åž‹çš„id
+    //typeid æŒ‡å®šé¡¶çº§æ ‘ id ï¼ŒæŒ‡å®šåŽï¼Œå‰ä¸€ä¸ªå±žæ€§å°†æ— æ•ˆ
     $attlist="showall|,catid|0";
     FillAttsDefault($ctag->CAttribute->Items,$attlist);
     extract($ctag->CAttribute->Items, EXTR_SKIP);

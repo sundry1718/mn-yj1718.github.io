@@ -1,8 +1,8 @@
 <?php
 /**
- * SMTPÓÊ¼ş²Ù×÷Àà
+ * SMTPé‚®ä»¶æ“ä½œç±»
  *
- * @version        $Id: mail.class.php 1 15:59 2010Äê7ÔÂ5ÈÕZ tianya $
+ * @version        $Id: mail.class.php 1 15:59 2010å¹´7æœˆ5æ—¥Z tianya $
  * @package        DedeCMS.Libraries
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -10,7 +10,7 @@
  */
 class smtp
 {
-    // ¹«ÓĞ±äÁ¿
+    // å…¬æœ‰å˜é‡
     var $smtp_port;
     var $time_out;
     var $host_name;
@@ -21,10 +21,10 @@ class smtp
     var $user;
     var $pass;
 
-    // Ë½ÓĞ±äÁ¿
+    // ç§æœ‰å˜é‡
     var $sock;
 
-    // Îö¹¹º¯Êı
+    // ææ„å‡½æ•°
     function smtp($relay_host = "", $smtp_port = 25,$auth = FALSE,$user,$pass)
     {
         $this->debug = FALSE;
@@ -47,15 +47,15 @@ class smtp
     }
 
     /**
-     *  ÓÊ¼şÖ÷º¯Êı
+     *  é‚®ä»¶ä¸»å‡½æ•°
      *
      * @access    public
-     * @param     string  $to  ·¢ËÍµ½µÄemail
-     * @param     string  $webname  Õ¾µãÃû³Æ
-     * @param     string  $from  À´×Ô
-     * @param     string  $subject  Ö÷Ìâ
-     * @param     string  $body  ÓÊ¼şÄÚÈİ
-     * @param     string  $mailtype  ÓÊ¼şÀàĞÍ
+     * @param     string  $to  å‘é€åˆ°çš„email
+     * @param     string  $webname  ç«™ç‚¹åç§°
+     * @param     string  $from  æ¥è‡ª
+     * @param     string  $subject  ä¸»é¢˜
+     * @param     string  $body  é‚®ä»¶å†…å®¹
+     * @param     string  $mailtype  é‚®ä»¶ç±»å‹
      * @return    string
      */
     function sendmail($to,$webname, $from, $subject = "", $body = "", $mailtype, $cc = "", $bcc = "", $additional_headers = "")
@@ -117,14 +117,14 @@ class smtp
     }
 
     /**
-     *  SMTP·¢ËÍ
+     *  SMTPå‘é€
      *
      * @access    public
-     * @param     string  $helo  ·¢ËÍHELO
-     * @param     string  $from  À´×Ô
-     * @param     string  $to  µ½
-     * @param     string  $header  Í·²¿ĞÅÏ¢
-     * @param     string  $body   ÄÚÈİÖ÷Ìå
+     * @param     string  $helo  å‘é€HELO
+     * @param     string  $from  æ¥è‡ª
+     * @param     string  $to  åˆ°
+     * @param     string  $header  å¤´éƒ¨ä¿¡æ¯
+     * @param     string  $body   å†…å®¹ä¸»ä½“
      * @return    string
      */
     function smtp_send($helo, $from, $to, $header, $body = "")

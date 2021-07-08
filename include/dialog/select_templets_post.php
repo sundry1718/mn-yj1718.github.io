@@ -1,8 +1,8 @@
 <?php
 /**
- * Ä£°å·¢ËÍ
+ * æ¨¡æ¿å‘é€
  *
- * @version        $Id: select_templets_post.php 1 9:43 2010Äê7ÔÂ8ÈÕZ tianya $
+ * @version        $Id: select_templets_post.php 1 9:43 2010å¹´7æœˆ8æ—¥Z tianya $
  * @package        DedeCMS.Dialog
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -17,17 +17,17 @@ if(empty($uploadfile))
 }
 if(!is_uploaded_file($uploadfile))
 {
-    ShowMsg("ÄãÃ»ÓÐÑ¡ÔñÉÏ´«µÄÎÄ¼þ!","-1");
+    ShowMsg("ä½ æ²¡æœ‰é€‰æ‹©ä¸Šä¼ çš„æ–‡ä»¶!","-1");
     exit();
 }
 if(!preg_match("#^text#", $uploadfile_type))
 {
-    ShowMsg("ÄãÉÏ´«µÄ²»ÊÇÎÄ±¾ÀàÐÍ¸½¼þ!","-1");
+    ShowMsg("ä½ ä¸Šä¼ çš„ä¸æ˜¯æ–‡æœ¬ç±»åž‹é™„ä»¶!","-1");
     exit();
 }
 if(!preg_match("#\.(".$cfg_txttype.")#i", $uploadfile_name))
 {
-    ShowMsg("ÄãËùÉÏ´«µÄÄ£°åÎÄ¼þÀàÐÍ²»ÄÜ±»Ê¶±ð£¬Ö»ÔÊÐíhtm¡¢html¡¢tpl¡¢txtÀ©Õ¹Ãû£¡","-1");
+    ShowMsg("ä½ æ‰€ä¸Šä¼ çš„æ¨¡æ¿æ–‡ä»¶ç±»åž‹ä¸èƒ½è¢«è¯†åˆ«ï¼Œåªå…è®¸htmã€htmlã€tplã€txtæ‰©å±•åï¼","-1");
     exit();
 }
 if($filename!='')
@@ -40,12 +40,12 @@ else
     $filename = $uploadfile_name;
     if($filename=='' || !preg_match("#\.(".$cfg_txttype.")#i", $filename))
     {
-        ShowMsg("ÄãËùÉÏ´«µÄÎÄ¼þ´æÔÚÎÊÌâ£¬Çë¼ì²éÎÄ¼þÀàÐÍÊÇ·ñÊÊºÏ£¡","-1");
+        ShowMsg("ä½ æ‰€ä¸Šä¼ çš„æ–‡ä»¶å­˜åœ¨é—®é¢˜ï¼Œè¯·æ£€æŸ¥æ–‡ä»¶ç±»åž‹æ˜¯å¦é€‚åˆï¼","-1");
         exit();
     }
 }
 $fullfilename = $cfg_basedir.$activepath."/".$filename;
-move_uploaded_file($uploadfile,$fullfilename) or die("ÉÏ´«ÎÄ¼þµ½ $fullfilename Ê§°Ü£¡");
+move_uploaded_file($uploadfile,$fullfilename) or die("ä¸Šä¼ æ–‡ä»¶åˆ° $fullfilename å¤±è´¥ï¼");
 @unlink($uploadfile);
-ShowMsg("³É¹¦ÉÏ´«ÎÄ¼þ£¡","select_templets.php?comeback=".urlencode($filename)."&f=$f&activepath=".urlencode($activepath)."&d=".time());
+ShowMsg("æˆåŠŸä¸Šä¼ æ–‡ä»¶ï¼","select_templets.php?comeback=".urlencode($filename)."&f=$f&activepath=".urlencode($activepath)."&d=".time());
 exit();

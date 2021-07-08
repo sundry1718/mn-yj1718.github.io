@@ -1,29 +1,29 @@
 <?php
 if(!defined('DEDEINC')) exit('Request Error!');
 /**
- *Ò×±¦½Ó¿ÚÀà
+ *æ˜“å®æ¥å£ç±»
  */
 class yeepay
 {
     var $dsql;
     var $mid;
   
-    # ÒµÎñÀàĞÍ
-    # Ö§¸¶ÇëÇó£¬¹Ì¶¨Öµ"Buy" 
+    # ä¸šåŠ¡ç±»å‹
+    # æ”¯ä»˜è¯·æ±‚ï¼Œå›ºå®šå€¼"Buy" 
     var $p0_Cmd = 'Buy';
   
-    # ËÍ»õµØÖ·
-    # Îª"1": ĞèÒªÓÃ»§½«ËÍ»õµØÖ·ÁôÔÚÒ×±¦Ö§¸¶ÏµÍ³;Îª"0": ²»ĞèÒª£¬Ä¬ÈÏÎª "0".
+    # é€è´§åœ°å€
+    # ä¸º"1": éœ€è¦ç”¨æˆ·å°†é€è´§åœ°å€ç•™åœ¨æ˜“å®æ”¯ä»˜ç³»ç»Ÿ;ä¸º"0": ä¸éœ€è¦ï¼Œé»˜è®¤ä¸º "0".
     var $p9_SAF = "0";
     
-    # Íø¹ØµØÖ·²»ÄÜËæ±ã¸ü¸Ä
+    # ç½‘å…³åœ°å€ä¸èƒ½éšä¾¿æ›´æ”¹
     var $reqURL_onLine = "https://www.yeepay.com/app-merchant-proxy/node";
     //$reqURL_onLine = "http://tech.yeepay.com:8080/robot/debug.action";
     
-    var $return_url='/plus/carbuyaction.php?dopost=return'; //·µ»Ø´¦ÀíµØÖ·
+    var $return_url='/plus/carbuyaction.php?dopost=return'; //è¿”å›å¤„ç†åœ°å€
         
     /**
-    * ¹¹Ôìº¯Êı
+    * æ„é€ å‡½æ•°
     *
     * @access  public
     * @param
@@ -42,11 +42,11 @@ class yeepay
     }
     
     /**
-     *  Éè¶¨½Ó¿Ú»áËÍµØÖ·
+     *  è®¾å®šæ¥å£ä¼šé€åœ°å€
      *
-     *  ÀıÈç: $this->SetReturnUrl($cfg_basehost."/tuangou/control/index.php?ac=pay&orderid=".$p2_Order)
+     *  ä¾‹å¦‚: $this->SetReturnUrl($cfg_basehost."/tuangou/control/index.php?ac=pay&orderid=".$p2_Order)
      *
-     * @param     string  $returnurl  »áËÍµØÖ·
+     * @param     string  $returnurl  ä¼šé€åœ°å€
      * @return    void
      */
     function SetReturnUrl($returnurl='')
@@ -58,56 +58,56 @@ class yeepay
     }
 
     /**
-    * Éú³ÉÖ§¸¶´úÂë
-    * @param   array   $order      ¶©µ¥ĞÅÏ¢
-    * @param   array   $payment    Ö§¸¶·½Ê½ĞÅÏ¢
+    * ç”Ÿæˆæ”¯ä»˜ä»£ç 
+    * @param   array   $order      è®¢å•ä¿¡æ¯
+    * @param   array   $payment    æ”¯ä»˜æ–¹å¼ä¿¡æ¯
     */
     function GetCode($order, $payment)
     {
         global $cfg_basehost,$cfg_cmspath;
-        //¶ÔÓÚ¶ş¼¶Ä¿Â¼µÄ´¦Àí
+        //å¯¹äºäºŒçº§ç›®å½•çš„å¤„ç†
         if(!empty($cfg_cmspath)) $cfg_basehost = $cfg_basehost.'/'.$cfg_cmspath;
 
-        #    ÉÌ¼ÒÉèÖÃÓÃ»§¹ºÂòÉÌÆ·µÄÖ§¸¶ĞÅÏ¢.
-        ##Ò×±¦Ö§¸¶Æ½Ì¨Í³Ò»Ê¹ÓÃGBK/GB2312±àÂë·½Ê½,²ÎÊıÈçÓÃµ½ÖĞÎÄ£¬Çë×¢Òâ×ªÂë
+        #    å•†å®¶è®¾ç½®ç”¨æˆ·è´­ä¹°å•†å“çš„æ”¯ä»˜ä¿¡æ¯.
+        ##æ˜“å®æ”¯ä»˜å¹³å°ç»Ÿä¸€ä½¿ç”¨GBK/GB2312ç¼–ç æ–¹å¼,å‚æ•°å¦‚ç”¨åˆ°ä¸­æ–‡ï¼Œè¯·æ³¨æ„è½¬ç 
         
-        #    ÉÌ»§¶©µ¥ºÅ,Ñ¡Ìî.
-        ##Èô²»Îª""£¬Ìá½»µÄ¶©µ¥ºÅ±ØĞëÔÚ×ÔÉíÕË»§½»Ò×ÖĞÎ¨Ò»;Îª""Ê±£¬Ò×±¦Ö§¸¶»á×Ô¶¯Éú³ÉËæ»úµÄÉÌ»§¶©µ¥ºÅ.
+        #    å•†æˆ·è®¢å•å·,é€‰å¡«.
+        ##è‹¥ä¸ä¸º""ï¼Œæäº¤çš„è®¢å•å·å¿…é¡»åœ¨è‡ªèº«è´¦æˆ·äº¤æ˜“ä¸­å”¯ä¸€;ä¸º""æ—¶ï¼Œæ˜“å®æ”¯ä»˜ä¼šè‡ªåŠ¨ç”Ÿæˆéšæœºçš„å•†æˆ·è®¢å•å·.
         $p2_Order                    = trim($order['out_trade_no']);
         
-        #    Ö§¸¶½ğ¶î,±ØÌî.
-        ##µ¥Î»:Ôª£¬¾«È·µ½·Ö.
+        #    æ”¯ä»˜é‡‘é¢,å¿…å¡«.
+        ##å•ä½:å…ƒï¼Œç²¾ç¡®åˆ°åˆ†.
         $p3_Amt                        = $order['price'];
         
-        #    ½»Ò×±ÒÖÖ,¹Ì¶¨Öµ"CNY".
+        #    äº¤æ˜“å¸ç§,å›ºå®šå€¼"CNY".
         $p4_Cur                        = "CNY";
         
-        #    ÉÌÆ·Ãû³Æ
-        ##ÓÃÓÚÖ§¸¶Ê±ÏÔÊ¾ÔÚÒ×±¦Ö§¸¶Íø¹Ø×ó²àµÄ¶©µ¥²úÆ·ĞÅÏ¢.
+        #    å•†å“åç§°
+        ##ç”¨äºæ”¯ä»˜æ—¶æ˜¾ç¤ºåœ¨æ˜“å®æ”¯ä»˜ç½‘å…³å·¦ä¾§çš„è®¢å•äº§å“ä¿¡æ¯.
         $p5_Pid                        = trim($order['out_trade_no']);
         
-        #    ÉÌÆ·ÖÖÀà
+        #    å•†å“ç§ç±»
         $p6_Pcat                    = 'cart';
         
-        #    ÉÌÆ·ÃèÊö
+        #    å•†å“æè¿°
         $p7_Pdesc                    = '';
         
-        #    ÉÌ»§½ÓÊÕÖ§¸¶³É¹¦Êı¾İµÄµØÖ·,Ö§¸¶³É¹¦ºóÒ×±¦Ö§¸¶»áÏò¸ÃµØÖ··¢ËÍÁ½´Î³É¹¦Í¨Öª.
+        #    å•†æˆ·æ¥æ”¶æ”¯ä»˜æˆåŠŸæ•°æ®çš„åœ°å€,æ”¯ä»˜æˆåŠŸåæ˜“å®æ”¯ä»˜ä¼šå‘è¯¥åœ°å€å‘é€ä¸¤æ¬¡æˆåŠŸé€šçŸ¥.
         //$p8_Url                        = $cfg_basehost."/plus/carbuyaction.php?dopost=return&code=".$payment['code'];  
         $p8_Url                        =   $cfg_basehost.$this->return_url.'&code='.$payment['code'];
         
-        #    ÉÌ»§À©Õ¹ĞÅÏ¢
-        ##ÉÌ»§¿ÉÒÔÈÎÒâÌîĞ´1K µÄ×Ö·û´®,Ö§¸¶³É¹¦Ê±½«Ô­Ñù·µ»Ø.                                                
+        #    å•†æˆ·æ‰©å±•ä¿¡æ¯
+        ##å•†æˆ·å¯ä»¥ä»»æ„å¡«å†™1K çš„å­—ç¬¦ä¸²,æ”¯ä»˜æˆåŠŸæ—¶å°†åŸæ ·è¿”å›.                                                
         $pa_MP                        = 'member';
         
-        #    Ó¦´ğ»úÖÆ
-        ##Îª"1": ĞèÒªÓ¦´ğ»úÖÆ;Îª"0": ²»ĞèÒªÓ¦´ğ»úÖÆ.
+        #    åº”ç­”æœºåˆ¶
+        ##ä¸º"1": éœ€è¦åº”ç­”æœºåˆ¶;ä¸º"0": ä¸éœ€è¦åº”ç­”æœºåˆ¶.
         $pr_NeedResponse    = 1;
         
-        #    ÒøĞĞ±àÂë
-            ##Ä¬ÈÏÎª""£¬µ½Ò×±¦Ö§¸¶Íø¹Ø.Èô²»ĞèÏÔÊ¾Ò×±¦Ö§¸¶µÄÒ³Ãæ£¬Ö±½ÓÌø×ªµ½¸÷ÒøĞĞ¡¢ÉñÖİĞĞÖ§¸¶¡¢¿¥ÍøÒ»¿¨Í¨µÈÖ§¸¶Ò³Ãæ£¬¸Ã×Ö¶Î¿ÉÒÀÕÕ¸½Â¼:ÒøĞĞÁĞ±íÉèÖÃ²ÎÊıÖµ.            
+        #    é“¶è¡Œç¼–ç 
+            ##é»˜è®¤ä¸º""ï¼Œåˆ°æ˜“å®æ”¯ä»˜ç½‘å…³.è‹¥ä¸éœ€æ˜¾ç¤ºæ˜“å®æ”¯ä»˜çš„é¡µé¢ï¼Œç›´æ¥è·³è½¬åˆ°å„é“¶è¡Œã€ç¥å·è¡Œæ”¯ä»˜ã€éªç½‘ä¸€å¡é€šç­‰æ”¯ä»˜é¡µé¢ï¼Œè¯¥å­—æ®µå¯ä¾ç…§é™„å½•:é“¶è¡Œåˆ—è¡¨è®¾ç½®å‚æ•°å€¼.            
         $pd_FrpId                    = '';
-        #µ÷ÓÃÇ©Ãûº¯ÊıÉú³ÉÇ©Ãû´®
+        #è°ƒç”¨ç­¾åå‡½æ•°ç”Ÿæˆç­¾åä¸²
         $hmac = $this->getReqHmacString($payment['yp_account'],$payment['yp_key'],$p2_Order,$p3_Amt,$p4_Cur,$p5_Pid,$p6_Pcat,$p7_Pdesc,$p8_Url,$pa_MP,$pd_FrpId,$pr_NeedResponse);
         
         $button = '<form target="_blank" method="post" action="'.$this->reqURL_onLine.'">
@@ -125,9 +125,9 @@ class yeepay
                             <input type="hidden" value="'.$pd_FrpId.'" name="pd_FrpId">
                             <input type="hidden" value="'.$pr_NeedResponse.'" name="pr_NeedResponse"    >
                             <input type="hidden" value="'.$hmac.'" name="hmac">
-                            <input type="submit" value="Á¢¼´Ê¹ÓÃYeePayÒ×±¦Ö§¸¶"></form>';
+                            <input type="submit" value="ç«‹å³ä½¿ç”¨YeePayæ˜“å®æ”¯ä»˜"></form>';
 
-    /* Çå¿Õ¹ºÎï³µ */
+    /* æ¸…ç©ºè´­ç‰©è½¦ */
         require_once DEDEINC.'/shopcar.class.php';
         $cart     = new MemberShops();
         $cart->clearItem();
@@ -136,115 +136,115 @@ class yeepay
     }
 
     /**
-    * ÏìÓ¦²Ù×÷
+    * å“åº”æ“ä½œ
     */
     function respond()
     {
 
-        /* ÒıÈëÅäÖÃÎÄ¼ş */
+        /* å¼•å…¥é…ç½®æ–‡ä»¶ */
 		$code = preg_replace( "#[^0-9a-z-]#i", "", $_REQUEST['code'] );
 		require_once DEDEDATA.'/payment/'.$code.'.php';
         
         $p1_MerId = trim($payment['yp_account']);
         $merchantKey = trim($payment['yp_key']);
         
-        #  ½âÎö·µ»Ø²ÎÊı.
+        #  è§£æè¿”å›å‚æ•°.
         $return = $this->getCallBackValue($r0_Cmd, $r1_Code, $r2_TrxId, $r3_Amt, $r4_Cur, $r5_Pid, $r6_Order, $r7_Uid, $r8_MP, $r9_BType, $hmac);
         
-        #  ÅĞ¶Ï·µ»ØÇ©ÃûÊÇ·ñÕıÈ·£¨True/False£©
+        #  åˆ¤æ–­è¿”å›ç­¾åæ˜¯å¦æ­£ç¡®ï¼ˆTrue/Falseï¼‰
         $bRet = $this->CheckHmac($p1_MerId,$merchantKey,$r0_Cmd,$r1_Code,$r2_TrxId,$r3_Amt,$r4_Cur,$r5_Pid,$r6_Order,$r7_Uid,$r8_MP,$r9_BType,$hmac);
 
-        #  Ğ£ÑéÂëÕıÈ·.
+        #  æ ¡éªŒç æ­£ç¡®.
         if($bRet)
         {
             if($r1_Code=="1")
             {
-                /*ÅĞ¶Ï¶©µ¥ÀàĞÍ*/
+                /*åˆ¤æ–­è®¢å•ç±»å‹*/
                 if(preg_match ("/S-P[0-9]+RN[0-9]/",$r6_Order)) 
                 {
-                    //»ñÈ¡ÓÃ»§mid
+                    //è·å–ç”¨æˆ·mid
                     $row = $this->dsql->GetOne("SELECT * FROM #@__shops_orders WHERE oid = '{$r6_Order}'");
                     $this->mid = $row['userid'];
                     $ordertype="goods";
                 } else if (preg_match ("/M[0-9]+T[0-9]+RN[0-9]/",$r6_Order)){
                     $row = $this->dsql->GetOne("SELECT * FROM #@__member_operation WHERE buyid = '{$r6_Order}'");
-                    //»ñÈ¡¶©µ¥ĞÅÏ¢£¬¼ì²é¶©µ¥µÄÓĞĞ§ĞÔ
-                    if(!is_array($row)||$row['sta']==2) return $msg = "ÄúµÄ¶©µ¥ÒÑ¾­´¦Àí£¬Çë²»ÒªÖØ¸´Ìá½»!";
+                    //è·å–è®¢å•ä¿¡æ¯ï¼Œæ£€æŸ¥è®¢å•çš„æœ‰æ•ˆæ€§
+                    if(!is_array($row)||$row['sta']==2) return $msg = "æ‚¨çš„è®¢å•å·²ç»å¤„ç†ï¼Œè¯·ä¸è¦é‡å¤æäº¤!";
                     $ordertype = "member";
                     $product =    $row['product'];
                     $pname= $row['pname'];
                     $pid=$row['pid'];
                     $this->mid = $row['mid'];
                 } else {    
-                    return $msg = "Ö§¸¶Ê§°Ü£¬ÄúµÄ¶©µ¥ºÅÓĞÎÊÌâ!";
+                    return $msg = "æ”¯ä»˜å¤±è´¥ï¼Œæ‚¨çš„è®¢å•å·æœ‰é—®é¢˜!";
                 }
 
 
-                #    ĞèÒª±È½Ï·µ»ØµÄ½ğ¶îÓëÉÌ¼ÒÊı¾İ¿âÖĞ¶©µ¥µÄ½ğ¶îÊÇ·ñÏàµÈ£¬Ö»ÓĞÏàµÈµÄÇé¿öÏÂ²ÅÈÏÎªÊÇ½»Ò×³É¹¦.
-                #    ²¢ÇÒĞèÒª¶Ô·µ»ØµÄ´¦Àí½øĞĞÊÂÎñ¿ØÖÆ£¬½øĞĞ¼ÇÂ¼µÄÅÅËüĞÔ´¦Àí£¬·ÀÖ¹¶ÔÍ¬Ò»Ìõ½»Ò×ÖØ¸´·¢»õµÄÇé¿ö·¢Éú.                
+                #    éœ€è¦æ¯”è¾ƒè¿”å›çš„é‡‘é¢ä¸å•†å®¶æ•°æ®åº“ä¸­è®¢å•çš„é‡‘é¢æ˜¯å¦ç›¸ç­‰ï¼Œåªæœ‰ç›¸ç­‰çš„æƒ…å†µä¸‹æ‰è®¤ä¸ºæ˜¯äº¤æ˜“æˆåŠŸ.
+                #    å¹¶ä¸”éœ€è¦å¯¹è¿”å›çš„å¤„ç†è¿›è¡Œäº‹åŠ¡æ§åˆ¶ï¼Œè¿›è¡Œè®°å½•çš„æ’å®ƒæ€§å¤„ç†ï¼Œé˜²æ­¢å¯¹åŒä¸€æ¡äº¤æ˜“é‡å¤å‘è´§çš„æƒ…å†µå‘ç”Ÿ.                
                 if($r9_BType == "1" || $r9_BType == "3"){
                     if($ordertype == "goods"){ 
-                        if($this->success_db($r6_Order))  return $msg = "Ö§¸¶³É¹¦!<br> <a href='/'>·µ»ØÖ÷Ò³</a> <a href='/member'>»áÔ±ÖĞĞÄ</a>";
-                        else  return $msg = "Ö§¸¶Ê§°Ü!<br> <a href='/'>·µ»ØÖ÷Ò³</a> <a href='/member'>»áÔ±ÖĞĞÄ</a>";
+                        if($this->success_db($r6_Order))  return $msg = "æ”¯ä»˜æˆåŠŸ!<br> <a href='/'>è¿”å›ä¸»é¡µ</a> <a href='/member'>ä¼šå‘˜ä¸­å¿ƒ</a>";
+                        else  return $msg = "æ”¯ä»˜å¤±è´¥!<br> <a href='/'>è¿”å›ä¸»é¡µ</a> <a href='/member'>ä¼šå‘˜ä¸­å¿ƒ</a>";
                     } else if ($ordertype=="member") {
                         $oldinf = $this->success_mem($r6_Order,$pname,$product,$pid);
-                        return $msg = "<font color='red'>".$oldinf."</font><br> <a href='/'>·µ»ØÖ÷Ò³</a> <a href='/member'>»áÔ±ÖĞĞÄ</a>";
+                        return $msg = "<font color='red'>".$oldinf."</font><br> <a href='/'>è¿”å›ä¸»é¡µ</a> <a href='/member'>ä¼šå‘˜ä¸­å¿ƒ</a>";
                     }
                 } else if ( $r9_BType == "2" ){
-                    #Èç¹ûĞèÒªÓ¦´ğ»úÖÆÔò±ØĞë»ØĞ´Á÷,ÒÔsuccess¿ªÍ·,´óĞ¡Ğ´²»Ãô¸Ğ.
+                    #å¦‚æœéœ€è¦åº”ç­”æœºåˆ¶åˆ™å¿…é¡»å›å†™æµ,ä»¥successå¼€å¤´,å¤§å°å†™ä¸æ•æ„Ÿ.
                     echo "success";
                     if($ordertype=="goods"){ 
-                        if($this->success_db($r6_Order))  return $msg = "Ö§¸¶³É¹¦!<br> <a href='/'>·µ»ØÖ÷Ò³</a> <a href='/member'>»áÔ±ÖĞĞÄ</a>";
-                        else  return $msg = "Ö§¸¶Ê§°Ü!<br> <a href='/'>·µ»ØÖ÷Ò³</a> <a href='/member'>»áÔ±ÖĞĞÄ</a>";
+                        if($this->success_db($r6_Order))  return $msg = "æ”¯ä»˜æˆåŠŸ!<br> <a href='/'>è¿”å›ä¸»é¡µ</a> <a href='/member'>ä¼šå‘˜ä¸­å¿ƒ</a>";
+                        else  return $msg = "æ”¯ä»˜å¤±è´¥!<br> <a href='/'>è¿”å›ä¸»é¡µ</a> <a href='/member'>ä¼šå‘˜ä¸­å¿ƒ</a>";
                     } else if ($ordertype=="member") {
-                        if($this->success_mem($r6_Order,$pname,$product,$pid))  return $msg = "Ö§¸¶³É¹¦!<br> <a href='/'>·µ»ØÖ÷Ò³</a> <a href='/member'>»áÔ±ÖĞĞÄ</a>";
-                        else  return $msg = "Ö§¸¶Ê§°Ü!<br> <a href='/'>·µ»ØÖ÷Ò³</a> <a href='/member'>»áÔ±ÖĞĞÄ</a>";
+                        if($this->success_mem($r6_Order,$pname,$product,$pid))  return $msg = "æ”¯ä»˜æˆåŠŸ!<br> <a href='/'>è¿”å›ä¸»é¡µ</a> <a href='/member'>ä¼šå‘˜ä¸­å¿ƒ</a>";
+                        else  return $msg = "æ”¯ä»˜å¤±è´¥!<br> <a href='/'>è¿”å›ä¸»é¡µ</a> <a href='/member'>ä¼šå‘˜ä¸­å¿ƒ</a>";
                     }
                 }
             }
         } else {
             $this->log_result ("verify_failed");
-            return $msg = "½»Ò×ĞÅÏ¢±»´Û!<br> <a href='/'>·µ»ØÖ÷Ò³</a> ";
+            return $msg = "äº¤æ˜“ä¿¡æ¯è¢«ç¯¡!<br> <a href='/'>è¿”å›ä¸»é¡µ</a> ";
         }
     }
 
 
-    #Ç©Ãûº¯ÊıÉú³ÉÇ©Ãû´®
+    #ç­¾åå‡½æ•°ç”Ÿæˆç­¾åä¸²
     function getReqHmacString($p1_MerId,$merchantKey,$p2_Order,$p3_Amt,$p4_Cur,$p5_Pid,$p6_Pcat,$p7_Pdesc,$p8_Url,$pa_MP,$pd_FrpId,$pr_NeedResponse)
     {
-        #½øĞĞÇ©Ãû´¦Àí£¬Ò»¶¨°´ÕÕÎÄµµÖĞ±êÃ÷µÄÇ©ÃûË³Ğò½øĞĞ
+        #è¿›è¡Œç­¾åå¤„ç†ï¼Œä¸€å®šæŒ‰ç…§æ–‡æ¡£ä¸­æ ‡æ˜çš„ç­¾åé¡ºåºè¿›è¡Œ
         $sbOld = "";
-        #¼ÓÈëÒµÎñÀàĞÍ
+        #åŠ å…¥ä¸šåŠ¡ç±»å‹
         $sbOld = $sbOld.$this->p0_Cmd;
-        #¼ÓÈëÉÌ»§±àºÅ
+        #åŠ å…¥å•†æˆ·ç¼–å·
         $sbOld = $sbOld.$p1_MerId;
-        #¼ÓÈëÉÌ»§¶©µ¥ºÅ
+        #åŠ å…¥å•†æˆ·è®¢å•å·
         $sbOld = $sbOld.$p2_Order;     
-        #¼ÓÈëÖ§¸¶½ğ¶î
+        #åŠ å…¥æ”¯ä»˜é‡‘é¢
         $sbOld = $sbOld.$p3_Amt;
-        #¼ÓÈë½»Ò×±ÒÖÖ
+        #åŠ å…¥äº¤æ˜“å¸ç§
         $sbOld = $sbOld.$p4_Cur;
-        #¼ÓÈëÉÌÆ·Ãû³Æ
+        #åŠ å…¥å•†å“åç§°
         $sbOld = $sbOld.$p5_Pid;
-        #¼ÓÈëÉÌÆ··ÖÀà
+        #åŠ å…¥å•†å“åˆ†ç±»
         $sbOld = $sbOld.$p6_Pcat;
-        #¼ÓÈëÉÌÆ·ÃèÊö
+        #åŠ å…¥å•†å“æè¿°
         $sbOld = $sbOld.$p7_Pdesc;
-        #¼ÓÈëÉÌ»§½ÓÊÕÖ§¸¶³É¹¦Êı¾İµÄµØÖ·
+        #åŠ å…¥å•†æˆ·æ¥æ”¶æ”¯ä»˜æˆåŠŸæ•°æ®çš„åœ°å€
         $sbOld = $sbOld.$p8_Url;
-        #¼ÓÈëËÍ»õµØÖ·±êÊ¶
+        #åŠ å…¥é€è´§åœ°å€æ ‡è¯†
         $sbOld = $sbOld.$this->p9_SAF;
-        #¼ÓÈëÉÌ»§À©Õ¹ĞÅÏ¢
+        #åŠ å…¥å•†æˆ·æ‰©å±•ä¿¡æ¯
         $sbOld = $sbOld.$pa_MP;
-        #¼ÓÈëÒøĞĞ±àÂë
+        #åŠ å…¥é“¶è¡Œç¼–ç 
         $sbOld = $sbOld.$pd_FrpId;
-        #¼ÓÈëÊÇ·ñĞèÒªÓ¦´ğ»úÖÆ
+        #åŠ å…¥æ˜¯å¦éœ€è¦åº”ç­”æœºåˆ¶
         $sbOld = $sbOld.$pr_NeedResponse;
         
         return $this->HmacMd5($sbOld,$merchantKey);
     } 
 
-    #    È¡µÃ·µ»Ø´®ÖĞµÄËùÓĞ²ÎÊı
+    #    å–å¾—è¿”å›ä¸²ä¸­çš„æ‰€æœ‰å‚æ•°
     function getCallBackValue(&$r0_Cmd,&$r1_Code,&$r2_TrxId,&$r3_Amt,&$r4_Cur,&$r5_Pid,&$r6_Order,&$r7_Uid,&$r8_MP,&$r9_BType,&$hmac)
     {  
         $r0_Cmd       = $_REQUEST['r0_Cmd'];
@@ -271,29 +271,29 @@ class yeepay
 
     function getCallbackHmacString($p1_MerId,$merchantKey,$r0_Cmd,$r1_Code,$r2_TrxId,$r3_Amt,$r4_Cur,$r5_Pid,$r6_Order,$r7_Uid,$r8_MP,$r9_BType)
     {
-        #È¡µÃ¼ÓÃÜÇ°µÄ×Ö·û´®
+        #å–å¾—åŠ å¯†å‰çš„å­—ç¬¦ä¸²
         $sbOld = "";
-        #¼ÓÈëÉÌ¼ÒID
+        #åŠ å…¥å•†å®¶ID
         $sbOld = $sbOld.$p1_MerId;
-        #¼ÓÈëÏûÏ¢ÀàĞÍ
+        #åŠ å…¥æ¶ˆæ¯ç±»å‹
         $sbOld = $sbOld.$r0_Cmd;
-        #¼ÓÈëÒµÎñ·µ»ØÂë
+        #åŠ å…¥ä¸šåŠ¡è¿”å›ç 
         $sbOld = $sbOld.$r1_Code;
-        #¼ÓÈë½»Ò×ID
+        #åŠ å…¥äº¤æ˜“ID
         $sbOld = $sbOld.$r2_TrxId;
-        #¼ÓÈë½»Ò×½ğ¶î
+        #åŠ å…¥äº¤æ˜“é‡‘é¢
         $sbOld = $sbOld.$r3_Amt;
-        #¼ÓÈë»õ±Òµ¥Î»
+        #åŠ å…¥è´§å¸å•ä½
         $sbOld = $sbOld.$r4_Cur;
-        #¼ÓÈë²úÆ·Id
+        #åŠ å…¥äº§å“Id
         $sbOld = $sbOld.$r5_Pid;
-        #¼ÓÈë¶©µ¥ID
+        #åŠ å…¥è®¢å•ID
         $sbOld = $sbOld.$r6_Order;
-        #¼ÓÈëÓÃ»§ID
+        #åŠ å…¥ç”¨æˆ·ID
         $sbOld = $sbOld.$r7_Uid;
-        #¼ÓÈëÉÌ¼ÒÀ©Õ¹ĞÅÏ¢
+        #åŠ å…¥å•†å®¶æ‰©å±•ä¿¡æ¯
         $sbOld = $sbOld.$r8_MP;
-        #¼ÓÈë½»Ò×½á¹û·µ»ØÀàĞÍ
+        #åŠ å…¥äº¤æ˜“ç»“æœè¿”å›ç±»å‹
         $sbOld = $sbOld.$r9_BType;
         
         return $this->HmacMd5($sbOld,$merchantKey,'gbk');
@@ -307,7 +307,7 @@ class yeepay
         // Eliminates the need to install mhash to compute a HMAC
         // Hacked by Lance Rushing(NOTE: Hacked means written)
         
-        //ĞèÒªÅäÖÃ»·¾³Ö§³Öiconv£¬·ñÔòÖĞÎÄ²ÎÊı²»ÄÜÕı³£´¦Àí
+        //éœ€è¦é…ç½®ç¯å¢ƒæ”¯æŒiconvï¼Œå¦åˆ™ä¸­æ–‡å‚æ•°ä¸èƒ½æ­£å¸¸å¤„ç†
         if($GLOBALS['cfg_soft_lang'] != 'utf-8' || $lang!='utf-8')
         {
             $key = gb2utf8($key);
@@ -326,66 +326,66 @@ class yeepay
         return md5($k_opad . pack("H*",md5($k_ipad . $data)));
     }
 
-    /*´¦ÀíÎïÆ·½»Ò×*/
+    /*å¤„ç†ç‰©å“äº¤æ˜“*/
     function success_db($order_sn)
     {
-        //»ñÈ¡¶©µ¥ĞÅÏ¢£¬¼ì²é¶©µ¥µÄÓĞĞ§ĞÔ
+        //è·å–è®¢å•ä¿¡æ¯ï¼Œæ£€æŸ¥è®¢å•çš„æœ‰æ•ˆæ€§
         $row = $this->dsql->GetOne("SELECT state FROM #@__shops_orders WHERE oid='$order_sn' ");
         if($row['state'] > 0)
         {
             return TRUE;
         }    
-        /* ¸Ä±ä¶©µ¥×´Ì¬_Ö§¸¶³É¹¦ */
+        /* æ”¹å˜è®¢å•çŠ¶æ€_æ”¯ä»˜æˆåŠŸ */
         $sql = "UPDATE `#@__shops_orders` SET `state`='1' WHERE `oid`='$order_sn' AND `userid`='".$this->mid."'";
         if($this->dsql->ExecuteNoneQuery($sql))
         {
-            $this->log_result("verify_success,¶©µ¥ºÅ:".$order_sn); //½«ÑéÖ¤½á¹û´æÈëÎÄ¼ş
+            $this->log_result("verify_success,è®¢å•å·:".$order_sn); //å°†éªŒè¯ç»“æœå­˜å…¥æ–‡ä»¶
             return TRUE;
         } else {
-            $this->log_result ("verify_failed,¶©µ¥ºÅ:".$order_sn);//½«ÑéÖ¤½á¹û´æÈëÎÄ¼ş
+            $this->log_result ("verify_failed,è®¢å•å·:".$order_sn);//å°†éªŒè¯ç»“æœå­˜å…¥æ–‡ä»¶
             return FALSE;
         }
     }
 
-    /*´¦Àíµã¿¨£¬»áÔ±Éı¼¶*/
+    /*å¤„ç†ç‚¹å¡ï¼Œä¼šå‘˜å‡çº§*/
     function success_mem($order_sn,$pname,$product,$pid)
     {
-        //¸üĞÂ½»Ò××´Ì¬ÎªÒÑ¸¶¿î
+        //æ›´æ–°äº¤æ˜“çŠ¶æ€ä¸ºå·²ä»˜æ¬¾
         $sql = "UPDATE `#@__member_operation` SET `sta`='1' WHERE `buyid`='$order_sn' AND `mid`='".$this->mid."'";
         $this->dsql->ExecuteNoneQuery($sql);
 
-        /* ¸Ä±äµã¿¨¶©µ¥×´Ì¬_Ö§¸¶³É¹¦ */
+        /* æ”¹å˜ç‚¹å¡è®¢å•çŠ¶æ€_æ”¯ä»˜æˆåŠŸ */
         if($product=="card")
         {
             $row = $this->dsql->GetOne("SELECT cardid FROM #@__moneycard_record WHERE ctid='$pid' AND isexp='0' ");;
-            //Èç¹ûÕÒ²»µ½Ä³ÖÖÀàĞÍµÄ¿¨£¬Ö±½ÓÎªÓÃ»§Ôö¼Ó½ğ±Ò
+            //å¦‚æœæ‰¾ä¸åˆ°æŸç§ç±»å‹çš„å¡ï¼Œç›´æ¥ä¸ºç”¨æˆ·å¢åŠ é‡‘å¸
             if(!is_array($row))
             {
                 $nrow = $this->dsql->GetOne("SELECT num FROM #@__moneycard_type WHERE pname = '{$pname}'");
                 $dnum = $nrow['num'];
                 $sql1 = "UPDATE `#@__member` SET `money`=money+'{$nrow['num']}' WHERE `mid`='".$this->mid."'";
-                $oldinf ="ÒÑ¾­³äÖµÁË".$nrow['num']."½ğ±Òµ½ÄúµÄÕÊºÅ£¡";
+                $oldinf ="å·²ç»å……å€¼äº†".$nrow['num']."é‡‘å¸åˆ°æ‚¨çš„å¸å·ï¼";
             } else {
                 $cardid = $row['cardid'];
                 $sql1=" UPDATE #@__moneycard_record SET uid='".$this->mid."',isexp='1',utime='".time()."' WHERE cardid='$cardid' ";
-                $oldinf='ÄúµÄ³äÖµÃÜÂëÊÇ£º<font color="green">'.$cardid.'</font>';
+                $oldinf='æ‚¨çš„å……å€¼å¯†ç æ˜¯ï¼š<font color="green">'.$cardid.'</font>';
             }
-            //¸üĞÂ½»Ò××´Ì¬ÎªÒÑ¹Ø±Õ
+            //æ›´æ–°äº¤æ˜“çŠ¶æ€ä¸ºå·²å…³é—­
             $sql2=" UPDATE #@__member_operation SET sta=2,oldinfo='$oldinf' WHERE buyid='$order_sn'";
             if($this->dsql->ExecuteNoneQuery($sql1) && $this->dsql->ExecuteNoneQuery($sql2))
             {
-                $this->log_result("verify_success,¶©µ¥ºÅ:".$order_sn); //½«ÑéÖ¤½á¹û´æÈëÎÄ¼ş
+                $this->log_result("verify_success,è®¢å•å·:".$order_sn); //å°†éªŒè¯ç»“æœå­˜å…¥æ–‡ä»¶
                 return $oldinf;
             } else {
-                $this->log_result ("verify_failed,¶©µ¥ºÅ:".$order_sn);//½«ÑéÖ¤½á¹û´æÈëÎÄ¼ş
-                return "Ö§¸¶Ê§°Ü£¡";
+                $this->log_result ("verify_failed,è®¢å•å·:".$order_sn);//å°†éªŒè¯ç»“æœå­˜å…¥æ–‡ä»¶
+                return "æ”¯ä»˜å¤±è´¥ï¼";
             }
-        /* ¸Ä±ä»áÔ±¶©µ¥×´Ì¬_Ö§¸¶³É¹¦ */
+        /* æ”¹å˜ä¼šå‘˜è®¢å•çŠ¶æ€_æ”¯ä»˜æˆåŠŸ */
         } else if ( $product=="member" ){
             $row = $this->dsql->GetOne("SELECT rank,exptime FROM #@__member_type WHERE aid='$pid' ");
             $rank = $row['rank'];
             $exptime = $row['exptime'];
-            /*¼ÆËãÔ­À´Éı¼¶Ê£ÓàµÄÌìÊı*/
+            /*è®¡ç®—åŸæ¥å‡çº§å‰©ä½™çš„å¤©æ•°*/
             $rs = $this->dsql->GetOne("SELECT uptime,exptime FROM #@__member WHERE mid='".$this->mid."'");
             if($rs['uptime']!=0 && $rs['exptime']!=0 ) 
             {
@@ -393,21 +393,21 @@ class yeepay
                 $mhasDay = $rs['exptime'] - ceil(($nowtime - $rs['uptime'])/3600/24) + 1;
                 $mhasDay=($mhasDay>0)? $mhasDay : 0;
             }
-            //»ñÈ¡»áÔ±Ä¬ÈÏ¼¶±ğµÄ½ğ±ÒºÍ»ı·ÖÊı
+            //è·å–ä¼šå‘˜é»˜è®¤çº§åˆ«çš„é‡‘å¸å’Œç§¯åˆ†æ•°
             $memrank = $this->dsql->GetOne("SELECT money,scores FROM #@__arcrank WHERE rank='$rank'");
-            //¸üĞÂ»áÔ±ĞÅÏ¢
+            //æ›´æ–°ä¼šå‘˜ä¿¡æ¯
             $sql1 =  " UPDATE #@__member SET rank='$rank',money=money+'{$memrank['money']}',
                        scores=scores+'{$memrank['scores']}',exptime='$exptime'+'$mhasDay',uptime='".time()."' 
                        WHERE mid='".$this->mid."'";
-            //¸üĞÂ½»Ò××´Ì¬ÎªÒÑ¹Ø±Õ
-            $sql2=" UPDATE #@__member_operation SET sta='2',oldinfo='»áÔ±Éı¼¶³É¹¦!' WHERE buyid='$order_sn' ";
+            //æ›´æ–°äº¤æ˜“çŠ¶æ€ä¸ºå·²å…³é—­
+            $sql2=" UPDATE #@__member_operation SET sta='2',oldinfo='ä¼šå‘˜å‡çº§æˆåŠŸ!' WHERE buyid='$order_sn' ";
             if($this->dsql->ExecuteNoneQuery($sql1) && $this->dsql->ExecuteNoneQuery($sql2))
             {
-                $this->log_result("verify_success,¶©µ¥ºÅ:".$order_sn); //½«ÑéÖ¤½á¹û´æÈëÎÄ¼ş
-                return "»áÔ±Éı¼¶³É¹¦£¡";
+                $this->log_result("verify_success,è®¢å•å·:".$order_sn); //å°†éªŒè¯ç»“æœå­˜å…¥æ–‡ä»¶
+                return "ä¼šå‘˜å‡çº§æˆåŠŸï¼";
             } else {
-                $this->log_result ("verify_failed,¶©µ¥ºÅ:".$order_sn);//½«ÑéÖ¤½á¹û´æÈëÎÄ¼ş
-                return "»áÔ±Éı¼¶Ê§°Ü£¡";
+                $this->log_result ("verify_failed,è®¢å•å·:".$order_sn);//å°†éªŒè¯ç»“æœå­˜å…¥æ–‡ä»¶
+                return "ä¼šå‘˜å‡çº§å¤±è´¥ï¼";
             }
         }    
     }
@@ -416,7 +416,7 @@ class yeepay
         global $cfg_cmspath;
         $fp = fopen(dirname(__FILE__)."/../../data/payment/log.txt","a");
         flock($fp, LOCK_EX) ;
-        fwrite($fp,$word.",Ö´ĞĞÈÕÆÚ:".strftime("%Y-%m-%d %H:%I:%S",time())."\r\n");
+        fwrite($fp,$word.",æ‰§è¡Œæ—¥æœŸ:".strftime("%Y-%m-%d %H:%I:%S",time())."\r\n");
         flock($fp, LOCK_UN);
         fclose($fp);
     }

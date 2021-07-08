@@ -1,8 +1,8 @@
 <?php
 /**
- * µ¥Ò³ÎÄµµÏàÍ¬±êÊ¶µ÷ÓÃ±êÇ©
+ * å•é¡µæ–‡æ¡£ç›¸åŒæ ‡è¯†è°ƒç”¨æ ‡ç­¾
  *
- * @version        $Id: likepage.lib.php 1 9:29 2010Äê7ÔÂ6ÈÕZ tianya $
+ * @version        $Id: likepage.lib.php 1 9:29 2010å¹´7æœˆ6æ—¥Z tianya $
  * @package        DedeCMS.Taglib
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -10,16 +10,16 @@
  */
  
 /*>>dede>>
-<name>µ¥Ò³ÎÄµµÏàÍ¬±êÊ¶µ÷ÓÃ±êÇ©</name>
-<type>È«¾Ö±ê¼Ç</type>
+<name>å•é¡µæ–‡æ¡£ç›¸åŒæ ‡è¯†è°ƒç”¨æ ‡ç­¾</name>
+<type>å…¨å±€æ ‡è®°</type>
 <for>V55,V56,V57</for>
-<description>µ÷ÓÃÏàÍ¬±êÊ¶µ¥Ò³ÎÄµµ</description>
+<description>è°ƒç”¨ç›¸åŒæ ‡è¯†å•é¡µæ–‡æ¡£</description>
 <demo>
 {dede:likepage likeid='' row=''/}
 </demo>
 <attributes>
-    <iterm>row:µ÷ÓÃÌõÊı</iterm> 
-    <iterm>likeid:±êÊ¶Ãû</iterm>
+    <iterm>row:è°ƒç”¨æ¡æ•°</iterm> 
+    <iterm>likeid:æ ‡è¯†å</iterm>
 </attributes> 
 >>dede>>*/
  

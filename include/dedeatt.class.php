@@ -1,8 +1,8 @@
 <?php
 /**
- * ÊôÐÔµÄÊý¾ÝÃèÊö
+ * å±žæ€§çš„æ•°æ®æè¿°
  *
- * @version        $Id: dedeatt.class.php 1 13:50 2010Äê7ÔÂ6ÈÕZ tianya $
+ * @version        $Id: dedeatt.class.php 1 13:50 2010å¹´7æœˆ6æ—¥Z tianya $
  * @package        DedeCMS.Libraries
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -10,7 +10,7 @@
  */
 // ------------------------------------------------------------------------
 /**
- * ÊôÐÔµÄÊý¾ÝÃèÊö
+ * å±žæ€§çš„æ•°æ®æè¿°
  * function c____DedeAtt();
  *
  * @package          DedeAtt
@@ -20,13 +20,13 @@
 class DedeAtt
 {
     var $Count = -1;
-    var $Items = ""; //ÊôÐÔÔªËØµÄ¼¯ºÏ
+    var $Items = ""; //å±žæ€§å…ƒç´ çš„é›†åˆ
 
     /**
-     *  //»ñµÃÄ³¸öÊôÐÔ
+     *  //èŽ·å¾—æŸä¸ªå±žæ€§
      *
      * @access    public
-     * @param     string    $str    Ãû³Æ
+     * @param     string    $str    åç§°
      * @return    string
      */
     function GetAtt($str)
@@ -45,17 +45,17 @@ class DedeAtt
         }
     }
 
-    //Í¬ÉÏ
+    //åŒä¸Š
     function GetAttribute($str)
     {
         return $this->GetAtt($str);
     }
 
     /**
-     *  ÅÐ¶ÏÊôÐÔÊÇ·ñ´æÔÚ
+     *  åˆ¤æ–­å±žæ€§æ˜¯å¦å­˜åœ¨
      *
      * @access    public
-     * @param     string  $str  ÊôÐÔÃû³Æ
+     * @param     string  $str  å±žæ€§åç§°
      * @return    string
      */
     function IsAttribute($str)
@@ -64,7 +64,7 @@ class DedeAtt
     }
 
     /**
-     *  »ñµÃ±ê¼ÇÃû³Æ
+     *  èŽ·å¾—æ ‡è®°åç§°
      *
      * @access    public
      * @return    string
@@ -75,7 +75,7 @@ class DedeAtt
     }
 
     /**
-     *   »ñµÃÊôÐÔ¸öÊý
+     *   èŽ·å¾—å±žæ€§ä¸ªæ•°
      *
      * @access    public
      * @return    int
@@ -87,7 +87,7 @@ class DedeAtt
 }//End DedeAtt
 
 /**
- * ÊôÐÔ½âÎöÆ÷
+ * å±žæ€§è§£æžå™¨
  * function c____DedeAttParse();
  *
  * @package          DedeAtt
@@ -98,14 +98,14 @@ class DedeAttParse
 {
     var $SourceString = "";
     var $SourceMaxSize = 1024;
-    var $CAtt = ""; //ÊôÐÔµÄÊý¾ÝÃèÊöÀà
+    var $CAtt = ""; //å±žæ€§çš„æ•°æ®æè¿°ç±»
     var $CharToLow = TRUE;
 
     /**
-     *  ÉèÖÃÊôÐÔ½âÎöÆ÷Ô´×Ö·û´®
+     *  è®¾ç½®å±žæ€§è§£æžå™¨æºå­—ç¬¦ä¸²
      *
      * @access    public
-     * @param     string  $str  ÐèÒª½âÎöµÄ×Ö·û´®
+     * @param     string  $str  éœ€è¦è§£æžçš„å­—ç¬¦ä¸²
      * @return    string
      */
     function SetSource($str="")
@@ -121,7 +121,7 @@ class DedeAttParse
     }
 
     /**
-     *  ½âÎöÊôÐÔ(Ë½ÓÐ³ÉÔ±£¬½ö¸øSetSourceµ÷ÓÃ)
+     *  è§£æžå±žæ€§(ç§æœ‰æˆå‘˜ï¼Œä»…ç»™SetSourceè°ƒç”¨)
      *
      * @access    private
      * @return    void
@@ -136,9 +136,9 @@ class DedeAttParse
         $notAttribute=TRUE;
         $strLen = strlen($this->SourceString);
 
-        // ÕâÀïÊÇ»ñµÃTagµÄÃû³Æ,¿ÉÊÓÇé¿öÊÇ·ñÐèÒª
-        // Èç¹û²»ÔÚÕâ¸öÀï½âÎö,ÔòÔÚ½âÎöÕû¸öTagÊ±½âÎö
-        // ÊôÐÔÖÐ²»Ó¦¸Ã´æÔÚtagnameÕâ¸öÃû³Æ
+        // è¿™é‡Œæ˜¯èŽ·å¾—Tagçš„åç§°,å¯è§†æƒ…å†µæ˜¯å¦éœ€è¦
+        // å¦‚æžœä¸åœ¨è¿™ä¸ªé‡Œè§£æž,åˆ™åœ¨è§£æžæ•´ä¸ªTagæ—¶è§£æž
+        // å±žæ€§ä¸­ä¸åº”è¯¥å­˜åœ¨tagnameè¿™ä¸ªåç§°
         for($i=0;$i<$strLen;$i++)
         {
             $d = substr($this->SourceString,$i,1);
@@ -163,14 +163,14 @@ class DedeAttParse
             }
         }
 
-        //²»´æÔÚÊôÐÔÁÐ±íµÄÇé¿ö
+        //ä¸å­˜åœ¨å±žæ€§åˆ—è¡¨çš„æƒ…å†µ
         if($notAttribute)
         {
             $this->CAtt->Count++;
             $this->CAtt->Items["tagname"]= ($this->CharToLow ? strtolower(trim($tmpvalue)) : trim($tmpvalue));
         }
 
-        //Èç¹û×Ö·û´®º¬ÓÐÊôÐÔÖµ£¬±éÀúÔ´×Ö·û´®,²¢»ñµÃ¸÷ÊôÐÔ
+        //å¦‚æžœå­—ç¬¦ä¸²å«æœ‰å±žæ€§å€¼ï¼ŒéåŽ†æºå­—ç¬¦ä¸²,å¹¶èŽ·å¾—å„å±žæ€§
         if(!$notAttribute)
         {
             for($i;$i<$strLen;$i++)
@@ -237,7 +237,7 @@ class DedeAttParse
             {
                 $this->CAtt->Count++;
                 $this->CAtt->Items[$tmpatt]=trim($tmpvalue);//strtolower(trim($tmpvalue));
-            }//Íê³ÉÊôÐÔ½âÎö
+            }//å®Œæˆå±žæ€§è§£æž
 
         }//for
 

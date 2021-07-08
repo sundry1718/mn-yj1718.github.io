@@ -1,6 +1,6 @@
 <?php  if(!defined('DEDEINC')) exit('dedecms');
 /**
- * DedeCMSÖÐÓÃµ½µÄ×Ö·û±àÂë×ª»»µÄÐ¡ÖúÊÖº¯Êý
+ * DedeCMSä¸­ç”¨åˆ°çš„å­—ç¬¦ç¼–ç è½¬æ¢çš„å°åŠ©æ‰‹å‡½æ•°
  *
  * @version        $Id: charset.helper.php 1 2010-07-05 11:43:09Z tianya $
  * @package        DedeCMS.Helpers
@@ -14,10 +14,10 @@ $UC2GBTABLE = $CODETABLE = $BIG5_DATA = $GB_DATA = '';
 $GbkUniDic = null;
 
 /**
- *  UTF-8 ×ªGB±àÂë
+ *  UTF-8 è½¬GBç¼–ç 
  *
  * @access    public
- * @param     string  $utfstr  ÐèÒª×ª»»µÄ×Ö·û´®
+ * @param     string  $utfstr  éœ€è¦è½¬æ¢çš„å­—ç¬¦ä¸²
  * @return    string
  */
 if ( ! function_exists('utf82gb'))
@@ -79,10 +79,10 @@ if ( ! function_exists('utf82gb'))
 }
 
 /**
- *  GB×ªUTF-8±àÂë
+ *  GBè½¬UTF-8ç¼–ç 
  *
  * @access    public
- * @param     string  $gbstr  gbkµÄ×Ö·û´®
+ * @param     string  $gbstr  gbkçš„å­—ç¬¦ä¸²
  * @return    string
  */
 if ( ! function_exists('gb2utf8'))
@@ -135,10 +135,10 @@ if ( ! function_exists('gb2utf8'))
 }
 
 /**
- *  Unicode×ªutf8
+ *  Unicodeè½¬utf8
  *
  * @access    public
- * @param     string  $c  UnicodeµÄ×Ö·û´®ÄÚÈÝ
+ * @param     string  $c  Unicodeçš„å­—ç¬¦ä¸²å†…å®¹
  * @return    string
  */
 if ( ! function_exists('u2utf8'))
@@ -176,10 +176,10 @@ if ( ! function_exists('u2utf8'))
 }
 
 /**
- *  utf8×ªUnicode
+ *  utf8è½¬Unicode
  *
  * @access    public
- * @param     string  $c  UTF-8µÄ×Ö·û´®ÐÅÏ¢
+ * @param     string  $c  UTF-8çš„å­—ç¬¦ä¸²ä¿¡æ¯
  * @return    string
  */
 if ( ! function_exists('utf82u'))
@@ -210,10 +210,10 @@ if ( ! function_exists('utf82u'))
 }
 
 /**
- *  Big5Âë×ª»»³ÉGBÂë
+ *  Big5ç è½¬æ¢æˆGBç 
  *
  * @access    public
- * @param     string   $Text  ×Ö·û´®ÄÚÈÝ
+ * @param     string   $Text  å­—ç¬¦ä¸²å†…å®¹
  * @return    string
  */
 if ( ! function_exists('big52gb'))
@@ -241,7 +241,7 @@ if ( ! function_exists('big52gb'))
                 $l = ord($Text[$i+1]);
                 if($h==161 && $l==64)
                 {
-                    $gbstr = "¡¡";
+                    $gbstr = "ã€€";
                 }
                 else
                 {
@@ -258,10 +258,10 @@ if ( ! function_exists('big52gb'))
 }
 
 /**
- *  GBÂë×ª»»³ÉBig5Âë
+ *  GBç è½¬æ¢æˆBig5ç 
  *
  * @access    public
- * @param     string  $Text ×Ö·û´®ÄÚÈÝ
+ * @param     string  $Text å­—ç¬¦ä¸²å†…å®¹
  * @return    string
  */
 if ( ! function_exists('gb2big5'))
@@ -289,7 +289,7 @@ if ( ! function_exists('gb2big5'))
                 $l = ord($Text[$i+1]);
                 if($h==161 && $l==64)
                 {
-                    $big = "¡¡";
+                    $big = "ã€€";
                 }
                 else
                 {
@@ -306,17 +306,17 @@ if ( ! function_exists('gb2big5'))
 }
 
 /**
- *  unicode url±àÂë×ªgbk±àÂëº¯Êý
+ *  unicode urlç¼–ç è½¬gbkç¼–ç å‡½æ•°
  *
  * @access    public
- * @param     string  $str  ×ª»»µÄÄÚÈÝ
+ * @param     string  $str  è½¬æ¢çš„å†…å®¹
  * @return    string
  */
 if ( ! function_exists('UnicodeUrl2Gbk'))
 {
     function UnicodeUrl2Gbk($str)
     {
-        //ÔØÈë¶ÔÕÕ´Êµä
+        //è½½å…¥å¯¹ç…§è¯å…¸
         if(!isset($GLOBALS['GbkUniDic']))
         {
             $fp = fopen(DEDEINC.'/data/gbk-unicode.dat','rb');
@@ -327,7 +327,7 @@ if ( ! function_exists('UnicodeUrl2Gbk'))
             fclose($fp);
         }
 
-        //´¦Àí×Ö·û´®
+        //å¤„ç†å­—ç¬¦ä¸²
         $str = str_replace('$#$','+',$str);
         $glen = strlen($str);
         $okstr = "";
@@ -363,10 +363,10 @@ if ( ! function_exists('UnicodeUrl2Gbk'))
 }
 
 /**
- *  ×Ô¶¯×ª»»×Ö·û¼¯ Ö§³ÖÊý×é×ª»»
+ *  è‡ªåŠ¨è½¬æ¢å­—ç¬¦é›† æ”¯æŒæ•°ç»„è½¬æ¢
  *
  * @access    public
- * @param     string  $str  ×ª»»µÄÄÚÈÝ
+ * @param     string  $str  è½¬æ¢çš„å†…å®¹
  * @return    string
  */
 if ( ! function_exists('AutoCharset'))
@@ -376,7 +376,7 @@ if ( ! function_exists('AutoCharset'))
         $from   =  strtoupper($from)=='UTF8'? 'utf-8' : $from;
         $to       =  strtoupper($to)=='UTF8'? 'utf-8' : $to;
         if( strtoupper($from) === strtoupper($to) || empty($fContents) || (is_scalar($fContents) && !is_string($fContents)) ){
-            //Èç¹û±àÂëÏàÍ¬»òÕß·Ç×Ö·û´®±êÁ¿Ôò²»×ª»»
+            //å¦‚æžœç¼–ç ç›¸åŒæˆ–è€…éžå­—ç¬¦ä¸²æ ‡é‡åˆ™ä¸è½¬æ¢
             return $fContents;
         }
         if(is_string($fContents) ) 

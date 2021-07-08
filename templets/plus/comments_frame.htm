@@ -14,7 +14,7 @@ function CheckLogin(){
 }
 function checkSubmit(){
 	if(document.feedback.msg.value!='') document.feedback.submit();
-	else alert("ÆÀÂÛÄÚÈİ²»ÄÜÎª¿Õ£¡");
+	else alert("è¯„è®ºå†…å®¹ä¸èƒ½ä¸ºç©ºï¼");
 }
 function postBadGood(ftype,fid)
 {
@@ -37,7 +37,7 @@ function postBadGood(ftype,fid)
 				if(j==9 && !hasid) break;
 			}
 		}
-		if(hasid) { alert('Äú¸Õ²ÅÒÑ±í¾ö¹ıÁËà¸£¡'); return false;}
+		if(hasid) { alert('æ‚¨åˆšæ‰å·²è¡¨å†³è¿‡äº†å–”ï¼'); return false;}
 		else saveid += ','+fid;
 		SetCookie('badgoodid',saveid,1);
 	}
@@ -55,8 +55,8 @@ function postBadGood(ftype,fid)
 <div class="pleft mt1">
 			<dl class="tbox">
 				<dt>
-					<strong>×îĞÂÆÀÂÛ</strong>
-					<span class="more"><a href="{dede:global.cfg_phpurl/}/feedback.php?aid=<?php echo $id;?>" target="_blank">²é¿´ËùÓĞÆÀÂÛ</a></span>
+					<strong>æœ€æ–°è¯„è®º</strong>
+					<span class="more"><a href="{dede:global.cfg_phpurl/}/feedback.php?aid=<?php echo $id;?>" target="_blank">æŸ¥çœ‹æ‰€æœ‰è¯„è®º</a></span>
 				</dt>
 				<dd>
 					<div class="dede_comment">
@@ -64,16 +64,16 @@ function postBadGood(ftype,fid)
 <?php
   if($fields['userid']!='') $spaceurl = $cfg_basehost.'/member/index.php?uid='.$fields['userid']."' target='_blank'";
   else $spaceurl = "#";
-  if($fields['username']=='ÄäÃû') $spaceurl = "#";
+  if($fields['username']=='åŒ¿å') $spaceurl = "#";
   $fields['bgimg'] = 'cmt-neu.gif';
-  $fields['ftypetitle'] = '¸ÃÓÃ»§±íÊ¾ÖĞÁ¢';
+  $fields['ftypetitle'] = 'è¯¥ç”¨æˆ·è¡¨ç¤ºä¸­ç«‹';
   if($fields['ftype']=='bad') {
   	$fields['bgimg'] = 'cmt-bad.gif';
-  	$fields['ftypetitle'] = '¸ÃÓÃ»§±íÊ¾²îÆÀ';
+  	$fields['ftypetitle'] = 'è¯¥ç”¨æˆ·è¡¨ç¤ºå·®è¯„';
   }
   else if($fields['ftype']=='good') {
   	$fields['bgimg'] = 'cmt-good.gif';
-  	$fields['ftypetitle'] = '¸ÃÓÃ»§±íÊ¾ºÃÆÀ';
+  	$fields['ftypetitle'] = 'è¯¥ç”¨æˆ·è¡¨ç¤ºå¥½è¯„';
   }
 ?>
 <div class='decmt-box'>
@@ -81,12 +81,12 @@ function postBadGood(ftype,fid)
 <span class='moodico'><img src='{dede:global.cfg_templeturl/}/images/mood/ico-mood-<?php if($fields['face']>0) echo $fields['face'];?>.gif'/></span>
 <span class='username'><a href='<?php echo $spaceurl;?>'>{dede:field.username/}</a></span>
 <span class='date'>{dede:field.dtime function=GetDateMk(@me)/}</span>
-<span>·¢±í</span>
+<span>å‘è¡¨</span>
 </div>
 <div class='decmt-act'>
-<span id='goodfb{dede:field.id/}'><a href=#goodfb{dede:field.id/} onclick=postBadGood('goodfb',{dede:field.id/})>Ö§³Ö</a>[{dede:field.good/}]</span>
-<span id='badfb{dede:field.id/}'><a href=#badfb{dede:field.id/} onclick=postBadGood('badfb',{dede:field.id/})>·´¶Ô</a>[{dede:field.bad/}]</span>
-<span><a href='{dede:global.cfg_phpurl/}/feedback.php?fid={dede:field.id/}&action=quote' target="_blank">ÒıÓÃ</a></span>
+<span id='goodfb{dede:field.id/}'><a href=#goodfb{dede:field.id/} onclick=postBadGood('goodfb',{dede:field.id/})>æ”¯æŒ</a>[{dede:field.good/}]</span>
+<span id='badfb{dede:field.id/}'><a href=#badfb{dede:field.id/} onclick=postBadGood('badfb',{dede:field.id/})>åå¯¹</a>[{dede:field.bad/}]</span>
+<span><a href='{dede:global.cfg_phpurl/}/feedback.php?fid={dede:field.id/}&action=quote' target="_blank">å¼•ç”¨</a></span>
 </div>
 <div class='decmt-content'>{dede:field.msg function='jstrim(@me,100)'/}<img src='{dede:global.cfg_templeturl/}/images/{dede:field.bgimg/}' alt='{dede:field.ftypetitle/}' />
 </div>
@@ -99,8 +99,8 @@ function postBadGood(ftype,fid)
 <div class="mt1 pleft">
 		<dl class="tbox">
 			<dt>
-				<strong>·¢±íÆÀÂÛ</strong>
-				<span class="more"><a href="{dede:global.cfg_phpurl/}/feedback.php?aid=<?php echo $id;?>" target="_blank">²é¿´ËùÓĞÆÀÂÛ</a></span>
+				<strong>å‘è¡¨è¯„è®º</strong>
+				<span class="more"><a href="{dede:global.cfg_phpurl/}/feedback.php?aid=<?php echo $id;?>" target="_blank">æŸ¥çœ‹æ‰€æœ‰è¯„è®º</a></span>
 			</dt>
 			<dd>
 				<div class="dede_comment_post">
@@ -110,20 +110,20 @@ function postBadGood(ftype,fid)
           <input type="hidden" name="aid" value="<?php echo $id;?>" />
           <input type="hidden" name="isconfirm" value="yes" />
                     <div class="dcmp-title">
-						<small>Çë×Ô¾õ×ñÊØ»¥ÁªÍøÏà¹ØµÄÕş²ß·¨¹æ£¬ÑÏ½û·¢²¼É«Çé¡¢±©Á¦¡¢·´¶¯µÄÑÔÂÛ¡£</small>
+						<small>è¯·è‡ªè§‰éµå®ˆäº’è”ç½‘ç›¸å…³çš„æ”¿ç­–æ³•è§„ï¼Œä¸¥ç¦å‘å¸ƒè‰²æƒ…ã€æš´åŠ›ã€ååŠ¨çš„è¨€è®ºã€‚</small>
 					</div><!-- /dcmp-title -->
 					<div class="dcmp-stand">
-						<strong>ÆÀ¼Û:</strong>
-							<input type="radio" name="feedbacktype" checked="1" value="feedback" id="dcmp-stand-neu" /><label for="dcmp-stand-neu"><img src="{dede:global.cfg_templeturl/}/images/cmt-neu.gif" />ÖĞÁ¢</label>
-							<input type="radio" name="feedbacktype" value="good" id="dcmp-stand-good" /><label for="dcmp-stand-good"><img src="{dede:global.cfg_templeturl/}/images/cmt-good.gif" />ºÃÆÀ</label>
-							<input type="radio" name="feedbacktype" value="bad" id="dcmp-stand-bad" /><label for="dcmp-stand-bad"><img src="{dede:global.cfg_templeturl/}/images/cmt-bad.gif" />²îÆÀ</label>
+						<strong>è¯„ä»·:</strong>
+							<input type="radio" name="feedbacktype" checked="1" value="feedback" id="dcmp-stand-neu" /><label for="dcmp-stand-neu"><img src="{dede:global.cfg_templeturl/}/images/cmt-neu.gif" />ä¸­ç«‹</label>
+							<input type="radio" name="feedbacktype" value="good" id="dcmp-stand-good" /><label for="dcmp-stand-good"><img src="{dede:global.cfg_templeturl/}/images/cmt-good.gif" />å¥½è¯„</label>
+							<input type="radio" name="feedbacktype" value="bad" id="dcmp-stand-bad" /><label for="dcmp-stand-bad"><img src="{dede:global.cfg_templeturl/}/images/cmt-bad.gif" />å·®è¯„</label>
 					</div><!-- /dcmp-stand -->
 					<div class="dcmp-content">
 						<textarea cols="60" name="msg" rows="5" class="ipt-txt"></textarea>
 					</div><!-- /dcmp-content -->
 
 					<div class="dcmp-mood">
-						<strong>±íÇé:</strong>
+						<strong>è¡¨æƒ…:</strong>
 						<ul>
 								<li><input type="radio" name='face' value='6' checked="1" /><img src="{dede:global.cfg_templeturl/}/images/mood/ico-mood-6.gif" /></li>
 								<li><input type="radio" name='face' value='4'/><img src="{dede:global.cfg_templeturl/}/images/mood/ico-mood-4.gif" /></li>
@@ -134,16 +134,16 @@ function postBadGood(ftype,fid)
 								<li><input type="radio" name='face' value='7'/><img src="{dede:global.cfg_templeturl/}/images/mood/ico-mood-7.gif" /></li>
 						</ul>
 					</div><!-- /dcmp-mood -->
-					<div class="dcmp-post"><!--Î´µÇÂ½-->
+					<div class="dcmp-post"><!--æœªç™»é™†-->
 							<div class="dcmp-userinfo" id="_ajax_feedback">
-								ÓÃ»§Ãû:<input type="text" name="username" size="16" class="ipt-txt" />
-								ÃÜÂë:<input name="pwd" type="password" size="16" class="ipt-txt" />
-								ÑéÖ¤Âë:<input type="text" name="validate" size="4" class="ipt-txt" style="text-transform: uppercase;"/><img src="{dede:global.cfg_cmsurl/}/include/vdimgck.php" />
-                                <input type="checkbox" name="notuser" id="dcmp-submit-guest" /><label for="dcmp-submit-guest"> ÄäÃû? </label>
+								ç”¨æˆ·å:<input type="text" name="username" size="16" class="ipt-txt" />
+								å¯†ç :<input name="pwd" type="password" size="16" class="ipt-txt" />
+								éªŒè¯ç :<input type="text" name="validate" size="4" class="ipt-txt" style="text-transform: uppercase;"/><img src="{dede:global.cfg_cmsurl/}/include/vdimgck.php" />
+                                <input type="checkbox" name="notuser" id="dcmp-submit-guest" /><label for="dcmp-submit-guest"> åŒ¿å? </label>
 							</div>
 							<script language="javascript" type="text/javascript">CheckLogin();</script>
 							<div class="dcmp-submit">
-								<button type="button" onClick='checkSubmit()'>·¢±íÆÀÂÛ</button>
+								<button type="button" onClick='checkSubmit()'>å‘è¡¨è¯„è®º</button>
 							</div>
 						</div>
                     </form>

@@ -1,14 +1,14 @@
 <?php
 /**
  *
- * ÎÄµµÍ³¼Æ
+ * æ–‡æ¡£ç»Ÿè®¡
  *
- * Èç¹ûÏëÏÔÊ¾µã»÷´ÎÊı,ÇëÔö¼Óview²ÎÊı,¼´°ÑÏÂÃæ£Ê£Óµ÷ÓÃ·Åµ½ÎÄµµÄ£°åÊÊµ±Î»ÖÃ
+ * å¦‚æœæƒ³æ˜¾ç¤ºç‚¹å‡»æ¬¡æ•°,è¯·å¢åŠ viewå‚æ•°,å³æŠŠä¸‹é¢ï¼ªï¼³è°ƒç”¨æ”¾åˆ°æ–‡æ¡£æ¨¡æ¿é€‚å½“ä½ç½®
  * <script src="{dede:field name='phpurl'/}/count.php?view=yes&aid={dede:field name='id'/}&mid={dede:field name='mid'/}" language="javascript"></script>
- * ÆÕÍ¨¼ÆÊıÆ÷Îª
+ * æ™®é€šè®¡æ•°å™¨ä¸º
  * <script src="{dede:field name='phpurl'/}/count.php?aid={dede:field name='id'/}&mid={dede:field name='mid'/}" language="javascript"></script>
  *
- * @version        $Id: count.php 1 20:43 2010Äê7ÔÂ8ÈÕZ tianya $
+ * @version        $Id: count.php 1 20:43 2010å¹´7æœˆ8æ—¥Z tianya $
  * @package        DedeCMS.Site
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -23,7 +23,7 @@ $arcID = $aid = empty($arcID)? 0 : intval(preg_replace("/[^\d]/",'', $arcID));
 $maintable = '#@__archives';$idtype='id';
 if($aid==0) exit();
 
-//»ñµÃÆµµÀÄ£ĞÍID
+//è·å¾—é¢‘é“æ¨¡å‹ID
 if($cid < 0)
 {
     $row = $dsql->GetOne("SELECT addtable FROM `#@__channeltype` WHERE id='$cid' AND issystem='-1';");

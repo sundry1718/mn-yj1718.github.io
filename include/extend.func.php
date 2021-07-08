@@ -2,20 +2,20 @@
 function litimgurls($imgid=0)
 {
     global $lit_imglist,$dsql;
-    //»ñÈ¡¸½¼Ó±í
+    //èŽ·å–é™„åŠ è¡¨
     $row = $dsql->GetOne("SELECT c.addtable FROM #@__archives AS a LEFT JOIN #@__channeltype AS c 
                                                             ON a.channel=c.id where a.id='$imgid'");
     $addtable = trim($row['addtable']);
     
-    //»ñÈ¡Í¼Æ¬¸½¼Ó±íimgurls×Ö¶ÎÄÚÈÝ½øÐÐ´¦Àí
+    //èŽ·å–å›¾ç‰‡é™„åŠ è¡¨imgurlså­—æ®µå†…å®¹è¿›è¡Œå¤„ç†
     $row = $dsql->GetOne("Select imgurls From `$addtable` where aid='$imgid'");
     
-    //µ÷ÓÃinc_channel_unit.phpÖÐChannelUnitÀà
+    //è°ƒç”¨inc_channel_unit.phpä¸­ChannelUnitç±»
     $ChannelUnit = new ChannelUnit(2,$imgid);
     
-    //µ÷ÓÃChannelUnitÀàÖÐGetlitImgLinks·½·¨´¦ÀíËõÂÔÍ¼
+    //è°ƒç”¨ChannelUnitç±»ä¸­GetlitImgLinksæ–¹æ³•å¤„ç†ç¼©ç•¥å›¾
     $lit_imglist = $ChannelUnit->GetlitImgLinks($row['imgurls']);
     
-    //·µ»Ø½á¹û
+    //è¿”å›žç»“æžœ
     return $lit_imglist;
 }

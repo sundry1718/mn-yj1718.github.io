@@ -1,9 +1,9 @@
 <?php
 /**
  *
- * ¸ß¼¶ËÑË÷
+ * é«˜çº§æœç´¢
  *
- * @version        $Id: advancedsearch.php 1 15:38 2010Äê7ÔÂ8ÈÕZ tianya $
+ * @version        $Id: advancedsearch.php 1 15:38 2010å¹´7æœˆ8æ—¥Z tianya $
  * @package        DedeCMS.Site
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -14,7 +14,7 @@ require_once(DEDEINC."/datalistcp.class.php");
 $timestamp = time();
 @session_start();
 
-//ÏŞÖÆÍ¬Ê±ËÑË÷ÊıÁ¿
+//é™åˆ¶åŒæ—¶æœç´¢æ•°é‡
 $timelock = '../data/time.lock';
 if($cfg_allsearch_limit < 1)
 {
@@ -24,7 +24,7 @@ if(file_exists($timelock))
 {
     if($timestamp - filemtime($timelock) < $cfg_allsearch_limit)
     {
-        showmsg('·şÎñÆ÷Ã¦£¬ÇëÉÔºóËÑË÷','-1');
+        showmsg('æœåŠ¡å™¨å¿™ï¼Œè¯·ç¨åæœç´¢','-1');
         exit();
     }
 }
@@ -34,7 +34,7 @@ $sqlhash = isset($sqlhash) && preg_match("/^[A-Za-z0-9]+$/", $sqlhash) ? $sqlhas
 
 if($mid == 0)
 {
-    showmsg('²ÎÊı²»ÕıÈ·£¬¸ß¼¶×Ô¶¨ÒåËÑË÷±ØĞëÖ¸¶¨Ä£ĞÍid', 'javascript');
+    showmsg('å‚æ•°ä¸æ­£ç¡®ï¼Œé«˜çº§è‡ªå®šä¹‰æœç´¢å¿…é¡»æŒ‡å®šæ¨¡å‹id', 'javascript');
     exit();
 }
 
@@ -42,7 +42,7 @@ $query = "SELECT maintable, mainfields, addontable, addonfields, template FROM #
 $searchinfo = $dsql->GetOne($query);
 if(!is_array($searchinfo))
 {
-    showmsg('×Ô¶¨ÒåËÑË÷Ä£ĞÍ²»´æÔÚ','-1');
+    showmsg('è‡ªå®šä¹‰æœç´¢æ¨¡å‹ä¸å­˜åœ¨','-1');
     exit();
 }
 $template = $searchinfo['template'] != '' ?  $searchinfo['template'] : 'advancedsearch.htm';
@@ -50,12 +50,12 @@ $sql = empty($_SESSION[$sqlhash])? '' : $_SESSION[$sqlhash];
 
 if(empty($sql))
 {
-    //Ö÷±í×Ö¶Î´¦Àí
+    //ä¸»è¡¨å­—æ®µå¤„ç†
     $q = stripslashes($q);
     $q = preg_replace("#[\|\"\r\n\t%\*\?\(\)\$;,'%<>]#", " ", trim($q));
     if( ($cfg_notallowstr!='' && preg_match("#".$cfg_notallowstr."#i", $q)) || ($cfg_replacestr!='' && preg_match("#".$cfg_replacestr."#i", $q)) )
     {
-        echo "ÄãµÄĞÅÏ¢ÖĞ´æÔÚ·Ç·¨ÄÚÈİ£¬±»ÏµÍ³½ûÖ¹£¡<a href='javascript:history.go(-1)'>[·µ»Ø]</a>"; exit();
+        echo "ä½ çš„ä¿¡æ¯ä¸­å­˜åœ¨éæ³•å†…å®¹ï¼Œè¢«ç³»ç»Ÿç¦æ­¢ï¼<a href='javascript:history.go(-1)'>[è¿”å›]</a>"; exit();
     }
     $q = addslashes($q);
     $iscommend = isset($iscommend) && is_numeric($iscommend) ? $iscommend : 0;
@@ -113,7 +113,7 @@ if(empty($sql))
     $addonfields = $searchinfo['addonfields'];
     $mainfieldsarr = explode(',', $mainfields);
     $addonfieldsarr = explode(',', $addonfields);
-    array_pop($addonfieldsarr);//µ¯³ö
+    array_pop($addonfieldsarr);//å¼¹å‡º
 
     $intarr = array('int','float');
     $textarr = array('textdata','textchar','text','htmltext','multitext');
@@ -230,7 +230,7 @@ else
 }
 
 $sql = urlencode($sql);
-//Éú³ÉsqlµÄÎ¨Ò»ĞòÁĞ»¯×Ö·û´®,²¢½«sqlÓï¾ä¼ÇÂ¼µ½sessionÖĞÈ¥
+//ç”Ÿæˆsqlçš„å”¯ä¸€åºåˆ—åŒ–å­—ç¬¦ä¸²,å¹¶å°†sqlè¯­å¥è®°å½•åˆ°sessionä¸­å»
 $sqlhash = md5($sql);
 $_SESSION[$sqlhash] = $sql;
 
@@ -250,7 +250,7 @@ $dlist->SetTemplate($templatefile);
 $dlist->SetSource($query);
 require_once(DEDEINC."/channelunit.class.php");
 
-//»ñµÃÒ»¸öÖ¸¶¨µµ°¸µÄÁ´½Ó
+//è·å¾—ä¸€ä¸ªæŒ‡å®šæ¡£æ¡ˆçš„é“¾æ¥
 function GetArcUrl($aid,$typeid,$timetag,$title,$ismake=0,$rank=0,$namerule='',$artdir='',$money=0)
 {
     return GetFileUrl($aid,$typeid,$timetag,$title,$ismake,$rank,$namerule,$artdir,$money);

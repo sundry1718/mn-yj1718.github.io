@@ -1,6 +1,6 @@
 <?php   if(!defined('DEDEINC')) exit("Request Error!");
 /**
- * 模型基类
+ * 妯″瀷鍩虹被
  *
  * @version        $Id: model.class.php 1 13:46 2010-12-1 tianya $
  * @package        DedeCMS.Libraries
@@ -19,7 +19,7 @@ class Model
         $this->Model();
     }
 
-    // 析构函数
+    // 鏋愭瀯鍑芥暟
     function Model()
     {
         global $dsql;
@@ -32,7 +32,7 @@ class Model
 
     }
 
-    // 释放资源
+    // 閲婃斁璧勬簮
     function __destruct()
     {
         $this->dsql->Close(TRUE);

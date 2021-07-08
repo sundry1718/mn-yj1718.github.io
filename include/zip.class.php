@@ -1,8 +1,8 @@
 <?php
 /**
- * ZipÑ¹ËõÀà
+ * ZipåŽ‹ç¼©ç±»
  *
- * @version        $Id: zip.class.php 1 15:21 2010Äê7ÔÂ5ÈÕZ tianya $
+ * @version        $Id: zip.class.php 1 15:21 2010å¹´7æœˆ5æ—¥Z tianya $
  * @package        DedeCMS.Libraries
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -15,10 +15,10 @@ class zip
     var $old_offset = 0; var $dirs = Array(".");
 
     /**
-     *  »ñÈ¡zipÎÄ¼þÖÐµÄÎÄ¼þÁÐ±í
+     *  èŽ·å–zipæ–‡ä»¶ä¸­çš„æ–‡ä»¶åˆ—è¡¨
      *
      * @access    public
-     * @param     string  $zip_name  zipÎÄ¼þÃû
+     * @param     string  $zip_name  zipæ–‡ä»¶å
      * @return    array
      */
     function get_List($zip_name)
@@ -48,12 +48,12 @@ class zip
     }
 
     /**
-     *  Ôö¼ÓÎÄ¼þµ½Ñ¹ËõÎÄ¼þ
+     *  å¢žåŠ æ–‡ä»¶åˆ°åŽ‹ç¼©æ–‡ä»¶
      *
      * @access    public
-     * @param     string  $files ÐèÒªÔö¼ÓµÄÎÄ¼þÁÐ±í,¿ÉÒÔÊÇ×Ö·û´®Ò²¿ÉÒÔÊÇÊý×é
-     * @param     string  $compact Ñ¹ËõÎÄ¼þÃû³Æ
-     * @return    array  Ñ¹ËõÎÄ¼þÐÅÏ¢
+     * @param     string  $files éœ€è¦å¢žåŠ çš„æ–‡ä»¶åˆ—è¡¨,å¯ä»¥æ˜¯å­—ç¬¦ä¸²ä¹Ÿå¯ä»¥æ˜¯æ•°ç»„
+     * @param     string  $compact åŽ‹ç¼©æ–‡ä»¶åç§°
+     * @return    array  åŽ‹ç¼©æ–‡ä»¶ä¿¡æ¯
      */
     function Add($files,$compact)
     {
@@ -77,7 +77,7 @@ class zip
     }
 
     /**
-     *  »ñÈ¡ÎÄ¼þ,»ñÈ¡ºó¿ÉÒÔÈÃÆä½øÐÐÏÂÔØ
+     *  èŽ·å–æ–‡ä»¶,èŽ·å–åŽå¯ä»¥è®©å…¶è¿›è¡Œä¸‹è½½
      *
      * @access    public
      * @return    void
@@ -92,10 +92,10 @@ class zip
     }
 
     /**
-     *  Ôö¼ÓÎÄ¼þÄ¿Â¼
+     *  å¢žåŠ æ–‡ä»¶ç›®å½•
      *
      * @access    public
-     * @param     string  $name  Ä¿Â¼Ãû³Æ
+     * @param     string  $name  ç›®å½•åç§°
      * @return    void
      */
     function add_dir($name)
@@ -117,13 +117,13 @@ class zip
     }
 
     /**
-     *  ±àÒëÖ¸¶¨µÄÎÄ¼þÎªzipÎÄ¼þ£¨filename¿ÉÒÔÎªÎÄ¼þÊý×éarray¡¢Ä¿Â¼dir»òµ¥¸öÎÄ¼þfile£©
+     *  ç¼–è¯‘æŒ‡å®šçš„æ–‡ä»¶ä¸ºzipæ–‡ä»¶ï¼ˆfilenameå¯ä»¥ä¸ºæ–‡ä»¶æ•°ç»„arrayã€ç›®å½•diræˆ–å•ä¸ªæ–‡ä»¶fileï¼‰
      *
      * @access    public
-     * @param     string  $filename  ÎÄ¼þÃû³Æ
-     * @param     string  $tozipfilename  Ñ¹ËõÎÄ¼þÃû³Æ
-     * @param     string  $ftype  Ñ¹ËõÀàÐÍ
-     * @return    int  Ó°ÏìÎÄ¼þÊý
+     * @param     string  $filename  æ–‡ä»¶åç§°
+     * @param     string  $tozipfilename  åŽ‹ç¼©æ–‡ä»¶åç§°
+     * @param     string  $ftype  åŽ‹ç¼©ç±»åž‹
+     * @return    int  å½±å“æ–‡ä»¶æ•°
      */
     function CompileZipFile($filename, $tozipfilename,$ftype='dir')
     {
@@ -178,11 +178,11 @@ class zip
     }
 
     /**
-     *  ¶ÁÈ¡Ä³ÎÄ¼þ¼ÐµÄËùÓÐÎÄ¼þ
+     *  è¯»å–æŸæ–‡ä»¶å¤¹çš„æ‰€æœ‰æ–‡ä»¶
      *
      * @access    public
-     * @param     string  $dirname  Ä¿Â¼Ãû³Æ
-     * @return    mix  Èç¹ûÊ§°ÜÔò·µ»Øfalse
+     * @param     string  $dirname  ç›®å½•åç§°
+     * @return    mix  å¦‚æžœå¤±è´¥åˆ™è¿”å›žfalse
      */
     function ListDirFiles($dirname)
     {
@@ -216,12 +216,12 @@ class zip
     }
 
     /**
-     *  Ôö¼ÓÎÄ¼þ
+     *  å¢žåŠ æ–‡ä»¶
      *
      * @access    public
-     * @param     string  $data  Êý¾Ý
-     * @param     string  $name  Ãû³Æ
-     * @param     string  $compact  Ñ¹Ëõ
+     * @param     string  $data  æ•°æ®
+     * @param     string  $name  åç§°
+     * @param     string  $compact  åŽ‹ç¼©
      * @return    string
      */
     function add_File($data, $name, $compact = 1)
@@ -273,7 +273,7 @@ class zip
     }
 
     /**
-     *  ·µ»ØÊ±¼ä
+     *  è¿”å›žæ—¶é—´
      *
      * @access    public
      * @return    int
@@ -292,12 +292,12 @@ class zip
     }
 
     /**
-     *  ½âÑ¹Õû¸öÑ¹Ëõ°ü
-     *  Ö±½ÓÓÃ Extract »áÓÐÂ·¾¶ÎÊÌâ£¬±¾º¯ÊýÏÈ´ÓÁÐ±íÖÐ»ñµÃÎÄ¼þÐÅÏ¢²¢´´½¨ºÃËùÓÐÄ¿Â¼È»ºó²ÅÔËÐÐ Extract
+     *  è§£åŽ‹æ•´ä¸ªåŽ‹ç¼©åŒ…
+     *  ç›´æŽ¥ç”¨ Extract ä¼šæœ‰è·¯å¾„é—®é¢˜ï¼Œæœ¬å‡½æ•°å…ˆä»Žåˆ—è¡¨ä¸­èŽ·å¾—æ–‡ä»¶ä¿¡æ¯å¹¶åˆ›å»ºå¥½æ‰€æœ‰ç›®å½•ç„¶åŽæ‰è¿è¡Œ Extract
      *
      * @access    public
-     * @param     string  $zn zipÎÄ¼þÃû³Æ
-     * @param     string  $to ½âÑ¹µ½µÄÄ¿Â¼µØÖ·
+     * @param     string  $zn zipæ–‡ä»¶åç§°
+     * @param     string  $to è§£åŽ‹åˆ°çš„ç›®å½•åœ°å€
      * @return    string
      */
     function ExtractAll ( $zn, $to)
@@ -323,11 +323,11 @@ class zip
     }
 
     /**
-     *  ½âÑ¹µ¥¸öÎÄ¼þ
+     *  è§£åŽ‹å•ä¸ªæ–‡ä»¶
      *
      * @access    public
-     * @param     string  $zn zipÎÄ¼þÃû³Æ
-     * @param     string  $to ½âÑ¹µ½µÄÄ¿Â¼µØÖ·
+     * @param     string  $zn zipæ–‡ä»¶åç§°
+     * @param     string  $to è§£åŽ‹åˆ°çš„ç›®å½•åœ°å€
      * @return    string
      */
     function Extract ( $zn, $to, $index = Array(-1) )

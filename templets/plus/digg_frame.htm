@@ -89,7 +89,7 @@ border:1px solid #689ACC;
 }
 </style>
 <script>
-//¶ÁĞ´cookieº¯Êı
+//è¯»å†™cookieå‡½æ•°
 function GetCookie(c_name)
 {
 	if (document.cookie.length > 0)
@@ -113,7 +113,7 @@ function SetCookie(c_name,value,expiredays)
 {
 	var exdate = new Date();
 	exdate.setDate(exdate.getDate() + expiredays);
-	document.cookie = c_name + "=" +escape(value) + ((expiredays == null) ? "" : ";expires=" + exdate.toGMTString()); //Ê¹ÉèÖÃµÄÓĞĞ§Ê±¼äÕıÈ·¡£Ôö¼ÓtoGMTString()
+	document.cookie = c_name + "=" +escape(value) + ((expiredays == null) ? "" : ";expires=" + exdate.toGMTString()); //ä½¿è®¾ç½®çš„æœ‰æ•ˆæ—¶é—´æ­£ç¡®ã€‚å¢åŠ toGMTString()
 }
 
 function postDigg(ac, aid)
@@ -136,7 +136,7 @@ function postDigg(ac, aid)
 				if(j==19 && !hasid) break;
 			}
 		}
-		if(hasid) { alert("ÄúÒÑ¾­¶¥¹ı¸ÃÌû£¬Çë²»ÒªÖØ¸´¶¥Ìû £¡"); return false; }
+		if(hasid) { alert("æ‚¨å·²ç»é¡¶è¿‡è¯¥å¸–ï¼Œè¯·ä¸è¦é‡å¤é¡¶å¸– ï¼"); return false; }
 		else saveid += ','+aid;
 		SetCookie('diggid',saveid,1);
 		

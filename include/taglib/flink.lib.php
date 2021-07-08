@@ -4,9 +4,9 @@ if(!defined('DEDEINC'))
     exit("Request Error!");
 }
 /**
- * ÓÑÇéÁ´½Ó
+ * å‹æƒ…é“¾æŽ¥
  *
- * @version        $Id: flink.lib.php 1 9:29 2010Äê7ÔÂ6ÈÕZ tianya $
+ * @version        $Id: flink.lib.php 1 9:29 2010å¹´7æœˆ6æ—¥Z tianya $
  * @package        DedeCMS.Taglib
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -14,19 +14,19 @@ if(!defined('DEDEINC'))
  */
 
 /*>>dede>>
-<name>ÓÑÇéÁ´½Ó</name>
-<type>È«¾Ö±ê¼Ç</type>
+<name>å‹æƒ…é“¾æŽ¥</name>
+<type>å…¨å±€æ ‡è®°</type>
 <for>V55,V56,V57</for>
-<description>ÓÃÓÚ»ñÈ¡ÓÑÇéÁ´½Ó</description>
+<description>ç”¨äºŽèŽ·å–å‹æƒ…é“¾æŽ¥</description>
 <demo>
 {dede:flink row='24'/}
 </demo>
 <attributes>
-    <iterm>type:Á´½ÓÀàÐÍ</iterm> 
-    <iterm>row:Á´½ÓÊýÁ¿</iterm>
-    <iterm>titlelen:Õ¾µãÎÄ×ÖµÄ³¤¶È</iterm>
-    <iterm>linktype:Á´½ÓÎ»ÖÃÄÚÒ³</iterm>
-    <iterm>typeid:ËùÓÐÀàÐÍ£¬¿ÉÒÔÔÚÏµÍ³ºóÌ¨[Ä£¿é]-[ÓÑÇéÁ´½Ó]ÖÐµÄ¡°ÍøÕ¾ÀàÐÍ¹ÜÀí¡±ÖÐ²é¿´</iterm>
+    <iterm>type:é“¾æŽ¥ç±»åž‹</iterm> 
+    <iterm>row:é“¾æŽ¥æ•°é‡</iterm>
+    <iterm>titlelen:ç«™ç‚¹æ–‡å­—çš„é•¿åº¦</iterm>
+    <iterm>linktype:é“¾æŽ¥ä½ç½®å†…é¡µ</iterm>
+    <iterm>typeid:æ‰€æœ‰ç±»åž‹ï¼Œå¯ä»¥åœ¨ç³»ç»ŸåŽå°[æ¨¡å—]-[å‹æƒ…é“¾æŽ¥]ä¸­çš„â€œç½‘ç«™ç±»åž‹ç®¡ç†â€ä¸­æŸ¥çœ‹</iterm>
 </attributes> 
 >>dede>>*/
 helper('cache');
@@ -79,12 +79,12 @@ function lib_flink(&$ctag,&$refObj)
 				}
 			} else {
 				$revalue=<<<EOT
-<li><a href='http://ad.dedecms.com' target='_blank' title='DedeCMS¹ã¸æ'>DedeCMS¹ã¸æ</a></li><li><a href='http://service.dedecms.com' target='_blank' title='Ö¯ÃÎ¿Í»§·þÎñÖÐÐÄ'>
-Ö¯ÃÎ¿Í»§·þÎñÖÐÐÄ</a></li><li><a href='http://ask.dedecms.com' target='_blank' title='Ö¯ÃÎÎÊ´ð'>
-Ö¯ÃÎÎÊ´ð</a></li><li><a href='http://tools.dedecms.com' target='_blank' title='Õ¾³¤¹¤¾ß'>
-Õ¾³¤¹¤¾ß</a></li><li><a href='http://site.desdev.cn' target='_blank' title='DedeCMS½¨Õ¾ÖÐÐÄ'>
-DedeCMS½¨Õ¾ÖÐÐÄ</a></li><li><a href='http://help.dedecms.com' target='_blank' title='Ö¯ÃÎCMS°ïÖúÖÐÐÄ'>
-Ö¯ÃÎCMS°ïÖúÖÐÐÄ</a></li><li><a href='http://' target='_blank' title=''>
+<li><a href='http://ad.dedecms.com' target='_blank' title='DedeCMSå¹¿å‘Š'>DedeCMSå¹¿å‘Š</a></li><li><a href='http://service.dedecms.com' target='_blank' title='ç»‡æ¢¦å®¢æˆ·æœåŠ¡ä¸­å¿ƒ'>
+ç»‡æ¢¦å®¢æˆ·æœåŠ¡ä¸­å¿ƒ</a></li><li><a href='http://ask.dedecms.com' target='_blank' title='ç»‡æ¢¦é—®ç­”'>
+ç»‡æ¢¦é—®ç­”</a></li><li><a href='http://tools.dedecms.com' target='_blank' title='ç«™é•¿å·¥å…·'>
+ç«™é•¿å·¥å…·</a></li><li><a href='http://site.desdev.cn' target='_blank' title='DedeCMSå»ºç«™ä¸­å¿ƒ'>
+DedeCMSå»ºç«™ä¸­å¿ƒ</a></li><li><a href='http://help.dedecms.com' target='_blank' title='ç»‡æ¢¦CMSå¸®åŠ©ä¸­å¿ƒ'>
+ç»‡æ¢¦CMSå¸®åŠ©ä¸­å¿ƒ</a></li><li><a href='http://' target='_blank' title=''>
 </a></li>
 EOT;
 			}

@@ -7,9 +7,9 @@ function ch_stepselect($fvalue,&$arcTag,&$refObj,$fname='')
 }
 
 /**
- * »ñÈ¡¶ş¼¶Ã¶¾ÙµÄÖµ
+ * è·å–äºŒçº§æšä¸¾çš„å€¼
  *
- * @version        $Id: stepselect.lib.php 16:24 2010Äê7ÔÂ26ÈÕZ tianya $
+ * @version        $Id: stepselect.lib.php 16:24 2010å¹´7æœˆ26æ—¥Z tianya $
  * @package        DedeCMS.Taglib
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html

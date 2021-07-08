@@ -4,9 +4,9 @@ if(!defined('DEDEINC'))
     exit("Request Error!");
 }
 /**
- * Í¶Æ±±êÇ©
+ * æŠ•ç¥¨æ ‡ç­¾
  *
- * @version        $Id: vote.lib.php 1 9:29 2010Äê7ÔÂ6ÈÕZ tianya $
+ * @version        $Id: vote.lib.php 1 9:29 2010å¹´7æœˆ6æ—¥Z tianya $
  * @package        DedeCMS.Taglib
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -14,21 +14,21 @@ if(!defined('DEDEINC'))
  */
  
 /*>>dede>>
-<name>Í¶Æ±±êÇ©</name>
-<type>È«¾Ö±ê¼Ç</type>
+<name>æŠ•ç¥¨æ ‡ç­¾</name>
+<type>å…¨å±€æ ‡è®°</type>
 <for>V55,V56,V57</for>
-<description>ÓÃÓÚ»ñÈ¡Ò»×éÍ¶Æ±±íµ¥</description>
+<description>ç”¨äºè·å–ä¸€ç»„æŠ•ç¥¨è¡¨å•</description>
 <demo>
 {dede:vote id='' lineheight='22' tablewidth='100%' titlebgcolor='#EDEDE2' titlebackground='' tablebgcolor='#FFFFFF'/}
 {/dede}
 </demo>
 <attributes>
-    <iterm>id:Êı×Ö£¬µ±Ç°Í¶Æ±ID</iterm>
-    <iterm>lineheight:±í¸ñ¸ß¶È</iterm>
-    <iterm>tablewidth:±í¸ñ¿í¶È</iterm>
-    <iterm>titlebgcolor:Í¶Æ±±êÌâ±³¾°É«</iterm>
-    <iterm>titlebackground:±êÌâ±³¾°Í¼</iterm>
-    <iterm>tablebg:Í¶Æ±±í¸ñ±³¾°É«</iterm>
+    <iterm>id:æ•°å­—ï¼Œå½“å‰æŠ•ç¥¨ID</iterm>
+    <iterm>lineheight:è¡¨æ ¼é«˜åº¦</iterm>
+    <iterm>tablewidth:è¡¨æ ¼å®½åº¦</iterm>
+    <iterm>titlebgcolor:æŠ•ç¥¨æ ‡é¢˜èƒŒæ™¯è‰²</iterm>
+    <iterm>titlebackground:æ ‡é¢˜èƒŒæ™¯å›¾</iterm>
+    <iterm>tablebg:æŠ•ç¥¨è¡¨æ ¼èƒŒæ™¯è‰²</iterm>
 </attributes>
 >>dede>>*/
  

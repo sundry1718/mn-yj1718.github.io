@@ -1,8 +1,8 @@
 <?php
 /**
- * Í¼Æ¬Ñ¡Ôñ¿ò
+ * å›¾ç‰‡é€‰æ‹©æ¡†
  *
- * @version        $Id: select_images.php 1 9:43 2010Äê7ÔÂ8ÈÕZ tianya $
+ * @version        $Id: select_images.php 1 9:43 2010å¹´7æœˆ8æ—¥Z tianya $
  * @package        DedeCMS.Dialog
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -60,7 +60,7 @@ if (!empty($noeditor))
 <html>
 <head>
 <meta http-equiv='Content-Type' content='text/html; charset=<?php echo $cfg_soft_lang; ?>'>
-<title>Í¼Æ¬ä¯ÀÀÆ÷</title>
+<title>å›¾ç‰‡æµè§ˆå™¨</title>
 <link href='../../plus/img/base.css' rel='stylesheet' type='text/css'>
 <style>
 .linerow {border-bottom: 1px solid #CBD8AC;}
@@ -73,7 +73,7 @@ function ChangeImage(surl){ document.getElementById('picview').src = surl; }
 </head>
 <body background='img/allbg.gif' leftmargin='0' topmargin='0'>
 <div id="floater" class="napisdiv">
-<a href="javascript:nullLink();" onClick="document.getElementById('floater').style.display='none';"><img src='img/picviewnone.gif' id='picview' border='0' alt='µ¥»÷¹Ø±ÕÔ¤ÀÀ'></a>
+<a href="javascript:nullLink();" onClick="document.getElementById('floater').style.display='none';"><img src='img/picviewnone.gif' id='picview' border='0' alt='å•å‡»å…³é—­é¢„è§ˆ'></a>
 </div>
 <SCRIPT language=JavaScript src="js/float.js"></SCRIPT>
 <SCRIPT language=JavaScript>
@@ -85,7 +85,7 @@ function TNav()
   else if(window.navigator.userAgent.indexOf("Firefox")>=1) return 'FF';
   else return "OT";
 }
-// »ñÈ¡µØÖ·²ÎÊı
+// è·å–åœ°å€å‚æ•°
 function getUrlParam(paramName)
 {
   var reParam = new RegExp('(?:[\?&]|&amp;)' + paramName + '=([^&]+)', 'i') ;
@@ -132,14 +132,14 @@ function ReturnImg(reimg)
 <td colspan='4'>
 <table width='100%' border='0' cellspacing='0' cellpadding='2'>
 <tr bgcolor="#CCCCCC">
-<td width="8%" align="center" class='linerow' bgcolor='#EEF4EA'><strong>Ô¤ÀÀ</strong></td>
-<td width="47%" align="center" background="img/wbg.gif" class='linerow'><strong>µã»÷Ãû³ÆÑ¡ÔñÍ¼Æ¬</strong></td>
-<td width="15%" align="center" bgcolor='#EEF4EA' class='linerow'><strong>ÎÄ¼ş´óĞ¡</strong></td>
-<td width="30%" align="center" background="img/wbg.gif" class='linerow'><strong>×îºóĞŞ¸ÄÊ±¼ä</strong></td>
+<td width="8%" align="center" class='linerow' bgcolor='#EEF4EA'><strong>é¢„è§ˆ</strong></td>
+<td width="47%" align="center" background="img/wbg.gif" class='linerow'><strong>ç‚¹å‡»åç§°é€‰æ‹©å›¾ç‰‡</strong></td>
+<td width="15%" align="center" bgcolor='#EEF4EA' class='linerow'><strong>æ–‡ä»¶å¤§å°</strong></td>
+<td width="30%" align="center" background="img/wbg.gif" class='linerow'><strong>æœ€åä¿®æ”¹æ—¶é—´</strong></td>
 </tr>
 <tr>
 <td class='linerow' colspan='4' bgcolor='#F9FBF0'>
-µã»÷¡°V¡±Ô¤ÀÀÍ¼Æ¬£¬µã»÷Í¼Æ¬ÃûÑ¡ÔñÍ¼Æ¬£¬ÏÔÊ¾Í¼Æ¬ºóµã»÷¸ÃÍ¼Æ¬¹Ø±ÕÔ¤ÀÀ¡£
+ç‚¹å‡»â€œVâ€é¢„è§ˆå›¾ç‰‡ï¼Œç‚¹å‡»å›¾ç‰‡åé€‰æ‹©å›¾ç‰‡ï¼Œæ˜¾ç¤ºå›¾ç‰‡åç‚¹å‡»è¯¥å›¾ç‰‡å…³é—­é¢„è§ˆã€‚
 </td>
 </tr>
 <?php
@@ -148,7 +148,7 @@ $ty1="";
 $ty2="";
 while($file = $dh->read()) {
 
-    //-----¼ÆËãÎÄ¼ş´óĞ¡ºÍ´´½¨Ê±¼ä
+    //-----è®¡ç®—æ–‡ä»¶å¤§å°å’Œåˆ›å»ºæ—¶é—´
     if($file!="." && $file!=".." && !is_dir("$inpath/$file")){
         $filesize = filesize("$inpath/$file");
         $filesize = $filesize / 1024;
@@ -172,21 +172,21 @@ while($file = $dh->read()) {
         $tmp = preg_replace("#[\/][^\/]*$#i", "", $activepath);
         $line = "\n<tr>
    <td class='linerow' colspan='2'>
-   <a href='select_images.php?imgstick=$imgstick&v=$v&f=$f&activepath=".urlencode($tmp).$addparm."'><img src=img/dir2.gif border=0 width=16 height=16 align=absmiddle>ÉÏ¼¶Ä¿Â¼</a></td>
-   <td colspan='2' class='linerow'> µ±Ç°Ä¿Â¼:$activepath</td>
+   <a href='select_images.php?imgstick=$imgstick&v=$v&f=$f&activepath=".urlencode($tmp).$addparm."'><img src=img/dir2.gif border=0 width=16 height=16 align=absmiddle>ä¸Šçº§ç›®å½•</a></td>
+   <td colspan='2' class='linerow'> å½“å‰ç›®å½•:$activepath</td>
    </tr>
    ";
         echo $line;
     }
     else if(is_dir("$inpath/$file"))
     {
-        if(preg_match("#^_(.*)$#i", $file)) continue; #ÆÁ±ÎFrontPageÀ©Õ¹Ä¿Â¼ºÍlinuxÒş±ÎÄ¿Â¼
+        if(preg_match("#^_(.*)$#i", $file)) continue; #å±è”½FrontPageæ‰©å±•ç›®å½•å’Œlinuxéšè”½ç›®å½•
         if(preg_match("#^\.(.*)$#i", $file)) continue;
         $line = "\n<tr>
    <td bgcolor='#F9FBF0' class='linerow' colspan='2'>
    <a href='select_images.php?imgstick=$imgstick&v=$v&f=$f&activepath=".urlencode("$activepath/$file").$addparm."'><img src=img/dir.gif border=0 width=16 height=16 align=absmiddle>$file</a></td>
-   <td class='linerow'>¡¡</td>
-   <td bgcolor='#F9FBF0' class='linerow'>¡¡</td>
+   <td class='linerow'>ã€€</td>
+   <td bgcolor='#F9FBF0' class='linerow'>ã€€</td>
    </tr>";
         echo "$line";
     }
@@ -249,7 +249,7 @@ $dh->close();
 
 <table width='100%'>
 <form action='select_images_post.php' method='POST' enctype="multipart/form-data" name='myform'>
-<?php $noeditor = !empty($noeditor)?"<input type='hidden' name='noeditor' value='yes'>":''; echo $noeditor;//£¨2011.08.25 ¸ù¾İÓÃ»§·´À¡ĞŞÕıÍ¼Æ¬ÉÏ´«»Øµ÷ by:Ö¯ÃÎµÄÓã£©?>
+<?php $noeditor = !empty($noeditor)?"<input type='hidden' name='noeditor' value='yes'>":''; echo $noeditor;//ï¼ˆ2011.08.25 æ ¹æ®ç”¨æˆ·åé¦ˆä¿®æ­£å›¾ç‰‡ä¸Šä¼ å›è°ƒ by:ç»‡æ¢¦çš„é±¼ï¼‰?>
 <input type='hidden' name='activepath' value='<?php echo $activepath?>'>
 <input type='hidden' name='f' value='<?php echo $f?>'>
 <input type='hidden' name='v' value='<?php echo $v?>'>
@@ -258,12 +258,12 @@ $dh->close();
 <input type='hidden' name='job' value='upload'>
 <tr>
 <td background="img/tbg.gif" bgcolor="#99CC00">
-  &nbsp;ÉÏ¡¡´«£º <input type='file' name='imgfile' style='width:250px'/>
-  <input type='checkbox' name='needwatermark' value='1' class='np' <?php if($photo_markup=='1') echo "checked"; ?> />Ë®Ó¡
-  <input type='checkbox' name='resize' value='1' class='np' />ËõĞ¡
-  ¿í£º<input type='text' style='width:30' name='iwidth' value='<?php echo $cfg_ddimg_width?>' />
-  ¸ß£º<input type='text' style='width:30' name='iheight' value='<?php echo $cfg_ddimg_height?>' />
-  <input type='submit' name='sb1' value='È·¶¨' />
+  &nbsp;ä¸Šã€€ä¼ ï¼š <input type='file' name='imgfile' style='width:250px'/>
+  <input type='checkbox' name='needwatermark' value='1' class='np' <?php if($photo_markup=='1') echo "checked"; ?> />æ°´å°
+  <input type='checkbox' name='resize' value='1' class='np' />ç¼©å°
+  å®½ï¼š<input type='text' style='width:30' name='iwidth' value='<?php echo $cfg_ddimg_width?>' />
+  é«˜ï¼š<input type='text' style='width:30' name='iheight' value='<?php echo $cfg_ddimg_height?>' />
+  <input type='submit' name='sb1' value='ç¡®å®š' />
 </td>
 </tr>
 </form>

@@ -1,9 +1,9 @@
 <?php
 /**
  *
- * ¶þ¼¶ÓòÃûÆÀÂÛµ÷ÓÃ
+ * äºŒçº§åŸŸåè¯„è®ºè°ƒç”¨
  *
- * @version        $Id: comments_frame.php 1 20:43 2010Äê7ÔÂ8ÈÕZ cha369 $
+ * @version        $Id: comments_frame.php 1 20:43 2010å¹´7æœˆ8æ—¥Z cha369 $
  * @package        DedeCMS.Site
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html

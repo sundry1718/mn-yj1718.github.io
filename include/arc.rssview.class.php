@@ -1,8 +1,8 @@
 <?php   if(!defined('DEDEINC')) exit("Request Error!");
 /**
- * RSSÊÓÍ¼Àà
+ * RSSè§†å›¾ç±»
  *
- * @version        $Id: arc.rssview.class.php 1 15:21 2010Äê7ÔÂ7ÈÕZ tianya $
+ * @version        $Id: arc.rssview.class.php 1 15:21 2010å¹´7æœˆ7æ—¥Z tianya $
  * @package        DedeCMS.Libraries
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -15,7 +15,7 @@ require_once(DEDEINC.'/ftp.class.php');
 
 @set_time_limit(0);
 /**
- * RSSÊÓÍ¼Àà
+ * RSSè§†å›¾ç±»
  *
  * @package          RssView
  * @subpackage       DedeCMS.Libraries
@@ -33,11 +33,11 @@ class RssView
     var $remoteDir;
     
     /**
-     *  php5¹¹Ôìº¯Êı
+     *  php5æ„é€ å‡½æ•°
      *
      * @access    public
-     * @param     int  $typeid  À¸Ä¿ID
-     * @param     int  $max_row  ×î´óÏÔÊ¾ĞĞÊı
+     * @param     int  $typeid  æ ç›®ID
+     * @param     int  $max_row  æœ€å¤§æ˜¾ç¤ºè¡Œæ•°
      * @return    string
      */
     function __construct($typeid,$max_row=50)
@@ -66,19 +66,19 @@ class RssView
         $this->ParseTemplet();
     }
 
-    //php4¹¹Ôìº¯Êı
+    //php4æ„é€ å‡½æ•°
     function RssView($typeid,$max_row=50)
     {
         $this->__construct($typeid,$max_row);
     }
 
-    //¹Ø±ÕÏà¹Ø×ÊÔ´
+    //å…³é—­ç›¸å…³èµ„æº
     function Close()
     {
     }
 
     /**
-     *  ÏÔÊ¾ÁĞ±í
+     *  æ˜¾ç¤ºåˆ—è¡¨
      *
      * @access    public
      * @return    void
@@ -89,10 +89,10 @@ class RssView
     }
 
     /**
-     *  ¿ªÊ¼´´½¨ÁĞ±í
+     *  å¼€å§‹åˆ›å»ºåˆ—è¡¨
      *
      * @access    public
-     * @param     string  $isremote  ÊÇ·ñÔ¶³Ì
+     * @param     string  $isremote  æ˜¯å¦è¿œç¨‹
      * @return    string
      */
     function MakeRss($isremote=0)
@@ -101,14 +101,14 @@ class RssView
         $murl = $GLOBALS['cfg_cmspath']."/data/rss/".$this->TypeID.".xml";
         $mfile = $GLOBALS['cfg_basedir'].$murl;
         $this->dtp->SaveTo($mfile);
-        //Èç¹ûÆôÓÃÔ¶³ÌÕ¾µãÔòÉÏ´«
+        //å¦‚æœå¯ç”¨è¿œç¨‹ç«™ç‚¹åˆ™ä¸Šä¼ 
         if($cfg_remote_site=='Y' && $isremote == 1)
         {
-            //·ÖÎöÔ¶³ÌÎÄ¼şÂ·¾¶
+            //åˆ†æè¿œç¨‹æ–‡ä»¶è·¯å¾„
             $remotefile = $murl;
             $localfile = '..'.$remotefile;
             $remotedir = preg_replace('/[^\/]*\.xml/', '',$remotefile);
-            //²»ÏàµÈÔòËµÃ÷ÒÑ¾­ÇĞ»»Ä¿Â¼Ôò¿ÉÒÔ´´½¨¾µÏñ
+            //ä¸ç›¸ç­‰åˆ™è¯´æ˜å·²ç»åˆ‡æ¢ç›®å½•åˆ™å¯ä»¥åˆ›å»ºé•œåƒ
             $this->ftp->rmkdir($remotedir);
             $this->ftp->upload($localfile, $remotefile, 'acii');
         }
@@ -116,7 +116,7 @@ class RssView
     }
 
     /**
-     *  ½âÎöÄ£°å
+     *  è§£ææ¨¡æ¿
      *
      * @access    public
      * @return    void
@@ -139,10 +139,10 @@ class RssView
     }
 
     /**
-     *  »ñµÃÎÄµµÁĞ±í
+     *  è·å¾—æ–‡æ¡£åˆ—è¡¨
      *
      * @access    public
-     * @param     string  $innertext  µ×²ãÄ£°å
+     * @param     string  $innertext  åº•å±‚æ¨¡æ¿
      * @return    string
      */
     function GetArcList($innertext="")
@@ -168,7 +168,7 @@ class RssView
         $dtp2->LoadSource($innertext);
         while($row = $this->dsql->GetArray('al'))
         {
-            //´¦ÀíÒ»Ğ©ÌØÊâ×Ö¶Î
+            //å¤„ç†ä¸€äº›ç‰¹æ®Šå­—æ®µ
             if($row['litpic'] == '-' || $row['litpic'] == '')
             {
                 $row['litpic'] = $GLOBALS['cfg_cmspath'].'/images/defaultpic.gif';
@@ -187,7 +187,7 @@ class RssView
             $row["stime"] = GetDateMK($row["pubdate"]);
             $row["image"] = "<img src='".$row["picname"]."' border='0'>";
             $row["fullurl"] = $GLOBALS["cfg_basehost"].$row["arcurl"];
-            // 2011-6-20 ÆôÓÃ¶àÕ¾µãRSSÊä³ö´æÔÚµÄÂ·¾¶ÎÊÌâ(by:Ö¯ÃÎµÄÓã)
+            // 2011-6-20 å¯ç”¨å¤šç«™ç‚¹RSSè¾“å‡ºå­˜åœ¨çš„è·¯å¾„é—®é¢˜(by:ç»‡æ¢¦çš„é±¼)
             if($GLOBALS['cfg_multi_site'] == 'Y') $row["fullurl"] = $row["arcurl"];
             $row["phpurl"] = $GLOBALS["cfg_plus_dir"];
             $row["templeturl"] = $GLOBALS["cfg_templets_dir"];
@@ -197,7 +197,7 @@ class RssView
             }
             if($row["writer"]=='')
             {
-                $row["writer"] = "ÖÈÃû";
+                $row["writer"] = "ç§©å";
             }
             foreach($row as $k=>$v)
             {
@@ -210,7 +210,7 @@ class RssView
                     if($ctag->GetName()=='array')
                     {
 
-                        //´«µİÕû¸öÊı×é£¬ÔÚrunphpÄ£Ê½ÖĞÓĞÌØÊâ×÷ÓÃ
+                        //ä¼ é€’æ•´ä¸ªæ•°ç»„ï¼Œåœ¨runphpæ¨¡å¼ä¸­æœ‰ç‰¹æ®Šä½œç”¨
                         $dtp2->Assign($k,$row);
                     }
                     else

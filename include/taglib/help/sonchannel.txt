@@ -1,8 +1,8 @@
-всю╦д©╣Всц╠Йг╘
+Е╜░Ф═▐Г⌡╝Х╟┐Г■╗Ф═┤Г╜╬
 >>dede>>
 {dede:sonchannel}
 <a href='[field:typeurl/]'>[field:typename/]</a>
 {/dede:sonchannel}
 >>dede>>
-row ='100' ╥╣╩ьйЩд©
-col = '1'  д╛хо╣╔апотй╬
+row ='100' Х©■Е⌡·Ф∙╟Г⌡╝
+col = '1'  И╩≤Х╝╓Е█∙Е┬≈Ф≤╬Г╓╨

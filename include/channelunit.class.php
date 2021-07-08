@@ -1,7 +1,7 @@
 <?php   if(!defined('DEDEINC')) exit("Request Error!");
 /**
- * ÆµµÀÄ£ĞÍµ¥ÔªÀà
- * @version        $Id: channelunit.class.php 2 17:32 2010Äê7ÔÂ6ÈÕZ tianya $
+ * é¢‘é“æ¨¡å‹å•å…ƒç±»
+ * @version        $Id: channelunit.class.php 2 17:32 2010å¹´7æœˆ6æ—¥Z tianya $
  * @package        DedeCMS.Libraries
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -23,7 +23,7 @@ class ChannelUnit
     var $dsql;
     var $SplitPageField;
 
-    //php5¹¹Ôìº¯Êı
+    //php5æ„é€ å‡½æ•°
     function __construct($cid,$aid=0)
     {
         $this->ChannelInfos = '';
@@ -37,7 +37,7 @@ class ChannelUnit
         $this->ChannelInfos = $this->dsql->GetOne($sql);
         if(!is_array($this->ChannelInfos))
         {
-            echo '¶ÁÈ¡ÆµµÀĞÅÏ¢Ê§°Ü£¬ÎŞ·¨½øĞĞºóĞø²Ù×÷£¡';
+            echo 'è¯»å–é¢‘é“ä¿¡æ¯å¤±è´¥ï¼Œæ— æ³•è¿›è¡Œåç»­æ“ä½œï¼';
             exit();
         }
         $dtp = new DedeTagParse();
@@ -87,10 +87,10 @@ class ChannelUnit
     }
 
     /**
-     *  ÉèÖÃµµ°¸ID
+     *  è®¾ç½®æ¡£æ¡ˆID
      *
      * @access    private
-     * @param     int   $aid  µµ°¸ID
+     * @param     int   $aid  æ¡£æ¡ˆID
      * @return    void
      */
     function SetArcID($aid)
@@ -99,17 +99,17 @@ class ChannelUnit
     }
 
     /**
-     *  ´¦ÀíÄ³¸ö×Ö¶ÎµÄÖµ
+     *  å¤„ç†æŸä¸ªå­—æ®µçš„å€¼
      *
      * @access    public
-     * @param     string  $fname  ×Ö¶ÎÃû³Æ
-     * @param     string  $fvalue  ×Ö¶ÎÖµ
-     * @param     string  $addvalue  Ôö¼ÓÖµ
+     * @param     string  $fname  å­—æ®µåç§°
+     * @param     string  $fvalue  å­—æ®µå€¼
+     * @param     string  $addvalue  å¢åŠ å€¼
      * @return    string
      */
     function MakeField($fname, $fvalue, $addvalue='')
     {        
-        //´¦Àí¸÷ÖÖÊı¾İÀàĞÍ
+        //å¤„ç†å„ç§æ•°æ®ç±»å‹
         $ftype = $this->ChannelFields[$fname]['type'];
         if($fvalue=='')
         {
@@ -151,10 +151,10 @@ class ChannelUnit
     }
     
     /**
-     *  »ñÈ¡ËõÂÔÍ¼Á´½Ó
+     *  è·å–ç¼©ç•¥å›¾é“¾æ¥
      *
      * @access    public
-     * @param     string  $fvalue  ±íµ¥Öµ
+     * @param     string  $fvalue  è¡¨å•å€¼
      * @return    string
      */
     function GetlitImgLinks($fvalue)
@@ -172,7 +172,7 @@ class ChannelUnit
         $dtp->LoadSource($fvalue);
         if(!is_array($dtp->CTags)){
             $dtp->Clear();
-            return "ÎŞÍ¼Æ¬ĞÅÏ¢£¡";
+            return "æ— å›¾ç‰‡ä¿¡æ¯ï¼";
         }
         $ptag = $dtp->GetTag("pagestyle");
         if(is_object($ptag)){
@@ -226,7 +226,7 @@ class ChannelUnit
         return $revalue;        
     }
 
-    //¹Ø±ÕËùÕ¼ÓÃµÄ×ÊÔ´
+    //å…³é—­æ‰€å ç”¨çš„èµ„æº
     function Close()
     {
     }

@@ -1,8 +1,8 @@
 <?php
 /**
- * ·À²É¼¯»ìÏı×Ö·û´®
+ * é˜²é‡‡é›†æ··æ·†å­—ç¬¦ä¸²
  *
- * @version        $Id: downmix.inc.php 1 9:14 2010Äê7ÔÂ6ÈÕZ tianya $
+ * @version        $Id: downmix.inc.php 1 9:14 2010å¹´7æœˆ6æ—¥Z tianya $
  * @package        DedeCMS.Libraries
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -10,23 +10,23 @@
  */
 
 /**
- *  »ìÏı×Ö·û´®ÄÚÈİ
+ *  æ··æ·†å­—ç¬¦ä¸²å†…å®¹
  *
  * @access    public
- * @param     string  $body  ÄÚÈİ
+ * @param     string  $body  å†…å®¹
  * @return    string
  */
 if ( ! function_exists('RndString'))
 {
     function RndString(&$body)
     {
-        //×î´ó¼ä¸ô¾àÀë(Èç¹ûÔÚ¼ì²â²»µ½p±ê¼ÇµÄÇé¿öÏÂ£¬¼ÓÈë»ìÏı×Ö´®µÄ×î´ó¼ä¸ô¾àÀë)
+        //æœ€å¤§é—´éš”è·ç¦»(å¦‚æœåœ¨æ£€æµ‹ä¸åˆ°pæ ‡è®°çš„æƒ…å†µä¸‹ï¼ŒåŠ å…¥æ··æ·†å­—ä¸²çš„æœ€å¤§é—´éš”è·ç¦»)
         $maxpos = 1024;
 
-        //font µÄ×ÖÌåÑÕÉ«
+        //font çš„å­—ä½“é¢œè‰²
         $fontColor = "#FFFFFF";
 
-        //div span p ±ê¼ÇµÄËæ»úÑùÊ½
+        //div span p æ ‡è®°çš„éšæœºæ ·å¼
         $st1 = chr(mt_rand(ord('A'),ord('Z'))).chr(mt_rand(ord('a'),ord('z'))).chr(mt_rand(ord('a'),ord('z'))).mt_rand(100,999);
         $st2 = chr(mt_rand(ord('A'),ord('Z'))).chr(mt_rand(ord('a'),ord('z'))).chr(mt_rand(ord('a'),ord('z'))).mt_rand(100,999);
         $st3 = chr(mt_rand(ord('A'),ord('Z'))).chr(mt_rand(ord('a'),ord('z'))).chr(mt_rand(ord('a'),ord('z'))).mt_rand(100,999);
@@ -44,13 +44,13 @@ if ( ! function_exists('RndString'))
         $rndstyleName = $rndstyle[$mdd]['name'];
         $reString = "<style> $rndstyleValue </style>\r\n";
 
-        //¸½»ú±ê¼Ç
+        //é™„æœºæ ‡è®°
         $rndem[1] = 'font';
         $rndem[2] = 'div';
         $rndem[3] = 'span';
         $rndem[4] = 'p';
 
-        //¶ÁÈ¡×Ö·û´®Êı¾İ
+        //è¯»å–å­—ç¬¦ä¸²æ•°æ®
         $fp = fopen(DEDEDATA.'/downmix.data.php','r');
         $start = 0;
         $totalitem = 0;
@@ -76,7 +76,7 @@ if ( ! function_exists('RndString'))
         }
         fclose($fp);
 
-        //´¦ÀíÒª·À²É¼¯µÄ×Ö¶Î
+        //å¤„ç†è¦é˜²é‡‡é›†çš„å­—æ®µ
         $bodylen = strlen($body) - 1;
         $prepos = 0;
         for($i=0;$i<=$bodylen;$i++)
@@ -112,5 +112,5 @@ if ( ! function_exists('RndString'))
             }
         }
         return $reString;
-    }//º¯Êı½áÊø
+    }//å‡½æ•°ç»“æŸ
 }

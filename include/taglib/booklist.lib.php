@@ -1,8 +1,8 @@
 <?php   if(!defined('DEDEINC')) exit('Request Error!');
 /**
- * Á¬ÔØÍ¼Êéµ÷ÓÃ
+ * è¿è½½å›¾ä¹¦è°ƒç”¨
  *
- * @version        $Id: booklist.lib.php 1 9:29 2010Äê7ÔÂ6ÈÕZ tianya $
+ * @version        $Id: booklist.lib.php 1 9:29 2010å¹´7æœˆ6æ—¥Z tianya $
  * @package        DedeCMS.Taglib
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -10,31 +10,31 @@
  */
 
 /**
- *  Í¼ÊéÁĞ±íµ÷ÓÃ
+ *  å›¾ä¹¦åˆ—è¡¨è°ƒç”¨
  *
  * @access    public
- * @param     object  $ctag  ½âÎö±êÇ©
- * @param     object  $refObj  ÒıÓÃ¶ÔÏó
- * @param     int  $getcontent  ÊÇ·ñµ÷ÓÃÄÚÈİ
+ * @param     object  $ctag  è§£ææ ‡ç­¾
+ * @param     object  $refObj  å¼•ç”¨å¯¹è±¡
+ * @param     int  $getcontent  æ˜¯å¦è°ƒç”¨å†…å®¹
  * @return    string
  */
  
 /*>>dede>>
-<name>Á¬ÔØÍ¼Êé</name>
-<type>È«¾Ö±ê¼Ç</type>
+<name>è¿è½½å›¾ä¹¦</name>
+<type>å…¨å±€æ ‡è®°</type>
 <for>V55,V56,V57</for>
-<description>Á¬ÔØÍ¼Êéµ÷ÓÃ</description>
+<description>è¿è½½å›¾ä¹¦è°ƒç”¨</description>
 <demo>
 {dede:booklist row='12' booktype='-1' orderby='lastpost' author='' keyword=''}
 <a href='[field:bookurl /]'>[field:bookname /]</a><br />
 {/dede:booklist}
 </demo>
 <attributes>
-    <iterm>row:µ÷ÓÃ¼ÇÂ¼ÌõÊı</iterm> 
-    <iterm>booktype:Í¼ÊéÀàĞÍ£¬0 Í¼Êé¡¢1 Âş»­£¬Ä¬ÈÏÈ«²¿</iterm>
-    <iterm>orderby:ÅÅĞòÀàĞÍ£¬µ±°´ÅÅĞòÀàĞÍÎª commend ±íÊ¾ÍÆ¼öÍ¼Êé</iterm>
-    <iterm>author:×÷Õß</iterm>
-    <iterm>keyword:¹Ø¼ü×Ö</iterm>
+    <iterm>row:è°ƒç”¨è®°å½•æ¡æ•°</iterm> 
+    <iterm>booktype:å›¾ä¹¦ç±»å‹ï¼Œ0 å›¾ä¹¦ã€1 æ¼«ç”»ï¼Œé»˜è®¤å…¨éƒ¨</iterm>
+    <iterm>orderby:æ’åºç±»å‹ï¼Œå½“æŒ‰æ’åºç±»å‹ä¸º commend è¡¨ç¤ºæ¨èå›¾ä¹¦</iterm>
+    <iterm>author:ä½œè€…</iterm>
+    <iterm>keyword:å…³é”®å­—</iterm>
 </attributes> 
 >>dede>>*/
 
@@ -42,12 +42,12 @@ function lib_booklist(&$ctag, &$refObj, $getcontent=0)
 {
     global $dsql, $envs, $cfg_dbprefix, $cfg_cmsurl;
     
-    //ÊôĞÔ´¦Àí
+    //å±æ€§å¤„ç†
     $attlist="row|12,booktype|-1,titlelen|30,orderby|lastpost,author|,keyword|";
     FillAttsDefault($ctag->CAttribute->Items,$attlist);
     extract($ctag->CAttribute->Items, EXTR_SKIP);
 
-    if( !$dsql->IsTable("{$cfg_dbprefix}story_books") ) return 'Ã»°²×°Á¬ÔØÄ£¿é';
+    if( !$dsql->IsTable("{$cfg_dbprefix}story_books") ) return 'æ²¡å®‰è£…è¿è½½æ¨¡å—';
     $addquery = '';
     
     if(empty($innertext))
@@ -56,25 +56,25 @@ function lib_booklist(&$ctag, &$refObj, $getcontent=0)
         else $innertext = GetSysTemplets('bookcontentlist.htm');
     }
     
-    //Í¼ÊéÀàĞÍ
+    //å›¾ä¹¦ç±»å‹
     if($booktype!=-1) {
         $addquery .= " AND b.booktype='{$booktype}' ";
     }
     
-    //ÍÆ¼ö
+    //æ¨è
     if($orderby=='commend')
     {
         $addquery .= " AND b.iscommend=1 ";
         $orderby = 'lastpost';
     }
 
-    //×÷ÕßÌõ¼ş
+    //ä½œè€…æ¡ä»¶
     if(!empty($author))
     {
         $addquery .= " AND b.author LIKE '$author' ";
     }
     
-    //¹Ø¼ü×ÖÌõ¼ş
+    //å…³é”®å­—æ¡ä»¶
     if(!empty($keyword))
     {
         $keywords = explode(',', $keyword);
@@ -106,7 +106,7 @@ function lib_booklist(&$ctag, &$refObj, $getcontent=0)
         $row['title'] = $row['bookname'];
         $ndtp->LoadString($innertext);
 
-        //»ñµÃÍ¼Êé×îĞÂµÄÒ»¸ö¸üĞÂÕÂ½Ú
+        //è·å¾—å›¾ä¹¦æœ€æ–°çš„ä¸€ä¸ªæ›´æ–°ç« èŠ‚
         $row['contenttitle'] = '';
         $row['contentid'] = '';
         if($getcontent==1) {
@@ -121,10 +121,10 @@ function lib_booklist(&$ctag, &$refObj, $getcontent=0)
             $row['contenturl'] = $cfg_cmspath.'/book/story.php?id='.$row['contentid'];
         }
 
-        //¶¯Ì¬ÍøÖ·
+        //åŠ¨æ€ç½‘å€
         $row['dmbookurl'] = $cfg_cmspath.'/book/book.php?id='.$row['id'];
 
-        //¾²Ì¬ÍøÖ·
+        //é™æ€ç½‘å€
         $row['bookurl'] = $row['url'] = GetBookUrl($row['id'],$row['bookname']);
         $row['catalogurl'] = $cfg_cmspath.'/book/list.php?id='.$row['catid'];
         $row['cataloglink'] = "<a href='{$row['catalogurl']}'>{$row['classname']}</a>";
@@ -132,11 +132,11 @@ function lib_booklist(&$ctag, &$refObj, $getcontent=0)
         $row['contentlink'] = "<a href='{$row['contenturl']}'>{$row['contenttitle']}</a>";
         $row['imglink'] = "<a href='{$row['bookurl']}'><img src='{$row['litpic']}' width='$imgwidth' height='$imgheight' border='0' /></a>";
         
-        if($row['ischeck']==2) $row['ischeck']='ÒÑÍê³ÉÁ¬ÔØ';
-        else $row['ischeck']='Á¬ÔØÖĞ...';
+        if($row['ischeck']==2) $row['ischeck']='å·²å®Œæˆè¿è½½';
+        else $row['ischeck']='è¿è½½ä¸­...';
 
-        if($row['booktype']==0) $row['booktypename']='Ğ¡Ëµ';
-        else $row['booktypename']='Âş»­';
+        if($row['booktype']==0) $row['booktypename']='å°è¯´';
+        else $row['booktypename']='æ¼«ç”»';
 
         if(is_array($ndtp->CTags))
         {

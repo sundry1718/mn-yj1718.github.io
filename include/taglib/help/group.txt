@@ -1,4 +1,4 @@
-È¦×Óµ÷ÓÃ±êÇ©
+åœˆå­è°ƒç”¨æ ‡ç­¾
 >>dede>>
 {dede:group row='6' orderby='threads' titlelen='30'}
 <li>
@@ -7,6 +7,6 @@
 </li>
 {/dede:group}
 >>dede>>
-row='6' µ÷ÓÃÌõÊı
-orderby='threads' ÅÅÁĞË³Ğò£¨Ä¬ÈÏÊÇÖ÷ÌâÊı£©
-titlelen='30'   È¦×ÓÃû³Æ×î´ó³¤¶È
+row='6' è°ƒç”¨æ¡æ•°
+orderby='threads' æ’åˆ—é¡ºåºï¼ˆé»˜è®¤æ˜¯ä¸»é¢˜æ•°ï¼‰
+titlelen='30'   åœˆå­åç§°æœ€å¤§é•¿åº¦

@@ -1,8 +1,8 @@
 <?php   if(!defined('DEDEINC')) exit("Request Error!");
 /**
- * ×Ô¶¨Òå±íµ¥½âÎöÀà
+ * è‡ªå®šä¹‰è¡¨å•è§£æç±»
  *
- * @version        $Id: diyform.cls.php 1 10:31 2010Äê7ÔÂ6ÈÕZ tianya $
+ * @version        $Id: diyform.cls.php 1 10:31 2010å¹´7æœˆ6æ—¥Z tianya $
  * @package        DedeCMS.Libraries
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -35,10 +35,10 @@ class diyform
         $this->__construct($diyid);
     }
     /**
-     *  Îö¹¹º¯Êı
+     *  ææ„å‡½æ•°
      *
      * @access    public
-     * @param     string  $diyid  ×Ô¶¨Òå±íµ¥ID
+     * @param     string  $diyid  è‡ªå®šä¹‰è¡¨å•ID
      * @return    string
      */
     function __construct($diyid){
@@ -48,7 +48,7 @@ class diyform
         $diyinfo = $this->db->GetOne($query);
         if(!is_array($diyinfo))
         {
-            showMsg('²ÎÊı²»ÕıÈ·£¬¸Ã×Ô¶¨Òå±íµ¥²»´æÔÚ','javascript:;');
+            showMsg('å‚æ•°ä¸æ­£ç¡®ï¼Œè¯¥è‡ªå®šä¹‰è¡¨å•ä¸å­˜åœ¨','javascript:;');
             exit();
         }
         $this->info = $diyinfo['info'];
@@ -61,12 +61,12 @@ class diyform
     }
 
     /**
-     *  »ñÈ¡±íµ¥
+     *  è·å–è¡¨å•
      *
      * @access    public
-     * @param     string  $type  ÀàĞÍ
-     * @param     string  $value  Öµ
-     * @param     string  $admintype  ¹ÜÀíÀàĞÍ
+     * @param     string  $type  ç±»å‹
+     * @param     string  $value  å€¼
+     * @param     string  $admintype  ç®¡ç†ç±»å‹
      * @return    string
      */
     function getForm($type = 'post', $value = '', $admintype='diy')
@@ -103,7 +103,7 @@ class diyform
     }
 
     /**
-     *  »ñÈ¡×Ö¶ÎÁĞ±í
+     *  è·å–å­—æ®µåˆ—è¡¨
      *
      * @access    public
      * @return    string

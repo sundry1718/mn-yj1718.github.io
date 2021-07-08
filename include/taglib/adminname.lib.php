@@ -1,8 +1,8 @@
 <?php   if(!defined('DEDEINC')) exit('Request Error!');
 /**
- * »ñµÃÔğÈÎ±à¼­Ãû³Æ
+ * è·å¾—è´£ä»»ç¼–è¾‘åç§°
  *
- * @version        $Id: adminname.lib.php 2 8:48 2010Äê7ÔÂ8ÈÕZ tianya $
+ * @version        $Id: adminname.lib.php 2 8:48 2010å¹´7æœˆ8æ—¥Z tianya $
  * @package        DedeCMS.Taglib
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -10,19 +10,19 @@
  */
 
  /**
- *  »ñµÃÔğÈÎ±à¼­Ãû³Æ
+ *  è·å¾—è´£ä»»ç¼–è¾‘åç§°
  *
  * @access    public
- * @param     object  $ctag  ½âÎö±êÇ©
- * @param     object  $refObj  ÒıÓÃ¶ÔÏó
- * @return    string  ³É¹¦ºó·µ»Ø½âÎöºóµÄ±êÇ©ÄÚÈİ
+ * @param     object  $ctag  è§£ææ ‡ç­¾
+ * @param     object  $refObj  å¼•ç”¨å¯¹è±¡
+ * @return    string  æˆåŠŸåè¿”å›è§£æåçš„æ ‡ç­¾å†…å®¹
  */
  
  /*>>dede>>
-<name>ÔğÈÎ±à¼­</name> 
-<type>½öÄÚÈİÄ£°å</type> 
+<name>è´£ä»»ç¼–è¾‘</name> 
+<type>ä»…å†…å®¹æ¨¡æ¿</type> 
 <for>V55,V56,V57</for>
-<description>»ñµÃÔğÈÎ±à¼­Ãû³Æ</description>
+<description>è·å¾—è´£ä»»ç¼–è¾‘åç§°</description>
 <demo>
 {dede:adminname /}	
 </demo>

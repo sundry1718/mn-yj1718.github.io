@@ -1,9 +1,9 @@
 <?php   if(!defined('DEDEINC')) exit('Request Error!');
 
 /**
- * ¶¯Ì¬Ä£°åspacenewart±êÇ©
+ * åŠ¨æ€æ¨¡æ¿spacenewartæ ‡ç­¾
  *
- * @version        $Id: plus_spacenewart.php 1 13:58 2010Äê7ÔÂ5ÈÕZ tianya $
+ * @version        $Id: plus_spacenewart.php 1 13:58 2010å¹´7æœˆ5æ—¥Z tianya $
  * @package        DedeCMS.Tpllib
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -32,7 +32,7 @@ function plus_spacenewart(&$atts,&$refObj,&$fields)
     $rearr = array();
     while($row = $dsql->GetArray("al"))
     {
-        //´¦ÀíÒ»Ğ©ÌØÊâ×Ö¶Î
+        //å¤„ç†ä¸€äº›ç‰¹æ®Šå­—æ®µ
         $row['infos'] = cn_substr($row['description'],$infolen);
         $row['id'] =  $row['id'];
 

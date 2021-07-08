@@ -1,8 +1,8 @@
 <?php   if(!defined('DEDEINC')) exit('forbidden');
 /**
- * »áÔ±×Ô¶¨ÒåÄ£¿é
+ * ä¼šå‘˜è‡ªå®šä¹‰æ¨¡å—
  *
- * @version        $Id: oxwindow.class.php 1 15:21 2010Äê7ÔÂ5ÈÕZ tianya $
+ * @version        $Id: oxwindow.class.php 1 15:21 2010å¹´7æœˆ5æ—¥Z tianya $
  * @package        DedeCMS.Libraries
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -13,7 +13,7 @@ require_once DEDEINC.'/customfields.func.php';
 require_once DEDEINC.'/enums.func.php';
 
 /**
- * »áÔ±×Ô¶¨ÒåÄ£¿é
+ * ä¼šå‘˜è‡ªå®šä¹‰æ¨¡å—
  *
  * @package          membermodel
  * @subpackage       DedeCMS.Libraries
@@ -32,12 +32,12 @@ class membermodel
     var $viewTemplate;
     var $postTemplate;
 
-    //¼æÈİPHP4°æ±¾
+    //å…¼å®¹PHP4ç‰ˆæœ¬
     function membermodel($modtype){
         $this->__construct($modtype);
     }
     
-    //Îö¹¹º¯Êı
+    //ææ„å‡½æ•°
     function __construct($modtype){
         $this->name = $modtype;
         $this->db = $GLOBALS['dsql'];
@@ -45,7 +45,7 @@ class membermodel
         $diyinfo = $this->db->getone($query);
         if(!is_array($diyinfo))
         {
-            showMsg('²ÎÊı²»ÕıÈ·£¬¸Ã»áÔ±Ä£ĞÍ²»´æÔÚ','javascript:;');
+            showMsg('å‚æ•°ä¸æ­£ç¡®ï¼Œè¯¥ä¼šå‘˜æ¨¡å‹ä¸å­˜åœ¨','javascript:;');
             exit();
         }
     $etypes = array();
@@ -66,12 +66,12 @@ class membermodel
     }//end func __construct()
 
    /**
-    *  »ñÈ¡ÓÃ»§Êı¾İ±íµ¥
+    *  è·å–ç”¨æˆ·æ•°æ®è¡¨å•
     *
     * @access    public
-    * @param     string  $type  ±íµ¥ÀàĞÍ
-    * @param     string  $value  Öµ
-    * @param     string  $admintype  Ä£ĞÍÀàĞÍ
+    * @param     string  $type  è¡¨å•ç±»å‹
+    * @param     string  $value  å€¼
+    * @param     string  $admintype  æ¨¡å‹ç±»å‹
     * @return    string
     */
     function getForm($type = 'post', $value = '', $admintype='membermodel2')
@@ -92,32 +92,32 @@ class membermodel
                 {
                     if($tag->GetAtt('state') == 1)
                     {
-                        //Èç¹ûÆôÓÃ¸Ã×Ö¶Î
+                        //å¦‚æœå¯ç”¨è¯¥å­—æ®µ
                         if($type == 'post')
                         {
-                            //¶ÔÒ»Ğ©×Ö¶Î½øĞĞÌØÊâ´¦Àí
+                            //å¯¹ä¸€äº›å­—æ®µè¿›è¡Œç‰¹æ®Šå¤„ç†
                             if($tag->GetName() == 'onlynet')
                             {
-                                $formstring .= '<li><span>ÁªÏµ·½Ê½ÏŞÖÆ£º</span><div class="lform">
+                                $formstring .= '<li><span>è”ç³»æ–¹å¼é™åˆ¶ï¼š</span><div class="lform">
                     <input name="onlynet" type="radio" id="onlynet" value="2" checked="checked" />
-                    ²»¹«¿ªËùÓĞÁªÏµ·½Ê½
+                    ä¸å…¬å¼€æ‰€æœ‰è”ç³»æ–¹å¼
                     <input name="onlynet" type="radio" id="onlynet" value="1" />
-                    ²»¹«¿ªµç»°¡¢ÏêÏ¸µØÖ·
+                    ä¸å…¬å¼€ç”µè¯ã€è¯¦ç»†åœ°å€
                     <input name="onlynet" type="radio" id="onlynet" value="0"  />
-                    ¹«¿ªËùÓĞÁªÏµ·½Ê½</div></li>';
+                    å…¬å¼€æ‰€æœ‰è”ç³»æ–¹å¼</div></li>';
                             } else if ($tag->GetName() == 'place' || $tag->GetName() == 'oldplace')
                             {
-                                $formtitle = ($tag->GetName() == 'place')? 'Ä¿Ç°ËùÔÚµØ' : '¼ÒÏçËùÔÚµØ';
+                                $formtitle = ($tag->GetName() == 'place')? 'ç›®å‰æ‰€åœ¨åœ°' : 'å®¶ä¹¡æ‰€åœ¨åœ°';
                                 $formstring .='<li><div class="lform">' . GetEnumsForm('nativeplace', 
-                                       0,$tag->GetName()).'</div><span>'.$formtitle.'£º</span></li>';
+                                       0,$tag->GetName()).'</div><span>'.$formtitle.'ï¼š</span></li>';
                             } else if (array_key_exists($tag->GetName(),$this->egroups))
                             {
-                                //¶ÔÁª¶¯Ä£ĞÍ½øĞĞÌØÊâ´¦Àí
+                                //å¯¹è”åŠ¨æ¨¡å‹è¿›è¡Œç‰¹æ®Šå¤„ç†
                                 $formstring .='<li><div class="lform">'. GetEnumsForm($tag->GetName(),
-                                0,$tag->GetName()).'</div><span>'.$this->egroups[$tag->GetName()].'£º</span></li>';
+                                0,$tag->GetName()).'</div><span>'.$this->egroups[$tag->GetName()].'ï¼š</span></li>';
                             } else if ($tag->GetAtt('type') == 'checkbox')
                             {
-                                //¶ÔcheckboxÄ£ĞÍ½øĞĞÌØÊâ´¦Àí
+                                //å¯¹checkboxæ¨¡å‹è¿›è¡Œç‰¹æ®Šå¤„ç†
                                 $formstring .=$func($tag,$admintype);
                             } else {
                                   $formstring .= $func($tag,$admintype);
@@ -125,23 +125,23 @@ class membermodel
                         } else {
                              if($tag->GetName() == 'onlynet')
                                 {
-                                    $formstring .= '<p style="display:none"><label>ÁªÏµ·½Ê½ÏŞÖÆ£º</label>
+                                    $formstring .= '<p style="display:none"><label>è”ç³»æ–¹å¼é™åˆ¶ï¼š</label>
                     <input name="onlynet" type="radio" id="onlynet" value="2" checked="checked" />
-                    ²»¹«¿ªËùÓĞÁªÏµ·½Ê½
+                    ä¸å…¬å¼€æ‰€æœ‰è”ç³»æ–¹å¼
                     <input name="onlynet" type="radio" id="onlynet" value="1" />
-                    ²»¹«¿ªµç»°¡¢ÏêÏ¸µØÖ·
+                    ä¸å…¬å¼€ç”µè¯ã€è¯¦ç»†åœ°å€
                     <input name="onlynet" type="radio" id="onlynet" value="0"  />
-                    ¹«¿ªËùÓĞÁªÏµ·½Ê½</p>';
+                    å…¬å¼€æ‰€æœ‰è”ç³»æ–¹å¼</p>';
                                 } else if ($tag->GetName() == 'place' || $tag->GetName() == 'oldplace'){
-                                    $formtitle = ($tag->GetName() == 'place')? 'Ä¿Ç°ËùÔÚµØ' : '¼ÒÏçËùÔÚµØ';
-                                    $formstring .='<p><label>'.$formtitle.'£º</label>' . GetEnumsForm('nativeplace',$value[$tag->GetName()],$tag->GetName()).'</p>';
+                                    $formtitle = ($tag->GetName() == 'place')? 'ç›®å‰æ‰€åœ¨åœ°' : 'å®¶ä¹¡æ‰€åœ¨åœ°';
+                                    $formstring .='<p><label>'.$formtitle.'ï¼š</label>' . GetEnumsForm('nativeplace',$value[$tag->GetName()],$tag->GetName()).'</p>';
                                 } else if ($tag->GetName() == 'birthday'){
-                                    $formstring .='<p><label>'.$tag->GetAtt('itemname').'£º</label><input type="text" class="intxt" style="width: 100px;" id="birthday" value="'.$value[$tag->GetName()].'" name="birthday"></p>';
+                                    $formstring .='<p><label>'.$tag->GetAtt('itemname').'ï¼š</label><input type="text" class="intxt" style="width: 100px;" id="birthday" value="'.$value[$tag->GetName()].'" name="birthday"></p>';
                                 } else if (array_key_exists($tag->GetName(),$this->egroups)){
-                                    //¶ÔÁª¶¯Ä£ĞÍ½øĞĞÌØÊâ´¦Àí
-                                    $formstring .='<p><label>'.$this->egroups[$tag->GetName()].'£º</label> '. GetEnumsForm($tag->GetName(),$value[$tag->GetName()],$tag->GetName()).'</p>';
+                                    //å¯¹è”åŠ¨æ¨¡å‹è¿›è¡Œç‰¹æ®Šå¤„ç†
+                                    $formstring .='<p><label>'.$this->egroups[$tag->GetName()].'ï¼š</label> '. GetEnumsForm($tag->GetName(),$value[$tag->GetName()],$tag->GetName()).'</p>';
                                 } else if ($tag->GetAtt('type') == 'checkbox'){
-                                    //¶ÔcheckboxÄ£ĞÍ½øĞĞÌØÊâ´¦Àí
+                                    //å¯¹checkboxæ¨¡å‹è¿›è¡Œç‰¹æ®Šå¤„ç†
                                     $formstring .=$func($tag,dede_htmlspecialchars($value[$tag->GetName()],ENT_QUOTES),$admintype);
                                 }
                                   else if ($tag->GetAtt('type') == 'img')
@@ -149,7 +149,7 @@ class membermodel
                                     $fieldname = $tag->GetName();
                                     $labelname = $tag->GetAtt('itemname');
                                     $fvalue = dede_htmlspecialchars($value[$tag->GetName()],ENT_QUOTES);
-                                    $imgstrng = "<p><label>{$labelname}£º</label><input type='text' name='$fieldname' value='$fvalue' id='$fieldname' style='width:300px'  class='text' /> <input name='".$fieldname."_bt' class='inputbut' type='button' value='ä¯ÀÀ...' onClick=\"SelectImage('addcontent.$fieldname','big')\" />\r\n</p>";
+                                    $imgstrng = "<p><label>{$labelname}ï¼š</label><input type='text' name='$fieldname' value='$fvalue' id='$fieldname' style='width:300px'  class='text' /> <input name='".$fieldname."_bt' class='inputbut' type='button' value='æµè§ˆ...' onClick=\"SelectImage('addcontent.$fieldname','big')\" />\r\n</p>";
                                     $formstring .=$imgstrng;
                                     
                                 }
@@ -169,7 +169,7 @@ class membermodel
     }//end func getForm
 
     /**
-     *  »ñÈ¡×Ö¶ÎÁĞ±í
+     *  è·å–å­—æ®µåˆ—è¡¨
      *
      * @access    public
      * @param     string

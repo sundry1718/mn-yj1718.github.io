@@ -1,10 +1,10 @@
 <?php   if(!defined('DEDEINC')) exit('Request Error!');
 /**
- * ÎÄÕÂÁĞ±íµ÷ÓÃ±ê¼Ç
+ * æ–‡ç« åˆ—è¡¨è°ƒç”¨æ ‡è®°
  *
- * 9:19 2010Äê7ÔÂ13ÈÕ:ĞŞÕı¶ÔisweightÊôĞÔµÄÖ§³Ö
+ * 9:19 2010å¹´7æœˆ13æ—¥:ä¿®æ­£å¯¹isweightå±æ€§çš„æ”¯æŒ
  *
- * @version        $Id: arclist.lib.php 3 9:19 2010Äê7ÔÂ13ÈÕZ tianya $
+ * @version        $Id: arclist.lib.php 3 9:19 2010å¹´7æœˆ13æ—¥Z tianya $
  * @package        DedeCMS.Taglib
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -12,45 +12,45 @@
  */
 
 /**
- *  arclist½âÎö±êÇ©
+ *  arclistè§£ææ ‡ç­¾
  *
  * @access    public
- * @param     object  $ctag  ½âÎö±êÇ©
- * @param     object  $refObj  ÒıÓÃ¶ÔÏó
- * @return    string  ³É¹¦ºó·µ»Ø½âÎöºóµÄ±êÇ©ÄÚÈİ
+ * @param     object  $ctag  è§£ææ ‡ç­¾
+ * @param     object  $refObj  å¼•ç”¨å¯¹è±¡
+ * @return    string  æˆåŠŸåè¿”å›è§£æåçš„æ ‡ç­¾å†…å®¹
  */
  
 /*>>dede>>
-<name>ÎÄµµÁĞ±í</name>
-<type>È«¾Ö±ê¼Ç</type>
+<name>æ–‡æ¡£åˆ—è¡¨</name>
+<type>å…¨å±€æ ‡è®°</type>
 <for>V55,V56,V57</for>
-<description>»ñÈ¡Ö¸¶¨ÎÄµµÁĞ±í</description>
+<description>è·å–æŒ‡å®šæ–‡æ¡£åˆ—è¡¨</description>
 <demo>
 {dede:arclist  flag='h' typeid='' row='' col='' titlelen='' infolen='' imgwidth='' imgheight='' listtype='' orderby='' keyword='' limit='0,1'}
 <a href='[field:arcurl/]'>[field:title/]</a>
 {/dede:arclist}
 </demo>
 <attributes>
-    <iterm>col:·Ö¶àÉÙÁĞÏÔÊ¾£¨Ä¬ÈÏÎªµ¥ÁĞ£©£¬5.3°æÖĞ±¾ÊôĞÔ¿ÉÒÔÍ¨¹ı¶àÖÖ·½Ê½½øĞĞ¶àĞĞÏÔÊ¾</iterm>
-    <iterm>row:·µ»ØÎÄµµÁĞ±í×ÜÊı</iterm> 
-    <iterm>typeid:À¸Ä¿ID,ÔÚÁĞ±íÄ£°åºÍµµ°¸Ä£°åÖĞÒ»°ã²»ĞèÒªÖ¸¶¨£¬ÔÚÊ×Ò³Ä£°åÖĞÔÊĞíÓÃ","·Ö¿ª±íÊ¾¶à¸öÀ¸Ä¿</iterm>
-    <iterm>getall:ÔÚÃ»ÓĞÖ¸¶¨ÕâÊôĞÔµÄÇé¿öÏÂ,ÔÚÀ¸Ä¿Ò³¡¢ÎÄÕÂÒ³Ä£°å,²»»á»ñÈ¡ÒÔ","·Ö¿ªµÄ¶à¸öÀ¸Ä¿µÄÏÂ¼¶×ÓÀà</iterm>
-    <iterm>titlelen:±êÌâ³¤¶È µÈÍ¬ÓÚtitlelength</iterm>
-    <iterm>infolen:±íÊ¾ÄÚÈİ¼ò½é³¤¶È µÈÍ¬ÓÚinfolength</iterm>
-    <iterm>imgwidth:ËõÂÔÍ¼¿í¶È</iterm>
-    <iterm>imgheight:ËõÂÔÍ¼¸ß¶È</iterm>
-    <iterm>listtype: À¸Ä¿ÀàĞÍ imageº¬ÓĞËõÂÔÍ¼ commendÍÆ¼ö</iterm>
-    <iterm>orderby:ÎÄµµÅÅĞò·½Ê½</iterm>
-    <iterm>keyword:º¬ÓĞÖ¸¶¨¹Ø¼ü×ÖµÄÎÄµµÁĞ±í£¬¶à¸ö¹Ø¼ü×ÖÓÃ","·Ö</iterm>
-    <iterm>innertext:µ¥Ìõ¼ÇÂ¼ÑùÊ½</iterm>
-    <iterm>aid:Ö¸¶¨ÎÄµµID</iterm>
-    <iterm>idlist:ÌáÈ¡ÌØ¶¨ÎÄµµ£¨ÎÄµµID</iterm>
-    <iterm>channelid:ÆµµÀID</iterm>
-    <iterm>limit:£¨ÆğÊ¼ID´Ó0¿ªÊ¼£©±íÊ¾ÏŞ¶¨µÄ¼ÇÂ¼·¶Î§£¨Èç£ºlimit='1,2'  ±íÊ¾´ÓIDÎª1µÄ¼ÇÂ¼¿ªÊ¼£¬È¡2Ìõ¼ÇÂ¼</iterm>
-    <iterm>flag:×Ô¶¨ÒåÊôĞÔÖµ£ºÍ·Ìõ[h]ÍÆ¼ö[c]Í¼Æ¬[p]»ÃµÆ[f]¹ö¶¯[s]Ìø×ª[j]Í¼ÎÄ[a]¼Ó´Ö[b]</iterm>
-    <iterm>noflag:Í¬flag£¬µ«ÕâÀïÊÇ±íÊ¾²»°üº¬ÕâĞ©ÊôĞÔ</iterm>
-    <iterm>orderway:ÖµÎª desc »ò asc £¬Ö¸¶¨ÅÅĞò·½Ê½ÊÇ½µĞò»¹ÊÇË³ÏòÅÅĞò£¬Ä¬ÈÏÎª½µĞò</iterm>
-    <iterm>subday:±íÊ¾ÔÚ¶àÉÙÌìÒÔÄÚµÄÎÄµµ</iterm>
+    <iterm>col:åˆ†å¤šå°‘åˆ—æ˜¾ç¤ºï¼ˆé»˜è®¤ä¸ºå•åˆ—ï¼‰ï¼Œ5.3ç‰ˆä¸­æœ¬å±æ€§å¯ä»¥é€šè¿‡å¤šç§æ–¹å¼è¿›è¡Œå¤šè¡Œæ˜¾ç¤º</iterm>
+    <iterm>row:è¿”å›æ–‡æ¡£åˆ—è¡¨æ€»æ•°</iterm> 
+    <iterm>typeid:æ ç›®ID,åœ¨åˆ—è¡¨æ¨¡æ¿å’Œæ¡£æ¡ˆæ¨¡æ¿ä¸­ä¸€èˆ¬ä¸éœ€è¦æŒ‡å®šï¼Œåœ¨é¦–é¡µæ¨¡æ¿ä¸­å…è®¸ç”¨","åˆ†å¼€è¡¨ç¤ºå¤šä¸ªæ ç›®</iterm>
+    <iterm>getall:åœ¨æ²¡æœ‰æŒ‡å®šè¿™å±æ€§çš„æƒ…å†µä¸‹,åœ¨æ ç›®é¡µã€æ–‡ç« é¡µæ¨¡æ¿,ä¸ä¼šè·å–ä»¥","åˆ†å¼€çš„å¤šä¸ªæ ç›®çš„ä¸‹çº§å­ç±»</iterm>
+    <iterm>titlelen:æ ‡é¢˜é•¿åº¦ ç­‰åŒäºtitlelength</iterm>
+    <iterm>infolen:è¡¨ç¤ºå†…å®¹ç®€ä»‹é•¿åº¦ ç­‰åŒäºinfolength</iterm>
+    <iterm>imgwidth:ç¼©ç•¥å›¾å®½åº¦</iterm>
+    <iterm>imgheight:ç¼©ç•¥å›¾é«˜åº¦</iterm>
+    <iterm>listtype: æ ç›®ç±»å‹ imageå«æœ‰ç¼©ç•¥å›¾ commendæ¨è</iterm>
+    <iterm>orderby:æ–‡æ¡£æ’åºæ–¹å¼</iterm>
+    <iterm>keyword:å«æœ‰æŒ‡å®šå…³é”®å­—çš„æ–‡æ¡£åˆ—è¡¨ï¼Œå¤šä¸ªå…³é”®å­—ç”¨","åˆ†</iterm>
+    <iterm>innertext:å•æ¡è®°å½•æ ·å¼</iterm>
+    <iterm>aid:æŒ‡å®šæ–‡æ¡£ID</iterm>
+    <iterm>idlist:æå–ç‰¹å®šæ–‡æ¡£ï¼ˆæ–‡æ¡£ID</iterm>
+    <iterm>channelid:é¢‘é“ID</iterm>
+    <iterm>limit:ï¼ˆèµ·å§‹IDä»0å¼€å§‹ï¼‰è¡¨ç¤ºé™å®šçš„è®°å½•èŒƒå›´ï¼ˆå¦‚ï¼šlimit='1,2'  è¡¨ç¤ºä»IDä¸º1çš„è®°å½•å¼€å§‹ï¼Œå–2æ¡è®°å½•</iterm>
+    <iterm>flag:è‡ªå®šä¹‰å±æ€§å€¼ï¼šå¤´æ¡[h]æ¨è[c]å›¾ç‰‡[p]å¹»ç¯[f]æ»šåŠ¨[s]è·³è½¬[j]å›¾æ–‡[a]åŠ ç²—[b]</iterm>
+    <iterm>noflag:åŒflagï¼Œä½†è¿™é‡Œæ˜¯è¡¨ç¤ºä¸åŒ…å«è¿™äº›å±æ€§</iterm>
+    <iterm>orderway:å€¼ä¸º desc æˆ– asc ï¼ŒæŒ‡å®šæ’åºæ–¹å¼æ˜¯é™åºè¿˜æ˜¯é¡ºå‘æ’åºï¼Œé»˜è®¤ä¸ºé™åº</iterm>
+    <iterm>subday:è¡¨ç¤ºåœ¨å¤šå°‘å¤©ä»¥å†…çš„æ–‡æ¡£</iterm>
 </attributes> 
 >>dede>>*/
 
@@ -63,7 +63,7 @@ function lib_arclist( &$ctag, &$refObj )
     $tagname = $ctag->GetTagName();
     $channelid = $ctag->GetAtt('channelid');
     
-    //Ôö¼Ó¶Ô·ÖÒ³ÄÚÈİµÄ´¦Àí
+    //å¢åŠ å¯¹åˆ†é¡µå†…å®¹çš„å¤„ç†
     $pagesize = $ctag->GetAtt('pagesize');
     if($pagesize == '')
     {
@@ -71,7 +71,7 @@ function lib_arclist( &$ctag, &$refObj )
     } else {
         $tagid = $ctag->GetAtt('tagid');
     }
-    // arclistÊÇ·ñĞèÒªweightÅÅĞò,Ä¬ÈÏÎª"N",Èç¹ûĞèÒªÅÅĞòÔòÉèÖÃÎª"Y"
+    // arclistæ˜¯å¦éœ€è¦weightæ’åº,é»˜è®¤ä¸º"N",å¦‚æœéœ€è¦æ’åºåˆ™è®¾ç½®ä¸º"Y"
     $isweight = $ctag->GetAtt('isweight');
 
     if($tagname=='imglist' || $tagname=='imginfolist') {
@@ -91,22 +91,22 @@ function lib_arclist( &$ctag, &$refObj )
         $listtype = $ctag->GetAtt('type');
     }
 
-    //ÅÅĞò
+    //æ’åº
     if($ctag->GetAtt('sort')!='') $orderby = $ctag->GetAtt('sort');
     else if($tagname=='hotart') $orderby = 'click';
     else $orderby = $ctag->GetAtt('orderby');
 
-    //¶ÔÏàÓ¦µÄ±ê¼ÇÊ¹ÓÃ²»Í¬µÄÄ¬ÈÏinnertext
+    //å¯¹ç›¸åº”çš„æ ‡è®°ä½¿ç”¨ä¸åŒçš„é»˜è®¤innertext
     if(trim($ctag->GetInnerText()) != '') $innertext = $ctag->GetInnerText();
     else if($tagname=='imglist') $innertext = GetSysTemplets('part_imglist.htm');
     else if($tagname=='imginfolist') $innertext = GetSysTemplets('part_imginfolist.htm');
     else $innertext = GetSysTemplets("part_arclist.htm");
 
-    //¼æÈİtitlelength
+    //å…¼å®¹titlelength
     if($ctag->GetAtt('titlelength')!='') $titlelen = $ctag->GetAtt('titlelength');
     else $titlelen = $ctag->GetAtt('titlelen');
 
-    //¼æÈİinfolength
+    //å…¼å®¹infolength
     if($ctag->GetAtt('infolength')!='') $infolen = $ctag->GetAtt('infolength');
     else $infolen = $ctag->GetAtt('infolen');
 
@@ -137,32 +137,32 @@ function lib_arclist( &$ctag, &$refObj )
 }
 
 /**
- *  arclist½âÎöº¯Êı
+ *  arclistè§£æå‡½æ•°
  *
  * @access    public
- * @param     object  $refObj  ÒıÓÃ¶ÔÏó
- * @param     object  $ctag  ±êÇ©
- * @param     int  $typeid  À¸Ä¿ID
- * @param     int  $row  µ÷ÓÃĞĞÊı
- * @param     int  $titlelen  ×Ö·û´®³¤¶È
- * @param     int  $infolen  ÃèÊöĞÅÏ¢³¤¶È
- * @param     int  $imgwidth  Í¼Æ¬¿í¶È
- * @param     int  $imgheight  Í¼Æ¬¸ß¶È
- * @param     string  $listtype  ÁĞ±íÀàĞÍ
- * @param     string  $orderby  ÅÅÁĞË³Ğò
- * @param     string  $keyword  ¹Ø¼ü´Ê
- * @param     string  $innertext  µ×²ãÄ£°å
- * @param     int  $arcid  ÎÄµµID
- * @param     string  $idlist  IDÁĞ±í
- * @param     int  $channelid  ÆµµÀID
- * @param     string  $limit  ÏŞÖÆ
- * @param     string  $att  ÊôĞÔ
- * @param     string  $order  ÅÅĞòÀàĞÍ
- * @param     int  $subday  ÌìÄÚ
- * @param     string  $noflag  ÊôĞÔ±ê¼Ç
- * @param     string  $tagid  ±êÇ©id
- * @param     string  $pagesize  ÏÔÊ¾ÌõÊı
- * @param     string  $isweight  ÊÇ·ñĞèÒª¶Ô¼ìË÷³öÀ´µÄÄÚÈİ°´ÕÕweightÅÅĞò
+ * @param     object  $refObj  å¼•ç”¨å¯¹è±¡
+ * @param     object  $ctag  æ ‡ç­¾
+ * @param     int  $typeid  æ ç›®ID
+ * @param     int  $row  è°ƒç”¨è¡Œæ•°
+ * @param     int  $titlelen  å­—ç¬¦ä¸²é•¿åº¦
+ * @param     int  $infolen  æè¿°ä¿¡æ¯é•¿åº¦
+ * @param     int  $imgwidth  å›¾ç‰‡å®½åº¦
+ * @param     int  $imgheight  å›¾ç‰‡é«˜åº¦
+ * @param     string  $listtype  åˆ—è¡¨ç±»å‹
+ * @param     string  $orderby  æ’åˆ—é¡ºåº
+ * @param     string  $keyword  å…³é”®è¯
+ * @param     string  $innertext  åº•å±‚æ¨¡æ¿
+ * @param     int  $arcid  æ–‡æ¡£ID
+ * @param     string  $idlist  IDåˆ—è¡¨
+ * @param     int  $channelid  é¢‘é“ID
+ * @param     string  $limit  é™åˆ¶
+ * @param     string  $att  å±æ€§
+ * @param     string  $order  æ’åºç±»å‹
+ * @param     int  $subday  å¤©å†…
+ * @param     string  $noflag  å±æ€§æ ‡è®°
+ * @param     string  $tagid  æ ‡ç­¾id
+ * @param     string  $pagesize  æ˜¾ç¤ºæ¡æ•°
+ * @param     string  $isweight  æ˜¯å¦éœ€è¦å¯¹æ£€ç´¢å‡ºæ¥çš„å†…å®¹æŒ‰ç…§weightæ’åº
  * @return    string
  */
 function lib_arclistDone(&$refObj, &$ctag, $typeid=0, $row=10, $col=1, $titlelen=30, $infolen=160,
@@ -195,7 +195,7 @@ function lib_arclistDone(&$refObj, &$ctag, $typeid=0, $row=10, $col=1, $titlelen
     $tablewidth = $tablewidth."%";
     $colWidth = $colWidth."%";
     
-    //¼ÇÂ¼ÊôĞÔ,ÒÔ±ã·ÖÒ³ÑùÊ½Í³Ò»µ÷ÓÃ
+    //è®°å½•å±æ€§,ä»¥ä¾¿åˆ†é¡µæ ·å¼ç»Ÿä¸€è°ƒç”¨
     $attarray = compact("row", "titlelen", 'infolen', 'imgwidth', 'imgheight', 'listtype',
      'arcid', 'channelid', 'orderby', 'orderWay', 'subday','pagesize',
       'orderby', 'keyword', 'tablewidth', 'col', 'colWidth');
@@ -210,7 +210,7 @@ function lib_arclistDone(&$refObj, &$ctag, $typeid=0, $row=10, $col=1, $titlelen
 
     $orwheres = array();
     $maintable = '#@__archives';
-    //°´²»Í¬Çé¿öÉè¶¨SQLÌõ¼ş ÅÅĞò·½Ê½
+    //æŒ‰ä¸åŒæƒ…å†µè®¾å®šSQLæ¡ä»¶ æ’åºæ–¹å¼
     if($idlist=='')
     {
         if($orderby=='near' && $cfg_keyword_like=='N') { $keyword=''; }
@@ -220,20 +220,20 @@ function lib_arclistDone(&$refObj, &$ctag, $typeid=0, $row=10, $col=1, $titlelen
             $orwheres[] = " arc.mid = '$wmid' ";
         }
         
-        //Ê±¼äÏŞÖÆ(ÓÃÓÚµ÷ÓÃ×î½üÈÈÃÅÎÄÕÂ¡¢ÈÈÃÅÆÀÂÛÖ®Àà)£¬ÕâÀïµÄÊ±¼äÖ»ÄÜ¼ÆËãµ½Ìì£¬·ñÔò»º´æ¹¦ÄÜ½«ÎŞĞ§
+        //æ—¶é—´é™åˆ¶(ç”¨äºè°ƒç”¨æœ€è¿‘çƒ­é—¨æ–‡ç« ã€çƒ­é—¨è¯„è®ºä¹‹ç±»)ï¼Œè¿™é‡Œçš„æ—¶é—´åªèƒ½è®¡ç®—åˆ°å¤©ï¼Œå¦åˆ™ç¼“å­˜åŠŸèƒ½å°†æ— æ•ˆ
         if($subday > 0)
         {
             $ntime = gmmktime(0, 0, 0, gmdate('m'), gmdate('d'), gmdate('Y'));
             $limitday = $ntime - ($subday * 24 * 3600);
             $orwheres[] = " arc.senddate > $limitday ";
         }
-        //¹Ø¼ü×ÖÌõ¼ş
+        //å…³é”®å­—æ¡ä»¶
         if($keyword!='')
         {
             $keyword = str_replace(',', '|', $keyword);
             $orwheres[] = " CONCAT(arc.title,arc.keywords) REGEXP '$keyword' ";
         }
-        //ÎÄµµÊôĞÔ
+        //æ–‡æ¡£å±æ€§
         if(preg_match('/commend/i', $listtype)) $orwheres[] = " FIND_IN_SET('c', arc.flag)>0  ";
         if(preg_match('/image/i', $listtype)) $orwheres[] = " FIND_IN_SET('p', arc.flag)>0  ";
         if($att != '') {
@@ -243,10 +243,10 @@ function lib_arclistDone(&$refObj, &$ctag, $typeid=0, $row=10, $col=1, $titlelen
 
         if(!empty($typeid) && $typeid != 'top')
         {
-            //Ö¸¶¨ÁË¶à¸öÀ¸Ä¿Ê±£¬²»ÔÙ»ñÈ¡×ÓÀàµÄid
+            //æŒ‡å®šäº†å¤šä¸ªæ ç›®æ—¶ï¼Œä¸å†è·å–å­ç±»çš„id
             if( preg_match('#,#', $typeid) )
             {
-                //Ö¸¶¨ÁËgetallÊôĞÔ»òÖ÷Ò³Ä£°åÀıÍâ
+                //æŒ‡å®šäº†getallå±æ€§æˆ–ä¸»é¡µæ¨¡æ¿ä¾‹å¤–
                 if($getall==1 || empty($refObj->Fields['typeid']))
                 {
                     $typeids = explode(',', $typeid);
@@ -262,7 +262,7 @@ function lib_arclistDone(&$refObj, &$ctag, $typeid=0, $row=10, $col=1, $titlelen
             }
             else
             {
-                //´¦Àí½»²æÀ¸Ä¿
+                //å¤„ç†äº¤å‰æ ç›®
                 $CrossID = '';
                 if($ctag->GetAtt('cross')=='1')
                 {
@@ -297,7 +297,7 @@ function lib_arclistDone(&$refObj, &$ctag, $typeid=0, $row=10, $col=1, $titlelen
             }
         }
 
-        //ÆµµÀID
+        //é¢‘é“ID
         if(preg_match('#spec#i', $listtype)) $channelid==-1;
 
         if(!empty($channelid)) $orwheres[] = " And arc.channel = '$channelid' ";
@@ -320,11 +320,11 @@ function lib_arclistDone(&$refObj, &$ctag, $typeid=0, $row=10, $col=1, $titlelen
 
         $orwheres[] = ' arc.arcrank > -1 ';
 
-        //ÓÉÓÚÕâ¸öÌõ¼ş»áµ¼ÖÂ»º´æ¹¦ÄÜÊ§È¥ÒâÒå£¬Òò´ËÈ¡Ïû
+        //ç”±äºè¿™ä¸ªæ¡ä»¶ä¼šå¯¼è‡´ç¼“å­˜åŠŸèƒ½å¤±å»æ„ä¹‰ï¼Œå› æ­¤å–æ¶ˆ
         //if($arcid!=0) $orwheres[] = " arc.id<>'$arcid' ";
     }
 
-    //ÎÄµµÅÅĞòµÄ·½Ê½
+    //æ–‡æ¡£æ’åºçš„æ–¹å¼
     $ordersql = '';
     if($orderby=='hot' || $orderby=='click') $ordersql = " ORDER BY arc.click $orderWay";
     else if($orderby == 'sortrank' || $orderby=='pubdate') $ordersql = " ORDER BY arc.sortrank $orderWay";
@@ -332,13 +332,13 @@ function lib_arclistDone(&$refObj, &$ctag, $typeid=0, $row=10, $col=1, $titlelen
     else if($orderby == 'near') $ordersql = " ORDER BY ABS(arc.id - ".$arcid.")";
     else if($orderby == 'lastpost') $ordersql = "  ORDER BY arc.lastpost $orderWay";
     else if($orderby == 'scores') $ordersql = "  ORDER BY arc.scores $orderWay";
-    //¹¦ÄÜ£ºÔö¼Ó°´ºÃÆÀÊıºÍ²îÆÀÊıµ÷ÓÃ
+    //åŠŸèƒ½ï¼šå¢åŠ æŒ‰å¥½è¯„æ•°å’Œå·®è¯„æ•°è°ƒç”¨
     else if($orderby == 'goodpost') $ordersql = " order by arc.goodpost $orderWay";
     else if($orderby == 'badpost') $ordersql = " order by arc.badpost $orderWay";
     else if($orderby == 'rand') $ordersql = "  ORDER BY rand()";
     else $ordersql = " ORDER BY arc.sortrank $orderWay"; 
 
-    //limitÌõ¼ş
+    //limitæ¡ä»¶
     $limit = trim(preg_replace('#limit#is', '', $limit));
     if($limit!='')
     {    
@@ -356,7 +356,7 @@ function lib_arclistDone(&$refObj, &$ctag, $typeid=0, $row=10, $col=1, $titlelen
     }
     if($orwhere!='') $orwhere = " WHERE $orwhere ";
     
-    //»ñÈ¡¸½¼Ó±íĞÅÏ¢
+    //è·å–é™„åŠ è¡¨ä¿¡æ¯
     $addfield = trim($ctag->GetAtt('addfields'));
     $addfieldsSql = '';
     $addfieldsSqlJoin = '';
@@ -380,10 +380,10 @@ function lib_arclistDone(&$refObj, &$ctag, $typeid=0, $row=10, $col=1, $titlelen
         $addfieldsSqlJoin
         $orwhere $ordersql $limitsql";
 
-    //Í³Ò»hash
+    //ç»Ÿä¸€hash
     $taghash = md5(serialize($ctag).$typeid);
     $needSaveCache = true;
-    //½øĞĞtagidµÄÄ¬ÈÏ´¦Àí
+    //è¿›è¡Œtagidçš„é»˜è®¤å¤„ç†
     if($pagesize > 0) $tagid = AttDef($tagid,'tag'.$taghash );
     
     if($idlist!='' || $GLOBALS['_arclistEnv']=='index' || $cfg_index_cache==0)
@@ -396,7 +396,7 @@ function lib_arclistDone(&$refObj, &$ctag, $typeid=0, $row=10, $col=1, $titlelen
         if($idlist != '') {
             $needSaveCache = false;
         }
-        //Èç¹ûÊ¹ÓÃµÄÊÇÄÚÈİ»º´æ£¬Ö±½Ó·µ»Ø½á¹û
+        //å¦‚æœä½¿ç”¨çš„æ˜¯å†…å®¹ç¼“å­˜ï¼Œç›´æ¥è¿”å›ç»“æœ
         if($cfg_cache_type=='content' && $idlist != '')
         {
             $idlist = ($idlist==0 ? '' : $idlist);
@@ -404,7 +404,7 @@ function lib_arclistDone(&$refObj, &$ctag, $typeid=0, $row=10, $col=1, $titlelen
         }
     }
 
-    //Ö¸¶¨ÁËid»òÊ¹ÓÃ»º´æÖĞµÄid
+    //æŒ‡å®šäº†idæˆ–ä½¿ç”¨ç¼“å­˜ä¸­çš„id
     if($idlist != '')
     {
         $query = "SELECT arc.*,tp.typedir,tp.typename,tp.corank,tp.isdefault,tp.defaultname,tp.namerule,tp.namerule2,tp.ispart,
@@ -415,7 +415,7 @@ function lib_arclistDone(&$refObj, &$ctag, $typeid=0, $row=10, $col=1, $titlelen
           WHERE arc.id in($idlist) $ordersql ";
     }
 	
-	// ºÃÆÀ²îÆÀ»º´æ¸üĞÂ
+	// å¥½è¯„å·®è¯„ç¼“å­˜æ›´æ–°
 	if($cfg_digg_update > 0)
 	{
 		if($orderby == 'goodpost' || $orderby == 'badpost')
@@ -483,7 +483,7 @@ function lib_arclistDone(&$refObj, &$ctag, $typeid=0, $row=10, $col=1, $titlelen
             if($row = $dsql->GetArray("al"))
             {
                 $ids[] = $row['id'];
-                //´¦ÀíÒ»Ğ©ÌØÊâ×Ö¶Î
+                //å¤„ç†ä¸€äº›ç‰¹æ®Šå­—æ®µ
                 $row['info'] = $row['infos'] = cn_substr($row['description'],$infolen);
                 $row['id'] =  $row['id'];
 
@@ -528,7 +528,7 @@ function lib_arclistDone(&$refObj, &$ctag, $typeid=0, $row=10, $col=1, $titlelen
                     {
                         if($ctag->GetName()=='array')
                         {
-                            //´«µİÕû¸öÊı×é£¬ÔÚrunphpÄ£Ê½ÖĞÓĞÌØÊâ×÷ÓÃ
+                            //ä¼ é€’æ•´ä¸ªæ•°ç»„ï¼Œåœ¨runphpæ¨¡å¼ä¸­æœ‰ç‰¹æ®Šä½œç”¨
                             $dtp2->Assign($k, $row);
                         } else {
                             if(isset($row[$ctag->GetName()])) $dtp2->Assign($k,$row[$ctag->GetName()]);
@@ -563,7 +563,7 @@ function lib_arclistDone(&$refObj, &$ctag, $typeid=0, $row=10, $col=1, $titlelen
                 $artlist .= '';
             }
             
-            // ½øĞĞÅĞ¶Ï,Èç¹ûÆôÓÃÅÅĞòÔòÄÚÈİÊä³öÎªÖØĞÂÅÅĞòºóµÄÄÚÈİ
+            // è¿›è¡Œåˆ¤æ–­,å¦‚æœå¯ç”¨æ’åºåˆ™å†…å®¹è¾“å‡ºä¸ºé‡æ–°æ’åºåçš„å†…å®¹
             // var_dump($isweight=='y' && count($orderWeight) == $line);
             $isweight = strtolower($isweight);
             if ( $isweight=='y' )
@@ -584,7 +584,7 @@ function lib_arclistDone(&$refObj, &$ctag, $typeid=0, $row=10, $col=1, $titlelen
     $dsql->FreeResult("al");
     $idsstr = join(',', $ids);
     
-    //·ÖÒ³ÌØÊâ´¦Àí
+    //åˆ†é¡µç‰¹æ®Šå¤„ç†
     if($pagesize > 0)
     {
         $artlist .= "    </div>\r\n";
@@ -616,7 +616,7 @@ function lib_arclistDone(&$refObj, &$ctag, $typeid=0, $row=10, $col=1, $titlelen
       }
     }
     
-    //±£´æID»º´æ
+    //ä¿å­˜IDç¼“å­˜
     if($needSaveCache)
     {
         if($idsstr=='') $idsstr = '0';
@@ -631,10 +631,10 @@ function lib_arclistDone(&$refObj, &$ctag, $typeid=0, $row=10, $col=1, $titlelen
 }
 
 /**
- *  ²éÑ¯»º´æ
+ *  æŸ¥è¯¢ç¼“å­˜
  *
  * @access    public
- * @param     string  $md5hash  Î¨Ò»Ê¶±ğhash
+ * @param     string  $md5hash  å”¯ä¸€è¯†åˆ«hash
  * @return    string
  */
 function GetArclistCache($md5hash)
@@ -656,7 +656,7 @@ function GetArclistCache($md5hash)
 }
 
 /**
- *  »ñÈ¡×Ô¶¯ÆµµÀID
+ *  è·å–è‡ªåŠ¨é¢‘é“ID
  *
  * @access    public
  * @param     string  $sortid 
@@ -674,13 +674,13 @@ function lib_GetAutoChannelID($sortid, $topid)
 }
 
 /**
- *  ¶Ô²éÑ¯½á¹û¼¯½øĞĞÅÅĞò
+ *  å¯¹æŸ¥è¯¢ç»“æœé›†è¿›è¡Œæ’åº
  *
  * @access    public
- * @param     array     $list ²éÑ¯½á¹û
- * @param     string    $field ÅÅĞòµÄ×Ö¶ÎÃû
- * @param     array     $sortby ÅÅĞòÀàĞÍ
- *            ascÕıÏòÅÅĞò descÄæÏòÅÅĞò nat×ÔÈ»ÅÅĞò
+ * @param     array     $list æŸ¥è¯¢ç»“æœ
+ * @param     string    $field æ’åºçš„å­—æ®µå
+ * @param     array     $sortby æ’åºç±»å‹
+ *            ascæ­£å‘æ’åº descé€†å‘æ’åº natè‡ªç„¶æ’åº
  * @return    array
  */
 function list_sort_by($list, $field, $sortby='asc') {
@@ -689,13 +689,13 @@ function list_sort_by($list, $field, $sortby='asc') {
        foreach ($list as $i => $data)
            $refer[$i] = &$data[$field];
        switch ($sortby) {
-           case 'asc': // ÕıÏòÅÅĞò
+           case 'asc': // æ­£å‘æ’åº
                 asort($refer);
                 break;
-           case 'desc':// ÄæÏòÅÅĞò
+           case 'desc':// é€†å‘æ’åº
                 arsort($refer);
                 break;
-           case 'nat': // ×ÔÈ»ÅÅĞò
+           case 'nat': // è‡ªç„¶æ’åº
                 natcasesort($refer);
                 break;
        }

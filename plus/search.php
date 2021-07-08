@@ -1,9 +1,9 @@
 <?php
 /**
  *
- * ËÑË÷Ò³
+ * æœç´¢é¡µ
  *
- * @version        $Id: search.php 1 15:38 2010Äê7ÔÂ8ÈÕZ tianya $
+ * @version        $Id: search.php 1 15:38 2010å¹´7æœˆ8æ—¥Z tianya $
  * @package        DedeCMS.Site
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -32,7 +32,7 @@ if(!isset($keyword)){
 $oldkeyword = $keyword = FilterSearch(stripslashes($keyword));
 
 
-//²éÕÒÀ¸Ä¿ĞÅÏ¢
+//æŸ¥æ‰¾æ ç›®ä¿¡æ¯
 if(empty($typeid))
 {
     $typenameCacheFile = DEDEDATA.'/cache/typename.inc';
@@ -49,7 +49,7 @@ if(empty($typeid))
         fwrite($fp, '?'.'>');
         fclose($fp);
     }
-    //ÒıÈëÀ¸Ä¿»º´æ²¢¿´¹Ø¼ü×ÖÊÇ·ñÓĞÏà¹ØÀ¸Ä¿ÄÚÈİ
+    //å¼•å…¥æ ç›®ç¼“å­˜å¹¶çœ‹å…³é”®å­—æ˜¯å¦æœ‰ç›¸å…³æ ç›®å†…å®¹
     require_once($typenameCacheFile);
     if(isset($typeArr) && is_array($typeArr))
     {
@@ -68,30 +68,33 @@ if(empty($typeid))
 }
 
 $keyword = addslashes(cn_substr($keyword,30));
+
+
+
 $typeid = intval($typeid);
 
 if($cfg_notallowstr !='' && preg_match("#".$cfg_notallowstr."#i", $keyword))
 {
-    ShowMsg("ÄãµÄËÑË÷¹Ø¼ü×ÖÖĞ´æÔÚ·Ç·¨ÄÚÈİ£¬±»ÏµÍ³½ûÖ¹£¡","-1");
+    ShowMsg("ä½ çš„æœç´¢å…³é”®å­—ä¸­å­˜åœ¨éæ³•å†…å®¹ï¼Œè¢«ç³»ç»Ÿç¦æ­¢ï¼","-1");
     exit();
 }
 
 if(($keyword=='' || strlen($keyword)<2) && empty($typeid))
 {
-    ShowMsg('¹Ø¼ü×Ö²»ÄÜĞ¡ÓÚ2¸ö×Ö½Ú£¡','-1');
+    ShowMsg('å…³é”®å­—ä¸èƒ½å°äº2ä¸ªå­—èŠ‚ï¼','-1');
     exit();
 }
 
-//¼ì²éËÑË÷¼ä¸ôÊ±¼ä
+//æ£€æŸ¥æœç´¢é—´éš”æ—¶é—´
 $lockfile = DEDEDATA.'/time.lock.inc';
 $lasttime = file_get_contents($lockfile);
 if(!empty($lasttime) && ($lasttime + $cfg_search_time) > time())
 {
-    ShowMsg('¹ÜÀíÔ±Éè¶¨ËÑË÷Ê±¼ä¼ä¸ôÎª'.$cfg_search_time.'Ãë£¬ÇëÉÔºóÔÙÊÔ£¡','-1');
+    ShowMsg('ç®¡ç†å‘˜è®¾å®šæœç´¢æ—¶é—´é—´éš”ä¸º'.$cfg_search_time.'ç§’ï¼Œè¯·ç¨åå†è¯•ï¼','-1');
     exit();
 }
 
-//¿ªÊ¼Ê±¼ä
+//å¼€å§‹æ—¶é—´
 if(empty($starttime)) $starttime = -1;
 else
 {

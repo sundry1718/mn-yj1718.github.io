@@ -1,9 +1,9 @@
 <?php
 /**
  *
- * ¹ºÎï³µ¹ı³Ì
+ * è´­ç‰©è½¦è¿‡ç¨‹
  *
- * @version        $Id: carbuyaction.php 1 20:43 2010Äê7ÔÂ8ÈÕZ tianya $
+ * @version        $Id: carbuyaction.php 1 20:43 2010å¹´7æœˆ8æ—¥Z tianya $
  * @package        DedeCMS.Site
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -17,7 +17,7 @@ require_once DEDEINC.'/memberlogin.class.php';
 
 if($cfg_mb_open == 'N')
 {
-    ShowMsg("ÏµÍ³¹Ø±ÕÁË»áÔ±¹¦ÄÜ£¬Òò´ËÄãÎŞ·¨·ÃÎÊ´ËÒ³Ãæ£¡","javascript:;");
+    ShowMsg("ç³»ç»Ÿå…³é—­äº†ä¼šå‘˜åŠŸèƒ½ï¼Œå› æ­¤ä½ æ— æ³•è®¿é—®æ­¤é¡µé¢ï¼","javascript:;");
     exit();
 }
 $rs = array();
@@ -28,20 +28,20 @@ if(!isset($dopost) || empty($dopost)){
     $payment = 'none';
     $cart    = new MemberShops();
     
-    //»ñµÃ¹ºÎï³µÄÚÉÌÆ·,·µ»ØÊı×é
+    //è·å¾—è´­ç‰©è½¦å†…å•†å“,è¿”å›æ•°ç»„
     $Items = $cart->getItems();
     if(empty($Items))
     {
-        ShowMsg("ÄúµÄ¹ºÎï³µÖĞÃ»ÓĞÉÌÆ·£¡","-1");
+        ShowMsg("æ‚¨çš„è´­ç‰©è½¦ä¸­æ²¡æœ‰å•†å“ï¼","-1");
         exit();
     }
     
-    $OrdersId = preg_replace("#[^0-9a-z_\-]#i", "", $cart->OrdersId);        //±¾´Î¼ÇÂ¼µÄ¶©µ¥ºÅ
-    $CartCount     = $cart->cartCount();    //ÉÌÆ·×ÜÊı
-    $priceCount    = $cart->priceCount();//¸Ã¶©µ¥×Ü¼Û¸ñ
+    $OrdersId = preg_replace("#[^0-9a-z_\-]#i", "", $cart->OrdersId);        //æœ¬æ¬¡è®°å½•çš„è®¢å•å·
+    $CartCount     = $cart->cartCount();    //å•†å“æ€»æ•°
+    $priceCount    = $cart->priceCount();//è¯¥è®¢å•æ€»ä»·æ ¼
     
     /*
-    function PostOrdersForm();                //ÌîĞ´¶©µ¥ĞÅÏ¢
+    function PostOrdersForm();                //å¡«å†™è®¢å•ä¿¡æ¯
     */
     
     if(!isset($do) || empty($do))
@@ -54,7 +54,7 @@ if(!isset($dopost) || empty($dopost)){
             $shops_deliveryarr[] = $row;
         }
 
-        //»ñÈ¡Ö§¸¶½Ó¿ÚÁĞ±í
+        //è·å–æ”¯ä»˜æ¥å£åˆ—è¡¨
         $shops_paymentarr = array();
         $dsql->SetQuery("SELECT * FROM #@__payment WHERE enabled='1' ORDER BY rank ASC");
         $dsql->Execute();
@@ -83,29 +83,29 @@ if(!isset($dopost) || empty($dopost)){
         $svali = GetCkVdValue();
         if((strtolower($vdcode) != $svali || $svali == "") && $payment == 'none')
         {
-            ShowMsg("ÑéÖ¤Âë´íÎó£¡","-1");
+            ShowMsg("éªŒè¯ç é”™è¯¯ï¼","-1");
             exit();
         }
         if(empty($address))
         {
-            ShowMsg("ÇëÌîĞ´ÊÕ»õµØÖ·£¡","-1");
+            ShowMsg("è¯·å¡«å†™æ”¶è´§åœ°å€ï¼","-1");
             exit();
         }
         if(empty($postname))
         {
-            ShowMsg("ÇëÌîĞ´ÊÕ»õÈËĞÕÃû£¡","-1");
+            ShowMsg("è¯·å¡«å†™æ”¶è´§äººå§“åï¼","-1");
             exit();
         }
         $paytype    = isset($paytype) && is_numeric($paytype) ? $paytype : 0;
         $pid        = isset($pid) && is_numeric($pid) ? $pid : 0;
         if($paytype < 1)
         {
-            ShowMsg("ÇëÑ¡ÔñÖ§¸¶·½Ê½£¡","-1");
+            ShowMsg("è¯·é€‰æ‹©æ”¯ä»˜æ–¹å¼ï¼","-1");
             exit();
         }
         if($pid < 1)
         {
-            ShowMsg("ÇëÑ¡ÔñÅäËÍ·½Ê½£¡","-1");
+            ShowMsg("è¯·é€‰æ‹©é…é€æ–¹å¼ï¼","-1");
             exit();
         }
         $address     = cn_substrR(trim(RemoveXSS($address)),200);
@@ -116,16 +116,16 @@ if(!isset($dopost) || empty($dopost)){
         $email        = cn_substrR(RemoveXSS($email),255);
         if(empty($tel))
         {
-            ShowMsg("ÇëÌîĞ´ÕıÈ·µÄÊÕ»õÈËÁªÏµµç»°£¡","-1");
+            ShowMsg("è¯·å¡«å†™æ­£ç¡®çš„æ”¶è´§äººè”ç³»ç”µè¯ï¼","-1");
             exit();
         }
         if($zip<1 || $zip>999999)
         {
-            ShowMsg("ÇëÌîĞ´ÕıÈ·µÄÊÕ»õÈËÓÊÕş±àÂë£¡","-1");
+            ShowMsg("è¯·å¡«å†™æ­£ç¡®çš„æ”¶è´§äººé‚®æ”¿ç¼–ç ï¼","-1");
             exit();
         }
     
-        //È·ÈÏÓÃ»§µÇÂ¼ĞÅÏ¢
+        //ç¡®è®¤ç”¨æˆ·ç™»å½•ä¿¡æ¯
         if($cfg_ml->IsLogin())
         {
             $userid = $cfg_ml->M_ID;
@@ -137,37 +137,37 @@ if(!isset($dopost) || empty($dopost)){
             
             if(empty($username) || $password)
             {
-                ShowMsg("ÇëÑ¡µÇÂ¼£¡","-1",0,2000);
+                ShowMsg("è¯·é€‰ç™»å½•ï¼","-1",0,2000);
                 exit();
             }
             
             $rs = $cfg_ml->CheckUser($username,$password);
             if($rs==0)
             {
-                ShowMsg("ÓÃ»§Ãû²»´æÔÚ£¡","-1",0,2000);
+                ShowMsg("ç”¨æˆ·åä¸å­˜åœ¨ï¼","-1",0,2000);
                 exit();
             }
             else if($rs==-1)
             {
-                ShowMsg("ÃÜÂë´íÎó£¡","-1",0,2000);
+                ShowMsg("å¯†ç é”™è¯¯ï¼","-1",0,2000);
                 exit();
             }
             $userid = $cfg_ml->M_ID;
         }
     
-        //È¡µÃÅäËÍÊÖĞø·Ñ
+        //å–å¾—é…é€æ‰‹ç»­è´¹
         $rs = $dsql->GetOne("SELECT `price` FROM #@__shops_delivery WHERE pid='$pid' LIMIT 0,1");
         $dprice = $rs['price'] > 0 ? $rs['price'] : 0;
         unset($rs);
         //
-        //È¡µÃÖ§¸¶·½Ê½ÊÖĞø·Ñ
+        //å–å¾—æ”¯ä»˜æ–¹å¼æ‰‹ç»­è´¹
         $row = $dsql->GetOne("SELECT `fee` FROM #@__payment WHERE id='$paytype' LIMIT 0,1");
         $fprice = $row['fee'] > 0 ? $row['fee'] : 0;
         unset($row);
         //
         $ip = GetIP();
         $stime = time();
-        //×îºó×Ü¼Æ·ÑÓÃ
+        //æœ€åæ€»è®¡è´¹ç”¨
         $lastpriceCount = sprintf("%01.2f", $priceCount+$dprice+$fprice);
     
         $rows = $dsql->GetOne("SELECT `oid` FROM #@__shops_orders WHERE oid='$OrdersId' LIMIT 0,1");
@@ -176,7 +176,7 @@ if(!isset($dopost) || empty($dopost)){
             $sql = "INSERT INTO `#@__shops_orders` (`oid`,`userid`,`cartcount`,`price`,`state`,`ip`,`stime`,`pid`,`paytype`,`dprice`,`priceCount`)
             VALUES ('$OrdersId','$userid','$CartCount','$priceCount','0','$ip','$stime','$pid','$paytype','$dprice','$lastpriceCount');";
     
-            //¸üĞÂ¶©µ¥
+            //æ›´æ–°è®¢å•
             if($dsql->ExecuteNoneQuery($sql))
             {
                 foreach($Items as $key=>$val)
@@ -192,7 +192,7 @@ if(!isset($dopost) || empty($dopost)){
             }
             else
             {
-                ShowMsg("¸üĞÂ¶©µ¥Ê±³öÏÖ´íÎó£¡".$dsql->GetError(),"-1");
+                ShowMsg("æ›´æ–°è®¢å•æ—¶å‡ºç°é”™è¯¯ï¼".$dsql->GetError(),"-1");
                 exit();
             }
         } else {
@@ -213,9 +213,9 @@ if(!isset($dopost) || empty($dopost)){
             }
             unset($sql);
         }
-        //×îºó½áËã¼Û¸ñ = ×îºóÍ³¼Æ¼Û¸ñ
+        //æœ€åç»“ç®—ä»·æ ¼ = æœ€åç»Ÿè®¡ä»·æ ¼
         $priceCount = sprintf("%01.2f", $lastpriceCount);
-        //¸üĞÂÓÃ»§ÉÌÆ·Í³¼Æ    
+        //æ›´æ–°ç”¨æˆ·å•†å“ç»Ÿè®¡    
         $countOrders = $dsql->GetOne("SELECT SUM(cartcount) AS nums FROM #@__shops_orders WHERE userid='".$cfg_ml->M_ID."'");    
         $dsql->ExecuteNoneQuery("UPDATE #@__member_tj SET `shop`='".$countOrders['nums']."' WHERE mid='".$cfg_ml->M_ID."'");
     
@@ -257,11 +257,11 @@ if(!isset($dopost) || empty($dopost)){
     {
         $oid=trim($oid);
     } else {
-        ShowMsg("ÄúµÄ¶©µ¥ºÅ²»´æÔÚ£¡","/member/shops_orders.php",0,2000);
+        ShowMsg("æ‚¨çš„è®¢å•å·ä¸å­˜åœ¨ï¼","/member/shops_orders.php",0,2000);
         exit();
     }
 
-    //È·ÈÏÓÃ»§µÇÂ¼ĞÅÏ¢
+    //ç¡®è®¤ç”¨æˆ·ç™»å½•ä¿¡æ¯
     if($cfg_ml->IsLogin())
     {
         $userid = $cfg_ml->M_ID;
@@ -273,19 +273,19 @@ if(!isset($dopost) || empty($dopost)){
         
         if(empty($username) || $password)
         {
-            ShowMsg("ÇëÑ¡µÇÂ¼£¡","-1",0,2000);
+            ShowMsg("è¯·é€‰ç™»å½•ï¼","-1",0,2000);
             exit();
         }
         
         $rs = $cfg_ml->CheckUser($username,$password);
         if($rs==0)
         {
-            ShowMsg("ÓÃ»§Ãû²»´æÔÚ£¡","-1",0,2000);
+            ShowMsg("ç”¨æˆ·åä¸å­˜åœ¨ï¼","-1",0,2000);
             exit();
         }
         else if($rs==-1)
         {
-            ShowMsg("ÃÜÂë´íÎó£¡","-1",0,2000);
+            ShowMsg("å¯†ç é”™è¯¯ï¼","-1",0,2000);
             exit();
         }
         $userid = $cfg_ml->M_ID;

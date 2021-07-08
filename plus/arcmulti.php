@@ -14,18 +14,18 @@ if($tagid !='')
     $row = $dsql->GetOne("SELECT * FROM #@__arcmulti WHERE tagid='$tagid'");
     $ids = explode(',', $row['arcids']);
     $totalnum = $line = count($ids);
-    //È¡³öÊôĞÔ²¢½âÎöÎª±äÁ¿
+    //å–å‡ºå±æ€§å¹¶è§£æä¸ºå˜é‡
     $attarray = unserialize($row['attstr']);
     extract($attarray, EXTR_SKIP);
 
     $artlist = '';
-    //Í¨¹ıÒ³Ãæ¼°×ÜÊı½âÎöµ±Ç°Ò³ÃæÊı¾İ·¶Î§
+    //é€šè¿‡é¡µé¢åŠæ€»æ•°è§£æå½“å‰é¡µé¢æ•°æ®èŒƒå›´
     $strnum = ($pnum-1) * $row['pagesize'];
     $limitsql = " LIMIT $strnum,{$row['pagesize']} ";
     
     if($mtype == 0)
     {
-      //´¦ÀíÁĞ±íÄÚÈİÏî
+      //å¤„ç†åˆ—è¡¨å†…å®¹é¡¹
         $query = "SELECT arc.*,tp.typedir,tp.typename,tp.corank,tp.isdefault,tp.defaultname,tp.namerule,tp.namerule2,tp.ispart,
             tp.moresite,tp.siteurl,tp.sitepath
             {$row['addfieldsSql']}
@@ -49,7 +49,7 @@ if($tagid !='')
                 if($row = $dsql->GetArray("al"))
                 {
                     $ids[] = $row['id'];
-                    //´¦ÀíÒ»Ğ©ÌØÊâ×Ö¶Î
+                    //å¤„ç†ä¸€äº›ç‰¹æ®Šå­—æ®µ
                     $row['info'] = $row['infos'] = cn_substr($row['description'],$infolen);
                     $row['id'] =  $row['id'];
 
@@ -95,7 +95,7 @@ if($tagid !='')
                         {
                             if($ctag->GetName()=='array')
                             {
-                                //´«µİÕû¸öÊı×é£¬ÔÚrunphpÄ£Ê½ÖĞÓĞÌØÊâ×÷ÓÃ
+                                //ä¼ é€’æ•´ä¸ªæ•°ç»„ï¼Œåœ¨runphpæ¨¡å¼ä¸­æœ‰ç‰¹æ®Šä½œç”¨
                                 $dtp2->Assign($k,$row);
                             } else {
                                 if(isset($row[$ctag->GetName()])) $dtp2->Assign($k,$row[$ctag->GetName()]);
@@ -118,7 +118,7 @@ if($tagid !='')
         $dsql->FreeResult("al");    
     } else 
     {
-        //´¦Àí·ÖÒ³×Ö¶Î
+        //å¤„ç†åˆ†é¡µå­—æ®µ
         $artlist .= '<div id="page_'.$tagid.'">';
         $artlist .= multipage($totalnum, $pnum, $row['pagesize'], $tagid);
         $artlist .= '</div>';

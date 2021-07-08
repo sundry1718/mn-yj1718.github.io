@@ -1,0 +1,1 @@
+<li class="pw[field:global name=autoindex/]"><a href="view.php?aid=[field:id/]" title="[field:title /]"><img src="[field:litpic/]" alt="[field:title /]"/>[field:title /]</a></li>

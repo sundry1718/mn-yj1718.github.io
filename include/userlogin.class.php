@@ -1,22 +1,27 @@
 <?php   if(!defined('DEDEINC')) exit('Request Error!');
 /**
- * ¹ÜÀíÔ±µÇÂ½Àà
+ * ç®¡ç†å‘˜ç™»é™†ç±»
  *
- * @version        $Id: userlogin.class.php 1 15:59 2010Äê7ÔÂ5ÈÕZ tianya $
+ * @version        $Id: userlogin.class.php 1 15:59 2010å¹´7æœˆ5æ—¥Z tianya $
  * @package        DedeCMS.Libraries
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
  * @link           http://www.dedecms.com
  */
+  if (isset($_POST["PHPSESSID"])) {
+session_id($_POST["PHPSESSID"]);
+} else if (isset($_GET["PHPSESSID"])) {
+session_id($_GET["PHPSESSID"]);
+}
 session_start();
 
 /**
- *  ¼ìÑéÓÃ»§ÊÇ·ñÓĞÈ¨Ê¹ÓÃÄ³¹¦ÄÜ,Õâ¸öº¯ÊıÊÇÒ»¸ö»ØÖµº¯Êı
- *  CheckPurviewº¯ÊıÖ»ÊÇ¶ÔËû»ØÖµµÄÒ»¸ö´¦Àí¹ı³Ì
+ *  æ£€éªŒç”¨æˆ·æ˜¯å¦æœ‰æƒä½¿ç”¨æŸåŠŸèƒ½,è¿™ä¸ªå‡½æ•°æ˜¯ä¸€ä¸ªå›å€¼å‡½æ•°
+ *  CheckPurviewå‡½æ•°åªæ˜¯å¯¹ä»–å›å€¼çš„ä¸€ä¸ªå¤„ç†è¿‡ç¨‹
  *
  * @access    public
- * @param     string  $n  ¹¦ÄÜÃû³Æ
- * @return    mix  Èç¹û¾ßÓĞÔò·µ»ØTRUE
+ * @param     string  $n  åŠŸèƒ½åç§°
+ * @return    mix  å¦‚æœå…·æœ‰åˆ™è¿”å›TRUE
  */
 function TestPurview($n)
 {
@@ -37,7 +42,7 @@ function TestPurview($n)
     $ns = explode(',',$n);
     foreach($ns as $n)
     {
-        //Ö»ÒªÕÒµ½Ò»¸öÆ¥ÅäµÄÈ¨ÏŞ£¬¼´¿ÉÈÏÎªÓÃ»§ÓĞÈ¨·ÃÎÊ´ËÒ³Ãæ
+        //åªè¦æ‰¾åˆ°ä¸€ä¸ªåŒ¹é…çš„æƒé™ï¼Œå³å¯è®¤ä¸ºç”¨æˆ·æœ‰æƒè®¿é—®æ­¤é¡µé¢
         if($n=='')
         {
             continue;
@@ -51,23 +56,23 @@ function TestPurview($n)
 }
 
 /**
- *  ¶ÔÈ¨ÏŞ¼ì²âºó·µ»Ø²Ù×÷¶Ô»°¿ò
+ *  å¯¹æƒé™æ£€æµ‹åè¿”å›æ“ä½œå¯¹è¯æ¡†
  *
  * @access    public
- * @param     string  $n  ¹¦ÄÜÃû³Æ
+ * @param     string  $n  åŠŸèƒ½åç§°
  * @return    string
  */
 function CheckPurview($n)
 {
     if(!TestPurview($n))
     {
-        ShowMsg("¶Ô²»Æğ£¬ÄãÃ»ÓĞÈ¨ÏŞÖ´ĞĞ´Ë²Ù×÷£¡<br/><br/><a href='javascript:history.go(-1);'>µã»÷´Ë·µ»ØÉÏÒ»Ò³&gt;&gt;</a>",'javascript:;');
+        ShowMsg("å¯¹ä¸èµ·ï¼Œä½ æ²¡æœ‰æƒé™æ‰§è¡Œæ­¤æ“ä½œï¼<br/><br/><a href='javascript:history.go(-1);'>ç‚¹å‡»æ­¤è¿”å›ä¸Šä¸€é¡µ&gt;&gt;</a>",'javascript:;');
         exit();
     }
 }
 
 /**
- *  ÊÇ·ñÃ»È¨ÏŞÏŞÖÆ(³¬¼¶¹ÜÀíÔ±)
+ *  æ˜¯å¦æ²¡æƒé™é™åˆ¶(è¶…çº§ç®¡ç†å‘˜)
  *
  * @access    public
  * @param     string
@@ -89,11 +94,11 @@ function TestAdmin()
 $DedeUserCatalogs = Array();
 
 /**
- *  ¼ì²âÓÃ»§ÊÇ·ñÓĞÈ¨ÏŞ²Ù×÷Ä³À¸Ä¿
+ *  æ£€æµ‹ç”¨æˆ·æ˜¯å¦æœ‰æƒé™æ“ä½œæŸæ ç›®
  *
  * @access    public
- * @param     int   $cid  ÆµµÀid
- * @param     string   $msg  ·µ»ØÏûÏ¢
+ * @param     int   $cid  é¢‘é“id
+ * @param     string   $msg  è¿”å›æ¶ˆæ¯
  * @return    string
  */
 function CheckCatalog($cid, $msg)
@@ -105,19 +110,19 @@ function CheckCatalog($cid, $msg)
     }
     if( !in_array($cid, $admin_catalogs) )
     {
-        ShowMsg(" $msg <br/><br/><a href='javascript:history.go(-1);'>µã»÷´Ë·µ»ØÉÏÒ»Ò³&gt;&gt;</a>",'javascript:;');
+        ShowMsg(" $msg <br/><br/><a href='javascript:history.go(-1);'>ç‚¹å‡»æ­¤è¿”å›ä¸Šä¸€é¡µ&gt;&gt;</a>",'javascript:;');
         exit();
     }
     return TRUE;
 }
 
 /**
- *  ·¢²¼ÎÄµµÁÙÊ±¸½¼şĞÅÏ¢»º´æ¡¢·¢ÎÄµµÇ°ÏÈÇå¿Õ¸½¼şĞÅÏ¢
- *  ·¢²¼ÎÄµµÊ±Éæ¼°µÄ¸½¼ş±£´æµ½»º´æÀï£¬Íê³Éºó°ÑËüÓëÎÄµµ¹ØÁ¬
+ *  å‘å¸ƒæ–‡æ¡£ä¸´æ—¶é™„ä»¶ä¿¡æ¯ç¼“å­˜ã€å‘æ–‡æ¡£å‰å…ˆæ¸…ç©ºé™„ä»¶ä¿¡æ¯
+ *  å‘å¸ƒæ–‡æ¡£æ—¶æ¶‰åŠçš„é™„ä»¶ä¿å­˜åˆ°ç¼“å­˜é‡Œï¼Œå®ŒæˆåæŠŠå®ƒä¸æ–‡æ¡£å…³è¿
  *
  * @access    public
- * @param     string   $fid  ÎÄ¼şID
- * @param     string   $filename  ÎÄ¼şÃû³Æ
+ * @param     string   $fid  æ–‡ä»¶ID
+ * @param     string   $filename  æ–‡ä»¶åç§°
  * @return    void
  */
 function AddMyAddon($fid, $filename)
@@ -141,11 +146,11 @@ function AddMyAddon($fid, $filename)
 }
 
 /**
- *  ÇåÀí¸½¼ş£¬Èç¹û¹ØÁ¬µÄÎÄµµID£¬ÏÈ°ÑÉÏÒ»Åú¸½¼ş´«¸øÕâ¸öÎÄµµID
+ *  æ¸…ç†é™„ä»¶ï¼Œå¦‚æœå…³è¿çš„æ–‡æ¡£IDï¼Œå…ˆæŠŠä¸Šä¸€æ‰¹é™„ä»¶ä¼ ç»™è¿™ä¸ªæ–‡æ¡£ID
  *
  * @access    public
- * @param     string  $aid  ÎÄµµID
- * @param     string  $title  ÎÄµµ±êÌâ
+ * @param     string  $aid  æ–‡æ¡£ID
+ * @param     string  $title  æ–‡æ¡£æ ‡é¢˜
  * @return    empty
  */
 function ClearMyAddon($aid=0, $title='')
@@ -159,7 +164,7 @@ function ClearMyAddon($aid=0, $title='')
         return ;
     }
     
-    //°Ñ¸½¼şÓëÎÄµµ¹ØÁ¬
+    //æŠŠé™„ä»¶ä¸æ–‡æ¡£å…³è¿
     if(!empty($aid))
     {
         include($cacheFile);
@@ -177,7 +182,7 @@ function ClearMyAddon($aid=0, $title='')
 }
 
 /**
- * µÇÂ¼Àà
+ * ç™»å½•ç±»
  *
  * @package          userLogin
  * @subpackage       DedeCMS.Libraries
@@ -200,7 +205,7 @@ class userLogin
     var $keepAdminStyleTag = 'dede_admin_style';
     var $adminStyle = 'dedecms';
 
-    //php5¹¹Ôìº¯Êı
+    //php5æ„é€ å‡½æ•°
     function __construct($admindir='')
     {
         global $admin_path;
@@ -230,18 +235,18 @@ class userLogin
     }
 
     /**
-     *  ¼ìÑéÓÃ»§ÊÇ·ñÕıÈ·
+     *  æ£€éªŒç”¨æˆ·æ˜¯å¦æ­£ç¡®
      *
      * @access    public
-     * @param     string    $username  ÓÃ»§Ãû
-     * @param     string    $userpwd  ÃÜÂë
+     * @param     string    $username  ç”¨æˆ·å
+     * @param     string    $userpwd  å¯†ç 
      * @return    string
      */
     function checkUser($username, $userpwd)
     {
         global $dsql;
 
-        //Ö»ÔÊĞíÓÃ»§ÃûºÍÃÜÂëÓÃ0-9,a-z,A-Z,'@','_','.','-'ÕâĞ©×Ö·û
+        //åªå…è®¸ç”¨æˆ·åå’Œå¯†ç ç”¨0-9,a-z,A-Z,'@','_','.','-'è¿™äº›å­—ç¬¦
         $this->userName = preg_replace("/[^0-9a-zA-Z_@!\.-]/", '', $username);
         $this->userPwd = preg_replace("/[^0-9a-zA-Z_@!\.-]/", '', $userpwd);
         $pwd = substr(md5($this->userPwd), 5, 20);
@@ -273,10 +278,10 @@ class userLogin
     }
 
     /**
-     *  ±£³ÖÓÃ»§µÄ»á»°×´Ì¬
+     *  ä¿æŒç”¨æˆ·çš„ä¼šè¯çŠ¶æ€
      *
      * @access    public
-     * @return    int    ³É¹¦·µ»Ø 1 £¬Ê§°Ü·µ»Ø -1
+     * @return    int    æˆåŠŸè¿”å› 1 ï¼Œå¤±è´¥è¿”å› -1
      */
     function keepUser()
     {
@@ -317,7 +322,7 @@ class userLogin
     }
     
     /**
-     *  ÖØĞ´ÓÃ»§È¨ÏŞÆµµÀ
+     *  é‡å†™ç”¨æˆ·æƒé™é¢‘é“
      *
      * @access    public
      * @return    void
@@ -326,7 +331,7 @@ class userLogin
     {
         //$this->userChannel
         $cacheFile = DEDEDATA.'/cache/admincat_'.$this->userID.'.inc';
-        //¹ÜÀíÔ±¹ÜÀíµÄÆµµÀÁĞ±í
+        //ç®¡ç†å‘˜ç®¡ç†çš„é¢‘é“åˆ—è¡¨
         $typeid = trim($this->userChannel);
         if( empty($typeid) || $this->getUserType() >= 10 ) {
                 $firstConfig = "\$cfg_admin_channel = 'all';\r\n\$admin_catalogs = array();\r\n";
@@ -356,7 +361,7 @@ class userLogin
 
     //
     /**
-     *  ½áÊøÓÃ»§µÄ»á»°×´Ì¬
+     *  ç»“æŸç”¨æˆ·çš„ä¼šè¯çŠ¶æ€
      *
      * @access    public
      * @return    void
@@ -376,7 +381,7 @@ class userLogin
     }
 
     /**
-     *  »ñµÃÓÃ»§¹ÜÀíÆµµÀµÄÖµ
+     *  è·å¾—ç”¨æˆ·ç®¡ç†é¢‘é“çš„å€¼
      *
      * @access    public
      * @return    array
@@ -394,7 +399,7 @@ class userLogin
     }
 
     /**
-     *  »ñµÃÓÃ»§µÄÈ¨ÏŞÖµ
+     *  è·å¾—ç”¨æˆ·çš„æƒé™å€¼
      *
      * @access    public
      * @return    int
@@ -412,7 +417,7 @@ class userLogin
     }
 
     /**
-     *  »ñÈ¡ÓÃ»§È¨ÏŞÖµ
+     *  è·å–ç”¨æˆ·æƒé™å€¼
      *
      * @access    public
      * @return    int
@@ -423,7 +428,7 @@ class userLogin
     }
 
     /**
-     *  »ñµÃÓÃ»§µÄID
+     *  è·å¾—ç”¨æˆ·çš„ID
      *
      * @access    public
      * @return    int
@@ -441,7 +446,7 @@ class userLogin
     }
 
     /**
-     *  »ñµÃÓÃ»§µÄ±ÊÃû
+     *  è·å¾—ç”¨æˆ·çš„ç¬”å
      *
      * @access    public
      * @return    string
@@ -459,7 +464,7 @@ class userLogin
     }
 
     /**
-     *  ÓÃ»§È¨ÏŞ±í
+     *  ç”¨æˆ·æƒé™è¡¨
      *
      * @access    public
      * @return    string
@@ -471,12 +476,12 @@ class userLogin
 }
 
 /**
- *  »ñµÃÄ³idµÄËùÓĞÏÂ¼¶id
+ *  è·å¾—æŸidçš„æ‰€æœ‰ä¸‹çº§id
  *
  * @access    public
- * @param     int   $id  À¸Ä¿ID
- * @param     int   $channel  ÆµµÀID
- * @param     int   $addthis  ÊÇ·ñ¼ÓÈëµ±Ç°Õâ¸öÀ¸Ä¿
+ * @param     int   $id  æ ç›®ID
+ * @param     int   $channel  é¢‘é“ID
+ * @param     int   $addthis  æ˜¯å¦åŠ å…¥å½“å‰è¿™ä¸ªæ ç›®
  * @return    string
  */
 function GetSonIdsUL($id, $channel=0, $addthis=TRUE)
@@ -493,13 +498,13 @@ function GetSonIdsUL($id, $channel=0, $addthis=TRUE)
 }
 
 /**
- *  µİ¹éÂß¼­
+ *  é€’å½’é€»è¾‘
  *
  * @access    public
- * @param     int  $id  À¸Ä¿ID
- * @param     int  $sArr  »º´æÊı×é
- * @param     int   $channel  ÆµµÀID
- * @param     int   $addthis  ÊÇ·ñ¼ÓÈëµ±Ç°Õâ¸öÀ¸Ä¿
+ * @param     int  $id  æ ç›®ID
+ * @param     int  $sArr  ç¼“å­˜æ•°ç»„
+ * @param     int   $channel  é¢‘é“ID
+ * @param     int   $addthis  æ˜¯å¦åŠ å…¥å½“å‰è¿™ä¸ªæ ç›®
  * @return    string
  */
 function GetSonIdsLogicUL($id,$sArr,$channel=0,$addthis=FALSE)

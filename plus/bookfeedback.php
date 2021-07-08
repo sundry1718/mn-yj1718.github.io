@@ -6,7 +6,7 @@ if(!isset($action))
 {
 	$action = '';
 }
-//¼æÈİ¾ÉµÄJS´úÂë
+//å…¼å®¹æ—§çš„JSä»£ç 
 if($action == 'good' || $action == 'bad')
 {
 	if(!empty($aid)) $id = $aid;
@@ -44,7 +44,7 @@ $aid = (isset($aid) && is_numeric($aid)) ? $aid : 0;
 $fid = (isset($fid) && is_numeric($fid)) ? $fid : 0;
 if(empty($aid) && empty($fid))
 {
-	ShowMsg('ÎÄµµid²»ÄÜÎª¿Õ!','-1');
+	ShowMsg('æ–‡æ¡£idä¸èƒ½ä¸ºç©º!','-1');
 	exit();
 }
 
@@ -57,7 +57,7 @@ if($action=='goodfb')
 	$fid = intval($fid);
 	$dsql->ExecuteNoneQuery("Update `#@__bookfeedback` set good = good+1 where id='$fid' ");
 	$row = $dsql->GetOne("Select good From `#@__bookfeedback` where id='$fid' ");
-	echo "<a onclick=\"postBadGood('goodfb',{$aid})\">Ö§³Ö</a>[{$row['good']}]";
+	echo "<a onclick=\"postBadGood('goodfb',{$aid})\">æ”¯æŒ</a>[{$row['good']}]";
 	exit();
 }
 else if($action=='badfb')
@@ -66,21 +66,21 @@ else if($action=='badfb')
 	$fid = intval($fid);
 	$dsql->ExecuteNoneQuery("Update `#@__bookfeedback` set bad = bad+1 where id='$fid' ");
 	$row = $dsql->GetOne("Select bad From `#@__bookfeedback` where id='$fid' ");
-	echo "<a onclick=\"postBadGood('badfb',{$aid})\">·´¶Ô</a>[{$row['bad']}]";
+	echo "<a onclick=\"postBadGood('badfb',{$aid})\">åå¯¹</a>[{$row['bad']}]";
 	exit();
 }
-//²é¿´ÆÀÂÛ
+//æŸ¥çœ‹è¯„è®º
 /*
 function __ViewFeedback(){ }
 */
 //-----------------------------------
 else if($action=='' || $action=='show')
 {
-	//¶ÁÈ¡ÎÄµµĞÅÏ¢
+	//è¯»å–æ–‡æ¡£ä¿¡æ¯
 	$arcRow = GetOnebook($aid);
 	if(empty($arcRow['bid']))
 	{
-		ShowMsg('ÎŞ·¨²é¿´Î´ÖªÎÄµµµÄÆÀÂÛ!','-1');
+		ShowMsg('æ— æ³•æŸ¥çœ‹æœªçŸ¥æ–‡æ¡£çš„è¯„è®º!','-1');
 		exit();
 	}
 	extract($arcRow, EXTR_SKIP);	
@@ -94,7 +94,7 @@ else if($action=='' || $action=='show')
 	}
 	$wquery = $ftype!='' ? " And ftype like '$ftype' " : '';
 
-	//ÆÀÂÛÄÚÈİÁĞ±í
+	//è¯„è®ºå†…å®¹åˆ—è¡¨
 	$querystring = "select fb.*,mb.userid,mb.face as mface,mb.spacesta,mb.scores from `#@__bookfeedback` fb
                  left join `#@__member` mb on mb.mid = fb.mid
                  where fb.aid='$aid' and fb.ischeck='1' $wquery order by fb.id desc";
@@ -106,7 +106,7 @@ else if($action=='' || $action=='show')
 	exit();
 }
 
-//ÒıÓÃÆÀÂÛ
+//å¼•ç”¨è¯„è®º
 //------------------------------------
 /*
 function __Quote(){ }
@@ -120,22 +120,22 @@ else if($action=='quote')
 	$dtp->Display();
 	exit();
 }
-//·¢±íÆÀÂÛ
+//å‘è¡¨è¯„è®º
 //------------------------------------
 /*
 function __SendFeedback(){ }
 */
 else if($action=='send')
 {
-	//¶ÁÈ¡ÎÄµµĞÅÏ¢
+	//è¯»å–æ–‡æ¡£ä¿¡æ¯
 	$arcRow = GetOnebook($aid);
 	if((empty($arcRow['bid']) || $arcRow['notpost']=='1')&&empty($fid))
 	{
-		ShowMsg('ÎŞ·¨¶Ô¸ÃÎÄµµ·¢±íÆÀÂÛ!','-1');
+		ShowMsg('æ— æ³•å¯¹è¯¥æ–‡æ¡£å‘è¡¨è¯„è®º!','-1');
 		exit();
 	}
 
-	//ÊÇ·ñ¼ÓÑéÖ¤ÂëÖØÈ·ÈÏ
+	//æ˜¯å¦åŠ éªŒè¯ç é‡ç¡®è®¤
 	if(empty($isconfirm))
 	{
 		$isconfirm = '';
@@ -149,7 +149,7 @@ else if($action=='send')
 		$dtp->Display();
 		exit();
 	}
-	//¼ì²éÑéÖ¤Âë
+	//æ£€æŸ¥éªŒè¯ç 
 	if($cfg_feedback_ck=='Y')
 	{
 		$validate = isset($validate) ? strtolower(trim($validate)) : '';
@@ -157,30 +157,30 @@ else if($action=='send')
 		if($validate != $svali || $svali=='')
 		{
 			ResetVdValue();
-			ShowMsg('ÑéÖ¤Âë´íÎó£¡','-1');
+			ShowMsg('éªŒè¯ç é”™è¯¯ï¼','-1');
 			exit();
 		}
 	}
 
-	//¼ì²éÓÃ»§µÇÂ¼
+	//æ£€æŸ¥ç”¨æˆ·ç™»å½•
 	if(empty($notuser))
 	{
 		$notuser=0;
 	}
 
-	//ÄäÃû·¢±íÆÀÂÛ
+	//åŒ¿åå‘è¡¨è¯„è®º
 	if($notuser==1)
 	{
-		$username = $cfg_ml->M_ID > 0 ? 'ÄäÃû' : 'ÓÎ¿Í';
+		$username = $cfg_ml->M_ID > 0 ? 'åŒ¿å' : 'æ¸¸å®¢';
 	}
 
-	//ÒÑµÇÂ¼µÄÓÃ»§
+	//å·²ç™»å½•çš„ç”¨æˆ·
 	else if($cfg_ml->M_ID > 0)
 	{
 		$username = $cfg_ml->M_UserName;
 	}
 
-	//ÓÃ»§Éí·İÑéÖ¤
+	//ç”¨æˆ·èº«ä»½éªŒè¯
 	else
 	{
 		if($username!='' && $pwd!='')
@@ -192,21 +192,21 @@ else if($action=='send')
 			}
 			else
 			{
-				$username = 'ÓÎ¿Í';
+				$username = 'æ¸¸å®¢';
 			}
 		}
 		else
 		{
-			$username = 'ÓÎ¿Í';
+			$username = 'æ¸¸å®¢';
 		}
 	}
 	$ip = GetIP();
 	$dtime = time();
 	
-	//¼ì²éÆÀÂÛ¼ä¸ôÊ±¼ä£»
+	//æ£€æŸ¥è¯„è®ºé—´éš”æ—¶é—´ï¼›
 	if(!empty($cfg_feedback_time))
 	{
-		//¼ì²é×îºó·¢±íÆÀÂÛÊ±¼ä£¬Èç¹ûÎ´µÇÂ½ÅĞ¶Ïµ±Ç°IP×îºóÆÀÂÛÊ±¼ä
+		//æ£€æŸ¥æœ€åå‘è¡¨è¯„è®ºæ—¶é—´ï¼Œå¦‚æœæœªç™»é™†åˆ¤æ–­å½“å‰IPæœ€åè¯„è®ºæ—¶é—´
 		if($cfg_ml->M_ID > 0)
 		{
 			$where = "WHERE `mid` = '$cfg_ml->M_ID'";
@@ -219,7 +219,7 @@ else if($action=='send')
 		if($dtime - $row['dtime'] < $cfg_feedback_time)
 		{
 			ResetVdValue();
-			ShowMsg('¹ÜÀíÔ±ÉèÖÃÁËÆÀÂÛ¼ä¸ôÊ±¼ä£¬ÇëÉÔµÈĞİÏ¢Ò»ÏÂ£¡','-1');
+			ShowMsg('ç®¡ç†å‘˜è®¾ç½®äº†è¯„è®ºé—´éš”æ—¶é—´ï¼Œè¯·ç¨ç­‰ä¼‘æ¯ä¸€ä¸‹ï¼','-1');
 			exit();
 		}
 	}
@@ -236,7 +236,7 @@ else if($action=='send')
 	{
 		$feedbacktype = 'feedback';
 	}
-	//±£´æÆÀÂÛÄÚÈİ
+	//ä¿å­˜è¯„è®ºå†…å®¹
 	if($comtype == 'comments')
 	{
 		$arctitle = addslashes($arcRow['arctitle']);
@@ -253,7 +253,7 @@ else if($action=='send')
 			}
 		}
 	}
-	//ÒıÓÃ»Ø¸´
+	//å¼•ç”¨å›å¤
 	elseif ($comtype == 'reply')
 	{
 		$row = $dsql->GetOne("Select * from `#@__bookfeedback` where id ='$fid'");
@@ -279,17 +279,17 @@ else if($action=='send')
 		#/aip}}
 		$dsql->ExecuteNoneQuery("Update `#@__member` set scores=scores+{$cfg_sendfb_scores} where mid='{$cfg_ml->M_ID}' ");
 	}
-	//Í³¼ÆÓÃ»§·¢³öµÄÆÀÂÛ
+	//ç»Ÿè®¡ç”¨æˆ·å‘å‡ºçš„è¯„è®º
 	if($cfg_ml->M_ID > 0)
 	{
 		#api{{
 		if(defined('UC_APPID'))
 		{
 			include_once DEDEROOT.'/api/uc.func.php';
-			//ÍÆËÍÊÂ¼ş
+			//æ¨é€äº‹ä»¶
 			$arcRow = GetOnebook($aid);
 			$feed['icon'] = 'thread';
-			$feed['title_template'] = '<b>{username} ÔÚÍøÕ¾·¢±íÁËÆÀÂÛ</b>';
+			$feed['title_template'] = '<b>{username} åœ¨ç½‘ç«™å‘è¡¨äº†è¯„è®º</b>';
 			$feed['title_data'] = array('username' => $cfg_ml->M_UserName);
 			$feed['body_template'] = '<b>{subject}</b><br>{message}';
 			$url = !strstr($arcRow['arcurl'],'http://') ? ($cfg_basehost.$arcRow['arcurl']) : $arcRow['arcurl'];		
@@ -306,10 +306,10 @@ else if($action=='send')
 	$backurl = $cfg_formmember ? "index.php?uid={$uid}&action=viewarchives&aid={$aid}" : "bookfeedback.php?aid=$aid";
 	if($ischeck==0)
 	{
-		ShowMsg("³É¹¦·¢±íÆÀÂÛ£¬µ«ĞèÉóºËºó²Å»áÏÔÊ¾ÄãµÄÆÀÂÛ!",$backurl);
+		ShowMsg("æˆåŠŸå‘è¡¨è¯„è®ºï¼Œä½†éœ€å®¡æ ¸åæ‰ä¼šæ˜¾ç¤ºä½ çš„è¯„è®º!",$backurl);
 	}elseif($ischeck==1)
 	{
-		ShowMsg("³É¹¦·¢±íÆÀÂÛ£¬ÏÖÔÚ×ªµ½ÆÀÂÛÒ³Ãæ!",$backurl);
+		ShowMsg("æˆåŠŸå‘è¡¨è¯„è®ºï¼Œç°åœ¨è½¬åˆ°è¯„è®ºé¡µé¢!",$backurl);
 	}
 	exit();
 }

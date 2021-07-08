@@ -1,8 +1,8 @@
 <?php   if(!defined('DEDEINC')) exit('Request Error!');
 /**
- * È¦×Óµ÷ÓÃ±êÇ©
+ * åœˆå­è°ƒç”¨æ ‡ç­¾
  *
- * @version        $Id: group.lib.php 1 9:29 2010Äê7ÔÂ6ÈÕZ tianya $
+ * @version        $Id: group.lib.php 1 9:29 2010å¹´7æœˆ6æ—¥Z tianya $
  * @package        DedeCMS.Taglib
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -10,10 +10,10 @@
  */
  
 /*>>dede>>
-<name>È¦×Ó±êÇ©</name>
-<type>È«¾Ö±ê¼Ç</type>
+<name>åœˆå­æ ‡ç­¾</name>
+<type>å…¨å±€æ ‡è®°</type>
 <for>V55,V56,V57</for>
-<description>È¦×Óµ÷ÓÃ±êÇ©</description>
+<description>åœˆå­è°ƒç”¨æ ‡ç­¾</description>
 <demo>
 {dede:group row='6' orderby='threads' titlelen='30'}
  <li>
@@ -23,21 +23,21 @@
 {/dede:group} 
 </demo>
 <attributes>
-    <iterm>row:µ÷ÓÃÌõÊı</iterm> 
-    <iterm>orderby:ÅÅÁĞË³Ğò£¨Ä¬ÈÏÊÇÖ÷ÌâÊı£©</iterm>
-    <iterm>titlelen:È¦×ÓÃû³Æ×î´ó³¤¶È</iterm>
+    <iterm>row:è°ƒç”¨æ¡æ•°</iterm> 
+    <iterm>orderby:æ’åˆ—é¡ºåºï¼ˆé»˜è®¤æ˜¯ä¸»é¢˜æ•°ï¼‰</iterm>
+    <iterm>titlelen:åœˆå­åç§°æœ€å¤§é•¿åº¦</iterm>
 </attributes> 
 >>dede>>*/
  
 function lib_group(&$ctag,&$refObj)
 {
     global $dsql, $envs, $cfg_dbprefix, $cfg_cmsurl;
-    //ÊôĞÔ´¦Àí
+    //å±æ€§å¤„ç†
     $attlist="row|6,orderby|threads,titlelen|30";
     FillAttsDefault($ctag->CAttribute->Items,$attlist);
     extract($ctag->CAttribute->Items, EXTR_SKIP);
 
-    if( !$dsql->IsTable("{$cfg_dbprefix}groups") ) return 'Ã»°²×°È¦×ÓÄ£¿é';
+    if( !$dsql->IsTable("{$cfg_dbprefix}groups") ) return 'æ²¡å®‰è£…åœˆå­æ¨¡å—';
     
     if(!preg("#\/$#", $cfg_cmsurl)) $cfg_group_url = $cfg_cmsurl.'/group';
     else $cfg_group_url = $cfg_cmsurl.'group';

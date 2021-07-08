@@ -3,9 +3,9 @@ if(!defined('DEDEINC')){
     exit("Request Error!");
 }
 /**
- * �����һ����ʾ��ǩ
+ * 这仅是一个演示标签
  *
- * @version        $Id: demotag.lib.php 1 9:29 2010��7��6��Z tianya $
+ * @version        $Id: demotag.lib.php 1 9:29 2010年7月6日Z tianya $
  * @package        DedeCMS.Taglib
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -13,10 +13,10 @@ if(!defined('DEDEINC')){
  */
  
 /*>>dede>>
-<name>��ʾ��ǩ</name>
-<type>ȫ�ֱ��</type>
+<name>演示标签</name>
+<type>全局标记</type>
 <for>V55,V56,V57</for>
-<description>�����һ����ʾ��ǩ</description>
+<description>这仅是一个演示标签</description>
 <demo>
 {dede:demotag /}
 </demo>
@@ -28,13 +28,13 @@ function lib_demotag(&$ctag,&$refObj)
 {
     global $dsql,$envs;
     
-    //���Դ���
+    //属性处理
     $attlist="row|12,titlelen|24";
     FillAttsDefault($ctag->CAttribute->Items,$attlist);
     extract($ctag->CAttribute->Items, EXTR_SKIP);
     $revalue = '';
     
-    //�����д�Ĵ��룬������echo֮���﷨�������շ���ֵ����$revalue
+    //你需编写的代码，不能用echo之类语法，把最终返回值传给$revalue
     //------------------------------------------------------
     
     $revalue = 'Hello Word!';

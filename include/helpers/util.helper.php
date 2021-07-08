@@ -1,8 +1,8 @@
 <?php  if(!defined('DEDEINC')) exit('dedecms');
 /**
- * ºËĞÄĞ¡ÖúÊÖ
+ * æ ¸å¿ƒå°åŠ©æ‰‹
  *
- * @version        $Id: util.helper.php 4 19:20 2010Äê7ÔÂ6ÈÕZ tianya $
+ * @version        $Id: util.helper.php 4 19:20 2010å¹´7æœˆ6æ—¥Z tianya $
  * @package        DedeCMS.Helpers
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -69,7 +69,7 @@ if (!function_exists('token_name_nl'))
 }
 
 /**
- *  »ñµÃµ±Ç°µÄ½Å±¾ÍøÖ·
+ *  è·å¾—å½“å‰çš„è„šæœ¬ç½‘å€
  *
  * @return    string
  */
@@ -99,9 +99,9 @@ if ( ! function_exists('GetCurUrl'))
 }
 
 /**
- *  »ñÈ¡ÓÃ»§ÕæÊµµØÖ·
+ *  è·å–ç”¨æˆ·çœŸå®åœ°å€
  *
- * @return    string  ·µ»ØÓÃ»§ip
+ * @return    string  è¿”å›ç”¨æˆ·ip
  */
 if ( ! function_exists('GetIP'))
 {
@@ -117,7 +117,7 @@ if ( ! function_exists('GetIP'))
             if (isset($_SERVER['HTTP_X_FORWARDED_FOR']))
             {
                 $arr = explode(',', $_SERVER['HTTP_X_FORWARDED_FOR']);
-                /* È¡X-Forwarded-ForÖĞµÚx¸ö·ÇunknownµÄÓĞĞ§IP×Ö·û? */
+                /* å–X-Forwarded-Forä¸­ç¬¬xä¸ªéunknownçš„æœ‰æ•ˆIPå­—ç¬¦? */
                 foreach ($arr as $ip)
                 {
                     $ip = trim($ip);
@@ -166,14 +166,14 @@ if ( ! function_exists('GetIP'))
 }
 
 /**
- *  »ñÈ¡±à¼­Æ÷
+ *  è·å–ç¼–è¾‘å™¨
  *
- * @param     string  $fname  ±íµ¥Ãû³Æ
- * @param     string  $fvalue Èç¹û±íµ¥ÖĞÓĞÄ¬ÈÏÖµ,ÔòÌîÈëÄ¬ÈÏÖµ
- * @param     string  $nheight ¸ß¶È
- * @param     string  $etype   ±à¼­Æ÷ÀàĞÍ
- * @param     string  $gtype   »ñÈ¡ÀàĞÍ
- * @param     string  $isfullpage   ÊÇ·ñÈ«ÆÁ
+ * @param     string  $fname  è¡¨å•åç§°
+ * @param     string  $fvalue å¦‚æœè¡¨å•ä¸­æœ‰é»˜è®¤å€¼,åˆ™å¡«å…¥é»˜è®¤å€¼
+ * @param     string  $nheight é«˜åº¦
+ * @param     string  $etype   ç¼–è¾‘å™¨ç±»å‹
+ * @param     string  $gtype   è·å–ç±»å‹
+ * @param     string  $isfullpage   æ˜¯å¦å…¨å±
  * @return    string
  */
 if ( ! function_exists('GetEditor'))
@@ -189,9 +189,9 @@ if ( ! function_exists('GetEditor'))
 }
 
 /**
- *  »ñÈ¡Ä£°å
+ *  è·å–æ¨¡æ¿
  *
- * @param     string  $filename ÎÄ¼şÃû³Æ
+ * @param     string  $filename æ–‡ä»¶åç§°
  * @return    string
  */
 if ( ! function_exists('GetTemplets'))
@@ -213,9 +213,9 @@ if ( ! function_exists('GetTemplets'))
 }
 
 /**
- *  »ñÈ¡ÏµÍ³Ä£°å
+ *  è·å–ç³»ç»Ÿæ¨¡æ¿
  *
- * @param     $filename  Ä£°åÎÄ¼ş
+ * @param     $filename  æ¨¡æ¿æ–‡ä»¶
  * @return    string
  */
 if ( ! function_exists('GetSysTemplets'))
@@ -227,7 +227,7 @@ if ( ! function_exists('GetSysTemplets'))
 }
 
 /**
- *  »ñÈ¡ĞÂÎÅÌáÊ¾
+ *  è·å–æ–°é—»æç¤º
  *
  * @return    void
  */
@@ -244,7 +244,7 @@ if ( ! function_exists('GetNewInfo'))
 }
 
 /**
- *  Éú³ÉÒ»¸öËæ»ú×Ö·û
+ *  ç”Ÿæˆä¸€ä¸ªéšæœºå­—ç¬¦
  *
  * @access    public
  * @param     string  $ddnum
@@ -283,7 +283,7 @@ if ( ! function_exists('dd2char'))
 }
 
 /**
- *  json_encode¼æÈİº¯Êı
+ *  json_encodeå…¼å®¹å‡½æ•°
  *
  * @access    public
  * @param     string  $data
@@ -309,19 +309,19 @@ if (!function_exists('json_encode')) {
     function json_encode($data)
     {
         if(is_object($data)) {
-            //¶ÔÏó×ª»»³ÉÊı×é
+            //å¯¹è±¡è½¬æ¢æˆæ•°ç»„
             $data = get_object_vars($data);
         }else if(!is_array($data)) {
-            // ÆÕÍ¨¸ñÊ½Ö±½ÓÊä³ö
+            // æ™®é€šæ ¼å¼ç›´æ¥è¾“å‡º
             return format_json_value($data);
         }
-        // ÅĞ¶ÏÊÇ·ñ¹ØÁªÊı×é
+        // åˆ¤æ–­æ˜¯å¦å…³è”æ•°ç»„
         if(empty($data) || is_numeric(implode('',array_keys($data)))) {
             $assoc  =  FALSE;
         }else {
             $assoc  =  TRUE;
         }
-        // ×é×° Json×Ö·û´®
+        // ç»„è£… Jsonå­—ç¬¦ä¸²
         $json = $assoc ? '{' : '[' ;
         foreach($data as $key=>$val) {
             if(!is_NULL($val)) {
@@ -332,7 +332,7 @@ if (!function_exists('json_encode')) {
                 }
             }
         }
-        if(strlen($json)>1) {// ¼ÓÉÏÅĞ¶Ï ·ÀÖ¹¿ÕÊı×é
+        if(strlen($json)>1) {// åŠ ä¸Šåˆ¤æ–­ é˜²æ­¢ç©ºæ•°ç»„
             $json  = substr($json,0,-1);
         }
         $json .= $assoc ? '}' : ']' ;
@@ -341,25 +341,25 @@ if (!function_exists('json_encode')) {
 }
 
 /**
- *  json_decode¼æÈİº¯Êı
+ *  json_decodeå…¼å®¹å‡½æ•°
  *
  * @access    public
- * @param     string  $json  jsonÊı¾İ
- * @param     string  $assoc  µ±¸Ã²ÎÊıÎª TRUE Ê±£¬½«·µ»Ø array ¶ø·Ç object
+ * @param     string  $json  jsonæ•°æ®
+ * @param     string  $assoc  å½“è¯¥å‚æ•°ä¸º TRUE æ—¶ï¼Œå°†è¿”å› array è€Œé object
  * @return    string
  */
 if (!function_exists('json_decode')) {
     function json_decode($json, $assoc=FALSE)
     {
-        // Ä¿Ç°²»Ö§³Ö¶şÎ¬Êı×é»ò¶ÔÏó
+        // ç›®å‰ä¸æ”¯æŒäºŒç»´æ•°ç»„æˆ–å¯¹è±¡
         $begin  =  substr($json,0,1) ;
         if(!in_array($begin,array('{','[')))
-            // ²»ÊÇ¶ÔÏó»òÕßÊı×éÖ±½Ó·µ»Ø
+            // ä¸æ˜¯å¯¹è±¡æˆ–è€…æ•°ç»„ç›´æ¥è¿”å›
             return $json;
         $parse = substr($json,1,-1);
         $data  = explode(',',$parse);
         if($flag = $begin =='{' ) {
-            // ×ª»»³ÉPHP¶ÔÏó
+            // è½¬æ¢æˆPHPå¯¹è±¡
             $result   = new stdClass();
             foreach($data as $val) {
                 $item    = explode(':',$val);
@@ -369,7 +369,7 @@ if (!function_exists('json_decode')) {
             if($assoc)
                 $result   = get_object_vars($result);
         }else {
-            // ×ª»»³ÉPHPÊı×é
+            // è½¬æ¢æˆPHPæ•°ç»„
             $result   = array();
             foreach($data as $val)
                 $result[]  =  json_decode($val,$assoc);

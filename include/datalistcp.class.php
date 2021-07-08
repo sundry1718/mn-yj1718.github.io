@@ -1,17 +1,17 @@
 <?php   if(!defined('DEDEINC')) exit('Request Error!');
 /**
- * ¶¯Ì¬·ÖÒ³Àà
- * ËµÃ÷:Êı¾İÁ¿²»´óµÄÊı¾İ·ÖÒ³,Ê¹µÃÊı¾İ·ÖÒ³´¦Àí±äµÃ¸ü¼Ó¼òµ¥»¯
- * Ê¹ÓÃ·½·¨:
- *     $dl = new DataListCP();  //³õÊ¼»¯¶¯Ì¬ÁĞ±íÀà
- *     $dl->pageSize = 25;      //Éè¶¨Ã¿Ò³ÏÔÊ¾¼ÇÂ¼Êı£¨Ä¬ÈÏ25Ìõ£©
- *     $dl->SetParameter($key,$value);  //Éè¶¨get×Ö·û´®µÄ±äÁ¿
- *     //ÕâÁ½¾äµÄË³Ğò²»ÄÜ¸ü»»
- *     $dl->SetTemplate($tplfile);      //ÔØÈëÄ£°å
- *     $dl->SetSource($sql);            //Éè¶¨²éÑ¯SQL
- *     $dl->Display();                  //ÏÔÊ¾
+ * åŠ¨æ€åˆ†é¡µç±»
+ * è¯´æ˜:æ•°æ®é‡ä¸å¤§çš„æ•°æ®åˆ†é¡µ,ä½¿å¾—æ•°æ®åˆ†é¡µå¤„ç†å˜å¾—æ›´åŠ ç®€å•åŒ–
+ * ä½¿ç”¨æ–¹æ³•:
+ *     $dl = new DataListCP();  //åˆå§‹åŒ–åŠ¨æ€åˆ—è¡¨ç±»
+ *     $dl->pageSize = 25;      //è®¾å®šæ¯é¡µæ˜¾ç¤ºè®°å½•æ•°ï¼ˆé»˜è®¤25æ¡ï¼‰
+ *     $dl->SetParameter($key,$value);  //è®¾å®šgetå­—ç¬¦ä¸²çš„å˜é‡
+ *     //è¿™ä¸¤å¥çš„é¡ºåºä¸èƒ½æ›´æ¢
+ *     $dl->SetTemplate($tplfile);      //è½½å…¥æ¨¡æ¿
+ *     $dl->SetSource($sql);            //è®¾å®šæŸ¥è¯¢SQL
+ *     $dl->Display();                  //æ˜¾ç¤º
  *
- * @version        $Id: datalistcp.class.php 3 17:02 2010Äê7ÔÂ9ÈÕZ tianya $
+ * @version        $Id: datalistcp.class.php 3 17:02 2010å¹´7æœˆ9æ—¥Z tianya $
  * @package        DedeCMS.Libraries
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -27,13 +27,13 @@ if(file_exists(DEDEINC.'/code/datalist.'.$codefile.'.inc'))
 }
 else
 {
-    $lang_pre_page = 'ÉÏÒ³';
-    $lang_next_page = 'ÏÂÒ³';
-    $lang_index_page = 'Ê×Ò³';
-    $lang_end_page = 'Ä©Ò³';
-    $lang_record_number = 'Ìõ¼ÇÂ¼';
-    $lang_page = 'Ò³';
-    $lang_total = '¹²';
+    $lang_pre_page = 'ä¸Šé¡µ';
+    $lang_next_page = 'ä¸‹é¡µ';
+    $lang_index_page = 'é¦–é¡µ';
+    $lang_end_page = 'æœ«é¡µ';
+    $lang_record_number = 'æ¡è®°å½•';
+    $lang_page = 'é¡µ';
+    $lang_total = 'å…±';
 }
 
 /**
@@ -55,10 +55,10 @@ class DataListCP
     var $queryTime;
 
     /**
-     *  ÓÃÖ¸¶¨µÄÎÄµµID½øĞĞ³õÊ¼»¯
+     *  ç”¨æŒ‡å®šçš„æ–‡æ¡£IDè¿›è¡Œåˆå§‹åŒ–
      *
      * @access    public
-     * @param     string  $tplfile  Ä£°åÎÄ¼ş
+     * @param     string  $tplfile  æ¨¡æ¿æ–‡ä»¶
      * @return    string
      */
     function __construct($tplfile='')
@@ -97,10 +97,10 @@ class DataListCP
     }
     
     /**
-     *  ¼æÈİPHP4°æ±¾
+     *  å…¼å®¹PHP4ç‰ˆæœ¬
      *
      * @access    private
-     * @param     string  $tplfile  Ä£°åÎÄ¼ş
+     * @param     string  $tplfile  æ¨¡æ¿æ–‡ä»¶
      * @return    void
      */
     function DataListCP($tplfile='')
@@ -108,14 +108,14 @@ class DataListCP
         $this->__construct($tplfile);
     }
 
-    //ÉèÖÃSQLÓï¾ä
+    //è®¾ç½®SQLè¯­å¥
     function SetSource($sql)
     {
         $this->sourceSql = $sql;
     }
 
-    //ÉèÖÃÄ£°å
-    //Èç¹ûÏëÒªÊ¹ÓÃÄ£°åÖĞÖ¸¶¨µÄpagesize£¬±ØĞëÔÚµ÷ÓÃÄ£°åºó²Åµ÷ÓÃ SetSource($sql)
+    //è®¾ç½®æ¨¡æ¿
+    //å¦‚æœæƒ³è¦ä½¿ç”¨æ¨¡æ¿ä¸­æŒ‡å®šçš„pagesizeï¼Œå¿…é¡»åœ¨è°ƒç”¨æ¨¡æ¿åæ‰è°ƒç”¨ SetSource($sql)
     function SetTemplate($tplfile)
     {
         $this->tpl->LoadTemplate($tplfile);
@@ -126,7 +126,7 @@ class DataListCP
     }
 
     /**
-     *  ¶Ôconfig²ÎÊı¼°get²ÎÊıµÈ½øĞĞÔ¤´¦Àí
+     *  å¯¹configå‚æ•°åŠgetå‚æ•°ç­‰è¿›è¡Œé¢„å¤„ç†
      *
      * @access    public
      * @return    void
@@ -166,13 +166,13 @@ class DataListCP
         }
     }
 
-    //ÉèÖÃÍøÖ·µÄGet²ÎÊı¼üÖµ
+    //è®¾ç½®ç½‘å€çš„Getå‚æ•°é”®å€¼
     function SetParameter($key,$value)
     {
         $this->getValues[$key] = $value;
     }
 
-    //ÉèÖÃ/»ñÈ¡ÎÄµµÏà¹ØµÄ¸÷ÖÖ±äÁ¿
+    //è®¾ç½®/è·å–æ–‡æ¡£ç›¸å…³çš„å„ç§å˜é‡
     function SetVar($k,$v)
     {
         global $_vars;
@@ -214,12 +214,12 @@ class DataListCP
 		  $val = preg_replace('/(&#0{0,8}'.ord($search[$i]).';?)/', $search[$i], $val); // with a ;
 		}
 		
-		$val = str_replace("`","¡®",$val);
-		$val = str_replace("'","¡®",$val);
-		$val = str_replace("\"","¡°",$val);
-		$val = str_replace(",","£¬",$val);
-		$val = str_replace("(","£¨",$val);
-		$val = str_replace(")","£©",$val);
+		$val = str_replace("`","â€˜",$val);
+		$val = str_replace("'","â€˜",$val);
+		$val = str_replace("\"","â€œ",$val);
+		$val = str_replace(",","ï¼Œ",$val);
+		$val = str_replace("(","ï¼ˆ",$val);
+		$val = str_replace(")","ï¼‰",$val);
 
 		$ra1 = array('javascript', 'vbscript', 'expression', 'applet', 'meta', 'xml', 'blink', 'link', 'style', 'script', 'embed', 'object', 'iframe', 'frame', 'frameset', 'ilayer', 'layer', 'bgsound', 'title', 'base');
 		$ra2 = array('onabort', 'onactivate', 'onafterprint', 'onafterupdate', 'onbeforeactivate', 'onbeforecopy', 'onbeforecut', 'onbeforedeactivate', 'onbeforeeditfocus', 'onbeforepaste', 'onbeforeprint', 'onbeforeunload', 'onbeforeupdate', 'onblur', 'onbounce', 'oncellchange', 'onchange', 'onclick', 'oncontextmenu', 'oncontrolselect', 'oncopy', 'oncut', 'ondataavailable', 'ondatasetchanged', 'ondatasetcomplete', 'ondblclick', 'ondeactivate', 'ondrag', 'ondragend', 'ondragenter', 'ondragleave', 'ondragover', 'ondragstart', 'ondrop', 'onerror', 'onerrorupdate', 'onfilterchange', 'onfinish', 'onfocus', 'onfocusin', 'onfocusout', 'onhelp', 'onkeydown', 'onkeypress', 'onkeyup', 'onlayoutcomplete', 'onload', 'onlosecapture', 'onmousedown', 'onmouseenter', 'onmouseleave', 'onmousemove', 'onmouseout', 'onmouseover', 'onmouseup', 'onmousewheel', 'onmove', 'onmoveend', 'onmovestart', 'onpaste', 'onpropertychange', 'onreadystatechange', 'onreset', 'onresize', 'onresizeend', 'onresizestart', 'onrowenter', 'onrowexit', 'onrowsdelete', 'onrowsinserted', 'onscroll', 'onselect', 'onselectionchange', 'onselectstart', 'onstart', 'onstop', 'onsubmit', 'onunload');
@@ -252,7 +252,7 @@ class DataListCP
 		return $val;
 	}
 
-    //»ñÈ¡µ±Ç°Ò³Êı¾İÁĞ±í
+    //è·å–å½“å‰é¡µæ•°æ®åˆ—è¡¨
     function GetArcList($atts,$refObj='',$fields=array())
     {
         $rsArray = array();
@@ -273,7 +273,7 @@ class DataListCP
         return $rsArray;
     }
 
-    //»ñÈ¡·ÖÒ³µ¼º½ÁĞ±í
+    //è·å–åˆ†é¡µå¯¼èˆªåˆ—è¡¨
     function GetPageList($atts,$refObj='',$fields=array())
     {
         global $lang_pre_page,$lang_next_page,$lang_index_page,$lang_end_page,$lang_record_number,$lang_page,$lang_total;
@@ -292,7 +292,7 @@ class DataListCP
         $totalpage = ceil($this->totalResult/$this->pageSize);
 
         //echo " {$totalpage}=={$this->totalResult}=={$this->pageSize}";
-        //ÎŞ½á¹û»òÖ»ÓĞÒ»Ò³µÄÇé¿ö
+        //æ— ç»“æœæˆ–åªæœ‰ä¸€é¡µçš„æƒ…å†µ
         if($totalpage<=1 && $this->totalResult > 0)
         {
             return "<span>{$lang_total} 1 {$lang_page}/".$this->totalResult.$lang_record_number."</span>";
@@ -317,7 +317,7 @@ class DataListCP
         }
         $purl .= "?".$geturl;
 
-        //»ñµÃÉÏÒ»Ò³ºÍÏÂÒ»Ò³µÄÁ´½Ó
+        //è·å¾—ä¸Šä¸€é¡µå’Œä¸‹ä¸€é¡µçš„é“¾æ¥
         if($this->pageNO != 1)
         {
             $prepage .= "<a class='prePage' href='".$purl."pageno=$prepagenum'>$lang_pre_page</a> \n";
@@ -337,7 +337,7 @@ class DataListCP
             $endpage=" <strong>$lang_end_page</strong> \n";
         }
 
-        //»ñµÃÊı×ÖÁ´½Ó
+        //è·å¾—æ•°å­—é“¾æ¥
         $listdd = "";
         $total_list = $atts['listsize'] * 2 + 1;
         if($this->pageNO >= $total_list)
@@ -403,7 +403,7 @@ class DataListCP
         return $plist;
     }
 
-    //»ñµÃµ±Ç°ÍøÖ·
+    //è·å¾—å½“å‰ç½‘å€
     function GetCurUrl()
     {
         if(!empty($_SERVER["REQUEST_URI"]))
@@ -419,23 +419,23 @@ class DataListCP
         return $nowurl;
     }
 
-    //¹Ø±Õ
+    //å…³é—­
     function Close()
     {
 
     }
 
-    //ÏÔÊ¾Êı¾İ
+    //æ˜¾ç¤ºæ•°æ®
     function Display()
     {
         $this->PreLoad();
 
-        //ÔÚPHP4ÖĞ£¬¶ÔÏóÒıÓÃ±ØĞë·ÅÔÚdisplayÖ®Ç°£¬·ÅÔÚÆäËüÎ»ÖÃÖĞÎŞĞ§
+        //åœ¨PHP4ä¸­ï¼Œå¯¹è±¡å¼•ç”¨å¿…é¡»æ”¾åœ¨displayä¹‹å‰ï¼Œæ”¾åœ¨å…¶å®ƒä½ç½®ä¸­æ— æ•ˆ
         $this->tpl->SetObject($this);
         $this->tpl->Display();
     }
 
-    //±£´æÎªHTML
+    //ä¿å­˜ä¸ºHTML
     function SaveTo($filename)
     {
         $this->tpl->SaveTo($filename);

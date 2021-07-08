@@ -1,44 +1,44 @@
-start,ÏµÍ³Ä¬ÈÏÄ£°åÎÄ¼şËµÃ÷
-head.htm,ÁĞ±íÒ³Í·²¿Ä£°å
-head_nocatalog.htm,ÄÚÈİÒ³\Ö÷Ò³µÈÎŞ×ÓÀ¸Ä¿Ò³ÃæÍ·²¿Ä£°å
-index.htm,Ö÷Ò³Ä£°å
-ajaxfeedback.htm,AjaxÆÀÂÛÄ£°å
-article_article.htm,ÎÄÕÂÄÚÈİÒ³Ä£°å
-article_article1.htm,Ëæ»úÎÄÕÂÄÚÈİÒ³Ä£°å1
-article_article2.htm,Ëæ»úÎÄÕÂÄÚÈİÒ³Ä£°å2
-article_article_frame.htm,ÎÄÕÂÄÚÈİÒ³Ä£°å¿ò¼Ü°æ
-article_default.htm,×Ô¶¨ÒåÎÄµµÄÚÈİÄ£°å
-article_default_sg.htm,×Ô¶¨Òåµ¥±íÎÄµµÄÚÈİÄ£°å
-article_image.htm,Í¼Æ¬¼¯ÄÚÈİÒ³Ä£°å
-article_image_cl.htm,Í¼Æ¬¼¯ÄÚÈİÒ³Ä£°å(ĞÂÍ¼¼¯ÑùÊ½)
-article_image_frame.htm,Í¼Æ¬¼¯ÄÚÈİÒ³Ä£°å¿ò¼Ü°æ
-article_shop.htm,ÉÌÆ·Ä£ĞÍÄÚÈİÒ³Ä£°å
-article_soft.htm,Èí¼şÄÚÈİÒ³Ä£°å
-article_soft_frame.htm,Èí¼şÄÚÈİÒ³Ä£°å¿ò¼Ü°æ
-article_infos.htm,·ÖÀàĞÅÏ¢ÄÚÈİÄ£°å
-article_spec.htm,×¨ÌâÄÚÈİÒ³Ä£°å
-index_article.htm,ÎÄÕÂÆµµÀ·âÃæ
-index_default.htm,Ä¬ÈÏÆµµÀ·âÃæ
-index_default_sg.htm,Ä¬ÈÏµ¥±íÄ£ĞÍÆµµÀ·âÃæ
-index_image.htm,Ä¬ÈÏÍ¼Æ¬Ä£ĞÍ·âÃæ
-index_shop.htm,Ä¬ÈÏÍøµêÄ£ĞÍ·âÃæ
-index_soft.htm,Ä¬ÈÏÈí¼şÄ£ĞÍ·âÃæ
-infosw9_index.htm,Ä¬ÈÏÍ¼ÎÄ×ÊÑ¶·âÃæ
-infosw9_list.htm,Ä¬ÈÏÍ¼ÎÄ×ÊÑ¶ÁĞ±íÒ³
-index_infos.htm,·ÖÀàĞÅÏ¢·âÃæÄ£°å
-list_article.htm,Ä¬ÈÏÎÄÕÂÁĞ±íÄ£°å
-list_default.htm,Ä¬ÈÏ×Ô¶¨ÒåÄ£ĞÍÁĞ±íÄ£°å
-list_default_sg.htm,Ä¬ÈÏµ¥±í×Ô¶¨ÒåÄ£ĞÍÁĞ±íÄ£°å
-list_free.htm,Ä¬ÈÏ×ÔÓÉÁĞ±íÄ£°å
-list_image.htm,Ä¬ÈÏÍ¼Æ¬ÁĞ±íÄ£°å
-list_soft.htm,Ä¬ÈÏÈí¼şÁĞ±íÄ£°å
-list_infos.htm,·ÖÀàĞÅÏ¢ÁĞ±íÄ£°å
-list_spec.htm,Ä¬ÈÏ×¨ÌâÁĞ±íÄ£°å
-list_shop.htm,Ä¬ÈÏÉÌ³ÇÁĞ±íÄ£°å 
-footer.htm,ÁĞ±íÒ³µ×²¿Ä£°å
-googlemap.htm,googleµØÍ¼Ä£°å
-search.htm,ÆÕÍ¨ËÑË÷Ä£°å
-advancedsearch.htm,¸ß¼¶ËÑË÷Ä£°å
-singlepage.htm,µ¥¶ÀÒ³ÃæÄ£°å
-tag.htm,±êÇ©Ê×Ò³Ä£°å
-taglist.htm,ÌØ¶¨±êÇ©ÄÚÈİÁĞ±íÄ£°å
+start,ç³»ç»Ÿé»˜è®¤æ¨¡æ¿æ–‡ä»¶è¯´æ˜
+head.htm,åˆ—è¡¨é¡µå¤´éƒ¨æ¨¡æ¿
+head_nocatalog.htm,å†…å®¹é¡µ\ä¸»é¡µç­‰æ— å­æ ç›®é¡µé¢å¤´éƒ¨æ¨¡æ¿
+index.htm,ä¸»é¡µæ¨¡æ¿
+ajaxfeedback.htm,Ajaxè¯„è®ºæ¨¡æ¿
+article_article.htm,æ–‡ç« å†…å®¹é¡µæ¨¡æ¿
+article_article1.htm,éšæœºæ–‡ç« å†…å®¹é¡µæ¨¡æ¿1
+article_article2.htm,éšæœºæ–‡ç« å†…å®¹é¡µæ¨¡æ¿2
+article_article_frame.htm,æ–‡ç« å†…å®¹é¡µæ¨¡æ¿æ¡†æ¶ç‰ˆ
+article_default.htm,è‡ªå®šä¹‰æ–‡æ¡£å†…å®¹æ¨¡æ¿
+article_default_sg.htm,è‡ªå®šä¹‰å•è¡¨æ–‡æ¡£å†…å®¹æ¨¡æ¿
+article_image.htm,å›¾ç‰‡é›†å†…å®¹é¡µæ¨¡æ¿
+article_image_cl.htm,å›¾ç‰‡é›†å†…å®¹é¡µæ¨¡æ¿(æ–°å›¾é›†æ ·å¼)
+article_image_frame.htm,å›¾ç‰‡é›†å†…å®¹é¡µæ¨¡æ¿æ¡†æ¶ç‰ˆ
+article_shop.htm,å•†å“æ¨¡å‹å†…å®¹é¡µæ¨¡æ¿
+article_soft.htm,è½¯ä»¶å†…å®¹é¡µæ¨¡æ¿
+article_soft_frame.htm,è½¯ä»¶å†…å®¹é¡µæ¨¡æ¿æ¡†æ¶ç‰ˆ
+article_infos.htm,åˆ†ç±»ä¿¡æ¯å†…å®¹æ¨¡æ¿
+article_spec.htm,ä¸“é¢˜å†…å®¹é¡µæ¨¡æ¿
+index_article.htm,æ–‡ç« é¢‘é“å°é¢
+index_default.htm,é»˜è®¤é¢‘é“å°é¢
+index_default_sg.htm,é»˜è®¤å•è¡¨æ¨¡å‹é¢‘é“å°é¢
+index_image.htm,é»˜è®¤å›¾ç‰‡æ¨¡å‹å°é¢
+index_shop.htm,é»˜è®¤ç½‘åº—æ¨¡å‹å°é¢
+index_soft.htm,é»˜è®¤è½¯ä»¶æ¨¡å‹å°é¢
+infosw9_index.htm,é»˜è®¤å›¾æ–‡èµ„è®¯å°é¢
+infosw9_list.htm,é»˜è®¤å›¾æ–‡èµ„è®¯åˆ—è¡¨é¡µ
+index_infos.htm,åˆ†ç±»ä¿¡æ¯å°é¢æ¨¡æ¿
+list_article.htm,é»˜è®¤æ–‡ç« åˆ—è¡¨æ¨¡æ¿
+list_default.htm,é»˜è®¤è‡ªå®šä¹‰æ¨¡å‹åˆ—è¡¨æ¨¡æ¿
+list_default_sg.htm,é»˜è®¤å•è¡¨è‡ªå®šä¹‰æ¨¡å‹åˆ—è¡¨æ¨¡æ¿
+list_free.htm,é»˜è®¤è‡ªç”±åˆ—è¡¨æ¨¡æ¿
+list_image.htm,é»˜è®¤å›¾ç‰‡åˆ—è¡¨æ¨¡æ¿
+list_soft.htm,é»˜è®¤è½¯ä»¶åˆ—è¡¨æ¨¡æ¿
+list_infos.htm,åˆ†ç±»ä¿¡æ¯åˆ—è¡¨æ¨¡æ¿
+list_spec.htm,é»˜è®¤ä¸“é¢˜åˆ—è¡¨æ¨¡æ¿
+list_shop.htm,é»˜è®¤å•†åŸåˆ—è¡¨æ¨¡æ¿ 
+footer.htm,åˆ—è¡¨é¡µåº•éƒ¨æ¨¡æ¿
+googlemap.htm,googleåœ°å›¾æ¨¡æ¿
+search.htm,æ™®é€šæœç´¢æ¨¡æ¿
+advancedsearch.htm,é«˜çº§æœç´¢æ¨¡æ¿
+singlepage.htm,å•ç‹¬é¡µé¢æ¨¡æ¿
+tag.htm,æ ‡ç­¾é¦–é¡µæ¨¡æ¿
+taglist.htm,ç‰¹å®šæ ‡ç­¾å†…å®¹åˆ—è¡¨æ¨¡æ¿

@@ -1,8 +1,8 @@
 <?php  if(!defined('DEDEINC')) exit('dedecms');
 /**
- * ÎÄµµĞ¡ÖúÊÖ
+ * æ–‡æ¡£å°åŠ©æ‰‹
  *
- * @version        $Id: channelunit.helper.php 1 16:49 2010Äê7ÔÂ6ÈÕZ tianya $
+ * @version        $Id: channelunit.helper.php 1 16:49 2010å¹´7æœˆ6æ—¥Z tianya $
  * @package        DedeCMS.Helpers
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -10,9 +10,9 @@
  */
 
 /**
- *  ÓÃĞÇ±íÊ¾Èí¼ş»òFlashµÄµÈ¼¶
+ *  ç”¨æ˜Ÿè¡¨ç¤ºè½¯ä»¶æˆ–Flashçš„ç­‰çº§
  *
- * @param     string  $rank  ĞÇĞÇÊı
+ * @param     string  $rank  æ˜Ÿæ˜Ÿæ•°
  * @return    string
  */
 if ( ! function_exists('GetRankStar'))
@@ -22,35 +22,35 @@ if ( ! function_exists('GetRankStar'))
         $nstar = "";
         for($i=1;$i<=$rank;$i++)
         {
-            $nstar .= "¡ï";
+            $nstar .= "â˜…";
         }
         for($i;$i<=5;$i++)
         {
-            $nstar .= "¡î";
+            $nstar .= "â˜†";
         }
         return $nstar;
     }
 }
 
 /**
- *  »ñµÃÎÄÕÂÍøÖ·
- *  Èç¹ûÒª»ñµÃÎÄ¼şµÄÂ·¾¶£¬Ö±½ÓÓÃ
+ *  è·å¾—æ–‡ç« ç½‘å€
+ *  å¦‚æœè¦è·å¾—æ–‡ä»¶çš„è·¯å¾„ï¼Œç›´æ¥ç”¨
  *  GetFileUrl($aid,$typeid,$timetag,$title,$ismake,$rank,$namerule,$typedir,$money)
- *  ¼´ÊÇ²»Ö¸¶¨Õ¾µã²ÎÊıÔò·µ»ØÏàµ±¶Ô¸ùÄ¿Â¼µÄÕæÊµÂ·¾¶
+ *  å³æ˜¯ä¸æŒ‡å®šç«™ç‚¹å‚æ•°åˆ™è¿”å›ç›¸å½“å¯¹æ ¹ç›®å½•çš„çœŸå®è·¯å¾„
  *
- * @param     int  $aid  ÎÄµµID
- * @param     int  $typeid  À¸Ä¿ID
- * @param     int  $timetag  Ê±¼ä´Á
- * @param     string  $title  ±êÌâ
- * @param     int  $ismake  ÊÇ·ñÉú³É
- * @param     int  $rank  ÔÄ¶ÁÈ¨ÏŞ
- * @param     string  $namerule  Ãû³Æ¹æÔò
- * @param     string  $typedir  À¸Ä¿dir
- * @param     string  $money  ĞèÒª½ğ±Ò
- * @param     string  $filename  ÎÄ¼şÃû³Æ
- * @param     string  $moresite  ¶àÕ¾µã
- * @param     string  $siteurl  Õ¾µãµØÖ·
- * @param     string  $sitepath  Õ¾µãÂ·¾¶
+ * @param     int  $aid  æ–‡æ¡£ID
+ * @param     int  $typeid  æ ç›®ID
+ * @param     int  $timetag  æ—¶é—´æˆ³
+ * @param     string  $title  æ ‡é¢˜
+ * @param     int  $ismake  æ˜¯å¦ç”Ÿæˆ
+ * @param     int  $rank  é˜…è¯»æƒé™
+ * @param     string  $namerule  åç§°è§„åˆ™
+ * @param     string  $typedir  æ ç›®dir
+ * @param     string  $money  éœ€è¦é‡‘å¸
+ * @param     string  $filename  æ–‡ä»¶åç§°
+ * @param     string  $moresite  å¤šç«™ç‚¹
+ * @param     string  $siteurl  ç«™ç‚¹åœ°å€
+ * @param     string  $sitepath  ç«™ç‚¹è·¯å¾„
  * @return    string
  */
 if ( ! function_exists('GetFileUrl'))
@@ -61,7 +61,7 @@ if ( ! function_exists('GetFileUrl'))
         $articleUrl = GetFileName($aid,$typeid,$timetag,$title,$ismake,$rank,$namerule,$typedir,$money,$filename);
         $sitepath = MfTypedir($sitepath);
 
-        //ÊÇ·ñÇ¿ÖÆÊ¹ÓÃ¾ø¶ÔÍøÖ·
+        //æ˜¯å¦å¼ºåˆ¶ä½¿ç”¨ç»å¯¹ç½‘å€
         if($GLOBALS['cfg_multi_site']=='Y')
         {
             if($siteurl=='')
@@ -83,18 +83,18 @@ if ( ! function_exists('GetFileUrl'))
 }
 
 /**
- *  »ñµÃĞÂÎÄ¼şÃû(±¾º¯Êı»á×Ô¶¯´´½¨Ä¿Â¼)
+ *  è·å¾—æ–°æ–‡ä»¶å(æœ¬å‡½æ•°ä¼šè‡ªåŠ¨åˆ›å»ºç›®å½•)
  *
- * @param     int  $aid  ÎÄµµID
- * @param     int  $typeid  À¸Ä¿ID
- * @param     int  $timetag  Ê±¼ä´Á
- * @param     string  $title  ±êÌâ
- * @param     int  $ismake  ÊÇ·ñÉú³É
- * @param     int  $rank  ÔÄ¶ÁÈ¨ÏŞ
- * @param     string  $namerule  Ãû³Æ¹æÔò
- * @param     string  $typedir  À¸Ä¿dir
- * @param     string  $money  ĞèÒª½ğ±Ò
- * @param     string  $filename  ÎÄ¼şÃû³Æ
+ * @param     int  $aid  æ–‡æ¡£ID
+ * @param     int  $typeid  æ ç›®ID
+ * @param     int  $timetag  æ—¶é—´æˆ³
+ * @param     string  $title  æ ‡é¢˜
+ * @param     int  $ismake  æ˜¯å¦ç”Ÿæˆ
+ * @param     int  $rank  é˜…è¯»æƒé™
+ * @param     string  $namerule  åç§°è§„åˆ™
+ * @param     string  $typedir  æ ç›®dir
+ * @param     string  $money  éœ€è¦é‡‘å¸
+ * @param     string  $filename  æ–‡ä»¶åç§°
  * @return    string
  */
 if ( ! function_exists('GetFileNewName'))
@@ -132,18 +132,18 @@ if ( ! function_exists('GetFileNewName'))
 
 
 /**
- *  »ñµÃÎÄ¼şÏà¶ÔÓÚÖ÷Õ¾µã¸ùÄ¿Â¼µÄÎïÀíÎÄ¼şÃû(¶¯Ì¬ÍøÖ··µ»Øurl)
+ *  è·å¾—æ–‡ä»¶ç›¸å¯¹äºä¸»ç«™ç‚¹æ ¹ç›®å½•çš„ç‰©ç†æ–‡ä»¶å(åŠ¨æ€ç½‘å€è¿”å›url)
  *
- * @param     int  $aid  ÎÄµµID
- * @param     int  $typeid  À¸Ä¿ID
- * @param     int  $timetag  Ê±¼ä´Á
- * @param     string  $title  ±êÌâ
- * @param     int  $ismake  ÊÇ·ñÉú³É
- * @param     int  $rank  ÔÄ¶ÁÈ¨ÏŞ
- * @param     string  $namerule  Ãû³Æ¹æÔò
- * @param     string  $typedir  À¸Ä¿dir
- * @param     string  $money  ĞèÒª½ğ±Ò
- * @param     string  $filename  ÎÄ¼şÃû³Æ
+ * @param     int  $aid  æ–‡æ¡£ID
+ * @param     int  $typeid  æ ç›®ID
+ * @param     int  $timetag  æ—¶é—´æˆ³
+ * @param     string  $title  æ ‡é¢˜
+ * @param     int  $ismake  æ˜¯å¦ç”Ÿæˆ
+ * @param     int  $rank  é˜…è¯»æƒé™
+ * @param     string  $namerule  åç§°è§„åˆ™
+ * @param     string  $typedir  æ ç›®dir
+ * @param     string  $money  éœ€è¦é‡‘å¸
+ * @param     string  $filename  æ–‡ä»¶åç§°
  * @return    string
  */
 if ( ! function_exists('GetFileName'))
@@ -151,14 +151,14 @@ if ( ! function_exists('GetFileName'))
     function GetFileName($aid,$typeid,$timetag,$title,$ismake=0,$rank=0,$namerule='',$typedir='',$money=0,$filename='')
     {
         global $cfg_rewrite, $cfg_cmspath, $cfg_arcdir, $cfg_special, $cfg_arc_dirname;
-        //Ã»Ö¸¶¨À¸Ä¿Ê±ÓÃ¹Ì¶¨¹æÔò£¨×¨Ìâ£©
+        //æ²¡æŒ‡å®šæ ç›®æ—¶ç”¨å›ºå®šè§„åˆ™ï¼ˆä¸“é¢˜ï¼‰
         if(empty($namerule)) {
             $namerule = $cfg_special.'/arc-{aid}.html';
             $typeid = -1;
         }
         if($rank!=0 || $ismake==-1 || $typeid==0 || $money>0)
         {
-            //¶¯Ì¬ÎÄÕÂ
+            //åŠ¨æ€æ–‡ç« 
             if($cfg_rewrite == 'Y')
             {
                 return $GLOBALS["cfg_plus_dir"]."/view-".$aid.'-1.html';
@@ -206,18 +206,18 @@ if ( ! function_exists('GetFileName'))
 
 
 /**
- *  »ñµÃÖ¸¶¨ÀàÄ¿µÄURLÁ´½Ó
- *  ¶ÔÓÚÊ¹ÓÃ·âÃæÎÄ¼şºÍµ¥¶ÀÒ³ÃæµÄÇé¿ö£¬Ç¿ÖÆÊ¹ÓÃÄ¬ÈÏÒ³Ãû³Æ
+ *  è·å¾—æŒ‡å®šç±»ç›®çš„URLé“¾æ¥
+ *  å¯¹äºä½¿ç”¨å°é¢æ–‡ä»¶å’Œå•ç‹¬é¡µé¢çš„æƒ…å†µï¼Œå¼ºåˆ¶ä½¿ç”¨é»˜è®¤é¡µåç§°
  *
- * @param     int  $typeid  À¸Ä¿ID
- * @param     string  $typedir  À¸Ä¿Ä¿Â¼
- * @param     int  $isdefault  ÊÇ·ñÄ¬ÈÏ
- * @param     string  $defaultname  Ä¬ÈÏÃû³Æ
- * @param     int  $ispart  À¸Ä¿ÊôĞÔ
- * @param     string  $namerule2  Ãû³Æ¹æÔò
- * @param     string  $moresite  ¶àÕ¾µã
- * @param     string  $siteurl  Õ¾µãµØÖ·
- * @param     string  $sitepath  Õ¾µãÄ¿Â¼
+ * @param     int  $typeid  æ ç›®ID
+ * @param     string  $typedir  æ ç›®ç›®å½•
+ * @param     int  $isdefault  æ˜¯å¦é»˜è®¤
+ * @param     string  $defaultname  é»˜è®¤åç§°
+ * @param     int  $ispart  æ ç›®å±æ€§
+ * @param     string  $namerule2  åç§°è§„åˆ™
+ * @param     string  $moresite  å¤šç«™ç‚¹
+ * @param     string  $siteurl  ç«™ç‚¹åœ°å€
+ * @param     string  $sitepath  ç«™ç‚¹ç›®å½•
  * @return    string
  */
 if ( ! function_exists('GetTypeUrl'))
@@ -229,12 +229,12 @@ if ( ! function_exists('GetTypeUrl'))
         $sitepath = MfTypedir($sitepath);
         if($isdefault==-1)
         {
-            //¶¯Ì¬
+            //åŠ¨æ€
             $reurl = $GLOBALS['cfg_phpurl']."/list.php?tid=".$typeid;
         }
         else if($ispart==2)
         {
-            //Ìø×ªÍøÖ·
+            //è·³è½¬ç½‘å€
             $reurl = $typedir;
             return $reurl;
         }
@@ -274,10 +274,10 @@ if ( ! function_exists('GetTypeUrl'))
 }
 
 /**
- *  Ä§·¨±äÁ¿£¬ÓÃÓÚ»ñÈ¡Á½¸ö¿É±äµÄÖµ
+ *  é­”æ³•å˜é‡ï¼Œç”¨äºè·å–ä¸¤ä¸ªå¯å˜çš„å€¼
  *
- * @param     string  $v1  µÚÒ»¸ö±äÁ¿
- * @param     string  $v2  µÚ¶ş¸ö±äÁ¿
+ * @param     string  $v1  ç¬¬ä¸€ä¸ªå˜é‡
+ * @param     string  $v2  ç¬¬äºŒä¸ªå˜é‡
  * @return    string
  */
 if ( ! function_exists('MagicVar'))
@@ -289,9 +289,9 @@ if ( ! function_exists('MagicVar'))
 }
 
 /**
- *  »ñÈ¡Ä³¸öÀàÄ¿µÄËùÓĞÉÏ¼¶À¸Ä¿id
+ *  è·å–æŸä¸ªç±»ç›®çš„æ‰€æœ‰ä¸Šçº§æ ç›®id
  *
- * @param     int  $tid  À¸Ä¿ID
+ * @param     int  $tid  æ ç›®ID
  * @return    string
  */
 if ( ! function_exists('GetTopids'))
@@ -306,10 +306,10 @@ if ( ! function_exists('GetTopids'))
 
 
 /**
- *  »ñÈ¡ÉÏ¼¶IDÁĞ±í
+ *  è·å–ä¸Šçº§IDåˆ—è¡¨
  *
  * @access    public
- * @param     string  $tid  À¸Ä¿ID
+ * @param     string  $tid  æ ç›®ID
  * @return    string
  */
 if ( ! function_exists('GetParentIds'))
@@ -335,11 +335,11 @@ if ( ! function_exists('GetParentIds'))
 
 
 /**
- *  ¼ì²âÀ¸Ä¿ÊÇ·ñÊÇÁíÒ»¸öÀ¸Ä¿µÄ¸¸Ä¿Â¼
+ *  æ£€æµ‹æ ç›®æ˜¯å¦æ˜¯å¦ä¸€ä¸ªæ ç›®çš„çˆ¶ç›®å½•
  *
  * @access    public
- * @param     string  $sid  ¶¥¼¶Ä¿Â¼id
- * @param     string  $pid  ÏÂ¼¶Ä¿Â¼id
+ * @param     string  $sid  é¡¶çº§ç›®å½•id
+ * @param     string  $pid  ä¸‹çº§ç›®å½•id
  * @return    bool
  */
 if ( ! function_exists('IsParent'))
@@ -353,9 +353,9 @@ if ( ! function_exists('IsParent'))
 
 
 /**
- *  »ñÈ¡Ò»¸öÀàÄ¿µÄ¶¥¼¶ÀàÄ¿id
+ *  è·å–ä¸€ä¸ªç±»ç›®çš„é¡¶çº§ç±»ç›®id
  *
- * @param     string  $tid  À¸Ä¿ID
+ * @param     string  $tid  æ ç›®ID
  * @return    string
  */
 if ( ! function_exists('GetTopid'))
@@ -380,11 +380,11 @@ if ( ! function_exists('GetTopid'))
 
 
 /**
- *  »ñµÃÄ³idµÄËùÓĞÏÂ¼¶id
+ *  è·å¾—æŸidçš„æ‰€æœ‰ä¸‹çº§id
  *
- * @param     string  $id  À¸Ä¿id
- * @param     string  $channel  Ä£ĞÍID
- * @param     string  $addthis  ÊÇ·ñ°üº¬±¾Éí
+ * @param     string  $id  æ ç›®id
+ * @param     string  $channel  æ¨¡å‹ID
+ * @param     string  $addthis  æ˜¯å¦åŒ…å«æœ¬èº«
  * @return    string
  */
 function GetSonIds($id,$channel=0,$addthis=true)
@@ -401,7 +401,7 @@ function GetSonIds($id,$channel=0,$addthis=true)
     return $rquery;
 }
 
-//µİ¹éÂß¼­
+//é€’å½’é€»è¾‘
 function GetSonIdsLogic($id,$sArr,$channel=0,$addthis=false)
 {
     if($id!=0 && $addthis)
@@ -421,9 +421,9 @@ function GetSonIdsLogic($id,$sArr,$channel=0,$addthis=false)
 }
 
 /**
- *  À¸Ä¿Ä¿Â¼¹æÔò
+ *  æ ç›®ç›®å½•è§„åˆ™
  *
- * @param     string  $typedir   À¸Ä¿Ä¿Â¼
+ * @param     string  $typedir   æ ç›®ç›®å½•
  * @return    string
  */
 function MfTypedir($typedir)
@@ -435,9 +435,9 @@ function MfTypedir($typedir)
 }
 
 /**
- *  Ä£°åÄ¿Â¼¹æÔò
+ *  æ¨¡æ¿ç›®å½•è§„åˆ™
  *
- * @param     string  $tmpdir  Ä£°åÄ¿Â¼
+ * @param     string  $tmpdir  æ¨¡æ¿ç›®å½•
  * @return    string
  */
 function MfTemplet($tmpdir)
@@ -448,9 +448,9 @@ function MfTemplet($tmpdir)
 }
 
 /**
- *  Çå³ıÓÃÓÚjsµÄ¿Õ°×¿é
+ *  æ¸…é™¤ç”¨äºjsçš„ç©ºç™½å—
  *
- * @param     string  $atme  ×Ö·û
+ * @param     string  $atme  å­—ç¬¦
  * @return    string
  */
 function FormatScript($atme)
@@ -459,10 +459,10 @@ function FormatScript($atme)
 }
 
 /**
- *  ¸øÊôĞÔÄ¬ÈÏÖµ
+ *  ç»™å±æ€§é»˜è®¤å€¼
  *
- * @param     array  $atts  ÊôĞÔ
- * @param     array  $attlist  ÊôĞÔÁĞ±í
+ * @param     array  $atts  å±æ€§
+ * @param     array  $attlist  å±æ€§åˆ—è¡¨
  * @return    string
  */
 function FillAttsDefault(&$atts, $attlist)
@@ -479,10 +479,10 @@ function FillAttsDefault(&$atts, $attlist)
 }
 
 /**
- *  ¸ø¿é±ê¼Ç¸³Öµ
+ *  ç»™å—æ ‡è®°èµ‹å€¼
  *
- * @param     object  $dtp  Ä£°å½âÎöÒıÇæ
- * @param     object  $refObj  ÊµÀı»¯¶ÔÏó
+ * @param     object  $dtp  æ¨¡æ¿è§£æå¼•æ“
+ * @param     object  $refObj  å®ä¾‹åŒ–å¯¹è±¡
  * @param     object  $parfield
  * @return    string
  */
@@ -493,7 +493,7 @@ function MakeOneTag(&$dtp, &$refObj, $parfield='Y')
     $disable_tags = explode(',', $cfg_disable_tags);
     $alltags = array();
     $dtp->setRefObj($refObj);
-    //¶ÁÈ¡×ÔÓÉµ÷ÓÃtagÁĞ±í
+    //è¯»å–è‡ªç”±è°ƒç”¨tagåˆ—è¡¨
     $dh = dir(DEDEINC.'/taglib');
     while($filename = $dh->read())
     {
@@ -504,7 +504,7 @@ function MakeOneTag(&$dtp, &$refObj, $parfield='Y')
     }
     $dh->Close();
 
-    //±éÀútagÔªËØ
+    //éå†tagå…ƒç´ 
     if(!is_array($dtp->CTags))
     {
         return '';
@@ -533,7 +533,7 @@ function MakeOneTag(&$dtp, &$refObj, $parfield='Y')
             continue;
         }
 
-        //ÓÉÓÚ¿¼ÂÇ¼æÈİĞÔ£¬Ô­À´ÎÄÕÂµ÷ÓÃÊ¹ÓÃµÄ±ê¼Ç±ğÃûÍ³Ò»±£Áô£¬ÕâĞ©±ê¼ÇÊµ¼Êµ÷ÓÃµÄ½âÎöÎÄ¼şÎªinc_arclist.php
+        //ç”±äºè€ƒè™‘å…¼å®¹æ€§ï¼ŒåŸæ¥æ–‡ç« è°ƒç”¨ä½¿ç”¨çš„æ ‡è®°åˆ«åç»Ÿä¸€ä¿ç•™ï¼Œè¿™äº›æ ‡è®°å®é™…è°ƒç”¨çš„è§£ææ–‡ä»¶ä¸ºinc_arclist.php
         if(preg_match("/^(artlist|likeart|hotart|imglist|imginfolist|coolart|specart|autolist)$/", $tagname))
         {
             $tagname='arclist';
@@ -558,16 +558,16 @@ function MakeOneTag(&$dtp, &$refObj, $parfield='Y')
             $dtp->Assign($tagid,$funcname($ctag,$refObj));
             if (DEBUG_LEVEL==TRUE) {
                 $queryTime = ExecTime() - $ttt1;
-                echo '±êÇ©£º'.$tagname.'ÔØÈë»¨·ÑÊ±¼ä£º'.$queryTime."<br />\r\n";
+                echo 'æ ‡ç­¾ï¼š'.$tagname.'è½½å…¥èŠ±è´¹æ—¶é—´ï¼š'.$queryTime."<br />\r\n";
             }
         }
     }
 }
 
 /**
- *  »ñÈ¡Ä³À¸Ä¿µÄurl
+ *  è·å–æŸæ ç›®çš„url
  *
- * @param     array  $typeinfos  À¸Ä¿ĞÅÏ¢
+ * @param     array  $typeinfos  æ ç›®ä¿¡æ¯
  * @return    string
  */
 function GetOneTypeUrlA($typeinfos)
@@ -577,13 +577,13 @@ function GetOneTypeUrlA($typeinfos)
 }
 
 /**
- *  ÉèÖÃÈ«¾Ö»·¾³±äÁ¿
+ *  è®¾ç½®å…¨å±€ç¯å¢ƒå˜é‡
  *
- * @param     int  $typeid  À¸Ä¿ID
- * @param     string  $typename  À¸Ä¿Ãû³Æ
- * @param     string  $aid  ÎÄµµID
- * @param     string  $title  ±êÌâ
- * @param     string  $curfile  µ±Ç°ÎÄ¼ş
+ * @param     int  $typeid  æ ç›®ID
+ * @param     string  $typename  æ ç›®åç§°
+ * @param     string  $aid  æ–‡æ¡£ID
+ * @param     string  $title  æ ‡é¢˜
+ * @param     string  $curfile  å½“å‰æ–‡ä»¶
  * @return    string
  */
 function SetSysEnv($typeid=0,$typename='',$aid=0,$title='',$curfile='')
@@ -608,10 +608,10 @@ function SetSysEnv($typeid=0,$typename='',$aid=0,$title='',$curfile='')
 }
 
 /**
- *  »ñµÃÍ¼ÊéµÄURL
+ *  è·å¾—å›¾ä¹¦çš„URL
  *
- * @param     string  $bid  Êé¼®ID
- * @param     string  $title  ±êÌâ
+ * @param     string  $bid  ä¹¦ç±ID
+ * @param     string  $title  æ ‡é¢˜
  * @param     string  $gdir
  * @return    string
  */
@@ -624,9 +624,9 @@ function GetBookUrl($bid,$title,$gdir=0)
 }
 
 /**
- *  ¸ù¾İIDÉú³ÉÄ¿Â¼
+ *  æ ¹æ®IDç”Ÿæˆç›®å½•
  *
- * @param     string  $aid  ÄÚÈİID
+ * @param     string  $aid  å†…å®¹ID
  * @return    int
  */
 function DedeID2Dir($aid)
@@ -636,13 +636,13 @@ function DedeID2Dir($aid)
 }
 
 /**
- *  »ñµÃ×ÔÓÉÁĞ±íµÄÍøÖ·
+ *  è·å¾—è‡ªç”±åˆ—è¡¨çš„ç½‘å€
  *
- * @param     string  $lid  ÁĞ±íid
- * @param     string  $namerule  ÃüÃû¹æÔò
- * @param     string  $listdir  ÁĞ±íÄ¿Â¼
- * @param     string  $defaultpage  Ä¬ÈÏÒ³Ãæ
- * @param     string  $nodefault  Ã»ÓĞÄ¬ÈÏÒ³Ãæ
+ * @param     string  $lid  åˆ—è¡¨id
+ * @param     string  $namerule  å‘½åè§„åˆ™
+ * @param     string  $listdir  åˆ—è¡¨ç›®å½•
+ * @param     string  $defaultpage  é»˜è®¤é¡µé¢
+ * @param     string  $nodefault  æ²¡æœ‰é»˜è®¤é¡µé¢
  * @return    string
  */
 function GetFreeListUrl($lid,$namerule,$listdir,$defaultpage,$nodefault){
@@ -669,13 +669,13 @@ function GetFreeListUrl($lid,$namerule,$listdir,$defaultpage,$nodefault){
 }
 
 /**
- *  »ñÈ¡ÍøÕ¾ËÑË÷µÄÈÈÃÅ¹Ø¼ü×Ö
+ *  è·å–ç½‘ç«™æœç´¢çš„çƒ­é—¨å…³é”®å­—
  *
  * @param     string  $dsql
- * @param     string  $num  »ñÈ¡ÊıÄ¿
- * @param     string  $nday  ÌìÊı
- * @param     string  $klen ¹Ø¼ü´Ê×ÖÊı
- * @param     string  $orderby ÅÅÁĞË³Ğò
+ * @param     string  $num  è·å–æ•°ç›®
+ * @param     string  $nday  å¤©æ•°
+ * @param     string  $klen å…³é”®è¯å­—æ•°
+ * @param     string  $orderby æ’åˆ—é¡ºåº
  * @return    string
  */
 function GetHotKeywords(&$dsql,$num=8,$nday=365,$klen=16,$orderby='count')
@@ -708,15 +708,15 @@ function GetHotKeywords(&$dsql,$num=8,$nday=365,$klen=16,$orderby='count')
     $hotword = "";
     while($row=$dsql->GetArray('hw'))
     {
-        $hotword .= "¡¡<a href='".$cfg_phpurl."/search.php?keyword=".urlencode($row['keyword'])."&searchtype=titlekeyword'>".$row['keyword']."</a> ";
+        $hotword .= "ã€€<a href='".$cfg_phpurl."/search.php?keyword=".urlencode($row['keyword'])."&searchtype=titlekeyword'>".$row['keyword']."</a> ";
     }
     return $hotword;
 }
 
 /**
- *  Ê¹ÓÃ¾ø¶ÔÍøÖ·
+ *  ä½¿ç”¨ç»å¯¹ç½‘å€
  *
- * @param     string  $gurl  µØÖ·
+ * @param     string  $gurl  åœ°å€
  * @return    string
  */
 function Gmapurl($gurl)
@@ -725,7 +725,7 @@ function Gmapurl($gurl)
 }
 
 /**
- *  ÒıÓÃ»Ø¸´±ê¼Ç´¦Àí
+ *  å¼•ç”¨å›å¤æ ‡è®°å¤„ç†
  *
  * @param     string  $quote
  * @return    string
@@ -745,9 +745,9 @@ function Quote_replace($quote)
 }
 
 /**
- *  »ñÈ¡¡¢Ğ´ÈëÖ¸¶¨cacheidµÄ¿é
+ *  è·å–ã€å†™å…¥æŒ‡å®šcacheidçš„å—
  *
- * @param     string  $cacheid  »º´æID
+ * @param     string  $cacheid  ç¼“å­˜ID
  * @return    string
  */
 function GetCacheBlock($cacheid)
@@ -766,10 +766,10 @@ function GetCacheBlock($cacheid)
 }
 
 /**
- *  Ğ´Èë»º´æ¿é
+ *  å†™å…¥ç¼“å­˜å—
  *
- * @param     string  $cacheid  »º´æID
- * @param     string  $str  ×Ö·û´®ĞÅÏ¢
+ * @param     string  $cacheid  ç¼“å­˜ID
+ * @param     string  $str  å­—ç¬¦ä¸²ä¿¡æ¯
  * @return    string
  */
 function WriteCacheBlock($cacheid, $str)

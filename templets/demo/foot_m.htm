@@ -1,0 +1,35 @@
+<div class="clearfix"></div>
+<div class="foc clearfix">
+  <ul>
+    <li><a href="tel:{dede:global.cfg_tel/}"><img src="/m/style/images/tel.png" alt="电话预约">
+      <p>电话预约</p>
+      </a></li>
+    <li><a href="sms:{dede:global.cfg_tel/}"><img src="/m/style/images/msg.png" alt="短信联系">
+      <p>短信联系</p>
+      </a></li>
+    {dede:type typeid='29'}
+    <li><a href="list.php?tid=[field:id/]"><img src="/m/style/images/map.png" alt="">
+      <p>[field:typename /]</p>
+      </a></li>
+    {/dede:type}
+  </ul>
+</div>
+<!-- 在线咨询漂浮窗口 -->
+<div id="swt">
+  <div class="swtbox">
+    <div class="close">x</div>
+    <div class="adwords">如有疑问，在线咨询</div>
+    <ul class="yulist">
+      <li> <a class="phone" href="tel:{dede:global.cfg_tel/}">电话预约</a> </li>
+      <li> <a class="swt" href="http://wpa.qq.com/msgrd?v=3&uin={dede:global.cfg_qq/}&site=qq&menu=yes">在线咨询</a> </li>
+    </ul>
+  </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $(".close").click(function () {
+            $("#swt").hide();
+            $("#swtblack").hide();
+        });
+    })
+</script>

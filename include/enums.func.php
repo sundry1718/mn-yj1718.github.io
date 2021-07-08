@@ -1,6 +1,6 @@
 <?php   if(!defined('DEDEINC')) exit("Request Error!");
 /**
- * Áª¶¯²Ëµ¥Àà
+ * è”åŠ¨èœå•ç±»
  *
  * @version        $Id: enums.func.php 2 13:19 2011-3-24 tianya $
  * @package        DedeCMS.Libraries
@@ -9,14 +9,14 @@
  * @link           http://www.dedecms.com
  */
 
-// Èõ²»´æÔÚ»º´æÎÄ¼şÔòĞ´Èë»º´æ
+// å¼±ä¸å­˜åœ¨ç¼“å­˜æ–‡ä»¶åˆ™å†™å…¥ç¼“å­˜
 if(!file_exists(DEDEDATA.'/enums/system.php')) WriteEnumsCache();
 
 /**
- *  ¸üĞÂÃ¶¾Ù»º´æ
+ *  æ›´æ–°æšä¸¾ç¼“å­˜
  *
  * @access    public
- * @param     string  $egroup  Áª¶¯×é
+ * @param     string  $egroup  è”åŠ¨ç»„
  * @return    string
  */
 function WriteEnumsCache($egroup='')
@@ -41,7 +41,7 @@ function WriteEnumsCache($egroup='')
         $dsql->SetQuery("SELECT ename,evalue,issign FROM `#@__sys_enum` WHERE egroup='$egroup' ORDER BY disorder ASC, evalue ASC ");
         $dsql->Execute('enum');
         $issign = -1;
-        $tenum = false; //Èı¼¶Áª¶¯±êÊ¶
+        $tenum = false; //ä¸‰çº§è”åŠ¨æ ‡è¯†
         while($nrow = $dsql->GetArray('enum'))
         {
             fwrite($fp,"\$em_{$egroup}s['{$nrow['evalue']}'] = '{$nrow['ename']}';\r\n");
@@ -53,11 +53,11 @@ function WriteEnumsCache($egroup='')
         fclose($fp);
         if(empty($issign)) WriteEnumsJs($egroup);
     }
-    return '³É¹¦¸üĞÂËùÓĞÃ¶¾Ù»º´æ£¡';
+    return 'æˆåŠŸæ›´æ–°æ‰€æœ‰æšä¸¾ç¼“å­˜ï¼';
 }
 
 /**
- *  »ñÈ¡Áª¶¯±íµ¥Á½¼¶Êı¾İµÄ¸¸ÀàÓë×ÓÀà
+ *  è·å–è”åŠ¨è¡¨å•ä¸¤çº§æ•°æ®çš„çˆ¶ç±»ä¸å­ç±»
  *
  * @access    public
  * @param     string  $v
@@ -78,14 +78,14 @@ function GetEnumsTypes($v)
 }
 
 /**
- *  »ñÈ¡Ã¶¾ÙµÄselect±íµ¥
+ *  è·å–æšä¸¾çš„selectè¡¨å•
  *
  * @access    public
- * @param     string  $egroup  Áª¶¯×é
- * @param     string  $evalue  Áª¶¯Öµ
- * @param     string  $formid  ±íµ¥ID
- * @param     string  $seltitle  Ñ¡Ôñ±êÌâ
- * @return    string  ³É¹¦ºó·µ»ØÒ»¸öÃ¶¾Ù±íµ¥
+ * @param     string  $egroup  è”åŠ¨ç»„
+ * @param     string  $evalue  è”åŠ¨å€¼
+ * @param     string  $formid  è¡¨å•ID
+ * @param     string  $seltitle  é€‰æ‹©æ ‡é¢˜
+ * @return    string  æˆåŠŸåè¿”å›ä¸€ä¸ªæšä¸¾è¡¨å•
  */
 function GetEnumsForm($egroup, $evalue=0, $formid='', $seltitle='')
 {
@@ -96,11 +96,11 @@ function GetEnumsForm($egroup, $evalue=0, $formid='', $seltitle='')
         $formid = $egroup;
     }
     $forms = "<select name='$formid' id='$formid' class='enumselect'>\r\n";
-    $forms .= "\t<option value='0' selected='selected'>--ÇëÑ¡Ôñ--{$seltitle}</option>\r\n";
+    $forms .= "\t<option value='0' selected='selected'>--è¯·é€‰æ‹©--{$seltitle}</option>\r\n";
     foreach(${'em_'.$egroup.'s'} as $v=>$n)
     {
-        $prefix = ($v > 500 && $v%500 != 0) ? '©¸©¤ ' : '';
-        if (preg_match("#\.#", $v)) $prefix = ' &nbsp;&nbsp;©¸©¤©¤ ';
+        $prefix = ($v > 500 && $v%500 != 0) ? 'â””â”€ ' : '';
+        if (preg_match("#\.#", $v)) $prefix = ' &nbsp;&nbsp;â””â”€â”€ ';
 
         if($v==$evalue)
         {
@@ -116,10 +116,10 @@ function GetEnumsForm($egroup, $evalue=0, $formid='', $seltitle='')
 }
 
 /**
- *  »ñÈ¡Ò»¼¶Êı¾İ
+ *  è·å–ä¸€çº§æ•°æ®
  *
  * @access    public
- * @param     string    $egroup   Áª¶¯×é
+ * @param     string    $egroup   è”åŠ¨ç»„
  * @return    array
  */
 function getTopData($egroup)
@@ -138,10 +138,10 @@ function getTopData($egroup)
 
 
 /**
- *  »ñÈ¡Êı¾İµÄJS´úÂë(¶ş¼¶Áª¶¯)
+ *  è·å–æ•°æ®çš„JSä»£ç (äºŒçº§è”åŠ¨)
  *
  * @access    public
- * @param     string    $egroup   Áª¶¯×é
+ * @param     string    $egroup   è”åŠ¨ç»„
  * @return    string
  */
 function GetEnumsJs($egroup)
@@ -152,7 +152,7 @@ function GetEnumsJs($egroup)
     $jsCode .= "em_{$egroup}s=new Array();\r\n";
     foreach(${'em_'.$egroup.'s'} as $k => $v)
     {
-        // JSÖĞ½«3¼¶ÀàÄ¿´æ·Åµ½µÚ¶ş¸ökeyÖĞÈ¥
+        // JSä¸­å°†3çº§ç±»ç›®å­˜æ”¾åˆ°ç¬¬äºŒä¸ªkeyä¸­å»
         if (preg_match("#([0-9]{1,})\.([0-9]{1,})#", $k, $matchs))
         {
             $valKey = $matchs[1] + $matchs[2] / 1000;
@@ -166,10 +166,10 @@ function GetEnumsJs($egroup)
 }
 
 /**
- *  Ğ´ÈëÁª¶¯JS´úÂë
+ *  å†™å…¥è”åŠ¨JSä»£ç 
  *
  * @access    public
- * @param     string    $egroup   Áª¶¯×é
+ * @param     string    $egroup   è”åŠ¨ç»„
  * @return    string
  */
 function WriteEnumsJs($egroup)
@@ -182,11 +182,11 @@ function WriteEnumsJs($egroup)
 
 
 /**
- *  »ñÈ¡Ã¶¾ÙµÄÖµ
+ *  è·å–æšä¸¾çš„å€¼
  *
  * @access    public
- * @param     string    $egroup   Áª¶¯×é
- * @param     string    $evalue   Áª¶¯Öµ
+ * @param     string    $egroup   è”åŠ¨ç»„
+ * @param     string    $evalue   è”åŠ¨å€¼
  * @return    string
  */
 function GetEnumsValue($egroup, $evalue=0)
@@ -196,6 +196,6 @@ function GetEnumsValue($egroup, $evalue=0)
         return ${'em_'.$egroup.'s'}[$evalue];
     }
     else {
-        return "±£ÃÜ";
+        return "ä¿å¯†";
     }
 }

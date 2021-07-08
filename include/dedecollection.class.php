@@ -1,21 +1,21 @@
 <?php   if(!defined('DEDEINC')) exit('dedecms');
 /**
- * Dede²É¼¯Àà
+ * Dedeé‡‡é›†ç±»
  *
- * @version        $Id: dedecollection.class.php 1 20:20 2010Äê7ÔÂ7ÈÕZ tianya $
+ * @version        $Id: dedecollection.class.php 1 20:20 2010å¹´7æœˆ7æ—¥Z tianya $
  * @package        DedeCMS.Libraries
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
  * @link           http://www.dedecms.com
  */
 
-require_once(DEDEINC."/dedecollection.func.php"); //²É¼¯À©Õ¹º¯Êı
+require_once(DEDEINC."/dedecollection.func.php"); //é‡‡é›†æ‰©å±•å‡½æ•°
 require_once(DEDEINC."/image.func.php");
 require_once(DEDEINC."/dedehtml2.class.php");
 @set_time_limit(0);
 
 /**
- * Dede²É¼¯Àà
+ * Dedeé‡‡é›†ç±»
  *
  * @package          DedeCollection
  * @subpackage       DedeCMS.Libraries
@@ -23,10 +23,10 @@ require_once(DEDEINC."/dedehtml2.class.php");
  */
 class DedeCollection
 {
-    var $artNotes = array();  //ÎÄÕÂ²É¼¯µÄ×Ö¶ÎĞÅÏ¢
-    var $spNotes = array();  //ÎÄÕÂ²É¼¯µÄ×Ö¶ÎĞÅÏ¢
-    var $lists = array();     //²É¼¯½ÚµãµÄÀ´Ô´ÁĞ±í´¦ÀíĞÅÏ¢
-    var $noteInfos = array(); //²É¼¯½ÚµãµÄ»ù±¾ÅäÖÃĞÅÏ¢
+    var $artNotes = array();  //æ–‡ç« é‡‡é›†çš„å­—æ®µä¿¡æ¯
+    var $spNotes = array();  //æ–‡ç« é‡‡é›†çš„å­—æ®µä¿¡æ¯
+    var $lists = array();     //é‡‡é›†èŠ‚ç‚¹çš„æ¥æºåˆ—è¡¨å¤„ç†ä¿¡æ¯
+    var $noteInfos = array(); //é‡‡é›†èŠ‚ç‚¹çš„åŸºæœ¬é…ç½®ä¿¡æ¯
     var $dsql = '';
     var $noteId = '';
     var $cDedeHtml = '';
@@ -38,7 +38,7 @@ class DedeCollection
     var $breImage = '';
     var $errString = '';
 
-    //¼æÈİphp5¹¹Ôìº¯Êı
+    //å…¼å®¹php5æ„é€ å‡½æ•°
     function __construct()
     {
         $this->dsql = $GLOBALS['dsql'];
@@ -51,16 +51,16 @@ class DedeCollection
         $this->__construct();
     }
 
-    //Îö·Å×ÊÔ´
+    //ææ”¾èµ„æº
     function Close()
     {
     }
 
     /**
-     *  ´ÓÊı¾İ¿âÀïÔØÈëÄ³¸ö½Úµã
+     *  ä»æ•°æ®åº“é‡Œè½½å…¥æŸä¸ªèŠ‚ç‚¹
      *
      * @access    public
-     * @param     int   $nid  ²É¼¯½ÚµãID
+     * @param     int   $nid  é‡‡é›†èŠ‚ç‚¹ID
      * @return    void
      */
     function LoadNote($nid)
@@ -72,10 +72,10 @@ class DedeCollection
     }
 
     /**
-     *  ·ÖÎö»ù±¾½ÚµãµÄ¼°Ë÷ÒıÅäÖÃĞÅÏ¢
+     *  åˆ†æåŸºæœ¬èŠ‚ç‚¹çš„åŠç´¢å¼•é…ç½®ä¿¡æ¯
      *
      * @access    public
-     * @param     string  $configString  ÅäÖÃ×Ö·û´®
+     * @param     string  $configString  é…ç½®å­—ç¬¦ä¸²
      * @return    void
      */
     function LoadListConfig($configString)
@@ -87,8 +87,8 @@ class DedeCollection
         {
             $ctag = $dtp->CTags[$i];
 
-            //item ÅäÖÃ
-            //½Úµã»ù±¾ĞÅÏ¢
+            //item é…ç½®
+            //èŠ‚ç‚¹åŸºæœ¬ä¿¡æ¯
             if($ctag->GetName()=="noteinfo")
             {
                 $this->noteInfos['notename'] = $ctag->GetAtt('notename');
@@ -101,8 +101,8 @@ class DedeCollection
                 $this->noteInfos['exptime'] = $ctag->GetAtt('exptime');
             }
 
-            //list ÅäÖÃ
-            //Òª²É¼¯µÄÁĞ±íÒ³µÄĞÅÏ¢
+            //list é…ç½®
+            //è¦é‡‡é›†çš„åˆ—è¡¨é¡µçš„ä¿¡æ¯
             else if($ctag->GetName()=="listrule")
             {
                 $this->lists['sourcetype'] = $ctag->GetAtt('sourcetype');
@@ -143,7 +143,7 @@ class DedeCollection
                     }
                 }
 
-                //·ÖÎöÁĞ±íÍøÖ·
+                //åˆ†æåˆ—è¡¨ç½‘å€
                 if($this->lists['sourcetype'] != 'rss')
                 {
                     $this->lists['url'] = GetUrlFromListRule($this->lists['regxurl'],$this->lists['addurls'],
@@ -161,10 +161,10 @@ class DedeCollection
     }
 
     /**
-     *  ·ÖÎö²É¼¯ÎÄÕÂÒ³µÄ×Ö¶ÎµÄÉèÖÃ
+     *  åˆ†æé‡‡é›†æ–‡ç« é¡µçš„å­—æ®µçš„è®¾ç½®
      *
      * @access    public
-     * @param     string  $configString  ÅäÖÃ×Ö·û´®
+     * @param     string  $configString  é…ç½®å­—ç¬¦ä¸²
      * @return    void
      */
     function LoadItemConfig($configString)
@@ -235,13 +235,13 @@ class DedeCollection
     }
 
     /**
-     *  ÏÂÔØÆäÖĞÒ»¸öÍøÖ·£¬²¢±£´æ
+     *  ä¸‹è½½å…¶ä¸­ä¸€ä¸ªç½‘å€ï¼Œå¹¶ä¿å­˜
      *
      * @access    public
-     * @param     int  $aid  ÎÄµµID
-     * @param     string  $dourl  ²Ù×÷µØÖ·
-     * @param     string  $litpic  ËõÂÔÍ¼
-     * @param     bool  $issave  ÊÇ·ñ±£´æ
+     * @param     int  $aid  æ–‡æ¡£ID
+     * @param     string  $dourl  æ“ä½œåœ°å€
+     * @param     string  $litpic  ç¼©ç•¥å›¾
+     * @param     bool  $issave  æ˜¯å¦ä¿å­˜
      * @return    string
      */
     function DownUrl($aid, $dourl, $litpic='', $issave=TRUE)
@@ -251,7 +251,7 @@ class DedeCollection
         $this->breImage = '';
         $this->tmpHtml = $this->DownOnePage($dourl);
 
-        //¼ì²âÊÇ·ñÓĞ·ÖÒ³×Ö¶Î£¬²¢Ô¤ÏÈ´¦Àí
+        //æ£€æµ‹æ˜¯å¦æœ‰åˆ†é¡µå­—æ®µï¼Œå¹¶é¢„å…ˆå¤„ç†
         if(!empty($this->artNotes['sppage']))
         {
             $noteid = '';
@@ -270,15 +270,15 @@ class DedeCollection
             {
                 if ($this->artNotes["sptype"] != 'diyrule')
                 {
-                    $this->tmpUnitValue = '¸±±êÌâ#e#'.$this->tmpUnitValue;
+                    $this->tmpUnitValue = 'å‰¯æ ‡é¢˜#e#'.$this->tmpUnitValue;
                 }
             }
         }
 
-        //´¦Àí×Ö¶Î
+        //å¤„ç†å­—æ®µ
         $body = $this->GetPageFields($dourl, $issave, $litpic);
 
-        //±£´æ×ÊÁÏµ½Êı¾İ¿â
+        //ä¿å­˜èµ„æ–™åˆ°æ•°æ®åº“
         if($issave)
         {
             $query = " UPDATE `#@__co_htmls` SET dtime='".time()."',result='".addslashes($body)."',isdown='1' WHERE aid='$aid' ";
@@ -291,7 +291,7 @@ class DedeCollection
         return $body;
     }
     
-    // ½âÎöµØÖ·
+    // è§£æåœ°å€
     function GetUrl($uri)
     {
         $arr = $tmp = array();
@@ -327,39 +327,39 @@ class DedeCollection
     }
 
     /**
-     *  »ñÈ¡·ÖÒ³ÇøÓòµÄÄÚÈİ
+     *  è·å–åˆ†é¡µåŒºåŸŸçš„å†…å®¹
      *
      * @access    public
-     * @param     string  $dourl  ²Ù×÷µØÖ·
-     * @param     string  $noteid  ½ÚµãID
-     * @param     string  $html  htmlÄÚÈİ
-     * @param     int  $step  ²½Öè
+     * @param     string  $dourl  æ“ä½œåœ°å€
+     * @param     string  $noteid  èŠ‚ç‚¹ID
+     * @param     string  $html  htmlå†…å®¹
+     * @param     int  $step  æ­¥éª¤
      * @return    string
      */
     function GetSpPage($dourl, $noteid, $html, $step=0)
     {
         $sarr = $this->artNotes[$noteid];
         
-        $linkareaHtml = $this->GetHtmlArea('[ÄÚÈİ]', $this->artNotes['sppage'], $html);
+        $linkareaHtml = $this->GetHtmlArea('[å†…å®¹]', $this->artNotes['sppage'], $html);
         if($linkareaHtml=='')
         {
             if($this->tmpUnitValue=='')
             {
-                $this->tmpUnitValue .= $this->GetHtmlArea('[ÄÚÈİ]', $sarr['match'], $html);
+                $this->tmpUnitValue .= $this->GetHtmlArea('[å†…å®¹]', $sarr['match'], $html);
             }
             else
             {
-                $this->tmpUnitValue .= "#p#¸±±êÌâ#e#".$this->GetHtmlArea('[ÄÚÈİ]', $sarr['match'], $html);
+                $this->tmpUnitValue .= "#p#å‰¯æ ‡é¢˜#e#".$this->GetHtmlArea('[å†…å®¹]', $sarr['match'], $html);
             }
             if ($this->artNotes["sptype"] != 'diyrule') return;
             
         }
         
 
-        //ÍêÕûµÄ·ÖÒ³ÁĞ±í
+        //å®Œæ•´çš„åˆ†é¡µåˆ—è¡¨
         if($this->artNotes["sptype"]=='full' || $this->artNotes["sptype"]=='')
         {
-            $this->tmpUnitValue .= $this->GetHtmlArea('[ÄÚÈİ]', $sarr['match'], $html);
+            $this->tmpUnitValue .= $this->GetHtmlArea('[å†…å®¹]', $sarr['match'], $html);
             $this->cDedeHtml->GetLinkType = "link";
             $this->cDedeHtml->SetSource($linkareaHtml, $dourl, 'link');
             foreach($this->cDedeHtml->Links as $k=>$t)
@@ -372,10 +372,10 @@ class DedeCollection
                 $nhtml = $this->DownOnePage($k);
                 if($nhtml!='')
                 {
-                    $ct = trim($this->GetHtmlArea('[ÄÚÈİ]', $sarr['match'], $nhtml));
+                    $ct = trim($this->GetHtmlArea('[å†…å®¹]', $sarr['match'], $nhtml));
                     if($ct!='')
                     {
-                        $this->tmpUnitValue .= "#p#¸±±êÌâ#e#".$ct;
+                        $this->tmpUnitValue .= "#p#å‰¯æ ‡é¢˜#e#".$ct;
                     }
                 }
             }
@@ -400,16 +400,16 @@ class DedeCollection
                 
                 if($nhtml!='')
                 {
-                    $ct = trim($this->GetHtmlArea('[ÄÚÈİ]', $sarr['match'], $nhtml));
+                    $ct = trim($this->GetHtmlArea('[å†…å®¹]', $sarr['match'], $nhtml));
                     if($ct!='')
                     {
-                        $this->tmpUnitValue .= "#p#¸±±êÌâ#e#".$ct;
+                        $this->tmpUnitValue .= "#p#å‰¯æ ‡é¢˜#e#".$ct;
                         // echo $this->tmpUnitValue;exit;
                     }
                 }
             }
         }
-        //ÉÏÏÂÒ³ĞÎÊ½»ò²»ÍêÕûµÄ·ÖÒ³ÁĞ±í
+        //ä¸Šä¸‹é¡µå½¢å¼æˆ–ä¸å®Œæ•´çš„åˆ†é¡µåˆ—è¡¨
         else
         {
             if($step>50)
@@ -418,7 +418,7 @@ class DedeCollection
             }
             if($step==0)
             {
-                $this->tmpUnitValue .= $this->GetHtmlArea('[ÄÚÈİ]', $sarr['match'], $html);
+                $this->tmpUnitValue .= $this->GetHtmlArea('[å†…å®¹]', $sarr['match'], $html);
             }
             $this->cDedeHtml->GetLinkType = "link";
             $this->cDedeHtml->SetSource($linkareaHtml, $dourl, 'link');
@@ -434,10 +434,10 @@ class DedeCollection
                     $nhtml = $this->DownOnePage($k);
                     if($nhtml!='')
                     {
-                        $ct = trim($this->GetHtmlArea('[ÄÚÈİ]',$sarr['match'],$nhtml));
+                        $ct = trim($this->GetHtmlArea('[å†…å®¹]',$sarr['match'],$nhtml));
                         if($ct!='')
                         {
-                            $this->tmpUnitValue .= "#p#¸±±êÌâ#e#".$ct;
+                            $this->tmpUnitValue .= "#p#å‰¯æ ‡é¢˜#e#".$ct;
                         }
                     }
                     $hasLink = TRUE;
@@ -454,17 +454,17 @@ class DedeCollection
     }
 
     /**
-     *  »ñÈ¡ÌØ¶¨ÇøÓòµÄHTML
+     *  è·å–ç‰¹å®šåŒºåŸŸçš„HTML
      *
      * @access    public
-     * @param     string  $sptag  ÇøÓò±ê¼Ç
-     * @param     string  $areaRule  µØÖ·¹æÔò
-     * @param     string  $html  html´úÂë
+     * @param     string  $sptag  åŒºåŸŸæ ‡è®°
+     * @param     string  $areaRule  åœ°å€è§„åˆ™
+     * @param     string  $html  htmlä»£ç 
      * @return    string
      */
     function GetHtmlArea($sptag, &$areaRule, &$html)
     {
-        //ÓÃÕıÔò±í´ïÊ½µÄÄ£Ê½Æ¥Åä
+        //ç”¨æ­£åˆ™è¡¨è¾¾å¼çš„æ¨¡å¼åŒ¹é…
         if($this->noteInfos['matchtype']=='regex')
         {
             $areaRule = str_replace("/", "\\/", $areaRule);
@@ -478,7 +478,7 @@ class DedeCollection
             return empty($arr[1]) ? '' : trim($arr[1]);
         }
 
-        //ÓÃ×Ö·û´®Ä£Ê½Æ¥Åä
+        //ç”¨å­—ç¬¦ä¸²æ¨¡å¼åŒ¹é…
         else
         {
             $areaRules = explode($sptag,$areaRule);
@@ -506,10 +506,10 @@ class DedeCollection
     }
 
     /**
-     *  ÏÂÔØÖ¸¶¨ÍøÖ·
+     *  ä¸‹è½½æŒ‡å®šç½‘å€
      *
      * @access    public
-     * @param     string  $dourl  ÏÂÔØµØÖ·
+     * @param     string  $dourl  ä¸‹è½½åœ°å€
      */
     function DownOnePage($dourl)
     {
@@ -521,12 +521,12 @@ class DedeCollection
     }
 
     /**
-     *  ÏÂÔØÌØ¶¨×ÊÔ´£¬²¢±£´æÎªÖ¸¶¨ÎÄ¼ş
+     *  ä¸‹è½½ç‰¹å®šèµ„æºï¼Œå¹¶ä¿å­˜ä¸ºæŒ‡å®šæ–‡ä»¶
      *
      * @access    public
-     * @param     string  $dourl  ²Ù×÷µØÖ·
-     * @param     string  $mtype  ¸½¼şÀàĞÍ
-     * @param     string  $islitpic  ÊÇ·ñËõÂÔÍ¼
+     * @param     string  $dourl  æ“ä½œåœ°å€
+     * @param     string  $mtype  é™„ä»¶ç±»å‹
+     * @param     string  $islitpic  æ˜¯å¦ç¼©ç•¥å›¾
      * @return    string
      */
     function DownMedia($dourl, $mtype='img', $islitpic=FALSE)
@@ -537,7 +537,7 @@ class DedeCollection
             $notckpic = 0;
         }
 
-        //¼ì²âÊÇ·ñÒÑ¾­ÏÂÔØ´ËÎÄ¼ş
+        //æ£€æµ‹æ˜¯å¦å·²ç»ä¸‹è½½æ­¤æ–‡ä»¶
         $wi = FALSE;
         $tofile = $filename = '';
         if($notckpic==0)
@@ -549,7 +549,7 @@ class DedeCollection
             }
         }
 
-        //Èç¹û²»´æÔÚ£¬ÏÂÔØÎÄ¼ş
+        //å¦‚æœä¸å­˜åœ¨ï¼Œä¸‹è½½æ–‡ä»¶
         if($tofile=='' || !file_exists($GLOBALS['cfg_basedir'].$filename))
         {
             $filename = $this->GetRndName($dourl,$mtype);
@@ -558,7 +558,7 @@ class DedeCollection
                 $filename = "/".$filename;
             }
 
-            //·ÀµÁÁ´Ä£Ê½
+            //é˜²ç›—é“¾æ¨¡å¼
             if($this->noteInfos['isref']=='yes' && $this->noteInfos['refurl']!='')
             {
                 if($this->noteInfos['exptime']=='')
@@ -568,7 +568,7 @@ class DedeCollection
                 DownImageKeep($dourl,$this->noteInfos['refurl'],$GLOBALS['cfg_basedir'].$filename,'',0,$this->Item['exptime']);
             }
 
-            //ÆÕÍ¨Ä£Ê½
+            //æ™®é€šæ¨¡å¼
             else
             {
                 $this->cHttpDown->OpenUrl($dourl);
@@ -576,7 +576,7 @@ class DedeCollection
                 $this->cHttpDown->Close();
             }
 
-            //ÏÂÔØÎÄ¼ş³É¹¦£¬±£´æ¼ÇÂ¼
+            //ä¸‹è½½æ–‡ä»¶æˆåŠŸï¼Œä¿å­˜è®°å½•
             if(file_exists($GLOBALS['cfg_basedir'].$filename))
             {
                 if($tofile=='')
@@ -591,13 +591,13 @@ class DedeCollection
             }
         }
 
-        //Èç¹ûÏÂÔØÍ¼Æ¬Ê§°Ü»òÍ¼Æ¬²»´æÔÚ£¬·µ»ØÍøÖ·
+        //å¦‚æœä¸‹è½½å›¾ç‰‡å¤±è´¥æˆ–å›¾ç‰‡ä¸å­˜åœ¨ï¼Œè¿”å›ç½‘å€
         if(!file_exists($GLOBALS['cfg_basedir'].$filename))
         {
             return $dourl;
         }
 
-        //Éú³ÉËõÂÔÍ¼
+        //ç”Ÿæˆç¼©ç•¥å›¾
         if($mtype=='img' && !$islitpic && $this->breImage=='')
         {
             $this->breImage = $filename;
@@ -622,11 +622,11 @@ class DedeCollection
     }
 
     /**
-     *  »ñµÃÏÂÔØÃ½ÌåµÄËæ»úÃû³Æ
+     *  è·å¾—ä¸‹è½½åª’ä½“çš„éšæœºåç§°
      *
      * @access    public
-     * @param     string  $url  µØÖ·
-     * @param     string  $v  Öµ
+     * @param     string  $url  åœ°å€
+     * @param     string  $v  å€¼
      * @return    string
      */
     function GetRndName($url, $v)
@@ -635,7 +635,7 @@ class DedeCollection
         $this->mediaCount++;
         $mnum = $this->mediaCount;
         $timedir = "c".MyDate("ymd",time());
-        //´æ·ÅÂ·¾¶
+        //å­˜æ”¾è·¯å¾„
         $fullurl = preg_replace("#\/{1,}#", "/", $cfg_image_dir."/");
         if(!is_dir($GLOBALS['cfg_basedir']."/$fullurl"))
         {
@@ -648,7 +648,7 @@ class DedeCollection
             MkdirAll($GLOBALS['cfg_basedir']."/$fullurl", $cfg_dir_purview);
         }
 
-        //ÎÄ¼şÃû³Æ
+        //æ–‡ä»¶åç§°
         $timename = str_replace('.','', ExecTime());
         $threadnum = 0;
         if(isset($_GET['threadnum']))
@@ -657,7 +657,7 @@ class DedeCollection
         }
         $filename = dd2char($timename.$threadnum.'-'.$mnum.mt_rand(1000,9999));
 
-        //·ÖÅäÀ©Õ¹Ãû
+        //åˆ†é…æ‰©å±•å
         $urls = explode('.',$url);
         if($v=='img')
         {
@@ -684,12 +684,12 @@ class DedeCollection
     }
 
     /**
-     *  °´ÔØÈëµÄÍøÒ³ÄÚÈİ»ñÈ¡¹æÔò£¬´ÓÒ»¸öHTMLÎÄ¼şÖĞ»ñÈ¡ÄÚÈİ
+     *  æŒ‰è½½å…¥çš„ç½‘é¡µå†…å®¹è·å–è§„åˆ™ï¼Œä»ä¸€ä¸ªHTMLæ–‡ä»¶ä¸­è·å–å†…å®¹
      *
      * @access    public
-     * @param     string  $dourl  ²Ù×÷µØÖ·
-     * @param     string  $needDown  ĞèÒªÏÂÔØ
-     * @param     string  $litpic  ËõÂÔÍ¼
+     * @param     string  $dourl  æ“ä½œåœ°å€
+     * @param     string  $needDown  éœ€è¦ä¸‹è½½
+     * @param     string  $litpic  ç¼©ç•¥å›¾
      * @return    string
      */
     function GetPageFields($dourl, $needDown, $litpic='')
@@ -704,7 +704,7 @@ class DedeCollection
         $tmpLtKeys = array();
         $inarr = array();
 
-        //×Ô¶¯·ÖÎö¹Ø¼ü×ÖºÍÕªÒª
+        //è‡ªåŠ¨åˆ†æå…³é”®å­—å’Œæ‘˜è¦
         preg_match("#<meta[\s]+name=['\"]keywords['\"] content=['\"](.*)['\"]#isU", $this->tmpHtml, $inarr);
         preg_match("#<meta[\s]+content=['\"](.*)['\"] name=['\"]keywords['\"]#isU", $this->tmpHtml, $inarr2);
         if(!isset($inarr[1]) && isset($inarr2[1]))
@@ -746,7 +746,7 @@ class DedeCollection
 
         foreach($this->artNotes as $k=>$sarr)
         {
-            //¿ÉÄÜ³öÏÖÒâÍâµÄÇé¿ö
+            //å¯èƒ½å‡ºç°æ„å¤–çš„æƒ…å†µ
             if($k=='sppage' || $k=='sptype')
             {
                 continue;
@@ -756,10 +756,10 @@ class DedeCollection
                 continue;
             }
 
-            //ÌØÊâµÄ¹æÔò»òÃ»Æ¥ÅäÑ¡Ïî
-            if($sarr['match']=='' || trim($sarr['match'])=='[ÄÚÈİ]')
+            //ç‰¹æ®Šçš„è§„åˆ™æˆ–æ²¡åŒ¹é…é€‰é¡¹
+            if($sarr['match']=='' || trim($sarr['match'])=='[å†…å®¹]')
             {
-                if($sarr['value']!='[ÄÚÈİ]')
+                if($sarr['value']!='[å†…å®¹]')
                 {
                     $v = trim($sarr['value']);
                 }
@@ -770,7 +770,7 @@ class DedeCollection
             }
             else
             {
-                //·Ö¶àÒ³µÄÄÚÈİ
+                //åˆ†å¤šé¡µçš„å†…å®¹
                 if($this->tmpUnitValue!='' && !$isPutUnit && $sarr['isunit']==1)
                 {
                     $v = $this->tmpUnitValue;
@@ -778,10 +778,10 @@ class DedeCollection
                 }
                 else
                 {
-                    $v = $this->GetHtmlArea('[ÄÚÈİ]',$sarr['match'],$this->tmpHtml);
+                    $v = $this->GetHtmlArea('[å†…å®¹]',$sarr['match'],$this->tmpHtml);
                 }
 
-                //¹ıÂËÄÚÈİ¹æÔò
+                //è¿‡æ»¤å†…å®¹è§„åˆ™
                 if(isset($sarr['trim']) && $v!='')
                 {
                     foreach($sarr['trim'] as $nv)
@@ -795,7 +795,7 @@ class DedeCollection
                     }
                 }
 
-                //ÊÇ·ñÏÂÔØÔ¶³Ì×ÊÔ´
+                //æ˜¯å¦ä¸‹è½½è¿œç¨‹èµ„æº
                 if($needDown)
                 {
                     if($sarr['isdown'] == '1')
@@ -813,7 +813,7 @@ class DedeCollection
             }
             $v = trim($v);
 
-            //ÓÃ»§×ÔĞĞ¶ÔÄÚÈİ½øĞĞ´¦ÀíµÄ½Ó¿Ú
+            //ç”¨æˆ·è‡ªè¡Œå¯¹å†…å®¹è¿›è¡Œå¤„ç†çš„æ¥å£
             if($sarr['function'] != '')
             {
                 $tmpLtKeys[$k]['v'] = $v;
@@ -821,17 +821,17 @@ class DedeCollection
             }
             else
             {
-                $v = preg_replace("#(¡¡)$#", '', $v);
+                $v = preg_replace("#(ã€€)$#", '', $v);
                 $v = preg_replace("#[\r\n\t ]{1,}$#", '', $v);
                 $artitem .= "{dede:field name='$k'}$v{/dede:field}\r\n";
             }
         }//End Foreach
 
-        //´¦Àí´øº¯ÊıµÄÏîÄ¿
+        //å¤„ç†å¸¦å‡½æ•°çš„é¡¹ç›®
         foreach($tmpLtKeys as $k=>$sarr)
         {
             $v = $this->RunPHP($sarr['v'],$sarr['f']);
-            $v = preg_replace("#(¡¡)$#", '', $v);
+            $v = preg_replace("#(ã€€)$#", '', $v);
             $v = preg_replace("#[\r\n\t ]{1,}$#", '', $v);
             $artitem .= "{dede:field name='$k'}$v{/dede:field}\r\n";
         }
@@ -847,18 +847,18 @@ class DedeCollection
     }
 
     /**
-     *  ÏÂÔØÄÚÈİÀïµÄ×ÊÔ´
+     *  ä¸‹è½½å†…å®¹é‡Œçš„èµ„æº
      *
      * @access    public
-     * @param     string  $html  htmlÄÚÈİ
-     * @param     string  $url  µØÖ·
+     * @param     string  $html  htmlå†…å®¹
+     * @param     string  $url  åœ°å€
      * @return    string
      */
     function DownMedias(&$html, $url)
     {
         $this->cDedeHtml->SetSource($html,$url,'media');
 
-        //ÏÂÔØ±ê¼ÇÀïµÄÍ¼Æ¬ºÍflash
+        //ä¸‹è½½æ ‡è®°é‡Œçš„å›¾ç‰‡å’Œflash
         foreach($this->cDedeHtml->Medias as $k=>$v)
         {
             $furl = $this->cDedeHtml->FillUrl($k);
@@ -870,7 +870,7 @@ class DedeCollection
             $html = str_replace($k, $okurl, $html);
         }
 
-        //ÏÂÔØ³¬Á´½ÓÀïµÄÍ¼Æ¬
+        //ä¸‹è½½è¶…é“¾æ¥é‡Œçš„å›¾ç‰‡
         foreach($this->cDedeHtml->Links as $v=>$k)
         {
             if(preg_match("#\.(jpg|gif|png)\?(.*)$#i",$v) || preg_match("#\.(jpg|gif|png)$#i", $v))
@@ -893,11 +893,11 @@ class DedeCollection
     }
 
     /**
-     *  ½öÌæ»»ÄÚÈİÀïµÄ×ÊÔ´Îª¾ø¶ÔÍøÖ·
+     *  ä»…æ›¿æ¢å†…å®¹é‡Œçš„èµ„æºä¸ºç»å¯¹ç½‘å€
      *
      * @access    public
-     * @param     string  $html  htmlÄÚÈİ
-     * @param     string  $dourl  ²Ù×÷µØÖ·
+     * @param     string  $html  htmlå†…å®¹
+     * @param     string  $dourl  æ“ä½œåœ°å€
      * @return    string
      */
     function MediasReplace(&$html, $dourl)
@@ -912,12 +912,12 @@ class DedeCollection
         return $html;
     }
 
-    //²âÊÔÁĞ±í
+    //æµ‹è¯•åˆ—è¡¨
     function Testlists(&$dourl)
     {
         $links = array();
 
-        //´ÓRSSÖĞ»ñÈ¡ÍøÖ·
+        //ä»RSSä¸­è·å–ç½‘å€
         if($this->lists['sourcetype']=='rss')
         {
             $dourl = $this->lists['rssurl'];
@@ -925,7 +925,7 @@ class DedeCollection
             return $links;
         }
 
-        //Õı³£Çé¿ö
+        //æ­£å¸¸æƒ…å†µ
         if(isset($this->lists['url'][0][0]))
         {
             $dourl = $this->lists['url'][0][0];
@@ -933,20 +933,20 @@ class DedeCollection
         else
         {
             $dourl = '';
-            $this->errString = "ÅäÖÃÖĞÖ¸¶¨ÁĞ±íµÄÍøÖ·´íÎó!\r\n";
+            $this->errString = "é…ç½®ä¸­æŒ‡å®šåˆ—è¡¨çš„ç½‘å€é”™è¯¯!\r\n";
             return $links;
         }
         $dhtml = new DedeHtml2();
         $html = $this->DownOnePage($dourl);
         if($html=='')
         {
-            $this->errString = "¶ÁÈ¡ÍøÖ·£º $dourl Ê±Ê§°Ü£¡\r\n";
+            $this->errString = "è¯»å–ç½‘å€ï¼š $dourl æ—¶å¤±è´¥ï¼\r\n";
             return $links;
         }
         if( trim($this->lists['areastart']) !='' && trim($this->lists['areaend']) != '' )
         {
-            $areabody = $this->lists['areastart'].'[var:ÇøÓò]'.$this->lists['areaend'];
-            $html = $this->GetHtmlArea('[var:ÇøÓò]',$areabody,$html);
+            $areabody = $this->lists['areastart'].'[var:åŒºåŸŸ]'.$this->lists['areaend'];
+            $html = $this->GetHtmlArea('[var:åŒºåŸŸ]',$areabody,$html);
         }
         $t1 = ExecTime();
         $dhtml->SetSource($html,$dourl,'link');
@@ -973,10 +973,10 @@ class DedeCollection
     }
 
     /**
-     *  ²âÊÔÎÄÕÂ¹æÔò
+     *  æµ‹è¯•æ–‡ç« è§„åˆ™
      *
      * @access    public
-     * @param     $dourl  ²Ù×÷µØÖ·
+     * @param     $dourl  æ“ä½œåœ°å€
      * @return    string
      */
     function TestArt($dourl)
@@ -985,34 +985,34 @@ class DedeCollection
     }
 
     /**
-     *  ²É¼¯ÖÖ×ÓÍøÖ·
+     *  é‡‡é›†ç§å­ç½‘å€
      *
      * @access    public
-     * @param     int  $islisten  ÊÇ·ñ¼àÌı
-     * @param     int  $glstart  ²É¼¯¿ªÊ¼
-     * @param     int  $pagesize  ·ÖÒ³³ß´ç
+     * @param     int  $islisten  æ˜¯å¦ç›‘å¬
+     * @param     int  $glstart  é‡‡é›†å¼€å§‹
+     * @param     int  $pagesize  åˆ†é¡µå°ºå¯¸
      * @return    string
      */
     function GetSourceUrl($islisten=0, $glstart=0, $pagesize=10)
     {
-        //ÔÚµÚÒ»Ò³ÖĞ½øĞĞÔ¤´¦Àí
-        //¡°ÏÂÔØÖÖ×ÓÍøÖ·µÄÎ´ÏÂÔØÄÚÈİ¡±µÄÄ£Ê½²»ĞèÒª¾­¹ı²É¼¯ÖÖ×ÓÍøÖ·µÄ²½Öè
+        //åœ¨ç¬¬ä¸€é¡µä¸­è¿›è¡Œé¢„å¤„ç†
+        //â€œä¸‹è½½ç§å­ç½‘å€çš„æœªä¸‹è½½å†…å®¹â€çš„æ¨¡å¼ä¸éœ€è¦ç»è¿‡é‡‡é›†ç§å­ç½‘å€çš„æ­¥éª¤
         if($glstart==0)
         {
-            //ÖØĞÂ²É¼¯ËùÓĞÄÚÈİÄ£Ê½
+            //é‡æ–°é‡‡é›†æ‰€æœ‰å†…å®¹æ¨¡å¼
             if($islisten == -1)
             {
                 $this->dsql->ExecuteNoneQuery("DELETE FROM `#@__co_urls` WHERE nid='".$this->noteId."'");
                 $this->dsql->ExecuteNoneQuery("DELETE FROM `#@__co_htmls` WHERE nid='".$this->noteId."' ");
             }
-            //¼àÌıÄ£Ê½(±£ÁôÎ´µ¼³öµÄÄÚÈİ¡¢±£Áô½ÚµãµÄÀúÊ·ÍøÖ·¼ÇÂ¼)
+            //ç›‘å¬æ¨¡å¼(ä¿ç•™æœªå¯¼å‡ºçš„å†…å®¹ã€ä¿ç•™èŠ‚ç‚¹çš„å†å²ç½‘å€è®°å½•)
             else
             {
                 $this->dsql->ExecuteNoneQuery("DELETE FROM `#@__co_htmls` WHERE nid='".$this->noteId."' AND isexport=1 ");
             }
         }
 
-        //´ÓRSSÖĞ»ñÈ¡ÖÖ×Ó
+        //ä»RSSä¸­è·å–ç§å­
         if($this->lists['sourcetype']=='rss')
         {
             $links = GetRssLinks($this->lists['rssurl']);
@@ -1065,8 +1065,8 @@ class DedeCollection
                     $html = $this->DownOnePage($cururl);
                     if( trim($this->lists['areastart']) !='' && trim($this->lists['areaend']) != '' )
                     {
-                        $areabody = $this->lists['areastart'].'[var:ÇøÓò]'.$this->lists['areaend'];
-                        $html = $this->GetHtmlArea('[var:ÇøÓò]',$areabody,$html);
+                        $areabody = $this->lists['areastart'].'[var:åŒºåŸŸ]'.$this->lists['areaend'];
+                        $html = $this->GetHtmlArea('[var:åŒºåŸŸ]',$areabody,$html);
                     }
                     $this->cDedeHtml->SetSource($html, $cururl, 'link');
                     $lk = 0;
@@ -1100,7 +1100,7 @@ class DedeCollection
             $unum = count($tmplink);
             if($unum>0)
             {
-                //echo "Íê³É±¾´ÎÖÖ×ÓÍøÖ·×¥È¡£¬¹²ÕÒµ½£º{$unum} ¸ö¼ÇÂ¼!<br/>\r\n";
+                //echo "å®Œæˆæœ¬æ¬¡ç§å­ç½‘å€æŠ“å–ï¼Œå…±æ‰¾åˆ°ï¼š{$unum} ä¸ªè®°å½•!<br/>\r\n";
                 foreach($tmplink as $vs)
                 {
                     $v = $vs[0];
@@ -1131,13 +1131,13 @@ class DedeCollection
             }
             else
             {
-                //½öÔÚµÚÒ»Åú²É¼¯Ê±³ö´í²Å·µ»Ø
+                //ä»…åœ¨ç¬¬ä¸€æ‰¹é‡‡é›†æ—¶å‡ºé”™æ‰è¿”å›
                 if($glstart==0)
                 {
                     return -1;
                 }
 
-                //ÔÚÆäËüÒ³³ö´íÕÕ³£²É¼¯ºóÃæÄÚÈİ
+                //åœ¨å…¶å®ƒé¡µå‡ºé”™ç…§å¸¸é‡‡é›†åé¢å†…å®¹
                 if($endpos >= $totallen)
                 {
                     return 0;
@@ -1151,11 +1151,11 @@ class DedeCollection
     }
 
     /**
-     *  ÓÃÀ©Õ¹º¯Êı´¦Àí²É¼¯µ½µÄÔ­Ê¼Êı¾İ
+     *  ç”¨æ‰©å±•å‡½æ•°å¤„ç†é‡‡é›†åˆ°çš„åŸå§‹æ•°æ®
      *
      * @access    public
-     * @param     string  $fvalue  Öµ
-     * @param     string  $phpcode  PHP´úÂë
+     * @param     string  $fvalue  å€¼
+     * @param     string  $phpcode  PHPä»£ç 
      * @return    string
      */
     function RunPHP($fvalue, $phpcode)
@@ -1177,10 +1177,10 @@ class DedeCollection
     }
 
     /**
-     *  ±àÂë×ª»»
+     *  ç¼–ç è½¬æ¢
      *
      * @access    public
-     * @param     string  $str  ×Ö·û´®
+     * @param     string  $str  å­—ç¬¦ä¸²
      * @return    string
      */
     function ChangeCode(&$str)

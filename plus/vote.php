@@ -1,9 +1,9 @@
 <?php
 /**
  *
- * Í¶Æ±
+ * æŠ•ç¥¨
  *
- * @version        $Id: vote.php 1 20:54 2010Äê7ÔÂ8ÈÕZ tianya $
+ * @version        $Id: vote.php 1 20:54 2010å¹´7æœˆ8æ—¥Z tianya $
  * @package        DedeCMS.Site
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -18,7 +18,7 @@ $member = new MemberLogin;
 $memberID = $member->M_LoginID;
 $time = time();
 $content = $memberID.'|'.$time;
-$file = DEDEDATA.'/cache/vote_'.$aid.'_'.$member->M_ID.'.inc';//´æ·Å»áÔ±Í¶Æ±¼ÇÂ¼µÄ»º´æÎÄ¼ş
+$file = DEDEDATA.'/cache/vote_'.$aid.'_'.$member->M_ID.'.inc';//å­˜æ”¾ä¼šå‘˜æŠ•ç¥¨è®°å½•çš„ç¼“å­˜æ–‡ä»¶
 
 $loginurl = $cfg_basehost."/member";
 $ENV_GOBACK_URL = empty($_SERVER['HTTP_REFERER']) ? '':$_SERVER['HTTP_REFERER'];
@@ -30,7 +30,7 @@ if($aid==0) die(" Request Error! ");
 
 if($aid==0)
 {
-    ShowMsg("Ã»Ö¸¶¨Í¶Æ±ÏîÄ¿µÄID£¡","-1");
+    ShowMsg("æ²¡æŒ‡å®šæŠ•ç¥¨é¡¹ç›®çš„IDï¼","-1");
     exit();
 }
 $vo = new DedeVote($aid);
@@ -38,12 +38,12 @@ $rsmsg = '';
 
 
 $row = $dsql->GetOne("SELECT * FROM #@__vote WHERE aid='$aid'");
-//ÅĞ¶ÏÊÇ·ñÔÊĞíÓÎ¿Í½øĞĞÍ¶Æ±
+//åˆ¤æ–­æ˜¯å¦å…è®¸æ¸¸å®¢è¿›è¡ŒæŠ•ç¥¨
 if($row['range'] == 1)
 {
     if(!$member->IsLogin())
     {
-        ShowMsg('ÇëÏÈµÇÂ¼ÔÙ½øĞĞÍ¶Æ±',$loginurl);
+        ShowMsg('è¯·å…ˆç™»å½•å†è¿›è¡ŒæŠ•ç¥¨',$loginurl);
         exit();
     }
 }
@@ -53,16 +53,16 @@ if($dopost=='send')
     
     if(!empty($voteitem))
     {
-        $rsmsg = "<br />&nbsp;Äã·½²ÅµÄÍ¶Æ±×´Ì¬£º".$vo->SaveVote($voteitem)."<br />";
+        $rsmsg = "<br />&nbsp;ä½ æ–¹æ‰çš„æŠ•ç¥¨çŠ¶æ€ï¼š".$vo->SaveVote($voteitem)."<br />";
     }
     else
     {
-        $rsmsg = "<br />&nbsp;Äã¸Õ²ÅÃ»Ñ¡ÔñÈÎºÎÍ¶Æ±ÏîÄ¿£¡<br />";
+        $rsmsg = "<br />&nbsp;ä½ åˆšæ‰æ²¡é€‰æ‹©ä»»ä½•æŠ•ç¥¨é¡¹ç›®ï¼<br />";
     }
     
     if($row['isenable'] == 1)
     {
-        ShowMsg('´ËÍ¶Æ±ÏîÎ´ÆôÓÃ,ÔİÊ±²»ÄÜ½øĞĞÍ¶Æ±',$ENV_GOBACK_URL);
+        ShowMsg('æ­¤æŠ•ç¥¨é¡¹æœªå¯ç”¨,æš‚æ—¶ä¸èƒ½è¿›è¡ŒæŠ•ç¥¨',$ENV_GOBACK_URL);
         exit();
     }
 }
@@ -77,15 +77,15 @@ $votelist = $vo->GetVoteResult("98%",30,"30%");
 
 
 
-//ÅĞ¶ÏÊÇ·ñÔÊĞí±»²é¿´
+//åˆ¤æ–­æ˜¯å¦å…è®¸è¢«æŸ¥çœ‹
 $admin = new userLogin;
 if($dopost == 'view')
 {
     if($row['view'] == 1 && empty($admin->userName))
     {
-        ShowMsg('´ËÍ¶Æ±Ïî²»ÔÊĞí²é¿´½á¹û',$ENV_GOBACK_URL);
+        ShowMsg('æ­¤æŠ•ç¥¨é¡¹ä¸å…è®¸æŸ¥çœ‹ç»“æœ',$ENV_GOBACK_URL);
         exit();
     }
 }
-//ÏÔÊ¾Ä£°å(¼òµ¥PHPÎÄ¼ş)
+//æ˜¾ç¤ºæ¨¡æ¿(ç®€å•PHPæ–‡ä»¶)
 include(DEDETEMPLATE.'/plus/vote.htm');

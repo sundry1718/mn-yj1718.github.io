@@ -1,9 +1,9 @@
 <?php
 /**
  *
- * ĞÅÏ¢ÍÆ¼ö
+ * ä¿¡æ¯æ¨è
  *
- * @version        $Id: recommend.php 1 15:38 2010Äê7ÔÂ8ÈÕZ tianya $
+ * @version        $Id: recommend.php 1 15:38 2010å¹´7æœˆ8æ—¥Z tianya $
  * @package        DedeCMS.Site
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -18,26 +18,26 @@ $arcID = $aid = (isset($aid) && is_numeric($aid) ? $aid : 0);
 $type = (!isset($type) ? "" : $type);
 
 if(empty($aid)) {
-    ShowMsg("ÎÄµµID²»ÄÜÎª¿Õ!","-1");
+    ShowMsg("æ–‡æ¡£IDä¸èƒ½ä¸ºç©º!","-1");
     exit();
 }
 
-//¶ÁÈ¡ÎÄµµĞÅÏ¢
+//è¯»å–æ–‡æ¡£ä¿¡æ¯
 if($action=='')
 {
     if($type=='sys'){
-    //¶ÁÈ¡ÎÄµµĞÅÏ¢
+    //è¯»å–æ–‡æ¡£ä¿¡æ¯
         $arcRow = GetOneArchive($aid);
         if($arcRow['aid']=='') 
         {
-            ShowMsg("ÎŞ·¨°ÑÎ´ÖªÎÄµµÍÆ¼ö¸øºÃÓÑ!","-1");
+            ShowMsg("æ— æ³•æŠŠæœªçŸ¥æ–‡æ¡£æ¨èç»™å¥½å‹!","-1");
             exit();
         }
         extract($arcRow, EXTR_OVERWRITE);
     } else {
         $arcRow=$dsql->GetOne("SELECT s.*,t.* FROM `#@__member_stow` AS s LEFT JOIN `#@__member_stowtype` AS t ON s.type=t.stowname WHERE s.aid='$aid' AND s.type='$type'");
         if(!is_array($arcRow)){
-            ShowMsg("ÎŞ·¨°ÑÎ´ÖªÎÄµµÍÆ¼ö¸øºÃÓÑ!","-1");
+            ShowMsg("æ— æ³•æŠŠæœªçŸ¥æ–‡æ¡£æ¨èç»™å¥½å‹!","-1");
             exit();
         }
         $arcRow['arcurl']=$arcRow['indexurl']."=".$arcRow['aid'];
@@ -45,19 +45,19 @@ if($action=='')
     }
 }
 
-//·¢ËÍÍÆ¼öĞÅÏ¢
+//å‘é€æ¨èä¿¡æ¯
 else if($action=='send')
 {
     if(!CheckEmail($email))
     {
-        echo "<script>alert('Email¸ñÊ½²»ÕıÈ·!');history.go(-1);</script>";
+        echo "<script>alert('Emailæ ¼å¼ä¸æ­£ç¡®!');history.go(-1);</script>";
         exit();
     }
     $mailbody = '';
     $msg = dede_htmlspecialchars($msg);
-    $mailtitle = "ÄãµÄºÃÓÑ¸øÄãÍÆ¼öÁËÒ»ÆªÎÄÕÂ";
+    $mailtitle = "ä½ çš„å¥½å‹ç»™ä½ æ¨èäº†ä¸€ç¯‡æ–‡ç« ";
     $mailbody .= "$msg \r\n\r\n";
-    $mailbody .= "Power by http://www.dedecms.com Ö¯ÃÎÄÚÈİ¹ÜÀíÏµÍ³£¡";
+    $mailbody .= "Power by http://www.dedecms.com ç»‡æ¢¦å†…å®¹ç®¡ç†ç³»ç»Ÿï¼";
 
     $headers = "From: ".$cfg_adminemail."\r\nReply-To: ".$cfg_adminemail;
     
@@ -74,15 +74,15 @@ else if($action=='send')
         @mail($email, $mailtitle, $mailbody, $headers);
     }
 
-    ShowMsg("³É¹¦ÍÆ¼öÒ»ÆªÎÄÕÂ!",$arcurl);
+    ShowMsg("æˆåŠŸæ¨èä¸€ç¯‡æ–‡ç« !",$arcurl);
     exit();
 }
 $arcRow = GetOneArchive($aid);
 if($arcRow['aid']=='') 
 {
-    ShowMsg("ÎŞ·¨°ÑÎ´ÖªÎÄµµÍÆ¼ö¸øºÃÓÑ!","-1");
+    ShowMsg("æ— æ³•æŠŠæœªçŸ¥æ–‡æ¡£æ¨èç»™å¥½å‹!","-1");
     exit();
 }
 extract($arcRow, EXTR_OVERWRITE);
-//ÏÔÊ¾Ä£°å(¼òµ¥PHPÎÄ¼ş)
+//æ˜¾ç¤ºæ¨¡æ¿(ç®€å•PHPæ–‡ä»¶)
 include(DEDETEMPLATE.'/plus/recommend.htm');

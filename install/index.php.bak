@@ -1,6 +1,6 @@
 <?php
 /**
- * @version        $Id: index.php 1 13:41 2010Äê7ÔÂ26ÈÕZ tianya $
+ * @version        $Id: index.php 1 13:41 2010å¹´7æœˆ26æ—¥Z tianya $
  * @package        DedeCMS.Install
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -10,9 +10,9 @@
 //error_reporting(E_ALL);
 error_reporting(E_ALL || ~E_NOTICE);
 
-$verMsg = ' V5.7 GBKSP2';
-$s_lang = 'gb2312';
-$dfDbname = 'dedecmsv57gbksp2';
+$verMsg = ' V5.7 UTF8SP2';
+$s_lang = 'utf-8';
+$dfDbname = 'dedecmsv57utf8sp2';
 $errmsg = '';
 define('INSTALL_DEMO_NAME', 'dedev57demo.txt');
 define('INSLOCKFILE', dirname(__FILE__).'/install_lock.txt');
@@ -36,7 +36,7 @@ require_once(DEDEINC.'/common.func.php');
 
 if(file_exists(INSLOCKFILE))
 {
-    exit(" ³ÌĞòÒÑÔËĞĞ°²×°£¬Èç¹ûÄãÈ·¶¨ÒªÖØĞÂ°²×°£¬ÇëÏÈ´ÓFTPÖĞÉ¾³ı install/install_lock.txt£¡");
+    exit(" ç¨‹åºå·²è¿è¡Œå®‰è£…ï¼Œå¦‚æœä½ ç¡®å®šè¦é‡æ–°å®‰è£…ï¼Œè¯·å…ˆä»FTPä¸­åˆ é™¤ install/install_lock.txtï¼");
 }
 
 if(empty($step))
@@ -44,7 +44,7 @@ if(empty($step))
     $step = 1;
 }
 /*------------------------
-Ê¹ÓÃĞ­ÒéÊé
+ä½¿ç”¨åè®®ä¹¦
 function _1_Agreement()
 ------------------------*/
 if($step==1)
@@ -53,7 +53,7 @@ if($step==1)
     exit();
 }
 /*------------------------
-»·¾³²âÊÔ
+ç¯å¢ƒæµ‹è¯•
 function _2_TestEnv()
 ------------------------*/
 else if($step==2)
@@ -65,13 +65,13 @@ else if($step==2)
     $sp_host = (empty($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_HOST'] : $_SERVER['REMOTE_ADDR']);
     $sp_name = $_SERVER['SERVER_NAME'];
     $sp_max_execution_time = ini_get('max_execution_time');
-    $sp_allow_reference = (ini_get('allow_call_time_pass_reference') ? '<font color=green>[¡Ì]On</font>' : '<font color=red>[¡Á]Off</font>');
-    $sp_allow_url_fopen = (ini_get('allow_url_fopen') ? '<font color=green>[¡Ì]On</font>' : '<font color=red>[¡Á]Off</font>');
-    $sp_safe_mode = (ini_get('safe_mode') ? '<font color=red>[¡Á]On</font>' : '<font color=green>[¡Ì]Off</font>');
-    $sp_gd = ($sp_gd>0 ? '<font color=green>[¡Ì]On</font>' : '<font color=red>[¡Á]Off</font>');
-    $sp_mysql = (function_exists('mysql_connect') ? '<font color=green>[¡Ì]On</font>' : '<font color=red>[¡Á]Off</font>');
+    $sp_allow_reference = (ini_get('allow_call_time_pass_reference') ? '<font color=green>[âˆš]On</font>' : '<font color=red>[Ã—]Off</font>');
+    $sp_allow_url_fopen = (ini_get('allow_url_fopen') ? '<font color=green>[âˆš]On</font>' : '<font color=red>[Ã—]Off</font>');
+    $sp_safe_mode = (ini_get('safe_mode') ? '<font color=red>[Ã—]On</font>' : '<font color=green>[âˆš]Off</font>');
+    $sp_gd = ($sp_gd>0 ? '<font color=green>[âˆš]On</font>' : '<font color=red>[Ã—]Off</font>');
+    $sp_mysql = (function_exists('mysql_connect') ? '<font color=green>[âˆš]On</font>' : '<font color=red>[Ã—]Off</font>');
 
-    if($sp_mysql=='<font color=red>[¡Á]Off</font>')
+    if($sp_mysql=='<font color=red>[Ã—]Off</font>')
     $sp_mysql_err = TRUE;
     else
     $sp_mysql_err = FALSE;
@@ -83,14 +83,13 @@ else if($step==2)
         '/data/*',
         '/a/*',
         '/install',
-        '/special',
         '/uploads/*'
     );
     include('./templates/step-2.html');
     exit();
 }
 /*------------------------
-ÉèÖÃ²ÎÊı
+è®¾ç½®å‚æ•°
 function _3_WriteSeting()
 ------------------------*/
 else if($step==3)
@@ -122,7 +121,7 @@ else if($step==3)
     exit();
 }
 /*------------------------
-ÆÕÍ¨°²×°
+æ™®é€šå®‰è£…
 function _4_Setup()
 ------------------------*/
 else if($step==4)
@@ -133,13 +132,13 @@ else if($step==4)
         $db = new SQLite3(DEDEDATA.'/'.$dbname.'.db');
     } else {
         $dbtype = 'mysql';
-        $conn = mysql_connect($dbhost,$dbuser,$dbpwd) or die("<script>alert('Êı¾İ¿â·şÎñÆ÷»òµÇÂ¼ÃÜÂëÎŞĞ§£¬\\n\\nÎŞ·¨Á¬½ÓÊı¾İ¿â£¬ÇëÖØĞÂÉè¶¨£¡');history.go(-1);</script>");
+        $conn = mysql_connect($dbhost,$dbuser,$dbpwd) or die("<script>alert('æ•°æ®åº“æœåŠ¡å™¨æˆ–ç™»å½•å¯†ç æ— æ•ˆï¼Œ\\n\\næ— æ³•è¿æ¥æ•°æ®åº“ï¼Œè¯·é‡æ–°è®¾å®šï¼');history.go(-1);</script>");
 
         mysql_query("CREATE DATABASE IF NOT EXISTS `".$dbname."`;",$conn);
 
-        mysql_select_db($dbname, $conn) or die("<script>alert('Ñ¡ÔñÊı¾İ¿âÊ§°Ü£¬¿ÉÄÜÊÇÄãÃ»È¨ÏŞ£¬ÇëÔ¤ÏÈ´´½¨Ò»¸öÊı¾İ¿â£¡');history.go(-1);</script>");
+        mysql_select_db($dbname, $conn) or die("<script>alert('é€‰æ‹©æ•°æ®åº“å¤±è´¥ï¼Œå¯èƒ½æ˜¯ä½ æ²¡æƒé™ï¼Œè¯·é¢„å…ˆåˆ›å»ºä¸€ä¸ªæ•°æ®åº“ï¼');history.go(-1);</script>");
 
-        //»ñµÃÊı¾İ¿â°æ±¾ĞÅÏ¢
+        //è·å¾—æ•°æ®åº“ç‰ˆæœ¬ä¿¡æ¯
         $rs = mysql_query("SELECT VERSION();",$conn);
         $row = mysql_fetch_array($rs);
         $mysqlVersions = explode('.',trim($row[0]));
@@ -167,7 +166,7 @@ else if($step==4)
     $configStr1 = str_replace("~dblang~",$dblang,$configStr1);
 
     @chmod(DEDEDATA,0777);
-    $fp = fopen(DEDEDATA."/common.inc.php","w") or die("<script>alert('Ğ´ÈëÅäÖÃÊ§°Ü£¬Çë¼ì²é../dataÄ¿Â¼ÊÇ·ñ¿ÉĞ´Èë£¡');history.go(-1);</script>");
+    $fp = fopen(DEDEDATA."/common.inc.php","w") or die("<script>alert('å†™å…¥é…ç½®å¤±è´¥ï¼Œè¯·æ£€æŸ¥../dataç›®å½•æ˜¯å¦å¯å†™å…¥ï¼');history.go(-1);</script>");
     fwrite($fp,$configStr1);
     fclose($fp);
 
@@ -198,7 +197,7 @@ else if($step==4)
         $sql4tmp = "ENGINE=MyISAM DEFAULT CHARSET=".$dblang;
     }
 
-    //´´½¨Êı¾İ±í
+    //åˆ›å»ºæ•°æ®è¡¨
 
     $query = '';
     $fp = fopen(dirname(__FILE__).'/sql-dftables.txt','r');
@@ -255,7 +254,7 @@ else if($step==4)
     }
     fclose($fp);
 
-    //µ¼ÈëÄ¬ÈÏÊı¾İ
+    //å¯¼å…¥é»˜è®¤æ•°æ®
     $query = '';
     $fp = fopen(dirname(__FILE__).'/sql-dfdata.txt','r');
     while(!feof($fp))
@@ -284,7 +283,7 @@ else if($step==4)
     }
     fclose($fp);
 
-    //¸üĞÂÅäÖÃ
+    //æ›´æ–°é…ç½®
     $cquery = "Update `{$dbprefix}sysconfig` set value='{$baseurl}' where varname='cfg_basehost';";
     $dbtype == 'sqlite'?  $db->exec($cquery) : mysql_query($cquery,$conn);
     $cquery = "Update `{$dbprefix}sysconfig` set value='{$cmspath}' where varname='cfg_cmspath';";
@@ -298,19 +297,19 @@ else if($step==4)
     $cquery = "Update `{$dbprefix}sysconfig` set value='{$adminmail}' where varname='cfg_adminemail';";
     $dbtype == 'sqlite'?  $db->exec($cquery) : mysql_query($cquery,$conn);
 
-    //Ôö¼Ó¹ÜÀíÔ±ÕÊºÅ
+    //å¢åŠ ç®¡ç†å‘˜å¸å·
     $adminquery = "INSERT INTO `{$dbprefix}admin` VALUES (1, 10, '$adminuser', '".substr(md5($adminpwd),5,20)."', 'admin', '', '', 0, '".time()."', '127.0.0.1');";
     $dbtype == 'sqlite'?  $db->exec($adminquery) : mysql_query($adminquery,$conn);
 
-    //¹ØÁ¬Ç°Ì¨»áÔ±ÕÊºÅ
+    //å…³è¿å‰å°ä¼šå‘˜å¸å·
     $adminquery = "INSERT INTO `{$dbprefix}member` (`mid`,`mtype`,`userid`,`pwd`,`uname`,`sex`,`rank`,`money`,`email`,
                    `scores` ,`matt` ,`face`,`safequestion`,`safeanswer` ,`jointime` ,`joinip` ,`logintime` ,`loginip` )
-               VALUES ('1','¸öÈË','$adminuser','".md5($adminpwd)."','$adminuser','ÄĞ','100','0','','10000','10','','0','','".time()."','','0',''); ";
+               VALUES ('1','ä¸ªäºº','$adminuser','".md5($adminpwd)."','$adminuser','ç”·','100','0','','10000','10','','0','','".time()."','','0',''); ";
     $dbtype == 'sqlite'?  $db->exec($adminquery) : mysql_query($adminquery,$conn);
 
     $adminquery = "INSERT INTO `{$dbprefix}member_person` (`mid`,`onlynet`,`sex`,`uname`,`qq`,`msn`,`tel`,`mobile`,`place`,`oldplace`,`birthday`,`star`,
                    `income` , `education` , `height` , `bodytype` , `blood` , `vocation` , `smoke` , `marital` , `house` ,`drink` , `datingtype` , `language` , `nature` , `lovemsg` , `address`,`uptime`)
-                VALUES ('1', '1', 'ÄĞ', '{$adminuser}', '', '', '', '', '0', '0','1980-01-01', '1', '0', '0', '160', '0', '0', '0', '0', '0', '0','0', '0', '', '', '', '','0'); ";
+                VALUES ('1', '1', 'ç”·', '{$adminuser}', '', '', '', '', '0', '0','1980-01-01', '1', '0', '0', '160', '0', '0', '0', '0', '0', '0','0', '0', '', '', '', '','0'); ";
     $dbtype == 'sqlite'?  $db->exec($adminquery) : mysql_query($adminquery,$conn);
 
     $adminquery = "INSERT INTO `{$dbprefix}member_tj` (`mid`,`article`,`album`,`archives`,`homecount`,`pagecount`,`feedback`,`friend`,`stow`)
@@ -318,10 +317,10 @@ else if($step==4)
     $dbtype == 'sqlite'?  $db->exec($adminquery): mysql_query($adminquery,$conn);
 
     $adminquery = "Insert Into `{$dbprefix}member_space`(`mid` ,`pagesize` ,`matt` ,`spacename` ,`spacelogo` ,`spacestyle`, `sign` ,`spacenews`)
-                Values('1','10','0','{$adminuser}µÄ¿Õ¼ä','','person','',''); ";
+                Values('1','10','0','{$adminuser}çš„ç©ºé—´','','person','',''); ";
     $dbtype == 'sqlite'?  $db->exec($adminquery) : mysql_query($adminquery,$conn);
 
-	//°²×°ÌåÑéÊı¾İ
+	//å®‰è£…ä½“éªŒæ•°æ®
     if($installdemo == 1)
     {
         if($setupsql = file_get_contents(INSTALL_DEMO_NAME))
@@ -338,17 +337,17 @@ else if($step==4)
 			foreach($sqls as $sql) {
 				if(trim($sql)!='') mysql_query($sql,$conn);
 			}
-			// ¸üĞÂÀ¸Ä¿»º´æ
+			// æ›´æ–°æ ç›®ç¼“å­˜
 			UpDateCatCache();
 		} else {
-			die("Ã»ÓĞÌåÑéÊı¾İ°üÎÄ¼ş,Çë¼ì²éÊÇ·ñÏÂÔØ.");
+			die("æ²¡æœ‰ä½“éªŒæ•°æ®åŒ…æ–‡ä»¶,è¯·æ£€æŸ¥æ˜¯å¦ä¸‹è½½.");
 		}
     }
 
-    //²»°²×°ÈÎºÎ¿ÉÑ¡Ä£¿é
+    //ä¸å®‰è£…ä»»ä½•å¯é€‰æ¨¡å—
     if(!isset($modules) || !is_array($modules))
     {
-        //Ëø¶¨°²×°³ÌĞò
+        //é”å®šå®‰è£…ç¨‹åº
         $fp = fopen($insLockfile,'w');
         fwrite($fp,'ok');
         fclose($fp);
@@ -362,14 +361,14 @@ else if($step==4)
         fwrite($fp,'<'.'?php'."\r\n");
         fwrite($fp,'$selModule = "'.$module.'"; '."\r\n");
         fwrite($fp,'?'.'>');
-        //Èç¹û²»ÄÜĞ´Èë»º´æÎÄ¼ş£¬ÍË³öÄ£¿é°²×°
+        //å¦‚æœä¸èƒ½å†™å…¥ç¼“å­˜æ–‡ä»¶ï¼Œé€€å‡ºæ¨¡å—å®‰è£…
         if(!$fp)
         {
-            //Ëø¶¨°²×°³ÌĞò
+            //é”å®šå®‰è£…ç¨‹åº
             $fp = fopen($insLockfile,'w');
             fwrite($fp,'ok');
             fclose($fp);
-            $errmsg = "<font color='red'>ÓÉÓÚÎŞ·¨Ğ´ÈëÄ£¿é»º´æ£¬°²×°¿ÉÑ¡Ä£¿éÊ§°Ü£¬ÇëµÇÂ¼ºóÔÚÄ£¿é¹ÜÀí´¦°²×°¡£</font>";
+            $errmsg = "<font color='red'>ç”±äºæ— æ³•å†™å…¥æ¨¡å—ç¼“å­˜ï¼Œå®‰è£…å¯é€‰æ¨¡å—å¤±è´¥ï¼Œè¯·ç™»å½•ååœ¨æ¨¡å—ç®¡ç†å¤„å®‰è£…ã€‚</font>";
             include('./templates/step-5.html');
             exit();
         }
@@ -380,7 +379,7 @@ else if($step==4)
     exit();
 }
 /*------------------------
-°²×°¿ÉÑ¡Ä£¿é
+å®‰è£…å¯é€‰æ¨¡å—
 function _5_SetupModule()
 ------------------------*/
 else if($step==5)
@@ -389,7 +388,7 @@ else if($step==5)
     exit();
 }
 /*------------------------
-¼ì²âÊı¾İ¿âÊÇ·ñÓĞĞ§
+æ£€æµ‹æ•°æ®åº“æ˜¯å¦æœ‰æ•ˆ
 function _10_TestDbPwd()
 ------------------------*/
 else if($step==10)
@@ -401,15 +400,15 @@ else if($step==10)
     if($conn)
     {
 		if(empty($dbname)){
-			echo "<font color='green'>ĞÅÏ¢ÕıÈ·</font>";
+			echo "<font color='green'>ä¿¡æ¯æ­£ç¡®</font>";
 		}else{
-			$info = mysql_select_db($dbname,$conn)?"<font color='red'>Êı¾İ¿âÒÑ¾­´æÔÚ£¬ÏµÍ³½«¸²¸ÇÊı¾İ¿â</font>":"<font color='green'>Êı¾İ¿â²»´æÔÚ,ÏµÍ³½«×Ô¶¯´´½¨</font>";
+			$info = mysql_select_db($dbname,$conn)?"<font color='red'>æ•°æ®åº“å·²ç»å­˜åœ¨ï¼Œç³»ç»Ÿå°†è¦†ç›–æ•°æ®åº“</font>":"<font color='green'>æ•°æ®åº“ä¸å­˜åœ¨,ç³»ç»Ÿå°†è‡ªåŠ¨åˆ›å»º</font>";
 			echo $info;
 		}
     }
     else
     {
-        echo "<font color='red'>Êı¾İ¿âÁ¬½ÓÊ§°Ü£¡</font>";
+        echo "<font color='red'>æ•°æ®åº“è¿æ¥å¤±è´¥ï¼</font>";
     }
     @mysql_close($conn);
     exit();
@@ -421,9 +420,9 @@ else if($step==11)
 	$sql_content = file_get_contents($rmurl);
 	$fp = fopen(INSTALL_DEMO_NAME,'w');
 	if(fwrite($fp,$sql_content))
-		echo '&nbsp; <font color="green">[¡Ì]</font> ´æÔÚ(Äú¿ÉÒÔÑ¡Ôñ°²×°½øĞĞÌåÑé)';
+		echo '&nbsp; <font color="green">[âˆš]</font> å­˜åœ¨(æ‚¨å¯ä»¥é€‰æ‹©å®‰è£…è¿›è¡Œä½“éªŒ)';
 	else
-		echo '&nbsp; <font color="red">[¡Á]</font> Ô¶³Ì»ñÈ¡Ê§°Ü';
+		echo '&nbsp; <font color="red">[Ã—]</font> è¿œç¨‹è·å–å¤±è´¥';
 	unset($sql_content);
 	fclose($fp);
 	exit();

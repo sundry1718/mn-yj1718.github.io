@@ -28,7 +28,7 @@ function SpHtml2Text($str)
 			}
 		}
 	}
-	$alltext = str_replace("¡¡"," ",$alltext);
+	$alltext = str_replace("ã€€"," ",$alltext);
 	$alltext = preg_replace("/&([^;&]*)(;|&)/","",$alltext);
 	$alltext = preg_replace("/[ ]+/s"," ",$alltext);
 	return $alltext;

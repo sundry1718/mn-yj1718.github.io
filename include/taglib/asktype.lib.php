@@ -1,8 +1,8 @@
 <?php if(!defined('DEDEINC')) exit('Request Error!');
 /**
- * ÎÊ´ğµ÷ÓÃ±êÇ©
+ * é—®ç­”è°ƒç”¨æ ‡ç­¾
  *
- * @version        $Id: ask.lib.php 1 9:29 2010Äê7ÔÂ6ÈÕZ tianya $
+ * @version        $Id: ask.lib.php 1 9:29 2010å¹´7æœˆ6æ—¥Z tianya $
  * @package        DedeCMS.Taglib
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -12,14 +12,14 @@
 function lib_asktype(&$ctag,&$refObj)
 {
     global $dsql, $envs, $cfg_dbprefix, $cfg_cmsurl,$cfg_ask_directory,$cfg_ask_isdomain,$cfg_ask_domain;
-    //ÊôĞÔ´¦Àí
+    //å±æ€§å¤„ç†
     $attlist="tid|0,reid|0,name|24";
     FillAttsDefault($ctag->CAttribute->Items,$attlist);
     extract($ctag->CAttribute->Items, EXTR_SKIP);
     
-    if( !$dsql->IsTable("{$cfg_dbprefix}ask") ) return 'Ã»°²×°ÎÊ´ğÄ£¿é';
+    if( !$dsql->IsTable("{$cfg_dbprefix}ask") ) return 'æ²¡å®‰è£…é—®ç­”æ¨¡å—';
     
-    //ÆôÓÃ¶ş¼¶ÓòÃû
+    //å¯ç”¨äºŒçº§åŸŸå
     if($cfg_ask_isdomain == 'Y')
     {
         $weburl = $cfg_ask_domain.'/';  

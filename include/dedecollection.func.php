@@ -1,6 +1,6 @@
 <?php   if(!defined('DEDEINC')) exit('dedecms');
 /**
- * ²É¼¯Ğ¡ÖúÊÖ
+ * é‡‡é›†å°åŠ©æ‰‹
  *
  * @version        $Id: charset.helper.php 1 2010-07-05 11:43:09Z tianya $
  * @package        DedeCMS.Helpers
@@ -14,15 +14,15 @@ require_once(DEDEINC."/dedetag.class.php");
 require_once(DEDEINC."/charset.func.php");
 
 /**
- *  ÏÂÔØÍ¼Æ¬
+ *  ä¸‹è½½å›¾ç‰‡
  *
  * @access    public
- * @param     string  $gurl  µØÖ·
- * @param     string  $rfurl  À´Ô´µØÖ·
- * @param     string  $filename  ÎÄ¼şÃû
- * @param     string  $gcookie  µ÷Õûcookie
- * @param     string  $JumpCount  Ìø×ª¼ÆÊı
- * @param     string  $maxtime  ×î´ó´ÎÊı
+ * @param     string  $gurl  åœ°å€
+ * @param     string  $rfurl  æ¥æºåœ°å€
+ * @param     string  $filename  æ–‡ä»¶å
+ * @param     string  $gcookie  è°ƒæ•´cookie
+ * @param     string  $JumpCount  è·³è½¬è®¡æ•°
+ * @param     string  $maxtime  æœ€å¤§æ¬¡æ•°
  * @return    string
  */
 function DownImageKeep($gurl, $rfurl, $filename, $gcookie="", $JumpCount=0, $maxtime=30)
@@ -54,7 +54,7 @@ function DownImageKeep($gurl, $rfurl, $filename, $gcookie="", $JumpCount=0, $max
     fwrite($m_fp,$sessionQuery);
     $lnum = 0;
 
-    //»ñÈ¡ÏêÏ¸Ó¦´ğÍ·
+    //è·å–è¯¦ç»†åº”ç­”å¤´
     $m_httphead = Array();
     $httpstas = explode(" ",fgets($m_fp,256));
     $m_httphead["http-edition"] = trim($httpstas[0]);
@@ -91,7 +91,7 @@ function DownImageKeep($gurl, $rfurl, $filename, $gcookie="", $JumpCount=0, $max
         }
     }
 
-    //·ÖÎö·µ»Ø¼ÇÂ¼
+    //åˆ†æè¿”å›è®°å½•
     if(preg_match("/^3/", $m_httphead["http-state"]))
     {
         if(isset($m_httphead["location"]) && $JumpCount<3)
@@ -114,8 +114,8 @@ function DownImageKeep($gurl, $rfurl, $filename, $gcookie="", $JumpCount=0, $max
     }
     $contentLength = $m_httphead['content-length'];
 
-    //±£´æÎÄ¼ş
-    $fp = fopen($filename,"w") or die("Ğ´ÈëÎÄ¼ş£º{$filename} Ê§°Ü£¡");
+    //ä¿å­˜æ–‡ä»¶
+    $fp = fopen($filename,"w") or die("å†™å…¥æ–‡ä»¶ï¼š{$filename} å¤±è´¥ï¼");
     $i=0;
     $okdata = "";
     $starttime = time();
@@ -124,13 +124,13 @@ function DownImageKeep($gurl, $rfurl, $filename, $gcookie="", $JumpCount=0, $max
         $okdata .= fgetc($m_fp);
         $i++;
 
-        //³¬Ê±½áÊø
+        //è¶…æ—¶ç»“æŸ
         if(time()-$starttime>$maxtime)
         {
             break;
         }
 
-        //µ½´ïÖ¸¶¨´óĞ¡½áÊø
+        //åˆ°è¾¾æŒ‡å®šå¤§å°ç»“æŸ
         if($i >= $contentLength)
         {
             break;
@@ -152,10 +152,10 @@ function DownImageKeep($gurl, $rfurl, $filename, $gcookie="", $JumpCount=0, $max
 }
 
 /**
- *  »ñµÃÄ³Ò³Ãæ·µ»ØµÄCookieĞÅÏ¢
+ *  è·å¾—æŸé¡µé¢è¿”å›çš„Cookieä¿¡æ¯
  *
  * @access    public
- * @param     string  $gurl  µ÷ÕûµØÖ·
+ * @param     string  $gurl  è°ƒæ•´åœ°å€
  * @return    string
  */
 function RefurlCookie($gurl)
@@ -188,7 +188,7 @@ function RefurlCookie($gurl)
     fwrite($m_fp,$sessionQuery);
     $lnum = 0;
 
-    //»ñÈ¡ÏêÏ¸Ó¦´ğÍ·
+    //è·å–è¯¦ç»†åº”ç­”å¤´
     $gcookie = "";
     while(!feof($m_fp))
     {
@@ -211,10 +211,10 @@ function RefurlCookie($gurl)
 }
 
 /**
- *  »ñµÃÍøÖ·µÄhostºÍquery²¿·İ
+ *  è·å¾—ç½‘å€çš„hostå’Œqueryéƒ¨ä»½
  *
  * @access    public
- * @param     string  $gurl  µ÷ÕûµØÖ·
+ * @param     string  $gurl  è°ƒæ•´åœ°å€
  * @return    string
  */
 function GetHostInfo($gurl)
@@ -226,10 +226,10 @@ function GetHostInfo($gurl)
 }
 
 /**
- *  HTMLÀïµÄÍ¼Æ¬×ªDEDE¸ñÊ½
+ *  HTMLé‡Œçš„å›¾ç‰‡è½¬DEDEæ ¼å¼
  *
  * @access    public
- * @param     string  $body  ÎÄÕÂÄÚÈİ
+ * @param     string  $body  æ–‡ç« å†…å®¹
  * @return    string
  */
 function TurnImageTag(&$body)
@@ -251,28 +251,28 @@ function TurnImageTag(&$body)
     {
         if ($value)
         {
-          $ttx .= "{dede:img ddimg='$litpicname' text='Í¼ ".($key+1)."'}".$value."{/dede:img}"."\r\n";
+          $ttx .= "{dede:img ddimg='$litpicname' text='å›¾ ".($key+1)."'}".$value."{/dede:img}"."\r\n";
         }
         else
         {
-          $ttx .= "{dede:img ddimg='$litpicname' text='Í¼ ".($key+1)."'}".$returnArray2[$key]."{/dede:img}"."\r\n";
+          $ttx .= "{dede:img ddimg='$litpicname' text='å›¾ ".($key+1)."'}".$returnArray2[$key]."{/dede:img}"."\r\n";
         }
     }
-    $ttx = "\r\n{dede:pagestyle maxwidth='{$cfg_album_width}' ddmaxwidth='{$cfg_ddimg_width}' row='3' col='3' value='2'/}\r\n{dede:comments}Í¼¼¯ÀàĞÍ»á²É¼¯Ê±Éú³É´ËÅäÖÃÊÇÕı³£µÄ£¬²»¹ıÈç¹ûºóÃæÃ»ÓĞ¸ú×Åimg±ê¼ÇÔò±íÊ¾¹æÔòÎŞĞ§{/dede:comments}\r\n".$ttx;
+    $ttx = "\r\n{dede:pagestyle maxwidth='{$cfg_album_width}' ddmaxwidth='{$cfg_ddimg_width}' row='3' col='3' value='2'/}\r\n{dede:comments}å›¾é›†ç±»å‹ä¼šé‡‡é›†æ—¶ç”Ÿæˆæ­¤é…ç½®æ˜¯æ­£å¸¸çš„ï¼Œä¸è¿‡å¦‚æœåé¢æ²¡æœ‰è·Ÿç€imgæ ‡è®°åˆ™è¡¨ç¤ºè§„åˆ™æ— æ•ˆ{/dede:comments}\r\n".$ttx;
     return $ttx;
 }
 
 /**
- *  HTMLÀïµÄÍøÖ·¸ñÊ½×ª»»
+ *  HTMLé‡Œçš„ç½‘å€æ ¼å¼è½¬æ¢
  *
  * @access    public
- * @param     string  $body  ÎÄÕÂÄÚÈİ
+ * @param     string  $body  æ–‡ç« å†…å®¹
  * @return    string
  */
 function TurnLinkTag(&$body)
 {
     $ttx = '';
-    $handid = '·şÎñÆ÷';
+    $handid = 'æœåŠ¡å™¨';
     preg_match_all("/<a href=['\"](.+?)['\"]([^>]+?)>(.+?)<\/a>/is",$body,$match);
     if(is_array($match[1]) && count($match[1])>0)
     {
@@ -290,10 +290,10 @@ function TurnLinkTag(&$body)
 }
 
 /**
- *  Ìæ»»XMLµÄCDATA
+ *  æ›¿æ¢XMLçš„CDATA
  *
  * @access    public
- * @param     string  $str  ×Ö·û´®
+ * @param     string  $str  å­—ç¬¦ä¸²
  * @return    string
  */
 function RpCdata($str)
@@ -304,10 +304,10 @@ function RpCdata($str)
 }
 
 /**
- *  ·ÖÎöRSSÀïµÄÁ´½Ó
+ *  åˆ†æRSSé‡Œçš„é“¾æ¥
  *
  * @access    public
- * @param     string  $rssurl  rssµØÖ·
+ * @param     string  $rssurl  rssåœ°å€
  * @return    string
  */
 function GetRssLinks($rssurl)
@@ -317,7 +317,7 @@ function GetRssLinks($rssurl)
     $dhd->OpenUrl($rssurl);
     $rsshtml = $dhd->GetHtml();
 
-    //·ÖÎö±àÂë
+    //åˆ†æç¼–ç 
     preg_match("/encoding=[\"']([^\"']*)[\"']/is",$rsshtml,$infos);
     if(isset($infos[1]))
     {
@@ -382,11 +382,11 @@ function GetRssLinks($rssurl)
 }
 
 /**
- *  ´ÓRSSÕªÒª»ñÈ¡Í¼Æ¬ĞÅÏ¢
+ *  ä»RSSæ‘˜è¦è·å–å›¾ç‰‡ä¿¡æ¯
  *
  * @access    public
- * @param     string  $descriptions  ÃèÊö
- * @param     string  $refurl  À´Ô´µØÖ·
+ * @param     string  $descriptions  æè¿°
+ * @param     string  $refurl  æ¥æºåœ°å€
  * @return    string
  */
 function GetddImgFromRss($descriptions,$refurl)
@@ -409,11 +409,11 @@ function GetddImgFromRss($descriptions,$refurl)
 }
 
 /**
- *  ²¹È«ÍøÖ·
+ *  è¡¥å…¨ç½‘å€
  *
  * @access    public
- * @param     string  $refurl  À´Ô´µØÖ·
- * @param     string  $surl  Õ¾µãµØÖ·
+ * @param     string  $refurl  æ¥æºåœ°å€
+ * @param     string  $surl  ç«™ç‚¹åœ°å€
  * @return    string
  */
 function FillUrl($refurl,$surl)
@@ -426,7 +426,7 @@ function FillUrl($refurl,$surl)
     $basehost = ( (!isset($urls['port']) || $urls['port']=='80') ? $urls['host'] : $urls['host'].':'.$urls['port']);
 
     //$basepath = $basehost.(!isset($urls['path']) ? '' : '/'.$urls['path']);
-    //ÓÉÓÚÖ±½Ó»ñµÃµÄpathÔÚ´¦Àí http://xxxx/nnn/aaa?fdsafd ÕâÖÖÇé¿öÊ±»áÓĞ´íÎó£¬Òò´ËÓÃÆäËü·½Ê½´¦Àí
+    //ç”±äºç›´æ¥è·å¾—çš„pathåœ¨å¤„ç† http://xxxx/nnn/aaa?fdsafd è¿™ç§æƒ…å†µæ—¶ä¼šæœ‰é”™è¯¯ï¼Œå› æ­¤ç”¨å…¶å®ƒæ–¹å¼å¤„ç†
     $basepath = $basehost;
     $paths = explode('/',preg_replace("/^http:\/\//i", "", $refurl));
     $n = count($paths);
@@ -448,7 +448,7 @@ function FillUrl($refurl,$surl)
         $surl = substr($surl, 0, $pos);
     }
 
-    //ÓÃ '/' ±íÊ¾ÍøÕ¾¸ùµÄÍøÖ·
+    //ç”¨ '/' è¡¨ç¤ºç½‘ç«™æ ¹çš„ç½‘å€
     if($surl[0]=='/')
     {
         $okurl = $basehost.$surl;
@@ -489,16 +489,16 @@ function FillUrl($refurl,$surl)
 }
 
 /**
- *  ´ÓÆ¥Åä¹æÔòÖĞ»ñÈ¡ÁĞ±íÍøÖ·
+ *  ä»åŒ¹é…è§„åˆ™ä¸­è·å–åˆ—è¡¨ç½‘å€
  *
  * @access    public
- * @param     string  $regxurl  ÕıÔòµØÖ·
- * @param     string  $handurl  ²Ù×÷µØÖ·
- * @param     string  $startid  ¿ªÊ¼ID
- * @param     string  $endid  ½áÊøID
- * @param     string  $addv  ÔöÖµ
- * @param     string  $usemore  Ê¹ÓÃ¸ü¶à
- * @param     string  $batchrule  ÁĞ±í¹æÔò
+ * @param     string  $regxurl  æ­£åˆ™åœ°å€
+ * @param     string  $handurl  æ“ä½œåœ°å€
+ * @param     string  $startid  å¼€å§‹ID
+ * @param     string  $endid  ç»“æŸID
+ * @param     string  $addv  å¢å€¼
+ * @param     string  $usemore  ä½¿ç”¨æ›´å¤š
+ * @param     string  $batchrule  åˆ—è¡¨è§„åˆ™
  * @return    string
  */
 function GetUrlFromListRule($regxurl='',$handurl='',$startid=0,$endid=0,$addv=1,$usemore=0,$batchrule='')
@@ -528,7 +528,7 @@ function GetUrlFromListRule($regxurl='',$handurl='',$startid=0,$endid=0,$addv=1,
     }
     if($regxurl!='')
     {
-        //Ã»Ö¸¶¨(#)ºÍ(*)
+        //æ²¡æŒ‡å®š(#)å’Œ(*)
         if(!preg_match("/\(\*\)/i", $regxurl) && !preg_match("/\(#\)/", $regxurl))
         {
             $lists[$n][0] = $regxurl;
@@ -542,7 +542,7 @@ function GetUrlFromListRule($regxurl='',$handurl='',$startid=0,$endid=0,$addv=1,
                 $addv = 1;
             }
 
-            //Ã»Ö¸¶¨¶àÀ¸Ä¿Æ¥Åä¹æÔò
+            //æ²¡æŒ‡å®šå¤šæ ç›®åŒ¹é…è§„åˆ™
             if($usemore==0)
             {
                 while($startid <= $endid)
@@ -558,8 +558,8 @@ function GetUrlFromListRule($regxurl='',$handurl='',$startid=0,$endid=0,$addv=1,
                 }
             }
 
-            //Æ¥Åä¶à¸öÀ¸Ä¿
-            //¹æÔò±í´ïÊ½ [(#)=>(#)Æ¥ÅäµÄÍøÖ·; (*)=>(*)µÄ·¶Î§£¬Èç£º1-20; typeid=>À¸Ä¿id; addurl=>¸½¼ÓµÄÍøÖ·(ÓÃ|·Ö¿ª¶à¸ö)]
+            //åŒ¹é…å¤šä¸ªæ ç›®
+            //è§„åˆ™è¡¨è¾¾å¼ [(#)=>(#)åŒ¹é…çš„ç½‘å€; (*)=>(*)çš„èŒƒå›´ï¼Œå¦‚ï¼š1-20; typeid=>æ ç›®id; addurl=>é™„åŠ çš„ç½‘å€(ç”¨|åˆ†å¼€å¤šä¸ª)]
             else
             {
                 $nrules = explode(']',trim($batchrule));
@@ -601,7 +601,7 @@ function GetUrlFromListRule($regxurl='',$handurl='',$startid=0,$endid=0,$addv=1,
                         }
                     }
 
-                    //Èç¹ûÀ¸Ä¿ÓÃÀ¸Ä¿Ãû³Æ
+                    //å¦‚æœæ ç›®ç”¨æ ç›®åç§°
                     if(preg_match('/[^0-9]/', $typeid))
                     {
                         $arr = $dsql->GetOne("SELECT id FROM `#@__arctype` WHERE typename LIKE '$typeid' ");
@@ -615,7 +615,7 @@ function GetUrlFromListRule($regxurl='',$handurl='',$startid=0,$endid=0,$addv=1,
                         }
                     }
 
-                    //¸½¼ÓÍøÖ·ÓÅÏÈ
+                    //é™„åŠ ç½‘å€ä¼˜å…ˆ
                     $mjj = 0;
                     if(isset($addurls[0]))
                     {
@@ -637,10 +637,10 @@ function GetUrlFromListRule($regxurl='',$handurl='',$startid=0,$endid=0,$addv=1,
                         }
                     }
 
-                    //Èç¹ûÎª·Ç¼àÌıÄ£Ê½»ò¼àÌıÄ£Ê½Ã»ÊÖ¹¤Ö¸¶¨µÄ¸½¼ÓÍøÖ·
+                    //å¦‚æœä¸ºéç›‘å¬æ¨¡å¼æˆ–ç›‘å¬æ¨¡å¼æ²¡æ‰‹å·¥æŒ‡å®šçš„é™„åŠ ç½‘å€
                     if($islisten!=1 || $mjj==0 )
                     {
-                        //Æ¥Åä¹æÔòÀïµÄÍøÖ·£¬×¢£º(#)µÄÍøÖ·ÊÇÊÇÔÊĞíÊ¹ÓÃ(*)µÄ
+                        //åŒ¹é…è§„åˆ™é‡Œçš„ç½‘å€ï¼Œæ³¨ï¼š(#)çš„ç½‘å€æ˜¯æ˜¯å…è®¸ä½¿ç”¨(*)çš„
                         while($startid <= $endid)
                         {
                             $lists[$n][0] = str_replace("(#)",$brtag,$regxurl);
@@ -659,9 +659,9 @@ function GetUrlFromListRule($regxurl='',$handurl='',$startid=0,$endid=0,$addv=1,
                         }
                     }
                 }
-            } //End Æ¥Åä¶àÀ¸Ä¿
+            } //End åŒ¹é…å¤šæ ç›®
 
-        } //EndÊ¹ÓÃ¹æÔòÆ¥ÅäµÄÇé¿ö
+        } //Endä½¿ç”¨è§„åˆ™åŒ¹é…çš„æƒ…å†µ
 
     }
 

@@ -1,8 +1,8 @@
 <?php   if(!defined('DEDEINC')) exit('Request Error!');
 /**
- * À¸Ä¿µ¥Ôª,Ñ¡Ôñ¿ò
+ * æ ç›®å•å…ƒ,é€‰æ‹©æ¡†
  *
- * @version        $Id: typeunit.class.selector.php 1 15:21 2010Äê7ÔÂ5ÈÕZ tianya $
+ * @version        $Id: typeunit.class.selector.php 1 15:21 2010å¹´7æœˆ5æ—¥Z tianya $
  * @package        DedeCMS.Libraries
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -11,7 +11,7 @@
 require_once(DEDEDATA."/cache/inc_catalog_base.inc");
 
 /**
- * À¸Ä¿µ¥Ôª,Ñ¡Ôñ¿ò
+ * æ ç›®å•å…ƒ,é€‰æ‹©æ¡†
  *
  * @package          TypeUnitSelector
  * @subpackage       DedeCMS.Libraries
@@ -21,7 +21,7 @@ class TypeUnitSelector
 {
     var $dsql;
 
-    //php5¹¹Ôìº¯Êı
+    //php5æ„é€ å‡½æ•°
     function __construct()
     {
         global $cfg_Cs;
@@ -33,14 +33,14 @@ class TypeUnitSelector
         $this->__construct();
     }
 
-    //ÇåÀíÀà
+    //æ¸…ç†ç±»
     function Close() { }
 
     /**
-     *  ÁĞ³öÄ³Ò»ÆµµÀÏÂµÄËùÓĞÀ¸Ä¿
+     *  åˆ—å‡ºæŸä¸€é¢‘é“ä¸‹çš„æ‰€æœ‰æ ç›®
      *
      * @access    public
-     * @param     string  $channel  ÆµµÀID
+     * @param     string  $channel  é¢‘é“ID
      * @return    void
      */
     function ListAllType($channel=0)
@@ -50,7 +50,7 @@ class TypeUnitSelector
         
         $oldvalues = array();
         if(!empty($oldvalue)) $oldvalues = explode(',', $oldvalue);
-        //¼ì²âÓÃ»§ÓĞÈ¨ÏŞµÄ¶¥¼¶À¸Ä¿
+        //æ£€æµ‹ç”¨æˆ·æœ‰æƒé™çš„é¡¶çº§æ ç›®
         if($cfg_admin_channel=='array')
         {
             $admin_catalog = join(',', $admin_catalogs);
@@ -100,12 +100,12 @@ class TypeUnitSelector
     }
 
     /**
-     *  »ñµÃ×ÓÀàÄ¿µÄµİ¹éµ÷ÓÃ
+     *  è·å¾—å­ç±»ç›®çš„é€’å½’è°ƒç”¨
      *
      * @access    public
-     * @param     int   $id  À¸Ä¿ID
-     * @param     int   $channel  ÆµµÀID
-     * @param     int   $soncat  ×Ó¼¶·ÖÀà
+     * @param     int   $id  æ ç›®ID
+     * @param     int   $channel  é¢‘é“ID
+     * @param     int   $soncat  å­çº§åˆ†ç±»
      * @return    string
      */
     function LogicListAllSunType($id, $channel=0, &$soncat)
@@ -146,7 +146,7 @@ class TypeUnitSelector
                 }
                 else
                 {
-                    $soncat .= "  <br style='clear:both' /><div class='item'><b>".$typeName."£º</b></div>\r\n";
+                    $soncat .= "  <br style='clear:both' /><div class='item'><b>".$typeName."ï¼š</b></div>\r\n";
                     $this->LogicListAllSunType($id, $channel, $soncat);
                     $soncat .= "        <br style='clear:both' />";
                 }

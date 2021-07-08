@@ -1,8 +1,8 @@
 <?php  if(!defined('DEDEINC')) exit('Request Error!');
 /**
- * ×¨ÌâÖ÷Ìâµ÷ÓÃ±êÇ©
+ * ä¸“é¢˜ä¸»é¢˜è°ƒç”¨æ ‡ç­¾
  *
- * @version        $Id: arclist.lib.php 2 8:29 2010Äê7ÔÂ8ÈÕZ tianya $
+ * @version        $Id: arclist.lib.php 2 8:29 2010å¹´7æœˆ8æ—¥Z tianya $
  * @package        DedeCMS.Taglib
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -23,7 +23,7 @@ function ch_specialtopic($noteinfo, $arcTag, $refObj, $fname='')
         foreach($dtp->CTags as $k=>$ctag)
         {
             $notename = $ctag->GetAtt('name');
-            //Ö¸¶¨Ãû³ÆµÄ×¨Ìâ½Úµã
+            //æŒ‡å®šåç§°çš„ä¸“é¢˜èŠ‚ç‚¹
             if($noteid != '' && $ctag->GetAtt('noteid') != $noteid)
             {
                 continue;
@@ -35,7 +35,7 @@ function ch_specialtopic($noteinfo, $arcTag, $refObj, $fname='')
             $stypeid = 0;
             if(empty($rownum)) $rownum = 40;
 
-            //Í¨¹ı¹Ø¼ü×ÖºÍÀ¸Ä¿ID×Ô¶¯»ñÈ¡Ä£Ê½
+            //é€šè¿‡å…³é”®å­—å’Œæ ç›®IDè‡ªåŠ¨è·å–æ¨¡å¼
             if($isauto==1)
             {
                 $idlist = '';

@@ -1,8 +1,8 @@
 <?php
 /**
- * ¶àÃ½Ìå·¢ËÍ
+ * å¤šåª’ä½“å‘é€
  *
- * @version        $Id: select_media_post.php 1 9:43 2010Äê7ÔÂ8ÈÕZ tianya $
+ * @version        $Id: select_media_post.php 1 9:43 2010å¹´7æœˆ8æ—¥Z tianya $
  * @package        DedeCMS.Dialog
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -12,5 +12,5 @@ include_once(dirname(__FILE__).'/config.php');
 $cfg_softtype = $cfg_mediatype;
 $cfg_soft_dir = $cfg_other_medias;
 $bkurl = 'select_media.php';
-$uploadmbtype = "¶àÃ½ÌåÎÄ¼þÀàÐÍ";
+$uploadmbtype = "å¤šåª’ä½“æ–‡ä»¶ç±»åž‹";
 require_once(dirname(__FILE__)."/select_soft_post.php");

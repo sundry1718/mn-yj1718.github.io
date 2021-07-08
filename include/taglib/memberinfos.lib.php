@@ -4,9 +4,9 @@ if(!defined('DEDEINC'))
     exit("Request Error!");
 }
 /**
- * нд╣╣╧ьа╛╣дсц╩╖пео╒
+ * Ф√┤Ф║ёЕ┘ЁХ©·Г └Г■╗Ф┬╥Д©║Ф│╞
  *
- * @version        $Id: memberinfos.lib.php 1 9:29 2010дЙ7тб6хуZ tianya $
+ * @version        $Id: memberinfos.lib.php 1 9:29 2010Е╧╢7Ф°┬6Ф≈╔Z tianya $
  * @package        DedeCMS.Taglib
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -14,15 +14,15 @@ if(!defined('DEDEINC'))
  */
  
 /*>>dede>>
-<name>сц╩╖пео╒</name>
-<type>х╚╬ж╠Й╪г</type>
+<name>Г■╗Ф┬╥Д©║Ф│╞</name>
+<type>Е┘╗Е╠─Ф═┤Х╝╟</type>
 <for>V55,V56,V57</for>
-<description>нд╣╣╧ьа╛╣дсц╩╖пео╒</description>
+<description>Ф√┤Ф║ёЕ┘ЁХ©·Г └Г■╗Ф┬╥Д©║Ф│╞</description>
 <demo>
 {dede:memberinfos mid = '' /}
 </demo>
 <attributes>
-    <iterm>mid:сц╩╖ID</iterm> 
+    <iterm>mid:Г■╗Ф┬╥ID</iterm> 
 </attributes> 
 >>dede>>*/
  
@@ -62,7 +62,7 @@ function lib_memberinfos(&$ctag,&$refObj)
         if($row['matt']==10) return '';
         $row['spaceurl'] = $GLOBALS['cfg_basehost'].'/member/index.php?uid='.$row['userid'];
         if(empty($row['face'])) {
-            $row['face']=($row['sex']=='е╝')?  $GLOBALS['cfg_memberurl'].'/templets/images/dfgirl.png' : $GLOBALS['cfg_memberurl'].'/templets/images/dfboy.png';
+            $row['face']=($row['sex']=='Е╔Ё')?  $GLOBALS['cfg_memberurl'].'/templets/images/dfgirl.png' : $GLOBALS['cfg_memberurl'].'/templets/images/dfboy.png';
         }
         foreach($ctp->CTags as $tagid=>$ctag)
         {

@@ -1,6 +1,6 @@
 <?php  if(!defined('DEDEINC')) exit('dedecms');
 /**
- * ¹ıÂËĞ¡ÖúÊÖ
+ * è¿‡æ»¤å°åŠ©æ‰‹
  *
  * @version        $Id: time.filter.php 1 2010-07-05 11:43:09Z tianya $
  * @package        DedeCMS.Helpers
@@ -10,16 +10,16 @@
  */
 
 /**
- *  È¥³ıhtmlÖĞ²»¹æÔòÄÚÈİ×Ö·û
+ *  å»é™¤htmlä¸­ä¸è§„åˆ™å†…å®¹å­—ç¬¦
 
  *
  * @access    public
- * @param     string  $str  ĞèÒª´¦ÀíµÄ×Ö·û´®
- * @param     string  $rptype  ·µ»ØÀàĞÍ
- *            $rptype = 0 ±íÊ¾½öÌæ»» html±ê¼Ç
- *            $rptype = 1 ±íÊ¾Ìæ»» html±ê¼ÇÍ¬Ê±È¥³ıÁ¬Ğø¿Õ°××Ö·û
- *            $rptype = 2 ±íÊ¾Ìæ»» html±ê¼ÇÍ¬Ê±È¥³ıËùÓĞ¿Õ°××Ö·û
- *            $rptype = -1 ±íÊ¾½öÌæ»» htmlÎ£ÏÕµÄ±ê¼Ç 
+ * @param     string  $str  éœ€è¦å¤„ç†çš„å­—ç¬¦ä¸²
+ * @param     string  $rptype  è¿”å›ç±»å‹
+ *            $rptype = 0 è¡¨ç¤ºä»…æ›¿æ¢ htmlæ ‡è®°
+ *            $rptype = 1 è¡¨ç¤ºæ›¿æ¢ htmlæ ‡è®°åŒæ—¶å»é™¤è¿ç»­ç©ºç™½å­—ç¬¦
+ *            $rptype = 2 è¡¨ç¤ºæ›¿æ¢ htmlæ ‡è®°åŒæ—¶å»é™¤æ‰€æœ‰ç©ºç™½å­—ç¬¦
+ *            $rptype = -1 è¡¨ç¤ºä»…æ›¿æ¢ htmlå±é™©çš„æ ‡è®° 
  * @return    string
  */
 if ( ! function_exists('HtmlReplace'))
@@ -27,7 +27,7 @@ if ( ! function_exists('HtmlReplace'))
     function HtmlReplace($str,$rptype=0)
     {
         $str = stripslashes($str);
-		$str = preg_replace("/<[\/]{0,1}style([^>]*)>(.*)<\/style>/i", '', $str);//2011-06-30 ½ûÖ¹»áÔ±Í¶¸åÌí¼ÓcssÑùÊ½ (by:Ö¯ÃÎµÄÓã)
+		$str = preg_replace("/<[\/]{0,1}style([^>]*)>(.*)<\/style>/i", '', $str);//2011-06-30 ç¦æ­¢ä¼šå‘˜æŠ•ç¨¿æ·»åŠ cssæ ·å¼ (by:ç»‡æ¢¦çš„é±¼)
         if($rptype==0)
         {
             $str = dede_htmlspecialchars($str);
@@ -35,19 +35,19 @@ if ( ! function_exists('HtmlReplace'))
         else if($rptype==1)
         {
             $str = dede_htmlspecialchars($str);
-            $str = str_replace("¡¡", ' ', $str);
+            $str = str_replace("ã€€", ' ', $str);
             $str = preg_replace("/[\r\n\t ]{1,}/", ' ', $str);
         }
         else if($rptype==2)
         {
             $str = dede_htmlspecialchars($str);
-            $str = str_replace("¡¡", '', $str);
+            $str = str_replace("ã€€", '', $str);
             $str = preg_replace("/[\r\n\t ]/", '', $str);
         }
         else
         {
             $str = preg_replace("/[\r\n\t ]{1,}/", ' ', $str);
-            $str = preg_replace('/script/i', '£ó£ã£ò£é£ğ£ô', $str);
+            $str = preg_replace('/script/i', 'ï½“ï½ƒï½’ï½‰ï½ï½”', $str);
             $str = preg_replace("/<[\/]{0,1}(link|meta|ifr|fra)[^>]*>/i", '', $str);
         }
         return addslashes($str);
@@ -57,9 +57,9 @@ if ( ! function_exists('HtmlReplace'))
  
  
 /**
- *  ĞŞ¸´ä¯ÀÀÆ÷XSS hackµÄº¯Êı
+ *  ä¿®å¤æµè§ˆå™¨XSS hackçš„å‡½æ•°
  *
- * @param     string   $val  ĞèÒª´¦ÀíµÄÄÚÈİ
+ * @param     string   $val  éœ€è¦å¤„ç†çš„å†…å®¹
  * @return    string
  */
 if ( ! function_exists('RemoveXSS'))
@@ -107,10 +107,10 @@ if ( ! function_exists('RemoveXSS'))
 }
 
 /**
- *  ´¦Àí½ûÓÃHTMLµ«ÔÊĞí»»ĞĞµÄÄÚÈİ
+ *  å¤„ç†ç¦ç”¨HTMLä½†å…è®¸æ¢è¡Œçš„å†…å®¹
  *
  * @access    public
- * @param     string  $msg  ĞèÒª¹ıÂËµÄÄÚÈİ
+ * @param     string  $msg  éœ€è¦è¿‡æ»¤çš„å†…å®¹
  * @return    string
  */
 if ( ! function_exists('TrimMsg'))
@@ -118,16 +118,16 @@ if ( ! function_exists('TrimMsg'))
     function TrimMsg($msg)
     {
         $msg = trim(stripslashes($msg));
-        $msg = nl2br(htmlspecialchars($msg));
+        $msg = nl2br(dede_htmlspecialchars($msg));
         $msg = str_replace("  ","&nbsp;&nbsp;",$msg);
         return addslashes($msg);
     }
 }
 
 /**
- *  ¹ıÂËÓÃÓÚËÑË÷µÄ×Ö·û´®
+ *  è¿‡æ»¤ç”¨äºæœç´¢çš„å­—ç¬¦ä¸²
  *
- * @param     string  $keyword  ¹Ø¼ü´Ê
+ * @param     string  $keyword  å…³é”®è¯
  * @return    string
  */
 if ( ! function_exists('FilterSearch'))

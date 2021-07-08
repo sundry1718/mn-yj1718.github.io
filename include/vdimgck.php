@@ -1,8 +1,8 @@
 <?php
 /**
- * ÑéÖ¤Í¼Æ¬
+ * éªŒè¯å›¾ç‰‡
  *
- * @version        $Id: vdimgck.php 1 15:21 2010Äê7ÔÂ5ÈÕ tianya $
+ * @version        $Id: vdimgck.php 1 15:21 2010å¹´7æœˆ5æ—¥ tianya $
  * @package        DedeCMS.Libraries
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -14,7 +14,7 @@ require_once (DEDEDATA.'/config.cache.inc.php');
 $config = array(
     'font_size'   => 14,
     'img_height'  => $safe_wheight,
-    'word_type'  => (int)$safe_codetype,   // 1:Êı×Ö  2:Ó¢ÎÄ   3:µ¥´Ê
+    'word_type'  => (int)$safe_codetype,   // 1:æ•°å­—  2:è‹±æ–‡   3:å•è¯
     'img_width'   => $safe_wwidth,
     'use_boder'   => TRUE,
     'font_file'   => dirname(__FILE__).'/data/fonts/'.mt_rand(1,3).'.ttf',
@@ -25,14 +25,14 @@ $enkey = substr(md5(substr($cfg_cookie_encode,0,5)),0,10);
 $sessSavePath = DEDEDATA."/sessions_{$enkey}";
 if ( !is_dir($sessSavePath) ) mkdir($sessSavePath);
 
-// Session±£´æÂ·¾¶
+// Sessionä¿å­˜è·¯å¾„
 
 if(is_writeable($sessSavePath) && is_readable($sessSavePath)){ session_save_path($sessSavePath); }
 if(!empty($cfg_domain_cookie)) session_set_cookie_params(0,'/',$cfg_domain_cookie);
 
 if (!echo_validate_image($config))
 {
-    // Èç¹û²»³É¹¦Ôò³õÊ¼»¯Ò»¸öÄ¬ÈÏÑéÖ¤Âë
+    // å¦‚æœä¸æˆåŠŸåˆ™åˆå§‹åŒ–ä¸€ä¸ªé»˜è®¤éªŒè¯ç 
     @session_start();
     $_SESSION['securimage_code_value'] = strtolower('abcd');
     $im = @imagecreatefromjpeg(dirname(__FILE__).'/data/vdcode.jpg');
@@ -52,7 +52,7 @@ function echo_validate_image( $config = array() )
         return false;
     }
 
-    //Ö÷Òª²ÎÊı
+    //ä¸»è¦å‚æ•°
     $font_size   = isset($config['font_size']) ? $config['font_size'] : 14;
     $img_height  = isset($config['img_height']) ? $config['img_height'] : 24;
     $img_width   = isset($config['img_width']) ? $config['img_width'] : 68;
@@ -60,18 +60,18 @@ function echo_validate_image( $config = array() )
     $use_boder   = isset($config['use_boder']) ? $config['use_boder'] : TRUE;
     $filter_type = isset($config['filter_type']) ? $config['filter_type'] : 0;
 
-    //´´½¨Í¼Æ¬£¬²¢ÉèÖÃ±³¾°É«
+    //åˆ›å»ºå›¾ç‰‡ï¼Œå¹¶è®¾ç½®èƒŒæ™¯è‰²
     $im = @imagecreate($img_width, $img_height);
     imagecolorallocate($im, 255,255,255);
 
-    //ÎÄ×ÖËæ»úÑÕÉ«
+    //æ–‡å­—éšæœºé¢œè‰²
     $fontColor[]  = imagecolorallocate($im, 0x15, 0x15, 0x15);
     $fontColor[]  = imagecolorallocate($im, 0x95, 0x1e, 0x04);
     $fontColor[]  = imagecolorallocate($im, 0x93, 0x14, 0xa9);
     $fontColor[]  = imagecolorallocate($im, 0x12, 0x81, 0x0a);
     $fontColor[]  = imagecolorallocate($im, 0x06, 0x3a, 0xd5);
 
-    //»ñÈ¡Ëæ»ú×Ö·û
+    //è·å–éšæœºå­—ç¬¦
     $rndstring  = '';
     if ($config['word_type'] != 3)
     {
@@ -102,28 +102,28 @@ function echo_validate_image( $config = array() )
 
     $rndcodelen = strlen($rndstring);
 
-    //±³¾°ºáÏß
+    //èƒŒæ™¯æ¨ªçº¿
     $lineColor1 = imagecolorallocate($im, 0xda, 0xd9, 0xd1);
     for($j=3; $j<=$img_height-3; $j=$j+3)
     {
         imageline($im, 2, $j, $img_width - 2, $j, $lineColor1);
     }
 
-    //±³¾°ÊúÏß
+    //èƒŒæ™¯ç«–çº¿
     $lineColor2 = imagecolorallocate($im, 0xda,0xd9,0xd1);
     for($j=2;$j<100;$j=$j+6)
     {
         imageline($im, $j, 0, $j+8, $img_height, $lineColor2);
     }
 
-    //»­±ß¿ò
+    //ç”»è¾¹æ¡†
     if( $use_boder && $filter_type == 0 )
     {
         $bordercolor = imagecolorallocate($im, 0x9d, 0x9e, 0x96);
         imagerectangle($im, 0, 0, $img_width-1, $img_height-1, $bordercolor);
     }
 
-    //Êä³öÎÄ×Ö
+    //è¾“å‡ºæ–‡å­—
     $lastc = '';
     for($i=0;$i<$rndcodelen;$i++)
     {
@@ -136,7 +136,7 @@ function echo_validate_image( $config = array() )
         $lastc = $rndstring[$i];
     }
 
-    //Í¼ÏóĞ§¹û
+    //å›¾è±¡æ•ˆæœ
     switch($filter_type)
     {
         case 1:
@@ -156,7 +156,7 @@ function echo_validate_image( $config = array() )
     header("Cache-Control:no-cache\r\n");
     header("Expires:0\r\n");
 
-    //Êä³öÌØ¶¨ÀàĞÍµÄÍ¼Æ¬¸ñÊ½£¬ÓÅÏÈ¼¶Îª gif -> jpg ->png
+    //è¾“å‡ºç‰¹å®šç±»å‹çš„å›¾ç‰‡æ ¼å¼ï¼Œä¼˜å…ˆçº§ä¸º gif -> jpg ->png
     //dump(function_exists("imagejpeg"));
 
     if(function_exists("imagejpeg"))

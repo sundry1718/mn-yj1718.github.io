@@ -4,9 +4,9 @@ if(!defined('DEDEINC'))
     exit("Request Error!");
 }
 /**
- * µ÷ÓÃ×îĞÂÆÀÂÛ
+ * è°ƒç”¨æœ€æ–°è¯„è®º
  *
- * @version        $Id: feedback.lib.php 1 9:29 2010Äê7ÔÂ6ÈÕZ tianya $
+ * @version        $Id: feedback.lib.php 1 9:29 2010å¹´7æœˆ6æ—¥Z tianya $
  * @package        DedeCMS.Taglib
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -14,22 +14,22 @@ if(!defined('DEDEINC'))
  */
  
 /*>>dede>>
-<name>»áÔ±ÆÀÂÛÄÚÈİ</name>
-<type>È«¾Ö±ê¼Ç</type>
+<name>ä¼šå‘˜è¯„è®ºå†…å®¹</name>
+<type>å…¨å±€æ ‡è®°</type>
 <for>V55,V56,V57</for>
-<description>ÓÃÓÚµ÷ÓÃ×îĞÂÆÀÂÛ</description>
+<description>ç”¨äºè°ƒç”¨æœ€æ–°è¯„è®º</description>
 <demo>
 {dede:feedback}
  <ul>
-  <li class='fbtitle'>[field:username function="(@me=='guest' ? 'ÓÎ¿Í' : @me)"/] ¶Ô [field:title/] µÄÆÀÂÛ£º</li>
+  <li class='fbtitle'>[field:username function="(@me=='guest' ? 'æ¸¸å®¢' : @me)"/] å¯¹ [field:title/] çš„è¯„è®ºï¼š</li>
   <li class='fbmsg'> <a href="plus/feedback.php?aid=[field:aid/]" class='fbmsg'>[field:msg /]</a></li>
  </ul>
 {/dede:feedback}
 </demo>
 <attributes>
-    <iterm>row:µ÷ÓÃÆÀÂÛÌõÊı</iterm> 
-    <iterm>titlelen:±êÌâ³¤¶È</iterm>
-    <iterm>infolen:ÆÀÂÛ³¤¶È</iterm>
+    <iterm>row:è°ƒç”¨è¯„è®ºæ¡æ•°</iterm> 
+    <iterm>titlelen:æ ‡é¢˜é•¿åº¦</iterm>
+    <iterm>infolen:è¯„è®ºé•¿åº¦</iterm>
 </attributes> 
 >>dede>>*/
  

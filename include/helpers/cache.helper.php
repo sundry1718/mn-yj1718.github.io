@@ -1,6 +1,6 @@
 <?php   if(!defined('DEDEINC')) exit("Request Error!");
 /**
- * »º´æĞ¡ÖúÊÖ,Ö§³ÖÎÄ¼şºÍmemcache
+ * ç¼“å­˜å°åŠ©æ‰‹,æ”¯æŒæ–‡ä»¶å’Œmemcache
  *
  * @version        $Id: cache.helper.php 1 10:46 2011-3-2 tianya $
  * @package        DedeCMS.Helpers
@@ -9,12 +9,12 @@
  * @link           http://www.dedecms.com
  */
 /**
- *  ¶Á»º´æ
+ *  è¯»ç¼“å­˜
  *
  * @access    public
- * @param     string  $prefix  Ç°×º
- * @param     string  $key  ¼ü
- * @param     string  $is_memcache  ÊÇ·ñÎªmemcache»º´æ
+ * @param     string  $prefix  å‰ç¼€
+ * @param     string  $key  é”®
+ * @param     string  $is_memcache  æ˜¯å¦ä¸ºmemcacheç¼“å­˜
  * @return    string
  */
 if ( ! function_exists('GetCache'))
@@ -23,7 +23,7 @@ if ( ! function_exists('GetCache'))
     {
         global $cache_helper_config;
         $key = md5 ( $key );
-        /* Èç¹ûÆôÓÃMC»º´æ */
+        /* å¦‚æœå¯ç”¨MCç¼“å­˜ */
         if ($is_memcache === TRUE && ! empty ( $cache_helper_config['memcache'] ) && $cache_helper_config['memcache'] ['is_mc_enable'] === 'Y')
         {
             $mc_path = empty ( $cache_helper_config['memcache'] ['mc'] [substr ( $key, 0, 1 )] ) ? $cache_helper_config['memcache'] ['mc'] ['default'] : $cache_helper_config['memcache'] ['mc'] [substr ( $key, 0, 1 )];
@@ -55,13 +55,13 @@ if ( ! function_exists('GetCache'))
 
 
 /**
- *  Ğ´»º´æ
+ *  å†™ç¼“å­˜
  *
  * @access    public
- * @param     string  $prefix  Ç°×º
- * @param     string  $key  ¼ü
- * @param     string  $value  Öµ
- * @param     string  $timeout  »º´æÊ±¼ä
+ * @param     string  $prefix  å‰ç¼€
+ * @param     string  $key  é”®
+ * @param     string  $value  å€¼
+ * @param     string  $timeout  ç¼“å­˜æ—¶é—´
  * @return    int
  */
 if ( ! function_exists('SetCache'))
@@ -70,7 +70,7 @@ if ( ! function_exists('SetCache'))
     {
         global $cache_helper_config;
         $key = md5 ( $key );
-        /* Èç¹ûÆôÓÃMC»º´æ */
+        /* å¦‚æœå¯ç”¨MCç¼“å­˜ */
         if (! empty ( $cache_helper_config['memcache'] ) && $cache_helper_config['memcache'] ['is_mc_enable'] === 'Y' && $is_memcache === TRUE)
         {
             $mc_path = empty ( $cache_helper_config['memcache'] ['mc'] [substr ( $key, 0, 1 )] ) ? $cache_helper_config['memcache'] ['mc'] ['default'] : $cache_helper_config['memcache'] ['mc'] [substr ( $key, 0, 1 )];
@@ -80,7 +80,7 @@ if ( ! function_exists('SetCache'))
             {
                 $GLOBALS ['mc_' . $mc_path ['host']] = new Memcache ( );
                 $GLOBALS ['mc_' . $mc_path ['host']]->connect ( $mc_path ['host'], $mc_path ['port'] );
-                //ÉèÖÃÊı¾İÑ¹ËõÃÅ¼÷
+                //è®¾ç½®æ•°æ®å‹ç¼©é—¨æ§›
                 //$GLOBALS ['mc_' . $mc_path ['host']]->setCompressThreshold(2048, 0.2);
             }
             $result = $GLOBALS ['mc_' . $mc_path ['host']]->set ( $key, $value, MEMCACHE_COMPRESSED, $timeout );
@@ -96,22 +96,22 @@ if ( ! function_exists('SetCache'))
 
 
 /**
- *  É¾³ı»º´æ
+ *  åˆ é™¤ç¼“å­˜
  *
  * @access    public
- * @param     string  $prefix  Ç°×º
- * @param     string  $key  ¼ü
- * @param     string  $is_memcache  ÊÇ·ñÎªmemcache»º´æ
+ * @param     string  $prefix  å‰ç¼€
+ * @param     string  $key  é”®
+ * @param     string  $is_memcache  æ˜¯å¦ä¸ºmemcacheç¼“å­˜
  * @return    string
  */
 if ( ! function_exists('DelCache'))
 {
-    /* É¾»º´æ */
+    /* åˆ ç¼“å­˜ */
     function DelCache($prefix, $key, $is_memcache = TRUE)
     {
         global $cache_helper_config;
         $key = md5 ( $key );
-        /* Èç¹ûÆôÓÃMC»º´æ */
+        /* å¦‚æœå¯ç”¨MCç¼“å­˜ */
         if (! empty ( $cache_helper_config['memcache'] ) && $cache_helper_config['memcache'] ['is_mc_enable'] === TRUE && $is_memcache === TRUE)
         {
             $mc_path = empty ( $cache_helper_config['memcache'] ['mc'] [substr ( $key, 0, 1 )] ) ? $cache_helper_config['memcache'] ['mc'] ['default'] : $cache_helper_config['memcache'] ['mc'] [substr ( $key, 0, 1 )];

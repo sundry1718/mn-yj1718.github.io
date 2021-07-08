@@ -1,0 +1,1 @@
+INSERT INTO `dede_search_keywords` VALUES('1','几张','几张','1','0','1565785311','0','0');

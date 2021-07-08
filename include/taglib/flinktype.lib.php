@@ -5,9 +5,9 @@ if(!defined('DEDEINC'))
 }
 require_once(DEDEINC."/taglib/flink.lib.php");
 /**
- * ÓÑÇéÁ´½Ó
+ * å‹æƒ…é“¾æŽ¥
  *
- * @version        $Id: flinktype.lib.php 1 15:57 2011Äê2ÔÂ18ÈÕZ niap $
+ * @version        $Id: flinktype.lib.php 1 15:57 2011å¹´2æœˆ18æ—¥Z niap $
  * @package        DedeCMS.Taglib
  * @copyright      Copyright (c) 2007 - 2011, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -15,16 +15,16 @@ require_once(DEDEINC."/taglib/flink.lib.php");
  */
 
 /*>>dede>>
-<name>ÓÑÇéÁ´½ÓÀàÐÍ</name>
-<type>È«¾Ö±ê¼Ç</type>
+<name>å‹æƒ…é“¾æŽ¥ç±»åž‹</name>
+<type>å…¨å±€æ ‡è®°</type>
 <for>V55,V56,V57</for>
-<description>ÓÃÓÚ»ñÈ¡ÓÑÇéÁ´½ÓÀàÐÍ</description>
+<description>ç”¨äºŽèŽ·å–å‹æƒ…é“¾æŽ¥ç±»åž‹</description>
 <demo>
 {dede:flink row='24'/}
 </demo>
 <attributes>
-    <iterm>row:Á´½ÓÀàÐÍÊýÁ¿</iterm>
-    <iterm>titlelen:Á´½ÓÎÄ×ÖµÄ³¤¶È</iterm>
+    <iterm>row:é“¾æŽ¥ç±»åž‹æ•°é‡</iterm>
+    <iterm>titlelen:é“¾æŽ¥æ–‡å­—çš„é•¿åº¦</iterm>
 </attributes> 
 >>dede>>*/
  
@@ -57,7 +57,7 @@ function lib_flinktype(&$ctag,&$refObj)
     }
 	$dedecms = false;
 	$dedecms->id = 999;
-	$dedecms->typename = 'Ö¯ÃÎÁ´';
+	$dedecms->typename = 'ç»‡æ¢¦é“¾';
 	if($type == 'dedecms') $row[] = $dedecms;
 	
     foreach ($row as $key => $value) {

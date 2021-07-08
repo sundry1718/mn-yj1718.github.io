@@ -1,9 +1,9 @@
 <?php
 /**
  *
- * À¸Ä¿ÁĞ±í/ÆµµÀ¶¯Ì¬Ò³
+ * æ ç›®åˆ—è¡¨/é¢‘é“åŠ¨æ€é¡µ
  *
- * @version        $Id: list.php 1 15:38 2010Äê7ÔÂ8ÈÕZ tianya $
+ * @version        $Id: list.php 1 15:38 2010å¹´7æœˆ8æ—¥Z tianya $
  * @package        DedeCMS.Site
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -22,7 +22,7 @@ if($tid==0 && $channelid==0) die(" Request Error! ");
 if(isset($TotalResult)) $TotalResult = intval(preg_replace("/[^\d]/", '', $TotalResult));
 
 
-//Èç¹ûÖ¸¶¨ÁËÄÚÈİÄ£ĞÍIDµ«Ã»ÓĞÖ¸¶¨À¸Ä¿ID£¬ÄÇÃ´×Ô¶¯»ñµÃÎªÕâ¸öÄÚÈİÄ£ĞÍµÄµÚÒ»¸ö¶¥¼¶À¸Ä¿×÷ÎªÆµµÀÄ¬ÈÏÀ¸Ä¿
+//å¦‚æœæŒ‡å®šäº†å†…å®¹æ¨¡å‹IDä½†æ²¡æœ‰æŒ‡å®šæ ç›®IDï¼Œé‚£ä¹ˆè‡ªåŠ¨è·å¾—ä¸ºè¿™ä¸ªå†…å®¹æ¨¡å‹çš„ç¬¬ä¸€ä¸ªé¡¶çº§æ ç›®ä½œä¸ºé¢‘é“é»˜è®¤æ ç›®
 if(!empty($channelid) && empty($tid))
 {
     $tinfos = $dsql->GetOne("SELECT tp.id,ch.issystem FROM `#@__arctype` tp LEFT JOIN `#@__channeltype` ch ON ch.id=tp.channeltype WHERE tp.channeltype='$channelid' And tp.reid=0 order by sortrank asc");
@@ -48,7 +48,7 @@ if($tinfos['issystem']==-1)
 } else {
     include(DEDEINC."/arc.listview.class.php");
     $lv = new ListView($tid);
-    //¶ÔÉèÖÃÁË»áÔ±¼¶±ğµÄÀ¸Ä¿½øĞĞ´¦Àí
+    //å¯¹è®¾ç½®äº†ä¼šå‘˜çº§åˆ«çš„æ ç›®è¿›è¡Œå¤„ç†
     if(isset($lv->Fields['corank']) && $lv->Fields['corank'] > 0)
     {
         require_once(DEDEINC.'/memberlogin.class.php');
@@ -60,9 +60,9 @@ if($tinfos['issystem']==-1)
             {
                 $memberTypes[$row->rank] = $row->membername;
             }
-            $memberTypes[0] = "ÓÎ¿Í»òÃ»È¨ÏŞ»áÔ±";
-            $msgtitle = "ÄãÃ»ÓĞÈ¨ÏŞä¯ÀÀÀ¸Ä¿£º{$lv->Fields['typename']} £¡";
-            $moremsg = "Õâ¸öÀ¸Ä¿ĞèÒª <font color='red'>".$memberTypes[$lv->Fields['corank']]."</font> ²ÅÄÜ·ÃÎÊ£¬ÄãÄ¿Ç°ÊÇ£º<font color='red'>".$memberTypes[$cfg_ml->M_Rank]."</font> £¡";
+            $memberTypes[0] = "æ¸¸å®¢æˆ–æ²¡æƒé™ä¼šå‘˜";
+            $msgtitle = "ä½ æ²¡æœ‰æƒé™æµè§ˆæ ç›®ï¼š{$lv->Fields['typename']} ï¼";
+            $moremsg = "è¿™ä¸ªæ ç›®éœ€è¦ <font color='red'>".$memberTypes[$lv->Fields['corank']]."</font> æ‰èƒ½è®¿é—®ï¼Œä½ ç›®å‰æ˜¯ï¼š<font color='red'>".$memberTypes[$cfg_ml->M_Rank]."</font> ï¼";
             include_once(DEDETEMPLATE.'/plus/view_msg_catalog.htm');
             exit();
         }

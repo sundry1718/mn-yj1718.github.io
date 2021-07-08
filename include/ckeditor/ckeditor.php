@@ -28,5 +28,5 @@ if ( !function_exists('version_compare') || version_compare( phpversion(), '5', 
 else
 	include_once( 'ckeditor_php5.php' ) ;
 	
-// ÔØÈë»ù±¾ÅäÖÃ
+// è½½å…¥åŸºæœ¬é…ç½®
 require_once('ckeditor.inc.php');

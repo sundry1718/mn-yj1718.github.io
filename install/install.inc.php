@@ -1,6 +1,6 @@
 <?php
 /**
- * @version        $Id: install.inc.php 1 13:41 2010Äê7ÔÂ26ÈÕZ tianya $
+ * @version        $Id: install.inc.php 1 13:41 2010å¹´7æœˆ26æ—¥Z tianya $
  * @package        DedeCMS.Install
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -19,7 +19,7 @@ function RunMagicQuotes(&$str)
 
 function gdversion()
 {
-  //Ã»ÆôÓÃphp.iniº¯ÊýµÄÇé¿öÏÂÈç¹ûÓÐGDÄ¬ÈÏÊÓ×÷2.0ÒÔÉÏ°æ±¾
+  //æ²¡å¯ç”¨php.iniå‡½æ•°çš„æƒ…å†µä¸‹å¦‚æžœæœ‰GDé»˜è®¤è§†ä½œ2.0ä»¥ä¸Šç‰ˆæœ¬
   if(!function_exists('phpinfo'))
   {
       if(function_exists('imagecreate')) return '2.0';
@@ -69,7 +69,7 @@ function ReWriteConfigAuto()
     $configfile = DEDEDATA.'/config.cache.inc.php';
     if(!is_writeable($configfile))
     {
-        echo "ÅäÖÃÎÄ¼þ'{$configfile}'²»Ö§³ÖÐ´Èë£¬ÎÞ·¨ÐÞ¸ÄÏµÍ³ÅäÖÃ²ÎÊý£¡";
+        echo "é…ç½®æ–‡ä»¶'{$configfile}'ä¸æ”¯æŒå†™å…¥ï¼Œæ— æ³•ä¿®æ”¹ç³»ç»Ÿé…ç½®å‚æ•°ï¼";
         //ClearAllLink();
         exit();
     }
@@ -87,7 +87,7 @@ function ReWriteConfigAuto()
     fclose($fp);
 }
 
-//¸üÐÂÀ¸Ä¿»º´æ
+//æ›´æ–°æ ç›®ç¼“å­˜
 function UpDateCatCache()
 {
     global $conn,$cfg_multi_site,$dbprefix;

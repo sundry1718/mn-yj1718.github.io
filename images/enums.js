@@ -1,6 +1,6 @@
 <!--
 
-//Ñ¡ÔñµØÇøµÄ¶ş¼¶·ÖÀà(·ÇÍ¨ÓÃµ÷ÓÃ)
+//é€‰æ‹©åœ°åŒºçš„äºŒçº§åˆ†ç±»(éé€šç”¨è°ƒç”¨)
 function selNext(oj, v)
 {
     var newobj = oj.options;
@@ -13,7 +13,7 @@ function selNext(oj, v)
     if(selv==0)
     {
         aOption = document.createElement('OPTION');
-        aOption.text = '¾ßÌåµØÇø';
+        aOption.text = 'å…·ä½“åœ°åŒº';
         aOption.value = '0';
         oj.options.add(aOption);
         return;
@@ -21,7 +21,7 @@ function selNext(oj, v)
     else
     {
         aOption = document.createElement('OPTION');
-        aOption.text = '¾ßÌåµØÇø';
+        aOption.text = 'å…·ä½“åœ°åŒº';
         aOption.value = '0';
         oj.options.add(aOption);
     }
@@ -37,7 +37,7 @@ function selNext(oj, v)
 }
 
 
-//×ÓÀà¸Ä±äÊÂ¼ş
+//å­ç±»æ”¹å˜äº‹ä»¶
 function ChangeSon()
 {
     /*
@@ -50,7 +50,7 @@ function ChangeSon()
         document.getElementById('hidden_'+emname).value = this.options[this.selectedIndex].value;
     }
     */
-    // ÓÉÓÚÖ§³Ö3¼¶Áª¶¯,ËùÒÔÕâÀïĞèÒª¶Ô×Ô¼º¸Ä±ä½øĞĞÖØ¹¹
+    // ç”±äºæ”¯æŒ3çº§è”åŠ¨,æ‰€ä»¥è¿™é‡Œéœ€è¦å¯¹è‡ªå·±æ”¹å˜è¿›è¡Œé‡æ„
     var emname = this.name.replace('_son', '');
     // alert(emname);
     if( document.getElementById(emname+'_sec') )
@@ -78,7 +78,7 @@ function ChangeSon()
     if(selv == 0)
     {
         aOption = document.createElement('OPTION');
-        aOption.text = 'ÇëÑ¡Ôñ..';
+        aOption.text = 'è¯·é€‰æ‹©..';
         aOption.value = '0';
         oj.options.add(aOption);
         return;
@@ -86,7 +86,7 @@ function ChangeSon()
     else
     {
         aOption = document.createElement('OPTION');
-        aOption.text = 'ÇëÑ¡Ôñ..';
+        aOption.text = 'è¯·é€‰æ‹©..';
         aOption.value = '0';
         oj.options.add(aOption);
     }
@@ -105,7 +105,7 @@ function ChangeSon()
     else document.getElementById('span_'+emname+'_sec').innerHTML = "";
 }
 
-// ¸Ä±äµÚÈı¼¶µÄÊÂ¼ş
+// æ”¹å˜ç¬¬ä¸‰çº§çš„äº‹ä»¶
 function ChangeSec()
 {
     var emname = this.name.replace('_sec', '');
@@ -118,7 +118,7 @@ function ChangeSec()
     }
 }
 
-//¶¥¼¶Àà¸Ä±äÊÂ¼ş
+//é¡¶çº§ç±»æ”¹å˜äº‹ä»¶
 function selNextSon()
 {
     var emname = this.name.replace('_top', '');
@@ -144,7 +144,7 @@ function selNextSon()
     if(selv==0)
     {
         aOption = document.createElement('OPTION');
-        aOption.text = 'ÇëÑ¡Ôñ..';
+        aOption.text = 'è¯·é€‰æ‹©..';
         aOption.value = '0';
         oj.options.add(aOption);
         return;
@@ -152,7 +152,7 @@ function selNextSon()
     else
     {
         aOption = document.createElement('OPTION');
-        aOption.text = 'ÇëÑ¡Ôñ..';
+        aOption.text = 'è¯·é€‰æ‹©..';
         aOption.value = '0';
         oj.options.add(aOption);
     }
@@ -169,7 +169,7 @@ function selNextSon()
 }
 
 
-// ¸ù¾İÊı×éÉú³É¶à¼¶Áª¶¯²Ëµ¥
+// æ ¹æ®æ•°ç»„ç”Ÿæˆå¤šçº§è”åŠ¨èœå•
 function MakeTopSelect(emname, selvalue)
 {
     var selectFormHtml = '';
@@ -185,7 +185,7 @@ function MakeTopSelect(emname, selvalue)
     var secvalue = 0;
     
     aOption = document.createElement('OPTION');
-    aOption.text = 'ÇëÑ¡Ôñ..';
+    aOption.text = 'è¯·é€‰æ‹©..';
     aOption.value = 0;
     selObj.options.add(aOption);
     
@@ -194,7 +194,7 @@ function MakeTopSelect(emname, selvalue)
     {
         topvalue = selvalue;
     }
-    // Èç¹ûÊÇĞ¡Êı,ÔòÒÀ´ÎÈ¡³ö¶¥¼¶ÊıÖµ,¶ş¼¶ÊıÖµÒÔ¼°Èı¼¶ÊıÖµ
+    // å¦‚æœæ˜¯å°æ•°,åˆ™ä¾æ¬¡å–å‡ºé¡¶çº§æ•°å€¼,äºŒçº§æ•°å€¼ä»¥åŠä¸‰çº§æ•°å€¼
     else if(!!(selvalue % 1))
     {
         secvalue = selvalue;
@@ -227,18 +227,18 @@ function MakeTopSelect(emname, selvalue)
     }
     document.getElementById('span_'+emname).appendChild(selObj);
     
-    //Èç¹û×ÓÀà´æÔÚÖµ£¬´´½¨×ÓÀà
+    //å¦‚æœå­ç±»å­˜åœ¨å€¼ï¼Œåˆ›å»ºå­ç±»
     //if(sonvalue > 0 || topvalue > 0) {
     selObj = document.createElement("select");
     selObj.name = emname + '_son';
     selObj.id   = emname + '_son';
     selObj.onchange = ChangeSon;
     aOption = document.createElement('OPTION');
-    aOption.text = 'ÇëÑ¡Ôñ..';
+    aOption.text = 'è¯·é€‰æ‹©..';
     aOption.value = 0;
     selObj.options.add(aOption);
     
-    //µ±´óÀàÓĞÖµÊä³ö×ÓÀà
+    //å½“å¤§ç±»æœ‰å€¼è¾“å‡ºå­ç±»
     if(topvalue > 0)
     {
         var selv = topvalue;
@@ -264,7 +264,7 @@ function MakeTopSelect(emname, selvalue)
     }
     document.getElementById('span_'+emname+'_son').appendChild(selObj);
     
-    // Èô´æÔÚµÚÈı¼¶Ôò´´½¨
+    // è‹¥å­˜åœ¨ç¬¬ä¸‰çº§åˆ™åˆ›å»º
     if(secvalue > 0)
     {
         selObj = document.createElement("select");
@@ -272,7 +272,7 @@ function MakeTopSelect(emname, selvalue)
         selObj.id   = emname + '_sec';
         selObj.onchange = ChangeSec;
         aOption = document.createElement('OPTION');
-        aOption.text = 'ÇëÑ¡Ôñ..';
+        aOption.text = 'è¯·é€‰æ‹©..';
         aOption.value = 0;
         selObj.options.add(aOption);
         
@@ -302,7 +302,7 @@ function MakeTopSelect(emname, selvalue)
     document.getElementById('span_'+emname+'_sec').appendChild(selObj);
 }
 
-// Á½¸öĞ¡ÊıÏà¼Ó½ø¶È¼ÆËã
+// ä¸¤ä¸ªå°æ•°ç›¸åŠ è¿›åº¦è®¡ç®—
 function FloatAdd(arg1, arg2)
 {
     var r1,r2,m;
@@ -312,7 +312,7 @@ function FloatAdd(arg1, arg2)
     return (arg1*m+arg2*m)/m
 }
 
-//Çå³ı¾É¶ÔÏó
+//æ¸…é™¤æ—§å¯¹è±¡
 function clear(o)
 {
     l=o.length;

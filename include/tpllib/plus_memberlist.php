@@ -1,9 +1,9 @@
 <?php   if(!defined('DEDEINC')) exit("Request Error!");
 //orderby = logintime(login new) or mid(register new)
 /**
- * ¶¯Ì¬Ä£°åmemberlist±êÇ©
+ * åŠ¨æ€æ¨¡æ¿memberlistæ ‡ç­¾
  *
- * @version        $Id: plus_memberlist.php 1 13:58 2010Äê7ÔÂ5ÈÕZ tianya $
+ * @version        $Id: plus_memberlist.php 1 13:58 2010å¹´7æœˆ5æ—¥Z tianya $
  * @package        DedeCMS.Tpllib
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html

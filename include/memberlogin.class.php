@@ -1,26 +1,26 @@
 <?php   if(!defined('DEDEINC')) exit('Request Error!');
 /**
- * »áÔ±µÇÂ¼Àà
+ * ä¼šå‘˜ç™»å½•ç±»
  *
- * @version        $Id: userlogin.class.php 1 15:59 2010Äê7ÔÂ5ÈÕZ tianya $
+ * @version        $Id: userlogin.class.php 1 15:59 2010å¹´7æœˆ5æ—¥Z tianya $
  * @package        DedeCMS.Libraries
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
  * @link           http://www.dedecms.com
  */
 
-// Ê¹ÓÃ»º´æÖúÊÖ
+// ä½¿ç”¨ç¼“å­˜åŠ©æ‰‹
 helper('cache');
 /**
- *  ¼ì²éÓÃ»§ÃûµÄºÏ·¨ĞÔ
+ *  æ£€æŸ¥ç”¨æˆ·åçš„åˆæ³•æ€§
  *
  * @access    public
- * @param     string  $uid  ÓÃ»§UID
- * @param     string  $msgtitle  ÌáÊ¾±êÌâ
- * @param     string  $ckhas  ¼ì²éÊÇ·ñ´æÔÚ
+ * @param     string  $uid  ç”¨æˆ·UID
+ * @param     string  $msgtitle  æç¤ºæ ‡é¢˜
+ * @param     string  $ckhas  æ£€æŸ¥æ˜¯å¦å­˜åœ¨
  * @return    string
  */
-function CheckUserID($uid, $msgtitle='ÓÃ»§Ãû', $ckhas=TRUE)
+function CheckUserID($uid, $msgtitle='ç”¨æˆ·å', $ckhas=TRUE)
 {
     global $cfg_mb_notallow,$cfg_mb_idmin,$cfg_md_idurl,$cfg_soft_lang,$dsql;
     if($cfg_mb_notallow != '')
@@ -28,12 +28,12 @@ function CheckUserID($uid, $msgtitle='ÓÃ»§Ãû', $ckhas=TRUE)
         $nas = explode(',', $cfg_mb_notallow);
         if(in_array($uid, $nas))
         {
-            return $msgtitle.'ÎªÏµÍ³½ûÖ¹µÄ±êÊ¶£¡';
+            return $msgtitle.'ä¸ºç³»ç»Ÿç¦æ­¢çš„æ ‡è¯†ï¼';
         }
     }
     if($cfg_md_idurl=='Y' && preg_match("/[^a-z0-9]/i",$uid))
     {
-        return $msgtitle.'±ØĞëÓÉÓ¢ÎÄ×ÖÄ¸»òÊı×Ö×é³É£¡';
+        return $msgtitle.'å¿…é¡»ç”±è‹±æ–‡å­—æ¯æˆ–æ•°å­—ç»„æˆï¼';
     }
 
     if($cfg_soft_lang=='utf-8')
@@ -55,32 +55,32 @@ function CheckUserID($uid, $msgtitle='ÓÃ»§Ãû', $ckhas=TRUE)
             }
             else
             {
-                return $msgtitle.'¿ÉÄÜº¬ÓĞÂÒÂë£¬½¨ÒéÄã¸ÄÓÃÓ¢ÎÄ×ÖÄ¸ºÍÊı×Ö×éºÏ£¡';
+                return $msgtitle.'å¯èƒ½å«æœ‰ä¹±ç ï¼Œå»ºè®®ä½ æ”¹ç”¨è‹±æ–‡å­—æ¯å’Œæ•°å­—ç»„åˆï¼';
             }
         }
         else
         {
             if(preg_match("/[^0-9a-z@\.-]/i",$ck_uid[$i]))
             {
-                return $msgtitle.'²»ÄÜº¬ÓĞ [@]¡¢[.]¡¢[-]ÒÔÍâµÄÌØÊâ·ûºÅ£¡';
+                return $msgtitle.'ä¸èƒ½å«æœ‰ [@]ã€[.]ã€[-]ä»¥å¤–çš„ç‰¹æ®Šç¬¦å·ï¼';
             }
         }
     }
     if($ckhas)
     {
         $row = $dsql->GetOne("SELECT * FROM `#@__member` WHERE userid LIKE '$uid' ");
-        if(is_array($row)) return $msgtitle."ÒÑ¾­´æÔÚ£¡";
+        if(is_array($row)) return $msgtitle."å·²ç»å­˜åœ¨ï¼";
     }
     return 'ok';
 }
 
 /**
- *  ±£´æÒ»ÔòÏûÏ¢¼ÇÂ¼
+ *  ä¿å­˜ä¸€åˆ™æ¶ˆæ¯è®°å½•
  *
  * @access    public
- * @param     string  $mid  ÓÃ»§MID
- * @param     string  $mid  ÓÃ»§ID
- * @param     string  $msg  ±£´æÏûÏ¢
+ * @param     string  $mid  ç”¨æˆ·MID
+ * @param     string  $mid  ç”¨æˆ·ID
+ * @param     string  $msg  ä¿å­˜æ¶ˆæ¯
  * @return    string
  */
 function PutSnsMsg($mid, $userid, $msg)
@@ -93,7 +93,7 @@ function PutSnsMsg($mid, $userid, $msg)
 }
 
 /**
- *  ¼ì²éÓÃ»§ÊÇ·ñ±»½ûÑÔ
+ *  æ£€æŸ¥ç”¨æˆ·æ˜¯å¦è¢«ç¦è¨€
  *
  * @return    void
  */
@@ -103,33 +103,33 @@ function CheckNotAllow()
     if(empty($cfg_ml->M_ID)) return ;
     if($cfg_ml->M_Spacesta == -2)
     {
-        ShowMsg("ÄãÒÑ¾­±»½ûÑÔ£¬ÇëÓë¹ÜÀíÔ±ÁªÏµ£¡", "-1");
+        ShowMsg("ä½ å·²ç»è¢«ç¦è¨€ï¼Œè¯·ä¸ç®¡ç†å‘˜è”ç³»ï¼", "-1");
         exit();
     }else if($cfg_ml->M_Spacesta == -10)
     {
-        ShowMsg("ÏµÍ³¿ªÆôÁËÓÊ¼şÉóºË»úÖÆ£¬Òò´ËÄãµÄÕÊºÅĞèÒªÉóºËºó²ÅÄÜ·¢ĞÅÏ¢£¡", "-1");
+        ShowMsg("ç³»ç»Ÿå¼€å¯äº†é‚®ä»¶å®¡æ ¸æœºåˆ¶ï¼Œå› æ­¤ä½ çš„å¸å·éœ€è¦å®¡æ ¸åæ‰èƒ½å‘ä¿¡æ¯ï¼", "-1");
         exit();
     }
     else if($cfg_ml->M_Spacesta < 0)
     {
-        ShowMsg('ÏµÍ³¿ªÆôÁËÉóºË»úÖÆ£¬Òò´ËÄãµÄÕÊºÅĞèÒª¹ÜÀíÔ±ÉóºËºó²ÅÄÜ·¢ĞÅÏ¢£¡', '-1');
+        ShowMsg('ç³»ç»Ÿå¼€å¯äº†å®¡æ ¸æœºåˆ¶ï¼Œå› æ­¤ä½ çš„å¸å·éœ€è¦ç®¡ç†å‘˜å®¡æ ¸åæ‰èƒ½å‘ä¿¡æ¯ï¼', '-1');
         exit();
     }
 }
 
 function FormatUsername($username)
 {
-    $username = str_replace("`","¡®",$username);
-    $username = str_replace("'","¡®",$username);
-    $username = str_replace("\"","¡°",$username);
-    $username = str_replace(",","£¬",$username);
-    $username = str_replace("(","£¨",$username);
-    $username = str_replace(")","£©",$username);
+    $username = str_replace("`","â€˜",$username);
+    $username = str_replace("'","â€˜",$username);
+    $username = str_replace("\"","â€œ",$username);
+    $username = str_replace(",","ï¼Œ",$username);
+    $username = str_replace("(","ï¼ˆ",$username);
+    $username = str_replace(")","ï¼‰",$username);
     return addslashes($username);
 }
 
 /**
- * ÍøÕ¾»áÔ±µÇÂ¼Àà
+ * ç½‘ç«™ä¼šå‘˜ç™»å½•ç±»
  *
  * @package          MemberLogin
  * @subpackage       DedeCMS.Libraries
@@ -157,7 +157,7 @@ class MemberLogin
     var $M_Honor = '';
     var $memberCache='memberlogin';
 
-    //php5¹¹Ôìº¯Êı
+    //php5æ„é€ å‡½æ•°
     function __construct($kptime = -1, $cache=FALSE)
     {
         global $dsql;
@@ -205,7 +205,7 @@ class MemberLogin
                 }
                 #/aip}}
             
-                //¼ä¸ôÒ»Ğ¡Ê±¸üĞÂÒ»´ÎÓÃ»§µÇÂ¼Ê±¼ä
+                //é—´éš”ä¸€å°æ—¶æ›´æ–°ä¸€æ¬¡ç”¨æˆ·ç™»å½•æ—¶é—´
                 if(time() - $this->M_LoginTime > 3600)
                 {
                     $dsql->ExecuteNoneQuery("update `#@__member` set logintime='".time()."',loginip='".GetIP()."' where mid='".$this->fields['mid']."';");
@@ -246,7 +246,7 @@ class MemberLogin
     }
     
     /**
-     *  É¾³ı»º´æ,Ã¿´ÎµÇÂ¼Ê±ºÍÔÚĞŞ¸ÄÓÃ»§×ÊÁÏµÄµØ·½»áÇå³ı
+     *  åˆ é™¤ç¼“å­˜,æ¯æ¬¡ç™»å½•æ—¶å’Œåœ¨ä¿®æ”¹ç”¨æˆ·èµ„æ–™çš„åœ°æ–¹ä¼šæ¸…é™¤
      *
      * @access    public
      * @param     string
@@ -258,7 +258,7 @@ class MemberLogin
     }
     
     /**
-     *  ÅĞ¶Ï»áÔ±ÊÇ·ñµ½ÆÚ
+     *  åˆ¤æ–­ä¼šå‘˜æ˜¯å¦åˆ°æœŸ
      *
      * @return    string
      */
@@ -275,7 +275,7 @@ class MemberLogin
     }
 
     /**
-     *  ÍË³öcookieµÄ»á»°
+     *  é€€å‡ºcookieçš„ä¼šè¯
      *
      * @return    void
      */
@@ -285,7 +285,7 @@ class MemberLogin
     }
 
     /**
-     *  ÑéÖ¤ÓÃ»§ÊÇ·ñÒÑ¾­µÇÂ¼
+     *  éªŒè¯ç”¨æˆ·æ˜¯å¦å·²ç»ç™»å½•
      *
      * @return    bool
      */
@@ -296,7 +296,7 @@ class MemberLogin
     }
 
     /**
-     *  ¼ì²âÓÃ»§ÉÏ´«¿Õ¼ä
+     *  æ£€æµ‹ç”¨æˆ·ä¸Šä¼ ç©ºé—´
      *
      * @return    int
      */
@@ -309,7 +309,7 @@ class MemberLogin
     }
 
     /**
-     *  ¼ì²éÓÃ»§¿Õ¼äĞÅÏ¢
+     *  æ£€æŸ¥ç”¨æˆ·ç©ºé—´ä¿¡æ¯
      *
      * @return    void
      */
@@ -321,17 +321,17 @@ class MemberLogin
         $maxSize = $cfg_mb_max * 1024 * 1024;
         if($hasuse >= $maxSize)
         {
-            ShowMsg('ÄãµÄ¿Õ¼äÒÑÂú£¬²»ÔÊĞíÉÏ´«ĞÂÎÄ¼ş£¡','-1');
+            ShowMsg('ä½ çš„ç©ºé—´å·²æ»¡ï¼Œä¸å…è®¸ä¸Šä¼ æ–°æ–‡ä»¶ï¼','-1');
             exit();
         }
     }
 
     /**
-     *  ¸üĞÂÓÃ»§ĞÅÏ¢Í³¼Æ±í
+     *  æ›´æ–°ç”¨æˆ·ä¿¡æ¯ç»Ÿè®¡è¡¨
      *
      * @access    public
-     * @param     string  $field  ×Ö¶ÎĞÅÏ¢
-     * @param     string  $uptype  ¸üĞÂÀàĞÍ
+     * @param     string  $field  å­—æ®µä¿¡æ¯
+     * @param     string  $uptype  æ›´æ–°ç±»å‹
      * @return    string
      */
     function UpdateUserTj($field, $uptype='add')
@@ -363,7 +363,7 @@ class MemberLogin
 
     //
     /**
-     *  ÖØÖÃÓÃ»§ĞÅÏ¢
+     *  é‡ç½®ç”¨æˆ·ä¿¡æ¯
      *
      * @return    void
      */
@@ -389,10 +389,10 @@ class MemberLogin
     }
 
     /**
-     *  »ñÈ¡ÕûÊıÖµ
+     *  è·å–æ•´æ•°å€¼
      *
      * @access    public
-     * @param     string  $fnum  ´¦ÀíµÄÊıÖµ
+     * @param     string  $fnum  å¤„ç†çš„æ•°å€¼
      * @return    string
      */
     function GetNum($fnum){
@@ -401,11 +401,11 @@ class MemberLogin
     }
 
     /**
-     *  ÓÃ»§µÇÂ¼
-     *  °ÑµÇÂ¼ÃÜÂë×ªÎªÖ¸¶¨³¤¶Èmd5Êı¾İ
+     *  ç”¨æˆ·ç™»å½•
+     *  æŠŠç™»å½•å¯†ç è½¬ä¸ºæŒ‡å®šé•¿åº¦md5æ•°æ®
      *
      * @access    public
-     * @param     string  $pwd  ĞèÒª¼ÓÃÜµÄÃÜÂë
+     * @param     string  $pwd  éœ€è¦åŠ å¯†çš„å¯†ç 
      * @return    string
      */
     function GetEncodePwd($pwd)
@@ -426,8 +426,8 @@ class MemberLogin
     }
     
     /**
-     *  °ÑÊı¾İ¿âÃÜÂë×ªÎªÌØ¶¨³¤¶È
-     *  Èç¹ûÊı¾İ¿âÃÜÂëÊÇÃ÷ÎÄµÄ£¬±¾³ÌĞò²»Ö§³Ö
+     *  æŠŠæ•°æ®åº“å¯†ç è½¬ä¸ºç‰¹å®šé•¿åº¦
+     *  å¦‚æœæ•°æ®åº“å¯†ç æ˜¯æ˜æ–‡çš„ï¼Œæœ¬ç¨‹åºä¸æ”¯æŒ
      *
      * @access    public
      * @param     string
@@ -459,28 +459,28 @@ class MemberLogin
     }
     
     /**
-     *  ¼ì²éÓÃ»§ÊÇ·ñºÏ·¨
+     *  æ£€æŸ¥ç”¨æˆ·æ˜¯å¦åˆæ³•
      *
      * @access    public
-     * @param     string  $loginuser  µÇÂ¼ÓÃ»§Ãû
-     * @param     string  $loginpwd  ÓÃ»§ÃÜÂë
+     * @param     string  $loginuser  ç™»å½•ç”¨æˆ·å
+     * @param     string  $loginpwd  ç”¨æˆ·å¯†ç 
      * @return    string
      */
     function CheckUser(&$loginuser, $loginpwd)
     {
         global $dsql;
 
-        //¼ì²âÓÃ»§ÃûµÄºÏ·¨ĞÔ
-        $rs = CheckUserID($loginuser,'ÓÃ»§Ãû',FALSE);
+        //æ£€æµ‹ç”¨æˆ·åçš„åˆæ³•æ€§
+        $rs = CheckUserID($loginuser,'ç”¨æˆ·å',FALSE);
 
-        //ÓÃ»§Ãû²»ÕıÈ·Ê±·µ»ØÑéÖ¤´íÎó£¬Ô­µÇÂ¼ÃûÍ¨¹ıÒıÓÃ·µ»Ø´íÎóÌáÊ¾ĞÅÏ¢
+        //ç”¨æˆ·åä¸æ­£ç¡®æ—¶è¿”å›éªŒè¯é”™è¯¯ï¼ŒåŸç™»å½•åé€šè¿‡å¼•ç”¨è¿”å›é”™è¯¯æç¤ºä¿¡æ¯
         if($rs!='ok')
         {
             $loginuser = $rs;
             return '0';
         }
 
-        //matt=10 ÊÇ¹ÜÀíÔ±¹ØÁ¬µÄÇ°Ì¨ÕÊºÅ£¬ÎªÁË°²È«Æğ¼û£¬Õâ¸öÕÊºÅÖ»ÄÜ´ÓºóÌ¨µÇÂ¼£¬²»ÄÜÖ±½Ó´ÓÇ°Ì¨µÇÂ¼
+        //matt=10 æ˜¯ç®¡ç†å‘˜å…³è¿çš„å‰å°å¸å·ï¼Œä¸ºäº†å®‰å…¨èµ·è§ï¼Œè¿™ä¸ªå¸å·åªèƒ½ä»åå°ç™»å½•ï¼Œä¸èƒ½ç›´æ¥ä»å‰å°ç™»å½•
         $row = $dsql->GetOne("SELECT mid,matt,pwd,logintime FROM `#@__member` WHERE userid LIKE '$loginuser' ");
         if(is_array($row))
         {
@@ -490,7 +490,7 @@ class MemberLogin
             }
             else
             {
-                //¹ÜÀíÔ±ÕÊºÅ²»ÔÊĞí´ÓÇ°Ì¨µÇÂ¼
+                //ç®¡ç†å‘˜å¸å·ä¸å…è®¸ä»å‰å°ç™»å½•
                 if($row['matt']==10) {
                     return -2;
                 }
@@ -507,17 +507,17 @@ class MemberLogin
     }
 
     /**
-     *  ±£´æÓÃ»§cookie
+     *  ä¿å­˜ç”¨æˆ·cookie
      *
      * @access    public
-     * @param     string  $uid  ÓÃ»§ID
-     * @param     string  $logintime  µÇÂ¼ÏŞÖÆÊ±¼ä
+     * @param     string  $uid  ç”¨æˆ·ID
+     * @param     string  $logintime  ç™»å½•é™åˆ¶æ—¶é—´
      * @return    void
      */
     function PutLoginInfo($uid, $logintime=0)
     {
         global $cfg_login_adds, $dsql;
-        //µÇÂ¼Ôö¼Ó»ı·Ö(ÉÏÒ»´ÎµÇÂ¼Ê±¼ä±ØĞë´óÓÚÁ½Ğ¡Ê±)
+        //ç™»å½•å¢åŠ ç§¯åˆ†(ä¸Šä¸€æ¬¡ç™»å½•æ—¶é—´å¿…é¡»å¤§äºä¸¤å°æ—¶)
         if(time() - $logintime > 7200 && $cfg_login_adds > 0)
         {
             $dsql->ExecuteNoneQuery("Update `#@__member` set `scores`=`scores`+{$cfg_login_adds} where mid='$uid' ");
@@ -540,10 +540,10 @@ class MemberLogin
     }
 
     /**
-     *  »ñµÃ»áÔ±Ä¿Ç°µÄ×´Ì¬
+     *  è·å¾—ä¼šå‘˜ç›®å‰çš„çŠ¶æ€
      *
      * @access    public
-     * @param     string  $dsql  Êı¾İ¿âÁ¬½Ó
+     * @param     string  $dsql  æ•°æ®åº“è¿æ¥
      * @return    string
      */
     function GetSta($dsql)
@@ -551,49 +551,49 @@ class MemberLogin
         $sta = '';
         if($this->M_Rank==0)
         {
-            $sta .= "ÄãÄ¿Ç°µÄÉí·İÊÇ£ºÆÕÍ¨»áÔ±";
+            $sta .= "ä½ ç›®å‰çš„èº«ä»½æ˜¯ï¼šæ™®é€šä¼šå‘˜";
         }else{
             $row = $dsql->GetOne("Select membername From `#@__arcrank` where rank='".$this->M_Rank."'");
-            $sta .= "ÄãÄ¿Ç°µÄÉí·İÊÇ£º".$row['membername'];
+            $sta .= "ä½ ç›®å‰çš„èº«ä»½æ˜¯ï¼š".$row['membername'];
             $rs = $dsql->GetOne("Select id From `#@__admin` where userid='".$this->M_LoginID."'");
             if(!is_array($rs)){
-                if($this->M_Rank>10 && $this->M_HasDay>0) $sta .= " Ê£ÓàÌìÊı: <font color='red'>".$this->M_HasDay."</font>  Ìì ";
-                elseif($this->M_Rank>10) $sta .= " <font color='red'>»áÔ±Éı¼¶ÒÑ¾­µ½ÆÚ</font> ";
+                if($this->M_Rank>10 && $this->M_HasDay>0) $sta .= " å‰©ä½™å¤©æ•°: <font color='red'>".$this->M_HasDay."</font>  å¤© ";
+                elseif($this->M_Rank>10) $sta .= " <font color='red'>ä¼šå‘˜å‡çº§å·²ç»åˆ°æœŸ</font> ";
           }
         }
-        $sta .= " ÓµÓĞ½ğ±Ò£º{$this->M_Money} ¸ö£¬ »ı·Ö£º{$this->M_Scores} ·Ö¡£";
+        $sta .= " æ‹¥æœ‰é‡‘å¸ï¼š{$this->M_Money} ä¸ªï¼Œ ç§¯åˆ†ï¼š{$this->M_Scores} åˆ†ã€‚";
         return $sta;
     }
     
     /**
-     *  ¼ÇÂ¼»áÔ±²Ù×÷ÈÕÖ¾
+     *  è®°å½•ä¼šå‘˜æ“ä½œæ—¥å¿—
      *
      * @access    public
-     * @param     string  $type ¼ÇÂ¼ÀàĞÍ
-     * @param     string  $title ¼ÇÂ¼±êÌâ
-     * @param     string  $note¼ÇÂ¼ÃèÊö
-     * @param     string  $aidÉæ¼°µ½µÄÄÚÈİµÄid
+     * @param     string  $type è®°å½•ç±»å‹
+     * @param     string  $title è®°å½•æ ‡é¢˜
+     * @param     string  $noteè®°å½•æè¿°
+     * @param     string  $aidæ¶‰åŠåˆ°çš„å†…å®¹çš„id
      * @return    string
      */
     function RecordFeeds($type, $title, $note, $aid)
     {
         global $dsql,$cfg_mb_feedcheck;
-        //È·¶¨ÊÇ·ñĞèÒª¼ÇÂ¼
+        //ç¡®å®šæ˜¯å¦éœ€è¦è®°å½•
         if (in_array($type,array('add','addsoft','feedback','addfriends','stow'))){
             $ntime = time();
             $title = dede_htmlspecialchars(cn_substrR($title,255));
             if(in_array($type,array('add','addsoft','feedback','stow')))
             {
-                $rcdtype = array('add'=>' ³É¹¦·¢²¼ÁË', 'addsoft'=>' ³É¹¦·¢²¼ÁËÈí¼ş',
-                                 'feedback'=>' ÆÀÂÛÁËÎÄÕÂ','stow'=>' ÊÕ²ØÁË');
-                //ÄÚÈİ·¢²¼´¦Àí
+                $rcdtype = array('add'=>' æˆåŠŸå‘å¸ƒäº†', 'addsoft'=>' æˆåŠŸå‘å¸ƒäº†è½¯ä»¶',
+                                 'feedback'=>' è¯„è®ºäº†æ–‡ç« ','stow'=>' æ”¶è—äº†');
+                //å†…å®¹å‘å¸ƒå¤„ç†
                 $arcrul = " <a href='/plus/view.php?aid=".$aid."'>".$title."</a>";
                 $title = dede_htmlspecialchars($rcdtype[$type].$arcrul, ENT_QUOTES);
             } else if ($type == 'addfriends')
             {
-                //Ìí¼ÓºÃÓÑ´¦Àí
+                //æ·»åŠ å¥½å‹å¤„ç†
                 $arcrul = " <a href='/member/index.php?uid=".$aid."'>".$aid."</a>";
-                $title = dede_htmlspecialchars(' Óë'. $arcrul."³ÉÎªºÃÓÑ", ENT_QUOTES);
+                $title = dede_htmlspecialchars(' ä¸'. $arcrul."æˆä¸ºå¥½å‹", ENT_QUOTES);
             }
             $note = Html2Text($note);
             $aid = (isset($aid) && is_numeric($aid) ? $aid : 0);

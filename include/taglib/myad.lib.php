@@ -1,8 +1,8 @@
 <?php   if(!defined('DEDEINC')) exit('Request Error!');
 /**
- * ������
+ * 广告调用
  *
- * @version        $Id: myad.lib.php 1 9:29 2010��7��6��Z tianya $
+ * @version        $Id: myad.lib.php 1 9:29 2010年7月6日Z tianya $
  * @package        DedeCMS.Taglib
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -10,16 +10,16 @@
  */
  
 /*>>dede>>
-<name>����ǩ</name>
-<type>ȫ�ֱ��</type>
+<name>广告标签</name>
+<type>全局标记</type>
 <for>V55,V56,V57</for>
-<description>��ȡ������</description>
+<description>获取广告代码</description>
 <demo>
 {dede:myad name=''/}
 </demo>
 <attributes>
-    <iterm>typeid:Ͷ�ŷ�Χ,0Ϊȫվ</iterm> 
-    <iterm>name:����ʶ</iterm>
+    <iterm>typeid:投放范围,0为全站</iterm> 
+    <iterm>name:广告标识</iterm>
 </attributes> 
 >>dede>>*/
  

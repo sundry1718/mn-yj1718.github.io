@@ -1,8 +1,8 @@
 <?php
 /**
- * Èí¼şÑ¡Ôñ¿ò
+ * è½¯ä»¶é€‰æ‹©æ¡†
  *
- * @version        $Id: select_soft.php 1 9:43 2010Äê7ÔÂ8ÈÕZ tianya $
+ * @version        $Id: select_soft.php 1 9:43 2010å¹´7æœˆ8æ—¥Z tianya $
  * @package        DedeCMS.Dialog
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -50,7 +50,7 @@ if (!empty($noeditor))
 <html>
 <head>
 <meta http-equiv='Content-Type' content='text/html; charset=<?php echo $cfg_soft_lang; ?>'>
-<title>Èí¼ş¹ÜÀíÆ÷</title>
+<title>è½¯ä»¶ç®¡ç†å™¨</title>
 <link href='../../plus/img/base.css' rel='stylesheet' type='text/css'>
 <style>
 .linerow {border-bottom: 1px solid #CBD8AC;}
@@ -87,29 +87,29 @@ function ReturnValue(reimg)
 		<input type='hidden' name='activepath' value='<?php echo $activepath?>' />
 		<input type='hidden' name='f' value='<?php echo $f?>' />
 		<input type='hidden' name='job' value='upload' />
-  	&nbsp;ÉÏ¡¡´«£º <input type='file' name='uploadfile' size='25' />
+  	&nbsp;ä¸Šã€€ä¼ ï¼š <input type='file' name='uploadfile' size='25' />
   	&nbsp;
-  	¸Ä Ãû£º<input type='test' name='newname' style='width:90px' />
+  	æ”¹ åï¼š<input type='test' name='newname' style='width:90px' />
   	&nbsp;
-  	<input type='submit' name='sb1' value='È·¶¨' />
+  	<input type='submit' name='sb1' value='ç¡®å®š' />
 	</form>
 </td>
 </tr>
 <tr bgcolor='#FFFFFF'>
 <td colspan='3'>
-<!-- ¿ªÊ¼ÎÄ¼şÁĞ±í  -->
+<!-- å¼€å§‹æ–‡ä»¶åˆ—è¡¨  -->
 <table width='100%' border='0' cellspacing='0' cellpadding='2'>
 <tr bgcolor="#CCCCCC" height="24">
-<td width="55%" align="center" background="img/wbg.gif" class='linerow'><strong>µã»÷Ãû³ÆÑ¡ÔñÎÄ¼ş</strong></td>
-<td width="15%" align="center" bgcolor='#EEF4EA' class='linerow'><strong>ÎÄ¼ş´óĞ¡</strong></td>
-<td width="30%" align="center" background="img/wbg.gif" class='linerow'><strong>×îºóĞŞ¸ÄÊ±¼ä</strong></td>
+<td width="55%" align="center" background="img/wbg.gif" class='linerow'><strong>ç‚¹å‡»åç§°é€‰æ‹©æ–‡ä»¶</strong></td>
+<td width="15%" align="center" bgcolor='#EEF4EA' class='linerow'><strong>æ–‡ä»¶å¤§å°</strong></td>
+<td width="30%" align="center" background="img/wbg.gif" class='linerow'><strong>æœ€åä¿®æ”¹æ—¶é—´</strong></td>
 </tr>
 <?php
 $dh = dir($inpath);
 $ty1 = $ty2 = '';
 while($file = $dh->read())
 {
-    //-----¼ÆËãÎÄ¼ş´óĞ¡ºÍ´´½¨Ê±¼ä
+    //-----è®¡ç®—æ–‡ä»¶å¤§å°å’Œåˆ›å»ºæ—¶é—´
     if($file != "." && $file != ".." && !is_dir("$inpath/$file"))
     {
         $filesize = filesize("$inpath/$file");
@@ -126,21 +126,21 @@ while($file = $dh->read())
         $filetime = filemtime("$inpath/$file");
         $filetime = MyDate("Y-m-d H:i:s", $filetime);
     }
-    //------ÅĞ¶ÏÎÄ¼şÀàĞÍ²¢×÷´¦Àí
+    //------åˆ¤æ–­æ–‡ä»¶ç±»å‹å¹¶ä½œå¤„ç†
     if($file == ".") continue;
     else if($file == "..")
     {
         if($activepath == "") continue;
         $tmp = preg_replace("#[\/][^\/]*$#i", "", $activepath);
         $line = "\n<tr height='24'>
-    <td class='linerow'> <a href='select_soft.php?f=$f&activepath=".urlencode($tmp).$addparm."'><img src=img/dir2.gif border=0 width=16 height=16 align=absmiddle>ÉÏ¼¶Ä¿Â¼</a></td>
-    <td colspan='2' class='linerow'> µ±Ç°Ä¿Â¼:$activepath</td>
+    <td class='linerow'> <a href='select_soft.php?f=$f&activepath=".urlencode($tmp).$addparm."'><img src=img/dir2.gif border=0 width=16 height=16 align=absmiddle>ä¸Šçº§ç›®å½•</a></td>
+    <td colspan='2' class='linerow'> å½“å‰ç›®å½•:$activepath</td>
     </tr>\r\n";
         echo $line;
     }
     else if(is_dir("$inpath/$file"))
     {
-        if(preg_match("#^_(.*)$#i", $file)) continue; #ÆÁ±ÎFrontPageÀ©Õ¹Ä¿Â¼ºÍlinuxÒş±ÎÄ¿Â¼
+        if(preg_match("#^_(.*)$#i", $file)) continue; #å±è”½FrontPageæ‰©å±•ç›®å½•å’Œlinuxéšè”½ç›®å½•
         if(preg_match("#^\.(.*)$#i", $file)) continue;
         $line = "\n<tr height='24'>
    <td bgcolor='#F9FBF0' class='linerow'>
@@ -203,9 +203,9 @@ while($file = $dh->read())
 }//End Loop
 $dh->close();
 ?>
-<!-- ÎÄ¼şÁĞ±íÍê -->
+<!-- æ–‡ä»¶åˆ—è¡¨å®Œ -->
 </table></td></tr>
-<tr><td colspan='3' bgcolor='#E8F1DE' height='26'>&nbsp;Çëµã»÷ÒªÑ¡ÔñµÄÎÄ¼ş£¬ºìÉ«×ÖÑùµÄÎª¸ÕÉÏ´«µÄÎÄ¼ş¡£</td></tr>
+<tr><td colspan='3' bgcolor='#E8F1DE' height='26'>&nbsp;è¯·ç‚¹å‡»è¦é€‰æ‹©çš„æ–‡ä»¶ï¼Œçº¢è‰²å­—æ ·çš„ä¸ºåˆšä¸Šä¼ çš„æ–‡ä»¶ã€‚</td></tr>
 </table>
 </body>
 </html>

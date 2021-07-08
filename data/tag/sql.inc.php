@@ -1,6 +1,6 @@
 <?php
 global $sqltag;
-// phpwind8Êý¾Ý¿âÁ¬½ÓÅäÖÃ
+// phpwind8æ•°æ®åº“è¿žæŽ¥é…ç½®
 // ------------------------------------------------------------------------
 $sqltag['phpwind8']['dbhost'] = 'localhost';
 $sqltag['phpwind8']['dbname'] = 'phpwind8';
@@ -9,7 +9,7 @@ $sqltag['phpwind8']['dbpwd'] = '123456';
 $sqltag['phpwind8']['dbprefix'] = 'pw_';
 $sqltag['phpwind8']['dblanguage'] = 'gbk';
 
-// phpb2bÊý¾Ý¿âÁ¬½ÓÅäÖÃ
+// phpb2bæ•°æ®åº“è¿žæŽ¥é…ç½®
 // ------------------------------------------------------------------------
 $sqltag['phpb2b']['dbhost'] = 'localhost';
 $sqltag['phpb2b']['dbname'] = 'phpb2b';

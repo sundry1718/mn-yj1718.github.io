@@ -24,7 +24,7 @@ function __autoload($classname)
         if (DEBUG_LEVEL === TRUE)
         {
             echo '<pre>';
-            echo $classname.'¿‡’“≤ªµΩ';
+            echo $classname.'Á±ªÊâæ‰∏çÂà∞';
             echo '</pre>';
             exit ();
         }

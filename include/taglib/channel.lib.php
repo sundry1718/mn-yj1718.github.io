@@ -1,8 +1,8 @@
 <?php
 /**
- * »ñÈ¡À¸Ä¿ÁĞ±í±êÇ©
+ * è·å–æ ç›®åˆ—è¡¨æ ‡ç­¾
  *
- * @version        $Id: channel.lib.php 1 9:29 2010Äê7ÔÂ6ÈÕZ tianya $
+ * @version        $Id: channel.lib.php 1 9:29 2010å¹´7æœˆ6æ—¥Z tianya $
  * @package        DedeCMS.Taglib
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -10,22 +10,22 @@
  */
  
 /*>>dede>>
-<name>ÆµµÀ±êÇ©</name>
-<type>È«¾Ö±ê¼Ç</type>
+<name>é¢‘é“æ ‡ç­¾</name>
+<type>å…¨å±€æ ‡è®°</type>
 <for>V55,V56,V57</for>
-<description>ÓÃÓÚ»ñÈ¡À¸Ä¿ÁĞ±í</description>
+<description>ç”¨äºè·å–æ ç›®åˆ—è¡¨</description>
 <demo>
 {dede:channel type='top' row='8' currentstyle="<li><a href='~typelink~' class='thisclass'>~typename~</a> </li>"} 
  <li><a href='[field:typelink/]'>[field:typename/]</a> </li> 
 {/dede:channel}
 </demo>
 <attributes>
-    <iterm>typeid:À¸Ä¿ID</iterm> 
-    <iterm>reid:ÉÏ¼¶À¸Ä¿ID</iterm>
-    <iterm>row:µ÷ÓÃÀ¸Ä¿Êı</iterm>
-    <iterm>col:·Ö¶àÉÙÁĞÏÔÊ¾£¨Ä¬ÈÏÎªµ¥ÁĞ£©</iterm>
-    <iterm>type:son±íÊ¾ÏÂ¼¶À¸Ä¿,self±íÊ¾Í¬¼¶À¸Ä¿,top¶¥¼¶À¸Ä¿</iterm>
-    <iterm>currentstyle:Ó¦ÓÃÑùÊ½</iterm>
+    <iterm>typeid:æ ç›®ID</iterm> 
+    <iterm>reid:ä¸Šçº§æ ç›®ID</iterm>
+    <iterm>row:è°ƒç”¨æ ç›®æ•°</iterm>
+    <iterm>col:åˆ†å¤šå°‘åˆ—æ˜¾ç¤ºï¼ˆé»˜è®¤ä¸ºå•åˆ—ï¼‰</iterm>
+    <iterm>type:sonè¡¨ç¤ºä¸‹çº§æ ç›®,selfè¡¨ç¤ºåŒçº§æ ç›®,topé¡¶çº§æ ç›®</iterm>
+    <iterm>currentstyle:åº”ç”¨æ ·å¼</iterm>
 </attributes> 
 >>dede>>*/
  
@@ -40,7 +40,7 @@ function lib_channel(&$ctag,&$refObj)
     $line = empty($row) ? 100 : $row;
     
     $likeType = '';
-    //¶ÁÈ¡¹Ì¶¨µÄ»º´æ¿é
+    //è¯»å–å›ºå®šçš„ç¼“å­˜å—
     $cacheid = trim($cacheid);
     if($cacheid !='') {
         $likeType = GetCacheBlock($cacheid);
@@ -49,7 +49,7 @@ function lib_channel(&$ctag,&$refObj)
 
     $reid = 0;
     $topid = 0;
-    //Èç¹ûÊôĞÔÀïÃ»Ö¸¶¨À¸Ä¿id£¬´ÓÒıÓÃÀàÀï»ñÈ¡À¸Ä¿ĞÅÏ¢
+    //å¦‚æœå±æ€§é‡Œæ²¡æŒ‡å®šæ ç›®idï¼Œä»å¼•ç”¨ç±»é‡Œè·å–æ ç›®ä¿¡æ¯
     if(empty($typeid))
     {
         if( isset($refObj->TypeLink->TypeInfos['id']) )
@@ -62,7 +62,7 @@ function lib_channel(&$ctag,&$refObj)
           $typeid = 0;
       }
     }
-    //Èç¹ûÖ¸¶¨ÁËÀ¸Ä¿id£¬´ÓÊı¾İ¿â»ñÈ¡À¸Ä¿ĞÅÏ¢
+    //å¦‚æœæŒ‡å®šäº†æ ç›®idï¼Œä»æ•°æ®åº“è·å–æ ç›®ä¿¡æ¯
     else
     {
         $row2 = $dsql->GetOne("SELECT * FROM `#@__arctype` WHERE id='$typeid' ");
@@ -77,19 +77,19 @@ function lib_channel(&$ctag,&$refObj)
 
     if($type=='top')
     {
-        $sql = "SELECT id,typename,typedir,isdefault,ispart,defaultname,namerule2,moresite,siteurl,sitepath
+        $sql = "SELECT id,typename,typedir,isdefault,description,content,ispart,defaultname,namerule2,moresite,siteurl,sitepath
           From `#@__arctype` WHERE reid=0 And ishidden<>1 order by sortrank asc limit 0, $line ";
     }
     else if($type=='son')
     {
         if($typeid==0) return '';
-        $sql = "SELECT id,typename,typedir,isdefault,ispart,defaultname,namerule2,moresite,siteurl,sitepath
+        $sql = "SELECT id,typename,typedir,isdefault,description,content,ispart,defaultname,namerule2,moresite,siteurl,sitepath
           From `#@__arctype` WHERE reid='$typeid' And ishidden<>1 order by sortrank asc limit 0, $line ";
     }
     else if($type=='self')
     {
         if($reid==0) return '';
-        $sql = "SELECT id,typename,typedir,isdefault,ispart,defaultname,namerule2,moresite,siteurl,sitepath
+        $sql = "SELECT id,typename,typedir,isdefault,description,content,ispart,defaultname,namerule2,moresite,siteurl,sitepath
             FROM `#@__arctype` WHERE reid='$reid' And ishidden<>1 order by sortrank asc limit 0, $line ";
     }
     //And id<>'$typeid'
@@ -97,7 +97,7 @@ function lib_channel(&$ctag,&$refObj)
     $dtp2 = new DedeTagParse();
     $dtp2->SetNameSpace('field','[',']');
     $dtp2->LoadSource($innertext);
-    //¼ì²éÊÇ·ñÓĞ×ÓÀ¸Ä¿£¬²¢·µ»ØrelÌáÊ¾£¨ÓÃÓÚ¶ş¼¶²Ëµ¥£©
+    //æ£€æŸ¥æ˜¯å¦æœ‰å­æ ç›®ï¼Œå¹¶è¿”å›relæç¤ºï¼ˆç”¨äºäºŒçº§èœå•ï¼‰
     if(preg_match('#:rel#', $innertext)) $needRel = true;
     
     if(empty($sql)) return '';
@@ -105,10 +105,10 @@ function lib_channel(&$ctag,&$refObj)
     $dsql->Execute();
     
     $totalRow = $dsql->GetTotalRow();
-    //Èç¹ûÓÃ×ÓÀ¸Ä¿Ä£Ê½£¬µ±Ã»ÓĞ×ÓÀ¸Ä¿Ê±ÏÔÊ¾Í¬¼¶À¸Ä¿
+    //å¦‚æœç”¨å­æ ç›®æ¨¡å¼ï¼Œå½“æ²¡æœ‰å­æ ç›®æ—¶æ˜¾ç¤ºåŒçº§æ ç›®
     if($type=='son' && $reid!=0 && $totalRow==0)
     {
-        $sql = "SELECT id,typename,typedir,isdefault,ispart,defaultname,namerule2,moresite,siteurl,sitepath
+        $sql = "SELECT id,typename,typedir,isdefault,ispart,description,content,defaultname,namerule2,moresite,siteurl,sitepath
             FROM `#@__arctype` WHERE reid='$reid' And ishidden<>1 order by sortrank asc limit 0, $line ";
         $dsql->SetQuery($sql);
       $dsql->Execute();
@@ -129,7 +129,7 @@ function lib_channel(&$ctag,&$refObj)
                     if($row['sonids']=='') $row['rel'] = '';
                     else $row['rel'] = " rel='dropmenu{$row['id']}'";
                 }
-                //´¦ÀíÍ¬¼¶À¸Ä¿ÖĞ£¬µ±Ç°À¸Ä¿µÄÑùÊ½
+                //å¤„ç†åŒçº§æ ç›®ä¸­ï¼Œå½“å‰æ ç›®çš„æ ·å¼
                 if( ($row['id']==$typeid || ($topid==$row['id'] && $type=='top') ) && $currentstyle!='' )
                 {
                     $linkOkstr = $currentstyle;

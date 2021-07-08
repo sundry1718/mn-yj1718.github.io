@@ -1,10 +1,10 @@
 <?php
 global $em_educations;
 $em_educations = array();
-$em_educations['1'] = '初中以上';
-$em_educations['2'] = '高中/中专';
-$em_educations['3'] = '大学专科';
-$em_educations['4'] = '大学本科';
-$em_educations['5'] = '硕士';
-$em_educations['6'] = '博士以上';
+$em_educations['1'] = '鍒濅腑浠ヤ笂';
+$em_educations['2'] = '楂樹腑/涓笓';
+$em_educations['3'] = '澶у涓撶';
+$em_educations['4'] = '澶у鏈';
+$em_educations['5'] = '纭曞＋';
+$em_educations['6'] = '鍗氬＋浠ヤ笂';
 ?>

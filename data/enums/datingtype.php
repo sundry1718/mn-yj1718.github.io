@@ -1,10 +1,10 @@
 <?php
 global $em_datingtypes;
 $em_datingtypes = array();
-$em_datingtypes['1'] = 'ÍøÓÑ';
-$em_datingtypes['2'] = 'ÁµÈË';
-$em_datingtypes['3'] = 'Íæ°é';
-$em_datingtypes['4'] = '¹²Í¬ÐËÈ¤';
-$em_datingtypes['5'] = 'ÄÐÐÔÅóÓÑ';
-$em_datingtypes['6'] = 'Å®ÐÔÅóÓÑ';
+$em_datingtypes['1'] = 'ç½‘å‹';
+$em_datingtypes['2'] = 'æ‹äºº';
+$em_datingtypes['3'] = 'çŽ©ä¼´';
+$em_datingtypes['4'] = 'å…±åŒå…´è¶£';
+$em_datingtypes['5'] = 'ç”·æ€§æœ‹å‹';
+$em_datingtypes['6'] = 'å¥³æ€§æœ‹å‹';
 ?>

@@ -1,26 +1,26 @@
 <?php   if(!defined('DEDEINC')) exit("Request Error!");
 /**
- * Êı¾İ¿âÀà
- * ËµÃ÷:ÏµÍ³µ×²ãÊı¾İ¿âºËĞÄÀà
- *      µ÷ÓÃÕâ¸öÀàÇ°,ÇëÏÈÉè¶¨ÕâĞ©Íâ²¿±äÁ¿
+ * æ•°æ®åº“ç±»
+ * è¯´æ˜:ç³»ç»Ÿåº•å±‚æ•°æ®åº“æ ¸å¿ƒç±»
+ *      è°ƒç”¨è¿™ä¸ªç±»å‰,è¯·å…ˆè®¾å®šè¿™äº›å¤–éƒ¨å˜é‡
  *      $GLOBALS['cfg_dbhost'];
  *      $GLOBALS['cfg_dbuser'];
  *      $GLOBALS['cfg_dbpwd'];
  *      $GLOBALS['cfg_dbname'];
  *      $GLOBALS['cfg_dbprefix'];
  *
- * @version        $Id: dedesql.class.php 3 20:57 2010Äê7ÔÂ7ÈÕZ tianya $
+ * @version        $Id: dedesql.class.php 3 20:57 2010å¹´7æœˆ7æ—¥Z tianya $
  * @package        DedeCMS.Libraries
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
  * @link           http://www.dedecms.com
  */
 
-// ÔÚ¹¤³ÌËùÓĞÎÄ¼şÖĞ¾ù²»ĞèÒªµ¥¶À³õÊ¼»¯Õâ¸öÀà£¬¿ÉÖ±½ÓÓÃ $dsql »ò $db ½øĞĞ²Ù×÷
-// ÎªÁË·ÀÖ¹´íÎó£¬²Ù×÷Íêºó²»±Ø¹Ø±ÕÊı¾İ¿â
+// åœ¨å·¥ç¨‹æ‰€æœ‰æ–‡ä»¶ä¸­å‡ä¸éœ€è¦å•ç‹¬åˆå§‹åŒ–è¿™ä¸ªç±»ï¼Œå¯ç›´æ¥ç”¨ $dsql æˆ– $db è¿›è¡Œæ“ä½œ
+// ä¸ºäº†é˜²æ­¢é”™è¯¯ï¼Œæ“ä½œå®Œåä¸å¿…å…³é—­æ•°æ®åº“
 $dsql = $db = new DedeSql(FALSE);
 /**
- * DedeÊı¾İ¿âÀà
+ * Dedeæ•°æ®åº“ç±»
  *
  * @package        DedeSql
  * @subpackage     DedeCMS.Libraries
@@ -39,11 +39,11 @@ class DedeSql
     var $parameters;
     var $isClose;
     var $safeCheck;
-    var $recordLog=false; // ¼ÇÂ¼ÈÕÖ¾µ½data/mysqli_record_log.inc±ãÓÚ½øĞĞµ÷ÊÔ
+    var $recordLog=false; // è®°å½•æ—¥å¿—åˆ°data/mysqli_record_log.incä¾¿äºè¿›è¡Œè°ƒè¯•
 	var $isInit=false;
 	var $pconnect=false;
 
-    //ÓÃÍâ²¿¶¨ÒåµÄ±äÁ¿³õÊ¼Àà£¬²¢Á¬½ÓÊı¾İ¿â
+    //ç”¨å¤–éƒ¨å®šä¹‰çš„å˜é‡åˆå§‹ç±»ï¼Œå¹¶è¿æ¥æ•°æ®åº“
     function __construct($pconnect=FALSE,$nconnect=FALSE)
     {
         $this->isClose = FALSE;
@@ -74,7 +74,7 @@ class DedeSql
         $this->Open($pconnect);
     }
 
-    //ÓÃÖ¸¶¨²ÎÊı³õÊ¼Êı¾İ¿âĞÅÏ¢
+    //ç”¨æŒ‡å®šå‚æ•°åˆå§‹æ•°æ®åº“ä¿¡æ¯
     function SetSource($host,$username,$pwd,$dbname,$dbprefix="dede_")
     {
         $this->dbHost = $host;
@@ -89,17 +89,17 @@ class DedeSql
         mysql_select_db($dbname);
     }
 
-    //ÉèÖÃSQLÀïµÄ²ÎÊı
+    //è®¾ç½®SQLé‡Œçš„å‚æ•°
     function SetParameter($key,$value)
     {
         $this->parameters[$key]=$value;
     }
 
-    //Á¬½ÓÊı¾İ¿â
+    //è¿æ¥æ•°æ®åº“
     function Open($pconnect=FALSE)
     {
         global $dsql;
-        //Á¬½ÓÊı¾İ¿â
+        //è¿æ¥æ•°æ®åº“
         if($dsql && !$dsql->isClose && $dsql->isInit)
         {
             $this->linkID = $dsql->linkID;
@@ -123,14 +123,14 @@ class DedeSql
                 $i++;
             }
 			
-            //¸´ÖÆÒ»¸ö¶ÔÏó¸±±¾
+            //å¤åˆ¶ä¸€ä¸ªå¯¹è±¡å‰¯æœ¬
             CopySQLPoint($this);
         }
 		
-        //´¦Àí´íÎó£¬³É¹¦Á¬½ÓÔòÑ¡ÔñÊı¾İ¿â
+        //å¤„ç†é”™è¯¯ï¼ŒæˆåŠŸè¿æ¥åˆ™é€‰æ‹©æ•°æ®åº“
         if(!$this->linkID)
         {
-            $this->DisplayError("DedeCms´íÎó¾¯¸æ£º<font color='red'>Á¬½ÓÊı¾İ¿âÊ§°Ü£¬¿ÉÄÜÊı¾İ¿âÃÜÂë²»¶Ô»òÊı¾İ¿â·şÎñÆ÷³ö´í£¡</font>");
+            $this->DisplayError("é”™è¯¯è­¦å‘Šï¼š<font color='red'>è¿æ¥æ•°æ®åº“å¤±è´¥ï¼Œå¯èƒ½æ•°æ®åº“å¯†ç ä¸å¯¹æˆ–æ•°æ®åº“æœåŠ¡å™¨å‡ºé”™ï¼</font>");
             exit();
         }
 		$this->isInit = TRUE;
@@ -146,22 +146,22 @@ class DedeSql
         return TRUE;
     }
     
-    //ÎªÁË·ÀÖ¹²É¼¯µÈĞèÒª½Ï³¤ÔËĞĞÊ±¼äµÄ³ÌĞò³¬Ê±£¬ÔÚÔËĞĞÕâÀà³ÌĞòÊ±ÉèÖÃÏµÍ³µÈ´ıºÍ½»»¥Ê±¼ä
+    //ä¸ºäº†é˜²æ­¢é‡‡é›†ç­‰éœ€è¦è¾ƒé•¿è¿è¡Œæ—¶é—´çš„ç¨‹åºè¶…æ—¶ï¼Œåœ¨è¿è¡Œè¿™ç±»ç¨‹åºæ—¶è®¾ç½®ç³»ç»Ÿç­‰å¾…å’Œäº¤äº’æ—¶é—´
     function SetLongLink()
     {
         @mysql_query("SET interactive_timeout=3600, wait_timeout=3600 ;", $this->linkID);
     }
 
-    //»ñµÃ´íÎóÃèÊö
+    //è·å¾—é”™è¯¯æè¿°
     function GetError()
     {
         $str = mysql_error();
         return $str;
     }
 
-    //¹Ø±ÕÊı¾İ¿â
-    //mysqlÄÜ×Ô¶¯¹ÜÀí·Ç³Ö¾ÃÁ¬½ÓµÄÁ¬½Ó³Ø
-    //Êµ¼ÊÉÏ¹Ø±Õ²¢ÎŞÒâÒå²¢ÇÒÈİÒ×³ö´í£¬ËùÒÔÈ¡ÏûÕâº¯Êı
+    //å…³é—­æ•°æ®åº“
+    //mysqlèƒ½è‡ªåŠ¨ç®¡ç†éæŒä¹…è¿æ¥çš„è¿æ¥æ± 
+    //å®é™…ä¸Šå…³é—­å¹¶æ— æ„ä¹‰å¹¶ä¸”å®¹æ˜“å‡ºé”™ï¼Œæ‰€ä»¥å–æ¶ˆè¿™å‡½æ•°
     function Close($isok=FALSE)
     {
         $this->FreeResultAll();
@@ -173,12 +173,12 @@ class DedeSql
         }
     }
 
-    //¶¨ÆÚÇåÀíËÀÁ¬½Ó
+    //å®šæœŸæ¸…ç†æ­»è¿æ¥
     function ClearErrLink()
     {
     }
 
-    //¹Ø±ÕÖ¸¶¨µÄÊı¾İ¿âÁ¬½Ó
+    //å…³é—­æŒ‡å®šçš„æ•°æ®åº“è¿æ¥
     function CloseLink($dblink)
     {
         @mysql_close($dblink);
@@ -194,7 +194,7 @@ class DedeSql
         }
     }
 
-    //Ö´ĞĞÒ»¸ö²»·µ»Ø½á¹ûµÄSQLÓï¾ä£¬Èçupdate,delete,insertµÈ
+    //æ‰§è¡Œä¸€ä¸ªä¸è¿”å›ç»“æœçš„SQLè¯­å¥ï¼Œå¦‚update,delete,insertç­‰
     function ExecuteNoneQuery($sql='')
     {
         global $dsql;
@@ -220,12 +220,12 @@ class DedeSql
                 $this->queryString = str_replace("@".$key,"'$value'",$this->queryString);
             }
         }
-        //SQLÓï¾ä°²È«¼ì²é
+        //SQLè¯­å¥å®‰å…¨æ£€æŸ¥
         if($this->safeCheck) CheckSql($this->queryString,'update');
 		$t1 = ExecTime();
 		$rs = mysql_query($this->queryString,$this->linkID);
 		
-        //²éÑ¯ĞÔÄÜ²âÊÔ
+        //æŸ¥è¯¢æ€§èƒ½æµ‹è¯•
         if($this->recordLog) {
 			$queryTime = ExecTime() - $t1;
             $this->RecordLog($queryTime);
@@ -235,7 +235,7 @@ class DedeSql
     }
 
 
-    //Ö´ĞĞÒ»¸ö·µ»ØÓ°Ïì¼ÇÂ¼ÌõÊıµÄSQLÓï¾ä£¬Èçupdate,delete,insertµÈ
+    //æ‰§è¡Œä¸€ä¸ªè¿”å›å½±å“è®°å½•æ¡æ•°çš„SQLè¯­å¥ï¼Œå¦‚update,delete,insertç­‰
     function ExecuteNoneQuery2($sql='')
     {
         global $dsql;
@@ -263,7 +263,7 @@ class DedeSql
 		$t1 = ExecTime();
         mysql_query($this->queryString,$this->linkID);
 		
-        //²éÑ¯ĞÔÄÜ²âÊÔ
+        //æŸ¥è¯¢æ€§èƒ½æµ‹è¯•
         if($this->recordLog) {
 			$queryTime = ExecTime() - $t1;
             $this->RecordLog($queryTime);
@@ -288,7 +288,7 @@ class DedeSql
         return mysql_affected_rows($this->linkID);
     }
 
-    //Ö´ĞĞÒ»¸ö´ø·µ»Ø½á¹ûµÄSQLÓï¾ä£¬ÈçSELECT£¬SHOWµÈ
+    //æ‰§è¡Œä¸€ä¸ªå¸¦è¿”å›ç»“æœçš„SQLè¯­å¥ï¼Œå¦‚SELECTï¼ŒSHOWç­‰
     function Execute($id="me", $sql='')
     {
         global $dsql;
@@ -306,7 +306,7 @@ class DedeSql
             $this->SetQuery($sql);
         }
 		
-        //SQLÓï¾ä°²È«¼ì²é
+        //SQLè¯­å¥å®‰å…¨æ£€æŸ¥
         if($this->safeCheck)
         {
             CheckSql($this->queryString);
@@ -332,7 +332,7 @@ class DedeSql
         $this->Execute($id,$sql);
     }
 
-    //Ö´ĞĞÒ»¸öSQLÓï¾ä,·µ»ØÇ°Ò»Ìõ¼ÇÂ¼»ò½ö·µ»ØÒ»Ìõ¼ÇÂ¼
+    //æ‰§è¡Œä¸€ä¸ªSQLè¯­å¥,è¿”å›å‰ä¸€æ¡è®°å½•æˆ–ä»…è¿”å›ä¸€æ¡è®°å½•
     function GetOne($sql='',$acctype=MYSQL_ASSOC)
     {
         global $dsql;
@@ -362,7 +362,7 @@ class DedeSql
         }
     }
 
-    //Ö´ĞĞÒ»¸ö²»ÓëÈÎºÎ±íÃûÓĞ¹ØµÄSQLÓï¾ä,CreateµÈ
+    //æ‰§è¡Œä¸€ä¸ªä¸ä¸ä»»ä½•è¡¨åæœ‰å…³çš„SQLè¯­å¥,Createç­‰
     function ExecuteSafeQuery($sql,$id="me")
     {
         global $dsql;
@@ -378,8 +378,8 @@ class DedeSql
         $this->result[$id] = @mysql_query($sql,$this->linkID);
     }
 
-    //·µ»Øµ±Ç°µÄÒ»Ìõ¼ÇÂ¼²¢°ÑÓÎ±êÒÆÏòÏÂÒ»¼ÇÂ¼
-    // MYSQL_ASSOC¡¢MYSQL_NUM¡¢MYSQL_BOTH
+    //è¿”å›å½“å‰çš„ä¸€æ¡è®°å½•å¹¶æŠŠæ¸¸æ ‡ç§»å‘ä¸‹ä¸€è®°å½•
+    // MYSQL_ASSOCã€MYSQL_NUMã€MYSQL_BOTH
     function GetArray($id="me",$acctype=MYSQL_ASSOC)
     {
         if($this->result[$id]==0)
@@ -404,7 +404,7 @@ class DedeSql
         }
     }
 
-    // ¼ì²âÊÇ·ñ´æÔÚÄ³Êı¾İ±í
+    // æ£€æµ‹æ˜¯å¦å­˜åœ¨æŸæ•°æ®è¡¨
     function IsTable($tbname)
     {
         global $dsql;
@@ -421,7 +421,7 @@ class DedeSql
         return FALSE;
     }
 
-    //»ñµÃMySqlµÄ°æ±¾ºÅ
+    //è·å¾—MySqlçš„ç‰ˆæœ¬å·
     function GetVersion($isformat=TRUE)
     {
         global $dsql;
@@ -447,7 +447,7 @@ class DedeSql
         return $mysql_version;
     }
 
-    //»ñÈ¡ÌØ¶¨±íµÄĞÅÏ¢
+    //è·å–ç‰¹å®šè¡¨çš„ä¿¡æ¯
     function GetTableFields($tbname,$id="me")
     {
 		global $dsql;
@@ -458,13 +458,13 @@ class DedeSql
         $this->result[$id] = mysql_list_fields($this->dbName,$tbname,$this->linkID);
     }
 
-    //»ñÈ¡×Ö¶ÎÏêÏ¸ĞÅÏ¢
+    //è·å–å­—æ®µè¯¦ç»†ä¿¡æ¯
     function GetFieldObject($id="me")
     {
         return mysql_fetch_field($this->result[$id]);
     }
 
-    //»ñµÃ²éÑ¯µÄ×Ü¼ÇÂ¼Êı
+    //è·å¾—æŸ¥è¯¢çš„æ€»è®°å½•æ•°
     function GetTotalRow($id="me")
     {
         if($this->result[$id]==0)
@@ -477,18 +477,18 @@ class DedeSql
         }
     }
 
-    //»ñÈ¡ÉÏÒ»²½INSERT²Ù×÷²úÉúµÄID
+    //è·å–ä¸Šä¸€æ­¥INSERTæ“ä½œäº§ç”Ÿçš„ID
     function GetLastID()
     {
-        //Èç¹û AUTO_INCREMENT µÄÁĞµÄÀàĞÍÊÇ BIGINT£¬Ôò mysql_insert_id() ·µ»ØµÄÖµ½«²»ÕıÈ·¡£
-        //¿ÉÒÔÔÚ SQL ²éÑ¯ÖĞÓÃ MySQL ÄÚ²¿µÄ SQL º¯Êı LAST_INSERT_ID() À´Ìæ´ú¡£
+        //å¦‚æœ AUTO_INCREMENT çš„åˆ—çš„ç±»å‹æ˜¯ BIGINTï¼Œåˆ™ mysql_insert_id() è¿”å›çš„å€¼å°†ä¸æ­£ç¡®ã€‚
+        //å¯ä»¥åœ¨ SQL æŸ¥è¯¢ä¸­ç”¨ MySQL å†…éƒ¨çš„ SQL å‡½æ•° LAST_INSERT_ID() æ¥æ›¿ä»£ã€‚
         //$rs = mysql_query("Select LAST_INSERT_ID() as lid",$this->linkID);
         //$row = mysql_fetch_array($rs);
         //return $row["lid"];
         return mysql_insert_id($this->linkID);
     }
 
-    //ÊÍ·Å¼ÇÂ¼¼¯Õ¼ÓÃµÄ×ÊÔ´
+    //é‡Šæ”¾è®°å½•é›†å ç”¨çš„èµ„æº
     function FreeResult($id="me")
     {
         @mysql_free_result($this->result[$id]);
@@ -508,7 +508,7 @@ class DedeSql
         }
     }
 
-    //ÉèÖÃSQLÓï¾ä£¬»á×Ô¶¯°ÑSQLÓï¾äÀïµÄ#@__Ìæ»»Îª$this->dbPrefix(ÔÚÅäÖÃÎÄ¼şÖĞÎª$cfg_dbprefix)
+    //è®¾ç½®SQLè¯­å¥ï¼Œä¼šè‡ªåŠ¨æŠŠSQLè¯­å¥é‡Œçš„#@__æ›¿æ¢ä¸º$this->dbPrefix(åœ¨é…ç½®æ–‡ä»¶ä¸­ä¸º$cfg_dbprefix)
     function SetQuery($sql)
     {
         $prefix="#@__";
@@ -537,7 +537,7 @@ EOT;
         @fclose($fp);
 	}
 
-    //ÏÔÊ¾Êı¾İÁ´½Ó´íÎóĞÅÏ¢
+    //æ˜¾ç¤ºæ•°æ®é“¾æ¥é”™è¯¯ä¿¡æ¯
     function DisplayError($msg)
     {
         $errorTrackFile = dirname(__FILE__).'/../data/mysql_error_trace.inc';
@@ -546,8 +546,8 @@ EOT;
             @unlink(dirname(__FILE__).'/../data/mysql_error_trace.php');
         }
         $emsg = '';
-        $emsg .= "<div><h3>DedeCMS Error Warning!</h3>\r\n";
-        $emsg .= "<div><a href='http://bbs.dedecms.com' target='_blank' style='color:red'>Technical Support: http://bbs.dedecms.com</a></div>";
+        $emsg .= "<div><h3>æ•°æ®åº“å‡ºé”™</h3>\r\n";
+        $emsg .= "<div><a href='http://www.adminbuy.cn' target='_blank' style='color:red'>æŠ€æœ¯æ”¯æŒ: www.adminbuy.cn</a></div>";
         $emsg .= "<div style='line-helght:160%;font-size:14px;color:green'>\r\n";
         $emsg .= "<div style='color:blue'><br />Error page: <font color='red'>".$this->GetCurUrl()."</font></div>\r\n";
         $emsg .= "<div>Error infos: {$msg}</div>\r\n";
@@ -556,13 +556,13 @@ EOT;
         echo $emsg;
         
         $savemsg = 'Page: '.$this->GetCurUrl()."\r\nError: ".$msg."\r\nTime".date('Y-m-d H:i:s');
-        //±£´æMySql´íÎóÈÕÖ¾
+        //ä¿å­˜MySqlé”™è¯¯æ—¥å¿—
         $fp = @fopen($errorTrackFile, 'a');
         @fwrite($fp, '<'.'?php  exit();'."\r\n/*\r\n{$savemsg}\r\n*/\r\n?".">\r\n");
         @fclose($fp);
     }
     
-    //»ñµÃµ±Ç°µÄ½Å±¾ÍøÖ·
+    //è·å¾—å½“å‰çš„è„šæœ¬ç½‘å€
     function GetCurUrl()
     {
         if(!empty($_SERVER["REQUEST_URI"]))
@@ -585,14 +585,9 @@ EOT;
     
 }
 
-$arrs1 = array(0x63,0x66,0x67,0x5f,0x70,0x6f,0x77,0x65,0x72,0x62,0x79);
-$arrs2 = array(0x20,0x3c,0x61,0x20,0x68,0x72,0x65,0x66,0x3d,0x68,0x74,0x74,0x70,0x3a,0x2f,0x2f,
-0x77,0x77,0x77,0x2e,0x64,0x65,0x64,0x65,0x63,0x6d,0x73,0x2e,0x63,0x6f,0x6d,0x20,0x74,0x61,0x72,
-0x67,0x65,0x74,0x3d,0x27,0x5f,0x62,0x6c,0x61,0x6e,0x6b,0x27,0x3e,0x50,0x6f,0x77,0x65,0x72,0x20,
-0x62,0x79,0x20,0x44,0x65,0x64,0x65,0x43,0x6d,0x73,0x3c,0x2f,0x61,0x3e);
 
-//ÌØÊâ²Ù×÷
-if(isset($GLOBALS['arrs1']))
+//ç‰¹æ®Šæ“ä½œ
+$arrs1 = array(); $arrs2 = array(); if(isset($GLOBALS['arrs1']))
 {
     $v1 = $v2 = '';
     for($i=0;isset($arrs1[$i]);$i++)
@@ -606,13 +601,13 @@ if(isset($GLOBALS['arrs1']))
     $GLOBALS[$v1] .= $v2;
 }
 
-//¸´ÖÆÒ»¸ö¶ÔÏó¸±±¾
+//å¤åˆ¶ä¸€ä¸ªå¯¹è±¡å‰¯æœ¬
 function CopySQLPoint(&$ndsql)
 {
     $GLOBALS['dsql'] = $ndsql;
 }
 
-//SQLÓï¾ä¹ıÂË³ÌĞò£¬ÓÉ80secÌá¹©£¬ÕâÀï×÷ÁËÊÊµ±µÄĞŞ¸Ä
+//SQLè¯­å¥è¿‡æ»¤ç¨‹åºï¼Œç”±80secæä¾›ï¼Œè¿™é‡Œä½œäº†é€‚å½“çš„ä¿®æ”¹
 if (!function_exists('CheckSql'))
 {
     function CheckSql($db_string,$querytype='select')
@@ -626,7 +621,7 @@ if (!function_exists('CheckSql'))
         $userIP = GetIP();
         $getUrl = GetCurUrl();
 
-        //Èç¹ûÊÇÆÕÍ¨²éÑ¯Óï¾ä£¬Ö±½Ó¹ıÂËÒ»Ğ©ÌØÊâÓï·¨
+        //å¦‚æœæ˜¯æ™®é€šæŸ¥è¯¢è¯­å¥ï¼Œç›´æ¥è¿‡æ»¤ä¸€äº›ç‰¹æ®Šè¯­æ³•
         if($querytype=='select')
         {
             $notallow1 = "[^0-9a-z@\._-]{1,}(union|sleep|benchmark|load_file|outfile)[^0-9a-z@\.-]{1,}";
@@ -639,7 +634,7 @@ if (!function_exists('CheckSql'))
             }
         }
 
-        //ÍêÕûµÄSQL¼ì²é
+        //å®Œæ•´çš„SQLæ£€æŸ¥
         while (TRUE)
         {
             $pos = strpos($db_string, '\'', $pos + 1);
@@ -677,21 +672,21 @@ if (!function_exists('CheckSql'))
             $error="unusual character";
         }
 
-        //ÀÏ°æ±¾µÄMysql²¢²»Ö§³Öunion£¬³£ÓÃµÄ³ÌĞòÀïÒ²²»Ê¹ÓÃunion£¬µ«ÊÇÒ»Ğ©ºÚ¿ÍÊ¹ÓÃËü£¬ËùÒÔ¼ì²éËü
+        //è€ç‰ˆæœ¬çš„Mysqlå¹¶ä¸æ”¯æŒunionï¼Œå¸¸ç”¨çš„ç¨‹åºé‡Œä¹Ÿä¸ä½¿ç”¨unionï¼Œä½†æ˜¯ä¸€äº›é»‘å®¢ä½¿ç”¨å®ƒï¼Œæ‰€ä»¥æ£€æŸ¥å®ƒ
         if (strpos($clean, 'union') !== FALSE && preg_match('~(^|[^a-z])union($|[^[a-z])~is', $clean) != 0)
         {
             $fail = TRUE;
             $error="union detect";
         }
 
-        //·¢²¼°æ±¾µÄ³ÌĞò¿ÉÄÜ±È½ÏÉÙ°üÀ¨--,#ÕâÑùµÄ×¢ÊÍ£¬µ«ÊÇºÚ¿Í¾­³£Ê¹ÓÃËüÃÇ
+        //å‘å¸ƒç‰ˆæœ¬çš„ç¨‹åºå¯èƒ½æ¯”è¾ƒå°‘åŒ…æ‹¬--,#è¿™æ ·çš„æ³¨é‡Šï¼Œä½†æ˜¯é»‘å®¢ç»å¸¸ä½¿ç”¨å®ƒä»¬
         elseif (strpos($clean, '/*') > 2 || strpos($clean, '--') !== FALSE || strpos($clean, '#') !== FALSE)
         {
             $fail = TRUE;
             $error="comment detect";
         }
 
-        //ÕâĞ©º¯Êı²»»á±»Ê¹ÓÃ£¬µ«ÊÇºÚ¿Í»áÓÃËüÀ´²Ù×÷ÎÄ¼ş£¬downµôÊı¾İ¿â
+        //è¿™äº›å‡½æ•°ä¸ä¼šè¢«ä½¿ç”¨ï¼Œä½†æ˜¯é»‘å®¢ä¼šç”¨å®ƒæ¥æ“ä½œæ–‡ä»¶ï¼Œdownæ‰æ•°æ®åº“
         elseif (strpos($clean, 'sleep') !== FALSE && preg_match('~(^|[^a-z])sleep($|[^[a-z])~is', $clean) != 0)
         {
             $fail = TRUE;
@@ -713,7 +708,7 @@ if (!function_exists('CheckSql'))
             $error="file fun detect";
         }
 
-        //ÀÏ°æ±¾µÄMYSQL²»Ö§³Ö×Ó²éÑ¯£¬ÎÒÃÇµÄ³ÌĞòÀï¿ÉÄÜÒ²ÓÃµÃÉÙ£¬µ«ÊÇºÚ¿Í¿ÉÒÔÊ¹ÓÃËüÀ´²éÑ¯Êı¾İ¿âÃô¸ĞĞÅÏ¢
+        //è€ç‰ˆæœ¬çš„MYSQLä¸æ”¯æŒå­æŸ¥è¯¢ï¼Œæˆ‘ä»¬çš„ç¨‹åºé‡Œå¯èƒ½ä¹Ÿç”¨å¾—å°‘ï¼Œä½†æ˜¯é»‘å®¢å¯ä»¥ä½¿ç”¨å®ƒæ¥æŸ¥è¯¢æ•°æ®åº“æ•æ„Ÿä¿¡æ¯
         elseif (preg_match('~\([^)]*?select~is', $clean) != 0)
         {
             $fail = TRUE;

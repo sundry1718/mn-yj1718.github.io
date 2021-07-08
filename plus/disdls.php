@@ -1,12 +1,12 @@
 <?php
 /**
  *
- * ÏÂÔØ´ÎÊýÍ³¼Æ
+ * ä¸‹è½½æ¬¡æ•°ç»Ÿè®¡
  *
- * Èç¹ûÏëÏÔÊ¾ÏÂÔØ´ÎÊý,¼´°ÑÏÂÃæ£Ê£Óµ÷ÓÃ·Åµ½ÎÄµµÄ£°åÊÊµ±Î»ÖÃ
+ * å¦‚æžœæƒ³æ˜¾ç¤ºä¸‹è½½æ¬¡æ•°,å³æŠŠä¸‹é¢ï¼ªï¼³è°ƒç”¨æ”¾åˆ°æ–‡æ¡£æ¨¡æ¿é€‚å½“ä½ç½®
  * <script src="{dede:global name='cfg_phpurl'/}/disdls.php?aid={dede:field name='id'/}" language="javascript"></script>
  *
- * @version        $Id: disdls.php 1 20:43 2010Äê7ÔÂ8ÈÕZ tianya $
+ * @version        $Id: disdls.php 1 20:43 2010å¹´7æœˆ8æ—¥Z tianya $
  * @package        DedeCMS.Site
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html

@@ -1,7 +1,7 @@
 <?php   if(!defined('DEDEINC')) exit('dedecms');
 /**
- * ÏµÍ³ºËĞÄº¯Êı´æ·ÅÎÄ¼ş
- * @version        $Id: customfields.func.php 2 20:50 2010Äê7ÔÂ7ÈÕZ tianya $
+ * ç³»ç»Ÿæ ¸å¿ƒå‡½æ•°å­˜æ”¾æ–‡ä»¶
+ * @version        $Id: customfields.func.php 2 20:50 2010å¹´7æœˆ7æ—¥Z tianya $
  * @package        DedeCMS.Libraries
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -9,11 +9,11 @@
  */
  
 /**
- *  »ñµÃÒ»¸ö¸½¼Ó±íµ¥(·¢²¼Ê±ÓÃ)
+ *  è·å¾—ä¸€ä¸ªé™„åŠ è¡¨å•(å‘å¸ƒæ—¶ç”¨)
  *
  * @access    public
- * @param     object  $ctag  ±êÇ©
- * @param     string  $admintype  ¹ÜÀíÔ±ÀàĞÍ
+ * @param     object  $ctag  æ ‡ç­¾
+ * @param     string  $admintype  ç®¡ç†å‘˜ç±»å‹
  * @return    string
  */
 function GetFormItem($ctag, $admintype='admin')
@@ -46,7 +46,7 @@ function GetFormItem($ctag, $admintype='admin')
     else if($fieldType=='stepselect')
     {
             global $hasSetEnumJs,$cfg_cmspath;
-            $cmspath = ( (empty($cfg_cmspath) || !preg_match('/[/$]/', $cfg_cmspath)) ? $cfg_cmspath.'/' : $cfg_cmspath );//2011.08.04 ¸ù¾İÂÛÌ³·´À¡ĞŞÕıÁª¶¯Ä£ĞÍ £¨by£ºÖ¯ÃÎµÄÓã£©
+            $cmspath = ( (empty($cfg_cmspath) || !preg_match('/[/$]/', $cfg_cmspath)) ? $cfg_cmspath.'/' : $cfg_cmspath );//2011.08.04 æ ¹æ®è®ºå›åé¦ˆä¿®æ­£è”åŠ¨æ¨¡å‹ ï¼ˆbyï¼šç»‡æ¢¦çš„é±¼ï¼‰
             $myformItem = '';
             $myformItem .= "<input type='hidden' id='hidden_{$fieldname}' name='{$fieldname}' value='0' />\r\n";
             $myformItem .= "<span id='span_{$fieldname}'></span>\r\n";
@@ -140,18 +140,18 @@ function GetFormItem($ctag, $admintype='admin')
             $innertext = "<input type='file' name='$fieldname' id='$fieldname' style='width:300px;height:22px;line-height:22px' />\r\n";
         }
         else {
-            $innertext = "<input type='text' name='$fieldname' id='$fieldname' style='width:300px' class='text' /> <input name='".$fieldname."_bt' type='button' class='inputbut' value='ä¯ÀÀ...' onClick=\"SelectImage('form1.$fieldname','big')\" />\r\n";
+            $innertext = "<input type='text' name='$fieldname' id='$fieldname' style='width:300px' class='text' /> <input name='".$fieldname."_bt' type='button' class='inputbut' value='æµè§ˆ...' onClick=\"SelectImage('form1.$fieldname','big')\" />\r\n";
         }
     }
     else if($fieldType=='media')
     {
         if($admintype=='diy')
         {
-            $innertext = "<input type='hidden' name='$fieldname' id='$fieldname' value='' />²»Ö§³ÖµÄÀàĞÍ\r\n";
+            $innertext = "<input type='hidden' name='$fieldname' id='$fieldname' value='' />ä¸æ”¯æŒçš„ç±»å‹\r\n";
         }
         else
         {
-            $innertext = "<input type='text' name='$fieldname' id='$fieldname' style='width:300px' class='text' /> <input name='".$fieldname."_bt' type='button' class='inputbut' value='ä¯ÀÀ...' onClick=\"SelectMedia('form1.$fieldname')\" />\r\n";
+            $innertext = "<input type='text' name='$fieldname' id='$fieldname' style='width:300px' class='text' /> <input name='".$fieldname."_bt' type='button' class='inputbut' value='æµè§ˆ...' onClick=\"SelectMedia('form1.$fieldname')\" />\r\n";
         }
     }
     else if($fieldType=='addon')
@@ -162,13 +162,13 @@ function GetFormItem($ctag, $admintype='admin')
         }
         else
         {
-            $innertext = "<input type='text' name='$fieldname' id='$fieldname' style='width:300px' class='text' /> <input name='".$fieldname."_bt' type='button' class='inputbut' value='ä¯ÀÀ...' onClick=\"SelectSoft('form1.$fieldname')\" />\r\n";
+            $innertext = "<input type='text' name='$fieldname' id='$fieldname' style='width:300px' class='text' /> <input name='".$fieldname."_bt' type='button' class='inputbut' value='æµè§ˆ...' onClick=\"SelectSoft('form1.$fieldname')\" />\r\n";
         }
     }
     else if($fieldType=='int'||$fieldType=='float')
     {
         $dfvalue = ($ctag->GetAtt('default')!='' ? $ctag->GetAtt('default') : '0');
-        $innertext = "<input type='text' name='$fieldname' id='$fieldname' style='width:100px'  class='intxt' value='$dfvalue' /> (ÌîĞ´ÊıÖµ)\r\n";
+        $innertext = "<input type='text' name='$fieldname' id='$fieldname' style='width:100px'  class='intxt' value='$dfvalue' /> (å¡«å†™æ•°å€¼)\r\n";
     }
     else
     {
@@ -181,16 +181,16 @@ function GetFormItem($ctag, $admintype='admin')
 }
 
 /**
- *  ´¦Àí²»Í¬ÀàĞÍµÄÊı¾İ
+ *  å¤„ç†ä¸åŒç±»å‹çš„æ•°æ®
  *
  * @access    public
- * @param     string  $dvalue  Ä¬ÈÏÖµ
- * @param     string  $dtype  Ä¬ÈÏÀàĞÍ
- * @param     int  $aid  ÎÄµµID
- * @param     string  $job  ²Ù×÷ÀàĞÍ
- * @param     string  $addvar  Öµ
- * @param     string  $admintype  ¹ÜÀíÀàĞÍ
- * @param     string  $fieldname  ±äÁ¿ÀàĞÍ
+ * @param     string  $dvalue  é»˜è®¤å€¼
+ * @param     string  $dtype  é»˜è®¤ç±»å‹
+ * @param     int  $aid  æ–‡æ¡£ID
+ * @param     string  $job  æ“ä½œç±»å‹
+ * @param     string  $addvar  å€¼
+ * @param     string  $admintype  ç®¡ç†ç±»å‹
+ * @param     string  $fieldname  å˜é‡ç±»å‹
  * @return    string
  */
 function GetFieldValue($dvalue, $dtype, $aid=0, $job='add', $addvar='', $admintype='admin', $fieldname='')
@@ -273,7 +273,7 @@ function GetFieldValue($dvalue, $dtype, $aid=0, $job='add', $addvar='', $adminty
             $ipath = $ipath.'/'.$tpath;
             $filename = "{$ipath}/{$aid}-".cn_substr(md5($cfg_cookie_encode), 0, 16).".txt";
 
-            //»áÔ±Í¶¸åÄÚÈİ°²È«´¦Àí
+            //ä¼šå‘˜æŠ•ç¨¿å†…å®¹å®‰å…¨å¤„ç†
             if($admintype=='member' || $admintype=='diy')
             {
                 $dvalue = HtmlReplace($dvalue, -1);
@@ -301,7 +301,7 @@ function GetFieldValue($dvalue, $dtype, $aid=0, $job='add', $addvar='', $adminty
         $imgurl = "{dede:img text='' width='' height=''} ".$iurl." {/dede:img}";
         if(preg_match("/^http:\/\//i", $iurl) && $GLOBALS['cfg_isUrlOpen'])
         {
-            //Ô¶³ÌÍ¼Æ¬
+            //è¿œç¨‹å›¾ç‰‡
             $reimgs = '';
             if($GLOBALS['cfg_isUrlOpen'])
             {
@@ -332,7 +332,7 @@ function GetFieldValue($dvalue, $dtype, $aid=0, $job='add', $addvar='', $adminty
         }
         else if($iurl != '')
         {
-            //Õ¾ÄÚÍ¼Æ¬
+            //ç«™å†…å›¾ç‰‡
             $imgfile = $cfg_basedir.$iurl;
             if(is_file($imgfile))
             {
@@ -367,13 +367,13 @@ function GetFieldValue($dvalue, $dtype, $aid=0, $job='add', $addvar='', $adminty
 }
 
 /**
- *  »ñµÃ´øÖµµÄ±íµ¥(±à¼­Ê±ÓÃ)
+ *  è·å¾—å¸¦å€¼çš„è¡¨å•(ç¼–è¾‘æ—¶ç”¨)
  *
  * @access    public
- * @param     object  $ctag  ±êÇ©
- * @param     mixed  $fvalue  ±äÁ¿Öµ
- * @param     string  $admintype  »áÔ±ÀàĞÍ
- * @param     string  $fieldname  ±äÁ¿Ãû³Æ
+ * @param     object  $ctag  æ ‡ç­¾
+ * @param     mixed  $fvalue  å˜é‡å€¼
+ * @param     string  $admintype  ä¼šå‘˜ç±»å‹
+ * @param     string  $fieldname  å˜é‡åç§°
  * @return    string
  */
 function GetFormItemValue($ctag, $fvalue, $admintype='admin', $fieldname='')
@@ -471,7 +471,7 @@ function GetFormItemValue($ctag, $fvalue, $admintype='admin', $fieldname='')
         $innertext = $myformItem;
     }
 
-    //ÎÄ±¾Êı¾İµÄÌØÊâ´¦Àí
+    //æ–‡æœ¬æ•°æ®çš„ç‰¹æ®Šå¤„ç†
     else if($ftype=="textdata")
     {
         if(is_file($cfg_basedir.$fvalue))
@@ -538,23 +538,23 @@ function GetFormItemValue($ctag, $fvalue, $admintype='admin', $fieldname='')
             $ntag = $ndtp->GetTag("img");
             $fvalue = trim($ntag->GetInnerText());
         }
-        $innertext = "<input type='text' name='$fieldname' value='$fvalue' id='$fieldname' style='width:300px'  class='text' /> <input name='".$fieldname."_bt' class='inputbut' type='button' value='ä¯ÀÀ...' onClick=\"SelectImage('form1.$fieldname','big')\" />\r\n";
+        $innertext = "<input type='text' name='$fieldname' value='$fvalue' id='$fieldname' style='width:300px'  class='text' /> <input name='".$fieldname."_bt' class='inputbut' type='button' value='æµè§ˆ...' onClick=\"SelectImage('form1.$fieldname','big')\" />\r\n";
     }
     else if($ftype=="imgfile")
     {
-        $innertext = "<input type='text' name='$fieldname' value='$fvalue' id='$fieldname' style='width:300px'  class='text' /> <input name='".$fieldname."_bt' class='inputbut' type='button' value='ä¯ÀÀ...' onClick=\"SelectImage('form1.$fieldname','big')\" />\r\n";
+        $innertext = "<input type='text' name='$fieldname' value='$fvalue' id='$fieldname' style='width:300px'  class='text' /> <input name='".$fieldname."_bt' class='inputbut' type='button' value='æµè§ˆ...' onClick=\"SelectImage('form1.$fieldname','big')\" />\r\n";
     }
     else if($ftype=="media")
     {
-        $innertext = "<input type='text' name='$fieldname' value='$fvalue' id='$fieldname' style='width:300px'  class='text' /> <input name='".$fieldname."_bt' class='inputbut' type='button' value='ä¯ÀÀ...' onClick=\"SelectMedia('form1.$fieldname')\" />\r\n";
+        $innertext = "<input type='text' name='$fieldname' value='$fvalue' id='$fieldname' style='width:300px'  class='text' /> <input name='".$fieldname."_bt' class='inputbut' type='button' value='æµè§ˆ...' onClick=\"SelectMedia('form1.$fieldname')\" />\r\n";
     }
     else if($ftype=="addon")
     {
-        $innertext = "<input type='text' name='$fieldname' id='$fieldname' value='$fvalue' style='width:300px'  class='text' /> <input name='".$fieldname."_bt' class='inputbut' type='button' value='ä¯ÀÀ...' onClick=\"SelectSoft('form1.$fieldname')\" />\r\n";
+        $innertext = "<input type='text' name='$fieldname' id='$fieldname' value='$fvalue' style='width:300px'  class='text' /> <input name='".$fieldname."_bt' class='inputbut' type='button' value='æµè§ˆ...' onClick=\"SelectSoft('form1.$fieldname')\" />\r\n";
     }
     else if($ftype=="int"||$ftype=="float")
     {
-        $innertext = "<input type='text' name='$fieldname' id='$fieldname' style='width:100px'  class='intxt' value='$fvalue' /> (ÌîĞ´ÊıÖµ)\r\n";
+        $innertext = "<input type='text' name='$fieldname' id='$fieldname' style='width:100px'  class='intxt' value='$fvalue' /> (å¡«å†™æ•°å€¼)\r\n";
     }
     else
     {

@@ -11,7 +11,7 @@ if(!file_exists(dirname(__FILE__).'/data/common.inc.php'))
     header('Location:install/index.php');
     exit();
 }
-//×Ô¶¯Éú³ÉHTML°æ
+//è‡ªåŠ¨ç”ŸæˆHTMLç‰ˆ
 if(isset($_GET['upcache']) || !file_exists('index.html'))
 {
     require_once (dirname(__FILE__) . "/include/common.inc.php");

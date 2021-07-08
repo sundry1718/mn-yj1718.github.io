@@ -1,9 +1,9 @@
 <?php
 /**
  *
- * AjaxÆÀÂÛ
+ * Ajaxè¯„è®º
  *
- * @version        $Id: feedback_ajax.php 1 15:38 2010Äê7ÔÂ8ÈÕZ tianya $
+ * @version        $Id: feedback_ajax.php 1 15:38 2010å¹´7æœˆ8æ—¥Z tianya $
  * @package        DedeCMS.Site
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -13,10 +13,10 @@ require_once(dirname(__FILE__).'/../include/common.inc.php');
 require_once(DEDEINC.'/channelunit.func.php');
 AjaxHead();
 
-if($cfg_feedback_forbid=='Y') exit('ÏµÍ³ÒÑ¾­½ûÖ¹ÆÀÂÛ¹¦ÄÜ£¡');
+if($cfg_feedback_forbid=='Y') exit('ç³»ç»Ÿå·²ç»ç¦æ­¢è¯„è®ºåŠŸèƒ½ï¼');
 
 $aid = intval($aid);
-if(empty($aid)) exit('Ã»Ö¸¶¨ÆÀÂÛÎÄµµµÄID£¬²»ÄÜ½øĞĞ²Ù×÷£¡');
+if(empty($aid)) exit('æ²¡æŒ‡å®šè¯„è®ºæ–‡æ¡£çš„IDï¼Œä¸èƒ½è¿›è¡Œæ“ä½œï¼');
 
 include_once(DEDEINC.'/memberlogin.class.php');
 $cfg_ml = new MemberLogin();
@@ -26,7 +26,7 @@ $page = empty($page) || $page<1 ? 1 : intval($page);
 $pagesize = 10;
 
 /*----------------------
-»ñµÃÖ¸¶¨Ò³µÄÆÀÂÛÄÚÈİ
+è·å¾—æŒ‡å®šé¡µçš„è¯„è®ºå†…å®¹
 function getlist(){ }
 ----------------------*/
 if($dopost=='getlist')
@@ -36,21 +36,21 @@ if($dopost=='getlist')
     exit();
 }
 /*----------------------
-·¢ËÍÆÀÂÛ
+å‘é€è¯„è®º
 function send(){ }
 ----------------------*/
 else if($dopost=='send')
 {
     require_once(DEDEINC.'/charset.func.php');
     
-    //¼ì²éÑéÖ¤Âë
+    //æ£€æŸ¥éªŒè¯ç 
     if($cfg_feedback_ck=='Y')
     {
         $svali = strtolower(trim(GetCkVdValue()));
         if(strtolower($validate) != $svali || $svali=='')
         {
             ResetVdValue();
-            echo '<font color="red">ÑéÖ¤Âë´íÎó£¬Çëµã»÷ÑéÖ¤ÂëÍ¼Æ¬¸üĞÂÑéÖ¤Âë£¡</font>';
+            echo '<font color="red">éªŒè¯ç é”™è¯¯ï¼Œè¯·ç‚¹å‡»éªŒè¯ç å›¾ç‰‡æ›´æ–°éªŒè¯ç ï¼</font>';
             exit();
         }
     }
@@ -58,12 +58,12 @@ else if($dopost=='send')
     $arcRow = GetOneArchive($aid);
     if(empty($arcRow['aid']))
     {
-        echo '<font color="red">ÎŞ·¨²é¿´Î´ÖªÎÄµµµÄÆÀÂÛ!</font>';
+        echo '<font color="red">æ— æ³•æŸ¥çœ‹æœªçŸ¥æ–‡æ¡£çš„è¯„è®º!</font>';
         exit();
     }
     if(isset($arcRow['notpost']) && $arcRow['notpost']==1)
     {
-        echo '<font color="red">ÕâÆªÎÄµµ½ûÖ¹ÆÀÂÛ!</font>';
+        echo '<font color="red">è¿™ç¯‡æ–‡æ¡£ç¦æ­¢è¯„è®º!</font>';
         exit();
     }
     
@@ -72,12 +72,12 @@ else if($dopost=='send')
         $msg = UnicodeUrl2Gbk($msg);
         if(!empty($username)) $username = UnicodeUrl2Gbk($username);
     }
-    //´Ê»ã¹ıÂË¼ì²é
+    //è¯æ±‡è¿‡æ»¤æ£€æŸ¥
     if( $cfg_notallowstr != '' )
     {
         if(preg_match("#".$cfg_notallowstr."#i", $msg))
         {
-            echo "<font color='red'>ÆÀÂÛÄÚÈİº¬ÓĞ½ûÓÃ´Ê»ã£¡</font>";
+            echo "<font color='red'>è¯„è®ºå†…å®¹å«æœ‰ç¦ç”¨è¯æ±‡ï¼</font>";
             exit();
         }
     }
@@ -87,20 +87,20 @@ else if($dopost=='send')
     }
     if( empty($msg) )
     {
-        echo "<font color='red'>ÆÀÂÛÄÚÈİ¿ÉÄÜ²»ºÏ·¨»òÎª¿Õ£¡</font>";
+        echo "<font color='red'>è¯„è®ºå†…å®¹å¯èƒ½ä¸åˆæ³•æˆ–ä¸ºç©ºï¼</font>";
         exit();
     }
 	if($cfg_feedback_guest == 'N' && $cfg_ml->M_ID < 1)
 	{
-		echo "<font color='red'>¹ÜÀíÔ±½ûÓÃÁËÓÎ¿ÍÆÀÂÛ£¡<a href='{$cfg_cmspath}/member/login.php'>µã»÷µÇÂ¼</a></font>";
+		echo "<font color='red'>ç®¡ç†å‘˜ç¦ç”¨äº†æ¸¸å®¢è¯„è®ºï¼<a href='{$cfg_cmspath}/member/login.php'>ç‚¹å‡»ç™»å½•</a></font>";
 		exit();
 	}
-    //¼ì²éÓÃ»§
-    $username = empty($username) ? 'ÓÎ¿Í' : $username;
+    //æ£€æŸ¥ç”¨æˆ·
+    $username = empty($username) ? 'æ¸¸å®¢' : $username;
     if(empty($notuser)) $notuser = 0;
     if($notuser==1)
     {
-        $username = $cfg_ml->M_ID > 0 ? 'ÄäÃû' : 'ÓÎ¿Í';
+        $username = $cfg_ml->M_ID > 0 ? 'åŒ¿å' : 'æ¸¸å®¢';
     }
     else if($cfg_ml->M_ID > 0)
     {
@@ -116,18 +116,18 @@ else if($dopost=='send')
         $cfg_ml = new MemberLogin();
     }
     
-    //¼ì²éÆÀÂÛ¼ä¸ôÊ±¼ä
+    //æ£€æŸ¥è¯„è®ºé—´éš”æ—¶é—´
     $ip = GetIP();
     $dtime = time();
     if(!empty($cfg_feedback_time))
     {
-        //¼ì²é×îºó·¢±íÆÀÂÛÊ±¼ä£¬Èç¹ûÎ´µÇÂ½ÅĞ¶Ïµ±Ç°IP×îºóÆÀÂÛÊ±¼ä
+        //æ£€æŸ¥æœ€åå‘è¡¨è¯„è®ºæ—¶é—´ï¼Œå¦‚æœæœªç™»é™†åˆ¤æ–­å½“å‰IPæœ€åè¯„è®ºæ—¶é—´
         $where = ($cfg_ml->M_ID > 0 ? "WHERE `mid` = '$cfg_ml->M_ID' " : "WHERE `ip` = '$ip' ");
         $row = $dsql->GetOne("SELECT dtime FROM `#@__feedback` $where ORDER BY `id` DESC ");
         if(is_array($row) && $dtime - $row['dtime'] < $cfg_feedback_time)
         {
             ResetVdValue();
-            echo '<font color="red">¹ÜÀíÔ±ÉèÖÃÁËÆÀÂÛ¼ä¸ôÊ±¼ä£¬ÇëÉÔµÈĞİÏ¢Ò»ÏÂ£¡</font>';
+            echo '<font color="red">ç®¡ç†å‘˜è®¾ç½®äº†è¯„è®ºé—´éš”æ—¶é—´ï¼Œè¯·ç¨ç­‰ä¼‘æ¯ä¸€ä¸‹ï¼</font>';
             exit();
         }
     }
@@ -139,11 +139,11 @@ else if($dopost=='send')
     {
         $feedbacktype = 'feedback';
     }
-    //±£´æÆÀÂÛÄÚÈİ
+    //ä¿å­˜è¯„è®ºå†…å®¹
     if(!empty($fid))
     {
         $row = $dsql->GetOne("SELECT username,msg from `#@__feedback` WHERE id ='$fid' ");
-        $qmsg = '{quote}{content}'.$row['msg'].'{/content}{title}'.$row['username'].' µÄÔ­Ìû£º{/title}{/quote}';
+        $qmsg = '{quote}{content}'.$row['msg'].'{/content}{title}'.$row['username'].' çš„åŸå¸–ï¼š{/title}{/quote}';
         $msg = addslashes($qmsg).$msg;
     }
     $ischeck = ($cfg_feedbackcheck=='Y' ? 0 : 1);
@@ -155,12 +155,12 @@ else if($dopost=='send')
     $rs = $dsql->ExecuteNoneQuery($inquery);
     if( !$rs )
     {
-            echo "<font color='red'>·¢±íÆÀÂÛ³ö´íÁË£¡</font>";
+            echo "<font color='red'>å‘è¡¨è¯„è®ºå‡ºé”™äº†ï¼</font>";
             //echo $dslq->GetError();
             exit();
     }
     $newid = $dsql->GetLastID();
-  //¸øÎÄÕÂÆÀ·Ö
+  //ç»™æ–‡ç« è¯„åˆ†
     if($feedbacktype=='bad')
     {
         $dsql->ExecuteNoneQuery("UPDATE `#@__archives` SET scores=scores-{cfg_feedback_sub},badpost=badpost+1,lastpost='$dtime' WHERE id='$aid' ");
@@ -173,19 +173,19 @@ else if($dopost=='send')
     {
         $dsql->ExecuteNoneQuery("UPDATE `#@__archives` SET scores=scores+1,lastpost='$dtime' WHERE id='$aid' ");
     }
-    //¸øÓÃ»§Ôö¼Ó»ı·Ö
+    //ç»™ç”¨æˆ·å¢åŠ ç§¯åˆ†
     if($cfg_ml->M_ID > 0)
     {
         #api{{
         if(defined('UC_API') && @include_once DEDEROOT.'/api/uc.func.php')
         {
-            //Í¬²½»ı·Ö
+            //åŒæ­¥ç§¯åˆ†
             uc_credit_note($cfg_ml->M_LoginID, $cfg_sendfb_scores);
             
-            //ÍÆËÍÊÂ¼ş
+            //æ¨é€äº‹ä»¶
             $arcRow = GetOneArchive($aid);
             $feed['icon'] = 'thread';
-            $feed['title_template'] = '<b>{username} ÔÚÍøÕ¾·¢±íÁËÆÀÂÛ</b>';
+            $feed['title_template'] = '<b>{username} åœ¨ç½‘ç«™å‘è¡¨äº†è¯„è®º</b>';
             $feed['title_data'] = array('username' => $cfg_ml->M_UserName);
             $feed['body_template'] = '<b>{subject}</b><br>{message}';
             $url = !strstr($arcRow['arcurl'],'http://') ? ($cfg_basehost.$arcRow['arcurl']) : $arcRow['arcurl'];        
@@ -201,7 +201,7 @@ else if($dopost=='send')
     $_SESSION['sedtime'] = time();
     if($ischeck==0)
     {
-        echo '<font color="red">³É¹¦·¢±íÆÀÂÛ£¬µ«ĞèÉóºËºó²Å»áÏÔÊ¾ÄãµÄÆÀÂÛ!</font>';
+        echo '<font color="red">æˆåŠŸå‘è¡¨è¯„è®ºï¼Œä½†éœ€å®¡æ ¸åæ‰ä¼šæ˜¾ç¤ºä½ çš„è¯„è®º!</font>';
         exit();
     }
     else
@@ -225,7 +225,7 @@ else if($dopost=='send')
           $row = $dsql->GetOne("SELECT face,sex FROM `#@__member` WHERE mid={$cfg_ml->M_ID} ");
             if(empty($row['face']))
             {
-              if($row['sex']=="Å®") $mface=$cfg_cmspath."/member/templets/images/dfgirl.png";
+              if($row['sex']=="å¥³") $mface=$cfg_cmspath."/member/templets/images/dfgirl.png";
               else $mface=$cfg_cmspath."/member/templets/images/dfboy.png";
             }
         }
@@ -234,11 +234,11 @@ else if($dopost=='send')
 <div class='decmt-box2'>
   <ul>
     <li> <a href='<?php echo $spaceurl; ?>' class='plpic'><img src='<?php echo $mface;?>'  height='40' width='40'/></a> <span class="title"><a href="<?php echo $spaceurl; ?>"><?php echo $username; ?></a></span>
-    <div class="comment_act"><span class="fl"><?php echo GetDateMk($dtime); ?>·¢±í</span></div>
+    <div class="comment_act"><span class="fl"><?php echo GetDateMk($dtime); ?>å‘è¡¨</span></div>
       <div style="clear:both"><?php echo ubb($msg); ?></div>
-      <div class="newcomment_act"><span class="fr"><span id='goodfb<?php echo $id; ?>'> <a href='#goodfb<?php echo $id; ?>' onclick="postBadGood('goodfb',<?php echo $id; ?>);">Ö§³Ö</a>[0] </span> <span id='badfb<?php echo $id; ?>'> <a href='#badfb<?php echo $id; ?>' onclick="postBadGood('badfb',<?php echo $id; ?>);">·´¶Ô</a>[0] </span> <span class='quote'>
-        <!--<a href='/plus/feedback.php?aid=<?php echo $id; ?>&fid=<?php echo $id; ?>&action=quote'>[ÒıÓÃ]</a>-->
-        <a href='javascript:ajaxFeedback(<?php echo $id; ?>,<?php echo $id; ?>,"quote");'>[ÒıÓÃ]</a> </span></span></div>
+      <div class="newcomment_act"><span class="fr"><span id='goodfb<?php echo $id; ?>'> <a href='#goodfb<?php echo $id; ?>' onclick="postBadGood('goodfb',<?php echo $id; ?>);">æ”¯æŒ</a>[0] </span> <span id='badfb<?php echo $id; ?>'> <a href='#badfb<?php echo $id; ?>' onclick="postBadGood('badfb',<?php echo $id; ?>);">åå¯¹</a>[0] </span> <span class='quote'>
+        <!--<a href='/plus/feedback.php?aid=<?php echo $id; ?>&fid=<?php echo $id; ?>&action=quote'>[å¼•ç”¨]</a>-->
+        <a href='javascript:ajaxFeedback(<?php echo $id; ?>,<?php echo $id; ?>,"quote");'>[å¼•ç”¨]</a> </span></span></div>
     </li>
     <div id="ajaxfeedback_<?php echo $id; ?>"></div>
   </ul>
@@ -250,9 +250,9 @@ else if($dopost=='send')
 }
 
 /**
- *  ¶ÁÈ¡ÁĞ±íÄÚÈİ
+ *  è¯»å–åˆ—è¡¨å†…å®¹
  *
- * @param     int  $page  Ò³Âë
+ * @param     int  $page  é¡µç 
  * @return    string
  */
 function GetList($page=1)
@@ -265,7 +265,7 @@ function GetList($page=1)
     $startNum = $pagesize * ($page-1);
     if($startNum > $totalcount)
     {
-        echo "²ÎÊı´íÎó£¡";
+        echo "å‚æ•°é”™è¯¯ï¼";
         return $totalcount;
     }
     $dsql->Execute('fb', $querystring." LIMIT $startNum, $pagesize ");
@@ -273,22 +273,22 @@ function GetList($page=1)
     {
         if($fields['userid']!='') $spaceurl = $GLOBALS['cfg_memberurl'].'/index.php?uid='.$fields['userid'];
         else $spaceurl = '#';
-        if($fields['username']=='ÄäÃû') $spaceurl = '#';
+        if($fields['username']=='åŒ¿å') $spaceurl = '#';
         $fields['bgimg'] = 'cmt-neu.gif';
-        $fields['ftypetitle'] = '¸ÃÓÃ»§±íÊ¾ÖĞÁ¢';
+        $fields['ftypetitle'] = 'è¯¥ç”¨æˆ·è¡¨ç¤ºä¸­ç«‹';
         if($fields['ftype']=='bad')
         {
             $fields['bgimg'] = 'cmt-bad.gif';
-            $fields['ftypetitle'] = '¸ÃÓÃ»§±íÊ¾²îÆÀ';
+            $fields['ftypetitle'] = 'è¯¥ç”¨æˆ·è¡¨ç¤ºå·®è¯„';
         }
         else if($fields['ftype']=='good')
         {
             $fields['bgimg'] = 'cmt-good.gif';
-            $fields['ftypetitle'] = '¸ÃÓÃ»§±íÊ¾ºÃÆÀ';
+            $fields['ftypetitle'] = 'è¯¥ç”¨æˆ·è¡¨ç¤ºå¥½è¯„';
         }
         if(empty($fields['mface']))
         {
-            if($fields['sex']=="Å®") $fields['mface']=$cfg_cmspath."/member/templets/images/dfgirl.png";
+            if($fields['sex']=="å¥³") $fields['mface']=$cfg_cmspath."/member/templets/images/dfgirl.png";
             else $fields['mface']=$cfg_cmspath."/member/templets/images/dfboy.png";
         }
         $fields['face'] = empty($fields['face']) ? 6 : $fields['face'];
@@ -301,11 +301,11 @@ function GetList($page=1)
 <div class="decmt-box2">
   <ul>
     <li> <a href='<?php echo $spaceurl; ?>' class='plpic'><img src='<?php echo $mface;?>'  height='40' width='40'/></a> <span class="title"><a href="<?php echo $spaceurl; ?>"><?php echo $username; ?></a></span>
-      <div class="comment_act"><span class="fl"><?php echo GetDateMk($dtime); ?>·¢±í</span></div>
+      <div class="comment_act"><span class="fl"><?php echo GetDateMk($dtime); ?>å‘è¡¨</span></div>
       <div style="clear:both"><?php echo ubb($msg); ?></div>
-      <div class="newcomment_act"><span class="fr"><span id='goodfb<?php echo $id; ?>'> <a href='#goodfb<?php echo $id; ?>' onclick="postBadGood('goodfb',<?php echo $id; ?>);">Ö§³Ö</a>[<?php echo $good; ?>] </span> <span id='badfb<?php echo $id; ?>'> <a href='#badfb<?php echo $id; ?>' onclick="postBadGood('badfb',<?php echo $id; ?>);">·´¶Ô</a>[<?php echo $bad; ?>] </span> <span class='quote'>
-        <!--<a href='/plus/feedback.php?aid=<?php echo $id; ?>&fid=<?php echo $id; ?>&action=quote'>[ÒıÓÃ]</a>-->
-        <a href='javascript:ajaxFeedback(<?php echo $id; ?>,<?php echo $id; ?>,"quote");'>[ÒıÓÃ]</a> </span></span></div>
+      <div class="newcomment_act"><span class="fr"><span id='goodfb<?php echo $id; ?>'> <a href='#goodfb<?php echo $id; ?>' onclick="postBadGood('goodfb',<?php echo $id; ?>);">æ”¯æŒ</a>[<?php echo $good; ?>] </span> <span id='badfb<?php echo $id; ?>'> <a href='#badfb<?php echo $id; ?>' onclick="postBadGood('badfb',<?php echo $id; ?>);">åå¯¹</a>[<?php echo $bad; ?>] </span> <span class='quote'>
+        <!--<a href='/plus/feedback.php?aid=<?php echo $id; ?>&fid=<?php echo $id; ?>&action=quote'>[å¼•ç”¨]</a>-->
+        <a href='javascript:ajaxFeedback(<?php echo $id; ?>,<?php echo $id; ?>,"quote");'>[å¼•ç”¨]</a> </span></span></div>
     </li>
   </ul>
   <div id="ajaxfeedback_<?php echo $id; ?>"></div>
@@ -316,10 +316,10 @@ function GetList($page=1)
 }
 
 /**
- *  »ñÈ¡·ÖÒ³ÁĞ±í
+ *  è·å–åˆ†é¡µåˆ—è¡¨
  *
- * @param     int  $pagesize  ÏÔÊ¾ÌõÊı
- * @param     int  $totalcount  ×ÜÊı
+ * @param     int  $pagesize  æ˜¾ç¤ºæ¡æ•°
+ * @param     int  $totalcount  æ€»æ•°
  * @return    string
  */
 function GetPageList($pagesize, $totalcount)
@@ -334,14 +334,14 @@ function GetPageList($pagesize, $totalcount)
     }
     echo "
 <div id='commetpages'>";
-  echo "<span>×Ü: {$allpage} Ò³/{$totalcount} ÌõÆÀÂÛ</span> ";
+  echo "<span>æ€»: {$allpage} é¡µ/{$totalcount} æ¡è¯„è®º</span> ";
   $listsize = 5;
   $total_list = $listsize * 2 + 1;
   $totalpage = $allpage;
   $listdd = '';
   if($curpage-1 > 0 )
   {
-  echo "<a href='#commettop' onclick='LoadCommets(".($curpage-1).");'>ÉÏÒ»Ò³</a> ";
+  echo "<a href='#commettop' onclick='LoadCommets(".($curpage-1).");'>ä¸Šä¸€é¡µ</a> ";
   }
   if($curpage >= $total_list)
   {
@@ -363,7 +363,7 @@ function GetPageList($pagesize, $totalcount)
   }
   if($curpage+1 <= $totalpage )
   {
-  echo "<a href='#commettop' onclick='LoadCommets(".($curpage+1).");'>ÏÂÒ»Ò³</a> ";
+  echo "<a href='#commettop' onclick='LoadCommets(".($curpage+1).");'>ä¸‹ä¸€é¡µ</a> ";
   }
   echo "</div>
 ";

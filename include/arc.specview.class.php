@@ -1,8 +1,8 @@
 <?php   if(!defined('DEDEINC')) exit("Request Error!");
 /**
- * ×¨ÌâÊÓÍ¼Àà
+ * ä¸“é¢˜è§†å›¾ç±»
  *
- * @version        $Id: arc.specview.class.php 1 18:17 2010Äê7ÔÂ7ÈÕZ tianya $
+ * @version        $Id: arc.specview.class.php 1 18:17 2010å¹´7æœˆ7æ—¥Z tianya $
  * @package        DedeCMS.Libraries
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -15,7 +15,7 @@ require_once(DEDEINC.'/ftp.class.php');
 
 @set_time_limit(0);
 /**
- * ×¨ÌâÊÓÍ¼Àà
+ * ä¸“é¢˜è§†å›¾ç±»
  *
  * @package          SpecView
  * @subpackage       DedeCMS.Libraries
@@ -41,10 +41,10 @@ class SpecView
     var $remoteDir;
 
     /**
-     *  php5¹¹Ôìº¯Êı
+     *  php5æ„é€ å‡½æ•°
      *
      * @access    public
-     * @param     int  $starttime  ¿ªÊ¼Ê±¼ä
+     * @param     int  $starttime  å¼€å§‹æ—¶é—´
      * @return    string
      */
     function __construct($starttime=0)
@@ -62,7 +62,7 @@ class SpecView
         $this->ftp = &$ftp;
         $this->remoteDir = '';
 
-        //ÉèÖÃÒ»Ğ©È«¾Ö²ÎÊıµÄÖµ
+        //è®¾ç½®ä¸€äº›å…¨å±€å‚æ•°çš„å€¼
         foreach($GLOBALS['PubFields'] as $k=>$v)
         {
             $this->Fields[$k] = $v;
@@ -79,7 +79,7 @@ class SpecView
         $tempfile = $GLOBALS['cfg_basedir'].$GLOBALS['cfg_templets_dir']."/".$GLOBALS['cfg_df_style']."/list_spec.htm";
         if(!file_exists($tempfile)||!is_file($tempfile))
         {
-            echo "Ä£°åÎÄ¼ş²»´æÔÚ£¬ÎŞ·¨½âÎöÎÄµµ£¡";
+            echo "æ¨¡æ¿æ–‡ä»¶ä¸å­˜åœ¨ï¼Œæ— æ³•è§£ææ–‡æ¡£ï¼";
             exit();
         }
         $this->dtp->LoadTemplate($tempfile);
@@ -104,19 +104,19 @@ class SpecView
         $this->TotalPage = ceil($this->TotalResult/$this->PageSize);
     }
 
-    //php4¹¹Ôìº¯Êı
+    //php4æ„é€ å‡½æ•°
     function SpecView($starttime=0)
     {
         $this->__construct($starttime);
     }
 
-    //¹Ø±ÕÏà¹Ø×ÊÔ´
+    //å…³é—­ç›¸å…³èµ„æº
     function Close()
     {
     }
 
     /**
-     *  Í³¼ÆÁĞ±íÀïµÄ¼ÇÂ¼
+     *  ç»Ÿè®¡åˆ—è¡¨é‡Œçš„è®°å½•
      *
      * @access    private
      * @return    void
@@ -159,7 +159,7 @@ class SpecView
     }
 
     /**
-     *  ÏÔÊ¾ÁĞ±í
+     *  æ˜¾ç¤ºåˆ—è¡¨
      *
      * @access    public
      * @return    void
@@ -213,16 +213,16 @@ class SpecView
     }
 
     /**
-     *  ¿ªÊ¼´´½¨ÁĞ±í
+     *  å¼€å§‹åˆ›å»ºåˆ—è¡¨
      *
      * @access    public
-     * @param     int  $isremote  ÊÇ·ñÔ¶³Ì
+     * @param     int  $isremote  æ˜¯å¦è¿œç¨‹
      * @return    string
      */
     function MakeHtml($isremote=0)
     {
         global $cfg_remote_site;
-        //³õ²½¸ø¹Ì¶¨ÖµµÄ±ê¼Ç¸³Öµ
+        //åˆæ­¥ç»™å›ºå®šå€¼çš„æ ‡è®°èµ‹å€¼
         $this->ParseTempletsFirst();
         $totalpage = ceil($this->TotalResult / $this->PageSize);
         if($totalpage==0)
@@ -275,18 +275,18 @@ class SpecView
             $murl = $makeFile;
             $makeFile = $GLOBALS['cfg_basedir'].$makeFile;
             $this->dtp->SaveTo($makeFile);
-            //Èç¹ûÆôÓÃÔ¶³ÌÕ¾µãÔòÉÏ´«
+            //å¦‚æœå¯ç”¨è¿œç¨‹ç«™ç‚¹åˆ™ä¸Šä¼ 
             if($cfg_remote_site=='Y'&& $isremote == 1)
             {
-                //·ÖÎöÔ¶³ÌÎÄ¼şÂ·¾¶
+                //åˆ†æè¿œç¨‹æ–‡ä»¶è·¯å¾„
                 $remotefile = str_replace(DEDEROOT, '', $makeFile);
                 $localfile = '..'.$remotefile;
                 $remotedir = preg_replace('/[^\/]*\.html/', '',$remotefile);
-                //²»ÏàµÈÔòËµÃ÷ÒÑ¾­ÇĞ»»Ä¿Â¼Ôò¿ÉÒÔ´´½¨¾µÏñ
+                //ä¸ç›¸ç­‰åˆ™è¯´æ˜å·²ç»åˆ‡æ¢ç›®å½•åˆ™å¯ä»¥åˆ›å»ºé•œåƒ
                 $this->ftp->rmkdir($remotedir);
                 $this->ftp->upload($localfile, $remotefile, 'acii');
             }
-            echo "³É¹¦´´½¨£º$murl<br/>";
+            echo "æˆåŠŸåˆ›å»ºï¼š$murl<br/>";
         }
         copy($GLOBALS['cfg_basedir'].$GLOBALS['cfg_special']."/spec_1".$GLOBALS['art_shortname'],$GLOBALS['cfg_basedir'].$GLOBALS['cfg_special']."/index.html");
         $murl = $GLOBALS['cfg_special']."/index.html";
@@ -294,7 +294,7 @@ class SpecView
     }
 
     /**
-     *  ½âÎöÄ£°å£¬¶Ô¹Ì¶¨µÄ±ê¼Ç½øĞĞ³õÊ¼¸øÖµ
+     *  è§£ææ¨¡æ¿ï¼Œå¯¹å›ºå®šçš„æ ‡è®°è¿›è¡Œåˆå§‹ç»™å€¼
      *
      * @access    private
      * @return    void
@@ -305,20 +305,20 @@ class SpecView
     }
 
     /**
-     *  »ñÈ¡ÄÚÈİÁĞ±í
+     *  è·å–å†…å®¹åˆ—è¡¨
      *
      * @access    public
-     * @param     int  $limitstart  ÏŞÖÆ¿ªÊ¼  
-     * @param     int  $row  ĞĞÊı 
-     * @param     int  $col  ÁĞÊı
-     * @param     int  $titlelen  ±êÌâ³¤¶È
-     * @param     int  $infolen  ÃèÊö³¤¶È
-     * @param     int  $imgwidth  Í¼Æ¬¿í¶È
-     * @param     int  $imgheight  Í¼Æ¬¸ß¶È
-     * @param     string  $listtype  ÁĞ±íÀàĞÍ
-     * @param     string  $orderby  ÅÅÁĞË³Ğò
-     * @param     string  $innertext  µ×²ãÄ£°å
-     * @param     string  $tablewidth  ±í¸ñ¿í¶È
+     * @param     int  $limitstart  é™åˆ¶å¼€å§‹  
+     * @param     int  $row  è¡Œæ•° 
+     * @param     int  $col  åˆ—æ•°
+     * @param     int  $titlelen  æ ‡é¢˜é•¿åº¦
+     * @param     int  $infolen  æè¿°é•¿åº¦
+     * @param     int  $imgwidth  å›¾ç‰‡å®½åº¦
+     * @param     int  $imgheight  å›¾ç‰‡é«˜åº¦
+     * @param     string  $listtype  åˆ—è¡¨ç±»å‹
+     * @param     string  $orderby  æ’åˆ—é¡ºåº
+     * @param     string  $innertext  åº•å±‚æ¨¡æ¿
+     * @param     string  $tablewidth  è¡¨æ ¼å®½åº¦
      * @return    string
      */
     function GetArcList($limitstart=0,$row=10,$col=1,$titlelen=30,$infolen=250,
@@ -379,14 +379,14 @@ class SpecView
             $innertext = GetSysTemplets("spec_list.htm");
         }
 
-        //°´²»Í¬Çé¿öÉè¶¨SQLÌõ¼ş
+        //æŒ‰ä¸åŒæƒ…å†µè®¾å®šSQLæ¡ä»¶
         $orwhere = " arc.arcrank > -1 AND arc.channel = -1 ";
         if($this->StartTime>0)
         {
             $orwhere .= " AND arc.senddate>'".$this->StartTime."'";
         }
 
-        //ÅÅĞò·½Ê½
+        //æ’åºæ–¹å¼
         $ordersql = '';
         if($orderby=='senddate')
         {
@@ -430,7 +430,7 @@ class SpecView
                 }
                 if($row = $this->dsql->GetArray("al"))
                 {
-                    //´¦ÀíÒ»Ğ©ÌØÊâ×Ö¶Î
+                    //å¤„ç†ä¸€äº›ç‰¹æ®Šå­—æ®µ
                     $row["description"] = cn_substr($row["description"],$infolen);
                     $row["title"] = cn_substr($row["title"],$titlelen);
                     $row["id"] =  $row["id"];
@@ -457,7 +457,7 @@ class SpecView
                     $row['memberurl'] = $GLOBALS['cfg_memberurl'];
                     $row['templeturl'] = $GLOBALS['cfg_templeturl'];
 
-                    //±àÒë¸½¼Ó±íÀïµÄÊı¾İ
+                    //ç¼–è¯‘é™„åŠ è¡¨é‡Œçš„æ•°æ®
                     foreach($this->ChannelUnit->ChannelFields as $k=>$arr)
                     {
                         if(isset($row[$k]))
@@ -471,7 +471,7 @@ class SpecView
                         {
                             if($ctag->GetName()=='array')
                             {
-                                //´«µİÕû¸öÊı×é£¬ÔÚrunphpÄ£Ê½ÖĞÓĞÌØÊâ×÷ÓÃ
+                                //ä¼ é€’æ•´ä¸ªæ•°ç»„ï¼Œåœ¨runphpæ¨¡å¼ä¸­æœ‰ç‰¹æ®Šä½œç”¨
                                 $this->dtp2->Assign($k,$row);
                             }
                             else
@@ -515,10 +515,10 @@ class SpecView
     }
 
     /**
-     *  »ñÈ¡¾²Ì¬µÄ·ÖÒ³ÁĞ±í
+     *  è·å–é™æ€çš„åˆ†é¡µåˆ—è¡¨
      *
      * @access    public
-     * @param     int  $list_len  ÁĞ±í¿í¶È
+     * @param     int  $list_len  åˆ—è¡¨å®½åº¦
      * @return    string
      */
     function GetPageListST($list_len)
@@ -535,36 +535,36 @@ class SpecView
         if($totalpage <= 1 && $this->TotalResult > 0)
         {
 
-            return "<span class=\"pageinfo\">¹² <strong>1</strong>Ò³<strong>".$this->TotalResult."</strong>Ìõ¼ÇÂ¼</span>";
+            return "<span class=\"pageinfo\">å…± <strong>1</strong>é¡µ<strong>".$this->TotalResult."</strong>æ¡è®°å½•</span>";
         }
         if($this->TotalResult == 0)
         {
-            return "<span class=\"pageinfo\">¹² <strong>0</strong>Ò³<strong>".$this->TotalResult."</strong>Ìõ¼ÇÂ¼</span>";
+            return "<span class=\"pageinfo\">å…± <strong>0</strong>é¡µ<strong>".$this->TotalResult."</strong>æ¡è®°å½•</span>";
         }
         $purl = $this->GetCurUrl();
         $tnamerule = "spec_";
 
-        //»ñµÃÉÏÒ»Ò³ºÍÏÂÒ»Ò³µÄÁ´½Ó
+        //è·å¾—ä¸Šä¸€é¡µå’Œä¸‹ä¸€é¡µçš„é“¾æ¥
         if($this->PageNo != 1)
         {
-            $prepage.="<li><a href='".$tnamerule."$prepagenum".$GLOBALS['art_shortname']."'>ÉÏÒ»Ò³</a></li>\r\n";
-            $indexpage="<li><a href='".$tnamerule."1".$GLOBALS['art_shortname']."'>Ê×Ò³</a></li>\r\n";
+            $prepage.="<li><a href='".$tnamerule."$prepagenum".$GLOBALS['art_shortname']."'>ä¸Šä¸€é¡µ</a></li>\r\n";
+            $indexpage="<li><a href='".$tnamerule."1".$GLOBALS['art_shortname']."'>é¦–é¡µ</a></li>\r\n";
         }
         else
         {
-            $indexpage="<li><a>Ê×Ò³</a></li>\r\n";
+            $indexpage="<li><a>é¦–é¡µ</a></li>\r\n";
         }
         if($this->PageNo!=$totalpage && $totalpage>1)
         {
-            $nextpage.="<li><a href='".$tnamerule."$nextpagenum".$GLOBALS['art_shortname']."'>ÏÂÒ»Ò³</a></li>\r\n";
-            $endpage="<li><a href='".$tnamerule."$totalpage".$GLOBALS['art_shortname']."'>Ä©Ò³</a></li>\r\n";
+            $nextpage.="<li><a href='".$tnamerule."$nextpagenum".$GLOBALS['art_shortname']."'>ä¸‹ä¸€é¡µ</a></li>\r\n";
+            $endpage="<li><a href='".$tnamerule."$totalpage".$GLOBALS['art_shortname']."'>æœ«é¡µ</a></li>\r\n";
         }
         else
         {
-            $endpage="<li><a>Ä©Ò³</a></li>\r\n";
+            $endpage="<li><a>æœ«é¡µ</a></li>\r\n";
         }
 
-        //»ñµÃÊı×ÖÁ´½Ó
+        //è·å¾—æ•°å­—é“¾æ¥
         $listdd="";
         $total_list = $list_len * 2 + 1;
         if($this->PageNo >= $total_list)
@@ -600,10 +600,10 @@ class SpecView
     }
 
     /**
-     *  »ñÈ¡¶¯Ì¬µÄ·ÖÒ³ÁĞ±í
+     *  è·å–åŠ¨æ€çš„åˆ†é¡µåˆ—è¡¨
      *
      * @access    private
-     * @param     int  $list_len  ÁĞ±í¿í¶È
+     * @param     int  $list_len  åˆ—è¡¨å®½åº¦
      * @return    string
      */
      
@@ -620,11 +620,11 @@ class SpecView
         $totalpage = ceil($this->TotalResult / $this->PageSize);
         if($totalpage <= 1 && $this->TotalResult > 0)
         {
-            return "<span class=\"pageinfo\">¹²1Ò³/".$this->TotalResult."Ìõ¼ÇÂ¼</span>";
+            return "<span class=\"pageinfo\">å…±1é¡µ/".$this->TotalResult."æ¡è®°å½•</span>";
         }
         if($this->TotalResult == 0)
         {
-            return "<span class=\"pageinfo\">¹²0Ò³/".$this->TotalResult."Ìõ¼ÇÂ¼</span>";
+            return "<span class=\"pageinfo\">å…±0é¡µ/".$this->TotalResult."æ¡è®°å½•</span>";
         }
 
         $purl = $this->GetCurUrl();
@@ -633,27 +633,27 @@ class SpecView
         $hidenform .= "<input type='hidden' name='TotalResult' value='".$this->TotalResult."'>\r\n";
         $purl .= "?".$geturl;
 
-        //»ñµÃÉÏÒ»Ò³ºÍÏÂÒ»Ò³µÄÁ´½Ó
+        //è·å¾—ä¸Šä¸€é¡µå’Œä¸‹ä¸€é¡µçš„é“¾æ¥
         if($this->PageNo != 1)
         {
-            $prepage.="<li><a href='".$purl."PageNo=$prepagenum'>ÉÏÒ»Ò³</a></li>\r\n";
-            $indexpage="<li><a href='".$purl."PageNo=1'>Ê×Ò³</a></li>\r\n";
+            $prepage.="<li><a href='".$purl."PageNo=$prepagenum'>ä¸Šä¸€é¡µ</a></li>\r\n";
+            $indexpage="<li><a href='".$purl."PageNo=1'>é¦–é¡µ</a></li>\r\n";
         }
         else
         {
-            $indexpage="<li><a>Ê×Ò³</a></li>\r\n";
+            $indexpage="<li><a>é¦–é¡µ</a></li>\r\n";
         }
         if($this->PageNo != $totalpage && $totalpage>1)
         {
-            $nextpage.="<li><a href='".$purl."PageNo=$nextpagenum'>ÏÂÒ»Ò³</a></li>\r\n";
-            $endpage="<li><a href='".$purl."PageNo=$totalpage'>Ä©Ò³</a></li>\r\n";
+            $nextpage.="<li><a href='".$purl."PageNo=$nextpagenum'>ä¸‹ä¸€é¡µ</a></li>\r\n";
+            $endpage="<li><a href='".$purl."PageNo=$totalpage'>æœ«é¡µ</a></li>\r\n";
         }
         else
         {
-            $endpage="<li><a>Ä©Ò³</a></li>";
+            $endpage="<li><a>æœ«é¡µ</a></li>";
         }
 
-        //»ñµÃÊı×ÖÁ´½Ó
+        //è·å¾—æ•°å­—é“¾æ¥
         $listdd = "";
         $total_list = $list_len * 2 + 1;
         if($this->PageNo >= $total_list)
@@ -690,7 +690,7 @@ class SpecView
     }
 
     /**
-     *  »ñµÃµ±Ç°µÄÒ³ÃæÎÄ¼şµÄurl
+     *  è·å¾—å½“å‰çš„é¡µé¢æ–‡ä»¶çš„url
      *
      * @access    private
      * @return    string

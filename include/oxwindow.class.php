@@ -1,6 +1,6 @@
 <?php   if(!defined('DEDEINC')) exit("Request Error!");
 /**
- * ÌáÊ¾´°¿Ú¶Ô»°¿òÀà
+ * æç¤ºçª—å£å¯¹è¯æ¡†ç±»
  *
  * @version        $Id: oxwindow.class.php 2 13:53 2010-11-11 tianya $
  * @package        DedeCMS.Libraries
@@ -11,7 +11,7 @@
 require_once(DEDEINC."/dedetag.class.php");
 
 /**
- * ÌáÊ¾´°¿Ú¶Ô»°¿òÀà
+ * æç¤ºçª—å£å¯¹è¯æ¡†ç±»
  *
  * @package          OxWindow
  * @subpackage       DedeCMS.Libraries
@@ -27,12 +27,12 @@ class OxWindow
     var $hasStart = false;
 
     /**
-     *  ³õÊ¼»¯Îªº¬±íµ¥µÄÒ³Ãæ
+     *  åˆå§‹åŒ–ä¸ºå«è¡¨å•çš„é¡µé¢
      *
-     * @param     string  $formaction  ±íµ¥²Ù×÷action
-     * @param     string  $checkScript  ¼ì²âÑéÖ¤js
-     * @param     string  $formmethod  ±íµ¥ÀàÐÍ
-     * @param     string  $formname  ±íµ¥Ãû³Æ
+     * @param     string  $formaction  è¡¨å•æ“ä½œaction
+     * @param     string  $checkScript  æ£€æµ‹éªŒè¯js
+     * @param     string  $formmethod  è¡¨å•ç±»åž‹
+     * @param     string  $formname  è¡¨å•åç§°
      * @return    void
      */
     function Init($formaction="", $checkScript="js/blank.js", $formmethod="POST", $formname="myform")
@@ -55,10 +55,10 @@ class OxWindow
 
     //
     /**
-     *  Ôö¼ÓÒþ²ØÓò
+     *  å¢žåŠ éšè—åŸŸ
      *
-     * @param     string  $iname  Òþ²ØÓòÃû³Æ
-     * @param     string  $ivalue  Òþ²ØÓòÖµ
+     * @param     string  $iname  éšè—åŸŸåç§°
+     * @param     string  $ivalue  éšè—åŸŸå€¼
      * @return    void
      */
     function AddHidden($iname,$ivalue)
@@ -67,7 +67,7 @@ class OxWindow
     }
 
     /**
-     *  ¿ªÊ¼´´½¨´°¿Ú
+     *  å¼€å§‹åˆ›å»ºçª—å£
      *
      * @return    void
      */
@@ -77,11 +77,11 @@ class OxWindow
     }
 
     /**
-     *  Ôö¼ÓÒ»¸öÁ½ÁÐµÄÐÐ
+     *  å¢žåŠ ä¸€ä¸ªä¸¤åˆ—çš„è¡Œ
      *
      * @access    public
-     * @param     string  $iname  Ãû³Æ
-     * @param     string  $ivalue  Öµ
+     * @param     string  $iname  åç§°
+     * @param     string  $ivalue  å€¼
      * @return    string
      */
     function AddItem($iname, $ivalue)
@@ -93,12 +93,12 @@ class OxWindow
     }
 
     /**
-     *  Ôö¼ÓÒ»¸öµ¥ÁÐµÄÏûÏ¢ÐÐ
+     *  å¢žåŠ ä¸€ä¸ªå•åˆ—çš„æ¶ˆæ¯è¡Œ
      *
      * @access    public
-     * @param     string  $ivalue  ¶ÌÏûÏ¢Öµ
-     * @param     string  $height  ÏûÏ¢¿ò¸ß¶È
-     * @param     string  $col  ÏÔÊ¾ÁÐÊý
+     * @param     string  $ivalue  çŸ­æ¶ˆæ¯å€¼
+     * @param     string  $height  æ¶ˆæ¯æ¡†é«˜åº¦
+     * @param     string  $col  æ˜¾ç¤ºåˆ—æ•°
      * @return    void
      */
     function AddMsgItem($ivalue, $height="100", $col="2")
@@ -125,11 +125,11 @@ class OxWindow
     }
 
     /**
-     *  Ôö¼Óµ¥ÁÐµÄ±êÌâÐÐ
+     *  å¢žåŠ å•åˆ—çš„æ ‡é¢˜è¡Œ
      *
      * @access    public
-     * @param     string  $title  ±êÌâ
-     * @param     string  $col  ÁÐ
+     * @param     string  $title  æ ‡é¢˜
+     * @param     string  $col  åˆ—
      * @return    string
      */
     function AddTitle($title, $col="2")
@@ -149,7 +149,7 @@ class OxWindow
     }
 
     /**
-     *  ½áÊøWindow
+     *  ç»“æŸWindow
      *
      * @param     bool   $isform
      * @return    void
@@ -167,7 +167,7 @@ class OxWindow
     }
 
     /**
-     *  Ôö¼Ó×Ô¶¨ÒåJS½Å±¾
+     *  å¢žåŠ è‡ªå®šä¹‰JSè„šæœ¬
      *
      * @param     string  $scripts
      * @return    void
@@ -182,11 +182,11 @@ class OxWindow
     }
 
     /**
-     *  »ñÈ¡´°¿Ú
+     *  èŽ·å–çª—å£
      *
-     * @param     string  $wintype  ²Ëµ¥ÀàÐÍ
-     * @param     string  $msg  ¶ÌÏûÏ¢
-     * @param     bool  $isform  ÊÇ·ñÊÇ±íµ¥
+     * @param     string  $wintype  èœå•ç±»åž‹
+     * @param     string  $msg  çŸ­æ¶ˆæ¯
+     * @param     bool  $isform  æ˜¯å¦æ˜¯è¡¨å•
      * @return    string
      */
     function GetWindow($wintype="save", $msg="", $isform=true)
@@ -228,10 +228,10 @@ class OxWindow
     }
 
     /**
-     *  ÏÔÊ¾Ò³Ãæ
+     *  æ˜¾ç¤ºé¡µé¢
      *
      * @access    public
-     * @param     string  $modfile  Ä£ÐÍÄ£°å
+     * @param     string  $modfile  æ¨¡åž‹æ¨¡æ¿
      * @return    string
      */
     function Display($modfile="")
@@ -239,7 +239,7 @@ class OxWindow
         global $cfg_templets_dir,$wecome_info,$cfg_basedir;
         if(empty($wecome_info))
         {
-            $wecome_info = "DedeCMS OX Í¨ÓÃ¶Ô»°¿ò£º";
+            $wecome_info = "DedeCMS OX é€šç”¨å¯¹è¯æ¡†ï¼š";
         }
         $ctp = new DedeTagParse();
         if($modfile=='')
@@ -264,18 +264,18 @@ class OxWindow
 } //End Class
 
 /**
- *  ÏÔÊ¾Ò»¸ö²»´ø±íµ¥µÄÆÕÍ¨ÌáÊ¾
+ *  æ˜¾ç¤ºä¸€ä¸ªä¸å¸¦è¡¨å•çš„æ™®é€šæç¤º
  *
  * @access    public
- * @param     string   $msg  ÏûÏ¢ÌáÊ¾ÐÅÏ¢
- * @param     string   $title  ÌáÊ¾±êÌâ
+ * @param     string   $msg  æ¶ˆæ¯æç¤ºä¿¡æ¯
+ * @param     string   $title  æç¤ºæ ‡é¢˜
  * @return    string
  */
 function ShowMsgWin($msg, $title)
 {
     $win = new OxWindow();
     $win->Init();
-    $win->mainTitle = "DeDeCMSÏµÍ³ÌáÊ¾£º";
+    $win->mainTitle = "DeDeCMSç³»ç»Ÿæç¤ºï¼š";
     $win->AddTitle($title);
     $win->AddMsgItem("<div style='padding-left:20px;line-height:150%'>$msg</div>");
     $winform = $win->GetWindow("hand");

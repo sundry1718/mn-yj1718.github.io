@@ -1,12 +1,12 @@
 <?php
-//Êý¾Ý¿âÁ¬½ÓÐÅÏ¢
+//æ•°æ®åº“è¿žæŽ¥ä¿¡æ¯
 $cfg_dbtype = 'mysql';
 $cfg_dbhost = 'localhost';
-$cfg_dbname = 'dedecmsv57gbksp2';
-$cfg_dbuser = 'root';
-$cfg_dbpwd = 'root';
+$cfg_dbname = 'www.bjcs.com';
+$cfg_dbuser = 'bjcs.com';
+$cfg_dbpwd = 'bjcs.com';
 $cfg_dbprefix = 'dede_';
-$cfg_db_language = 'gbk';
+$cfg_db_language = 'utf8';
 
 
 ?>

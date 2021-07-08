@@ -1,8 +1,8 @@
 <?php   if(!defined('DEDEINC')) exit('Request Error!');
 /**
- * ��ҳ�ĵ����ñ�ǩ
+ * 单页文档调用标签
  *
- * @version        $Id: likesgpage.lib.php 1 9:29 2010��7��6��Z tianya $
+ * @version        $Id: likesgpage.lib.php 1 9:29 2010年7月6日Z tianya $
  * @package        DedeCMS.Taglib
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -10,15 +10,15 @@
  */
  
 /*>>dede>>
-<name>��ҳ�ĵ����ñ�ǩ</name>
-<type>ȫ�ֱ��</type>
+<name>单页文档调用标签</name>
+<type>全局标记</type>
 <for>V55,V56,V57</for>
-<description>��ҳ�ĵ����ñ�ǩ</description>
+<description>单页文档调用标签</description>
 <demo>
 {dede:likespage row=''/}
 </demo>
 <attributes>
-    <iterm>row:��������</iterm> 
+    <iterm>row:调用条数</iterm> 
 </attributes> 
 >>dede>>*/
  
@@ -26,7 +26,7 @@ function lib_likesgpage(&$ctag,&$refObj)
 {
     global $dsql;
 
-    //������תΪ���������������д˲��裬Ҳ����ֱ�Ӵ� $ctag->CAttribute->Items ��ã�����Ҳ����֧��������
+    //把属性转为变量，如果不想进行此步骤，也可以直接从 $ctag->CAttribute->Items 获得，这样也可以支持中文名
     $attlist="row|8";
     FillAttsDefault($ctag->CAttribute->Items,$attlist);
     extract($ctag->CAttribute->Items, EXTR_SKIP);

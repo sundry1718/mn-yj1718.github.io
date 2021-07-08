@@ -1,8 +1,8 @@
 <?php   if(!defined('DEDEINC'))exit('Request Error!');
 /**
- * µ¥±íÄ£ĞÍÁĞ±íÊÓÍ¼Àà
+ * å•è¡¨æ¨¡å‹åˆ—è¡¨è§†å›¾ç±»
  *
- * @version        $Id: arc.sglistview.class.php 1 15:48 2010Äê7ÔÂ7ÈÕZ tianya $
+ * @version        $Id: arc.sglistview.class.php 1 15:48 2010å¹´7æœˆ7æ—¥Z tianya $
  * @package        DedeCMS.Libraries
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -13,7 +13,7 @@
 require_once(DEDEINC."/arc.partview.class.php");
 
 /**
- * µ¥±íÄ£ĞÍÁĞ±íÊÓÍ¼Àà
+ * å•è¡¨æ¨¡å‹åˆ—è¡¨è§†å›¾ç±»
  *
  * @package          SgListView
  * @subpackage       DedeCMS.Libraries
@@ -44,11 +44,11 @@ class SgListView
     var $sAddTable;
     
     /**
-     *  php5¹¹Ôìº¯Êı
+     *  php5æ„é€ å‡½æ•°
      *
      * @access    public
-     * @param     int  $typeid  À¸Ä¿ID
-     * @param     array  $searchArr  ¼ìË÷Êı×é
+     * @param     int  $typeid  æ ç›®ID
+     * @param     array  $searchArr  æ£€ç´¢æ•°ç»„
      * @return    void
      */
     function __construct($typeid,$searchArr=array())
@@ -79,21 +79,21 @@ class SgListView
             $this->Fields['position'] = $this->TypeLink->GetPositionLink(true);
             $this->Fields['title'] = preg_replace("/[<>]/", " / ", $this->TypeLink->GetPositionLink(false));
 
-            //»ñµÃ¸½¼Ó±íºÍÁĞ±í×Ö¶ÎĞÅÏ¢
+            //è·å¾—é™„åŠ è¡¨å’Œåˆ—è¡¨å­—æ®µä¿¡æ¯
             $this->AddTable = $this->ChannelUnit->ChannelInfos['addtable'];
             $listfield = trim($this->ChannelUnit->ChannelInfos['listfields']);
 
             $this->ListFields = explode(',', $listfield);
 
-            //ÉèÖÃÒ»Ğ©È«¾Ö²ÎÊıµÄÖµ
+            //è®¾ç½®ä¸€äº›å…¨å±€å‚æ•°çš„å€¼
             foreach($GLOBALS['PubFields'] as $k=>$v) $this->Fields[$k] = $v;
             $this->Fields['rsslink'] = $GLOBALS['cfg_cmsurl']."/data/rss/".$this->TypeID.".xml";
 
-            //ÉèÖÃ»·¾³±äÁ¿
+            //è®¾ç½®ç¯å¢ƒå˜é‡
             SetSysEnv($this->TypeID,$this->Fields['typename'],0,'','list');
             $this->Fields['typeid'] = $this->TypeID;
 
-            //»ñµÃ½»²æÀ¸Ä¿ID
+            //è·å¾—äº¤å‰æ ç›®ID
             if($this->TypeLink->TypeInfos['cross']>0 && $this->TypeLink->TypeInfos['ispart']==0)
             {
                 $selquery = '';
@@ -124,18 +124,18 @@ class SgListView
 
     }
 
-    //php4¹¹Ôìº¯Êı
+    //php4æ„é€ å‡½æ•°
     function SgListView($typeid,$searchArr=array()){
         $this->__construct($typeid,$searchArr);
     }
-    //¹Ø±ÕÏà¹Ø×ÊÔ´
+    //å…³é—­ç›¸å…³èµ„æº
     function Close()
     {
 
     }
 
     /**
-     *  Í³¼ÆÁĞ±íÀïµÄ¼ÇÂ¼
+     *  ç»Ÿè®¡åˆ—è¡¨é‡Œçš„è®°å½•
      *
      * @access    public
      * @return    void
@@ -144,14 +144,14 @@ class SgListView
     {
         global $cfg_list_son;
 
-        //Í³¼ÆÊı¾İ¿â¼ÇÂ¼
+        //ç»Ÿè®¡æ•°æ®åº“è®°å½•
         $this->TotalResult = -1;
         if(isset($GLOBALS['TotalResult'])) $this->TotalResult = $GLOBALS['TotalResult'];
         if(isset($GLOBALS['PageNo'])) $this->PageNo = $GLOBALS['PageNo'];
         else $this->PageNo = 1;
         $this->addSql  = " arc.arcrank > -1 ";
 
-        //À¸Ä¿idÌõ¼ş
+        //æ ç›®idæ¡ä»¶
         if(!empty($this->TypeID))
         {
             if($cfg_list_son=='N')
@@ -167,7 +167,7 @@ class SgListView
         }
 
         $naddQuery = '';
-        //µØÇøÓëĞÅÏ¢ÀàĞÍÌõ¼ş
+        //åœ°åŒºä¸ä¿¡æ¯ç±»å‹æ¡ä»¶
         if(count($this->searchArr) > 0)
         {
             if(!empty($this->searchArr['nativeplace']))
@@ -224,7 +224,7 @@ class SgListView
                 $this->TotalResult = 0;
             }
         }
-        //³õÊ¼»¯ÁĞ±íÄ£°å£¬²¢Í³¼ÆÒ³Ãæ×ÜÊı
+        //åˆå§‹åŒ–åˆ—è¡¨æ¨¡æ¿ï¼Œå¹¶ç»Ÿè®¡é¡µé¢æ€»æ•°
         $tempfile = $GLOBALS['cfg_basedir'].$GLOBALS['cfg_templets_dir']."/".$this->TypeLink->TypeInfos['templist'];
         $tempfile = str_replace("{tid}",$this->TypeID,$tempfile);
         $tempfile = str_replace("{cid}",$this->ChannelUnit->ChannelInfos['nid'],$tempfile);
@@ -242,7 +242,7 @@ class SgListView
         }
         if(!file_exists($tempfile)||!is_file($tempfile))
         {
-            echo "Ä£°åÎÄ¼ş²»´æÔÚ£¬ÎŞ·¨½âÎöÎÄµµ£¡";
+            echo "æ¨¡æ¿æ–‡ä»¶ä¸å­˜åœ¨ï¼Œæ— æ³•è§£ææ–‡æ¡£ï¼";
             exit();
         }
         $this->dtp->LoadTemplate($tempfile);
@@ -270,11 +270,11 @@ class SgListView
     }
 
     /**
-     *  ÁĞ±í´´½¨HTML
+     *  åˆ—è¡¨åˆ›å»ºHTML
      *
      * @access    public
-     * @param     string  $startpage  ¿ªÊ¼Ò³Ãæ
-     * @param     string  $makepagesize  Éú³É³ß´ç
+     * @param     string  $startpage  å¼€å§‹é¡µé¢
+     * @param     string  $makepagesize  ç”Ÿæˆå°ºå¯¸
      * @return    string
      */
     function MakeHtml($startpage=1,$makepagesize=0)
@@ -284,14 +284,14 @@ class SgListView
             $startpage = 1;
         }
 
-        //´´½¨·âÃæÄ£°åÎÄ¼ş
+        //åˆ›å»ºå°é¢æ¨¡æ¿æ–‡ä»¶
         if($this->TypeLink->TypeInfos['isdefault']==-1)
         {
-            echo 'Õâ¸öÀàÄ¿ÊÇ¶¯Ì¬ÀàÄ¿£¡';
+            echo 'è¿™ä¸ªç±»ç›®æ˜¯åŠ¨æ€ç±»ç›®ï¼';
             return '';
         }
 
-        //µ¥¶ÀÒ³Ãæ
+        //å•ç‹¬é¡µé¢
         else if($this->TypeLink->TypeInfos['ispart']>0)
         {
             $reurl = $this->MakePartTemplets();
@@ -299,7 +299,7 @@ class SgListView
         }
 
         if(empty($this->TotalResult)) $this->CountRecord();
-        //³õ²½¸ø¹Ì¶¨ÖµµÄ±ê¼Ç¸³Öµ
+        //åˆæ­¥ç»™å›ºå®šå€¼çš„æ ‡è®°èµ‹å€¼
         $this->ParseTempletsFirst();
         $totalpage = ceil($this->TotalResult/$this->PageSize);
         if($totalpage==0)
@@ -341,7 +341,7 @@ class SgListView
         }
         if($startpage==1)
         {
-            //Èç¹ûÁĞ±íÆôÓÃ·âÃæÎÄ¼ş£¬¸´ÖÆÕâ¸öÎÄ¼şµÚÒ»Ò³
+            //å¦‚æœåˆ—è¡¨å¯ç”¨å°é¢æ–‡ä»¶ï¼Œå¤åˆ¶è¿™ä¸ªæ–‡ä»¶ç¬¬ä¸€é¡µ
             if($this->TypeLink->TypeInfos['isdefault']==1
             && $this->TypeLink->TypeInfos['ispart']==0)
             {
@@ -357,7 +357,7 @@ class SgListView
     }
 
     /**
-     *  ÏÔÊ¾ÁĞ±í
+     *  æ˜¾ç¤ºåˆ—è¡¨
      *
      * @access    public
      * @return    void
@@ -390,7 +390,7 @@ class SgListView
     }
 
     /**
-     *  ´´½¨µ¥¶ÀÄ£°åÒ³Ãæ
+     *  åˆ›å»ºå•ç‹¬æ¨¡æ¿é¡µé¢
      *
      * @access    public
      * @return    string
@@ -422,7 +422,7 @@ class SgListView
         }
         else if($this->Fields['ispart']==2)
         {
-            //Ìø×ªÍøÖ·
+            //è·³è½¬ç½‘å€
             return $this->Fields['typedir'];
         }
         CreateDir(MfTypedir($this->Fields['typedir']));
@@ -444,7 +444,7 @@ class SgListView
     }
 
     /**
-     *  ÏÔÊ¾µ¥¶ÀÄ£°åÒ³Ãæ
+     *  æ˜¾ç¤ºå•ç‹¬æ¨¡æ¿é¡µé¢
      *
      * @access    public
      * @return    void
@@ -457,7 +457,7 @@ class SgListView
         $tmpdir = $GLOBALS['cfg_basedir'].$GLOBALS['cfg_templets_dir'];
         if($this->Fields['ispart']==1)
         {
-            //·âÃæÄ£°å
+            //å°é¢æ¨¡æ¿
             $tempfile = str_replace("{tid}",$this->TypeID,$this->Fields['tempindex']);
             $tempfile = str_replace("{cid}",$this->ChannelUnit->ChannelInfos['nid'],$tempfile);
             $tempfile = $tmpdir."/".$tempfile;
@@ -477,7 +477,7 @@ class SgListView
         }
         else if($this->Fields['ispart']==2)
         {
-            //Ìø×ªÍøÖ·
+            //è·³è½¬ç½‘å€
             $gotourl = $this->Fields['typedir'];
             header("Location:$gotourl");
             exit();
@@ -503,7 +503,7 @@ class SgListView
     }
 
     /**
-     *  »ñµÃÕ¾µãµÄÕæÊµ¸ùÂ·¾¶
+     *  è·å¾—ç«™ç‚¹çš„çœŸå®æ ¹è·¯å¾„
      *
      * @access    public
      * @return    string
@@ -515,10 +515,10 @@ class SgListView
     }
 
     /**
-     *  »ñµÃÕæÊµÁ¬½ÓÂ·¾¶
+     *  è·å¾—çœŸå®è¿æ¥è·¯å¾„
      *
      * @access    public
-     * @param     string  $nurl  Á¬½ÓµØÖ·
+     * @param     string  $nurl  è¿æ¥åœ°å€
      * @return    string
      */
     function GetTrueUrl($nurl)
@@ -536,7 +536,7 @@ class SgListView
     }
 
     /**
-     *  ½âÎöÄ£°å£¬¶Ô¹Ì¶¨µÄ±ê¼Ç½øĞĞ³õÊ¼¸øÖµ
+     *  è§£ææ¨¡æ¿ï¼Œå¯¹å›ºå®šçš„æ ‡è®°è¿›è¡Œåˆå§‹ç»™å€¼
      *
      * @access    private
      * @return    void
@@ -554,16 +554,16 @@ class SgListView
     }
 
     /**
-     *  ½âÎöÄ£°å£¬¶ÔÄÚÈİÀïµÄ±ä¶¯½øĞĞ¸³Öµ
+     *  è§£ææ¨¡æ¿ï¼Œå¯¹å†…å®¹é‡Œçš„å˜åŠ¨è¿›è¡Œèµ‹å€¼
      *
      * @access    public
-     * @param     int  $PageNo  Ò³Âë
-     * @param     int  $ismake  ÊÇ·ñ±àÒë
+     * @param     int  $PageNo  é¡µç 
+     * @param     int  $ismake  æ˜¯å¦ç¼–è¯‘
      * @return    void
      */
     function ParseDMFields($PageNo, $ismake=1)
     {
-        //Ìæ»»µÚ¶şÒ³ºóµÄÄÚÈİ
+        //æ›¿æ¢ç¬¬äºŒé¡µåçš„å†…å®¹
         if(($PageNo>1 || strlen($this->Fields['content'])<10 ) && !$this->IsReplace)
         {
             $this->dtp->SourceString = str_replace('[cmsreplace]','display:none',$this->dtp->SourceString);
@@ -623,14 +623,14 @@ class SgListView
     }
 
     /**
-     *  »ñµÃÒª´´½¨µÄÎÄ¼şÃû³Æ¹æÔò
+     *  è·å¾—è¦åˆ›å»ºçš„æ–‡ä»¶åç§°è§„åˆ™
      *
      * @access    public
-     * @param     string  $typeid  À¸Ä¿ID
+     * @param     string  $typeid  æ ç›®ID
      * @param     string  $wname
-     * @param     string  $typedir  À¸Ä¿Ä¿Â¼
-     * @param     string  $defaultname  Ä¬ÈÏÃû³Æ
-     * @param     string  $namerule2  Ãû³Æ¹æÔò
+     * @param     string  $typedir  æ ç›®ç›®å½•
+     * @param     string  $defaultname  é»˜è®¤åç§°
+     * @param     string  $namerule2  åç§°è§„åˆ™
      * @return    string
      */
     function GetMakeFileRule($typeid,$wname,$typedir,$defaultname,$namerule2)
@@ -649,22 +649,22 @@ class SgListView
     }
 
     /**
-     *  »ñµÃÒ»¸öµ¥ÁĞµÄÎÄµµÁĞ±í
+     *  è·å¾—ä¸€ä¸ªå•åˆ—çš„æ–‡æ¡£åˆ—è¡¨
      *
      * @access    public
-     * @param     int  $limitstart  ÏŞÖÆ¿ªÊ¼  
-     * @param     int  $row  ĞĞÊı 
-     * @param     int  $col  ÁĞÊı
-     * @param     int  $titlelen  ±êÌâ³¤¶È
-     * @param     int  $infolen  ÃèÊö³¤¶È
-     * @param     int  $imgwidth  Í¼Æ¬¿í¶È
-     * @param     int  $imgheight  Í¼Æ¬¸ß¶È
-     * @param     string  $listtype  ÁĞ±íÀàĞÍ
-     * @param     string  $orderby  ÅÅÁĞË³Ğò
-     * @param     string  $innertext  µ×²ãÄ£°å
-     * @param     string  $tablewidth  ±í¸ñ¿í¶È
-     * @param     string  $ismake  ÊÇ·ñ±àÒë
-     * @param     string  $orderWay  ÅÅĞò·½Ê½
+     * @param     int  $limitstart  é™åˆ¶å¼€å§‹  
+     * @param     int  $row  è¡Œæ•° 
+     * @param     int  $col  åˆ—æ•°
+     * @param     int  $titlelen  æ ‡é¢˜é•¿åº¦
+     * @param     int  $infolen  æè¿°é•¿åº¦
+     * @param     int  $imgwidth  å›¾ç‰‡å®½åº¦
+     * @param     int  $imgheight  å›¾ç‰‡é«˜åº¦
+     * @param     string  $listtype  åˆ—è¡¨ç±»å‹
+     * @param     string  $orderby  æ’åˆ—é¡ºåº
+     * @param     string  $innertext  åº•å±‚æ¨¡æ¿
+     * @param     string  $tablewidth  è¡¨æ ¼å®½åº¦
+     * @param     string  $ismake  æ˜¯å¦ç¼–è¯‘
+     * @param     string  $orderWay  æ’åºæ–¹å¼
      * @return    string
      */
     function GetArcList($limitstart=0,$row=10,$col=1,$titlelen=30,$listtype="all",$orderby="default",$innertext="",$tablewidth="100",$ismake=1,$orderWay='desc')
@@ -695,7 +695,7 @@ class SgListView
         $innertext = trim($innertext);
         if($innertext=='') $innertext = GetSysTemplets('list_sglist.htm');
 
-        //ÅÅĞò·½Ê½
+        //æ’åºæ–¹å¼
         $ordersql = '';
         if($orderby=='senddate'||$orderby=='id')
         {
@@ -712,7 +712,7 @@ class SgListView
 
         $addField = 'arc.'.join(',arc.',$this->ListFields);
 
-        //Èç¹û²»ÓÃÄ¬ÈÏµÄsortrank»òidÅÅĞò£¬Ê¹ÓÃÁªºÏ²éÑ¯£¨Êı¾İÁ¿´óÊ±·Ç³£»ºÂı£©
+        //å¦‚æœä¸ç”¨é»˜è®¤çš„sortrankæˆ–idæ’åºï¼Œä½¿ç”¨è”åˆæŸ¥è¯¢ï¼ˆæ•°æ®é‡å¤§æ—¶éå¸¸ç¼“æ…¢ï¼‰
         if(preg_match('/hot|click/', $orderby) || $this->sAddTable)
         {
             $query = "SELECT tp.typedir,tp.typename,tp.isdefault,tp.defaultname,tp.namerule,tp.namerule2,
@@ -722,7 +722,7 @@ class SgListView
             LEFT JOIN `#@__arctype` tp ON arc.typeid=tp.id
             WHERE {$this->addSql} $ordersql LIMIT $limitstart,$row";
         }
-        //ÆÕÍ¨Çé¿öÏÈ´Óarctiny±í²é³öID£¬È»ºó°´ID²éÑ¯£¨ËÙ¶È·Ç³£¿ì£©
+        //æ™®é€šæƒ…å†µå…ˆä»arctinyè¡¨æŸ¥å‡ºIDï¼Œç„¶åæŒ‰IDæŸ¥è¯¢ï¼ˆé€Ÿåº¦éå¸¸å¿«ï¼‰
         else
         {
             $t1 = ExecTime();
@@ -774,7 +774,7 @@ class SgListView
                     $GLOBALS['autoindex']++;
                     $ids[$row['aid']] = $row['id']= $row['aid'];
 
-                    //´¦ÀíÒ»Ğ©ÌØÊâ×Ö¶Î
+                    //å¤„ç†ä¸€äº›ç‰¹æ®Šå­—æ®µ
                     $row['ismake'] = 1;
                     $row['money'] = 0;
                     $row['arcrank'] = 0;
@@ -817,7 +817,7 @@ class SgListView
 
                     $row['templeturl'] = $GLOBALS['cfg_templeturl'];
 
-                    //±àÒë¸½¼Ó±íÀïµÄÊı¾İ
+                    //ç¼–è¯‘é™„åŠ è¡¨é‡Œçš„æ•°æ®
                     foreach($row as $k=>$v) $row[strtolower($k)] = $v;
 
                     foreach($this->ChannelUnit->ChannelFields as $k=>$arr)
@@ -834,7 +834,7 @@ class SgListView
                         {
                             if($ctag->GetName()=='array')
                             {
-                                //´«µİÕû¸öÊı×é£¬ÔÚrunphpÄ£Ê½ÖĞÓĞÌØÊâ×÷ÓÃ
+                                //ä¼ é€’æ•´ä¸ªæ•°ç»„ï¼Œåœ¨runphpæ¨¡å¼ä¸­æœ‰ç‰¹æ®Šä½œç”¨
                                 $this->dtp2->Assign($k,$row);
                             }
                             else
@@ -870,11 +870,11 @@ class SgListView
     }
 
     /**
-     *  »ñÈ¡¾²Ì¬µÄ·ÖÒ³ÁĞ±í
+     *  è·å–é™æ€çš„åˆ†é¡µåˆ—è¡¨
      *
      * @access    public
-     * @param     int  $list_len  ÁĞ±í¿í¶È
-     * @param     string  $listitem  ÁĞ±íÑùÊ½
+     * @param     int  $list_len  åˆ—è¡¨å®½åº¦
+     * @param     string  $listitem  åˆ—è¡¨æ ·å¼
      * @return    string
      */
     function GetPageListST($list_len,$listitem="index,end,pre,next,pageno")
@@ -890,40 +890,40 @@ class SgListView
         $totalpage = ceil($this->TotalResult / $this->PageSize);
         if($totalpage <= 1 && $this->TotalResult > 0)
         {
-            return "<span class=\"pageinfo\">¹² <strong>1</strong>Ò³<strong>".$this->TotalResult."</strong>Ìõ¼ÇÂ¼</span>";
+            return "<span class=\"pageinfo\">å…± <strong>1</strong>é¡µ<strong>".$this->TotalResult."</strong>æ¡è®°å½•</span>";
         }
         if($this->TotalResult == 0)
         {
-            return "<span class=\"pageinfo\">¹² <strong>0</strong>Ò³<strong>".$this->TotalResult."</strong>Ìõ¼ÇÂ¼</span>";
+            return "<span class=\"pageinfo\">å…± <strong>0</strong>é¡µ<strong>".$this->TotalResult."</strong>æ¡è®°å½•</span>";
         }
         $purl = $this->GetCurUrl();
-        $maininfo = "<span class=\"pageinfo\">¹² <strong>{$totalpage}</strong>Ò³<strong>".$this->TotalResult."</strong>Ìõ</span>";
+        $maininfo = "<span class=\"pageinfo\">å…± <strong>{$totalpage}</strong>é¡µ<strong>".$this->TotalResult."</strong>æ¡</span>";
         $tnamerule = $this->GetMakeFileRule($this->Fields['id'], "list", $this->Fields['typedir'], $this->Fields['defaultname'], $this->Fields['namerule2']);
         $tnamerule = preg_replace("/^(.*)\//", '', $tnamerule);
 
-        //»ñµÃÉÏÒ»Ò³ºÍÖ÷Ò³µÄÁ´½Ó
+        //è·å¾—ä¸Šä¸€é¡µå’Œä¸»é¡µçš„é“¾æ¥
         if($this->PageNo != 1)
         {
-            $prepage.="<li><a href='".str_replace("{page}", $prepagenum, $tnamerule)."'>ÉÏÒ»Ò³</a></li>\r\n";
-            $indexpage="<li><a href='".str_replace("{page}", 1, $tnamerule)."'>Ê×Ò³</a></li>\r\n";
+            $prepage.="<li><a href='".str_replace("{page}", $prepagenum, $tnamerule)."'>ä¸Šä¸€é¡µ</a></li>\r\n";
+            $indexpage="<li><a href='".str_replace("{page}", 1, $tnamerule)."'>é¦–é¡µ</a></li>\r\n";
         }
         else
         {
-            $indexpage="<li>Ê×Ò³</li>\r\n";
+            $indexpage="<li>é¦–é¡µ</li>\r\n";
         }
 
-        //ÏÂÒ»Ò³,Î´Ò³µÄÁ´½Ó
+        //ä¸‹ä¸€é¡µ,æœªé¡µçš„é“¾æ¥
         if($this->PageNo != $totalpage && $totalpage>1)
         {
-            $nextpage.="<li><a href='".str_replace("{page}", $nextpagenum, $tnamerule)."'>ÏÂÒ»Ò³</a></li>\r\n";
-            $endpage="<li><a href='".str_replace("{page}", $totalpage, $tnamerule)."'>Ä©Ò³</a></li>\r\n";
+            $nextpage.="<li><a href='".str_replace("{page}", $nextpagenum, $tnamerule)."'>ä¸‹ä¸€é¡µ</a></li>\r\n";
+            $endpage="<li><a href='".str_replace("{page}", $totalpage, $tnamerule)."'>æœ«é¡µ</a></li>\r\n";
         }
         else
         {
-            $endpage="<li>Ä©Ò³</li>";
+            $endpage="<li>æœ«é¡µ</li>";
         }
 
-        //optionÁ´½Ó
+        //optioné“¾æ¥
         $optionlist = "";
         /*
         $optionlen = strlen($totalpage);
@@ -943,7 +943,7 @@ class SgListView
         $optionlist .= "</select><li>";
         */
 
-        //»ñµÃÊı×ÖÁ´½Ó
+        //è·å¾—æ•°å­—é“¾æ¥
         $listdd = "";
         $total_list = $list_len * 2 + 1;
         if($this->PageNo >= $total_list)
@@ -1007,11 +1007,11 @@ class SgListView
     }
 
     /**
-     *  »ñÈ¡¶¯Ì¬µÄ·ÖÒ³ÁĞ±í
+     *  è·å–åŠ¨æ€çš„åˆ†é¡µåˆ—è¡¨
      *
      * @access    public
-     * @param     int  $list_len  ÁĞ±í¿í¶È
-     * @param     string  $listitem  ÁĞ±íÑùÊ½
+     * @param     int  $list_len  åˆ—è¡¨å®½åº¦
+     * @param     string  $listitem  åˆ—è¡¨æ ·å¼
      * @return    string
      */
     function GetPageListDM($list_len,$listitem="index,end,pre,next,pageno")
@@ -1030,11 +1030,11 @@ class SgListView
         $totalpage = ceil($this->TotalResult / $this->PageSize);
         if($totalpage<=1 && $this->TotalResult>0)
         {
-            return "<span class=\"pageinfo\">¹²1Ò³/".$this->TotalResult."Ìõ¼ÇÂ¼</span>";
+            return "<span class=\"pageinfo\">å…±1é¡µ/".$this->TotalResult."æ¡è®°å½•</span>";
         }
         if($this->TotalResult == 0)
         {
-            return "<span class=\"pageinfo\">¹²0Ò³/".$this->TotalResult."Ìõ¼ÇÂ¼</span>";
+            return "<span class=\"pageinfo\">å…±0é¡µ/".$this->TotalResult."æ¡è®°å½•</span>";
         }
         $purl = $this->GetCurUrl();
         $geturl = "tid=".$this->TypeID."&TotalResult=".$this->TotalResult."&nativeplace=$nativeplace&infotype=$infotype&keyword=".urlencode($keyword)."&";
@@ -1045,27 +1045,27 @@ class SgListView
         $hidenform .= "<input type='hidden' name='TotalResult' value='".$this->TotalResult."' />\r\n";
         $purl .= "?".$geturl;
 
-        //»ñµÃÉÏÒ»Ò³ºÍÏÂÒ»Ò³µÄÁ´½Ó
+        //è·å¾—ä¸Šä¸€é¡µå’Œä¸‹ä¸€é¡µçš„é“¾æ¥
         if($this->PageNo != 1)
         {
-            $prepage.="<li><a href='".$purl."PageNo=$prepagenum'>ÉÏÒ»Ò³</a></li>\r\n";
-            $indexpage="<li><a href='".$purl."PageNo=1'>Ê×Ò³</a></li>\r\n";
+            $prepage.="<li><a href='".$purl."PageNo=$prepagenum'>ä¸Šä¸€é¡µ</a></li>\r\n";
+            $indexpage="<li><a href='".$purl."PageNo=1'>é¦–é¡µ</a></li>\r\n";
         }
         else
         {
-            $indexpage="<li><a>Ê×Ò³</a></li>\r\n";
+            $indexpage="<li><a>é¦–é¡µ</a></li>\r\n";
         }
         if($this->PageNo!=$totalpage && $totalpage>1)
         {
-            $nextpage.="<li><a href='".$purl."PageNo=$nextpagenum'>ÏÂÒ»Ò³</a></li>\r\n";
-            $endpage="<li><a href='".$purl."PageNo=$totalpage'>Ä©Ò³</a></li>\r\n";
+            $nextpage.="<li><a href='".$purl."PageNo=$nextpagenum'>ä¸‹ä¸€é¡µ</a></li>\r\n";
+            $endpage="<li><a href='".$purl."PageNo=$totalpage'>æœ«é¡µ</a></li>\r\n";
         }
         else
         {
-            $endpage="<li><a>Ä©Ò³</a></li>";
+            $endpage="<li><a>æœ«é¡µ</a></li>";
         }
 
-        //»ñµÃÊı×ÖÁ´½Ó
+        //è·å¾—æ•°å­—é“¾æ¥
         $listdd="";
         $total_list = $list_len * 2 + 1;
         if($this->PageNo >= $total_list)
@@ -1102,7 +1102,7 @@ class SgListView
     }
 
     /**
-     *  »ñµÃµ±Ç°µÄÒ³ÃæÎÄ¼şµÄurl
+     *  è·å¾—å½“å‰çš„é¡µé¢æ–‡ä»¶çš„url
      *
      * @access    private
      * @return    string

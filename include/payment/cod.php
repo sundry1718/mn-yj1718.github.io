@@ -1,16 +1,16 @@
 <?php
 if(!defined('DEDEINC')) exit('Request Error!');
 /**
- * »õµ½¸¶¿îÖ§¸¶½Ó¿Ú
+ * è´§åˆ°ä»˜æ¬¾æ”¯ä»˜æ¥å£
  */
 
 /**
- * »ù±¾½Ó¿ÚÀà
+ * åŸºæœ¬æ¥å£ç±»
  */
 class Cod
 {
     /**
-    * ¹¹Ôìº¯Êı
+    * æ„é€ å‡½æ•°
     *
     * @access  public
     * @param
@@ -27,7 +27,7 @@ class Cod
     }
 
     /**
-    * ÉèÖÃ»ØËÍµØÖ·
+    * è®¾ç½®å›é€åœ°å€
     */
     
     function SetReturnUrl($returnurl='')
@@ -36,7 +36,7 @@ class Cod
     }
     
     /**
-    * »ñÈ¡´úÂë
+    * è·å–ä»£ç 
     */
     function GetCode($order)
     {
@@ -44,7 +44,7 @@ class Cod
         $cart = new MemberShops();
         $cart->clearItem();
         $cart->MakeOrders();
-        $button="Äú¿ÉÒÔ <a href='/'>·µ»ØÊ×Ò³</a> »òÈ¥ <a href='../member/shops_products.php?oid=".$order."'>²é¿´¶©µ¥</a>";
+        $button="æ‚¨å¯ä»¥ <a href='/'>è¿”å›é¦–é¡µ</a> æˆ–å» <a href='../member/shops_products.php?oid=".$order."'>æŸ¥çœ‹è®¢å•</a>";
        return $button;
     }
 
