@@ -1,6 +1,6 @@
 <?php
 /**
- * 鏇存柊鏈嶅姟鍣紝濡傛灉鏈夊彉鍔紝璇峰埌 http://bbs.dedecms.com 鏌ヨ
+ * 更新服务器，如果有变动，请到 http://bbs.dedecms.com 查询
  *
  * @version        $Id: config_update.php 1 11:36 2011-2-21 tianya $
  * @package        DedeCMS.Administrator
@@ -9,7 +9,7 @@
  * @link           http://www.dedecms.com
  */
 
-//鏇存柊鏈嶅姟鍣紝濡傛灉鏈夊彉鍔紝璇峰埌 http://bbs.dedecms.com 鏌ヨ
+//更新服务器，如果有变动，请到 http://bbs.dedecms.com 查询
 
 define('UPDATEHOST', 'http://updatenew.dedecms.com/base-v57/');
 define('LINKHOST', 'http://flink.dedecms.com/server_url.php');

@@ -1,8 +1,8 @@
 <?php  if(!defined('DEDEINC')) exit('dedecms');
 /**
- * æ‰©å±•å°åŠ©æ‰‹
+ * À©Õ¹Ð¡ÖúÊÖ
  *
- * @version        $Id: extend.helper.php 1 13:58 2010å¹´7æœˆ5æ—¥Z tianya $
+ * @version        $Id: extend.helper.php 1 13:58 2010Äê7ÔÂ5ÈÕZ tianya $
  * @package        DedeCMS.Helpers
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -10,9 +10,9 @@
  */
 
 /**
- *  è¿”å›žæŒ‡å®šçš„å­—ç¬¦
+ *  ·µ»ØÖ¸¶¨µÄ×Ö·û
  *
- * @param     string  $n  å­—ç¬¦ID
+ * @param     string  $n  ×Ö·ûID
  * @return    string
  */
 if ( ! function_exists('ParCv'))
@@ -25,7 +25,7 @@ if ( ! function_exists('ParCv'))
 
 
 /**
- *  æ˜¾ç¤ºä¸€ä¸ªé”™è¯¯
+ *  ÏÔÊ¾Ò»¸ö´íÎó
  *
  * @return    void
  */
@@ -33,16 +33,16 @@ if ( ! function_exists('ParamError'))
 {
     function ParamError()
     {
-        ShowMsg('å¯¹ä¸èµ·ï¼Œä½ è¾“å…¥çš„å‚æ•°æœ‰è¯¯ï¼','javascript:;');
+        ShowMsg('¶Ô²»Æð£¬ÄãÊäÈëµÄ²ÎÊýÓÐÎó£¡','javascript:;');
         exit();
     }
 }
 
 /**
- *  é»˜è®¤å±žæ€§
+ *  Ä¬ÈÏÊôÐÔ
  *
- * @param     string  $oldvar  æ—§çš„å€¼
- * @param     string  $nv      æ–°å€¼
+ * @param     string  $oldvar  ¾ÉµÄÖµ
+ * @param     string  $nv      ÐÂÖµ
  * @return    string
  */
 if ( ! function_exists('AttDef'))
@@ -55,7 +55,7 @@ if ( ! function_exists('AttDef'))
 
 
 /**
- *  è¿”å›žAjaxå¤´ä¿¡æ¯
+ *  ·µ»ØAjaxÍ·ÐÅÏ¢
  *
  * @return     void
  */
@@ -70,7 +70,7 @@ if ( ! function_exists('AjaxHead'))
 }
 
 /**
- *  åŽ»é™¤htmlå’Œphpæ ‡è®°
+ *  È¥³ýhtmlºÍphp±ê¼Ç
  *
  * @return     string
  */

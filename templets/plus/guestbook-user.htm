@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=<?php echo $cfg_soft_lang; ?>" />
-<title><?php echo $cfg_webname; ?> - ç•™è¨€æœ¬</title>
+<title><?php echo $cfg_webname; ?> - ÁôÑÔ±¾</title>
 <link href="<?php echo $cfg_templeturl; ?>/default/style/dedecms.css" rel="stylesheet" type="text/css" media="screen" />
 <style>
 	.lefttd {
@@ -77,20 +77,20 @@
 </div><!-- /header -->
 <div class="w960 clear center mt1">
   <div class="sp-title">
-    <a href='guestbook.php'><h2>ç•™è¨€æœ¬</h2></a>
-    <span class="more"><a href="<?php echo $cfg_basehost;?>/">è¿”å›žé¦–é¡µ</a> </span> </div>
+    <a href='guestbook.php'><h2>ÁôÑÔ±¾</h2></a>
+    <span class="more"><a href="<?php echo $cfg_basehost;?>/">·µ»ØÊ×Ò³</a> </span> </div>
 
 <table width="100%" border="0" cellspacing="1" cellpadding="4" align="center" bgcolor="#dedede" class='writetable'>
       <form method="post" action="guestbook.php">
   		<input type="hidden" name="action" value="save">
   		<input type="hidden" name="reid" value="<?php echo $row['id']; ?>">
         <tr>
-          <td colspan='4' class='writetd'><b>å›žå¤ä¸»é¢˜ï¼š</b><?php echo $row['title']; ?><a name='write'></a></td>
+          <td colspan='4' class='writetd'><b>»Ø¸´Ö÷Ìâ£º</b><?php echo $row['title']; ?><a name='write'></a></td>
         </tr>
         <tr bgcolor="#ffffff">
-          <td width="10%" align="center" nowrap><font color="#FF0000">*</font>è®ºæ–‡æ ‡é¢˜ï¼š</td>
-          <td width="40%"><input type="text" maxlength="50" name="title" size="30" value="å›žå¤ï¼š<?php echo $row['title']; ?>" class="ipt-txt"/></td>
-          <td width="10%" align="center" nowrap>éªŒ è¯ ç ï¼š</td>
+          <td width="10%" align="center" nowrap><font color="#FF0000">*</font>ÂÛÎÄ±êÌâ£º</td>
+          <td width="40%"><input type="text" maxlength="50" name="title" size="30" value="»Ø¸´£º<?php echo $row['title']; ?>" class="ipt-txt"/></td>
+          <td width="10%" align="center" nowrap>Ñé Ö¤ Âë£º</td>
           <td>
           	<table border="0" cellspacing="0" cellpadding="0">
             <tr>
@@ -101,24 +101,24 @@
          </td>
         </tr>
         <tr bgcolor="#ffffff">
-          <td width="10%" align="center" nowrap><font color="#FF0000">*</font>ä½ çš„å§“åï¼š</td>
+          <td width="10%" align="center" nowrap><font color="#FF0000">*</font>ÄãµÄÐÕÃû£º</td>
           <td width="40%"><input type="text" maxlength="10" name="uname" size="30" value="<?php echo $g_name; ?>" class="ipt-txt"/></td>
-          <td width="10%" align="center" nowrap>OICQå·ç ï¼š</td>
+          <td width="10%" align="center" nowrap>OICQºÅÂë£º</td>
           <td width="40%"><input maxlength="20" type="text" name="qq" size="20" class="ipt-txt" /></td>
         </tr>
         <tr bgcolor="#ffffff">
-          <td align="center" nowrap>&nbsp;ç”µå­é‚®ä»¶ï¼š</td>
+          <td align="center" nowrap>&nbsp;µç×ÓÓÊ¼þ£º</td>
           <td><input maxlength="80" type="text" name="email" size="30" class="ipt-txt"/></td>
-          <td align="center" nowrap height="12">ä¸ªäººä¸»é¡µï¼š</td>
+          <td align="center" nowrap height="12">¸öÈËÖ÷Ò³£º</td>
           <td height="12"><input maxlength="80" type="text" name="homepage" size="20" class="ipt-txt" /></td>
         </tr>
         <tr bgcolor="#ffffff">
-          <td align="center" nowrap width="10%"><font color="#FF0000">*</font>ç•™è¨€å†…å®¹ï¼š<br />
-            (1000å­—å†…) </td>
+          <td align="center" nowrap width="10%"><font color="#FF0000">*</font>ÁôÑÔÄÚÈÝ£º<br />
+            (1000×ÖÄÚ) </td>
           <td align="left" width="40%">
           	<textarea name="msg" cols="38" rows="5" class="textarea ipt-txt"></textarea>
           </td>
-          <td align="center" nowrap height="2" width="10%">é€‰æ‹©å¤´åƒï¼š</td>
+          <td align="center" nowrap height="2" width="10%">Ñ¡ÔñÍ·Ïñ£º</td>
           <td nowrap height="2" width="40%">
           	<input type="radio" name="img" value="01" checked />
             <img src="guestbook/images/01.gif" width="25" height="25" />
@@ -152,9 +152,9 @@
            </td>
         </tr>
         <tr bgcolor="#ffffff">
-          <td colspan="4" align="center" nowrap><input maxlength="1000" type="submit" name="Submit" value="æ äº¤" class="btn-2" />
+          <td colspan="4" align="center" nowrap><input maxlength="1000" type="submit" name="Submit" value="Ìá ½»" class="btn-2" />
             &nbsp;&nbsp;
-            <input type="reset" name="Submit2" value="å– æ¶ˆ" class="btn-2" /></td>
+            <input type="reset" name="Submit2" value="È¡ Ïû" class="btn-2" /></td>
         </tr>
       </form>
     </table>

@@ -1,6 +1,6 @@
 <?php  if(!defined('DEDEINC')) exit('dedecms');
 /**
- * éªŒè¯å°åŠ©æ‰‹
+ * ÑéÖ¤Ð¡ÖúÊÖ
  *
  * @version        $Id: validate.helper.php 1 2010-07-05 11:43:09Z tianya $
  * @package        DedeCMS.Helpers
@@ -9,7 +9,7 @@
  * @link           http://www.dedecms.com
  */
 
-//é‚®ç®±æ ¼å¼æ£€æŸ¥
+//ÓÊÏä¸ñÊ½¼ì²é
 if ( ! function_exists('CheckEmail'))
 {
     function CheckEmail($email)

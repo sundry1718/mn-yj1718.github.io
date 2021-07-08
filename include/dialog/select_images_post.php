@@ -1,8 +1,8 @@
 <?php
 /**
- * å›¾ç‰‡é€‰æ‹©
+ * Í¼Æ¬Ñ¡Ôñ
  *
- * @version        $Id: select_images_post.php 1 9:43 2010å¹´7æœˆ8æ—¥Z tianya $
+ * @version        $Id: select_images_post.php 1 9:43 2010Äê7ÔÂ8ÈÕZ tianya $
  * @package        DedeCMS.Dialog
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -29,7 +29,7 @@ if(empty($imgfile))
 }
 if(!is_uploaded_file($imgfile))
 {
-    ShowMsg("ä½ æ²¡æœ‰é€‰æ‹©ä¸Šä¼ çš„æ–‡ä»¶!".$imgfile, "-1");
+    ShowMsg("ÄãÃ»ÓĞÑ¡ÔñÉÏ´«µÄÎÄ¼ş!".$imgfile, "-1");
     exit();
 }
 $CKEditorFuncNum = (isset($CKEditorFuncNum))? $CKEditorFuncNum : 1;
@@ -37,7 +37,7 @@ $imgfile_name = trim(preg_replace("#[ \r\n\t\*\%\\\/\?><\|\":]{1,}#", '', $imgfi
 
 if(!preg_match("#\.(".$cfg_imgtype.")#i", $imgfile_name))
 {
-    ShowMsg("ä½ æ‰€ä¸Šä¼ çš„å›¾ç‰‡ç±»å‹ä¸åœ¨è®¸å¯åˆ—è¡¨ï¼Œè¯·æ›´æ”¹ç³»ç»Ÿå¯¹æ‰©å±•åé™å®šçš„é…ç½®ï¼", "-1");
+    ShowMsg("ÄãËùÉÏ´«µÄÍ¼Æ¬ÀàĞÍ²»ÔÚĞí¿ÉÁĞ±í£¬Çë¸ü¸ÄÏµÍ³¶ÔÀ©Õ¹ÃûÏŞ¶¨µÄÅäÖÃ£¡", "-1");
     exit();
 }
 $nowtme = time();
@@ -45,7 +45,7 @@ $sparr = Array("image/pjpeg", "image/jpeg", "image/gif", "image/png", "image/xpn
 $imgfile_type = strtolower(trim($imgfile_type));
 if(!in_array($imgfile_type, $sparr))
 {
-    ShowMsg("ä¸Šä¼ çš„å›¾ç‰‡æ ¼å¼é”™è¯¯ï¼Œè¯·ä½¿ç”¨JPEGã€GIFã€PNGã€WBMPæ ¼å¼çš„å…¶ä¸­ä¸€ç§ï¼","-1");
+    ShowMsg("ÉÏ´«µÄÍ¼Æ¬¸ñÊ½´íÎó£¬ÇëÊ¹ÓÃJPEG¡¢GIF¡¢PNG¡¢WBMP¸ñÊ½µÄÆäÖĞÒ»ÖÖ£¡","-1");
     exit();
 }
 $mdir = MyDate($cfg_addon_savetype, $nowtme);
@@ -60,13 +60,13 @@ $fs = explode('.', $imgfile_name);
 $filename = $filename.'.'.$fs[count($fs)-1];
 $filename_name = $filename_name.'.'.$fs[count($fs)-1];
 $fullfilename = $cfg_basedir.$activepath."/".$filename;
-move_uploaded_file($imgfile, $fullfilename) or die("ä¸Šä¼ æ–‡ä»¶åˆ° $fullfilename å¤±è´¥ï¼");
+move_uploaded_file($imgfile, $fullfilename) or die("ÉÏ´«ÎÄ¼şµ½ $fullfilename Ê§°Ü£¡");
 if($cfg_remote_site=='Y' && $remoteuploads == 1)
 {
-    //åˆ†æè¿œç¨‹æ–‡ä»¶è·¯å¾„
+    //·ÖÎöÔ¶³ÌÎÄ¼şÂ·¾¶
     $remotefile = str_replace(DEDEROOT, '', $fullfilename);
     $localfile = '../..'.$remotefile;
-    //åˆ›å»ºè¿œç¨‹æ–‡ä»¶å¤¹
+    //´´½¨Ô¶³ÌÎÄ¼ş¼Ğ
     $remotedir = preg_replace('/[^\/]*\.(jpg|gif|bmp|png)/', '', $remotefile);
     $ftp->rmkdir($remotedir);
     $ftp->upload($localfile, $remotefile);
@@ -113,9 +113,9 @@ if ($GLOBALS['cfg_html_editor']=='ckeditor' && $CKUpload)
 }
 
 if(!empty($noeditor)){
-	//ï¼ˆ2011.08.25 æ ¹æ®ç”¨æˆ·åé¦ˆä¿®æ­£å›¾ç‰‡ä¸Šä¼ å›è°ƒ by:ç»‡æ¢¦çš„é±¼ï¼‰
-	ShowMsg("æˆåŠŸä¸Šä¼ ä¸€å¹…å›¾ç‰‡ï¼","select_images.php?imgstick=$imgstick&comeback=".urlencode($filename_name)."&v=$v&f=$f&CKEditorFuncNum=$CKEditorFuncNum&noeditor=yes&activepath=".urlencode($activepath)."/$mdir&d=".time());
+	//£¨2011.08.25 ¸ù¾İÓÃ»§·´À¡ĞŞÕıÍ¼Æ¬ÉÏ´«»Øµ÷ by:Ö¯ÃÎµÄÓã£©
+	ShowMsg("³É¹¦ÉÏ´«Ò»·ùÍ¼Æ¬£¡","select_images.php?imgstick=$imgstick&comeback=".urlencode($filename_name)."&v=$v&f=$f&CKEditorFuncNum=$CKEditorFuncNum&noeditor=yes&activepath=".urlencode($activepath)."/$mdir&d=".time());
 }else{
-	ShowMsg("æˆåŠŸä¸Šä¼ ä¸€å¹…å›¾ç‰‡ï¼","select_images.php?imgstick=$imgstick&comeback=".urlencode($filename_name)."&v=$v&f=$f&CKEditorFuncNum=$CKEditorFuncNum&activepath=".urlencode($activepath)."/$mdir&d=".time());
+	ShowMsg("³É¹¦ÉÏ´«Ò»·ùÍ¼Æ¬£¡","select_images.php?imgstick=$imgstick&comeback=".urlencode($filename_name)."&v=$v&f=$f&CKEditorFuncNum=$CKEditorFuncNum&activepath=".urlencode($activepath)."/$mdir&d=".time());
 }
 exit();

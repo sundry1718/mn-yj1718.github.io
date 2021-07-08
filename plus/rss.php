@@ -1,9 +1,9 @@
 <?php
 /**
  *
- * RSSåˆ—è¡¨é¡µ
+ * RSSÁÐ±íÒ³
  *
- * @version        $Id: rss.php 1 15:38 2010å¹´7æœˆ8æ—¥Z tianya $
+ * @version        $Id: rss.php 1 15:38 2010Äê7ÔÂ8ÈÕZ tianya $
  * @package        DedeCMS.Site
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html

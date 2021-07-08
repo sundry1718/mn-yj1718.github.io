@@ -1,13 +1,13 @@
 <?php
 /**
- * é˜²é‡‡é›†æ··æ·†å­—ç¬¦ä¸²
+ * ·À²É¼¯»ìÏý×Ö·û´®
  *
- * @version        $Id: downmix.inc.php 1 9:14 2010å¹´7æœˆ6æ—¥Z tianya $
+ * @version        $Id: downmix.inc.php 1 9:14 2010Äê7ÔÂ6ÈÕZ tianya $
  * @package        DedeCMS.Libraries
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
  * @link           http://www.dedecms.com
  */
-// å¼•å…¥å°åŠ©æ‰‹
-// æœ¬ç‰ˆæœ¬çš„æ–‡ä»¶æš‚æ—¶ä»…ä½œä¸€ä¸ªæ˜ å°„,ä»ŠåŽå¼€å‘ç›´æŽ¥é‡‡ç”¨helper('downmix');è¿›è¡Œè°ƒç”¨
+// ÒýÈëÐ¡ÖúÊÖ
+// ±¾°æ±¾µÄÎÄ¼þÔÝÊ±½ö×÷Ò»¸öÓ³Éä,½ñºó¿ª·¢Ö±½Ó²ÉÓÃhelper('downmix');½øÐÐµ÷ÓÃ
 helper('downmix');

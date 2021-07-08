@@ -1,22 +1,22 @@
 <?php   if(!defined('DEDEINC')) exit("Request Error!");
 /**
  *
- *  æœ¬ç±»ç”¨äºæŒ‡å®šä¸€ä¸ª MySQL çš„æ•°æ®è¡¨
- *  è‡ªåŠ¨ç”Ÿæˆåˆ—å‡ºã€ä¿®æ”¹ã€åˆ é™¤ã€å¢åŠ ç­‰æ“ä½œ
+ *  ±¾ÀàÓÃÓÚÖ¸¶¨Ò»¸ö MySQL µÄÊı¾İ±í
+ *  ×Ô¶¯Éú³ÉÁĞ³ö¡¢ĞŞ¸Ä¡¢É¾³ı¡¢Ôö¼ÓµÈ²Ù×÷
  *
- *   2011-11-08 [å®Œå–„]å¯¹LURDç±»è¿›è¡Œå¦‚ä¸‹å®Œå–„
- *		1.å¢åŠ å•æ¡è®°å½•ç®¡ç†åŠŸèƒ½,æŒ‡å®š$lurd->singleManage=TRUE,å¢åŠ å•æ¡è®°å½•çš„ç®¡ç†é¡µé¢;
- *		2.ä¿®æ”¹LURDé»˜è®¤ç®¡ç†é¡µé¢çš„ä½“éªŒ;
- *		3.æ¨¡æ¿é¡µé¢æ”¯æŒ~self~æŒ‡å‘å½“å‰é¡µåœ°å€;
- *		4.lurdæ”¯æŒgetæ¨¡å¼,ä¾¿äºå•æ¡è®°å½•çš„ç®¡ç†;
- *   2010-11-17 [ä¿®å¤]å¯ç”¨requestç±»é»˜è®¤æ•°æ®å¤„ç†é—®é¢˜
- *   2010-11-17 [ä¿®å¤]å¦‚æœå­˜åœ¨UNIQUEè¡¨å­—æ®µåˆ†æé”™è¯¯çš„é—®é¢˜
- *   2010-11-17 [å¢åŠ ]å¢åŠ æ£€ç´¢æ¡ä»¶åŒ¹é…æ–¹æ³•
- *   2010-11-16 [å¢åŠ ]å¦‚æœè¡¨å­—æ®µå­˜åœ¨æ³¨é‡Š,åˆ™åˆ—è¡¨é¡¹çš„titleä¸­åˆ™ç›´æ¥æ˜¾ç¤ºæ³¨é‡Šä¿¡æ¯
- *   2010-11-14 [ä¿®å¤]æ•°æ®è¡¨å­˜åœ¨å‰ç¼€,æ¨¡æ¿åç§°è§£æé—®é¢˜,åŒæ—¶å¯ä»¥å¯¹Lurdå•ç‹¬è®¾å®šæ¨¡æ¿
+ *   2011-11-08 [ÍêÉÆ]¶ÔLURDÀà½øĞĞÈçÏÂÍêÉÆ
+ *		1.Ôö¼Óµ¥Ìõ¼ÇÂ¼¹ÜÀí¹¦ÄÜ,Ö¸¶¨$lurd->singleManage=TRUE,Ôö¼Óµ¥Ìõ¼ÇÂ¼µÄ¹ÜÀíÒ³Ãæ;
+ *		2.ĞŞ¸ÄLURDÄ¬ÈÏ¹ÜÀíÒ³ÃæµÄÌåÑé;
+ *		3.Ä£°åÒ³ÃæÖ§³Ö~self~Ö¸Ïòµ±Ç°Ò³µØÖ·;
+ *		4.lurdÖ§³ÖgetÄ£Ê½,±ãÓÚµ¥Ìõ¼ÇÂ¼µÄ¹ÜÀí;
+ *   2010-11-17 [ĞŞ¸´]ÆôÓÃrequestÀàÄ¬ÈÏÊı¾İ´¦ÀíÎÊÌâ
+ *   2010-11-17 [ĞŞ¸´]Èç¹û´æÔÚUNIQUE±í×Ö¶Î·ÖÎö´íÎóµÄÎÊÌâ
+ *   2010-11-17 [Ôö¼Ó]Ôö¼Ó¼ìË÷Ìõ¼şÆ¥Åä·½·¨
+ *   2010-11-16 [Ôö¼Ó]Èç¹û±í×Ö¶Î´æÔÚ×¢ÊÍ,ÔòÁĞ±íÏîµÄtitleÖĞÔòÖ±½ÓÏÔÊ¾×¢ÊÍĞÅÏ¢
+ *   2010-11-14 [ĞŞ¸´]Êı¾İ±í´æÔÚÇ°×º,Ä£°åÃû³Æ½âÎöÎÊÌâ,Í¬Ê±¿ÉÒÔ¶ÔLurdµ¥¶ÀÉè¶¨Ä£°å
  *
  *
- * @version        $Id: lurd.class.php 7 14:07 2011/11/8 ITæŸæ‹‰å›¾,tianya $
+ * @version        $Id: lurd.class.php 7 14:07 2011/11/8 IT°ØÀ­Í¼,tianya $
  * @package        DedeCMS.Libraries
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -31,7 +31,7 @@ require_once(DEDEINC.'/datalistcp.class.php');
 ***********************************/
 class Lurd extends DataListCP
 {
-    // å›ºå®šå±æ€§
+    // ¹Ì¶¨ÊôĞÔ
     var $dateTypes = array('DATE', 'DATETIME', 'TIMESTAMP', 'TIME', 'YEAR');
     var $floatTypes = array('FLOAT', 'DOUBLE', 'DECIMAL');
     var $intTypes = array('TINYINT', 'SMALLINT', 'MEDIUMINT', 'INT', 'BIGINT');
@@ -39,7 +39,7 @@ class Lurd extends DataListCP
     var $textTypes = array('TEXT', 'MEDIUMTEXT', 'LONGTEXT');
     var $binTypes = array('TINYBLOB', 'BLOB', 'MEDIUMBLOB', 'LONGBLOB', 'BINARY', 'VARBINARY');
     var $emTypes = array('ENUM', 'SET');
-    // æ™®é€šå±æ€§
+    // ÆÕÍ¨ÊôĞÔ
     var $tableName = '';
     var $templateDir = '';
     var $lurdTempdir = '';
@@ -48,25 +48,25 @@ class Lurd extends DataListCP
     var $primaryKey = '';
     var $autoField = '';
     var $orderQuery = '';
-    // æ‰€çš„å­—æ®µåŠå±æ€§æ•°ç»„
+    // ËùµÄ×Ö¶Î¼°ÊôĞÔÊı×é
     var $fields = array(); 
-    // å½“è¿™ä¸ªå€¼ä¸ºTRUEï¼Œæ¯æ¬¡éƒ½ä¼šç”Ÿæˆæ–°æ¨¡æ¿ï¼Œç”¨äºè°ƒè¯•æ¨¡å¼
+    // µ±Õâ¸öÖµÎªTRUE£¬Ã¿´Î¶¼»áÉú³ÉĞÂÄ£°å£¬ÓÃÓÚµ÷ÊÔÄ£Ê½
     var $isDebug = FALSE;
-    // æ–‡æœ¬å†…å®¹å®‰å…¨çº§åˆ« 
-    // 0 ä¸ºä¸å¤„ç†ï¼Œ 1 ä¸ºç¦æ­¢ä¸å®‰å…¨HTMLå†…å®¹(javascriptç­‰)ï¼Œ2å®Œå…¨ç¦æ­¢HTMLå†…å®¹ï¼Œå¹¶æ›¿æ¢éƒ¨ä»½ä¸å®‰å…¨å­—ç¬¦ä¸²ï¼ˆå¦‚ï¼ševal(ã€unionã€CONCAT(ã€--ã€ç­‰ï¼‰
+    // ÎÄ±¾ÄÚÈİ°²È«¼¶±ğ 
+    // 0 Îª²»´¦Àí£¬ 1 Îª½ûÖ¹²»°²È«HTMLÄÚÈİ(javascriptµÈ)£¬2ÍêÈ«½ûÖ¹HTMLÄÚÈİ£¬²¢Ìæ»»²¿·İ²»°²È«×Ö·û´®£¨Èç£ºeval(¡¢union¡¢CONCAT(¡¢--¡¢µÈ£©
     var $stringSafe = 1;
-    // è¿™ä¸ªå˜é‡ç”¨äºå­˜æ”¾è¿ç»“è¡¨çš„å‚æ•°
-    // å¯ä»¥é€šè¿‡ $lurd->AddLinkTable($tablelurd, linkfields, mylinkid, linkid); è”ç»“ä¸€ä¸ªè¡¨
+    // Õâ¸ö±äÁ¿ÓÃÓÚ´æ·ÅÁ¬½á±íµÄ²ÎÊı
+    // ¿ÉÒÔÍ¨¹ı $lurd->AddLinkTable($tablelurd, linkfields, mylinkid, linkid); Áª½áÒ»¸ö±í
     var $linkTables = array();
-    // è”ç»“è¡¨çš„æŒ‡å®šå­—æ®µ(å¦‚æœåä¸€ä¸ªè¡¨çš„å­—æ®µå’Œå‰ä¸€ä¸ªé‡å, å‰è€…ä¼šè¢«æ›¿æ¢)
+    // Áª½á±íµÄÖ¸¶¨×Ö¶Î(Èç¹ûºóÒ»¸ö±íµÄ×Ö¶ÎºÍÇ°Ò»¸öÖØÃû, Ç°Õß»á±»Ìæ»»)
     var $addFields = array();
-    // æŸ¥è¯¢æ¡ä»¶
+    // ²éÑ¯Ìõ¼ş
     var $searchParameters = array();
 	
-	// å•æ¡è®°å½•ç®¡ç†,ä¿®æ”¹/åˆ é™¤
+	// µ¥Ìõ¼ÇÂ¼¹ÜÀí,ĞŞ¸Ä/É¾³ı
 	var $singleManage = TRUE;
 
-    //æ„é€ å‡½æ•°ï¼ŒæŒ‡å®šè¦æ“ä½œçš„è¡¨å
+    //¹¹Ôìº¯Êı£¬Ö¸¶¨Òª²Ù×÷µÄ±íÃû
     function __construct($tablename, $templatedir='', $lurdtempdir='')
     {
         global $dsql;
@@ -85,7 +85,7 @@ class Lurd extends DataListCP
         $this->SetParameter('ac', 'list');
     }
     
-    //ç›‘å¬å™¨ï¼Œæ ¹æ®æŒ‡å®šçš„ac(ac)è°ƒç”¨ç›¸åº”å¤„ç†æ–¹æ³•
+    //¼àÌıÆ÷£¬¸ù¾İÖ¸¶¨µÄac(ac)µ÷ÓÃÏàÓ¦´¦Àí·½·¨
     function ListenAll($listfield = '', $wherequery = '', $orderquery ='')
     {
         global $action;
@@ -113,26 +113,26 @@ class Lurd extends DataListCP
         }
     }
 
-    // æŒ‡å®šä¸»é”®
-    // åœ¨æ•°æ®è¡¨æ²¡æœ‰ä¸»é”®çš„æƒ…å†µä¸‹ï¼Œå¿…é¡»æŒ‡å®šä¸€ä¸ªå­—æ®µä¸ºä¸»é”®å­—æ®µï¼Œå¦åˆ™ç³»ç»Ÿç”¨æ‰€æœ‰æ•°æ®çš„md5å€¼ä½œä¸ºä¸»é”®
+    // Ö¸¶¨Ö÷¼ü
+    // ÔÚÊı¾İ±íÃ»ÓĞÖ÷¼üµÄÇé¿öÏÂ£¬±ØĞëÖ¸¶¨Ò»¸ö×Ö¶ÎÎªÖ÷¼ü×Ö¶Î£¬·ñÔòÏµÍ³ÓÃËùÓĞÊı¾İµÄmd5Öµ×÷ÎªÖ÷¼ü
     function AddPriKey($fieldname)
     {
         $this->primaryKey = $fieldname;
     }
     
-    // æŒ‡å®šåº”ç”¨çš„åç§°
+    // Ö¸¶¨Ó¦ÓÃµÄÃû³Æ
     function AddAppName($appname)
     {
         $this->appName = $appname;
     }
     
-    //è®¾ç½®ç”¨äºæ’åºçš„SQLï¼Œå¦‚ order by id desc
+    //ÉèÖÃÓÃÓÚÅÅĞòµÄSQL£¬Èç order by id desc
     function SetOrderQuery($query)
     {
         $this->orderQuery = $query;
     }
     
-    //å¼ºåˆ¶æŒ‡å®šå­—æ®µä¸ºå…¶å®ƒç±»å‹
+    //Ç¿ÖÆÖ¸¶¨×Ö¶ÎÎªÆäËüÀàĞÍ
     function BindType($fieldname, $ftype, $format='')
     {
         //'type' =>'','length' =>'0','unsigned'=>FALSE,'autokey'=>FALSE,
@@ -145,7 +145,7 @@ class Lurd extends DataListCP
         }
     }
     
-    //å¼ºåˆ¶æŒ‡å®šå­—æ¨¡æ¿ï¼ˆåˆ—è¡¨listå’Œç¼–è¾‘editã€å¢åŠ addæ¨¡æ¿é‡Œç”¨ï¼‰
+    //Ç¿ÖÆÖ¸¶¨×ÖÄ£°å£¨ÁĞ±ílistºÍ±à¼­edit¡¢Ôö¼ÓaddÄ£°åÀïÓÃ£©
     function BindTemplate($fieldname, $tmptype='list', $temp='')
     {
         if( isset($this->fields[$fieldname]) )
@@ -154,12 +154,12 @@ class Lurd extends DataListCP
         }
     }
     
-    // åˆ—å‡ºæ•°æ®
+    // ÁĞ³öÊı¾İ
     /*********************************
-     * $listfield = '' æŒ‡å®šè¦åˆ—å‡ºçš„å­—æ®µ(é»˜è®¤ä¸º'*') ï¼Œåªéœ€å¡«å†™å½“å‰è¡¨
-                                                  è”ç»“è¡¨å‡ºçš„å­—æ®µåœ¨ AddLinkTable æŒ‡å®šï¼Œ å› æ­¤ä¸éœ€è¦ è¡¨å.å­—æ®µå æ–¹å¼è¯†åˆ«
-     * $wherequery = '' æŸ¥è¯¢queryï¼Œå¦‚æœè”ç»“äº†å…¶å®ƒè¡¨ï¼Œéœ€ç”¨ è¡¨å.å­—æ®µå è¯†åˆ«å­—æ®µ
-     * $orderquery = '' æ’åºqueryï¼Œå¦‚æœè”ç»“äº†å…¶å®ƒè¡¨ï¼Œéœ€ç”¨ è¡¨å.å­—æ®µå è¯†åˆ«å­—æ®µ
+     * $listfield = '' Ö¸¶¨ÒªÁĞ³öµÄ×Ö¶Î(Ä¬ÈÏÎª'*') £¬Ö»ĞèÌîĞ´µ±Ç°±í
+                                                  Áª½á±í³öµÄ×Ö¶ÎÔÚ AddLinkTable Ö¸¶¨£¬ Òò´Ë²»ĞèÒª ±íÃû.×Ö¶ÎÃû ·½Ê½Ê¶±ğ
+     * $wherequery = '' ²éÑ¯query£¬Èç¹ûÁª½áÁËÆäËü±í£¬ĞèÓÃ ±íÃû.×Ö¶ÎÃû Ê¶±ğ×Ö¶Î
+     * $orderquery = '' ÅÅĞòquery£¬Èç¹ûÁª½áÁËÆäËü±í£¬ĞèÓÃ ±íÃû.×Ö¶ÎÃû Ê¶±ğ×Ö¶Î
      **********************************/
     function ListData($listfield = '*', $wherequery = '', $orderquery ='', $Suff = '_list.htm')
     {
@@ -167,21 +167,21 @@ class Lurd extends DataListCP
         if(trim($listfield)=='') $listfield = '*';
         
         $template = $this->templateDir.'/'.$this->tplName.$Suff;
-        //ç”Ÿæˆåˆ—è¡¨æ¨¡æ¿
+        //Éú³ÉÁĞ±íÄ£°å
         if( !file_exists($template) || $this->isDebug )
         {
             $this->MakeListTemplate($listfield);
         }
         
-        // è·å–æ£€ç´¢æ¡ä»¶
+        // »ñÈ¡¼ìË÷Ìõ¼ş
         if( $wherequery == '' )
         {
             $wherequery = $this->GetSearchQuery();
         }
 
-        //æ˜¯å¦æœ‰è”ç»“å…¶å®ƒçš„è¡¨
+        //ÊÇ·ñÓĞÁª½áÆäËüµÄ±í
         $islink = count($this->linkTables) > 0 ? TRUE : FALSE;
-        //ä¸»è¡¨ç´¢å¼•å­—æ®µ(Select * From éƒ¨ä»½)
+        //Ö÷±íË÷Òı×Ö¶Î(Select * From ²¿·İ)
         $listfields = explode(',', $listfield);
         foreach($listfields as $v)
         {
@@ -197,7 +197,7 @@ class Lurd extends DataListCP
         }
         if($listdd=='') $listdd = " * ";
         
-        //è”ç»“è¡¨ç´¢å¼•å­—æ®µ
+        //Áª½á±íË÷Òı×Ö¶Î
         if($islink)
         {
             $joinQuery = '';
@@ -225,7 +225,7 @@ class Lurd extends DataListCP
         $this->Display();
     }
     
-    //è®°å½•åˆ—è¡¨ç½‘å€åˆ°cookieï¼Œæ–¹ä¾¿è¿”å›æ—¶è°ƒç”¨
+    //¼ÇÂ¼ÁĞ±íÍøÖ·µ½cookie£¬·½±ã·µ»ØÊ±µ÷ÓÃ
     function SaveCurUrl()
     {
         setcookie('LURD_GOBACK_URL', $this->GetCurFullUrl(), time()+3600, '/');
@@ -246,7 +246,7 @@ class Lurd extends DataListCP
         return $nowurl;
     }
     
-    //ç”Ÿæˆå…¨éƒ¨æ¨¡æ¿
+    //Éú³ÉÈ«²¿Ä£°å
     function MakeAllTemplate($listfield = '')
     {
         $this->MakeListTemplate($listfield);
@@ -254,7 +254,7 @@ class Lurd extends DataListCP
         $this->MakeAddEditTemplate('edit');
     }
     
-    //ç”Ÿæˆåˆ—è¡¨æ¨¡æ¿
+    //Éú³ÉÁĞ±íÄ£°å
     function MakeListTemplate($listfield = '')
     {
         $templateTemplate = $this->lurdTempdir.'/lurd-list.htm';
@@ -264,11 +264,11 @@ class Lurd extends DataListCP
         while( !feof($fp) ) $tempstr .= fread($fp, 1024);
         fclose($fp);
         $tempItems = array('appname'=>'', 'totalitem'=>'', 'titleitem'=>'', 'fielditem'=>'');
-        $tempItems['appname'] = empty($this->appName) ? "ç®¡ç†æ•°æ®è¡¨ï¼š ".$this->tableName : $this->appName;
-        //è®¾ç½®é€‰æ‹©é¡¹
+        $tempItems['appname'] = empty($this->appName) ? "¹ÜÀíÊı¾İ±í£º ".$this->tableName : $this->appName;
+        //ÉèÖÃÑ¡ÔñÏî
         $tempItems['totalitem'] = 1;
         $tempItems['self'] = $_SERVER["PHP_SELF"];
-        $titleitem = "    <td class='nowrap'>é€‰æ‹©</td>\r\n";
+        $titleitem = "    <td class='nowrap'>Ñ¡Ôñ</td>\r\n";
         if( !preg_match("/,/", $this->primaryKey) )
         {
                 $fielditem = "    <td class='nowrap'><input type=\"checkbox\" name=\"{$this->primaryKey}[]\" value=\"{dede:field name='{$this->primaryKey}' /}\" /></td>\r\n";
@@ -284,7 +284,7 @@ class Lurd extends DataListCP
                 $prikeyValue .= '); ?'.'>';
                 $fielditem = "    <td class='nowrap'><input type=\"checkbox\" name=\"primarykey[]\" value=\"{$prikeyValue}\" /></td>\r\n";
         }
-        //ä½¿ç”¨æ‰‹å·¥æŒ‡å®šåˆ—å‡ºå­—æ®µ
+        //Ê¹ÓÃÊÖ¹¤Ö¸¶¨ÁĞ³ö×Ö¶Î
         if(!empty($listfield) && $listfield != '*' )
         {
             $listfields = explode(',', $listfield);
@@ -330,7 +330,7 @@ class Lurd extends DataListCP
                 }
             }//End foreach
         }
-        //è‡ªåŠ¨å¤„ç†
+        //×Ô¶¯´¦Àí
         else
         {
             foreach($this->fields as $k=>$v)
@@ -361,9 +361,9 @@ class Lurd extends DataListCP
             }
         }
 		
-        //æ˜¯å¦æœ‰è”ç»“å…¶å®ƒçš„è¡¨
+        //ÊÇ·ñÓĞÁª½áÆäËüµÄ±í
         $islink = count($this->linkTables) > 0 ? TRUE : FALSE;
-        //é™„åŠ è¡¨çš„å­—æ®µ
+        //¸½¼Ó±íµÄ×Ö¶Î
         if($islink)
         {
             foreach($this->addFields as $k=>$v)
@@ -392,11 +392,11 @@ class Lurd extends DataListCP
 		if($this->singleManage)
 		{
 			$tempItems['totalitem']++;
-			$titleitem .= "    <td class='nowrap'>ç®¡ç†</td>\r\n";
+			$titleitem .= "    <td class='nowrap'>¹ÜÀí</td>\r\n";
 			$currentUrl = $this->GetCurUrl();
 			$fielditem .= "    <td class='nowrap'>  
-			<a href=\"{$currentUrl}?{$this->primaryKey}={dede:field name='{$this->primaryKey}' /}&ac=edit&get=yes\">ä¿®æ”¹</a> 
-			|  <a href=\"{$currentUrl}?{$this->primaryKey}={dede:field name='{$this->primaryKey}' /}&ac=del&get=yes\">åˆ é™¤</a> </td>\r\n";
+			<a href=\"{$currentUrl}?{$this->primaryKey}={dede:field name='{$this->primaryKey}' /}&ac=edit&get=yes\">ĞŞ¸Ä</a> 
+			|  <a href=\"{$currentUrl}?{$this->primaryKey}={dede:field name='{$this->primaryKey}' /}&ac=del&get=yes\">É¾³ı</a> </td>\r\n";
 		}
 		
         $tempItems['titleitem'] = $titleitem;
@@ -410,7 +410,7 @@ class Lurd extends DataListCP
         fclose($fp);
     }
     
-    //ç”Ÿæˆå‘å¸ƒæˆ–ç¼–è¾‘æ¨¡æ¿
+    //Éú³É·¢²¼»ò±à¼­Ä£°å
     function MakeAddEditTemplate($getTemplets='add')
     {
         $templateTemplate = $this->lurdTempdir."/lurd-{$getTemplets}.htm";
@@ -420,7 +420,7 @@ class Lurd extends DataListCP
         while( !feof($fp) ) $tempstr .= fread($fp, 1024);
         fclose($fp);
         $tempItems = array('appname'=>'', 'fields'=>'', 'primarykey'=>'');
-        $tempItems['appname'] = empty($this->appName) ? "åœ¨ {$this->tableName} ".($getTemplets=='add' ? 'æ·»åŠ æ•°æ®' : 'ç¼–è¾‘æ•°æ®' ) : $this->appName;
+        $tempItems['appname'] = empty($this->appName) ? "ÔÚ {$this->tableName} ".($getTemplets=='add' ? 'Ìí¼ÓÊı¾İ' : '±à¼­Êı¾İ' ) : $this->appName;
         $tempItems['fields'] = '';
 		$tempItems['self'] = $_SERVER["PHP_SELF"];
         if( !preg_match("/,/", $this->primaryKey) )
@@ -443,28 +443,28 @@ class Lurd extends DataListCP
         {
             $aeform = $dtype = $defaultvalue = $fformat = '';
 			$title = !empty($v['comment'])? $v['comment'] : $k;
-            //åœ¨æŒ‡å®šäº†å­—æ®µæ¨¡æ¿æƒ…å†µä¸‹ä¸ä½¿ç”¨è‡ªåŠ¨ç”Ÿæˆ
+            //ÔÚÖ¸¶¨ÁË×Ö¶ÎÄ£°åÇé¿öÏÂ²»Ê¹ÓÃ×Ô¶¯Éú³É
             if(isset($this->fields[$k][$getTemplets.'template']))
             {
                 $fielditem .= $this->fields[$k][$getTemplets.'template'];
                 continue;
             }
-            //æ’é™¤è‡ªåŠ¨é€’å¢é”®
+            //ÅÅ³ı×Ô¶¯µİÔö¼ü
             if($k==$this->autoField)
             {
                 continue;
             }
-            //ç¼–è¾‘æ—¶ï¼Œæ’é™¤ä¸»é”®
+            //±à¼­Ê±£¬ÅÅ³ıÖ÷¼ü
             if($k==$this->primaryKey && $getTemplets=='edit')
             {
                 continue;
             }
-            //æ ¼å¼åŒ–é€‰é¡¹(ç¼–è¾‘æ—¶ç”¨)
+            //¸ñÊ½»¯Ñ¡Ïî(±à¼­Ê±ÓÃ)
             if(isset($this->fields[$k]['format']))
             {
                 $fformat = $this->fields[$k]['format'];
             }
-            //è·å¾—å­—æ®µé»˜è®¤å€¼ï¼ˆç¼–è¾‘æ—¶ä»æ•°æ®åº“è·å–ï¼‰
+            //»ñµÃ×Ö¶ÎÄ¬ÈÏÖµ£¨±à¼­Ê±´ÓÊı¾İ¿â»ñÈ¡£©
             if($getTemplets=='edit')
             {
                 if( in_array($this->fields[$k]['type'], $this->binTypes) ) $dfvalue = '';
@@ -474,7 +474,7 @@ class Lurd extends DataListCP
             {
                 $dfvalue = $this->fields[$k]['default'];
             }
-            //å°æ•°ç±»å‹
+            //Ğ¡ÊıÀàĞÍ
             if( in_array($this->fields[$k]['type'], $this->floatTypes) ) 
             {
                 if($getTemplets=='edit')
@@ -487,12 +487,12 @@ class Lurd extends DataListCP
                 }
                 $aeform  = "<input type='input' name='{$k}' class='txtnumber' value='$dfvalue' />";
             }
-            //æ•´æ•°ç±»å‹
+            //ÕûÊıÀàĞÍ
             if( in_array($this->fields[$k]['type'], $this->intTypes) ) 
             {
                 $aeform  = "<input type='input' name='{$k}' class='txtnumber' value='$dfvalue' />";
             }
-            //æ—¶é—´ç±»å‹
+            //Ê±¼äÀàĞÍ
             else if( in_array($this->fields[$k]['type'], $this->dateTypes))
             {
                 if(empty($fformat)) $fformat = 'Y-m-d H:i:s';
@@ -506,17 +506,17 @@ class Lurd extends DataListCP
                 }
                 $aeform  = "<input type='input' name='{$k}' class='txtdate' value='$dfvalue' />";
             }
-            //é•¿æ–‡æœ¬ç±»å‹
+            //³¤ÎÄ±¾ÀàĞÍ
             else if( in_array($this->fields[$k]['type'], $this->textTypes))
             {
                 $aeform  = "<textarea name='$k' class='txtarea'>{$dfvalue}</textarea>";
             }
-            //äºŒè¿›åˆ¶ç±»å‹
+            //¶ş½øÖÆÀàĞÍ
             else if( in_array($this->fields[$k]['type'], $this->textTypes))
             {
                 $aeform = "<input type='file' name='$k' size='45' />";
             }
-            //SETç±»å‹
+            //SETÀàĞÍ
             else if( $this->fields[$k]['type']=='SET' )
             {
                 $ems = explode(',', $this->fields[$k]['em']);
@@ -536,7 +536,7 @@ class Lurd extends DataListCP
                     }
                 }
             }
-            //ENUMç±»å‹
+            //ENUMÀàĞÍ
             else if( $this->fields[$k]['type']=='ENUM' )
             {
                 $ems = explode(',', $this->fields[$k]['em']);
@@ -566,11 +566,11 @@ class Lurd extends DataListCP
         fclose($fp);
     }
 
-    // è¯»å–æ•°æ®
+    // ¶ÁÈ¡Êı¾İ
     function EditData()
     {
         $template = $this->templateDir.'/'.$this->tplName.'_edit.htm';
-        //ç”Ÿæˆåˆ—è¡¨æ¨¡æ¿
+        //Éú³ÉÁĞ±íÄ£°å
         if( !file_exists($template) || $this->isDebug )
         {
             $this->MakeAddEditTemplate('edit');
@@ -579,7 +579,7 @@ class Lurd extends DataListCP
         $GLOBALS[$this->primaryKey] = isset($GLOBALS[$this->primaryKey])? $GLOBALS[$this->primaryKey] : request($this->primaryKey);
         if(empty($GLOBALS['primarykey'][0]) && empty($GLOBALS[$this->primaryKey][0]))
         {
-            ShowMsg('è¯·é€‰æ‹©è¦ä¿®æ”¹çš„è®°å½•ï¼', '-1');
+            ShowMsg('ÇëÑ¡ÔñÒªĞŞ¸ÄµÄ¼ÇÂ¼£¡', '-1');
             exit();
         }
         if(preg_match("/,/", $this->primaryKey))
@@ -592,35 +592,35 @@ class Lurd extends DataListCP
             $whereQuery = "WHERE `{$this->primaryKey}` = '".$GLOBALS[$this->primaryKey][0]."' ";
         }
 
-        //åˆ—å‡ºæ•°æ®
+        //ÁĞ³öÊı¾İ
         $query = "SELECT * FROM `{$this->tableName}` $whereQuery ";
         $this->SetTemplate($template);
         $this->SetSource($query);
         $this->Display();
     }
 
-    // æ–°å¢æ•°æ®
+    // ĞÂÔöÊı¾İ
     function AddData()
     {
         $template = $this->templateDir.'/'.$this->tplName.'_add.htm';
-        //ç”Ÿæˆåˆ—è¡¨æ¨¡æ¿
+        //Éú³ÉÁĞ±íÄ£°å
         if( !file_exists($template) || $this->isDebug )
         {
             $this->MakeAddEditTemplate('add');
         }
-        //ç”Ÿæˆå‘å¸ƒè¡¨å•æ•°æ®
+        //Éú³É·¢²¼±íµ¥Êı¾İ
         $this->SetTemplate($template);
         $this->Display();
         exit();
     }
 
-    // ä¿å­˜æ–°å¢æ•°æ®
+    // ±£´æĞÂÔöÊı¾İ
     function SaveAddData($isturn=TRUE)
     {
         $allfield = $allvalue = '';
         foreach($this->fields as $k=>$v)
         {
-            //è‡ªåŠ¨é€’å¢é”®ä¸å¤„ç†
+            //×Ô¶¯µİÔö¼ü²»´¦Àí
             if($k==$this->autoField)
             {
                 continue;
@@ -632,33 +632,33 @@ class Lurd extends DataListCP
         $inQuery = "INSERT INTO `$this->tableName`($allfield) VALUES($allvalue); ";
         $rs = $this->dsql->ExecuteNoneQuery($inQuery);
         
-        //åªè¿”å›ç»“æœ
+        //Ö»·µ»Ø½á¹û
         if(!$isturn)
         {
             return $rs;
         }
-        //å®Œå…¨å¤„ç†æ¨¡å¼
+        //ÍêÈ«´¦ÀíÄ£Ê½
         $gourl = !empty($_COOKIE['LURD_GOBACK_URL']) ? $_COOKIE['LURD_GOBACK_URL'] : '-1';
         if(!$rs)
         {
             $this->dsql->SaveErrorLog($inQuery);
-            ShowMsg('ä¿å­˜æ•°æ®å¤±è´¥ï¼Œè¯·æ£€æŸ¥æ•°æ®åº“é”™è¯¯æ—¥å¿—ï¼', $gourl);
+            ShowMsg('±£´æÊı¾İÊ§°Ü£¬Çë¼ì²éÊı¾İ¿â´íÎóÈÕÖ¾£¡', $gourl);
             exit();
         }
         else
         {
-            ShowMsg('æˆåŠŸä¿å­˜ä¸€ç»„æ•°æ®ï¼', $gourl);
+            ShowMsg('³É¹¦±£´æÒ»×éÊı¾İ£¡', $gourl);
             exit();
         }
     }
 
-    // ä¿å­˜ç¼–è¾‘æ•°æ®
+    // ±£´æ±à¼­Êı¾İ
     function SaveEditData($isturn=TRUE)
     {
         $editfield = '';
         foreach($this->fields as $k=>$v)
         {
-            //è‡ªåŠ¨é€’å¢é”®ä¸å¤„ç†
+            //×Ô¶¯µİÔö¼ü²»´¦Àí
             $GLOBALS[$k] = isset($GLOBALS[$k])? $GLOBALS[$k] : $GLOBALS['request']->forms[$k];
             if($k==$this->autoField || !isset($GLOBALS[$k]))
             {
@@ -667,7 +667,7 @@ class Lurd extends DataListCP
             $v = $this->GetData($k);
             $editfield .= ($editfield=='' ? " `$k`='$v' " : ",\n `$k`='$v' ");
         }
-        //è·å¾—ä¸»é”®å€¼
+        //»ñµÃÖ÷¼üÖµ
         if(preg_match("#,#", $this->primaryKey))
         {
             $keyvalue = (isset($GLOBALS['primarykey']) ? $GLOBALS['primarykey'] : '');
@@ -686,27 +686,27 @@ class Lurd extends DataListCP
             $inQuery = " UPDATE `$this->tableName` SET $editfield WHERE md5('key', `".str_replace(',','`,`',$this->primaryKey)."`='{$keyvalue}' ";
         }
         $rs = $this->dsql->ExecuteNoneQuery($inQuery);
-        //åªè¿”å›ç»“æœ
+        //Ö»·µ»Ø½á¹û
         if(!$isturn)
         {
             return $rs;
         }
-        //å®Œå…¨å¤„ç†æ¨¡å¼
+        //ÍêÈ«´¦ÀíÄ£Ê½
         $gourl = !empty($_COOKIE['LURD_GOBACK_URL']) ? $_COOKIE['LURD_GOBACK_URL'] : '-1';
         if(!$rs)
         {
             $this->dsql->SaveErrorLog($inQuery);
-            ShowMsg('ä¿å­˜æ•°æ®å¤±è´¥ï¼Œè¯·æ£€æŸ¥æ•°æ®åº“é”™è¯¯æ—¥å¿—ï¼', $gourl);
+            ShowMsg('±£´æÊı¾İÊ§°Ü£¬Çë¼ì²éÊı¾İ¿â´íÎóÈÕÖ¾£¡', $gourl);
             exit();
         }
         else
         {
-            ShowMsg('æˆåŠŸä¿å­˜ä¸€ç»„æ•°æ®ï¼', $gourl);
+            ShowMsg('³É¹¦±£´æÒ»×éÊı¾İ£¡', $gourl);
             exit();
         }
     }
 	
-    //è·å¾—å½“å‰ç½‘å€
+    //»ñµÃµ±Ç°ÍøÖ·
     function GetCurUrl()
     {
         if(!empty($_SERVER["REQUEST_URI"]))
@@ -722,7 +722,7 @@ class Lurd extends DataListCP
         return $nowurl;
     }
 
-    // åˆ é™¤æ•°æ®
+    // É¾³ıÊı¾İ
     function DelData($isturn=TRUE)
     {
         $GLOBALS[$this->primaryKey] = isset($GLOBALS[$this->primaryKey])? $GLOBALS[$this->primaryKey] : request($this->primaryKey);
@@ -736,7 +736,7 @@ class Lurd extends DataListCP
         }
         if(!is_array($keyArr))
         {
-            ShowMsg('æ²¡æŒ‡å®šè¦åˆ é™¤çš„è®°å½•ï¼', '-1');
+            ShowMsg('Ã»Ö¸¶¨ÒªÉ¾³ıµÄ¼ÇÂ¼£¡', '-1');
             exit();
         }
         else
@@ -760,7 +760,7 @@ class Lurd extends DataListCP
             if($isturn)
             {
                 $gourl = !empty($_COOKIE['LURD_GOBACK_URL']) ? $_COOKIE['LURD_GOBACK_URL'] : '-1';
-                ShowMsg('æˆåŠŸåˆ é™¤æŒ‡å®šçš„è®°å½•ï¼', $gourl);
+                ShowMsg('³É¹¦É¾³ıÖ¸¶¨µÄ¼ÇÂ¼£¡', $gourl);
                 exit();
             }
             else
@@ -770,15 +770,15 @@ class Lurd extends DataListCP
         }
     }
     
-    //è”ç»“å…¶å®ƒè¡¨(ç”¨äºæ•°æ®æŸ¥è¯¢çš„æƒ…å†µ)
-    //$tablelurd ç›®æ ‡è¡¨lurdå¯¹è±¡, $linkfields selectçš„å­—æ®µ
-    //$mylinkid å½“å‰è¡¨ç”¨äºè”ç»“çš„å­—æ®µ
-    //$linkid ç›®æ ‡è¡¨ç”¨äºè”ç»“çš„å­—æ®µ
+    //Áª½áÆäËü±í(ÓÃÓÚÊı¾İ²éÑ¯µÄÇé¿ö)
+    //$tablelurd Ä¿±ê±ílurd¶ÔÏó, $linkfields selectµÄ×Ö¶Î
+    //$mylinkid µ±Ç°±íÓÃÓÚÁª½áµÄ×Ö¶Î
+    //$linkid Ä¿±ê±íÓÃÓÚÁª½áµÄ×Ö¶Î
     function AddLinkTable(&$tablelurd, $mylinkid, $linkid, $linkfields='*')
     {
         if(trim($linkfields)=='') $linkfields = '*';
         $this->linkTables[] = array($tablelurd, $mylinkid, $linkid, $linkfields);
-        //è®°å½•é™„åŠ è¡¨çš„å­—æ®µä¿¡æ¯
+        //¼ÇÂ¼¸½¼Ó±íµÄ×Ö¶ÎĞÅÏ¢
         if($linkfields != '*')
         {
             $fs = explode(',', $linkfields);
@@ -802,7 +802,7 @@ class Lurd extends DataListCP
         }
     }
 
-    //åˆ†æè¡¨ç»“æ„
+    //·ÖÎö±í½á¹¹
     function AnalyseTable()
     {
         if($this->tableName == '')
@@ -817,7 +817,7 @@ class Lurd extends DataListCP
             exit(" Analyse Table `$tablename` Error! ");
         }
 
-        // å…ˆå»æ‰å†…å®¹ä¸­çš„æ³¨é‡Š
+        // ÏÈÈ¥µôÄÚÈİÖĞµÄ×¢ÊÍ
         // $row[1] = preg_replace('#COMMENT \'(.*?)\'#i', '', $row[1]);
         // echo $row[1];exit;
         $flines = explode("\n", $row[1]);
@@ -836,7 +836,7 @@ class Lurd extends DataListCP
                 $this->primaryKey = preg_replace("/[\(\)]|,$/", '', $lines[count($lines)-1]);
                 continue;
             }
-            //å­—æ®µåç§°ã€ç±»å‹
+            //×Ö¶ÎÃû³Æ¡¢ÀàĞÍ
             $this->fields[$lines[0]] = array('type' => '',  'length' => '', 'unsigned' => FALSE, 'autokey' => FALSE, 'null' => TRUE, 'default' => '', 'em' => '', 'comment' => '');
             $this->fields[$lines[0]]['type'] = strtoupper(preg_replace("/\(.*$|,/", '', $lines[1]));
             $this->fields[$lines[0]]['length'] = preg_replace("/^.*\(|\)/", '', $lines[1]);
@@ -850,7 +850,7 @@ class Lurd extends DataListCP
                 $this->fields[$lines[0]]['length'] = 0;
             }
             
-            //æŠŠç‰¹å®šç±»å‹çš„æ•°æ®åŠ å…¥æ•°ç»„ä¸­
+            //°ÑÌØ¶¨ÀàĞÍµÄÊı¾İ¼ÓÈëÊı×éÖĞ
             foreach($parArray as $v)
             {
                 $tmpstr = "if(in_array(\$this->fields[\$lines[0]]['type'], \$this->{$v}Types))
@@ -865,7 +865,7 @@ class Lurd extends DataListCP
                 $prikeyTmp .= ($prikeyTmp=='' ? $lines[0] : ','.$lines[0]);
             }
             
-            //åˆ†æå…¶å®ƒå±æ€§
+            //·ÖÎöÆäËüÊôĞÔ
             // echo $line;exit;
             if(preg_match("#unsigned#i", $line))
             {
@@ -899,16 +899,16 @@ class Lurd extends DataListCP
     }
     
     /**
-    * å¢åŠ æœç´¢æ¡ä»¶
-    * @parem $fieldname å­—æ®µåç§°
-    * @parem $fieldvalue ä¼ å…¥çš„ value å€¼å¿…é¡»å…ˆç»è¿‡è½¬ä¹‰
-    * @parem $condition æ¡ä»¶ >ã€<ã€=ã€<> ã€likeã€%like%ã€%likeã€like%
-    * @parem $linkmode AND æˆ– OR
+    * Ôö¼ÓËÑË÷Ìõ¼ş
+    * @parem $fieldname ×Ö¶ÎÃû³Æ
+    * @parem $fieldvalue ´«ÈëµÄ value Öµ±ØĞëÏÈ¾­¹ı×ªÒå
+    * @parem $condition Ìõ¼ş >¡¢<¡¢=¡¢<> ¡¢like¡¢%like%¡¢%like¡¢like%
+    * @parem $linkmode AND »ò OR
     */
     function AddSearchParameter($fieldname, $fieldvalue, $condition, $linkmode='AND')
     {
         $c = count($this->searchParameters);
-        //å¯¹äºæŒ‡å®šäº†å¤šä¸ªå­—æ®µï¼Œä½¿ç”¨ CONCAT è¿›è¡Œè”ç»“ï¼ˆé€šå¸¸æ˜¯likeæ“ä½œï¼‰
+        //¶ÔÓÚÖ¸¶¨ÁË¶à¸ö×Ö¶Î£¬Ê¹ÓÃ CONCAT ½øĞĞÁª½á£¨Í¨³£ÊÇlike²Ù×÷£©
         if( preg_match('/,/', $fieldname) )
         {
             $fs = explode(',', $fieldname);
@@ -927,7 +927,7 @@ class Lurd extends DataListCP
         $this->searchParameters[$c]['mode'] = $linkmode;
     }
 
-    // è·å–æœç´¢æ¡ä»¶
+    // »ñÈ¡ËÑË÷Ìõ¼ş
     function GetSearchQuery()
     {
         $wquery = '';
@@ -959,18 +959,18 @@ class Lurd extends DataListCP
         return $wquery ;
     }
     
-    //æŠŠä»è¡¨å•ä¼ é€’å›æ¥çš„æ•°å€¼è¿›è¡Œå¤„ç†
+    //°Ñ´Ó±íµ¥´«µİ»ØÀ´µÄÊıÖµ½øĞĞ´¦Àí
     function GetData($fname)
     {
         $reValue = '';
         $ftype = $this->fields[$fname]['type'];
         $GLOBALS[$fname] = isset($GLOBALS[$fname])? $GLOBALS[$fname] : @$GLOBALS['request']->forms[$fname];
-        //äºŒè¿›åˆ¶å•ç‹¬å¤„ç†
+        //¶ş½øÖÆµ¥¶À´¦Àí
         if( in_array($ftype, $this->binTypes) )
         {
             return $this->GetBinData($fname);
         }
-        //æ²¡æœ‰è¿™ä¸ªå˜é‡è¿”å›é»˜è®¤å€¼
+        //Ã»ÓĞÕâ¸ö±äÁ¿·µ»ØÄ¬ÈÏÖµ
         else if( !isset($GLOBALS[$fname]) )
         {
             if( isset($this->fields[$fname]['default']) )
@@ -990,7 +990,7 @@ class Lurd extends DataListCP
                 }
             }
         }
-        //å¤„ç†æ•´æ•°
+        //´¦ÀíÕûÊı
         else if( preg_match("#YEAR|INT#", $ftype) )
         {
             // $temp = isset($GLOBALS[$fname][0])? $GLOBALS[$fname][0] : 0;
@@ -1003,7 +1003,7 @@ class Lurd extends DataListCP
                 $reValue = intval('-'.$reValue);
             }
         }
-        //å¤„ç†å°æ•°ç±»å‹
+        //´¦ÀíĞ¡ÊıÀàĞÍ
         else if(in_array($ftype, $this->floatTypes))
         {
             $negTag = $GLOBALS[$fname][0];
@@ -1014,17 +1014,17 @@ class Lurd extends DataListCP
                 $reValue = intval('-'.$reValue);
             }
         }
-        //å­—ç¬¦ä¸²ç±»å‹
+        //×Ö·û´®ÀàĞÍ
         else if(in_array($ftype, $this->charTypes))
         {
             $reValue = cn_substrR($this->StringSafe($GLOBALS[$fname]), $this->fields[$fname]['length']);
         }
-        //æ–‡æœ¬ç±»å‹
+        //ÎÄ±¾ÀàĞÍ
         else if(in_array($ftype, $this->textTypes))
         {
             $reValue = $this->StringSafe($GLOBALS[$fname]);
         }
-        //SETç±»å‹
+        //SETÀàĞÍ
         else if($ftype=='SET')
         {
             $sysSetArr = explode(',', $this->fields[$fname]['em']);
@@ -1043,14 +1043,14 @@ class Lurd extends DataListCP
             }
             $reValue = count($reValues)==0 ? 'NULL' : join(',', $reValues);
         }
-        //æšä¸¾ç±»å‹
+        //Ã¶¾ÙÀàĞÍ
         else if($ftype=='ENUM')
         {
             $sysEnumArr = explode(',', $this->fields[$fname]['em']);
             if(in_array($GLOBALS[$fname], $sysEnumArr)) $reValue = $GLOBALS[$fname];
             else $reValue = 'NULL';
         }
-        //æ—¶é—´æ—¥æœŸç±»å‹
+        //Ê±¼äÈÕÆÚÀàĞÍ
         else if(in_array($ftype, $this->dateTypes))
         {
             if($ftype=='TIMESTAMP')
@@ -1065,38 +1065,38 @@ class Lurd extends DataListCP
         return $reValue;
     }
     
-    //å¯¹è¯·æ±‚çš„å­—ç¬¦ä¸²è¿›è¡Œå®‰å…¨å¤„ç†
+    //¶ÔÇëÇóµÄ×Ö·û´®½øĞĞ°²È«´¦Àí
     function StringSafe($str, $safestep=-1)
     {
         $safestep = ($safestep > -1) ? $safestep : $this->stringSafe;
-        //è¿‡æ»¤å±é™©çš„HTML(é»˜è®¤çº§åˆ«)
+        //¹ıÂËÎ£ÏÕµÄHTML(Ä¬ÈÏ¼¶±ğ)
         if($safestep == 1)
         {
-            $str = preg_replace("#script:#i", "ï½“ï½ƒï½’ï½‰ï½ï½”ï¼š", $str);
+            $str = preg_replace("#script:#i", "£ó£ã£ò£é£ğ£ô£º", $str);
             $str = preg_replace("#<[\/]{0,1}(link|meta|ifr|fra|scr)[^>]*>#isU", '', $str);
             $str = preg_replace("#[\r\n\t ]{1,}#", ' ', $str);
             return $str;
         }
-        //å®Œå…¨ç¦æ­¢HTML
-        //å¹¶è½¬æ¢ä¸€äº›ä¸å®‰å…¨å­—ç¬¦ä¸²ï¼ˆå¦‚ï¼ševal(ã€unionã€CONCAT(ã€--ã€ç­‰ï¼‰
+        //ÍêÈ«½ûÖ¹HTML
+        //²¢×ª»»Ò»Ğ©²»°²È«×Ö·û´®£¨Èç£ºeval(¡¢union¡¢CONCAT(¡¢--¡¢µÈ£©
         else if($this->stringSafe == 2)
         {
             $str = addslashes(dede_htmlspecialchars(stripslashes($str)));
-            $str = preg_replace("#eval#i", 'ï½…ï½–ï½ï½Œ', $str);
-            $str = preg_replace("#union#i", 'ï½•ï½ï½‰ï½ï½', $str);
-            $str = preg_replace("#concat#i", 'ï½ƒï½ï½ï½ƒï½ï½”', $str);
-            $str = preg_replace("#--#", 'ï¼ï¼', $str);
+            $str = preg_replace("#eval#i", '£å£ö£á£ì', $str);
+            $str = preg_replace("#union#i", '£õ£î£é£ï£î', $str);
+            $str = preg_replace("#concat#i", '£ã£ï£î£ã£á£ô', $str);
+            $str = preg_replace("#--#", '£­£­', $str);
             $str = preg_replace("#[\r\n\t ]{1,}#", ' ', $str);
             return $str;
         }
-        //ä¸ä½œå®‰å…¨å¤„ç†
+        //²»×÷°²È«´¦Àí
         else
         {
             return $str;
         }
     }
-    //ä¿å­˜äºŒè¿›åˆ¶æ–‡ä»¶æ•°æ®
-    //ä¸ºäº†å®‰å…¨èµ·è§ï¼Œå¯¹äºŒè¿›åˆ¶æ•°æ®ä¿å­˜ä½¿ç”¨base64ç¼–ç åå­˜å…¥
+    //±£´æ¶ş½øÖÆÎÄ¼şÊı¾İ
+    //ÎªÁË°²È«Æğ¼û£¬¶Ô¶ş½øÖÆÊı¾İ±£´æÊ¹ÓÃbase64±àÂëºó´æÈë
     function GetBinData($fname)
     {
         $lurdtmp = DEDEDATA.'/lurdtmp';
@@ -1116,14 +1116,14 @@ class Lurd extends DataListCP
         }
     }
 
-    //æ ¼å¼åŒ–æµ®ç‚¹æ•°å­—
+    //¸ñÊ½»¯¸¡µãÊı×Ö
     function FormatFloat($fvalue, $ftype='')
     {
         if($ftype=='') $ftype='%0.4f';
         return sprintf($ftype, $fvalue);
     }
     
-    //è·å¾—é»˜è®¤æ—¶é—´æ ¼å¼
+    //»ñµÃÄ¬ÈÏÊ±¼ä¸ñÊ½
     function GetDateTimeDf($ftype)
     {
         if($ftype=='DATE') return 'Y-m-d';
@@ -1132,7 +1132,7 @@ class Lurd extends DataListCP
         else return 'Y-m-d H:i:s';
     }
     
-    //æ ¼å¼åŒ–æ—¥æœŸ
+    //¸ñÊ½»¯ÈÕÆÚ
     function FormatDate($fvalue, $ftype, $fformat='')
     {
         if($ftype=='INT' || $ftype='TIMESTAMP' ) return MyDate($fvalue, $fformat);

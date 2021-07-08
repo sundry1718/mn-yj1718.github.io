@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>è´­ç‰©è½¦ - è®¢å•å·:{dede:var.carts.orders_id/}</title>
+<title>¹ºÎï³µ - ¶©µ¥ºÅ:{dede:var.carts.orders_id/}</title>
 <meta http-equiv="Content-Type" content="text/html; charset={dede:global.cfg_soft_lang/}" />
 <meta name="generator" content="DedeCMS V5.6" />
 <meta name="author" content="desdev.cn" />
@@ -20,14 +20,14 @@
             <?php
             if(!$cfg_ml->IsLogin()){
             ?>
-            æ‚¨å¥½,æ¬¢è¿æ¥åˆ°æœ¬ç½‘ç«™, è¯· <a href="../member/login.php?gourl=<?php echo urlencode(GetCurUrl());?>">ç™»å½•</a> æˆ– <a href="../member/index_do.php?fmdo=user&dopost=regnew">æ³¨å†Œ</a>
+            ÄúºÃ,»¶Ó­À´µ½±¾ÍøÕ¾, Çë <a href="../member/login.php?gourl=<?php echo urlencode(GetCurUrl());?>">µÇÂ¼</a> »ò <a href="../member/index_do.php?fmdo=user&dopost=regnew">×¢²á</a>
             <?php
             }else{
             ?>
-            <b><?php echo $cfg_ml->M_UserName; ?></b>,æ¬¢è¿æ‚¨çš„ç™»é™†ã€‚ <a href="<?php echo $cfg_memberurl; ?>/index.php">ä¼šå‘˜ä¸­å¿ƒ</a> |
-                <a href="<?php echo $cfg_memberurl; ?>/edit_fullinfo.php">æˆ‘çš„èµ„æ–™</a> |
-                <a href="<?php echo $cfg_memberurl; ?>/index.php?uid=<?php echo urlencode($cfg_ml->M_LoginID);?>">æˆ‘çš„ç©ºé—´</a> |
-                <a href="<?php echo $cfg_memberurl; ?>/index_do.php?fmdo=login&dopost=exit">é€€å‡ºç™»å½•</a>
+            <b><?php echo $cfg_ml->M_UserName; ?></b>,»¶Ó­ÄúµÄµÇÂ½¡£ <a href="<?php echo $cfg_memberurl; ?>/index.php">»áÔ±ÖĞĞÄ</a> |
+                <a href="<?php echo $cfg_memberurl; ?>/edit_fullinfo.php">ÎÒµÄ×ÊÁÏ</a> |
+                <a href="<?php echo $cfg_memberurl; ?>/index.php?uid=<?php echo urlencode($cfg_ml->M_LoginID);?>">ÎÒµÄ¿Õ¼ä</a> |
+                <a href="<?php echo $cfg_memberurl; ?>/index_do.php?fmdo=login&dopost=exit">ÍË³öµÇÂ¼</a>
             <?php
             }
             ?>
@@ -36,28 +36,28 @@
 </div><!-- /header -->
 
 <div class="w960 clear center mt1 cmt-box">
-	<div class="sp-title"><h2>è´­ç‰©è½¦</h2></div>
+	<div class="sp-title"><h2>¹ºÎï³µ</h2></div>
     <div id="errorChickCookie" class="clear center mt1" style="font-style:inherit;color:#666;font-weight:normal;padding-top:8px;padding-bottom:8px;text-align:center;"></div>	
     <div class="buycar">
-		<h2>æˆ‘çš„è´­ç‰©è½¦ - è®¢å•å·:<em id="carId">{dede:var.carts.orders_id/}</em></h2>
+		<h2>ÎÒµÄ¹ºÎï³µ - ¶©µ¥ºÅ:<em id="carId">{dede:var.carts.orders_id/}</em></h2>
 		<form id="form1" name="form1" method="post" action="posttocar.php">
 		<input id="dopost" name="do" type="hidden" value="del" />
         <!--startprint1-->
         <table width="100%" border="0" cellpadding="0" cellspacing="0" class="dede_table trlist">
 			<thead>
 				<tr>
-					<td colspan="6">å•†å“åˆ—è¡¨</td>
+					<td colspan="6">ÉÌÆ·ÁĞ±í</td>
 				</tr>
 			</thead>
 			<tbody>
-				<!--ä»¥ä¸‹åˆ—å‡ºè´­ç‰©è½¦å†…è´­å•†å“åˆ—è¡¨(æ•°ç»„),å¼€å§‹éå†æ•°ç»„-->
+				<!--ÒÔÏÂÁĞ³ö¹ºÎï³µÄÚ¹ºÉÌÆ·ÁĞ±í(Êı×é),¿ªÊ¼±éÀúÊı×é-->
 				<tr>
-					<th>é€‰æ‹©</th>
-					<th>ç¼–å·</th>
-					<th>åç§°</th>
-					<th>æ•°é‡</th>
-					<th>å•ä»·(å…ƒ)</th>
-					<th>æ“ä½œ</th>
+					<th>Ñ¡Ôñ</th>
+					<th>±àºÅ</th>
+					<th>Ãû³Æ</th>
+					<th>ÊıÁ¿</th>
+					<th>µ¥¼Û(Ôª)</th>
+					<th>²Ù×÷</th>
 				</tr>
                 {dede:array.Items}
 				<tr>
@@ -68,23 +68,23 @@
 						<input name="buynum{dede:value.id/}" type="text" id="buynum{dede:value.id/}" value="{dede:value.buynum/}" size="5" maxlength="5" class="ipt-txt" />
 						<small>{dede:value.units/}</small></td>
 					<td height="23">{dede:value.price/}</td>
-					<td height="23"><a href="posttocar.php?do=del&ids={dede:value.id/}">åˆ é™¤</a></td>
+					<td height="23"><a href="posttocar.php?do=del&ids={dede:value.id/}">É¾³ı</a></td>
 				</tr>
                 {/dede:array}
-				<!--æ„é€ è´­ç‰©è½¦å†…å•†å“åˆ—è¡¨ç»“æŸ-->
+				<!--¹¹Ôì¹ºÎï³µÄÚÉÌÆ·ÁĞ±í½áÊø-->
 			</tbody>
 			<tfoot>
 				<tr>
 					<td colspan="6" align="right">
 						<div style="float:left;">
-							å…± <font color=red>{dede:var.carts.cart_count/}</font> ä»¶å•†å“,åˆè®¡: <font color=red>{dede:var.carts.price_count/}</font>å…ƒ	</div>
+							¹² <font color=red>{dede:var.carts.cart_count/}</font> ¼şÉÌÆ·,ºÏ¼Æ: <font color=red>{dede:var.carts.price_count/}</font>Ôª	</div>
 							<div style="float:right; height:33px;">
-							<!--<input type="button" value="æ‰“å°è´­ç‰©è½¦" class="btn-2" onclick="printPage(1)"/>--> 
-                            <input type="button" value="æ›´æ–°è®¢å•å·" class="btn-2" onclick="makeCarId()"/>
-							<input type="button" value="åˆ é™¤å·²é€‰å®š" class="btn-2" onclick="DelPost()"/>
-							<input type="button"  value="æ¸…ç©º" onclick="if(confirm('ç¡®å®šæ¸…ç©ºè´­ç‰©è½¦ä¸­çš„å•†å“å—?')){ location='posttocar.php?do=clear' }" class="btn-2" />
-							<input onclick="ChangePost()" type="button" value="æ›´æ–°æ•°é‡" class="btn-2" />
-							<input type="button"  value="ä¸‹ä¸€æ­¥" onclick="location='carbuyaction.php'" class="btn-2" />
+							<!--<input type="button" value="´òÓ¡¹ºÎï³µ" class="btn-2" onclick="printPage(1)"/>--> 
+                            <input type="button" value="¸üĞÂ¶©µ¥ºÅ" class="btn-2" onclick="makeCarId()"/>
+							<input type="button" value="É¾³ıÒÑÑ¡¶¨" class="btn-2" onclick="DelPost()"/>
+							<input type="button"  value="Çå¿Õ" onclick="if(confirm('È·¶¨Çå¿Õ¹ºÎï³µÖĞµÄÉÌÆ·Âğ?')){ location='posttocar.php?do=clear' }" class="btn-2" />
+							<input onclick="ChangePost()" type="button" value="¸üĞÂÊıÁ¿" class="btn-2" />
+							<input type="button"  value="ÏÂÒ»²½" onclick="location='carbuyaction.php'" class="btn-2" />
 						</div>
 					</td>
 				</tr>
@@ -94,9 +94,9 @@
         </form>
 	</div>    
 </div>
-<!--è´­ç‰©è½¦åˆ—è¡¨æ“ä½œjavascriptè¯·ä¸è¦éšæ„æ”¹åŠ¨-->
+<!--¹ºÎï³µÁĞ±í²Ù×÷javascriptÇë²»ÒªËæÒâ¸Ä¶¯-->
 <script language="JavaScript" type="text/javascript">
-//éå†checkboxä½¿ä¹‹å…¨é€‰ä¸­,æˆ–åé€‰
+//±éÀúcheckboxÊ¹Ö®È«Ñ¡ÖĞ,»ò·´Ñ¡
 function CheckAll()
 {
 	for (var i=0;i<document.form1.elements.length;i++)
@@ -105,20 +105,20 @@ function CheckAll()
 		e.checked == true ? e.checked = false : e.checked = true;
 	}
 }
-//æ”¹å˜è¡¨å•dopostå€¼ä¸º:update,åsubmitæäº¤è¡¨å•
+//¸Ä±ä±íµ¥dopostÖµÎª:update,ºósubmitÌá½»±íµ¥
 function ChangePost()
 {
 	CheckAll();
 	document.getElementById("dopost").value = 'update';
 	document.form1.submit();
 }
-//æ”¹å˜è¡¨å•dopostå€¼ä¸º:del,åsubmitæäº¤è¡¨å•
+//¸Ä±ä±íµ¥dopostÖµÎª:del,ºósubmitÌá½»±íµ¥
 function DelPost()
 {
 	document.getElementById("dopost").value = 'del';
 	document.form1.submit();
 }
-//AJAXäº§ç”Ÿä¸€ä¸ªæ–°çš„è®¢å•ç¼–å·
+//AJAX²úÉúÒ»¸öĞÂµÄ¶©µ¥±àºÅ
 function makeCarId()
 {
 	$.ajax({type: "POST", url: "car.php", data: "dopost=makeid", dataType: 'text',success: function(result){$("#carId").html(result);}}); 
@@ -128,11 +128,11 @@ function printPage(oper)
 {
 	if (oper < 10)
 	{
-		bdhtml = window.document.body.innerHTML;//è·å–å½“å‰é¡µçš„htmlä»£ç 
-		sprnstr = "<!--startprint"+oper+"-->";//è®¾ç½®æ‰“å°å¼€å§‹åŒºåŸŸ
-		eprnstr = "<!--endprint"+oper+"-->";//è®¾ç½®æ‰“å°ç»“æŸåŒºåŸŸ
-		prnhtml = bdhtml.substring(bdhtml.indexOf(sprnstr)+18); //ä»å¼€å§‹ä»£ç å‘åå–html
-		prnhtml = prnhtml.substring(0,prnhtml.indexOf(eprnstr));//ä»ç»“æŸä»£ç å‘å‰å–html
+		bdhtml = window.document.body.innerHTML;//»ñÈ¡µ±Ç°Ò³µÄhtml´úÂë
+		sprnstr = "<!--startprint"+oper+"-->";//ÉèÖÃ´òÓ¡¿ªÊ¼ÇøÓò
+		eprnstr = "<!--endprint"+oper+"-->";//ÉèÖÃ´òÓ¡½áÊøÇøÓò
+		prnhtml = bdhtml.substring(bdhtml.indexOf(sprnstr)+18); //´Ó¿ªÊ¼´úÂëÏòºóÈ¡html
+		prnhtml = prnhtml.substring(0,prnhtml.indexOf(eprnstr));//´Ó½áÊø´úÂëÏòÇ°È¡html
 		window.document.body.innerHTML = prnhtml;
 		window.print();
 		window.document.body.innerHTML = bdhtml;
@@ -141,12 +141,12 @@ function printPage(oper)
 	}
 }
 </script>
-<!--è´­ç‰©è½¦åˆ—è¡¨æ“ä½œjavascriptç»“æŸ-->
+<!--¹ºÎï³µÁĞ±í²Ù×÷javascript½áÊø-->
 {dede:include filename="../default/footer.htm"/}
 <script language="JavaScript" type="text/javascript">
 if(!navigator.cookieEnabled)
 {
-	$('#errorChickCookie').html('æ‚¨æµè§ˆå™¨çš„ cookie åŠŸèƒ½è¢«ç¦ç”¨,è¯·å¯ç”¨æ­¤åŠŸèƒ½!');
+	$('#errorChickCookie').html('Äúä¯ÀÀÆ÷µÄ cookie ¹¦ÄÜ±»½ûÓÃ,ÇëÆôÓÃ´Ë¹¦ÄÜ!');
 	$('.buycar').hide();
 }
 </script>

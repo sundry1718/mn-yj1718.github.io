@@ -1,4 +1,4 @@
-åœˆå­ä¸»é¢˜è°ƒç”¨æ ‡ç­¾
+È¦×ÓÖ÷Ìâµ÷ÓÃ±êÇ©
 >>dede>>
 {dede:groupthread gid='0' orderby='dateline' orderway='desc' row='12' titlelen='30'}
 <li>
@@ -7,8 +7,8 @@
 </li>
 {/dede:groupthread}
 >>dede>>
-gid='0' åœˆå­idï¼Œé»˜è®¤ä¸ºå…¨éƒ¨
-orderby='dateline'  æ’åºï¼Œé»˜è®¤ä¸ºæ—¶é—´
-orderway='desc'  æ’åºæ–¹å‘ï¼Œé»˜è®¤æ˜¯æœ€æ–°ä¸»é¢˜åœ¨å‰
-row='12'        è®°å½•æ•°
-titlelen='30'   ä¸»é¢˜æ ‡é¢˜(subject)æœ€å¤§é•¿åº¦
+gid='0' È¦×Óid£¬Ä¬ÈÏÎªÈ«²¿
+orderby='dateline'  ÅÅĞò£¬Ä¬ÈÏÎªÊ±¼ä
+orderway='desc'  ÅÅĞò·½Ïò£¬Ä¬ÈÏÊÇ×îĞÂÖ÷ÌâÔÚÇ°
+row='12'        ¼ÇÂ¼Êı
+titlelen='30'   Ö÷Ìâ±êÌâ(subject)×î´ó³¤¶È

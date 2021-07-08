@@ -1,8 +1,8 @@
 <?php  if(!defined('DEDEINC')) exit('dedecms');
 /**
- * éªŒè¯å°åŠ©æ‰‹
+ * ÑéÖ¤Ð¡ÖúÊÖ
  *
- * @version        $Id: validate.helper.php 2 13:56 2010å¹´7æœˆ5æ—¥ tianya $
+ * @version        $Id: validate.helper.php 2 13:56 2010Äê7ÔÂ5ÈÕ tianya $
  * @package        DedeCMS.Helpers
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -10,12 +10,12 @@
  */
 
 /**
- * æµè§ˆå™¨å‹å¥½çš„å˜é‡è¾“å‡º,ä¾¿äºŽè°ƒè¯•æ—¶å€™ä½¿ç”¨
+ * ä¯ÀÀÆ÷ÓÑºÃµÄ±äÁ¿Êä³ö,±ãÓÚµ÷ÊÔÊ±ºòÊ¹ÓÃ
  *
- * @param     mixed   $var       è¦è¾“å‡ºæŸ¥çœ‹çš„å†…å®¹
- * @param     bool    $echo      æ˜¯å¦ç›´æŽ¥è¾“å‡º
- * @param     string  $label     åŠ ä¸Šè¯´æ˜Žæ ‡ç­¾,å¦‚æžœæœ‰,è¿™æ˜¾ç¤º"æ ‡ç­¾å:"è¿™ç§å½¢å¼
- * @param     bool    $strict    æ˜¯å¦ä¸¥æ ¼è¿‡æ»¤
+ * @param     mixed   $var       ÒªÊä³ö²é¿´µÄÄÚÈÝ
+ * @param     bool    $echo      ÊÇ·ñÖ±½ÓÊä³ö
+ * @param     string  $label     ¼ÓÉÏËµÃ÷±êÇ©,Èç¹ûÓÐ,ÕâÏÔÊ¾"±êÇ©Ãû:"ÕâÖÖÐÎÊ½
+ * @param     bool    $strict    ÊÇ·ñÑÏ¸ñ¹ýÂË
  * @return    string
  */
 if ( ! function_exists('Dump'))
@@ -48,11 +48,11 @@ if ( ! function_exists('Dump'))
 }
 
 /**
- *  èŽ·å–æ‰§è¡Œæ—¶é—´
- *  ä¾‹å¦‚:$t1 = ExecTime();
- *       åœ¨ä¸€æ®µå†…å®¹å¤„ç†ä¹‹åŽ:
+ *  »ñÈ¡Ö´ÐÐÊ±¼ä
+ *  ÀýÈç:$t1 = ExecTime();
+ *       ÔÚÒ»¶ÎÄÚÈÝ´¦ÀíÖ®ºó:
  *       $t2 = ExecTime();
- *  æˆ‘ä»¬å¯ä»¥å°†2ä¸ªæ—¶é—´çš„å·®å€¼è¾“å‡º:echo $t2-$t1;
+ *  ÎÒÃÇ¿ÉÒÔ½«2¸öÊ±¼äµÄ²îÖµÊä³ö:echo $t2-$t1;
  *
  *  @return    int
  */

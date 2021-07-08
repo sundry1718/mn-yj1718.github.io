@@ -1,9 +1,9 @@
 <?php
 /**
  *
- * è‡ªå®šä¹‰æ ‡ç­¾jsè°ƒç”¨æ–¹å¼
+ * ×Ô¶¨Òå±êÇ©jsµ÷ÓÃ·½Ê½
  *
- * @version        $Id: mytag_js.php 1 20:55 2010å¹´7æœˆ8æ—¥Z tianya $
+ * @version        $Id: mytag_js.php 1 20:55 2010Äê7ÔÂ8ÈÕZ tianya $
  * @package        DedeCMS.Site
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -49,7 +49,7 @@ if( isset($nocache) || !file_exists($cacheFile) || time() - filemtime($cacheFile
         $myvalues = str_replace("\n","\\n",$myvalues);
         $myvalues =  "<!--\r\ndocument.write(\"{$myvalues}\");\r\n-->\r\n";
         file_put_contents($cacheFile, $myvalues);
-        /* ä½¿ç”¨ file_put_contentsæ›¿æ¢ä¸‹åˆ—ä»£ç æé«˜æ‰§è¡Œæ•ˆç‡
+        /* Ê¹ÓÃ file_put_contentsÌæ»»ÏÂÁĞ´úÂëÌá¸ßÖ´ĞĞĞ§ÂÊ
         $fp = fopen($cacheFile, 'w');
         fwrite($fp, $myvalues);
         fclose($fp);

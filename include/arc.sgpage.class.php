@@ -1,8 +1,8 @@
 <?php   if(!defined('DEDEINC')) exit("Request Error!");
 /**
- * 单表模型视图类
+ * ����ģ����ͼ��
  *
- * @version        $Id: arc.sgpage.class.php 1 15:48 2010年7月7日Z tianya $
+ * @version        $Id: arc.sgpage.class.php 1 15:48 2010��7��7��Z tianya $
  * @package        DedeCMS.Libraries
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -11,7 +11,7 @@
 require_once(DEDEINC."/arc.partview.class.php");
 
 /**
- * 单表模型列表视图类
+ * ����ģ���б���ͼ��
  *
  * @package          SgListView
  * @subpackage       DedeCMS.Libraries
@@ -27,10 +27,10 @@ class sgpage
     var $partView;
 
     /**
-     *  php5构造函数
+     *  php5���캯��
      *
      * @access    public
-     * @param     int  $aid  内容ID
+     * @param     int  $aid  ����ID
      * @return    string
      */
     function __construct($aid)
@@ -44,7 +44,7 @@ class sgpage
         $this->Fields = $this->dsql->GetOne("SELECT * FROM `#@__sgpage` WHERE aid='$aid' ");
         $envs['aid'] = $this->Fields['aid'];
 
-        //设置一些全局参数的值
+        //����һЩȫ�ֲ�����ֵ
         foreach($GLOBALS['PubFields'] as $k=>$v)
         {
             $this->Fields[$k] = $v;
@@ -60,14 +60,14 @@ class sgpage
         $this->ParseTemplet();
     }
 
-    //php4构造函数
+    //php4���캯��
     function sgpage($aid)
     {
         $this->__construct($aid);
     }
 
     /**
-     *  显示内容
+     *  ��ʾ����
      *
      * @access    public
      * @return    void
@@ -78,7 +78,7 @@ class sgpage
     }
 
     /**
-     *  获取内容
+     *  ��ȡ����
      *
      * @access    public
      * @return    void
@@ -89,7 +89,7 @@ class sgpage
     }
 
     /**
-     *  保存结果为文件
+     *  ������Ϊ�ļ�
      *
      * @access    public
      * @return    void
@@ -102,7 +102,7 @@ class sgpage
     }
 
     /**
-     *  解析模板里的标签
+     *  ����ģ����ı�ǩ
      *
      * @access    public
      * @return    string
@@ -113,7 +113,7 @@ class sgpage
         MakeOneTag($this->dtp,$this);
     }
 
-    //关闭所占用的资源
+    //�ر���ռ�õ���Դ
     function Close()
     {
     }

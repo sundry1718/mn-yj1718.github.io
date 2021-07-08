@@ -1,6 +1,6 @@
 <?php  if(!defined('DEDEINC')) exit('dedecms');
 /**
- * æ—¶é—´æˆ³å°åŠ©æ‰‹
+ * Ê±¼ä´ÁĞ¡ÖúÊÖ
  *
  * @version        $Id: time.helper.php 1 2010-07-05 11:43:09Z tianya $
  * @package        DedeCMS.Helpers
@@ -10,10 +10,10 @@
  */
 
 /**
- *  è¿”å›æ ¼æ—å¨æ²»æ ‡å‡†æ—¶é—´
+ *  ·µ»Ø¸ñÁÖÍşÖÎ±ê×¼Ê±¼ä
  *
- * @param     string  $format  å­—ç¬¦ä¸²æ ¼å¼
- * @param     string  $timest  æ—¶é—´åŸºå‡†
+ * @param     string  $format  ×Ö·û´®¸ñÊ½
+ * @param     string  $timest  Ê±¼ä»ù×¼
  * @return    string
  */
 if ( ! function_exists('MyDate'))
@@ -32,9 +32,9 @@ if ( ! function_exists('MyDate'))
 
 
 /**
- * ä»æ™®é€šæ—¶é—´è½¬æ¢ä¸ºLinuxæ—¶é—´æˆª
+ * ´ÓÆÕÍ¨Ê±¼ä×ª»»ÎªLinuxÊ±¼ä½Ø
  *
- * @param     string   $dtime  æ™®é€šæ—¶é—´
+ * @param     string   $dtime  ÆÕÍ¨Ê±¼ä
  * @return    string
  */
 if ( ! function_exists('GetMkTime'))
@@ -47,11 +47,11 @@ if ( ! function_exists('GetMkTime'))
         }
         $dtime = trim($dtime);
         $dt = Array(1970, 1, 1, 0, 0, 0);
-        $dtime = preg_replace("/[\r\n\t]|æ—¥|ç§’/", " ", $dtime);
-        $dtime = str_replace("å¹´", "-", $dtime);
-        $dtime = str_replace("æœˆ", "-", $dtime);
-        $dtime = str_replace("æ—¶", ":", $dtime);
-        $dtime = str_replace("åˆ†", ":", $dtime);
+        $dtime = preg_replace("/[\r\n\t]|ÈÕ|Ãë/", " ", $dtime);
+        $dtime = str_replace("Äê", "-", $dtime);
+        $dtime = str_replace("ÔÂ", "-", $dtime);
+        $dtime = str_replace("Ê±", ":", $dtime);
+        $dtime = str_replace("·Ö", ":", $dtime);
         $dtime = trim(preg_replace("/[ ]{1,}/", " ", $dtime));
         $ds = explode(" ", $dtime);
         $ymd = explode("-", $ds[0]);
@@ -95,10 +95,10 @@ if ( ! function_exists('GetMkTime'))
 
 
 /**
- *  å‡å»æ—¶é—´
+ *  ¼õÈ¥Ê±¼ä
  *
- * @param     int  $ntime  å½“å‰æ—¶é—´
- * @param     int  $ctime  å‡å°‘çš„æ—¶é—´
+ * @param     int  $ntime  µ±Ç°Ê±¼ä
+ * @param     int  $ctime  ¼õÉÙµÄÊ±¼ä
  * @return    int
  */
 if ( ! function_exists('SubDay'))
@@ -113,10 +113,10 @@ if ( ! function_exists('SubDay'))
 
 
 /**
- *  å¢åŠ å¤©æ•°
+ *  Ôö¼ÓÌìÊı
  *
- * @param     int  $ntime  å½“å‰æ—¶é—´
- * @param     int  $aday   å¢åŠ å¤©æ•°
+ * @param     int  $ntime  µ±Ç°Ê±¼ä
+ * @param     int  $aday   Ôö¼ÓÌìÊı
  * @return    int
  */
 if ( ! function_exists('AddDay'))
@@ -131,9 +131,9 @@ if ( ! function_exists('AddDay'))
 
 
 /**
- *  è¿”å›æ ¼å¼åŒ–(Y-m-d H:i:s)çš„æ˜¯æ—¶é—´
+ *  ·µ»Ø¸ñÊ½»¯(Y-m-d H:i:s)µÄÊÇÊ±¼ä
  *
- * @param     int    $mktime  æ—¶é—´æˆ³
+ * @param     int    $mktime  Ê±¼ä´Á
  * @return    string
  */
 if ( ! function_exists('GetDateTimeMk'))
@@ -145,25 +145,25 @@ if ( ! function_exists('GetDateTimeMk'))
 }
 
 /**
- *  è¿”å›æ ¼å¼åŒ–(Y-m-d)çš„æ—¥æœŸ
+ *  ·µ»Ø¸ñÊ½»¯(Y-m-d)µÄÈÕÆÚ
  *
- * @param     int    $mktime  æ—¶é—´æˆ³
+ * @param     int    $mktime  Ê±¼ä´Á
  * @return    string
  */
 if ( ! function_exists('GetDateMk'))
 {
     function GetDateMk($mktime)
     {
-        if($mktime=="0") return "æš‚æ— ";
+        if($mktime=="0") return "ÔİÎŞ";
         else return MyDate("Y-m-d", $mktime);
     }
 }
 
 
 /**
- *  å°†æ—¶é—´è½¬æ¢ä¸ºè·ç¦»ç°åœ¨çš„ç²¾ç¡®æ—¶é—´
+ *  ½«Ê±¼ä×ª»»Îª¾àÀëÏÖÔÚµÄ¾«È·Ê±¼ä
  *
- * @param     int   $seconds  ç§’æ•°
+ * @param     int   $seconds  ÃëÊı
  * @return    string
  */
 if ( ! function_exists('FloorTime'))
@@ -175,12 +175,12 @@ if ( ! function_exists('FloorTime'))
         $hours = floor(($seconds/3600)%24);
         $minutes = floor(($seconds/60)%60);
         $seconds = floor($seconds%60);
-        if($seconds >= 1) $times .= $seconds.'ç§’';
-        if($minutes >= 1) $times = $minutes.'åˆ†é’Ÿ '.$times;
-        if($hours >= 1) $times = $hours.'å°æ—¶ '.$times;
-        if($days >= 1)  $times = $days.'å¤©';
+        if($seconds >= 1) $times .= $seconds.'Ãë';
+        if($minutes >= 1) $times = $minutes.'·ÖÖÓ '.$times;
+        if($hours >= 1) $times = $hours.'Ğ¡Ê± '.$times;
+        if($days >= 1)  $times = $days.'Ìì';
         if($days > 30) return false;
-        $times .= 'å‰';
+        $times .= 'Ç°';
         return str_replace(" ", '', $times);
     }
 }

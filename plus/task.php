@@ -1,15 +1,15 @@
 <?php
 /**
  *
- * è®¡åˆ’ä»»åŠ¡
+ * ¼Æ»®ÈÎÎñ
  *
- * è®¡åˆ’ä»»åŠ¡ç¨‹åºä½¿ç”¨è¯´æ˜ï¼š
- * æœ¬ç¨‹åºæœ¬èº«å¹¶ä¸ä¼šæ‰§è¡Œä»»åŠ¡ä»»åŠ¡ï¼ŒèŒè´£æ˜¯è·³è½¬åˆ°è¦æ‰§è¡Œçš„ä»»åŠ¡ç½‘å€ï¼ˆJSè°ƒç”¨å½¢å¼ï¼‰ï¼Œæˆ–ç›´æ¥è¿”å›è¦æ‰§è¡Œçš„ä»»åŠ¡ç½‘å€ï¼ˆå®¢æˆ·ç«¯å½¢å¼ï¼‰
- * Â·ä¸ºäº†ç¡®ä¿ä»»åŠ¡èƒ½æ‰§è¡Œå®Œå…¨ï¼Œå»ºè®®ä½¿ç”¨Dedeçš„å®¢æˆ·ç«¯å·¥å…·ï¼Œå¦åˆ™åªèƒ½é€šè¿‡JSè§¦å‘ï¼Œä½†JSè§¦å‘æœ‰å¾ˆå¤šä¸ç¡®å®šå› ç´ ä¼šå¯¼è‡´ä»»åŠ¡ä¸èƒ½å®Œæˆï¼›
- * Â·JSè§¦å‘æ–¹å¼ï¼šåœ¨æ‰€æœ‰æ–‡æ¡£é¡µé¢ä¸­ç”¨JSè°ƒç”¨/plus/task.php?client=jsï¼ˆå¿…é¡»ç¦ç”¨è®¡åˆ’ä»»åŠ¡çš„å¯†ç ï¼Œç³»ç»Ÿé…ç½®å‚æ•°->å…¶å®ƒé€‰é¡¹ï¼‰ï¼›
- * Â·è‡ªè¡Œå®šåˆ¶å®¢æˆ·ç«¯ï¼šç›´æ¥è®¿é—®â€œhttp://ç½‘å€/plus/task.php?clientpwd=ç®¡ç†å¯†ç â€ï¼Œä¼šè¿”å›å…¶ä¸­ä¸€ä¸ªå¯æ‰§è¡Œä»»åŠ¡çš„ç½‘å€ï¼ˆæ²¡æœ‰å¯ç”¨ä»»åŠ¡åˆ™è¿”å›ä¸²ï¼šnotask)ï¼Œç„¶åå®¢æˆ·ç«¯è¿è¡Œè¿™ä¸ªç½‘å€å³å¯ã€‚ 
+ * ¼Æ»®ÈÎÎñ³ÌĞòÊ¹ÓÃËµÃ÷£º
+ * ±¾³ÌĞò±¾Éí²¢²»»áÖ´ĞĞÈÎÎñÈÎÎñ£¬Ö°ÔğÊÇÌø×ªµ½ÒªÖ´ĞĞµÄÈÎÎñÍøÖ·£¨JSµ÷ÓÃĞÎÊ½£©£¬»òÖ±½Ó·µ»ØÒªÖ´ĞĞµÄÈÎÎñÍøÖ·£¨¿Í»§¶ËĞÎÊ½£©
+ * ¡¤ÎªÁËÈ·±£ÈÎÎñÄÜÖ´ĞĞÍêÈ«£¬½¨ÒéÊ¹ÓÃDedeµÄ¿Í»§¶Ë¹¤¾ß£¬·ñÔòÖ»ÄÜÍ¨¹ıJS´¥·¢£¬µ«JS´¥·¢ÓĞºÜ¶à²»È·¶¨ÒòËØ»áµ¼ÖÂÈÎÎñ²»ÄÜÍê³É£»
+ * ¡¤JS´¥·¢·½Ê½£ºÔÚËùÓĞÎÄµµÒ³ÃæÖĞÓÃJSµ÷ÓÃ/plus/task.php?client=js£¨±ØĞë½ûÓÃ¼Æ»®ÈÎÎñµÄÃÜÂë£¬ÏµÍ³ÅäÖÃ²ÎÊı->ÆäËüÑ¡Ïî£©£»
+ * ¡¤×ÔĞĞ¶¨ÖÆ¿Í»§¶Ë£ºÖ±½Ó·ÃÎÊ¡°http://ÍøÖ·/plus/task.php?clientpwd=¹ÜÀíÃÜÂë¡±£¬»á·µ»ØÆäÖĞÒ»¸ö¿ÉÖ´ĞĞÈÎÎñµÄÍøÖ·£¨Ã»ÓĞ¿ÉÓÃÈÎÎñÔò·µ»Ø´®£ºnotask)£¬È»ºó¿Í»§¶ËÔËĞĞÕâ¸öÍøÖ·¼´¿É¡£ 
  *
- * @version        $Id: task.php 1 21:40 2010å¹´7æœˆ8æ—¥Z tianya $
+ * @version        $Id: task.php 1 21:40 2010Äê7ÔÂ8ÈÕZ tianya $
  * @package        DedeCMS.Site
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -22,14 +22,14 @@ if(empty($client)) $client = 'dede';
 if(empty($clientpwd)) $clientpwd = '';
 $cfg_task_pwd = trim($cfg_task_pwd);
 
-//éªŒè¯å®¢æˆ·ç«¯å·¥å…·å¯†ç 
+//ÑéÖ¤¿Í»§¶Ë¹¤¾ßÃÜÂë
 if(!empty($cfg_task_pwd) && $clientpwd != $cfg_task_pwd)
 {
     echo ($client=='js' ? '' : 'notask');
     exit();
 }
 
-//å–å¾—å½“æ—¶é—´çš„å„ä¸ªå€¼
+//È¡µÃµ±Ê±¼äµÄ¸÷¸öÖµ
 $ntime = time();
 $nformattime = GetDateTimeMk($ntime);
 list($ndate, $ntime) = explode(' ', $nformattime);
@@ -43,19 +43,19 @@ while($arr = $dsql->GetArray())
 {
     $starttime = $arr['starttime'];
     $endtime = $arr['endtime'];
-	$ntime = strtotime("now");//(è®¡åˆ’ä»»åŠ¡æ—¶é—´æ¯”è¾ƒä¿®æ­£ï¼Œ2011.6.24 byï¼šç»‡æ¢¦çš„é±¼)
-    //è·³è¿‡ä¸€æ¬¡æ€§è¿è¡Œï¼Œå¹¶ä¸”å·²ç»è¿è¡Œçš„ä»»åŠ¡
+	$ntime = strtotime("now");//(¼Æ»®ÈÎÎñÊ±¼ä±È½ÏĞŞÕı£¬2011.6.24 by£ºÖ¯ÃÎµÄÓã)
+    //Ìø¹ıÒ»´ÎĞÔÔËĞĞ£¬²¢ÇÒÒÑ¾­ÔËĞĞµÄÈÎÎñ
     if($arr['lastrun'] > $starttime && $arr['runtype']==1) continue;
-    //è¶…è¿‡äº†è®¾å®šçš„ä»»åŠ¡ç»“æŸæ—¶é—´
+    //³¬¹ıÁËÉè¶¨µÄÈÎÎñ½áÊøÊ±¼ä
     if($endtime!=0 && $endtime < $ntime) continue;
-    //æœªè¾¾åˆ°ä»»åŠ¡å¼€å§‹æ—¶é—´çš„ä»»åŠ¡
+    //Î´´ïµ½ÈÎÎñ¿ªÊ¼Ê±¼äµÄÈÎÎñ
     if($starttime!=0 && $ntime < $starttime) continue;
     
     $dotime = GetMkTime($ndate.' '.$arr['runtime'].':00');
     $limittime = $daylimit * $arr['freq'];
     
     $isplay = false;
-    //åˆ¤æ–­ç¬¦åˆæ‰§è¡Œæ¡ä»¶çš„ä»»åŠ¡
+    //ÅĞ¶Ï·ûºÏÖ´ĞĞÌõ¼şµÄÈÎÎñ
     if($arr['freq'] > 1 && $ntime - $arr['lastrun'] > $limittime )
     {
         $isplay = true;
@@ -71,7 +71,7 @@ while($arr = $dsql->GetArray())
             $isplay = true;
         }
     }
-    //ç¬¦åˆéœ€æ‰§è¡Œæ¡ä»¶çš„ä»»åŠ¡
+    //·ûºÏĞèÖ´ĞĞÌõ¼şµÄÈÎÎñ
     if($isplay)
     {
         $dourl = trim($arr['dourl']);
@@ -98,7 +98,7 @@ while($arr = $dsql->GetArray())
                     }
                 }
             }
-            $dsql->ExecuteNoneQuery("Update `#@__sys_task` set lastrun='".time()."', sta='è¿è¡Œ' where id='{$arr['id']}' ");
+            $dsql->ExecuteNoneQuery("Update `#@__sys_task` set lastrun='".time()."', sta='ÔËĞĞ' where id='{$arr['id']}' ");
             if($getString !='' ) $dourl .= '?'.$getString; 
             if($client=='js') header("location:{$cfg_phpurl}/task/{$dourl}");
             else echo "{$cfg_phpurl}/task/{$dourl}";

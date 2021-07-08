@@ -1,8 +1,8 @@
 <?php  if(!defined('DEDEINC')) exit('dedecms');
 /**
- * æ–‡æ¡£å°åŠ©æ‰‹
+ * ÎÄµµĞ¡ÖúÊÖ
  *
- * @version        $Id: archive.helper.php 2 23:00 2010å¹´7æœˆ5æ—¥Z tianya $
+ * @version        $Id: archive.helper.php 2 23:00 2010Äê7ÔÂ5ÈÕZ tianya $
  * @package        DedeCMS.Helpers
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -10,9 +10,9 @@
  */
 
 /**
- *  è·å–å•ç¯‡æ–‡æ¡£ä¿¡æ¯
+ *  »ñÈ¡µ¥ÆªÎÄµµĞÅÏ¢
  *
- * @param     int  $aid  æ–‡æ¡£id
+ * @param     int  $aid  ÎÄµµid
  * @return    array
  */
 if ( ! function_exists('GetOneArchive'))
@@ -83,10 +83,10 @@ if ( ! function_exists('GetOneArchive'))
 
 
 /**
- *  è·å–æ¨¡å‹çš„è¡¨ä¿¡æ¯
+ *  »ñÈ¡Ä£ĞÍµÄ±íĞÅÏ¢
  *
- * @param     int   $id  æ¨¡å‹ID
- * @param     string   $formtype  è¡¨å•ç±»å‹
+ * @param     int   $id  Ä£ĞÍID
+ * @param     string   $formtype  ±íµ¥ÀàĞÍ
  * @return    array
  */
 if ( ! function_exists('GetChannelTable'))
@@ -112,9 +112,9 @@ if ( ! function_exists('GetChannelTable'))
 }
 
 /**
- *  è·å¾—æŸæ–‡æ¡£çš„æ‰€æœ‰tag
+ *  »ñµÃÄ³ÎÄµµµÄËùÓĞtag
  *
- * @param     int     $aid  æ–‡æ¡£id
+ * @param     int     $aid  ÎÄµµid
  * @return    string
  */
 if ( ! function_exists('GetTags'))
@@ -134,15 +134,15 @@ if ( ! function_exists('GetTags'))
 }
 
 /**
- *  è·å–ä¸€ä¸ªå¾®è¡¨çš„ç´¢å¼•é”®
+ *  »ñÈ¡Ò»¸öÎ¢±íµÄË÷Òı¼ü
  *
  * @access    public
- * @param     string  $arcrank  æƒé™å€¼
- * @param     int  $typeid  æ ç›®ID
- * @param     int  $sortrank  æ’åºID
- * @param     int  $channelid  æ¨¡å‹ID
- * @param     int  $senddate  å‘å¸ƒæ—¥æœŸ
- * @param     int  $mid  ä¼šå‘˜ID
+ * @param     string  $arcrank  È¨ÏŞÖµ
+ * @param     int  $typeid  À¸Ä¿ID
+ * @param     int  $sortrank  ÅÅĞòID
+ * @param     int  $channelid  Ä£ĞÍID
+ * @param     int  $senddate  ·¢²¼ÈÕÆÚ
+ * @param     int  $mid  »áÔ±ID
  * @return    int
  */
 if ( ! function_exists('GetIndexKey'))
@@ -166,14 +166,14 @@ if ( ! function_exists('GetIndexKey'))
 
 
 /**
- *  æ›´æ–°å¾®è¡¨keyåŠTag
+ *  ¸üĞÂÎ¢±íkey¼°Tag
  *
  * @access    public
- * @param     int  $id  æ–‡æ¡£ID
- * @param     string  $arcrank  æƒé™å€¼
- * @param     int  $typeid  æ ç›®ID
- * @param     int  $sortrank  æ’åºID
- * @param     string  $tags  tagæ ‡ç­¾
+ * @param     int  $id  ÎÄµµID
+ * @param     string  $arcrank  È¨ÏŞÖµ
+ * @param     int  $typeid  À¸Ä¿ID
+ * @param     int  $sortrank  ÅÅĞòID
+ * @param     string  $tags  tag±êÇ©
  * @return    string
  */
 if ( ! function_exists('UpIndexKey'))
@@ -187,7 +187,7 @@ if ( ! function_exists('UpIndexKey'))
         $dsql->ExecuteNoneQuery($query);
 
         /*
-        * å¤„ç†ä¿®æ”¹åçš„Tag
+        * ´¦ÀíĞŞ¸ÄºóµÄTag
         */
         if($tags!='')
         {
@@ -224,11 +224,11 @@ if ( ! function_exists('UpIndexKey'))
 
 
 /**
- *  æ’å…¥Tags
+ *  ²åÈëTags
  *
  * @access    public
- * @param     string  $tag  tagæ ‡ç­¾
- * @param     int  $aid  æ–‡æ¡£AID
+ * @param     string  $tag  tag±êÇ©
+ * @param     int  $aid  ÎÄµµAID
  * @return    void
  */
 if ( ! function_exists('InsertTags'))
@@ -250,11 +250,11 @@ if ( ! function_exists('InsertTags'))
 
 
 /**
- *  æ’å…¥ä¸€ä¸ªtag
+ *  ²åÈëÒ»¸ötag
  *
  * @access    public
- * @param     string  $tag  æ ‡ç­¾
- * @param     int  $aid  æ–‡æ¡£AID
+ * @param     string  $tag  ±êÇ©
+ * @param     int  $aid  ÎÄµµAID
  * @return    void
  */
 if ( ! function_exists('InsertOneTag'))

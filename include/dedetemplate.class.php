@@ -1,8 +1,8 @@
 <?php   if(!defined('DEDEINC')) exit("Request Error!");
 /**
- * æ¨¡æ¿å¼•æ“æ–‡ä»¶
+ * Ä£°åÒıÇæÎÄ¼ş
  *
- * @version        $Id: dedetemplate.class.php 3 15:44 2010å¹´7æœˆ6æ—¥Z tianya $
+ * @version        $Id: dedetemplate.class.php 3 15:44 2010Äê7ÔÂ6ÈÕZ tianya $
  * @package        DedeCMS.Libraries
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -10,21 +10,21 @@
  */
 
 /**
- *  è¿™ä¸ªå‡½æ•°ç”¨äºå®šä¹‰ä»»æ„åç§°çš„å—ä½¿ç”¨çš„æ¥å£
- *  è¿”å›å€¼åº”æ˜¯ä¸€ä¸ªäºŒç»´æ•°ç»„
- *  å—è°ƒç”¨å¯¹åº”çš„æ–‡ä»¶ä¸º include/taglib/plus_blockname.php
+ *  Õâ¸öº¯ÊıÓÃÓÚ¶¨ÒåÈÎÒâÃû³ÆµÄ¿éÊ¹ÓÃµÄ½Ó¿Ú
+ *  ·µ»ØÖµÓ¦ÊÇÒ»¸ö¶şÎ¬Êı×é
+ *  ¿éµ÷ÓÃ¶ÔÓ¦µÄÎÄ¼şÎª include/taglib/plus_blockname.php
  *  ----------------------------------------------------------------
- *  ç”±äºæ ‡è®°ä¸€èˆ¬å­˜åœ¨é»˜è®¤å±æ€§ï¼Œåœ¨ç¼–å†™å—å‡½æ•°æ—¶ï¼Œåº”è¯¥åœ¨å—å‡½æ•°ä¸­è¿›è¡Œç»™å±æ€§èµ‹çœç¼ºå€¼å¤„ç†ï¼Œå¦‚ï¼š
+ *  ÓÉÓÚ±ê¼ÇÒ»°ã´æÔÚÄ¬ÈÏÊôĞÔ£¬ÔÚ±àĞ´¿éº¯ÊıÊ±£¬Ó¦¸ÃÔÚ¿éº¯ÊıÖĞ½øĞĞ¸øÊôĞÔ¸³Ê¡È±Öµ´¦Àí£¬Èç£º
  *  $attlist = "titlelen=30,catalogid=0,modelid=0,flag=,addon=,row=8,ids=,orderby=id,orderway=desc,limit=,subday=0";
- *  ç»™å±æ€§èµ‹çœç¼ºå€¼
+ *  ¸øÊôĞÔ¸³Ê¡È±Öµ
  *  FillAtts($atts,$attlist);
- *  å¤„ç†å±æ€§ä¸­ä½¿ç”¨çš„ç³»ç»Ÿå˜é‡ varã€globalã€field ç±»å‹(ä¸æ”¯æŒå¤šç»´æ•°ç»„)
+ *  ´¦ÀíÊôĞÔÖĞÊ¹ÓÃµÄÏµÍ³±äÁ¿ var¡¢global¡¢field ÀàĞÍ(²»Ö§³Ö¶àÎ¬Êı×é)
  *  FillFields($atts,$fields,$refObj);
  *
  * @access    public
- * @param     array  $atts  å±æ€§
- * @param     object  $refObj  æ‰€å±å¯¹è±¡
- * @param     array  $fields  å­—æ®µ
+ * @param     array  $atts  ÊôĞÔ
+ * @param     object  $refObj  ËùÊô¶ÔÏó
+ * @param     array  $fields  ×Ö¶Î
  * @return    string
  */
 function MakePublicTag($atts=array(),$refObj='',$fields=array())
@@ -51,11 +51,11 @@ function MakePublicTag($atts=array(),$refObj='',$fields=array())
 }
 
 /**
- *  è®¾å®šå±æ€§çš„é»˜è®¤å€¼
+ *  Éè¶¨ÊôĞÔµÄÄ¬ÈÏÖµ
  *
  * @access    public
- * @param     array    $atts  å±æ€§
- * @param     array    $attlist  å±æ€§åˆ—è¡¨
+ * @param     array    $atts  ÊôĞÔ
+ * @param     array    $attlist  ÊôĞÔÁĞ±í
  * @return    void
  */
 function FillAtts(&$atts, $attlist)
@@ -72,12 +72,12 @@ function FillAtts(&$atts, $attlist)
 }
 
 /**
- *  æŠŠä¸Šçº§çš„fieldsä¼ é€’ç»™atts
+ *  °ÑÉÏ¼¶µÄfields´«µİ¸øatts
  *
  * @access    public
- * @param     array  $atts  å±æ€§
- * @param     object  $refObj  æ‰€å±å¯¹è±¡
- * @param     array  $fields  å­—æ®µ
+ * @param     array  $atts  ÊôĞÔ
+ * @param     object  $refObj  ËùÊô¶ÔÏó
+ * @param     array  $fields  ×Ö¶Î
  * @return    string
  */
 function FillFields(&$atts, &$refObj, &$fields)
@@ -113,7 +113,7 @@ function FillFields(&$atts, &$refObj, &$fields)
 }
 
 /**
- * class Tag æ ‡è®°çš„æ•°æ®ç»“æ„æè¿°
+ * class Tag ±ê¼ÇµÄÊı¾İ½á¹¹ÃèÊö
  * function C__Tag();
  *
  * @package          Tag
@@ -122,17 +122,17 @@ function FillFields(&$atts, &$refObj, &$fields)
  */
 class Tag
 {
-    var $isCompiler=FALSE;   //æ ‡è®°æ˜¯å¦å·²è¢«æ›¿ä»£ï¼Œä¾›è§£æå™¨ä½¿ç”¨
-    var $tagName="";         //æ ‡è®°åç§°
-    var $innerText="";       //æ ‡è®°ä¹‹é—´çš„æ–‡æœ¬
-    var $startPos=0;         //æ ‡è®°èµ·å§‹ä½ç½®
-    var $endPos=0;           //æ ‡è®°ç»“æŸä½ç½®
-    var $cAtt="";            //æ ‡è®°å±æ€§æè¿°,å³æ˜¯class TagAttribute
-    var $tagValue="";        //æ ‡è®°çš„å€¼
+    var $isCompiler=FALSE;   //±ê¼ÇÊÇ·ñÒÑ±»Ìæ´ú£¬¹©½âÎöÆ÷Ê¹ÓÃ
+    var $tagName="";         //±ê¼ÇÃû³Æ
+    var $innerText="";       //±ê¼ÇÖ®¼äµÄÎÄ±¾
+    var $startPos=0;         //±ê¼ÇÆğÊ¼Î»ÖÃ
+    var $endPos=0;           //±ê¼Ç½áÊøÎ»ÖÃ
+    var $cAtt="";            //±ê¼ÇÊôĞÔÃèÊö,¼´ÊÇclass TagAttribute
+    var $tagValue="";        //±ê¼ÇµÄÖµ
     var $tagID = 0;
 
     /**
-     *  è·å–æ ‡è®°çš„åç§°å’Œå€¼
+     *  »ñÈ¡±ê¼ÇµÄÃû³ÆºÍÖµ
      *
      * @access    public
      * @return    string
@@ -158,7 +158,7 @@ class Tag
     }
 
     /**
-     *  è·å–åº•å±‚æ¨¡æ¿
+     *  »ñÈ¡µ×²ãÄ£°å
      *
      * @return    string
      */
@@ -169,7 +169,7 @@ class Tag
 }
 
 /**
- * æ¨¡æ¿è§£æå™¨
+ * Ä£°å½âÎöÆ÷
  * function C__DedeTemplate
  *
  * @package          DedeTemplate
@@ -207,17 +207,17 @@ class DedeTemplate
 
 
     /**
-     *  ææ„å‡½æ•°
+     *  Îö¹¹º¯Êı
      *
      * @access    public
-     * @param     string    $templatedir  æ¨¡æ¿ç›®å½•
-     * @param     string    $refDir  æ‰€å±ç›®å½•
+     * @param     string    $templatedir  Ä£°åÄ¿Â¼
+     * @param     string    $refDir  ËùÊôÄ¿Â¼
      * @return    void
      */
     function __construct($templatedir='',$refDir='')
     {
         //$definedVars[] = 'var';
-        //ç¼“å­˜ç›®å½•
+        //»º´æÄ¿Â¼
         if($templatedir=='')
         {
             $this->templateDir = DEDEROOT.'/templates';
@@ -227,7 +227,7 @@ class DedeTemplate
             $this->templateDir = $templatedir;
         }
 
-        //æ¨¡æ¿includeç›®å½•
+        //Ä£°åincludeÄ¿Â¼
         if($refDir=='')
         {
             if(isset($GLOBALS['cfg_df_style']))
@@ -242,17 +242,17 @@ class DedeTemplate
         $this->cacheDir = DEDEROOT.$GLOBALS['cfg_tplcache_dir'];
     }
 
-    //æ„é€ å‡½æ•°,å…¼å®¹PHP4
+    //¹¹Ôìº¯Êı,¼æÈİPHP4
     function DedeTemplate($templatedir='',$refDir='')
     {
         $this->__construct($templatedir,$refDir);
     }
 
     /**
-     *  è®¾å®šæœ¬ç±»è‡ªèº«å®ä¾‹çš„ç±»å¼•ç”¨å’Œä½¿ç”¨æœ¬ç±»çš„ç±»å®ä¾‹(å¦‚æœåœ¨ç±»ä¸­ä½¿ç”¨æœ¬æ¨¡æ¿å¼•æ“ï¼Œåä¸€å‚æ•°ä¸€èˆ¬ä¸º$this)
+     *  Éè¶¨±¾Àà×ÔÉíÊµÀıµÄÀàÒıÓÃºÍÊ¹ÓÃ±¾ÀàµÄÀàÊµÀı(Èç¹ûÔÚÀàÖĞÊ¹ÓÃ±¾Ä£°åÒıÇæ£¬ºóÒ»²ÎÊıÒ»°ãÎª$this)
      *
      * @access    public
-     * @param     object    $refObj   å®ä¾‹å¯¹è±¡
+     * @param     object    $refObj   ÊµÀı¶ÔÏó
      * @return    string
      */
     function SetObject(&$refObj)
@@ -261,11 +261,11 @@ class DedeTemplate
     }
 
     /**
-     *  è®¾å®šVarçš„é”®å€¼å¯¹
+     *  Éè¶¨VarµÄ¼üÖµ¶Ô
      *
      * @access    public
-     * @param     string  $k  é”®
-     * @param     string  $v  å€¼
+     * @param     string  $k  ¼ü
+     * @param     string  $v  Öµ
      * @return    string
      */
     function SetVar($k, $v)
@@ -274,11 +274,11 @@ class DedeTemplate
     }
 
     /**
-     *  è®¾å®šVarçš„é”®å€¼å¯¹
+     *  Éè¶¨VarµÄ¼üÖµ¶Ô
      *
      * @access    public
-     * @param     string  $k  é”®
-     * @param     string  $v  å€¼
+     * @param     string  $k  ¼ü
+     * @param     string  $v  Öµ
      * @return    string
      */
     function Assign($k, $v)
@@ -287,11 +287,11 @@ class DedeTemplate
     }
 
     /**
-     *  è®¾å®šæ•°ç»„
+     *  Éè¶¨Êı×é
      *
      * @access    public
-     * @param     string  $k  é”®
-     * @param     string  $v  å€¼
+     * @param     string  $k  ¼ü
+     * @param     string  $v  Öµ
      * @return    string
      */
     function SetArray($k, $v)
@@ -300,13 +300,13 @@ class DedeTemplate
     }
 
     /**
-     *  è®¾ç½®æ ‡è®°é£æ ¼
+     *  ÉèÖÃ±ê¼Ç·ç¸ñ
      *
      * @access    public
-     * @param     string   $ts  æ ‡ç­¾å¼€å§‹æ ‡è®°
-     * @param     string   $ftend  æ ‡ç­¾ç»“æŸæ ‡è®°
-     * @param     string   $stend  æ ‡ç­¾å°¾éƒ¨ç»“æŸæ ‡è®°
-     * @param     string   $tend  ç»“æŸæ ‡è®°
+     * @param     string   $ts  ±êÇ©¿ªÊ¼±ê¼Ç
+     * @param     string   $ftend  ±êÇ©½áÊø±ê¼Ç
+     * @param     string   $stend  ±êÇ©Î²²¿½áÊø±ê¼Ç
+     * @param     string   $tend  ½áÊø±ê¼Ç
      * @return    void
      */
     function SetTagStyle($ts='{dede:',$ftend='{/dede:',$stend='/}',$tend='}')
@@ -318,10 +318,10 @@ class DedeTemplate
     }
 
     /**
-     *  è·å¾—æ¨¡æ¿è®¾å®šçš„configå€¼
+     *  »ñµÃÄ£°åÉè¶¨µÄconfigÖµ
      *
      * @access    public
-     * @param     string   $k  é”®å
+     * @param     string   $k  ¼üÃû
      * @return    string
      */
     function GetConfig($k)
@@ -330,10 +330,10 @@ class DedeTemplate
     }
 
     /**
-     *  è®¾å®šæ¨¡æ¿æ–‡ä»¶
+     *  Éè¶¨Ä£°åÎÄ¼ş
      *
      * @access    public
-     * @param     string  $tmpfile  æ¨¡æ¿æ–‡ä»¶
+     * @param     string  $tmpfile  Ä£°åÎÄ¼ş
      * @return    void
      */
     function LoadTemplate($tmpfile)
@@ -367,7 +367,7 @@ class DedeTemplate
         $this->cacheFile = $this->cacheDir.preg_replace("/\.(wml|html|htm|php)$/", "_".$this->GetEncodeStr($tmpfile).'.inc', $tmpfileOnlyName);
         $this->configFile = $this->cacheDir.preg_replace("/\.(wml|html|htm|php)$/", "_".$this->GetEncodeStr($tmpfile).'_config.inc', $tmpfileOnlyName);
 
-        //ä¸å¼€å¯ç¼“å­˜ã€å½“ç¼“å­˜æ–‡ä»¶ä¸å­˜åœ¨ã€åŠæ¨¡æ¿ä¸ºæ›´æ–°çš„æ–‡ä»¶çš„æ—¶å€™æ‰è½½å…¥æ¨¡æ¿å¹¶è¿›è¡Œè§£æ
+        //²»¿ªÆô»º´æ¡¢µ±»º´æÎÄ¼ş²»´æÔÚ¡¢¼°Ä£°åÎª¸üĞÂµÄÎÄ¼şµÄÊ±ºò²ÅÔØÈëÄ£°å²¢½øĞĞ½âÎö
         if($this->isCache==FALSE || !file_exists($this->cacheFile)
         || filemtime($this->templateFile) > filemtime($this->cacheFile))
         {
@@ -376,13 +376,13 @@ class DedeTemplate
             $this->sourceString = fread($fp,filesize($this->templateFile));
             fclose($fp);
             $this->ParseTemplate();
-            //æ¨¡æ¿è§£ææ—¶é—´
+            //Ä£°å½âÎöÊ±¼ä
             //echo ExecTime() - $t1;
         }
         else
         {
-            //å¦‚æœå­˜åœ¨configæ–‡ä»¶ï¼Œåˆ™è½½å…¥æ­¤æ–‡ä»¶ï¼Œè¯¥æ–‡ä»¶ç”¨äºä¿å­˜ $this->tpCfgsçš„å†…å®¹ï¼Œä»¥ä¾›æ‰©å±•ç”¨é€”
-            //æ¨¡æ¿ä¸­ç”¨{tag:config name='' value=''/}æ¥è®¾å®šè¯¥å€¼
+            //Èç¹û´æÔÚconfigÎÄ¼ş£¬ÔòÔØÈë´ËÎÄ¼ş£¬¸ÃÎÄ¼şÓÃÓÚ±£´æ $this->tpCfgsµÄÄÚÈİ£¬ÒÔ¹©À©Õ¹ÓÃÍ¾
+            //Ä£°åÖĞÓÃ{tag:config name='' value=''/}À´Éè¶¨¸ÃÖµ
             if(file_exists($this->configFile))
             {
                 include($this->configFile);
@@ -391,10 +391,10 @@ class DedeTemplate
     }
 
     /**
-     *  è½½å…¥æ¨¡æ¿å­—ç¬¦ä¸²
+     *  ÔØÈëÄ£°å×Ö·û´®
      *
      * @access    public
-     * @param     string  $str  æ¨¡æ¿å­—ç¬¦ä¸²
+     * @param     string  $str  Ä£°å×Ö·û´®
      * @return    void
      */
     function LoadString($str='')
@@ -407,7 +407,7 @@ class DedeTemplate
     }
 
     /**
-     *  è°ƒç”¨æ­¤å‡½æ•°includeä¸€ä¸ªç¼–è¯‘åçš„PHPæ–‡ä»¶ï¼Œé€šå¸¸æ˜¯åœ¨æœ€åä¸€ä¸ªæ­¥éª¤æ‰è°ƒç”¨æœ¬æ–‡ä»¶
+     *  µ÷ÓÃ´Ëº¯ÊıincludeÒ»¸ö±àÒëºóµÄPHPÎÄ¼ş£¬Í¨³£ÊÇÔÚ×îºóÒ»¸ö²½Öè²Åµ÷ÓÃ±¾ÎÄ¼ş
      *
      * @access    public
      * @return    string
@@ -420,8 +420,8 @@ class DedeTemplate
     }
 
     /**
-     *  æ˜¾ç¤ºå†…å®¹ï¼Œç”±äºå‡½æ•°ä¸­ä¼šé‡æ–°è§£å‹ä¸€æ¬¡$GLOBALSå˜é‡ï¼Œæ‰€ä»¥åœ¨åŠ¨æ€é¡µä¸­ï¼Œåº”è¯¥å°½é‡å°‘ç”¨æœ¬æ–¹æ³•ï¼Œ
-     *  å–ä»£ä¹‹æ˜¯ç›´æ¥åœ¨ç¨‹åºä¸­ include $tpl->CacheFile()ï¼Œä¸è¿‡include $tpl->CacheFile()è¿™ç§æ–¹å¼ä¸èƒ½åœ¨ç±»æˆ–å‡½æ•°å†…ä½¿ç”¨
+     *  ÏÔÊ¾ÄÚÈİ£¬ÓÉÓÚº¯ÊıÖĞ»áÖØĞÂ½âÑ¹Ò»´Î$GLOBALS±äÁ¿£¬ËùÒÔÔÚ¶¯Ì¬Ò³ÖĞ£¬Ó¦¸Ã¾¡Á¿ÉÙÓÃ±¾·½·¨£¬
+     *  È¡´úÖ®ÊÇÖ±½ÓÔÚ³ÌĞòÖĞ include $tpl->CacheFile()£¬²»¹ıinclude $tpl->CacheFile()ÕâÖÖ·½Ê½²»ÄÜÔÚÀà»òº¯ÊıÄÚÊ¹ÓÃ
      *
      * @access    public
      * @param     string
@@ -436,10 +436,10 @@ class DedeTemplate
     }
 
     /**
-     *  ä¿å­˜è¿è¡Œåçš„ç¨‹åºä¸ºæ–‡ä»¶
+     *  ±£´æÔËĞĞºóµÄ³ÌĞòÎªÎÄ¼ş
      *
      * @access    public
-     * @param     string  $savefile  ä¿å­˜åˆ°çš„æ–‡ä»¶ç›®å½•
+     * @param     string  $savefile  ±£´æµ½µÄÎÄ¼şÄ¿Â¼
      * @return    void
      */
     function SaveTo($savefile)
@@ -460,7 +460,7 @@ class DedeTemplate
     /**
      * CheckDisabledFunctions
      *
-     * COMMENT : CheckDisabledFunctions : æ£€æŸ¥æ˜¯å¦å­˜åœ¨ç¦æ­¢çš„å‡½æ•°
+     * COMMENT : CheckDisabledFunctions : ¼ì²éÊÇ·ñ´æÔÚ½ûÖ¹µÄº¯Êı
      *
      * @access    public
      * @param    string
@@ -470,7 +470,7 @@ class DedeTemplate
     {
         global $cfg_disable_funs;
         $cfg_disable_funs = isset($cfg_disable_funs)? $cfg_disable_funs : 'phpinfo,eval,exec,passthru,shell_exec,system,proc_open,popen,curl_exec,curl_multi_exec,parse_ini_file,show_source,file_put_contents,fsockopen,fopen,fwrite';
-        // æ¨¡æ¿å¼•æ“å¢åŠ disable_functions
+        // Ä£°åÒıÇæÔö¼Ódisable_functions
         if (!defined('DEDEDISFUN')) {
             $tokens = token_get_all_nl($str);
             $disabled_functions = explode(',', $cfg_disable_funs);
@@ -490,10 +490,10 @@ class DedeTemplate
     }
 
     /**
-     *  è§£ææ¨¡æ¿å¹¶å†™ç¼“å­˜æ–‡ä»¶
+     *  ½âÎöÄ£°å²¢Ğ´»º´æÎÄ¼ş
      *
      * @access    public
-     * @param     string  $ctype  ç¼“å­˜ç±»å‹
+     * @param     string  $ctype  »º´æÀàĞÍ
      * @return    void
      */
     function WriteCache($ctype='all')
@@ -588,10 +588,10 @@ class DedeTemplate
     }
 
     /**
-     *  è·å¾—æ¨¡æ¿æ–‡ä»¶åçš„md5å­—ç¬¦ä¸²
+     *  »ñµÃÄ£°åÎÄ¼şÃûµÄmd5×Ö·û´®
      *
      * @access    public
-     * @param     string  $tmpfile  æ¨¡æ¿æ–‡ä»¶
+     * @param     string  $tmpfile  Ä£°åÎÄ¼ş
      * @return    string
      */
     function GetEncodeStr($tmpfile)
@@ -602,7 +602,7 @@ class DedeTemplate
     }
 
     /**
-     *  è§£ææ¨¡æ¿
+     *  ½âÎöÄ£°å
      *
      * @access    public
      * @return    void
@@ -631,7 +631,7 @@ class DedeTemplate
         $cAtt = new TagAttributeParse();
         $cAtt->CharToLow = TRUE;
 
-        //éå†æ¨¡æ¿å­—ç¬¦ä¸²ï¼Œè¯·å–æ ‡è®°åŠå…¶å±æ€§ä¿¡æ¯
+        //±éÀúÄ£°å×Ö·û´®£¬ÇëÈ¡±ê¼Ç¼°ÆäÊôĞÔĞÅÏ¢
         $t = 0;
         $preTag = '';
         $tswLen = strlen($tagStartWord);
@@ -640,7 +640,7 @@ class DedeTemplate
         {
             $ttagName = '';
 
-            //å¦‚æœä¸è¿›è¡Œæ­¤åˆ¤æ–­ï¼Œå°†æ— æ³•è¯†åˆ«ç›¸è¿çš„ä¸¤ä¸ªæ ‡è®°
+            //Èç¹û²»½øĞĞ´ËÅĞ¶Ï£¬½«ÎŞ·¨Ê¶±ğÏàÁ¬µÄÁ½¸ö±ê¼Ç
             if($i-1>=0)
             {
                 $ss = $i-1;
@@ -651,7 +651,7 @@ class DedeTemplate
             }
             $tagPos = strpos($this->sourceString,$tagStartWord,$ss);
 
-            //åˆ¤æ–­åé¢æ˜¯å¦è¿˜æœ‰æ¨¡æ¿æ ‡è®°
+            //ÅĞ¶ÏºóÃæÊÇ·ñ»¹ÓĞÄ£°å±ê¼Ç
             if($tagPos==0 && ($sourceLen-$i < $tswLen
             || substr($this->sourceString,$i,$tswLen)!=$tagStartWord ))
             {
@@ -659,7 +659,7 @@ class DedeTemplate
                 break;
             }
 
-            //è·å–TAGåŸºæœ¬ä¿¡æ¯
+            //»ñÈ¡TAG»ù±¾ĞÅÏ¢
             for($j = $tagPos+$startWordLen; $j < $tagPos+$startWordLen+$this->tagMaxLen; $j++)
             {
                 if(preg_match("/[ >\/\r\n\t\}\.]/", $this->sourceString[$j]))
@@ -676,7 +676,7 @@ class DedeTemplate
                 $i = $tagPos + $startWordLen;
                 $endPos = -1;
 
-                //åˆ¤æ–­  '/}' '{tag:ä¸‹ä¸€æ ‡è®°å¼€å§‹' '{/tag:æ ‡è®°ç»“æŸ' è°æœ€é è¿‘
+                //ÅĞ¶Ï  '/}' '{tag:ÏÂÒ»±ê¼Ç¿ªÊ¼' '{/tag:±ê¼Ç½áÊø' Ë­×î¿¿½ü
                 $fullTagEndWordThis = $fullTagEndWord.$ttagName.$tagEndWord;
                 $e1 = strpos($this->sourceString, $sTagEndWord, $i);
                 $e2 = strpos($this->sourceString, $tagStartWord, $i);
@@ -687,21 +687,21 @@ class DedeTemplate
                 $e3 = ($e3=='' ? '-1' : $e3);
                 if($e3==-1)
                 {
-                    //ä¸å­˜åœ¨'{/tag:æ ‡è®°'
+                    //²»´æÔÚ'{/tag:±ê¼Ç'
                     $endPos = $e1;
                     $elen = $endPos + strlen($sTagEndWord);
                 }
                 else if($e1==-1)
                 {
-                    //ä¸å­˜åœ¨ '/}'
+                    //²»´æÔÚ '/}'
                     $endPos = $e3;
                     $elen = $endPos + strlen($fullTagEndWordThis);
                 }
 
-                //åŒæ—¶å­˜åœ¨ '/}' å’Œ '{/tag:æ ‡è®°'
+                //Í¬Ê±´æÔÚ '/}' ºÍ '{/tag:±ê¼Ç'
                 else
                 {
-                    //å¦‚æœ '/}' æ¯” '{tag:'ã€'{/tag:æ ‡è®°' éƒ½è¦é è¿‘ï¼Œåˆ™è®¤ä¸ºç»“æŸæ ‡å¿—æ˜¯ '/}'ï¼Œå¦åˆ™ç»“æŸæ ‡å¿—ä¸º '{/tag:æ ‡è®°'
+                    //Èç¹û '/}' ±È '{tag:'¡¢'{/tag:±ê¼Ç' ¶¼Òª¿¿½ü£¬ÔòÈÏÎª½áÊø±êÖ¾ÊÇ '/}'£¬·ñÔò½áÊø±êÖ¾Îª '{/tag:±ê¼Ç'
                     if($e1 < $e2 &&  $e1 < $e3 )
                     {
                         $endPos = $e1;
@@ -714,15 +714,15 @@ class DedeTemplate
                     }
                 }
 
-                //å¦‚æœæ‰¾ä¸åˆ°ç»“æŸæ ‡è®°ï¼Œåˆ™è®¤ä¸ºè¿™ä¸ªæ ‡è®°å­˜åœ¨é”™è¯¯
+                //Èç¹ûÕÒ²»µ½½áÊø±ê¼Ç£¬ÔòÈÏÎªÕâ¸ö±ê¼Ç´æÔÚ´íÎó
                 if($endPos==-1)
                 {
-                    echo "Tpl Character postion $tagPos, '$ttagName' Errorï¼<br />\r\n";
+                    echo "Tpl Character postion $tagPos, '$ttagName' Error£¡<br />\r\n";
                     break;
                 }
                 $i = $elen;
 
-                //åˆ†ææ‰€æ‰¾åˆ°çš„æ ‡è®°ä½ç½®ç­‰ä¿¡æ¯
+                //·ÖÎöËùÕÒµ½µÄ±ê¼ÇÎ»ÖÃµÈĞÅÏ¢
                 $attStr = '';
                 $innerText = '';
                 $startInner = 0;
@@ -746,7 +746,7 @@ class DedeTemplate
                 }
                 $ttagName = strtolower($ttagName);
 
-                //ifã€phpæ ‡è®°ï¼ŒæŠŠæ•´ä¸ªå±æ€§ä¸²è§†ä¸ºå±æ€§
+                //if¡¢php±ê¼Ç£¬°ÑÕû¸öÊôĞÔ´®ÊÓÎªÊôĞÔ
                 if(preg_match("/^if[0-9]{0,}$/", $ttagName))
                 {
                     $cAtt->cAttributes = new TagAttribute();
@@ -765,7 +765,7 @@ class DedeTemplate
                 }
                 else
                 {
-                    //æ™®é€šæ ‡è®°ï¼Œè§£é‡Šå±æ€§
+                    //ÆÕÍ¨±ê¼Ç£¬½âÊÍÊôĞÔ
                     $cAtt->SetSource($attStr);
                 }
                 $this->count++;
@@ -784,7 +784,7 @@ class DedeTemplate
                 $i = $tagPos+$startWordLen;
                 break;
             }
-        }//ç»“æŸéå†æ¨¡æ¿å­—ç¬¦ä¸²
+        }//½áÊø±éÀúÄ£°å×Ö·û´®
         if( $this->count > -1 && $this->isCompiler )
         {
             $this->CompilerAll();
@@ -793,7 +793,7 @@ class DedeTemplate
 
 
     /**
-     *  æŠŠæ¨¡æ¿æ ‡è®°è½¬æ¢ä¸ºPHPä»£ç 
+     *  °ÑÄ£°å±ê¼Ç×ª»»ÎªPHP´úÂë
      *
      * @access    public
      * @return    void
@@ -803,7 +803,7 @@ class DedeTemplate
         $this->loopNum++;
         if($this->loopNum > 10)
         {
-            return; //é™åˆ¶æœ€å¤§é€’å½’æ·±åº¦ä¸º 10 ä»¥é˜²æ­¢å› æ ‡è®°å‡ºé”™ç­‰å¯èƒ½æ€§å¯¼è‡´æ­»å¾ªç¯
+            return; //ÏŞÖÆ×î´óµİ¹éÉî¶ÈÎª 10 ÒÔ·ÀÖ¹Òò±ê¼Ç³ö´íµÈ¿ÉÄÜĞÔµ¼ÖÂËÀÑ­»·
         }
         $ResultString = '';
         $nextTagEnd = 0;
@@ -824,7 +824,7 @@ class DedeTemplate
 
 
     /**
-     *  è·å¾—æœ€ç»ˆç»“æœ
+     *  »ñµÃ×îÖÕ½á¹û
      *
      * @access    public
      * @return    string
@@ -841,10 +841,10 @@ class DedeTemplate
     }
 
     /**
-     *  ç¼–è¯‘å•ä¸ªæ ‡è®°
+     *  ±àÒëµ¥¸ö±ê¼Ç
      *
      * @access    public
-     * @param     string  $cTag  æ ‡ç­¾
+     * @param     string  $cTag  ±êÇ©
      * @return    string
      */
     function CompilerOneTag(&$cTag)
@@ -854,8 +854,8 @@ class DedeTemplate
         $varname = $cTag->GetAtt('name');
         $rsvalue = "";
 
-        //ç”¨äºåœ¨æ¨¡æ¿ä¸­è®¾ç½®ä¸€ä¸ªå˜é‡ä»¥æä¾›ä½œæ‰©å±•ç”¨é€”
-        //æ­¤å˜é‡ç›´æ¥æäº¤åˆ° this->tpCfgs ä¸­ï¼Œå¹¶ä¼šç”Ÿæˆä¸æ¨¡æ¿å¯¹åº”çš„ç¼“å­˜æ–‡ä»¶ ***_config.php æ–‡ä»¶
+        //ÓÃÓÚÔÚÄ£°åÖĞÉèÖÃÒ»¸ö±äÁ¿ÒÔÌá¹©×÷À©Õ¹ÓÃÍ¾
+        //´Ë±äÁ¿Ö±½ÓÌá½»µ½ this->tpCfgs ÖĞ£¬²¢»áÉú³ÉÓëÄ£°å¶ÔÓ¦µÄ»º´æÎÄ¼ş ***_config.php ÎÄ¼ş
         if( $tagname == 'config' )
         {
             $this->tpCfgs[$varname] = $cTag->GetAtt('value');
@@ -871,7 +871,7 @@ class DedeTemplate
         }
         else if( $tagname == 'cfg' )
         {
-            $cTag->tagValue = '$GLOBALS[\'cfg_'.$varname.'\']'; //å¤„ç†å‡½æ•°
+            $cTag->tagValue = '$GLOBALS[\'cfg_'.$varname.'\']'; //´¦Àíº¯Êı
             if( $cTag->GetAtt('function')!='' )
             {
                 $cTag->tagValue = $this->CompilerFunction($cTag->GetAtt('function'), $cTag->tagValue);
@@ -880,7 +880,7 @@ class DedeTemplate
         }
         else if( $tagname == 'name' )
         {
-            $cTag->tagValue = '$'.$varname; //å¤„ç†å‡½æ•°
+            $cTag->tagValue = '$'.$varname; //´¦Àíº¯Êı
             if( $cTag->GetAtt('function')!='' )
             {
                 $cTag->tagValue = $this->CompilerFunction($cTag->GetAtt('function'), $cTag->tagValue);
@@ -890,7 +890,7 @@ class DedeTemplate
         else if( $tagname == 'object' )
         {
             list($_obs,$_em) = explode('->',$varname);
-            $cTag->tagValue = "\$GLOBALS['{$_obs}']->{$_em}"; //å¤„ç†å‡½æ•°
+            $cTag->tagValue = "\$GLOBALS['{$_obs}']->{$_em}"; //´¦Àíº¯Êı
             if( $cTag->GetAtt('function')!='' )
             {
                 $cTag->tagValue = $this->CompilerFunction($cTag->GetAtt('function'), $cTag->tagValue);
@@ -905,7 +905,7 @@ class DedeTemplate
             {
                 $cTag->tagValue = $this->CompilerFunction($cTag->GetAtt('function'), $cTag->tagValue);
             }
-            // å¢åŠ é»˜è®¤ç©ºå€¼å¤„ç†
+            // Ôö¼ÓÄ¬ÈÏ¿ÕÖµ´¦Àí
             if ($cTag->GetAtt('default')!='')
             {
                 $cTag->tagValue = '<'.'?php echo empty('.$cTag->tagValue.')? \''.addslashes($cTag->GetAtt('default')).'\':'.$cTag->tagValue.'; ?'.'>';
@@ -954,7 +954,7 @@ class DedeTemplate
             }
         }
 
-        //éå†æ•°ç»„
+        //±éÀúÊı×é
         else if( preg_match("/^array[0-9]{0,}/",$tagname) )
         {
             $kk = '$key';
@@ -983,7 +983,7 @@ class DedeTemplate
             $cTag->tagValue = $rsvalue;
         }
 
-        //include æ–‡ä»¶
+        //include ÎÄ¼ş
         else if($tagname == 'include')
         {
             $filename = $cTag->GetAtt('file');
@@ -1004,7 +1004,7 @@ class DedeTemplate
         }
         else if( $tagname=='datalist' )
         {
-            //ç”Ÿæˆå±æ€§æ•°ç»„
+            //Éú³ÉÊôĞÔÊı×é
             foreach($cTag->cAtt->items as $k=>$v)
             {
                 $v = $this->TrimAtts($v);
@@ -1020,7 +1020,7 @@ class DedeTemplate
         }
         else if( $tagname=='pagelist' )
         {
-            //ç”Ÿæˆå±æ€§æ•°ç»„
+            //Éú³ÉÊôĞÔÊı×é
             foreach($cTag->cAtt->items as $k=>$v)
             {
                 $v = $this->TrimAtts($v);
@@ -1037,7 +1037,7 @@ class DedeTemplate
             $rstype =  ($cTag->GetAtt('resulttype')=='' ? $cTag->GetAtt('rstype') : $cTag->GetAtt('resulttype') );
             $rstype = strtolower($rstype);
 
-            //ç”Ÿæˆå±æ€§æ•°ç»„
+            //Éú³ÉÊôĞÔÊı×é
             foreach($cTag->cAtt->items as $k=>$v)
             {
                 if(preg_match("/(bind|bindtype)/i",$k))
@@ -1049,19 +1049,19 @@ class DedeTemplate
             }
             $rsvalue = '<'.'?php'."\r\n".'$atts = array();'."\r\n".$rsvalue;
 
-            //ç»‘å®šåˆ°é»˜è®¤å‡½æ•°è¿˜æ˜¯æŒ‡å®šå‡½æ•°(datasourceå±æ€§æŒ‡å®š)
+            //°ó¶¨µ½Ä¬ÈÏº¯Êı»¹ÊÇÖ¸¶¨º¯Êı(datasourceÊôĞÔÖ¸¶¨)
             if($bindFunc=='')
             {
                 $rsvalue .= '$blockValue = MakePublicTag($atts,$this->refObj,$fields); '."\r\n";
             }
             else
             {
-                //è‡ªå®šä¹‰ç»‘å®šå‡½æ•°å¦‚æœä¸æŒ‡å®š bindtypeï¼Œåˆ™æŒ‡å‘$this->refObj->ç»‘å®šå‡½æ•°åï¼Œå³æ˜¯é»˜è®¤æŒ‡å‘è¢«å¼•ç”¨çš„ç±»å¯¹è±¡
+                //×Ô¶¨Òå°ó¶¨º¯ÊıÈç¹û²»Ö¸¶¨ bindtype£¬ÔòÖ¸Ïò$this->refObj->°ó¶¨º¯ÊıÃû£¬¼´ÊÇÄ¬ÈÏÖ¸Ïò±»ÒıÓÃµÄÀà¶ÔÏó
                 if($bindType=='') $rsvalue .= '$blockValue = $this->refObj->'.$bindFunc.'($atts,$this->refObj,$fields); '."\r\n";
                 else $rsvalue .= '$blockValue = '.$bindFunc.'($atts,$this->refObj,$fields); '."\r\n";
             }
 
-            //è¿”å›ç»“æœç±»å‹ï¼šé»˜è®¤ä¸º array æ˜¯ä¸€ä¸ªäºŒç»´æ•°ç»„ï¼Œstring æ˜¯å­—ç¬¦ä¸²
+            //·µ»Ø½á¹ûÀàĞÍ£ºÄ¬ÈÏÎª array ÊÇÒ»¸ö¶şÎ¬Êı×é£¬string ÊÇ×Ö·û´®
             if($rstype=='string')
             {
                 $rsvalue .= 'echo $blockValue;'."\r\n".'?'.">";
@@ -1079,11 +1079,11 @@ class DedeTemplate
     }
 
     /**
-     *  ç¼–è¯‘å¯èƒ½ä¸ºæ•°ç»„çš„å˜é‡
+     *  ±àÒë¿ÉÄÜÎªÊı×éµÄ±äÁ¿
      *
      * @access    public
-     * @param     string  $vartype  å˜é‡ç±»å‹
-     * @param     string  $varname  å˜é‡åç§°
+     * @param     string  $vartype  ±äÁ¿ÀàĞÍ
+     * @param     string  $varname  ±äÁ¿Ãû³Æ
      * @return    string
      */
     function CompilerArrayVar($vartype, $varname)
@@ -1160,10 +1160,10 @@ class DedeTemplate
     }
 
     /**
-     *  ç¼–è¯‘ifæ ‡è®°
+     *  ±àÒëif±ê¼Ç
      *
      * @access    public
-     * @param     string  $cTag  æ ‡ç­¾
+     * @param     string  $cTag  ±êÇ©
      * @return    string
      */
     function CompilerIf($cTag)
@@ -1185,10 +1185,10 @@ class DedeTemplate
     }
 
     /**
-     *  å¤„ç†blockåŒºå—ä¼ é€’çš„attså±æ€§çš„å€¼
+     *  ´¦ÀíblockÇø¿é´«µİµÄattsÊôĞÔµÄÖµ
      *
      * @access    public
-     * @param     string  $v  å€¼
+     * @param     string  $v  Öµ
      * @return    string
      */
     function TrimAtts($v)
@@ -1199,11 +1199,11 @@ class DedeTemplate
     }
 
     /**
-     *  å‡½æ•° function è¯­æ³•å¤„ç†
+     *  º¯Êı function Óï·¨´¦Àí
      *
      * @access    public
-     * @param     string  $funcstr  å‡½æ•°å­—ç¬¦ä¸²
-     * @param     string  $nvalue  å‡½æ•°å€¼
+     * @param     string  $funcstr  º¯Êı×Ö·û´®
+     * @param     string  $nvalue  º¯ÊıÖµ
      * @return    string
      */
     function CompilerFunction($funcstr, $nvalue)
@@ -1214,11 +1214,11 @@ class DedeTemplate
     }
 
     /**
-     *  å¼•å…¥æ–‡ä»¶ include è¯­æ³•å¤„ç†
+     *  ÒıÈëÎÄ¼ş include Óï·¨´¦Àí
      *
      * @access    public
-     * @param     string  $filename  æ–‡ä»¶å
-     * @param     string  $isload  æ˜¯å¦è½½å…¥
+     * @param     string  $filename  ÎÄ¼şÃû
+     * @param     string  $isload  ÊÇ·ñÔØÈë
      * @return    string
      */
     function CompilerInclude($filename, $isload=TRUE)
@@ -1247,9 +1247,9 @@ class DedeTemplate
 }
 
 /**
- * class TagAttribute Tagå±æ€§é›†åˆ
+ * class TagAttribute TagÊôĞÔ¼¯ºÏ
  * function C__TagAttribute();
- * å±æ€§çš„æ•°æ®æè¿°
+ * ÊôĞÔµÄÊı¾İÃèÊö
  *
  * @package          TagAttribute
  * @subpackage       DedeCMS.Libraries
@@ -1258,13 +1258,13 @@ class DedeTemplate
 class TagAttribute
 {
     var $count = -1;
-    var $items = ""; //å±æ€§å…ƒç´ çš„é›†åˆ
+    var $items = ""; //ÊôĞÔÔªËØµÄ¼¯ºÏ
 
     /**
-     *  è·å¾—æŸä¸ªå±æ€§
+     *  »ñµÃÄ³¸öÊôĞÔ
      *
      * @access    public
-     * @param     string    $str  é¢„å¤„ç†å­—ç¬¦ä¸²
+     * @param     string    $str  Ô¤´¦Àí×Ö·û´®
      * @return    string
      */
     function GetAtt($str)
@@ -1284,10 +1284,10 @@ class TagAttribute
     }
 
     /**
-     *  åŒä¸Š
+     *  Í¬ÉÏ
      *
      * @access    public
-     * @param     string    $str  é¢„å¤„ç†å­—ç¬¦ä¸²
+     * @param     string    $str  Ô¤´¦Àí×Ö·û´®
      * @return    string
      */
     function GetAttribute($str)
@@ -1296,10 +1296,10 @@ class TagAttribute
     }
 
     /**
-     *  åˆ¤æ–­å±æ€§æ˜¯å¦å­˜åœ¨
+     *  ÅĞ¶ÏÊôĞÔÊÇ·ñ´æÔÚ
      *
      * @access    public
-     * @param     string  $str  é¢„å¤„ç†å­—ç¬¦ä¸²
+     * @param     string  $str  Ô¤´¦Àí×Ö·û´®
      * @return    bool
      */
     function IsAttribute($str)
@@ -1309,7 +1309,7 @@ class TagAttribute
     }
 
     /**
-     *  è·å¾—æ ‡è®°åç§°
+     *  »ñµÃ±ê¼ÇÃû³Æ
      *
      * @access    public
      * @return    string
@@ -1320,7 +1320,7 @@ class TagAttribute
     }
 
     /**
-     *  è·å¾—å±æ€§ä¸ªæ•°
+     *  »ñµÃÊôĞÔ¸öÊı
      *
      * @access    public
      * @return    int
@@ -1332,7 +1332,7 @@ class TagAttribute
 }//End Class
 
 /**
- * å±æ€§è§£æå™¨
+ * ÊôĞÔ½âÎöÆ÷
  * function C__TagAttributeParse();
  *
  * @package          TagAttribute
@@ -1358,7 +1358,7 @@ class TagAttributeParse
     }
 
     /**
-     *  è§£æå±æ€§
+     *  ½âÎöÊôĞÔ
      *
      * @access    public
      * @return    void
@@ -1374,7 +1374,7 @@ class TagAttributeParse
         $strLen = strlen($this->sourceString);
         $this->cAttributes->items = array();
 
-        // è·å¾—Tagçš„åç§°ï¼Œè§£æåˆ° cAtt->GetAtt('tagname') ä¸­
+        // »ñµÃTagµÄÃû³Æ£¬½âÎöµ½ cAtt->GetAtt('tagname') ÖĞ
         for($i=0; $i<$strLen; $i++)
         {
             if($this->sourceString[$i]==' ')
@@ -1405,7 +1405,7 @@ class TagAttributeParse
             }
         }
 
-        //ä¸å­˜åœ¨å±æ€§åˆ—è¡¨çš„æƒ…å†µ
+        //²»´æÔÚÊôĞÔÁĞ±íµÄÇé¿ö
         if(!$hasAttribute)
         {
             $this->cAttributes->count++;
@@ -1428,11 +1428,11 @@ class TagAttributeParse
         }
         $tmpvalue = '';
 
-        //å¦‚æœå­—ç¬¦ä¸²å«æœ‰å±æ€§å€¼ï¼Œéå†æºå­—ç¬¦ä¸²,å¹¶è·å¾—å„å±æ€§
+        //Èç¹û×Ö·û´®º¬ÓĞÊôĞÔÖµ£¬±éÀúÔ´×Ö·û´®,²¢»ñµÃ¸÷ÊôĞÔ
         for($i; $i<$strLen; $i++)
         {
             $d = $this->sourceString[$i];
-            //æŸ¥æ‰¾å±æ€§åç§°
+            //²éÕÒÊôĞÔÃû³Æ
             if($startdd==-1)
             {
                 if($d != '=')
@@ -1453,7 +1453,7 @@ class TagAttributeParse
                 }
             }
 
-            //æŸ¥æ‰¾å±æ€§çš„é™å®šæ ‡å¿—
+            //²éÕÒÊôĞÔµÄÏŞ¶¨±êÖ¾
             else if($startdd==0)
             {
                 switch($d)
@@ -1492,7 +1492,7 @@ class TagAttributeParse
             }
         }//for
 
-        //æœ€åä¸€ä¸ªå±æ€§çš„ç»™å€¼
+        //×îºóÒ»¸öÊôĞÔµÄ¸øÖµ
         if($tmpatt != '')
         {
             $this->cAttributes->count++;
@@ -1504,10 +1504,10 @@ class TagAttributeParse
 }//End Class
 
 /**
- *  ç§æœ‰æ ‡ç­¾ç¼–è¯‘,ä¸»è¦ç”¨äºifæ ‡ç­¾å†…çš„å­—ç¬¦ä¸²è§£æ
+ *  Ë½ÓĞ±êÇ©±àÒë,Ö÷ÒªÓÃÓÚif±êÇ©ÄÚµÄ×Ö·û´®½âÎö
  *
  * @access    public
- * @param     string  $str  éœ€è¦ç¼–è¯‘çš„å­—ç¬¦ä¸²
+ * @param     string  $str  ĞèÒª±àÒëµÄ×Ö·û´®
  * @return    string
  */
 function private_rt($str)

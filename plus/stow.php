@@ -5,7 +5,7 @@ $aid = ( isset($aid) && is_numeric($aid) ) ? $aid : 0;
 $type=empty($type)? "" : HtmlReplace($type,1);
 if($aid==0)
 {
-	ShowMsg('鏂囨。id涓嶈兘涓虹┖!','javascript:window.close();');
+	ShowMsg('文档id不能为空!','javascript:window.close();');
 	exit();
 }
 
@@ -14,16 +14,16 @@ $ml = new MemberLogin();
 
 if($ml->M_ID==0)
 {
-	ShowMsg('鍙湁浼氬憳鎵嶅厑璁告敹钘忔搷浣滐紒','javascript:window.close();');
+	ShowMsg('只有会员才允许收藏操作！','javascript:window.close();');
 	exit();
 }
 
 
-//璇诲彇鏂囨。淇℃伅
+//读取文档信息
 $arcRow = GetOneArchive($aid);
 if($arcRow['aid']=='')
 {
-	ShowMsg("鏃犳硶鏀惰棌鏈煡鏂囨。!","javascript:window.close();");
+	ShowMsg("无法收藏未知文档!","javascript:window.close();");
 	exit();
 }
 extract($arcRow, EXTR_SKIP);
@@ -43,9 +43,9 @@ if($type==''){
   }
 }
 
-//鏇存柊鐢ㄦ埛缁熻
+//更新用户统计
 $row = $dsql->GetOne("SELECT COUNT(*) AS nums FROM `#@__member_stow` WHERE `mid`='{$ml->M_ID}' ");
 $dsql->ExecuteNoneQuery("UPDATE #@__member_tj SET `stow`='$row[nums]' WHERE `mid`='".$ml->M_ID."'");
 
-ShowMsg('鎴愬姛鏀惰棌涓�绡囨枃妗ｏ紒','javascript:window.close();');
+ShowMsg('成功收藏一篇文档！','javascript:window.close();');
 ?>

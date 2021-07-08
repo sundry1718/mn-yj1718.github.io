@@ -17,13 +17,13 @@ if(empty($job)) $job='view';
 if($job=='del' && $g_isadmin)
 {
     $dsql->ExecuteNoneQuery(" DELETE FROM `#@__guestbook` WHERE id='$id' ");
-    ShowMsg("æˆåŠŸåˆ é™¤ä¸€æ¡ç•™è¨€ï¼", $GUEST_BOOK_POS);
+    ShowMsg("³É¹¦É¾³ıÒ»ÌõÁôÑÔ£¡", $GUEST_BOOK_POS);
     exit();
 }
 else if($job=='check' && $g_isadmin)
 {
     $dsql->ExecuteNoneQuery(" UPDATE `#@__guestbook` SET ischeck=1 WHERE id='$id' ");
-    ShowMsg("æˆåŠŸå®¡æ ¸ä¸€æ¡ç•™è¨€ï¼", $GUEST_BOOK_POS);
+    ShowMsg("³É¹¦ÉóºËÒ»ÌõÁôÑÔ£¡", $GUEST_BOOK_POS);
     exit();
 }
 else if($job=='editok')
@@ -31,11 +31,11 @@ else if($job=='editok')
     $remsg = trim($remsg);
     if($remsg!='')
     {
-        //ç®¡ç†å‘˜å›å¤ä¸è¿‡æ»¤HTML
+        //¹ÜÀíÔ±»Ø¸´²»¹ıÂËHTML
         if($g_isadmin)
         {
             $msg = "<div class=\\'rebox\\'>".$msg."</div>\n".$remsg; 
-            //$remsg <br><font color=red>ç®¡ç†å‘˜å›å¤ï¼š</font>
+            //$remsg <br><font color=red>¹ÜÀíÔ±»Ø¸´£º</font>
         }
         else
         {
@@ -47,14 +47,13 @@ else if($job=='editok')
     } else {
         if(!$g_isadmin)
         {
-            ShowMsg("æ— æƒæäº¤ä¿®æ”¹å½“å‰ç•™è¨€ï¼", $GUEST_BOOK_POS);
+            ShowMsg("ÎŞÈ¨Ìá½»ĞŞ¸Äµ±Ç°ÁôÑÔ£¡", $GUEST_BOOK_POS);
             exit();
         }
     }
-	$msg = addcslashes(HtmlReplace($msg, -1));
-	$msg = addslashes($msg);
+	$msg = HtmlReplace($msg, -1);
     $dsql->ExecuteNoneQuery("UPDATE `#@__guestbook` SET `msg`='$msg', `posttime`='".time()."' WHERE id='$id' ");
-    ShowMsg("æˆåŠŸæ›´æ”¹æˆ–å›å¤ä¸€æ¡ç•™è¨€ï¼", $GUEST_BOOK_POS);
+    ShowMsg("³É¹¦¸ü¸Ä»ò»Ø¸´Ò»ÌõÁôÑÔ£¡", $GUEST_BOOK_POS);
     exit();
 }
 

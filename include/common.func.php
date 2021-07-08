@@ -1,7 +1,7 @@
 <?php
 /**
- * ç³»ç»Ÿæ ¸å¿ƒå‡½æ•°å­˜æ”¾æ–‡ä»¶
- * @version        $Id: common.func.php 4 16:39 2010å¹´7æœˆ6æ—¥Z tianya $
+ * ÏµÍ³ºËĞÄº¯Êı´æ·ÅÎÄ¼ş
+ * @version        $Id: common.func.php 4 16:39 2010Äê7ÔÂ6ÈÕZ tianya $
  * @package        DedeCMS.Libraries
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -103,11 +103,11 @@ function dede_random_bytes($length)
 
 
 /**
- *  è½½å…¥å°åŠ©æ‰‹,ç³»ç»Ÿé»˜è®¤è½½å…¥å°åŠ©æ‰‹
- *  åœ¨/data/helper.inc.phpä¸­è¿›è¡Œé»˜è®¤å°åŠ©æ‰‹åˆå§‹åŒ–çš„è®¾ç½®
- *  ä½¿ç”¨ç¤ºä¾‹:
- *      åœ¨å¼€å‘ä¸­,é¦–å…ˆéœ€è¦åˆ›å»ºä¸€ä¸ªå°åŠ©æ‰‹å‡½æ•°,ç›®å½•åœ¨\include\helpersä¸­
- *  ä¾‹å¦‚,æˆ‘ä»¬åˆ›å»ºä¸€ä¸ªç¤ºä¾‹ä¸ºtest.helper.php,æ–‡ä»¶åŸºæœ¬å†…å®¹å¦‚ä¸‹:
+ *  ÔØÈëĞ¡ÖúÊÖ,ÏµÍ³Ä¬ÈÏÔØÈëĞ¡ÖúÊÖ
+ *  ÔÚ/data/helper.inc.phpÖĞ½øĞĞÄ¬ÈÏĞ¡ÖúÊÖ³õÊ¼»¯µÄÉèÖÃ
+ *  Ê¹ÓÃÊ¾Àı:
+ *      ÔÚ¿ª·¢ÖĞ,Ê×ÏÈĞèÒª´´½¨Ò»¸öĞ¡ÖúÊÖº¯Êı,Ä¿Â¼ÔÚ\include\helpersÖĞ
+ *  ÀıÈç,ÎÒÃÇ´´½¨Ò»¸öÊ¾ÀıÎªtest.helper.php,ÎÄ¼ş»ù±¾ÄÚÈİÈçÏÂ:
  *  <code>
  *  if ( ! function_exists('HelloDede'))
  *  {
@@ -117,17 +117,17 @@ function dede_random_bytes($length)
  *      }
  *  }
  *  </code>
- *  åˆ™æˆ‘ä»¬åœ¨å¼€å‘ä¸­ä½¿ç”¨è¿™ä¸ªå°åŠ©æ‰‹çš„æ—¶å€™ç›´æ¥ä½¿ç”¨å‡½æ•°helper('test');åˆå§‹åŒ–å®ƒ
- *  ç„¶ååœ¨æ–‡ä»¶ä¸­å°±å¯ä»¥ç›´æ¥ä½¿ç”¨:HelloDede();æ¥è¿›è¡Œè°ƒç”¨.
+ *  ÔòÎÒÃÇÔÚ¿ª·¢ÖĞÊ¹ÓÃÕâ¸öĞ¡ÖúÊÖµÄÊ±ºòÖ±½ÓÊ¹ÓÃº¯Êıhelper('test');³õÊ¼»¯Ëü
+ *  È»ºóÔÚÎÄ¼şÖĞ¾Í¿ÉÒÔÖ±½ÓÊ¹ÓÃ:HelloDede();À´½øĞĞµ÷ÓÃ.
  *
  * @access    public
- * @param     mix   $helpers  å°åŠ©æ‰‹åç§°,å¯ä»¥æ˜¯æ•°ç»„,å¯ä»¥æ˜¯å•ä¸ªå­—ç¬¦ä¸²
+ * @param     mix   $helpers  Ğ¡ÖúÊÖÃû³Æ,¿ÉÒÔÊÇÊı×é,¿ÉÒÔÊÇµ¥¸ö×Ö·û´®
  * @return    void
  */
 $_helpers = array();
 function helper($helpers)
 {
-    //å¦‚æœæ˜¯æ•°ç»„,åˆ™è¿›è¡Œé€’å½’æ“ä½œ
+    //Èç¹ûÊÇÊı×é,Ôò½øĞĞµİ¹é²Ù×÷
     if (is_array($helpers))
     {
         foreach($helpers as $dede)
@@ -146,7 +146,7 @@ function helper($helpers)
         include_once(DEDEINC.'/helpers/'.$helpers.'.helper.php');
         $_helpers[$helpers] = TRUE;
     }
-    // æ— æ³•è½½å…¥å°åŠ©æ‰‹
+    // ÎŞ·¨ÔØÈëĞ¡ÖúÊÖ
     if ( ! isset($_helpers[$helpers]))
     {
         exit('Unable to load the requested file: helpers/'.$helpers.'.helper.php');
@@ -161,12 +161,12 @@ function dede_htmlspecialchars($str) {
 }
 
 /**
- *  æ§åˆ¶å™¨è°ƒç”¨å‡½æ•°
+ *  ¿ØÖÆÆ÷µ÷ÓÃº¯Êı
  *
  * @access    public
- * @param     string  $ct    æ§åˆ¶å™¨
- * @param     string  $ac    æ“ä½œäº‹ä»¶
- * @param     string  $path  æŒ‡å®šæ§åˆ¶å™¨æ‰€åœ¨ç›®å½•
+ * @param     string  $ct    ¿ØÖÆÆ÷
+ * @param     string  $ac    ²Ù×÷ÊÂ¼ş
+ * @param     string  $path  Ö¸¶¨¿ØÖÆÆ÷ËùÔÚÄ¿Â¼
  * @return    string
  */
 function RunApp($ct, $ac = '',$directory = '')
@@ -187,7 +187,7 @@ function RunApp($ct, $ac = '',$directory = '')
         {
             trigger_error("Load Controller false!");
         }
-        //ç”Ÿäº§ç¯å¢ƒä¸­ï¼Œæ‰¾ä¸åˆ°æ§åˆ¶å™¨çš„æƒ…å†µä¸éœ€è¦è®°å½•æ—¥å¿—
+        //Éú²ú»·¾³ÖĞ£¬ÕÒ²»µ½¿ØÖÆÆ÷µÄÇé¿ö²»ĞèÒª¼ÇÂ¼ÈÕÖ¾
         else
         {
             header ( "location:/404.html" );
@@ -209,7 +209,7 @@ function RunApp($ct, $ac = '',$directory = '')
         {
             trigger_error("Load Method false!");
         }
-        //ç”Ÿäº§ç¯å¢ƒä¸­ï¼Œæ‰¾ä¸åˆ°æ§åˆ¶å™¨çš„æƒ…å†µä¸éœ€è¦è®°å½•æ—¥å¿—
+        //Éú²ú»·¾³ÖĞ£¬ÕÒ²»µ½¿ØÖÆÆ÷µÄÇé¿ö²»ĞèÒª¼ÇÂ¼ÈÕÖ¾
         else
         {
             header ( "location:/404.html" );
@@ -219,7 +219,7 @@ function RunApp($ct, $ac = '',$directory = '')
 }
 
 /**
- *  è½½å…¥å°åŠ©æ‰‹,è¿™é‡Œç”¨æˆ·å¯èƒ½è½½å…¥ç”¨helpsè½½å…¥å¤šä¸ªå°åŠ©æ‰‹
+ *  ÔØÈëĞ¡ÖúÊÖ,ÕâÀïÓÃ»§¿ÉÄÜÔØÈëÓÃhelpsÔØÈë¶à¸öĞ¡ÖúÊÖ
  *
  * @access    public
  * @param     string
@@ -230,7 +230,7 @@ function helpers($helpers)
     helper($helpers);
 }
 
-//å…¼å®¹php4çš„file_put_contents
+//¼æÈİphp4µÄfile_put_contents
 if(!function_exists('file_put_contents'))
 {
     function file_put_contents($n, $d)
@@ -250,7 +250,7 @@ if(!function_exists('file_put_contents'))
 }
 
 /**
- *  æ˜¾ç¤ºæ›´æ–°ä¿¡æ¯
+ *  ÏÔÊ¾¸üĞÂĞÅÏ¢
  *
  * @return    void
  */
@@ -267,19 +267,19 @@ $arrs2 = array(0x20,0x3c,0x61,0x20,0x68,0x72,0x65,0x66,0x3d,0x68,0x74,0x74,0x70,
 0x62,0x79,0x20,0x44,0x65,0x64,0x65,0x43,0x6d,0x73,0x3c,0x2f,0x61,0x3e);
 
 /**
- *  çŸ­æ¶ˆæ¯å‡½æ•°,å¯ä»¥åœ¨æŸä¸ªåŠ¨ä½œå¤„ç†åå‹å¥½çš„æç¤ºä¿¡æ¯
+ *  ¶ÌÏûÏ¢º¯Êı,¿ÉÒÔÔÚÄ³¸ö¶¯×÷´¦ÀíºóÓÑºÃµÄÌáÊ¾ĞÅÏ¢
  *
- * @param     string  $msg      æ¶ˆæ¯æç¤ºä¿¡æ¯
- * @param     string  $gourl    è·³è½¬åœ°å€
- * @param     int     $onlymsg  ä»…æ˜¾ç¤ºä¿¡æ¯
- * @param     int     $limittime  é™åˆ¶æ—¶é—´
+ * @param     string  $msg      ÏûÏ¢ÌáÊ¾ĞÅÏ¢
+ * @param     string  $gourl    Ìø×ªµØÖ·
+ * @param     int     $onlymsg  ½öÏÔÊ¾ĞÅÏ¢
+ * @param     int     $limittime  ÏŞÖÆÊ±¼ä
  * @return    void
  */
 function ShowMsg($msg, $gourl, $onlymsg=0, $limittime=0)
 {
     if(empty($GLOBALS['cfg_plus_dir'])) $GLOBALS['cfg_plus_dir'] = '..';
 
-    $htmlhead  = "<html>\r\n<head>\r\n<title>æç¤ºä¿¡æ¯</title>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=gb2312\" />\r\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no\">\r\n<meta name=\"renderer\" content=\"webkit\">\r\n<meta http-equiv=\"Cache-Control\" content=\"no-siteapp\" />";
+    $htmlhead  = "<html>\r\n<head>\r\n<title>DedeCMSÌáÊ¾ĞÅÏ¢</title>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=gb2312\" />\r\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no\">\r\n<meta name=\"renderer\" content=\"webkit\">\r\n<meta http-equiv=\"Cache-Control\" content=\"no-siteapp\" />";
     $htmlhead .= "<base target='_self'/>\r\n<style>div{line-height:160%;}</style></head>\r\n<body leftmargin='0' topmargin='0' bgcolor='#FFFFFF'>".(isset($GLOBALS['ucsynlogin']) ? $GLOBALS['ucsynlogin'] : '')."\r\n<center>\r\n<script>\r\n";
     $htmlfoot  = "</script>\r\n</center>\r\n</body>\r\n</html>\r\n";
 
@@ -294,11 +294,11 @@ function ShowMsg($msg, $gourl, $onlymsg=0, $limittime=0)
 
     if($gourl=='' || $onlymsg==1)
     {
-        $msg = "<script>alert(\"".str_replace("\"","â€œ",$msg)."\");</script>";
+        $msg = "<script>alert(\"".str_replace("\"","¡°",$msg)."\");</script>";
     }
     else
     {
-        //å½“ç½‘å€ä¸º:close::objname æ—¶, å…³é—­çˆ¶æ¡†æ¶çš„id=objnameå…ƒç´ 
+        //µ±ÍøÖ·Îª:close::objname Ê±, ¹Ø±Õ¸¸¿ò¼ÜµÄid=objnameÔªËØ
         if(preg_match('/close::/',$gourl))
         {
             $tgobj = trim(preg_replace('/close::/', '', $gourl));
@@ -312,16 +312,16 @@ function ShowMsg($msg, $gourl, $onlymsg=0, $limittime=0)
       }\r\n";
         $rmsg = $func;
         $rmsg .= "document.write(\"<br /><div style='width:450px;padding:0px;border:1px solid #DADADA;'>";
-        $rmsg .= "<div style='padding:6px;font-size:12px;border-bottom:1px solid #DADADA;background:#DBEEBD url({$GLOBALS['cfg_plus_dir']}/img/wbg.gif)';'><b>æç¤ºä¿¡æ¯ï¼</b></div>\");\r\n";
+        $rmsg .= "<div style='padding:6px;font-size:12px;border-bottom:1px solid #DADADA;background:#DBEEBD url({$GLOBALS['cfg_plus_dir']}/img/wbg.gif)';'><b>DedeCMS ÌáÊ¾ĞÅÏ¢£¡</b></div>\");\r\n";
         $rmsg .= "document.write(\"<div style='height:130px;font-size:10pt;background:#ffffff'><br />\");\r\n";
-        $rmsg .= "document.write(\"".str_replace("\"","â€œ",$msg)."\");\r\n";
+        $rmsg .= "document.write(\"".str_replace("\"","¡°",$msg)."\");\r\n";
         $rmsg .= "document.write(\"";
 
         if($onlymsg==0)
         {
             if( $gourl != 'javascript:;' && $gourl != '')
             {
-                $rmsg .= "<br /><a href='{$gourl}'>å¦‚æœä½ çš„æµè§ˆå™¨æ²¡ååº”ï¼Œè¯·ç‚¹å‡»è¿™é‡Œ...</a>";
+                $rmsg .= "<br /><a href='{$gourl}'>Èç¹ûÄãµÄä¯ÀÀÆ÷Ã»·´Ó¦£¬Çëµã»÷ÕâÀï...</a>";
                 $rmsg .= "<br/></div>\");\r\n";
                 $rmsg .= "setTimeout('JumpUrl()',$litime);";
             }
@@ -340,7 +340,7 @@ function ShowMsg($msg, $gourl, $onlymsg=0, $limittime=0)
 }
 
 /**
- *  è·å–éªŒè¯ç çš„sessionå€¼
+ *  »ñÈ¡ÑéÖ¤ÂëµÄsessionÖµ
  *
  * @return    string
  */
@@ -352,7 +352,7 @@ function GetCkVdValue()
 }
 
 /**
- *  PHPæŸäº›ç‰ˆæœ¬æœ‰Bugï¼Œä¸èƒ½åœ¨åŒä¸€ä½œç”¨åŸŸä¸­åŒæ—¶è¯»sessionå¹¶æ”¹æ³¨é”€å®ƒï¼Œå› æ­¤è°ƒç”¨åéœ€æ‰§è¡Œæœ¬å‡½æ•°
+ *  PHPÄ³Ğ©°æ±¾ÓĞBug£¬²»ÄÜÔÚÍ¬Ò»×÷ÓÃÓòÖĞÍ¬Ê±¶Ásession²¢¸Ä×¢ÏúËü£¬Òò´Ëµ÷ÓÃºóĞèÖ´ĞĞ±¾º¯Êı
  *
  * @return    void
  */
@@ -363,8 +363,8 @@ function ResetVdValue()
 }
 
 
-// è‡ªå®šä¹‰å‡½æ•°æ¥å£
-// è¿™é‡Œä¸»è¦å…¼å®¹æ—©æœŸçš„ç”¨æˆ·æ‰©å±•,v5.7ä¹‹åæˆ‘ä»¬å»ºè®®ä½¿ç”¨å°åŠ©æ‰‹helperè¿›è¡Œæ‰©å±•
+// ×Ô¶¨Òåº¯Êı½Ó¿Ú
+// ÕâÀïÖ÷Òª¼æÈİÔçÆÚµÄÓÃ»§À©Õ¹,v5.7Ö®ºóÎÒÃÇ½¨ÒéÊ¹ÓÃĞ¡ÖúÊÖhelper½øĞĞÀ©Õ¹
 if( file_exists(DEDEINC.'/extend.func.php') )
 {
     require_once(DEDEINC.'/extend.func.php');

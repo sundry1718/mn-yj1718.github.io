@@ -4,9 +4,9 @@ if(!defined('DEDEINC'))
     exit("Request Error!");
 }
 /**
- * å›¾åƒæ ‡ç­¾
+ * Í¼Ïñ±êÇ©
  *
- * @version        $Id:img.lib.php 1 9:33 2010å¹´7æœˆ8æ—¥Z tianya $
+ * @version        $Id:img.lib.php 1 9:33 2010Äê7ÔÂ8ÈÕZ tianya $
  * @package        DedeCMS.Taglib
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -21,7 +21,7 @@ function ch_img($fvalue,&$arcTag,&$refObj,$fname='')
     if(!is_array($dtp->CTags))
     {
         $dtp->Clear();
-        return "æ— å›¾ç‰‡ä¿¡æ¯ï¼";
+        return "ÎÞÍ¼Æ¬ÐÅÏ¢£¡";
     }
     $pagestyle = $cfg_album_style;
     $maxwidth = $cfg_album_width;
@@ -44,7 +44,7 @@ function ch_img($fvalue,&$arcTag,&$refObj,$fname='')
         }
     }
 
-    //éåŽ†å›¾ç‰‡ä¿¡æ¯
+    //±éÀúÍ¼Æ¬ÐÅÏ¢
     $mrow = 0;
     $mcol = 0;
     $images = array();
@@ -109,7 +109,7 @@ function ch_img($fvalue,&$arcTag,&$refObj,$fname='')
             }
             //if($fields['text']=='')
             //{
-                //$fields['text'] = 'å›¾ç‰‡'.($GLOBAL['photoid']+1);
+                //$fields['text'] = 'Í¼Æ¬'.($GLOBAL['photoid']+1);
             //}
             $fields['alttext'] = str_replace("'",'',$fields['text']);
             $fields['pagestyle'] = $pagestyle;
@@ -118,7 +118,7 @@ function ch_img($fvalue,&$arcTag,&$refObj,$fname='')
             $dtp2->LoadSource($innerTmp);
             if($GLOBAL['photoid']>0 && ($GLOBAL['photoid'] % $pagesize)==0)
             {
-                $revalue .= "#p#åˆ†é¡µæ ‡é¢˜#e#";
+                $revalue .= "#p#·ÖÒ³±êÌâ#e#";
             }
             if($pagestyle==1)
             {

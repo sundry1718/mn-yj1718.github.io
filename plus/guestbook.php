@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * ç•™è¨€æ¿
+ * ÁôÑÔ°å
  *
  * @version        $Id: guestbook.php 1 10:09 2010-11-10 tianya $
  * @package        DedeCMS.Site
@@ -12,13 +12,13 @@
 require_once(dirname(__FILE__).'/guestbook/guestbook.inc.php');
 require_once(DEDEINC.'/datalistcp.class.php');
 if(empty($action)) $action = '';
-//ä¿®æ”¹ç•™è¨€
+//ÐÞ¸ÄÁôÑÔ
 if($action=='admin')
 {
     include_once(dirname(__FILE__).'/guestbook/edit.inc.php');
     exit();
 }
-//ä¿å­˜ç•™è¨€
+//±£´æÁôÑÔ
 else if($action=='save')
 {
     if(!empty($_COOKIE['GUEST_BOOK_POS'])) $GUEST_BOOK_POS = $_COOKIE['GUEST_BOOK_POS'];
@@ -28,7 +28,7 @@ else if($action=='save')
     $svali = GetCkVdValue();
     if($validate=='' || $validate!=$svali)
     {
-         ShowMsg("éªŒè¯ç ä¸æ­£ç¡®!","");
+         ShowMsg("ÑéÖ¤Âë²»ÕýÈ·!","");
          exit();
     }
     $ip = GetIP();
@@ -45,11 +45,11 @@ else if($action=='save')
 	$needCheck=intval($needCheck);
 
     if($msg=='' || $uname=='') {
-        showMsg('ä½ çš„å§“åå’Œç•™è¨€å†…å®¹ä¸èƒ½ä¸ºç©º!','-1');
+        showMsg('ÄãµÄÐÕÃûºÍÁôÑÔÄÚÈÝ²»ÄÜÎª¿Õ!','-1');
         exit();
     }
     $title = HtmlReplace( cn_substrR($title,60), 1 );
-    if($title=='') $title = 'æ— æ ‡é¢˜';
+    if($title=='') $title = 'ÎÞ±êÌâ';
     
     if($reid != 0)
     {
@@ -66,22 +66,22 @@ else if($action=='save')
     {
         require_once(DEDEINC."/oxwindow.class.php");
         $msg = "
-        <font color='red'><b>æˆåŠŸå‘é€æˆ–å›žå¤ç•™è¨€ï¼</b></font> &nbsp; <a href='guestbook.php' style='font-size:14px;font-weight:bold'><u>æˆ‘å·²ç»çŸ¥é“äº†ï¼Œç‚¹å‡»æ­¤è¿”å›ž&gt;&gt;</u></a>";
-      $wintitle = "ç•™è¨€å‘å¸ƒæˆåŠŸæç¤º";
-        $wecome_info = "ç•™è¨€å‘å¸ƒæˆåŠŸï¼š";
+        <font color='red'><b>³É¹¦·¢ËÍ»ò»Ø¸´ÁôÑÔ£¡</b></font> &nbsp; <a href='guestbook.php' style='font-size:14px;font-weight:bold'><u>ÎÒÒÑ¾­ÖªµÀÁË£¬µã»÷´Ë·µ»Ø&gt;&gt;</u></a>";
+      $wintitle = "ÁôÑÔ·¢²¼³É¹¦ÌáÊ¾";
+        $wecome_info = "ÁôÑÔ·¢²¼³É¹¦£º";
         $win = new OxWindow();
         $win->Init("","js/blank.js","post");
-        $win->AddTitle("æç¤ºï¼š");
+        $win->AddTitle("ÌáÊ¾£º");
         $win->AddMsgItem("<div style='padding:20px;line-height:300%;font-size:14px'>$msg</div>");
         $winform = $win->GetWindow("hand");
         $win->Display();
     }
     else {
-        ShowMsg('æˆåŠŸå‘é€ä¸€åˆ™ç•™è¨€ï¼Œä½†éœ€å®¡æ ¸åŽæ‰èƒ½æ˜¾ç¤ºï¼','guestbook.php',0,3000);
+        ShowMsg('³É¹¦·¢ËÍÒ»ÔòÁôÑÔ£¬µ«ÐèÉóºËºó²ÅÄÜÏÔÊ¾£¡','guestbook.php',0,3000);
     }
     exit();
 }
-//æ˜¾ç¤ºæ‰€æœ‰ç•™è¨€
+//ÏÔÊ¾ËùÓÐÁôÑÔ
 else
 {
     setcookie('GUEST_BOOK_POS',GetCurUrl(),time()+3600,'/');

@@ -4,7 +4,7 @@ if (!defined('DEDEINC'))
 /**
  * 
  *
- * @version        $Id: php.lib.php1 9:29 2010å¹´7æœˆ6æ—¥Z tianya $
+ * @version        $Id: php.lib.php1 9:29 2010Äê7ÔÂ6ÈÕZ tianya $
  * @package        DedeCMS.Taglib
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -12,10 +12,10 @@ if (!defined('DEDEINC'))
  */
  
  /*>>dede>>
-<name>PHPä»£ç æ ‡ç­¾</name>
-<type>å…¨å±€æ ‡è®°</type>
+<name>PHP´úÂë±êÇ©</name>
+<type>È«¾Ö±ê¼Ç</type>
 <for>V55,V56,V57</for>
-<description>è°ƒç”¨PHPä»£ç </description>
+<description>µ÷ÓÃPHP´úÂë</description>
 <demo>
 {dede:php}
 $a = "dede";

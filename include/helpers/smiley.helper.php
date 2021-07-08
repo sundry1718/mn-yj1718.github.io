@@ -2,7 +2,7 @@
 helper('string');
 require_once(DEDEDATA.'/smiley.data.php');
 		
-//é‚®ç®±æ ¼å¼æ£€æŸ¥
+//ÓÊÏä¸ñÊ½¼ì²é
 if ( ! function_exists('parseSmileys'))
 {
 	function parseSmileys($str = '', $image_url = '', $ubb=true)

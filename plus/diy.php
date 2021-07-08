@@ -1,9 +1,9 @@
 <?php
 /**
  *
- * è‡ªå®šä¹‰è¡¨å•
+ * ×Ô¶¨Òå±íµ¥
  *
- * @version        $Id: diy.php 1 15:38 2010å¹´7æœˆ8æ—¥Z tianya $
+ * @version        $Id: diy.php 1 15:38 2010Äê7ÔÂ8ÈÕZ tianya $
  * @package        DedeCMS.Site
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -17,7 +17,7 @@ $id = isset($id) && is_numeric($id) ? $id : 0;
 
 if(empty($diyid))
 {
-    showMsg('éæ³•æ“ä½œ!', 'javascript:;');
+    showMsg('·Ç·¨²Ù×÷!', 'javascript:;');
     exit();
 }
 
@@ -43,14 +43,14 @@ if($action == 'post')
         {
             if($dede_fieldshash != md5($dede_fields.$cfg_cookie_encode))
             {
-                showMsg('æ•°æ®æ ¡éªŒä¸å¯¹ï¼Œç¨‹åºè¿”å›', '-1');
+                showMsg('Êı¾İĞ£Ñé²»¶Ô£¬³ÌĞò·µ»Ø', '-1');
                 exit();
             }
         }
         $diyform = $dsql->getOne("select * from #@__diyforms where diyid='$diyid' ");
         if(!is_array($diyform))
         {
-            showmsg('è‡ªå®šä¹‰è¡¨å•ä¸å­˜åœ¨', '-1');
+            showmsg('×Ô¶¨Òå±íµ¥²»´æÔÚ', '-1');
             exit();
         }
 
@@ -91,12 +91,12 @@ if($action == 'post')
             {
                 //diy.php?action=view&diyid={$diy->diyid}&id=$id
                 $goto = "diy.php?action=list&diyid={$diy->diyid}";
-                $bkmsg = 'å‘å¸ƒæˆåŠŸï¼Œç°åœ¨è½¬å‘è¡¨å•åˆ—è¡¨é¡µ...';
+                $bkmsg = '·¢²¼³É¹¦£¬ÏÖÔÚ×ªÏò±íµ¥ÁĞ±íÒ³...';
             }
             else
             {
                 $goto = !empty($cfg_cmspath) ? $cfg_cmspath : '/';
-                $bkmsg = 'å‘å¸ƒæˆåŠŸï¼Œè¯·ç­‰å¾…ç®¡ç†å‘˜å¤„ç†...';
+                $bkmsg = '·¢²¼³É¹¦£¬ÇëµÈ´ı¹ÜÀíÔ±´¦Àí...';
             }
             showmsg($bkmsg, $goto);
         }
@@ -109,7 +109,7 @@ else if($action == 'list')
 {
     if(empty($diy->public))
     {
-        showMsg('åå°å…³é—­å‰å°æµè§ˆ', 'javascript:;');
+        showMsg('ºóÌ¨¹Ø±ÕÇ°Ì¨ä¯ÀÀ', 'javascript:;');
         exit();
     }
     include_once DEDEINC.'/datalistcp.class.php';
@@ -131,13 +131,13 @@ else if($action == 'view')
 {
     if(empty($diy->public))
     {
-        showMsg('åå°å…³é—­å‰å°æµè§ˆ' , 'javascript:;');
+        showMsg('ºóÌ¨¹Ø±ÕÇ°Ì¨ä¯ÀÀ' , 'javascript:;');
         exit();
     }
 
     if(empty($id))
     {
-        showMsg('éæ³•æ“ä½œï¼æœªæŒ‡å®šid', 'javascript:;');
+        showMsg('·Ç·¨²Ù×÷£¡Î´Ö¸¶¨id', 'javascript:;');
         exit();
     }
     if($diy->public == 2)
@@ -152,7 +152,7 @@ else if($action == 'view')
 
     if(!is_array($row))
     {
-        showmsg('ä½ è®¿é—®çš„è®°å½•ä¸å­˜åœ¨æˆ–æœªç»å®¡æ ¸', '-1');
+        showmsg('Äã·ÃÎÊµÄ¼ÇÂ¼²»´æÔÚ»òÎ´¾­ÉóºË', '-1');
         exit();
     }
 

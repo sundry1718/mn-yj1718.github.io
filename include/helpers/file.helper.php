@@ -1,6 +1,6 @@
 <?php  if(!defined('DEDEINC')) exit('dedecms');
 /**
- * æ–‡ä»¶å¤„ç†å°åŠ©æ‰‹
+ * ÎÄ¼þ´¦ÀíÐ¡ÖúÊÖ
  *
  * @version        $Id: file.helper.php 1 2010-07-05 11:43:09Z tianya $
  * @package        DedeCMS.Helpers
@@ -12,11 +12,11 @@
 $g_ftpLink = false;
 
 /**
- *  ä½¿ç”¨FTPæ–¹æ³•åˆ›å»ºæ–‡ä»¶å¤¹ç›®å½•
+ *  Ê¹ÓÃFTP·½·¨´´½¨ÎÄ¼þ¼ÐÄ¿Â¼
  *
- * @param     string  $truepath  çœŸå®žç›®æ ‡åœ°å€
- * @param     string  $mmode  åˆ›å»ºæ¨¡å¼
- * @param     string  $isMkdir  æ˜¯å¦åˆ›å»ºç›®å½•
+ * @param     string  $truepath  ÕæÊµÄ¿±êµØÖ·
+ * @param     string  $mmode  ´´½¨Ä£Ê½
+ * @param     string  $isMkdir  ÊÇ·ñ´´½¨Ä¿Â¼
  * @return    bool
  */
 if ( ! function_exists('FtpMkdir'))
@@ -36,10 +36,10 @@ if ( ! function_exists('FtpMkdir'))
 }
 
 /**
- *  æ”¹å˜ç›®å½•æ¨¡å¼
+ *  ¸Ä±äÄ¿Â¼Ä£Ê½
  *
- * @param     string  $truepath  çœŸå®žåœ°å€
- * @param     string  $mmode   æ¨¡å¼
+ * @param     string  $truepath  ÕæÊµµØÖ·
+ * @param     string  $mmode   Ä£Ê½
  * @return    bool
  */
 if ( ! function_exists('FtpChmod'))
@@ -52,7 +52,7 @@ if ( ! function_exists('FtpChmod'))
 
 
 /**
- *  æ‰“å¼€FTPé“¾æŽ¥,æ‰“å¼€ä¹‹å‰ç¡®ä¿å·²ç»è®¾ç½®å¥½äº†FTPç›¸å…³çš„é…ç½®ä¿¡æ¯
+ *  ´ò¿ªFTPÁ´½Ó,´ò¿ªÖ®Ç°È·±£ÒÑ¾­ÉèÖÃºÃÁËFTPÏà¹ØµÄÅäÖÃÐÅÏ¢
  *
  * @return    void
  */
@@ -65,18 +65,18 @@ if ( ! function_exists('OpenFtp'))
         {
             if($cfg_ftp_host=='')
             {
-                echo "ç”±äºŽä½ çš„ç«™ç‚¹çš„PHPé…ç½®å­˜åœ¨é™åˆ¶ï¼Œç¨‹åºå°è¯•ç”¨FTPè¿›è¡Œç›®å½•æ“ä½œï¼Œä½ å¿…é¡»åœ¨åŽå°æŒ‡å®šFTPç›¸å…³çš„å˜é‡ï¼";
+                echo "ÓÉÓÚÄãµÄÕ¾µãµÄPHPÅäÖÃ´æÔÚÏÞÖÆ£¬³ÌÐò³¢ÊÔÓÃFTP½øÐÐÄ¿Â¼²Ù×÷£¬Äã±ØÐëÔÚºóÌ¨Ö¸¶¨FTPÏà¹ØµÄ±äÁ¿£¡";
                 exit();
             }
             $g_ftpLink = ftp_connect($cfg_ftp_host,$cfg_ftp_port);
             if(!$g_ftpLink)
             {
-                echo "è¿žæŽ¥FTPå¤±è´¥ï¼";
+                echo "Á¬½ÓFTPÊ§°Ü£¡";
                 exit();
             }
             if(!ftp_login($g_ftpLink,$cfg_ftp_user,$cfg_ftp_pwd))
             {
-                echo "ç™»é™†FTPå¤±è´¥ï¼";
+                echo "µÇÂ½FTPÊ§°Ü£¡";
                 exit();
             }
         }
@@ -85,7 +85,7 @@ if ( ! function_exists('OpenFtp'))
 
 
 /**
- *  å…³é—­FTPé“¾æŽ¥
+ *  ¹Ø±ÕFTPÁ´½Ó
  *
  * @return    void
  */
@@ -103,10 +103,10 @@ if ( ! function_exists('CloseFtp'))
 
 
 /**
- *  åˆ›å»ºæ‰€æœ‰ç›®å½•
+ *  ´´½¨ËùÓÐÄ¿Â¼
  *
- * @param     string  $truepath  çœŸå®žåœ°å€
- * @param     string  $mmode   æ¨¡å¼
+ * @param     string  $truepath  ÕæÊµµØÖ·
+ * @param     string  $mmode   Ä£Ê½
  * @return    bool
  */
 if ( ! function_exists('MkdirAll'))
@@ -135,11 +135,11 @@ if ( ! function_exists('MkdirAll'))
 }
 
 /**
- *  æ›´æ”¹æ‰€æœ‰æ¨¡å¼
+ *  ¸ü¸ÄËùÓÐÄ£Ê½
  *
  * @access    public
- * @param     string  $truepath  æ–‡ä»¶è·¯å¾„
- * @param     string  $mmode   æ¨¡å¼
+ * @param     string  $truepath  ÎÄ¼þÂ·¾¶
+ * @param     string  $mmode   Ä£Ê½
  * @return    string
  */
 if ( ! function_exists('ChmodAll'))
@@ -160,9 +160,9 @@ if ( ! function_exists('ChmodAll'))
 
 
 /**
- *  åˆ›å»ºç›®å½•
+ *  ´´½¨Ä¿Â¼
  *
- * @param     string  $spath  åˆ›å»ºçš„æ–‡ä»¶å¤¹
+ * @param     string  $spath  ´´½¨µÄÎÄ¼þ¼Ð
  * @return    bool
  */
 if ( ! function_exists('CreateDir'))
@@ -178,12 +178,12 @@ if ( ! function_exists('CreateDir'))
 }
 
 /**
- *  å†™æ–‡ä»¶
+ *  Ð´ÎÄ¼þ
  *
  * @access    public
- * @param     string  $file  æ–‡ä»¶å
- * @param     string  $content  å†…å®¹
- * @param     int  $flag   æ ‡è¯†
+ * @param     string  $file  ÎÄ¼þÃû
+ * @param     string  $content  ÄÚÈÝ
+ * @param     int  $flag   ±êÊ¶
  * @return    string
  */
 if ( ! function_exists('PutFile'))
@@ -213,10 +213,10 @@ if ( ! function_exists('PutFile'))
 }
 
 /**
- *  ç”¨é€’å½’æ–¹å¼åˆ é™¤ç›®å½•
+ *  ÓÃµÝ¹é·½Ê½É¾³ýÄ¿Â¼
  *
  * @access    public
- * @param     string    $file   ç›®å½•æ–‡ä»¶
+ * @param     string    $file   Ä¿Â¼ÎÄ¼þ
  * @return    string
  */
 if ( ! function_exists('RmRecurse'))

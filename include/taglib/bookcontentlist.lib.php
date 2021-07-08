@@ -1,8 +1,8 @@
 <?php   if(!defined('DEDEINC')) exit('Request Error!');
 /**
- * è¿è½½å›¾ä¹¦æœ€æ–°å†…å®¹è°ƒç”¨
+ * Á¬ÔØÍ¼Êé×îĞÂÄÚÈİµ÷ÓÃ
  *
- * @version        $Id: bookcontentlist.lib.php 1 9:29 2010å¹´7æœˆ6æ—¥Z tianya $
+ * @version        $Id: bookcontentlist.lib.php 1 9:29 2010Äê7ÔÂ6ÈÕZ tianya $
  * @package        DedeCMS.Taglib
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -10,10 +10,10 @@
  */
  
 /*>>dede>>
-<name>è¿è½½å†…å®¹</name>
-<type>å…¨å±€æ ‡è®°</type>
+<name>Á¬ÔØÄÚÈİ</name>
+<type>È«¾Ö±ê¼Ç</type>
 <for>V55,V56,V57</for>
-<description>è¿è½½å›¾ä¹¦æœ€æ–°å†…å®¹è°ƒç”¨</description>
+<description>Á¬ÔØÍ¼Êé×îĞÂÄÚÈİµ÷ÓÃ</description>
 <demo>
 {dede:bookcontentlist row='12' booktype='-1' orderby='lastpost' author='' keyword=''}
 <table width="100%" border="0" cellspacing="2" cellpadding="2">
@@ -27,11 +27,11 @@
 {/dede:bookcontentlist} 
 </demo>
 <attributes>
-    <iterm>row:è°ƒç”¨è®°å½•æ¡æ•°</iterm> 
-    <iterm>booktype:å›¾ä¹¦ç±»å‹ï¼Œ0 å›¾ä¹¦ã€1 æ¼«ç”»ï¼Œé»˜è®¤å…¨éƒ¨</iterm>
-    <iterm>orderby:æ’åºç±»å‹ï¼Œå½“æŒ‰æ’åºç±»å‹ä¸º commend è¡¨ç¤ºæ¨èå›¾ä¹¦</iterm>
-    <iterm>author:ä½œè€…</iterm>
-    <iterm>keyword:å…³é”®å­—</iterm>
+    <iterm>row:µ÷ÓÃ¼ÇÂ¼ÌõÊı</iterm> 
+    <iterm>booktype:Í¼ÊéÀàĞÍ£¬0 Í¼Êé¡¢1 Âş»­£¬Ä¬ÈÏÈ«²¿</iterm>
+    <iterm>orderby:ÅÅĞòÀàĞÍ£¬µ±°´ÅÅĞòÀàĞÍÎª commend ±íÊ¾ÍÆ¼öÍ¼Êé</iterm>
+    <iterm>author:×÷Õß</iterm>
+    <iterm>keyword:¹Ø¼ü×Ö</iterm>
 </attributes> 
 >>dede>>*/
  
@@ -45,7 +45,7 @@ function lib_bookcontentlist(&$ctag, &$refObj)
     FillAttsDefault($ctag->CAttribute->Items,$attlist);
     extract($ctag->CAttribute->Items, EXTR_SKIP);
 
-    if( !$dsql->IsTable("{$cfg_dbprefix}story_books") ) return 'æ²¡å®‰è£…è¿è½½æ¨¡å—';
+    if( !$dsql->IsTable("{$cfg_dbprefix}story_books") ) return 'Ã»°²×°Á¬ÔØÄ£¿é';
     
     return lib_booklist($ctag, $refObj, 1);
     

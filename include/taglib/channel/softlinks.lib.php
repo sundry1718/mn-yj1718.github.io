@@ -1,9 +1,9 @@
 <?php
 if(!defined('DEDEINC')) exit('Request Error!');
 /**
- * è½¯ä»¶ç›¸å…³æ ‡ç­¾
+ * Èí¼şÏà¹Ø±êÇ©
  *
- * @version        $Id:softlinks.lib.php 1 9:33 2010å¹´7æœˆ8æ—¥Z tianya $
+ * @version        $Id:softlinks.lib.php 1 9:33 2010Äê7ÔÂ8ÈÕZ tianya $
  * @package        DedeCMS.Taglib
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -11,13 +11,13 @@ if(!defined('DEDEINC')) exit('Request Error!');
  */
 
 /**
- *  è·å–è½¯ä»¶è¿æ¥
+ *  »ñÈ¡Èí¼şÁ¬½Ó
  *
  * @access    public
- * @param     string  $fvalue  é»˜è®¤å€¼
- * @param     object  $ctag  è§£ææ ‡ç­¾
- * @param     object  $refObj  å¼•ç”¨å¯¹è±¡
- * @param     bool  $downloadpage  ä¸‹è½½é¡µé¢
+ * @param     string  $fvalue  Ä¬ÈÏÖµ
+ * @param     object  $ctag  ½âÎö±êÇ©
+ * @param     object  $refObj  ÒıÓÃ¶ÔÏó
+ * @param     bool  $downloadpage  ÏÂÔØÒ³Ãæ
  * @return    string
  */
 function ch_softlinks($fvalue, &$ctag, &$refObj, $fname='', $downloadpage=false)
@@ -39,22 +39,22 @@ function ch_softlinks($fvalue, &$ctag, &$refObj, $fname='', $downloadpage=false)
     }
 }
 
-//è¯»å–æ‰€æœ‰é“¾æ¥åœ°å€
+//¶ÁÈ¡ËùÓĞÁ´½ÓµØÖ·
 function ch_softlinks_all($fvalue, &$ctag, &$refObj, &$row)
 {
     global $dsql, $cfg_phpurl;
     $phppath = $cfg_phpurl;
     $islinktype = false;
-    //$link_type = trim($ctag->GetAtt('type')); (2011.6.29 ä¿®æ­£ä¸‹è½½é“¾æ¥åˆ—è¡¨ byï¼šç»‡æ¢¦çš„é±¼)
+    //$link_type = trim($ctag->GetAtt('type')); (2011.6.29 ĞŞÕıÏÂÔØÁ´½ÓÁĞ±í by£ºÖ¯ÃÎµÄÓã)
     if(!empty($link_type)) $islinktype = true;
     $dtp = new DedeTagParse();
     $dtp->LoadSource($fvalue);
     if( !is_array($dtp->CTags) )
     {
         $dtp->Clear();
-        return "æ— é“¾æ¥ä¿¡æ¯ï¼";
+        return "ÎŞÁ´½ÓĞÅÏ¢£¡";
     }
-    // å»é™¤é“¾æ¥ä¿¡æ¯
+    // È¥³ıÁ´½ÓĞÅÏ¢
     if (!empty($row['sites']))
     {
         $sertype_arr = array();
@@ -79,11 +79,11 @@ function ch_softlinks_all($fvalue, &$ctag, &$refObj, &$row)
             $islocal = trim($ctag->GetAtt('islocal'));
             if (isset($sertype_arr[$serverName]) && $islinktype && $sertype_arr[$serverName] != $link_type) continue;
             
-            //åˆ†ææœ¬åœ°é“¾æ¥
+            //·ÖÎö±¾µØÁ´½Ó
             if(!isset($firstLink) && $islocal==1) $firstLink = $link;
             if($islocal==1 && $row['islocal'] != 1) continue;
     
-            //æ”¯æŒhttp,è¿…é›·ä¸‹è½½,ftp,flashget
+            //Ö§³Öhttp,Ñ¸À×ÏÂÔØ,ftp,flashget
             if(!preg_match("#^http:\/\/|^thunder:\/\/|^ftp:\/\/|^flashget:\/\/#i", $link))
             {
                 $link = $GLOBALS['cfg_mainsite'].$link;
@@ -101,8 +101,8 @@ function ch_softlinks_all($fvalue, &$ctag, &$refObj, &$row)
         }
     }
     $dtp->Clear();
-    //è·å–é•œåƒåŠŸèƒ½çš„åœ°å€
-    //å¿…é¡»è®¾ç½®ä¸ºï¼š[æ ¹æ®æœ¬åœ°åœ°å€å’ŒæœåŠ¡å™¨åˆ—è¡¨è‡ªåŠ¨ç”Ÿæˆ] çš„æƒ…å†µ
+    //»ñÈ¡¾µÏñ¹¦ÄÜµÄµØÖ·
+    //±ØĞëÉèÖÃÎª£º[¸ù¾İ±¾µØµØÖ·ºÍ·şÎñÆ÷ÁĞ±í×Ô¶¯Éú³É] µÄÇé¿ö
     $linkCount = 1;
     if($row['ismoresite']==1 && $row['moresitedo']==1 && trim($row['sites'])!='' && isset($firstLink))
     {

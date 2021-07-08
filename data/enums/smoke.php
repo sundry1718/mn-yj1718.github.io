@@ -1,7 +1,7 @@
 <?php
 global $em_smokes;
 $em_smokes = array();
-$em_smokes['1'] = 'ä¸å¸çƒŸ';
-$em_smokes['2'] = 'å¶å°”å¸ä¸€ç‚¹';
-$em_smokes['3'] = 'æŠ½å¾—å¾ˆå‡¶';
+$em_smokes['1'] = '²»ÎüÑÌ';
+$em_smokes['2'] = 'Å¼¶ûÎüÒ»µã';
+$em_smokes['3'] = '³éµÃºÜÐ×';
 ?>

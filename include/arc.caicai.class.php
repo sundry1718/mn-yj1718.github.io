@@ -1,8 +1,8 @@
 <?php   if(!defined('DEDEINC')) exit("Request Error!");
 /**
- * è¸©è¸©æ–‡æ¡£ç±»
+ * ²È²ÈÎÄµµÀà
  *
- * @version        $Id: arc.caicai.class.php 1 8:59 2010å¹´7æœˆ7æ—¥Z tianya $
+ * @version        $Id: arc.caicai.class.php 1 8:59 2010Äê7ÔÂ7ÈÕZ tianya $
  * @package        DedeCMS.Libraries
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -13,7 +13,7 @@ require_once(DEDEINC."/datalistcp.class.php");
 require_once(DEDEINC."/channelunit.func.php");
 
 /**
- * è¸©è¸©æ–‡æ¡£ç±»
+ * ²È²ÈÎÄµµÀà
  *
  * @package          Caicai
  * @subpackage       DedeCMS.Libraries
@@ -25,7 +25,7 @@ class Caicai extends DataListCP
     var $arcCacheTime = 3600;
 
     /**
-     *  å¯¹configå‚æ•°åŠgetå‚æ•°ç­‰è¿›è¡Œé¢„å¤„ç†
+     *  ¶Ôconfig²ÎÊı¼°get²ÎÊıµÈ½øĞĞÔ¤´¦Àí
      *
      * @access    public
      * @return    void
@@ -47,7 +47,7 @@ class Caicai extends DataListCP
         {
             $this->totalPage = $this->maxPageSize;
         }
-        //é™åˆ¶æœ€å¤§é¡µæ•°
+        //ÏŞÖÆ×î´óÒ³Êı
         if($this->pageNO > $this->totalPage)
         {
             $this->pageNO = $this->totalPage;
@@ -71,7 +71,7 @@ class Caicai extends DataListCP
     }
 
     /**
-     * è·å–å½“å‰é¡µæ•°æ®åˆ—è¡¨
+     * »ñÈ¡µ±Ç°Ò³Êı¾İÁĞ±í
      *
      * @param array $atts
      * @param object $refObj
@@ -103,7 +103,7 @@ class Caicai extends DataListCP
                 $arr['litpic'] = $GLOBALS['cfg_mainsite'].$arr['litpic'];
             }
             $arr['picname'] = $arr['litpic'];
-            $arr['alttitle'] = $arr['userid']." çš„ç©ºé—´";
+            $arr['alttitle'] = $arr['userid']." µÄ¿Õ¼ä";
             $arr['face'] = ($arr['face']!='' ? $arr['face'] : 'images/nopic.gif');
             if($arr['userid']!='')
             {
@@ -122,7 +122,7 @@ class Caicai extends DataListCP
             }
             else
             {
-                $arr['lastpost'] = "<a href='../plus/feedback.php?aid={$arr['id']}'>è¯´å‡ å¥&gt;&gt;</a>";
+                $arr['lastpost'] = "<a href='../plus/feedback.php?aid={$arr['id']}'>Ëµ¼¸¾ä&gt;&gt;</a>";
             }
             $rsArray[$i]  =  $arr;
             if($i >= $this->pageSize)
@@ -136,7 +136,7 @@ class Caicai extends DataListCP
     }
 
     /**
-     * è·å¾—æœ€å·®æˆ–æœ€å¥½çš„è¸©è¸©æ–‡ç« 
+     * »ñµÃ×î²î»ò×îºÃµÄ²È²ÈÎÄÕÂ
      *
      * @param array $atts
      * @param object $refObj
@@ -205,7 +205,7 @@ class Caicai extends DataListCP
         }
         $this->dsql->FreeResult('cai');
         
-        //å†™å…¥ç¼“å­˜
+        //Ğ´Èë»º´æ
         if($needCache && count($ids) > 0)
         {
             $idsstr = join(',', $ids);
@@ -220,7 +220,7 @@ class Caicai extends DataListCP
     }
 
     /**
-     * è·å–é¡¶çº§æ ç›®åˆ—è¡¨
+     * »ñÈ¡¶¥¼¶À¸Ä¿ÁĞ±í
      *
      * @param array $atts
      * @param object $refObj

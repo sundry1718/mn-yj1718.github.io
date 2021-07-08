@@ -1,24 +1,24 @@
 <?php  if(!defined('DEDEINC')) exit('dedecms');
 /**
- * å­—ç¬¦ä¸²å°åŠ©æ‰‹
+ * ×Ö·û´®Ğ¡ÖúÊÖ
  *
- * @version        $Id: string.helper.php 5 14:24 2010å¹´7æœˆ5æ—¥Z tianya $
+ * @version        $Id: string.helper.php 5 14:24 2010Äê7ÔÂ5ÈÕZ tianya $
  * @package        DedeCMS.Helpers
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
  * @link           http://www.dedecms.com
  */
-//æ‹¼éŸ³çš„ç¼“å†²æ•°ç»„
+//Æ´ÒôµÄ»º³åÊı×é
 $pinyins = Array();
 
 /**
- *  ä¸­æ–‡æˆªå–2ï¼Œå•å­—èŠ‚æˆªå–æ¨¡å¼
- *  å¦‚æœæ˜¯requestçš„å†…å®¹ï¼Œå¿…é¡»ä½¿ç”¨è¿™ä¸ªå‡½æ•°
+ *  ÖĞÎÄ½ØÈ¡2£¬µ¥×Ö½Ú½ØÈ¡Ä£Ê½
+ *  Èç¹ûÊÇrequestµÄÄÚÈİ£¬±ØĞëÊ¹ÓÃÕâ¸öº¯Êı
  *
  * @access    public
- * @param     string  $str  éœ€è¦æˆªå–çš„å­—ç¬¦ä¸²
- * @param     int  $slen  æˆªå–çš„é•¿åº¦
- * @param     int  $startdd  å¼€å§‹æ ‡è®°å¤„
+ * @param     string  $str  ĞèÒª½ØÈ¡µÄ×Ö·û´®
+ * @param     int  $slen  ½ØÈ¡µÄ³¤¶È
+ * @param     int  $startdd  ¿ªÊ¼±ê¼Ç´¦
  * @return    string
  */
 if ( ! function_exists('cn_substrR'))
@@ -31,12 +31,12 @@ if ( ! function_exists('cn_substrR'))
 }
 
 /**
- *  ä¸­æ–‡æˆªå–2ï¼Œå•å­—èŠ‚æˆªå–æ¨¡å¼
+ *  ÖĞÎÄ½ØÈ¡2£¬µ¥×Ö½Ú½ØÈ¡Ä£Ê½
  *
  * @access    public
- * @param     string  $str  éœ€è¦æˆªå–çš„å­—ç¬¦ä¸²
- * @param     int  $slen  æˆªå–çš„é•¿åº¦
- * @param     int  $startdd  å¼€å§‹æ ‡è®°å¤„
+ * @param     string  $str  ĞèÒª½ØÈ¡µÄ×Ö·û´®
+ * @param     int  $slen  ½ØÈ¡µÄ³¤¶È
+ * @param     int  $startdd  ¿ªÊ¼±ê¼Ç´¦
  * @return    string
  */
 if ( ! function_exists('cn_substr'))
@@ -102,12 +102,12 @@ if ( ! function_exists('cn_substr'))
 }
 
 /**
- *  utf-8ä¸­æ–‡æˆªå–ï¼Œå•å­—èŠ‚æˆªå–æ¨¡å¼
+ *  utf-8ÖĞÎÄ½ØÈ¡£¬µ¥×Ö½Ú½ØÈ¡Ä£Ê½
  *
  * @access    public
- * @param     string  $str  éœ€è¦æˆªå–çš„å­—ç¬¦ä¸²
- * @param     int  $slen  æˆªå–çš„é•¿åº¦
- * @param     int  $startdd  å¼€å§‹æ ‡è®°å¤„
+ * @param     string  $str  ĞèÒª½ØÈ¡µÄ×Ö·û´®
+ * @param     int  $slen  ½ØÈ¡µÄ³¤¶È
+ * @param     int  $startdd  ¿ªÊ¼±ê¼Ç´¦
  * @return    string
  */
 if ( ! function_exists('cn_substr_utf8'))
@@ -122,7 +122,7 @@ if ( ! function_exists('cn_substr_utf8'))
         $str = '';
         $tstr = '';
 
-        //ä¸ºäº†å…¼å®¹mysql4.1ä»¥ä¸‹ç‰ˆæœ¬,ä¸æ•°æ®åº“varcharä¸€è‡´,è¿™é‡Œä½¿ç”¨æŒ‰å­—èŠ‚æˆªå–
+        //ÎªÁË¼æÈİmysql4.1ÒÔÏÂ°æ±¾,ÓëÊı¾İ¿âvarcharÒ»ÖÂ,ÕâÀïÊ¹ÓÃ°´×Ö½Ú½ØÈ¡
         for($i=0; isset($ar[0][$i]); $i++)
         {
             if(strlen($tstr) < $start)
@@ -146,10 +146,10 @@ if ( ! function_exists('cn_substr_utf8'))
 }
 
 /**
- *  HTMLè½¬æ¢ä¸ºæ–‡æœ¬
+ *  HTML×ª»»ÎªÎÄ±¾
  *
- * @param    string  $str éœ€è¦è½¬æ¢çš„å­—ç¬¦ä¸²
- * @param    string  $r   å¦‚æœ$r=0ç›´æ¥è¿”å›å†…å®¹,å¦åˆ™éœ€è¦ä½¿ç”¨åæ–œçº¿å¼•ç”¨å­—ç¬¦ä¸²
+ * @param    string  $str ĞèÒª×ª»»µÄ×Ö·û´®
+ * @param    string  $r   Èç¹û$r=0Ö±½Ó·µ»ØÄÚÈİ,·ñÔòĞèÒªÊ¹ÓÃ·´Ğ±ÏßÒıÓÃ×Ö·û´®
  * @return   string
  */
 if ( ! function_exists('Html2Text'))
@@ -174,16 +174,16 @@ if ( ! function_exists('Html2Text'))
 
 
 /**
- *  æ–‡æœ¬è½¬HTML
+ *  ÎÄ±¾×ªHTML
  *
- * @param    string  $txt éœ€è¦è½¬æ¢çš„æ–‡æœ¬å†…å®¹
+ * @param    string  $txt ĞèÒª×ª»»µÄÎÄ±¾ÄÚÈİ
  * @return   string
  */
 if ( ! function_exists('Text2Html'))
 {
     function Text2Html($txt)
     {
-        $txt = str_replace("  ", "ã€€", $txt);
+        $txt = str_replace("  ", "¡¡", $txt);
         $txt = str_replace("<", "&lt;", $txt);
         $txt = str_replace(">", "&gt;", $txt);
         $txt = preg_replace("/[\r\n]{1,}/isU", "<br/>\r\n", $txt);
@@ -192,16 +192,16 @@ if ( ! function_exists('Text2Html'))
 }
 
 /**
- *  è·å–åŠè§’å­—ç¬¦
+ *  »ñÈ¡°ë½Ç×Ö·û
  *
- * @param     string  $fnum  æ•°å­—å­—ç¬¦ä¸²
+ * @param     string  $fnum  Êı×Ö×Ö·û´®
  * @return    string
  */
 if ( ! function_exists('GetAlabNum'))
 {
     function GetAlabNum($fnum)
     {
-        $nums = array("ï¼","ï¼‘","ï¼’","ï¼“","ï¼”","ï¼•","ï¼–","ï¼—","ï¼˜","ï¼™");
+        $nums = array("£°","£±","£²","£³","£´","£µ","£¶","£·","£¸","£¹");
         //$fnums = "0123456789";
         $fnums = array("0","1","2","3","4","5","6","7","8","9");
         $fnum = str_replace($nums, $fnums, $fnum);
@@ -215,12 +215,12 @@ if ( ! function_exists('GetAlabNum'))
 }
 
 /**
- *  è·å–æ‹¼éŸ³ä»¥gbkç¼–ç ä¸ºå‡†
+ *  »ñÈ¡Æ´ÒôÒÔgbk±àÂëÎª×¼
  *
  * @access    public
- * @param     string  $str     å­—ç¬¦ä¸²ä¿¡æ¯
- * @param     int     $ishead  æ˜¯å¦å–å¤´å­—æ¯
- * @param     int     $isclose æ˜¯å¦å…³é—­å­—ç¬¦ä¸²èµ„æº
+ * @param     string  $str     ×Ö·û´®ĞÅÏ¢
+ * @param     int     $ishead  ÊÇ·ñÈ¡Í·×ÖÄ¸
+ * @param     int     $isclose ÊÇ·ñ¹Ø±Õ×Ö·û´®×ÊÔ´
  * @return    string
  */
 if ( ! function_exists('GetPinyin'))
@@ -230,7 +230,7 @@ if ( ! function_exists('GetPinyin'))
         global $cfg_soft_lang;
         if(!function_exists('SpGetPinyin'))
         {
-            //å…¨å±€å‡½æ•°ä»…æ˜¯inc_fun_funAdmin.phpæ–‡ä»¶ä¸­å‡½æ•°çš„ä¸€ä¸ªæ˜ å°„
+            //È«¾Öº¯Êı½öÊÇinc_fun_funAdmin.phpÎÄ¼şÖĞº¯ÊıµÄÒ»¸öÓ³Éä
             require_once(DEDEINC."/inc/inc_fun_funAdmin.php");
         }
         if($cfg_soft_lang=='utf-8')
@@ -244,11 +244,11 @@ if ( ! function_exists('GetPinyin'))
     }
 }
 /**
- *  å°†å®ä½“htmlä»£ç è½¬æ¢æˆæ ‡å‡†htmlä»£ç ï¼ˆå…¼å®¹php4ï¼‰
+ *  ½«ÊµÌåhtml´úÂë×ª»»³É±ê×¼html´úÂë£¨¼æÈİphp4£©
  *
  * @access    public
- * @param     string  $str     å­—ç¬¦ä¸²ä¿¡æ¯
- * @param     long    $options  æ›¿æ¢çš„å­—ç¬¦é›†
+ * @param     string  $str     ×Ö·û´®ĞÅÏ¢
+ * @param     long    $options  Ìæ»»µÄ×Ö·û¼¯
  * @return    string
  */
 
@@ -298,7 +298,7 @@ if ( ! function_exists('ubb'))
 		  $Text=preg_replace("/\[pre\](.+?)\[\/pre\]/is","<pre>\\1</pre>",$Text);
           if (version_compare(PHP_VERSION, '5.5.0', '>='))
           {
-              $Text=preg_replace_callback("/\[colorTxt\](.+?)\[\/colorTxt\]/is","color_txt",$Text);
+              $Text=preg_replace_callback("/\[colorTxt\](.+?)\[\/colorTxt\]/is","color_txt('\\1')",$Text);
           } else {
               $Text=preg_replace("/\[colorTxt\](.+?)\[\/colorTxt\]/eis","color_txt('\\1')",$Text);
           }
@@ -306,7 +306,7 @@ if ( ! function_exists('ubb'))
 		  $Text=preg_replace("/\[i\](.+?)\[\/i\]/is","<i>\\1</i>",$Text);
 		  $Text=preg_replace("/\[u\](.+?)\[\/u\]/is","<u>\\1</u>",$Text);
 		  $Text=preg_replace("/\[b\](.+?)\[\/b\]/is","<b>\\1</b>",$Text);
-		  $Text=preg_replace("/\[quote\](.+?)\[\/quote\]/is","<blockquote>å¼•ç”¨:<div style='border:1px solid silver;background:#EFFFDF;color:#393939;padding:5px' >\\1</div></blockquote>", $Text);
+		  $Text=preg_replace("/\[quote\](.+?)\[\/quote\]/is","<blockquote>ÒıÓÃ:<div style='border:1px solid silver;background:#EFFFDF;color:#393939;padding:5px' >\\1</div></blockquote>", $Text);
 		  $Text=preg_replace("/\[sig\](.+?)\[\/sig\]/is","<div style='text-align: left; color: darkgreen; margin-left: 5%'><br><br>--------------------------<br>\\1<br>--------------------------</div>", $Text);
 		  return $Text;
 	}

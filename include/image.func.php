@@ -1,8 +1,8 @@
 <?php   if(!defined('DEDEINC')) exit("Request Error!");
 /**
- * å›¾åƒå¤„ç†ç›¸å…³å‡½æ•°
+ * Í¼Ïñ´¦ÀíÏà¹Øº¯Êý
  *
- * @version        $Id: image.func.php 1 15:59 2010å¹´7æœˆ5æ—¥Z tianya $
+ * @version        $Id: image.func.php 1 15:59 2010Äê7ÔÂ5ÈÕZ tianya $
  * @package        DedeCMS.Helpers
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -10,7 +10,7 @@
  */
  
 include(DEDEDATA.'/mark/inc_photowatermark_config.php');
-//æ£€æµ‹ç”¨æˆ·ç³»ç»Ÿæ”¯æŒçš„å›¾ç‰‡æ ¼å¼
+//¼ì²âÓÃ»§ÏµÍ³Ö§³ÖµÄÍ¼Æ¬¸ñÊ½
 global $cfg_photo_type,$cfg_photo_typenames,$cfg_photo_support;
 $cfg_photo_type['gif'] = FALSE;
 $cfg_photo_type['jpeg'] = FALSE;
@@ -45,5 +45,5 @@ if(function_exists("imagecreatefromwbmp") && function_exists("imagewbmp"))
     $cfg_photo_support .= "WBMP ";
 }
 
-// å¼•å…¥å›¾åƒå¤„ç†å°åŠ©æ‰‹
+// ÒýÈëÍ¼Ïñ´¦ÀíÐ¡ÖúÊÖ
 helper('image');

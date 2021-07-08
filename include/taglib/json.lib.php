@@ -6,18 +6,18 @@ if(!defined('DEDEINC'))
 require_once(dirname(__file__).'/../json.class.php');
 
  /*>>dede>>
-<name>JSONæ•°æ®è°ƒç”¨ç±»</name>
-<type>å…¨å±€æ ‡è®°</type>
+<name>JSONÊı¾İµ÷ÓÃÀà</name>
+<type>È«¾Ö±ê¼Ç</type>
 <for>V57</for>
-<description>è°ƒç”¨æŸä¸ªè¿œç¨‹è¿æ¥çš„jsonæ•°æ®åº“</description>
+<description>µ÷ÓÃÄ³¸öÔ¶³ÌÁ¬½ÓµÄjsonÊı¾İ¿â</description>
 <demo>
 {dede:json url='http://yoursite/json.php' cache=300}
     [field:id/]-[field:title/]<br/>
 {/dede:json}
 </demo>
 <attributes>
-    <iterm>url:jsonæ•°æ®åœ°å€</iterm> 
-    <iterm>cache:ç¼“å†²æ—¶é—´</iterm>
+    <iterm>url:jsonÊı¾İµØÖ·</iterm> 
+    <iterm>cache:»º³åÊ±¼ä</iterm>
 </attributes> 
 >>dede>>*/
 
@@ -82,7 +82,7 @@ function lib_json(&$ctag,&$refObj)
     return $revalue;
 }
 
-// ä¸€ä¸ªç®€å•çš„æ–‡ä»¶ç¼“å­˜ç±»
+// Ò»¸ö¼òµ¥µÄÎÄ¼ş»º´æÀà
 class MiniCache
 {
     var $_cache_path;
@@ -92,7 +92,7 @@ class MiniCache
         $this->_cache_path = DEDEDATA.'/cache/json/';
     }
 
-    // è·å–ç¼“å†²
+    // »ñÈ¡»º³å
 	function Get($id)
 	{
 		if ( ! file_exists($this->_cache_path.$id))
@@ -112,13 +112,13 @@ class MiniCache
 		return $data['data'];
 	}
     
-    // æ¸…é™¤ç¼“å­˜
+    // Çå³ı»º´æ
     function Clean()
 	{
 		return $this->_DeleteFiles($this->_cache_path);
 	}
     
-    // ä¿å­˜ç¼“å†²
+    // ±£´æ»º³å
 	function Save($id, $data, $ttl = 60)
 	{		
 		$contents = array(
@@ -136,7 +136,7 @@ class MiniCache
 		return FALSE;
 	}
     
-    // åˆ é™¤ç¼“å†²
+    // É¾³ı»º³å
     function Delete($id)
 	{
 		return unlink($this->_cache_path.$id);

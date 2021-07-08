@@ -1,9 +1,9 @@
 <?php
 /**
- * å¤„ç†å¤–éƒ¨è¯·æ±‚å˜é‡çš„ç±»
+ * ´¦ÀíÍâ²¿ÇëÇó±äÁ¿µÄÀà
  *
- * ç¦æ­¢æ­¤æ–‡ä»¶ä»¥å¤–çš„æ–‡ä»¶å‡ºç° $_POSTã€$_GETã€$_FILESå˜é‡åŠevalå‡½æ•°(ç”¨request::myeval )
- * ä»¥ä¾¿äºå¯¹ä¸»è¦é»‘å®¢æ”»å‡»è¿›è¡Œé˜²èŒƒ
+ * ½ûÖ¹´ËÎÄ¼şÒÔÍâµÄÎÄ¼ş³öÏÖ $_POST¡¢$_GET¡¢$_FILES±äÁ¿¼°evalº¯Êı(ÓÃrequest::myeval )
+ * ÒÔ±ãÓÚ¶ÔÖ÷ÒªºÚ¿Í¹¥»÷½øĞĞ·À·¶
  *
  * @version        $Id: request.class.php 1 12:03 2010-10-28 tianya $
  * @package        DedeCMS.Libraries
@@ -11,10 +11,10 @@
  * @license        http://help.dedecms.com/usersguide/license.html
  * @link           http://www.dedecms.com
  */
-// REQUESTå¸¸é‡,ç”¨äºåˆ¤æ–­æ˜¯å¦å¯ç”¨REQUESTç±»
+// REQUEST³£Á¿,ÓÃÓÚÅĞ¶ÏÊÇ·ñÆôÓÃREQUESTÀà
 define('DEDEREQUEST', TRUE);
 
-//ç®€åŒ– cls_request::item() å‡½æ•°
+//¼ò»¯ cls_request::item() º¯Êı
 function Request($key, $df='')
 {
     $GLOBALS['request'] = isset($GLOBALS['request'])? $GLOBALS['request'] : new Request;
@@ -28,36 +28,36 @@ class Request
 {
 
     var $isinit = false;
-    //ç”¨æˆ·çš„cookie
+    //ÓÃ»§µÄcookie
     var $cookies = array();
 
-    //æŠŠGETã€POSTçš„å˜é‡åˆå¹¶ä¸€å—ï¼Œç›¸å½“äº _REQUEST
+    //°ÑGET¡¢POSTµÄ±äÁ¿ºÏ²¢Ò»¿é£¬Ïàµ±ÓÚ _REQUEST
     var $forms = array();
     
-    //_GET å˜é‡
+    //_GET ±äÁ¿
     var $gets = array();
 
-    //_POST å˜é‡
+    //_POST ±äÁ¿
     var $posts = array();
 
-    //ç”¨æˆ·çš„è¯·æ±‚æ¨¡å¼ GET æˆ– POST
+    //ÓÃ»§µÄÇëÇóÄ£Ê½ GET »ò POST
     var $request_type = 'GET';
 
-    //æ–‡ä»¶å˜é‡
+    //ÎÄ¼ş±äÁ¿
     var $files = array();
     
-    //ä¸¥ç¦ä¿å­˜çš„æ–‡ä»¶å
+    //ÑÏ½û±£´æµÄÎÄ¼şÃû
     var $filter_filename = '/\.(php|pl|sh|js)$/i';
 
    /**
-    * åˆå§‹åŒ–ç”¨æˆ·è¯·æ±‚
-    * å¯¹äº postã€get çš„æ•°æ®ï¼Œä¼šè½¬åˆ° selfforms æ•°ç»„ï¼Œ å¹¶åˆ é™¤åŸæ¥æ•°ç»„
-    * å¯¹äº cookie çš„æ•°æ®ï¼Œä¼šè½¬åˆ° cookies æ•°ç»„ï¼Œä½†ä¸åˆ é™¤åŸæ¥æ•°ç»„
+    * ³õÊ¼»¯ÓÃ»§ÇëÇó
+    * ¶ÔÓÚ post¡¢get µÄÊı¾İ£¬»á×ªµ½ selfforms Êı×é£¬ ²¢É¾³ıÔ­À´Êı×é
+    * ¶ÔÓÚ cookie µÄÊı¾İ£¬»á×ªµ½ cookies Êı×é£¬µ«²»É¾³ıÔ­À´Êı×é
     */
     function Init()
     {
         global $_POST,$_GET;
-        //å¤„ç†postã€get
+        //´¦Àípost¡¢get
         $formarr = array('p' => $_POST, 'g' => $_GET);
         foreach($formarr as $_k => $_r)
         {
@@ -83,7 +83,7 @@ class Request
         unset($_GET);
         unset($_REQUEST);
         
-        //å¤„ç†cookie
+        //´¦Àícookie
         if( count($_COOKIE) > 0 )
         {
             foreach($_COOKIE as $k=>$v)
@@ -97,19 +97,19 @@ class Request
         }
         //unset($_POST, $_GET);
         
-        //ä¸Šä¼ çš„æ–‡ä»¶å¤„ç†
+        //ÉÏ´«µÄÎÄ¼ş´¦Àí
         if( isset($_FILES) && count($_FILES) > 0 )
         {
             $this->FilterFiles($_FILES);
         }
         $this->isinit = TRUE;
         
-        //globalå˜é‡
+        //global±äÁ¿
         //self::$forms['_global'] = $GLOBALS;
     }
 
    /**
-    * æŠŠ eval é‡å‘½åä¸º myeval
+    * °Ñ eval ÖØÃüÃûÎª myeval
     */
     function MyEval( $phpcode )
     {
@@ -117,7 +117,7 @@ class Request
     }
 
    /**
-    * è·å¾—æŒ‡å®šè¡¨å•å€¼
+    * »ñµÃÖ¸¶¨±íµ¥Öµ
     */
     function Item( $formname, $defaultvalue = '' )
     {
@@ -125,7 +125,7 @@ class Request
     }
 
    /**
-    * è·å¾—æŒ‡å®šä¸´æ—¶æ–‡ä»¶åå€¼
+    * »ñµÃÖ¸¶¨ÁÙÊ±ÎÄ¼şÃûÖµ
     */
     function Upfile( $formname, $defaultvalue = '' )
     {
@@ -133,7 +133,7 @@ class Request
     }
 
    /**
-    * è¿‡æ»¤æ–‡ä»¶ç›¸å…³
+    * ¹ıÂËÎÄ¼şÏà¹Ø
     */
     function FilterFiles( &$files )
     {
@@ -145,7 +145,7 @@ class Request
     }
 
    /**
-    * ç§»åŠ¨ä¸Šä¼ çš„æ–‡ä»¶
+    * ÒÆ¶¯ÉÏ´«µÄÎÄ¼ş
     */
     function MoveUploadFile( $formname, $filename, $filetype = '' )
     {
@@ -163,7 +163,7 @@ class Request
     }
 
    /**
-    * è·å¾—æ–‡ä»¶çš„æ‰©å±•å
+    * »ñµÃÎÄ¼şµÄÀ©Õ¹Ãû
     */
     function GetShortname( $formname )
     {
@@ -202,7 +202,7 @@ class Request
     }
 
    /**
-    * è·å¾—æŒ‡å®šæ–‡ä»¶è¡¨å•çš„æ–‡ä»¶è¯¦ç»†ä¿¡æ¯
+    * »ñµÃÖ¸¶¨ÎÄ¼ş±íµ¥µÄÎÄ¼şÏêÏ¸ĞÅÏ¢
     */
     function GetFileInfo( $formname, $item = '' )
     {
@@ -224,7 +224,7 @@ class Request
     }
 
    /**
-    * åˆ¤æ–­æ˜¯å¦å­˜åœ¨ä¸Šä¼ çš„æ–‡ä»¶
+    * ÅĞ¶ÏÊÇ·ñ´æÔÚÉÏ´«µÄÎÄ¼ş
     */
     function IsUploadFile( $formname )
     {
@@ -239,7 +239,7 @@ class Request
     }
     
     /**
-     * æ£€æŸ¥æ–‡ä»¶åç¼€æ˜¯å¦ä¸ºæŒ‡å®šå€¼
+     * ¼ì²éÎÄ¼şºó×ºÊÇ·ñÎªÖ¸¶¨Öµ
      *
      * @param  string  $subfix
      * @return boolean

@@ -1,7 +1,7 @@
 <?php
 if(!defined('DEDEINC')) exit('Request Error!');
 /**
- * æ”¯ä»˜å®æ¥å£ç±»
+ * Ö§¸¶±¦½Ó¿ÚÀà
  */
 class Alipay
 {
@@ -9,7 +9,7 @@ class Alipay
     var $mid;
     var $return_url = "/plus/carbuyaction.php?dopost=return";
     /**
-     * æ„é€ å‡½æ•°
+     * ¹¹Ôìº¯Êı
      *
      * @access  public
      * @param
@@ -28,11 +28,11 @@ class Alipay
     }
     
     /**
-     *  è®¾å®šæ¥å£ä¼šé€åœ°å€
+     *  Éè¶¨½Ó¿Ú»áËÍµØÖ·
      *
-     *  ä¾‹å¦‚: $this->SetReturnUrl($cfg_basehost."/tuangou/control/index.php?ac=pay&orderid=".$p2_Order)
+     *  ÀıÈç: $this->SetReturnUrl($cfg_basehost."/tuangou/control/index.php?ac=pay&orderid=".$p2_Order)
      *
-     * @param     string  $returnurl  ä¼šé€åœ°å€
+     * @param     string  $returnurl  »áËÍµØÖ·
      * @return    void
      */
     function SetReturnUrl($returnurl='')
@@ -44,15 +44,15 @@ class Alipay
     }
 
     /**
-    * ç”Ÿæˆæ”¯ä»˜ä»£ç 
-    * @param   array   $order      è®¢å•ä¿¡æ¯
-    * @param   array   $payment    æ”¯ä»˜æ–¹å¼ä¿¡æ¯
+    * Éú³ÉÖ§¸¶´úÂë
+    * @param   array   $order      ¶©µ¥ĞÅÏ¢
+    * @param   array   $payment    Ö§¸¶·½Ê½ĞÅÏ¢
     */
     function GetCode($order, $payment)
     {
         global $cfg_basehost,$cfg_cmspath,$cfg_soft_lang;
         $charset = $cfg_soft_lang;
-        //å¯¹äºäºŒçº§ç›®å½•çš„å¤„ç†
+        //¶ÔÓÚ¶ş¼¶Ä¿Â¼µÄ´¦Àí
         if(!empty($cfg_cmspath)) $cfg_basehost = $cfg_basehost.'/'.$cfg_cmspath;
 
         $real_method = $payment['alipay_pay_method'];
@@ -77,17 +77,17 @@ class Alipay
           '_input_charset'    => $charset,
           'notify_url'        => $cfg_basehost.$this->return_url."&code=".$payment['code'],
           'return_url'        => $cfg_basehost.$this->return_url."&code=".$payment['code'],
-          /* ä¸šåŠ¡å‚æ•° */
-          'subject'           => "æ”¯ä»˜è®¢å•å·:".$order['out_trade_no'],
+          /* ÒµÎñ²ÎÊı */
+          'subject'           => "Ö§¸¶¶©µ¥ºÅ:".$order['out_trade_no'],
           'out_trade_no'      => $order['out_trade_no'],
           'price'             => $order['price'],
           'quantity'          => 1,
           'payment_type'      => 1,
-          /* ç‰©æµå‚æ•° */
+          /* ÎïÁ÷²ÎÊı */
           'logistics_type'    => 'EXPRESS',
           'logistics_fee'     => 0,
           'logistics_payment' => 'BUYER_PAY_AFTER_RECEIVE',
-          /* ä¹°å–åŒæ–¹ä¿¡æ¯ */
+          /* ÂòÂôË«·½ĞÅÏ¢ */
           'seller_email'      => $payment['alipay_account']
         );
 
@@ -106,9 +106,9 @@ class Alipay
         $param = substr($param, 0, -1);
         $sign  = substr($sign, 0, -1). $payment['alipay_key'];
 
-        $button = '<div style="text-align:center"><input type="button" onclick="window.open(\'https://www.alipay.com/cooperate/gateway.do?'.$param. '&sign='.md5($sign).'&sign_type=MD5\')" value="ç«‹å³ä½¿ç”¨alipayæ”¯ä»˜å®æ”¯ä»˜"/></div>';
+        $button = '<div style="text-align:center"><input type="button" onclick="window.open(\'https://www.alipay.com/cooperate/gateway.do?'.$param. '&sign='.md5($sign).'&sign_type=MD5\')" value="Á¢¼´Ê¹ÓÃalipayÖ§¸¶±¦Ö§¸¶"/></div>';
 
-        /* æ¸…ç©ºè´­ç‰©è½¦ */
+        /* Çå¿Õ¹ºÎï³µ */
         require_once DEDEINC.'/shopcar.class.php';
         $cart     = new MemberShops();
         $cart->clearItem();
@@ -118,7 +118,7 @@ class Alipay
 
     
     /**
-    * å“åº”æ“ä½œ
+    * ÏìÓ¦²Ù×÷
     */
     function respond()
     {
@@ -129,37 +129,37 @@ class Alipay
                 $_GET[$key] = $data;
             }
         }
-        /* å¼•å…¥é…ç½®æ–‡ä»¶ */
+        /* ÒıÈëÅäÖÃÎÄ¼ş */
 		$code = preg_replace( "#[^0-9a-z-]#i", "", $_GET['code'] );
 		require_once DEDEDATA.'/payment/'.$code.'.php';
 		
-        /* å–å¾—è®¢å•å· */
+        /* È¡µÃ¶©µ¥ºÅ */
         $order_sn = trim(addslashes($_GET['out_trade_no']));
-        /*åˆ¤æ–­è®¢å•ç±»å‹*/
+        /*ÅĞ¶Ï¶©µ¥ÀàĞÍ*/
         if(preg_match ("/S-P[0-9]+RN[0-9]/",$order_sn)) {
-            //æ£€æŸ¥æ”¯ä»˜é‡‘é¢æ˜¯å¦ç›¸ç¬¦
+            //¼ì²éÖ§¸¶½ğ¶îÊÇ·ñÏà·û
             $row = $this->dsql->GetOne("SELECT * FROM #@__shops_orders WHERE oid = '{$order_sn}'");
             if ($row['priceCount'] != $_GET['total_fee'])
             {
-                return $msg = "æ”¯ä»˜å¤±è´¥ï¼Œæ”¯ä»˜é‡‘é¢ä¸å•†å“æ€»ä»·ä¸ç›¸ç¬¦!";
+                return $msg = "Ö§¸¶Ê§°Ü£¬Ö§¸¶½ğ¶îÓëÉÌÆ·×Ü¼Û²»Ïà·û!";
             }
             $this->mid = $row['userid'];
             $ordertype="goods";
         }else if (preg_match ("/M[0-9]+T[0-9]+RN[0-9]/", $order_sn)){
             $row = $this->dsql->GetOne("SELECT * FROM #@__member_operation WHERE buyid = '{$order_sn}'");
-            //è·å–è®¢å•ä¿¡æ¯ï¼Œæ£€æŸ¥è®¢å•çš„æœ‰æ•ˆæ€§
-            if(!is_array($row)||$row['sta']==2) return $msg = "æ‚¨çš„è®¢å•å·²ç»å¤„ç†ï¼Œè¯·ä¸è¦é‡å¤æäº¤!";
-            elseif($row['money'] != $_GET['total_fee']) return $msg = "æ”¯ä»˜å¤±è´¥ï¼Œæ”¯ä»˜é‡‘é¢ä¸å•†å“æ€»ä»·ä¸ç›¸ç¬¦!";
+            //»ñÈ¡¶©µ¥ĞÅÏ¢£¬¼ì²é¶©µ¥µÄÓĞĞ§ĞÔ
+            if(!is_array($row)||$row['sta']==2) return $msg = "ÄúµÄ¶©µ¥ÒÑ¾­´¦Àí£¬Çë²»ÒªÖØ¸´Ìá½»!";
+            elseif($row['money'] != $_GET['total_fee']) return $msg = "Ö§¸¶Ê§°Ü£¬Ö§¸¶½ğ¶îÓëÉÌÆ·×Ü¼Û²»Ïà·û!";
             $ordertype = "member";
             $product =    $row['product'];
             $pname= $row['pname'];
             $pid=$row['pid'];
             $this->mid = $row['mid'];
         } else {    
-            return $msg = "æ”¯ä»˜å¤±è´¥ï¼Œæ‚¨çš„è®¢å•å·æœ‰é—®é¢˜ï¼";
+            return $msg = "Ö§¸¶Ê§°Ü£¬ÄúµÄ¶©µ¥ºÅÓĞÎÊÌâ£¡";
         }
 
-        /* æ£€æŸ¥æ•°å­—ç­¾åæ˜¯å¦æ­£ç¡® */
+        /* ¼ì²éÊı×ÖÇ©ÃûÊÇ·ñÕıÈ· */
         ksort($_GET);
         reset($_GET);
 
@@ -176,84 +176,84 @@ class Alipay
 
         if (md5($sign) != $_GET['sign'])
         {
-            return $msg = "æ”¯ä»˜å¤±è´¥!";
+            return $msg = "Ö§¸¶Ê§°Ü!";
         }
 
         if($_GET['trade_status'] == 'TRADE_FINISHED' || $_GET['trade_status'] == 'WAIT_SELLER_SEND_GOODS' || $_GET['trade_status'] == 'TRADE_SUCCESS')
         {
             if($ordertype=="goods"){ 
-                if($this->success_db($order_sn))  return $msg = "æ”¯ä»˜æˆåŠŸ!<br> <a href='/'>è¿”å›ä¸»é¡µ</a> <a href='/member'>ä¼šå‘˜ä¸­å¿ƒ</a>";
-                else  return $msg = "æ”¯ä»˜å¤±è´¥ï¼<br> <a href='/'>è¿”å›ä¸»é¡µ</a> <a href='/member'>ä¼šå‘˜ä¸­å¿ƒ</a>";
+                if($this->success_db($order_sn))  return $msg = "Ö§¸¶³É¹¦!<br> <a href='/'>·µ»ØÖ÷Ò³</a> <a href='/member'>»áÔ±ÖĞĞÄ</a>";
+                else  return $msg = "Ö§¸¶Ê§°Ü£¡<br> <a href='/'>·µ»ØÖ÷Ò³</a> <a href='/member'>»áÔ±ÖĞĞÄ</a>";
             } else if ( $ordertype=="member" ) {
                 $oldinf = $this->success_mem($order_sn,$pname,$product,$pid);
-                return $msg = "<font color='red'>".$oldinf."</font><br> <a href='/'>è¿”å›ä¸»é¡µ</a> <a href='/member'>ä¼šå‘˜ä¸­å¿ƒ</a>";
+                return $msg = "<font color='red'>".$oldinf."</font><br> <a href='/'>·µ»ØÖ÷Ò³</a> <a href='/member'>»áÔ±ÖĞĞÄ</a>";
             }
         } else {
             $this->log_result ("verify_failed");
-            return $msg = "æ”¯ä»˜å¤±è´¥ï¼<br> <a href='/'>è¿”å›ä¸»é¡µ</a> <a href='/member'>ä¼šå‘˜ä¸­å¿ƒ</a>";
+            return $msg = "Ö§¸¶Ê§°Ü£¡<br> <a href='/'>·µ»ØÖ÷Ò³</a> <a href='/member'>»áÔ±ÖĞĞÄ</a>";
         }
     }
 
-    /*å¤„ç†ç‰©å“äº¤æ˜“*/
+    /*´¦ÀíÎïÆ·½»Ò×*/
     function success_db($order_sn)
     {
-        //è·å–è®¢å•ä¿¡æ¯ï¼Œæ£€æŸ¥è®¢å•çš„æœ‰æ•ˆæ€§
+        //»ñÈ¡¶©µ¥ĞÅÏ¢£¬¼ì²é¶©µ¥µÄÓĞĞ§ĞÔ
         $row = $this->dsql->GetOne("SELECT state FROM #@__shops_orders WHERE oid='$order_sn' ");
         if($row['state'] > 0)
         {
             return TRUE;
         }    
-        /* æ”¹å˜è®¢å•çŠ¶æ€_æ”¯ä»˜æˆåŠŸ */
+        /* ¸Ä±ä¶©µ¥×´Ì¬_Ö§¸¶³É¹¦ */
         $sql = "UPDATE `#@__shops_orders` SET `state`='1' WHERE `oid`='$order_sn' AND `userid`='".$this->mid."'";
         if($this->dsql->ExecuteNoneQuery($sql))
         {
-            $this->log_result("verify_success,è®¢å•å·:".$order_sn); //å°†éªŒè¯ç»“æœå­˜å…¥æ–‡ä»¶
+            $this->log_result("verify_success,¶©µ¥ºÅ:".$order_sn); //½«ÑéÖ¤½á¹û´æÈëÎÄ¼ş
             return TRUE;
         } else {
-            $this->log_result ("verify_failed,è®¢å•å·:".$order_sn);//å°†éªŒè¯ç»“æœå­˜å…¥æ–‡ä»¶
+            $this->log_result ("verify_failed,¶©µ¥ºÅ:".$order_sn);//½«ÑéÖ¤½á¹û´æÈëÎÄ¼ş
             return FALSE;
         }
     }
 
-    /*å¤„ç†ç‚¹å¡ï¼Œä¼šå‘˜å‡çº§*/
+    /*´¦Àíµã¿¨£¬»áÔ±Éı¼¶*/
     function success_mem($order_sn,$pname,$product,$pid)
     {
-        //æ›´æ–°äº¤æ˜“çŠ¶æ€ä¸ºå·²ä»˜æ¬¾
+        //¸üĞÂ½»Ò××´Ì¬ÎªÒÑ¸¶¿î
         $sql = "UPDATE `#@__member_operation` SET `sta`='1' WHERE `buyid`='$order_sn' AND `mid`='".$this->mid."'";
         $this->dsql->ExecuteNoneQuery($sql);
 
-        /* æ”¹å˜ç‚¹å¡è®¢å•çŠ¶æ€_æ”¯ä»˜æˆåŠŸ */
+        /* ¸Ä±äµã¿¨¶©µ¥×´Ì¬_Ö§¸¶³É¹¦ */
         if($product=="card")
         {
             $row = $this->dsql->GetOne("SELECT cardid FROM #@__moneycard_record WHERE ctid='$pid' AND isexp='0' ");;
-            //å¦‚æœæ‰¾ä¸åˆ°æŸç§ç±»å‹çš„å¡ï¼Œç›´æ¥ä¸ºç”¨æˆ·å¢åŠ é‡‘å¸
+            //Èç¹ûÕÒ²»µ½Ä³ÖÖÀàĞÍµÄ¿¨£¬Ö±½ÓÎªÓÃ»§Ôö¼Ó½ğ±Ò
             if(!is_array($row))
             {
                 $nrow = $this->dsql->GetOne("SELECT num FROM #@__moneycard_type WHERE pname = '{$pname}'");
                 $dnum = $nrow['num'];
                 $sql1 = "UPDATE `#@__member` SET `money`=money+'{$nrow['num']}' WHERE `mid`='".$this->mid."'";
-                $oldinf ="å·²ç»å……å€¼äº†".$nrow['num']."é‡‘å¸åˆ°æ‚¨çš„å¸å·ï¼";
+                $oldinf ="ÒÑ¾­³äÖµÁË".$nrow['num']."½ğ±Òµ½ÄúµÄÕÊºÅ£¡";
             } else {
                 $cardid = $row['cardid'];
                 $sql1=" UPDATE #@__moneycard_record SET uid='".$this->mid."',isexp='1',utime='".time()."' WHERE cardid='$cardid' ";
-                $oldinf='æ‚¨çš„å……å€¼å¯†ç æ˜¯ï¼š<font color="green">'.$cardid.'</font>';
+                $oldinf='ÄúµÄ³äÖµÃÜÂëÊÇ£º<font color="green">'.$cardid.'</font>';
             }
-            //æ›´æ–°äº¤æ˜“çŠ¶æ€ä¸ºå·²å…³é—­
+            //¸üĞÂ½»Ò××´Ì¬ÎªÒÑ¹Ø±Õ
             $sql2=" UPDATE #@__member_operation SET sta=2,oldinfo='$oldinf' WHERE buyid='$order_sn'";
             if($this->dsql->ExecuteNoneQuery($sql1) && $this->dsql->ExecuteNoneQuery($sql2))
             {
-                $this->log_result("verify_success,è®¢å•å·:".$order_sn); //å°†éªŒè¯ç»“æœå­˜å…¥æ–‡ä»¶
+                $this->log_result("verify_success,¶©µ¥ºÅ:".$order_sn); //½«ÑéÖ¤½á¹û´æÈëÎÄ¼ş
                 return $oldinf;
             } else {
-                $this->log_result ("verify_failed,è®¢å•å·:".$order_sn);//å°†éªŒè¯ç»“æœå­˜å…¥æ–‡ä»¶
-                return "æ”¯ä»˜å¤±è´¥ï¼";
+                $this->log_result ("verify_failed,¶©µ¥ºÅ:".$order_sn);//½«ÑéÖ¤½á¹û´æÈëÎÄ¼ş
+                return "Ö§¸¶Ê§°Ü£¡";
             }
-        /* æ”¹å˜ä¼šå‘˜è®¢å•çŠ¶æ€_æ”¯ä»˜æˆåŠŸ */
+        /* ¸Ä±ä»áÔ±¶©µ¥×´Ì¬_Ö§¸¶³É¹¦ */
         } else if ( $product=="member" ){
             $row = $this->dsql->GetOne("SELECT rank,exptime FROM #@__member_type WHERE aid='$pid' ");
             $rank = $row['rank'];
             $exptime = $row['exptime'];
-            /*è®¡ç®—åŸæ¥å‡çº§å‰©ä½™çš„å¤©æ•°*/
+            /*¼ÆËãÔ­À´Éı¼¶Ê£ÓàµÄÌìÊı*/
             $rs = $this->dsql->GetOne("SELECT uptime,exptime FROM #@__member WHERE mid='".$this->mid."'");
             if($rs['uptime']!=0 && $rs['exptime']!=0 ) 
             {
@@ -261,21 +261,21 @@ class Alipay
                 $mhasDay = $rs['exptime'] - ceil(($nowtime - $rs['uptime'])/3600/24) + 1;
                 $mhasDay=($mhasDay>0)? $mhasDay : 0;
             }
-            //è·å–ä¼šå‘˜é»˜è®¤çº§åˆ«çš„é‡‘å¸å’Œç§¯åˆ†æ•°
+            //»ñÈ¡»áÔ±Ä¬ÈÏ¼¶±ğµÄ½ğ±ÒºÍ»ı·ÖÊı
             $memrank = $this->dsql->GetOne("SELECT money,scores FROM #@__arcrank WHERE rank='$rank'");
-            //æ›´æ–°ä¼šå‘˜ä¿¡æ¯
+            //¸üĞÂ»áÔ±ĞÅÏ¢
             $sql1 =  " UPDATE #@__member SET rank='$rank',money=money+'{$memrank['money']}',
                        scores=scores+'{$memrank['scores']}',exptime='$exptime'+'$mhasDay',uptime='".time()."' 
                        WHERE mid='".$this->mid."'";
-            //æ›´æ–°äº¤æ˜“çŠ¶æ€ä¸ºå·²å…³é—­
-            $sql2=" UPDATE #@__member_operation SET sta='2',oldinfo='ä¼šå‘˜å‡çº§æˆåŠŸ!' WHERE buyid='$order_sn' ";
+            //¸üĞÂ½»Ò××´Ì¬ÎªÒÑ¹Ø±Õ
+            $sql2=" UPDATE #@__member_operation SET sta='2',oldinfo='»áÔ±Éı¼¶³É¹¦!' WHERE buyid='$order_sn' ";
             if($this->dsql->ExecuteNoneQuery($sql1) && $this->dsql->ExecuteNoneQuery($sql2))
             {
-                $this->log_result("verify_success,è®¢å•å·:".$order_sn); //å°†éªŒè¯ç»“æœå­˜å…¥æ–‡ä»¶
-                return "ä¼šå‘˜å‡çº§æˆåŠŸï¼";
+                $this->log_result("verify_success,¶©µ¥ºÅ:".$order_sn); //½«ÑéÖ¤½á¹û´æÈëÎÄ¼ş
+                return "»áÔ±Éı¼¶³É¹¦£¡";
             } else {
-                $this->log_result ("verify_failed,è®¢å•å·:".$order_sn);//å°†éªŒè¯ç»“æœå­˜å…¥æ–‡ä»¶
-                return "ä¼šå‘˜å‡çº§å¤±è´¥ï¼";
+                $this->log_result ("verify_failed,¶©µ¥ºÅ:".$order_sn);//½«ÑéÖ¤½á¹û´æÈëÎÄ¼ş
+                return "»áÔ±Éı¼¶Ê§°Ü£¡";
             }
         }    
     }
@@ -285,7 +285,7 @@ class Alipay
         global $cfg_cmspath;
         $fp = fopen(dirname(__FILE__)."/../../data/payment/log.txt","a");
         flock($fp, LOCK_EX) ;
-        fwrite($fp,$word.",æ‰§è¡Œæ—¥æœŸ:".strftime("%Y-%m-%d %H:%I:%S",time())."\r\n");
+        fwrite($fp,$word.",Ö´ĞĞÈÕÆÚ:".strftime("%Y-%m-%d %H:%I:%S",time())."\r\n");
         flock($fp, LOCK_UN);
         fclose($fp);
     }

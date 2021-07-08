@@ -1,8 +1,8 @@
 <?php   if(!defined('DEDEINC')) exit('Request Error!');
 /**
- * åˆ†ç±»ä¿¡æ¯çš„åœ°åŒºä¸å°åˆ†ç±»æœç´¢
+ * ·ÖÀàĞÅÏ¢µÄµØÇøÓëĞ¡·ÖÀàËÑË÷
  *
- * @version        $Id: infoguide.lib.php 1 9:29 2010å¹´7æœˆ6æ—¥Z tianya $
+ * @version        $Id: infoguide.lib.php 1 9:29 2010Äê7ÔÂ6ÈÕZ tianya $
  * @package        DedeCMS.Taglib
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -10,10 +10,10 @@
  */
  
  /*>>dede>>
-<name>åˆ†ç±»ä¿¡æ¯æœç´¢</name>
-<type>å…¨å±€æ ‡è®°</type>
+<name>·ÖÀàĞÅÏ¢ËÑË÷</name>
+<type>È«¾Ö±ê¼Ç</type>
 <for>V55,V56,V57</for>
-<description>åˆ†ç±»ä¿¡æ¯çš„åœ°åŒºä¸å°åˆ†ç±»æœç´¢</description>
+<description>·ÖÀàĞÅÏ¢µÄµØÇøÓëĞ¡·ÖÀàËÑË÷</description>
 <demo>
 {dede:infoguide /}
 </demo>
@@ -25,7 +25,7 @@ function lib_infoguide(&$ctag,&$refObj)
 {
     global $dsql,$nativeplace,$infotype,$hasSetEnumJs,$cfg_cmspath,$cfg_mainsite;
     
-    //å±æ€§å¤„ç†
+    //ÊôĞÔ´¦Àí
     //$attlist="row|12,titlelen|24";
     //FillAttsDefault($ctag->CAttribute->Items,$attlist);
     //extract($ctag->CAttribute->Items, EXTR_SKIP);
@@ -38,7 +38,7 @@ function lib_infoguide(&$ctag,&$refObj)
         $typeid = (is_array($row) ? $row['id'] : 0);
         if(empty($typeid))
         {
-            return 'è¯·æŒ‡å®šä¸€ä¸ªæ ç›®ç±»å‹ä¸ºâ€œåˆ†ç±»ä¿¡æ¯â€ï¼Œå¦åˆ™æ— æ³•ä½¿ç”¨è¿™ä¸ªæœç´¢è¡¨å•ï¼';
+            return 'ÇëÖ¸¶¨Ò»¸öÀ¸Ä¿ÀàĞÍÎª¡°·ÖÀàĞÅÏ¢¡±£¬·ñÔòÎŞ·¨Ê¹ÓÃÕâ¸öËÑË÷±íµ¥£¡';
         }
     }
     else
@@ -68,13 +68,13 @@ function lib_infoguide(&$ctag,&$refObj)
     if(empty($infotype)) $infotype = 0;
     
     $fields['nativeplace'] .= "<input type='hidden' id='hidden_nativeplace' name='nativeplace' value='{$nativeplace}' />\r\n";
-    $fields['nativeplace'] .= "<span class='infosearchtxt'>åœ°åŒºï¼š</span><span id='span_nativeplace'></span>\r\n";
+    $fields['nativeplace'] .= "<span class='infosearchtxt'>µØÇø£º</span><span id='span_nativeplace'></span>\r\n";
     $fields['nativeplace'] .= "<span id='span_nativeplace_son'></span>\r\n<span id='span_nativeplace_sec'></span><br />\r\n";
     $fields['nativeplace'] .= "<script language='javascript' type='text/javascript' src='{$cfg_mainsite}{$cmspath}data/enums/nativeplace.js'></script>\r\n";
     $fields['nativeplace'] .= '<script language="javascript">MakeTopSelect("nativeplace", '.$nativeplace.');</script>'."\r\n";
     
     $fields['infotype'] .= "<input type='hidden' id='hidden_infotype' name='infotype' value='{$infotype}' />\r\n";
-    $fields['infotype'] .= "<span class='infosearchtxt'>ç±»å‹ï¼š</span><span id='span_infotype'></span>\r\n";
+    $fields['infotype'] .= "<span class='infosearchtxt'>ÀàĞÍ£º</span><span id='span_infotype'></span>\r\n";
     $fields['infotype'] .= "<span id='span_infotype_son'></span><span id='span_infotype_sec'></span><br />\r\n";
     $fields['infotype'] .= "<script language='javascript' type='text/javascript' src='{$cfg_mainsite}{$cmspath}data/enums/infotype.js'></script>\r\n";
     $fields['infotype'] .= '<script language="javascript">MakeTopSelect("infotype", '.$infotype.');</script>'."\r\n";

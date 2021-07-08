@@ -4,7 +4,7 @@ if(!defined('DEDEINC'))
     exit("Request Error!");
 }
 /**
- * SQLæ ‡ç­¾
+ * SQL±êÇ©
  *
  * @version        $Id: sql.lib.php 2 10:00 2010-11-11 tianya $
  * @package        DedeCMS.Taglib
@@ -14,18 +14,18 @@ if(!defined('DEDEINC'))
  */
 
 /*>>dede>>
-<name>SQLæ ‡ç­¾</name>
-<type>å…¨å±€æ ‡è®°</type>
+<name>SQL±êÇ©</name>
+<type>È«¾Ö±ê¼Ç</type>
 <for>V55,V56,V57</for>
-<description>ç”¨äºè·å–MySQLæ•°æ®åº“å†…å®¹çš„æ ‡ç­¾</description>
+<description>ÓÃÓÚ»ñÈ¡MySQLÊı¾İ¿âÄÚÈİµÄ±êÇ©</description>
 <demo>
 {dede:sql sql='' db='default'}
 [field:title/]
 {/dede}
 </demo>
 <attributes>
-    <iterm>sql:éœ€è¦æŸ¥è¯¢çš„sqlè¯­å¥</iterm>
-    <iterm>appname: é»˜è®¤ä¸ºdefault,å³å½“å‰dedecmsçš„æ•°æ®åº“,å¦‚æœéœ€è¦è‡ªå®šä¹‰,å¯ä»¥åœ¨data/tag/sql.inc.phpä¸­æ‰©å±•,å…·ä½“æ‰©å±•æ–¹æ³•æŸ¥çœ‹é…ç½®æ–‡ä»¶å¤´éƒ¨è¯´æ˜</iterm>
+    <iterm>sql:ĞèÒª²éÑ¯µÄsqlÓï¾ä</iterm>
+    <iterm>appname: Ä¬ÈÏÎªdefault,¼´µ±Ç°dedecmsµÄÊı¾İ¿â,Èç¹ûĞèÒª×Ô¶¨Òå,¿ÉÒÔÔÚdata/tag/sql.inc.phpÖĞÀ©Õ¹,¾ßÌåÀ©Õ¹·½·¨²é¿´ÅäÖÃÎÄ¼şÍ·²¿ËµÃ÷</iterm>
 </attributes>
 >>dede>>*/
 
@@ -36,7 +36,7 @@ function lib_sql(&$ctag,&$refObj)
     FillAttsDefault($ctag->CAttribute->Items,$attlist);
     extract($ctag->CAttribute->Items, EXTR_SKIP);
 
-    //ä¼ é€’ç¯å¢ƒå‚æ•°
+    //´«µİ»·¾³²ÎÊı
     preg_match_all("/~([A-Za-z0-9]+)~/s", $sql, $conditions);
     $appname = empty($appname)? 'default' : $appname;
     if(is_array($conditions))
@@ -62,7 +62,7 @@ function lib_sql(&$ctag,&$refObj)
     $thisrs = 'sq'.$sqlCt;
     $GLOBALS['autoindex'] = 0;
     
-    // å¼•å…¥é…ç½®æ–‡ä»¶
+    // ÒıÈëÅäÖÃÎÄ¼ş
     if ($appname != 'default')
     {
         require_once(DEDEDATA.'/tag/sql.inc.php');
@@ -70,14 +70,14 @@ function lib_sql(&$ctag,&$refObj)
         $config = $sqltag[$appname];
         if (!isset($config['dbname'])) return '';
         
-        // é“¾æ¥æ•°æ®åº“
+        // Á´½ÓÊı¾İ¿â
         $linkid = @mysql_connect($config['dbhost'], $config['dbuser'], $config['dbpwd']);
         if(!$linkid) return '';
         @mysql_select_db($config['dbname']);
         $mysqlver = explode('.',$dsql->GetVersion());
         $mysqlver = $mysqlver[0].'.'.$mysqlver[1];
         
-        // è®¾å®šæ•°æ®åº“ç¼–ç åŠé•¿è¿æ¥
+        // Éè¶¨Êı¾İ¿â±àÂë¼°³¤Á¬½Ó
         if($mysqlver > 4.0)
         {
             @mysql_query("SET NAMES '".$config['dblanguage']."', character_set_client=binary, sql_mode='', interactive_timeout=3600 ;", $linkid);
@@ -86,7 +86,7 @@ function lib_sql(&$ctag,&$refObj)
         $prefix="#@__";
         $sql = str_replace($prefix, $config['dbprefix'], $sql);
         
-        // æ ¡éªŒSQLå­—ç¬¦ä¸²å¹¶è·å–æ•°ç»„è¿”å›
+        // Ğ£ÑéSQL×Ö·û´®²¢»ñÈ¡Êı×é·µ»Ø
         $sql = CheckSql($sql);
         $rs = @mysql_query($sql, $linkid);
         while($row = mysql_fetch_array($rs,MYSQL_ASSOC))
@@ -94,7 +94,7 @@ function lib_sql(&$ctag,&$refObj)
             $sqlCt++;
             $GLOBALS['autoindex']++;
             
-            // æ ¹æ®ç¨‹åºåˆ¤æ–­ç¼–ç ç±»å‹,å¹¶è¿›è¡Œè½¬ç ,è¿™é‡Œä¸»è¦å°±æ˜¯gbkå’Œutf-8
+            // ¸ù¾İ³ÌĞòÅĞ¶Ï±àÂëÀàĞÍ,²¢½øĞĞ×ªÂë,ÕâÀïÖ÷Òª¾ÍÊÇgbkºÍutf-8
             if (substr($cfg_soft_lang, 0, 2) != substr($config['dblanguage'], 0, 2))
             {
                 $row = AutoCharset($row, $config['dblanguage'], $cfg_soft_lang);

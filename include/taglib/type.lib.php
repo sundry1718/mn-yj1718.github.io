@@ -1,8 +1,8 @@
 <?php   if(!defined('DEDEINC')) exit('Request Error!');
 /**
- * æŒ‡å®šçš„å•ä¸ªæ ç›®çš„é“¾æ¥æ ‡ç­¾
+ * Ö¸¶¨µÄµ¥¸öÀ¸Ä¿µÄÁ´½Ó±êÇ©
  *
- * @version        $Id: type.lib.php 1 9:29 2010å¹´7æœˆ6æ—¥Z tianya $
+ * @version        $Id: type.lib.php 1 9:29 2010Äê7ÔÂ6ÈÕZ tianya $
  * @package        DedeCMS.Taglib
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -10,17 +10,17 @@
  */
  
 /*>>dede>>
-<name>æŒ‡å®šæ ç›®</name>
-<type>å…¨å±€æ ‡è®°</type>
+<name>Ö¸¶¨À¸Ä¿</name>
+<type>È«¾Ö±ê¼Ç</type>
 <for>V55,V56,V57</for>
-<description>è¡¨ç¤ºæŒ‡å®šçš„å•ä¸ªæ ç›®çš„é“¾æ¥</description>
+<description>±íÊ¾Ö¸¶¨µÄµ¥¸öÀ¸Ä¿µÄÁ´½Ó</description>
 <demo>
 {dede:type}
 <a href="[field:typelink /]">[field:typename /]</a>
 {/dede:type}
 </demo>
 <attributes>
-    <iterm>typeid:æŒ‡å®šæ ç›®ID</iterm> 
+    <iterm>typeid:Ö¸¶¨À¸Ä¿ID</iterm> 
 </attributes> 
 >>dede>>*/
  
@@ -39,7 +39,7 @@ function lib_type(&$ctag,&$refObj)
 
   if(empty($typeid)) return '';
 
-    $row = $dsql->GetOne("SELECT id,typename,typedir,description,content,isdefault,ispart,defaultname,namerule2,moresite,siteurl,sitepath 
+    $row = $dsql->GetOne("SELECT id,typename,typedir,isdefault,ispart,defaultname,namerule2,moresite,siteurl,sitepath 
                           FROM `#@__arctype` WHERE id='$typeid' ");
     if(!is_array($row)) return '';
     if(trim($innertext)=='') $innertext = GetSysTemplets("part_type_list.htm");

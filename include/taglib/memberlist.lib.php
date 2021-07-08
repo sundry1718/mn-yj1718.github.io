@@ -4,9 +4,9 @@ if(!defined('DEDEINC'))
     exit("Request Error!");
 }
 /**
- * ä¼šå‘˜ä¿¡æ¯è°ƒç”¨æ ‡ç­¾
+ * »áÔ±ĞÅÏ¢µ÷ÓÃ±êÇ©
  *
- * @version        $Id: memberlist.lib.php 1 9:29 2010å¹´7æœˆ6æ—¥Z tianya $
+ * @version        $Id: memberlist.lib.php 1 9:29 2010Äê7ÔÂ6ÈÕZ tianya $
  * @package        DedeCMS.Taglib
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -14,10 +14,10 @@ if(!defined('DEDEINC'))
  */
  
 /*>>dede>>
-<name>ä¼šå‘˜ä¿¡æ¯åˆ—è¡¨</name>
-<type>å…¨å±€æ ‡è®°</type>
+<name>»áÔ±ĞÅÏ¢ÁĞ±í</name>
+<type>È«¾Ö±ê¼Ç</type>
 <for>V55,V56,V57</for>
-<description>ä¼šå‘˜ä¿¡æ¯è°ƒç”¨æ ‡ç­¾</description>
+<description>»áÔ±ĞÅÏ¢µ÷ÓÃ±êÇ©</description>
 <demo>
 {dede:memberlist orderby='scores' row='20'}
 <a href="../member/index.php?uid={dede:field.userid /}">{dede:field.userid /}</a>
@@ -25,9 +25,9 @@ if(!defined('DEDEINC'))
 {/dede:memberlist}
 </demo>
 <attributes>
-    <iterm>row:è°ƒç”¨æ•°ç›®</iterm> 
-    <iterm>iscommend:æ˜¯å¦ä¸ºæ¨èä¼šå‘˜</iterm>
-    <iterm>orderby:æŒ‰ç™»é™†æ—¶é—´æ’åº money æŒ‰é‡‘é’±æ’åº scores æŒ‰ç§¯åˆ†æ’åº</iterm>
+    <iterm>row:µ÷ÓÃÊıÄ¿</iterm> 
+    <iterm>iscommend:ÊÇ·ñÎªÍÆ¼ö»áÔ±</iterm>
+    <iterm>orderby:°´µÇÂ½Ê±¼äÅÅĞò money °´½ğÇ®ÅÅĞò scores °´»ı·ÖÅÅĞò</iterm>
 </attributes> 
 >>dede>>*/
  
@@ -60,7 +60,7 @@ function lib_memberlist(&$ctag, &$refObj)
     {
         $row['spaceurl'] = $GLOBALS['cfg_basehost'].'/member/index.php?uid='.$row['userid'];
         if(empty($row['face'])){
-            $row['face']=($row['sex']=='å¥³')? $GLOBALS['cfg_memberurl'].'/templets/images/dfgirl.png' : $GLOBALS['cfg_memberurl'].'/templets/images/dfboy.png';
+            $row['face']=($row['sex']=='Å®')? $GLOBALS['cfg_memberurl'].'/templets/images/dfgirl.png' : $GLOBALS['cfg_memberurl'].'/templets/images/dfboy.png';
         }
         foreach($ctp->CTags as $tagid=>$ctag){
             if(isset($row[$ctag->GetName()])){ $ctp->Assign($tagid,$row[$ctag->GetName()]); }

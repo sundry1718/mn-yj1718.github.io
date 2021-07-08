@@ -1,8 +1,8 @@
 <?php   if(!defined('DEDEINC')) exit('Request Error!');
 /**
- * è‡ªåŠ¨å…³è¿æ–‡æ¡£æ ‡ç­¾
+ * ×Ô¶¯¹ØÁ¬ÎÄµµ±êÇ©
  *
- * @version        $Id: likearticle.lib.php 1 9:29 2010å¹´7æœˆ6æ—¥Z tianya $
+ * @version        $Id: likearticle.lib.php 1 9:29 2010Äê7ÔÂ6ÈÕZ tianya $
  * @package        DedeCMS.Taglib
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -10,22 +10,22 @@
  */
  
 /*>>dede>>
-<name>ç›¸å…³æ–‡æ¡£</name>
-<type>å…¨å±€æ ‡è®°</type>
+<name>Ïà¹ØÎÄµµ</name>
+<type>È«¾Ö±ê¼Ç</type>
 <for>V55,V56,V57</for>
-<description>è‡ªåŠ¨å…³è¿æ–‡æ¡£æ ‡ç­¾</description>
+<description>×Ô¶¯¹ØÁ¬ÎÄµµ±êÇ©</description>
 <demo>
 {dede:likearticle row='' col='' titlelen='' infolen=''}
 <a href='[field:arcurl/]'>[field:title/]</a>
 {/dede:likearticle}
 </demo>
 <attributes>
-    <iterm>col:åˆ†å¤šå°‘åˆ—æ˜¾ç¤ºï¼ˆé»˜è®¤ä¸ºå•åˆ—ï¼‰</iterm> 
-    <iterm>row:è¿”å›æ–‡æ¡£åˆ—è¡¨æ€»æ•°</iterm>
-    <iterm>titlelen:æ ‡é¢˜é•¿åº¦ ç­‰åŒäºtitlelength</iterm>
-    <iterm>infolen:è¡¨ç¤ºå†…å®¹ç®€ä»‹é•¿åº¦ ç­‰åŒäºinfolength</iterm>
-    <iterm>mytypeid:æ‰‹å·¥æŒ‡å®šè¦é™å®šçš„æ ç›®idï¼Œç”¨,åˆ†å¼€è¡¨ç¤ºå¤šä¸ª</iterm>
-    <iterm>innertext:å•æ¡è®°å½•æ ·å¼(æŒ‡æ ‡ç­¾ä¸­é—´çš„å†…å®¹)</iterm>
+    <iterm>col:·Ö¶àÉÙÁĞÏÔÊ¾£¨Ä¬ÈÏÎªµ¥ÁĞ£©</iterm> 
+    <iterm>row:·µ»ØÎÄµµÁĞ±í×ÜÊı</iterm>
+    <iterm>titlelen:±êÌâ³¤¶È µÈÍ¬ÓÚtitlelength</iterm>
+    <iterm>infolen:±íÊ¾ÄÚÈİ¼ò½é³¤¶È µÈÍ¬ÓÚinfolength</iterm>
+    <iterm>mytypeid:ÊÖ¹¤Ö¸¶¨ÒªÏŞ¶¨µÄÀ¸Ä¿id£¬ÓÃ,·Ö¿ª±íÊ¾¶à¸ö</iterm>
+    <iterm>innertext:µ¥Ìõ¼ÇÂ¼ÑùÊ½(Ö¸±êÇ©ÖĞ¼äµÄÄÚÈİ)</iterm>
 </attributes> 
 >>dede>>*/
  
@@ -33,7 +33,7 @@ function lib_likearticle(&$ctag,&$refObj)
 {
     global $dsql;
     
-    //å±æ€§å¤„ç†
+    //ÊôĞÔ´¦Àí
     $attlist="row|12,titlelen|28,infolen|150,col|1,tablewidth|100,mytypeid|0,byabs|0,imgwidth|120,imgheight|90";
     FillAttsDefault($ctag->CAttribute->Items,$attlist);
     extract($ctag->CAttribute->Items, EXTR_SKIP);
@@ -140,7 +140,7 @@ function lib_likearticle(&$ctag,&$refObj)
             if($row = $dsql->GetArray("al"))
             {
                 $ids[] = $row['id'];
-                //å¤„ç†ä¸€äº›ç‰¹æ®Šå­—æ®µ
+                //´¦ÀíÒ»Ğ©ÌØÊâ×Ö¶Î
                 $row['info'] = $row['infos'] = cn_substr($row['description'],$infolen);
                 $row['id'] =  $row['id'];
 

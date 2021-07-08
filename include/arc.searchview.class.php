@@ -1,8 +1,8 @@
 <?php   if(!defined('DEDEINC')) exit("Request Error!");
 /**
- * æœç´¢è§†å›¾ç±»
+ * ËÑË÷ÊÓÍ¼Àà
  *
- * @version        $Id: arc.searchview.class.php 1 15:26 2010å¹´7æœˆ7æ—¥Z tianya $
+ * @version        $Id: arc.searchview.class.php 1 15:26 2010Äê7ÔÂ7ÈÕZ tianya $
  * @package        DedeCMS.Libraries
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -13,17 +13,12 @@ require_once(DEDEINC."/dedetag.class.php");
 require_once(DEDEINC."/splitword.class.php");
 require_once(DEDEINC."/taglib/hotwords.lib.php");
 require_once(DEDEINC."/taglib/channel.lib.php");
-require_once(DEDEINC."/taglib/arclist.lib.php");
-require_once(DEDEINC."/taglib/channelartlist.lib.php");
-require_once(DEDEINC."/taglib/php.lib.php");
-require_once(DEDEINC."/taglib/sql.lib.php");
-require_once(DEDEINC."/taglib/type.lib.php");
 
 @set_time_limit(0);
 @ini_set('memory_limit', '512M');
 
 /**
- * æœç´¢è§†å›¾ç±»
+ * ËÑË÷ÊÓÍ¼Àà
  *
  * @package          SearchView
  * @subpackage       DedeCMS.Libraries
@@ -59,18 +54,18 @@ class SearchView
     var $Sphinx;
 
     /**
-     *  php5æ„é€ å‡½æ•°
+     *  php5¹¹Ôìº¯Êı
      *
      * @access    public
-     * @param     int  $typeid  æ ç›®ID
-     * @param     string  $keyword  å…³é”®è¯
-     * @param     string  $orderby  æ’åº
-     * @param     string  $achanneltype  é¢‘é“ç±»å‹
-     * @param     string  $searchtype  æœç´¢ç±»å‹
-     * @param     string  $starttime  å¼€å§‹æ—¶é—´
-     * @param     string  $upagesize  é¡µæ•°
-     * @param     string  $kwtype  å…³é”®è¯ç±»å‹
-     * @param     string  $mid  ä¼šå‘˜ID
+     * @param     int  $typeid  À¸Ä¿ID
+     * @param     string  $keyword  ¹Ø¼ü´Ê
+     * @param     string  $orderby  ÅÅĞò
+     * @param     string  $achanneltype  ÆµµÀÀàĞÍ
+     * @param     string  $searchtype  ËÑË÷ÀàĞÍ
+     * @param     string  $starttime  ¿ªÊ¼Ê±¼ä
+     * @param     string  $upagesize  Ò³Êı
+     * @param     string  $kwtype  ¹Ø¼ü´ÊÀàĞÍ
+     * @param     string  $mid  »áÔ±ID
      * @return    string
      */
     function __construct($typeid,$keyword,$orderby,$achanneltype="all",
@@ -101,10 +96,10 @@ class SearchView
         $this->dtp2 = new DedeTagParse();
         $this->dtp2->SetNameSpace("field","[","]");
         $this->TypeLink = new TypeLink($typeid);
-        // é€šè¿‡åˆ†è¯è·å–å…³é”®è¯
+        // Í¨¹ı·Ö´Ê»ñÈ¡¹Ø¼ü´Ê
         $this->Keywords = $this->GetKeywords($keyword);
 
-        //è®¾ç½®ä¸€äº›å…¨å±€å‚æ•°çš„å€¼
+        //ÉèÖÃÒ»Ğ©È«¾Ö²ÎÊıµÄÖµ
         if($this->TypeID=="0"){
             $this->ChannelTypeid=1;
         }else{
@@ -117,11 +112,11 @@ class SearchView
         }
         if ($cfg_sphinx_article == 'Y')
         {
-            // åˆå§‹åŒ–sphinx
+            // ³õÊ¼»¯sphinx
             $this->sphinx = new SphinxClient;
             
-            $mode = SPH_MATCH_EXTENDED2;            //åŒ¹é…æ¨¡å¼
-            $ranker = SPH_RANK_PROXIMITY_BM25; //ç»Ÿè®¡ç›¸å…³åº¦è®¡ç®—æ¨¡å¼ï¼Œä»…ä½¿ç”¨BM25è¯„åˆ†è®¡ç®—
+            $mode = SPH_MATCH_EXTENDED2;            //Æ¥ÅäÄ£Ê½
+            $ranker = SPH_RANK_PROXIMITY_BM25; //Í³¼ÆÏà¹Ø¶È¼ÆËãÄ£Ê½£¬½öÊ¹ÓÃBM25ÆÀ·Ö¼ÆËã
             $this->sphinx->SetServer($GLOBALS['cfg_sphinx_host'], $GLOBALS['cfg_sphinx_port']);
             $this->sphinx->SetArrayResult(true);
             $this->sphinx->SetMatchMode($mode);
@@ -140,7 +135,7 @@ class SearchView
         }
         if(!file_exists($tempfile)||!is_file($tempfile))
         {
-            echo "æ¨¡æ¿æ–‡ä»¶ä¸å­˜åœ¨ï¼Œæ— æ³•è§£æï¼";
+            echo "Ä£°åÎÄ¼ş²»´æÔÚ£¬ÎŞ·¨½âÎö£¡";
             exit();
         }
         $this->dtp->LoadTemplate($tempfile);
@@ -158,23 +153,23 @@ class SearchView
     
     }
 
-    //php4æ„é€ å‡½æ•°
+    //php4¹¹Ôìº¯Êı
     function SearchView($typeid,$keyword,$orderby,$achanneltype="all",
     $searchtype="",$starttime=0,$upagesize=20,$kwtype=1,$mid=0)
     {
         $this->__construct($typeid,$keyword,$orderby,$achanneltype,$searchtype,$starttime,$upagesize,$kwtype,$mid);
     }
 
-    //å…³é—­ç›¸å…³èµ„æº
+    //¹Ø±ÕÏà¹Ø×ÊÔ´
     function Close()
     {
     }
 
     /**
-     *  è·å¾—å…³é”®å­—çš„åˆ†è¯ç»“æœï¼Œå¹¶ä¿å­˜åˆ°æ•°æ®åº“
+     *  »ñµÃ¹Ø¼ü×ÖµÄ·Ö´Ê½á¹û£¬²¢±£´æµ½Êı¾İ¿â
      *
      * @access    public
-     * @param     string  $keyword  å…³é”®è¯
+     * @param     string  $keyword  ¹Ø¼ü´Ê
      * @return    string
      */
     function GetKeywords($keyword)
@@ -221,7 +216,7 @@ class SearchView
     }
 
     /**
-     *  è·å¾—å…³é”®å­—SQL
+     *  »ñµÃ¹Ø¼ü×ÖSQL
      *
      * @access    private
      * @return    string
@@ -272,10 +267,10 @@ class SearchView
     }
 
     /**
-     *  è·å¾—ç›¸å…³çš„å…³é”®å­—
+     *  »ñµÃÏà¹ØµÄ¹Ø¼ü×Ö
      *
      * @access    public
-     * @param     string  $num  å…³é”®è¯æ•°ç›®
+     * @param     string  $num  ¹Ø¼ü´ÊÊıÄ¿
      * @return    string
      */
     function GetLikeWords($num=8)
@@ -325,17 +320,17 @@ class SearchView
                 {
                     $style = "";
                 }
-                $likeword .= "ã€€<a href='search.php?keyword=".urlencode($row['keyword'])."&searchtype=titlekeyword'".$style."><u>".$row['keyword']."</u></a> ";
+                $likeword .= "¡¡<a href='search.php?keyword=".urlencode($row['keyword'])."&searchtype=titlekeyword'".$style."><u>".$row['keyword']."</u></a> ";
             }
             return $likeword;
         }
     }
 
     /**
-     *  åŠ ç²—å…³é”®å­—
+     *  ¼Ó´Ö¹Ø¼ü×Ö
      *
      * @access    private
-     * @param     string  $fstr  å…³é”®è¯å­—ç¬¦
+     * @param     string  $fstr  ¹Ø¼ü´Ê×Ö·û
      * @return    string
      */
     function GetRedKeyWord($fstr)
@@ -353,15 +348,15 @@ class SearchView
             {
                 continue;
             }
-            // è¿™é‡Œä¸åŒºåˆ†å¤§å°å†™è¿›è¡Œå…³é”®è¯æ›¿æ¢
+            // ÕâÀï²»Çø·Ö´óĞ¡Ğ´½øĞĞ¹Ø¼ü´ÊÌæ»»
             $fstr = str_ireplace($k, "<font color='red'>$k</font>", $fstr);
-            // é€Ÿåº¦æ›´å¿«,æ•ˆç‡æ›´é«˜
+            // ËÙ¶È¸ü¿ì,Ğ§ÂÊ¸ü¸ß
             //$fstr = str_replace($k, "<font color='red'>$k</font>", $fstr);
         }
         return $fstr;
     }
     
-    // Sphinxè®°å½•ç»Ÿè®¡
+    // Sphinx¼ÇÂ¼Í³¼Æ
     function CountRecordSphinx()
     {
         $this->TotalResult = -1;
@@ -401,7 +396,7 @@ class SearchView
     }
 
     /**
-     *  ç»Ÿè®¡åˆ—è¡¨é‡Œçš„è®°å½•
+     *  Í³¼ÆÁĞ±íÀïµÄ¼ÇÂ¼
      *
      * @access    public
      * @return    string
@@ -490,7 +485,7 @@ class SearchView
     }
 
     /**
-     *  æ˜¾ç¤ºåˆ—è¡¨
+     *  ÏÔÊ¾ÁĞ±í
      *
      * @access    public
      * @param     string
@@ -544,23 +539,9 @@ class SearchView
             {
                 $this->dtp->Assign($tagid,lib_hotwords($ctag,$this));
             }
-			else if($tagname=="sql"){
-                 $this->dtp->Assign($tagid,lib_sql($ctag,$this));
-            }
-            else if($tagname=="type"){//æ”¯æŒtypeæ ‡ç­¾
-                 $this->dtp->Assign($tagid,lib_type($ctag,$this));
-            }
-			 else if($tagname=="arclist")
-            {
-                $this->dtp->Assign($tagid,lib_arclist($ctag,$this));
-            }
-            else if($tagname=="channelartlist")
-            {
-                $this->dtp->Assign($tagid,lib_channelartlist($ctag,$this));
-            }
             else if($tagname=="field")
             {
-                //ç±»åˆ«çš„æŒ‡å®šå­—æ®µ
+                //Àà±ğµÄÖ¸¶¨×Ö¶Î
                 if(isset($this->Fields[$ctag->GetAtt('name')]))
                 {
                     $this->dtp->Assign($tagid,$this->Fields[$ctag->GetAtt('name')]);
@@ -572,7 +553,7 @@ class SearchView
             }
             else if($tagname=="channel")
             {
-                //ä¸‹çº§é¢‘é“åˆ—è¡¨
+                //ÏÂ¼¶ÆµµÀÁĞ±í
                 if($this->TypeID>0)
                 {
                     $typeid = $this->TypeID; $reid = $this->TypeLink->TypeInfos['reid'];
@@ -593,20 +574,20 @@ class SearchView
     }
 
     /**
-     *  è·å¾—æ–‡æ¡£åˆ—è¡¨
+     *  »ñµÃÎÄµµÁĞ±í
      *
      * @access    public
-     * @param     int  $limitstart  é™åˆ¶å¼€å§‹  
-     * @param     int  $row  è¡Œæ•° 
-     * @param     int  $col  åˆ—æ•°
-     * @param     int  $titlelen  æ ‡é¢˜é•¿åº¦
-     * @param     int  $infolen  æè¿°é•¿åº¦
-     * @param     int  $imgwidth  å›¾ç‰‡å®½åº¦
-     * @param     int  $imgheight  å›¾ç‰‡é«˜åº¦
-     * @param     string  $achanneltype  åˆ—è¡¨ç±»å‹
-     * @param     string  $orderby  æ’åˆ—é¡ºåº
-     * @param     string  $innertext  åº•å±‚æ¨¡æ¿
-     * @param     string  $tablewidth  è¡¨æ ¼å®½åº¦
+     * @param     int  $limitstart  ÏŞÖÆ¿ªÊ¼  
+     * @param     int  $row  ĞĞÊı 
+     * @param     int  $col  ÁĞÊı
+     * @param     int  $titlelen  ±êÌâ³¤¶È
+     * @param     int  $infolen  ÃèÊö³¤¶È
+     * @param     int  $imgwidth  Í¼Æ¬¿í¶È
+     * @param     int  $imgheight  Í¼Æ¬¸ß¶È
+     * @param     string  $achanneltype  ÁĞ±íÀàĞÍ
+     * @param     string  $orderby  ÅÅÁĞË³Ğò
+     * @param     string  $innertext  µ×²ãÄ£°å
+     * @param     string  $tablewidth  ±í¸ñ¿í¶È
      * @return    string
      */
     function GetArcList($limitstart=0,$row=10,$col=1,$titlelen=30,$infolen=250,
@@ -676,14 +657,14 @@ class SearchView
             
             $aids = @implode(',', $aids);
             
-            //æœç´¢
+            //ËÑË÷
             $query = "SELECT arc.*,act.typedir,act.typename,act.isdefault,act.defaultname,act.namerule,
             act.namerule2,act.ispart,act.moresite,act.siteurl,act.sitepath
             FROM `#@__archives` arc LEFT JOIN `#@__arctype` act ON arc.typeid=act.id
             WHERE arc.id IN ($aids)";
             
         } else {
-            //æ’åºæ–¹å¼
+            //ÅÅĞò·½Ê½
             $ordersql = '';
             if($this->ChannelType< 0 ||$this->ChannelTypeid< 0)
             {
@@ -711,7 +692,7 @@ class SearchView
                 }
             }
 
-            //æœç´¢
+            //ËÑË÷
             $query = "SELECT arc.*,act.typedir,act.typename,act.isdefault,act.defaultname,act.namerule,
             act.namerule2,act.ispart,act.moresite,act.siteurl,act.sitepath
             FROM `{$this->AddTable}` arc LEFT JOIN `#@__arctype` act ON arc.typeid=act.id
@@ -748,7 +729,7 @@ class SearchView
                         $row["description"]=empty($row["description "])? "" : $row["description"];
                         $row["pubdate"]=empty($row["pubdate  "])? $row["senddate"] : $row["pubdate"];
                     }
-                    //å¤„ç†ä¸€äº›ç‰¹æ®Šå­—æ®µ
+                    //´¦ÀíÒ»Ğ©ÌØÊâ×Ö¶Î
                     $row["arcurl"] = GetFileUrl($row["id"],$row["typeid"],$row["senddate"],$row["title"],
                     $row["ismake"],$row["arcrank"],$row["namerule"],$row["typedir"],$row["money"],$row['filename'],$row["moresite"],$row["siteurl"],$row["sitepath"]);
                     $row["description"] = $this->GetRedKeyWord(cn_substr($row["description"],$infolen));
@@ -780,7 +761,7 @@ class SearchView
                         {
                             if($ctag->GetName()=='array')
                             {
-                                //ä¼ é€’æ•´ä¸ªæ•°ç»„ï¼Œåœ¨runphpæ¨¡å¼ä¸­æœ‰ç‰¹æ®Šä½œç”¨
+                                //´«µİÕû¸öÊı×é£¬ÔÚrunphpÄ£Ê½ÖĞÓĞÌØÊâ×÷ÓÃ
                                 $this->dtp2->Assign($k,$row);
                             }
                             else
@@ -822,10 +803,10 @@ class SearchView
     }
 
     /**
-     *  è·å–åŠ¨æ€çš„åˆ†é¡µåˆ—è¡¨
+     *  »ñÈ¡¶¯Ì¬µÄ·ÖÒ³ÁĞ±í
      *
      * @access    public
-     * @param     string  $list_len  åˆ—è¡¨å®½åº¦
+     * @param     string  $list_len  ÁĞ±í¿í¶È
      * @return    string
      */
     function GetPageListDM($list_len)
@@ -842,22 +823,22 @@ class SearchView
         $totalpage = ceil($this->TotalResult / $this->PageSize);
         if($totalpage<=1 && $this->TotalResult>0)
         {
-            return "å…±1é¡µ/".$this->TotalResult."æ¡è®°å½•";
+            return "¹²1Ò³/".$this->TotalResult."Ìõ¼ÇÂ¼";
         }
         if($this->TotalResult == 0)
         {
-            return "å…±0é¡µ/".$this->TotalResult."æ¡è®°å½•";
+            return "¹²0Ò³/".$this->TotalResult."Ìõ¼ÇÂ¼";
         }
         $purl = $this->GetCurUrl();
         
         $oldkeyword = (empty($oldkeyword) ? $this->Keyword : $oldkeyword);
 
-        //å½“ç»“æœè¶…è¿‡é™åˆ¶æ—¶ï¼Œé‡è®¾ç»“æœé¡µæ•°
+        //µ±½á¹û³¬¹ıÏŞÖÆÊ±£¬ÖØÉè½á¹ûÒ³Êı
         if($this->TotalResult > $this->SearchMaxRc)
         {
             $totalpage = ceil($this->SearchMaxRc/$this->PageSize);
         }
-        $infos = "<td>å…±æ‰¾åˆ°<b>".$this->TotalResult."</b>æ¡è®°å½•/æœ€å¤§æ˜¾ç¤º<b>{$totalpage}</b>é¡µ </td>\r\n";
+        $infos = "<td>¹²ÕÒµ½<b>".$this->TotalResult."</b>Ìõ¼ÇÂ¼/×î´óÏÔÊ¾<b>{$totalpage}</b>Ò³ </td>\r\n";
         $geturl = "keyword=".urlencode($oldkeyword)."&searchtype=".$this->SearchType;
         $hidenform = "<input type='hidden' name='keyword' value='".rawurldecode($oldkeyword)."'>\r\n";
         $geturl .= "&channeltype=".$this->ChannelType."&orderby=".$this->OrderBy;
@@ -871,27 +852,27 @@ class SearchView
         $hidenform .= "<input type='hidden' name='TotalResult' value='".$this->TotalResult."'>\r\n";
         $purl .= "?".$geturl;
 
-        //è·å¾—ä¸Šä¸€é¡µå’Œä¸‹ä¸€é¡µçš„é“¾æ¥
+        //»ñµÃÉÏÒ»Ò³ºÍÏÂÒ»Ò³µÄÁ´½Ó
         if($this->PageNo != 1)
         {
-            $prepage.="<td width='50'><a href='".$purl."PageNo=$prepagenum'>ä¸Šä¸€é¡µ</a></td>\r\n";
-            $indexpage="<td width='30'><a href='".$purl."PageNo=1'>é¦–é¡µ</a></td>\r\n";
+            $prepage.="<td width='50'><a href='".$purl."PageNo=$prepagenum'>ÉÏÒ»Ò³</a></td>\r\n";
+            $indexpage="<td width='30'><a href='".$purl."PageNo=1'>Ê×Ò³</a></td>\r\n";
         }
         else
         {
-            $indexpage="<td width='30'>é¦–é¡µ</td>\r\n";
+            $indexpage="<td width='30'>Ê×Ò³</td>\r\n";
         }
         if($this->PageNo!=$totalpage && $totalpage>1)
         {
-            $nextpage.="<td width='50'><a href='".$purl."PageNo=$nextpagenum'>ä¸‹ä¸€é¡µ</a></td>\r\n";
-            $endpage="<td width='30'><a href='".$purl."PageNo=$totalpage'>æœ«é¡µ</a></td>\r\n";
+            $nextpage.="<td width='50'><a href='".$purl."PageNo=$nextpagenum'>ÏÂÒ»Ò³</a></td>\r\n";
+            $endpage="<td width='30'><a href='".$purl."PageNo=$totalpage'>Ä©Ò³</a></td>\r\n";
         }
         else
         {
-            $endpage="<td width='30'>æœ«é¡µ</td>\r\n";
+            $endpage="<td width='30'>Ä©Ò³</td>\r\n";
         }
 
-        //è·å¾—æ•°å­—é“¾æ¥
+        //»ñµÃÊı×ÖÁ´½Ó
         $listdd="";
         $total_list = $list_len * 2 + 1;
         if($this->PageNo >= $total_list)
@@ -941,7 +922,7 @@ class SearchView
     }
 
     /**
-     *  è·å¾—å½“å‰çš„é¡µé¢æ–‡ä»¶çš„url
+     *  »ñµÃµ±Ç°µÄÒ³ÃæÎÄ¼şµÄurl
      *
      * @access    public
      * @return    string

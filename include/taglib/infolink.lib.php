@@ -1,8 +1,8 @@
 <?php   if(!defined('DEDEINC')) exit('Request Error!');
 /**
- * åˆ†ç±»ä¿¡æ¯åœ°åŒºä¸ç±»å‹å¿«æ·é“¾æ¥
+ * ·ÖÀàĞÅÏ¢µØÇøÓëÀàĞÍ¿ì½İÁ´½Ó
  *
- * @version        $Id: infolink.lib.php 1 9:29 2010å¹´7æœˆ6æ—¥Z tianya $
+ * @version        $Id: infolink.lib.php 1 9:29 2010Äê7ÔÂ6ÈÕZ tianya $
  * @package        DedeCMS.Taglib
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -10,10 +10,10 @@
  */
  
 /*>>dede>>
-<name>åˆ†ç±»ä¿¡æ¯åœ°åŒºä¸ç±»å‹å¿«æ·é“¾æ¥</name>
-<type>å…¨å±€æ ‡è®°</type>
+<name>·ÖÀàĞÅÏ¢µØÇøÓëÀàĞÍ¿ì½İÁ´½Ó</name>
+<type>È«¾Ö±ê¼Ç</type>
 <for>V55,V56,V57</for>
-<description>è°ƒç”¨åˆ†ç±»ä¿¡æ¯åœ°åŒºä¸ç±»å‹å¿«æ·é“¾æ¥</description>
+<description>µ÷ÓÃ·ÖÀàĞÅÏ¢µØÇøÓëÀàĞÍ¿ì½İÁ´½Ó</description>
 <demo>
 {dede:infolink /}
 </demo>
@@ -30,7 +30,7 @@ function lib_infolink(&$ctag,&$refObj)
     global $dsql,$nativeplace,$infotype,$hasSetEnumJs,$cfg_cmspath,$cfg_mainsite;
     global $em_nativeplaces,$em_infotypes;
     
-    //å±æ€§å¤„ç†
+    //ÊôĞÔ´¦Àí
     //$attlist="row|12,titlelen|24";
     //FillAttsDefault($ctag->CAttribute->Items,$attlist);
     //extract($ctag->CAttribute->Items, EXTR_SKIP);
@@ -65,10 +65,10 @@ function lib_infolink(&$ctag,&$refObj)
     
     $fields['nativeplace'] = $fields['infotype'] = '';
     
-    $fields['linkallplace'] = "<a href='{$baseurl}plus/list.php?channelid={$channelid}&tid={$typeid}&infotype={$infotype}'>ä¸é™</a>";
-    $fields['linkalltype'] = "<a href='{$baseurl}plus/list.php?channelid={$channelid}&tid={$typeid}&nativeplace={$nativeplace}'>ä¸é™</a>";
+    $fields['linkallplace'] = "<a href='{$baseurl}plus/list.php?channelid={$channelid}&tid={$typeid}&infotype={$infotype}'>²»ÏŞ</a>";
+    $fields['linkalltype'] = "<a href='{$baseurl}plus/list.php?channelid={$channelid}&tid={$typeid}&nativeplace={$nativeplace}'>²»ÏŞ</a>";
     
-    //åœ°åŒºé“¾æ¥
+    //µØÇøÁ´½Ó
     if(empty($nativeplace))
     {
         foreach($em_nativeplaces as $eid=>$em)
@@ -81,7 +81,7 @@ function lib_infolink(&$ctag,&$refObj)
     {
         $sontype = ( ($nativeplace % 500 != 0) ? $nativeplace : 0 );
         $toptype = ( ($nativeplace % 500 == 0) ? $nativeplace : ( $nativeplace-($nativeplace%500) ) );
-		//2011-6-21 ä¿®æ”¹åœ°åŒºåˆ—è¡¨çš„ä¸€ä¸ªå°ç©ºæ ¼ è®ºå›http://bbs.dedecms.com/371492.html(byï¼šç»‡æ¢¦çš„é±¼)
+		//2011-6-21 ĞŞ¸ÄµØÇøÁĞ±íµÄÒ»¸öĞ¡¿Õ¸ñ ÂÛÌ³http://bbs.dedecms.com/371492.html(by£ºÖ¯ÃÎµÄÓã)
         $fields['nativeplace'] = "<a href='{$baseurl}plus/list.php?channelid={$channelid}&tid={$typeid}&nativeplace={$toptype}&infotype={$infotype}'> <b>{$em_nativeplaces[$toptype]}</b></a> &gt;&gt; ";
         foreach($em_nativeplaces as $eid=>$em)
         {
@@ -94,7 +94,7 @@ function lib_infolink(&$ctag,&$refObj)
           }
       }
     }
-    //å°åˆ†ç±»é“¾æ¥
+    //Ğ¡·ÖÀàÁ´½Ó
     if(empty($infotype) || is_array($smalltypes))
     {
         

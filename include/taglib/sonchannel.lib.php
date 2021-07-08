@@ -1,8 +1,8 @@
 <?php
 /**
- * Е╜░Ф═▐Г⌡╝Х╟┐Г■╗Ф═┤Г╜╬
+ * всю╦д©╣Всц╠Йг╘
  *
- * @version        $Id: sonchannel.lib.php 1 9:29 2010Е╧╢7Ф°┬6Ф≈╔Z tianya $
+ * @version        $Id: sonchannel.lib.php 1 9:29 2010дЙ7тб6хуZ tianya $
  * @package        DedeCMS.Taglib
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -10,19 +10,19 @@
  */
  
 /*>>dede>>
-<name>Е╜░Ф═▐Г⌡╝Ф═┤Г╜╬</name>
-<type>Е┘╗Е╠─Ф═┤Х╝╟</type>
+<name>всю╦д©╠Йг╘</name>
+<type>х╚╬ж╠Й╪г</type>
 <for>V55,V56,V57</for>
-<description>Е╜░Ф═▐Г⌡╝Х╟┐Г■╗Ф═┤Г╜╬</description>
+<description>всю╦д©╣Всц╠Йг╘</description>
 <demo>
 {dede:sonchannel}
 <a href='[field:typeurl/]'>[field:typename/]</a>
 {/dede:sonchannel}
 </demo>
 <attributes>
-    <iterm>row:Х©■Е⌡·Ф∙╟Г⌡╝</iterm> 
-    <iterm>col:И╩≤Х╝╓Е█∙Е┬≈Ф≤╬Г╓╨</iterm>
-    <iterm>nosonmsg:Ф╡║Ф°┴Ф▄┤Е╝ IDЕ╜░Ф═▐Г⌡╝Ф≤╬Г╓╨Г └Д©║Ф│╞Е├┘Е╝╧</iterm>
+    <iterm>row:╥╣╩ьйЩд©</iterm> 
+    <iterm>col:д╛хо╣╔апотй╬</iterm>
+    <iterm>nosonmsg:ц╩спж╦╤╗IDвсю╦д©отй╬╣дпео╒дзхщ</iterm>
 </attributes> 
 >>dede>>*/
  

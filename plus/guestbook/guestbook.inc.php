@@ -12,12 +12,12 @@ if(empty($gotopagerank)) $gotopagerank='';
 require_once(DEDEINC."/memberlogin.class.php");
 $cfg_ml = new MemberLogin(-1);
 
-//è®¾ç½®ä¸º 0,è¡¨ç¤ºç•™è¨€éœ€è¦å®¡æ ¸
-//å¦‚æžœè®¾ç½®ä¸º 1 ,åˆ™ç•™è¨€ä¸éœ€è¦å®¡æ ¸å°±èƒ½æ˜¾ç¤º
+//ÉèÖÃÎª 0,±íÊ¾ÁôÑÔÐèÒªÉóºË
+//Èç¹ûÉèÖÃÎª 1 ,ÔòÁôÑÔ²»ÐèÒªÉóºË¾ÍÄÜÏÔÊ¾
 if($cfg_feedbackcheck=='Y') $needCheck = 0;
 else $needCheck = 1;
 
-//æ˜¯å¦æ˜¯ä¼šå‘˜æˆ–ç®¡ç†å‘˜
+//ÊÇ·ñÊÇ»áÔ±»ò¹ÜÀíÔ±
 if($cfg_ml->IsLogin())
 {
     $g_isadmin = ($cfg_ml->fields['matt'] >= 10);
@@ -33,6 +33,6 @@ else
 
 function GetIsCheck($ischeck,$id)
 {
-    if($ischeck==0) return "<br><a href='guestbook.php?action=admin&job=check&id=$id' style='color:red'>[å®¡æ ¸]</a>";
+    if($ischeck==0) return "<br><a href='guestbook.php?action=admin&job=check&id=$id' style='color:red'>[ÉóºË]</a>";
     else return '';
 }

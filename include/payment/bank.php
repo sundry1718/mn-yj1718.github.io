@@ -1,16 +1,16 @@
 <?php
 if(!defined('DEDEINC')) exit('Request Error!');
 /**
- * é“¶è¡Œæ±‡æ¬¾/è½¬å¸æ¥å£
+ * ÒøĞĞ»ã¿î/×ªÕÊ½Ó¿Ú
  */
 
 /**
- * ç±»
+ * Àà
  */
 class bank
 {
     /**
-    * æ„é€ å‡½æ•°
+    * ¹¹Ôìº¯Êı
     *
     * @access  public
     * @param
@@ -29,7 +29,7 @@ class bank
     }
     
     /**
-    * è®¾ç½®å›é€åœ°å€
+    * ÉèÖÃ»ØËÍµØÖ·
     */
     
     function SetReturnUrl($returnurl='')
@@ -38,7 +38,7 @@ class bank
     }
 
     /**
-    * æäº¤å‡½æ•°
+    * Ìá½»º¯Êı
     */
     function GetCode($order,$payment)
     {
@@ -46,8 +46,8 @@ class bank
         $cart = new MemberShops();
         $cart->clearItem();
         $cart->MakeOrders();
-        if($payment=="member") $button="æ‚¨å¯ä»¥ <a href='/'>è¿”å›é¦–é¡µ</a> æˆ–å» <a href='/member/operation.php'>ä¼šå‘˜ä¸­å¿ƒ</a>";
-        else $button="æ‚¨å¯ä»¥ <a href='/'>è¿”å›é¦–é¡µ</a> æˆ–å» <a href='{$this->orderurl}?oid=".$order."'>æŸ¥çœ‹è®¢å•</a>";
+        if($payment=="member") $button="Äú¿ÉÒÔ <a href='/'>·µ»ØÊ×Ò³</a> »òÈ¥ <a href='/member/operation.php'>»áÔ±ÖĞĞÄ</a>";
+        else $button="Äú¿ÉÒÔ <a href='/'>·µ»ØÊ×Ò³</a> »òÈ¥ <a href='{$this->orderurl}?oid=".$order."'>²é¿´¶©µ¥</a>";
         return $button;
     }
     

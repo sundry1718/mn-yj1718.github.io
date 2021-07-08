@@ -24,7 +24,7 @@ function dede_autoloader($classname)
         if (DEBUG_LEVEL === TRUE)
         {
             echo '<pre>';
-            echo $classname.'Á±ªÊâæ‰∏çÂà∞';
+            echo $classname.'¿‡’“≤ªµΩ';
             echo '</pre>';
             exit ();
         }

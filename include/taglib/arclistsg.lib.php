@@ -1,8 +1,8 @@
 <?php
 /**
- * å•è¡¨æ¨¡å‹çš„æ–‡ç« åˆ—è¡¨è°ƒç”¨æ ‡è®°
+ * µ¥±íÄ£ĞÍµÄÎÄÕÂÁĞ±íµ÷ÓÃ±ê¼Ç
  *
- * @version        $Id: arclistsg.lib.php 1 9:29 2010å¹´7æœˆ6æ—¥Z tianya $
+ * @version        $Id: arclistsg.lib.php 1 9:29 2010Äê7ÔÂ6ÈÕZ tianya $
  * @package        DedeCMS.Taglib
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -10,37 +10,37 @@
  */
 
  /**
- *  arclistsgè§£ææ ‡ç­¾
+ *  arclistsg½âÎö±êÇ©
  *
  * @access    public
- * @param     object  $ctag  è§£ææ ‡ç­¾
- * @param     object  $refObj  å¼•ç”¨å¯¹è±¡
- * @return    string  æˆåŠŸåè¿”å›è§£æåçš„æ ‡ç­¾å†…å®¹
+ * @param     object  $ctag  ½âÎö±êÇ©
+ * @param     object  $refObj  ÒıÓÃ¶ÔÏó
+ * @return    string  ³É¹¦ºó·µ»Ø½âÎöºóµÄ±êÇ©ÄÚÈİ
  */
  
 /*>>dede>>
-<name>ç‹¬ç«‹å•è¡¨æ¨¡å‹åˆ—è¡¨</name>
-<type>å…¨å±€æ ‡è®°</type>
+<name>¶ÀÁ¢µ¥±íÄ£ĞÍÁĞ±í</name>
+<type>È«¾Ö±ê¼Ç</type>
 <for>V55,V56,V57</for>
-<description>å•è¡¨ç‹¬ç«‹æ¨¡å‹çš„æ–‡æ¡£åˆ—è¡¨è°ƒç”¨æ ‡è®°</description>
+<description>µ¥±í¶ÀÁ¢Ä£ĞÍµÄÎÄµµÁĞ±íµ÷ÓÃ±ê¼Ç</description>
 <demo>
 {dede:arclistsg  flag='h' typeid='' row='' col='' titlelen='' orderway='' keyword='' limit='0,1'} 
 <a href='[field:arcurl/]'>[field:title/]</a> 
 {/dede:arclistsg}
 </demo>
 <attributes>
-    <iterm>row:è¿”å›æ–‡æ¡£åˆ—è¡¨æ€»æ•°</iterm> 
-    <iterm>typeid:æ ç›®ID,åœ¨åˆ—è¡¨æ¨¡æ¿å’Œæ¡£æ¡ˆæ¨¡æ¿ä¸­ä¸€èˆ¬ä¸éœ€è¦æŒ‡å®šï¼Œåœ¨å°é¢æ¨¡æ¿ä¸­å…è®¸ç”¨","åˆ†å¼€è¡¨ç¤ºå¤šä¸ªæ ç›®</iterm>
-    <iterm>titlelen:æ ‡é¢˜é•¿åº¦ ç­‰åŒäºtitlelength</iterm>
-    <iterm>orderwey:æ’åºæ–¹å‘</iterm>
-    <iterm>keyword:å«æœ‰æŒ‡å®šå…³é”®å­—çš„æ–‡æ¡£åˆ—è¡¨ï¼Œå¤šä¸ªå…³é”®å­—ç”¨","åˆ†</iterm>
-    <iterm>innertext:å•æ¡è®°å½•æ ·å¼(innertextæ˜¯æ”¾åœ¨æ ‡ç­¾ä¹‹é—´çš„ä»£ç )</iterm>
-    <iterm>arcid:æŒ‡å®šæ–‡æ¡£ID</iterm>
-    <iterm>idlist:æå–ç‰¹å®šæ–‡æ¡£ï¼ˆæ–‡æ¡£IDï¼‰</iterm>
-    <iterm>channelid: é¢‘é“ID</iterm>
-    <iterm>limit:è¡¨ç¤ºé™å®šçš„è®°å½•èŒƒå›´</iterm>
-    <iterm>flag:è‡ªå®šä¹‰å±æ€§å€¼ï¼šå¤´æ¡[h]æ¨è[c]å›¾ç‰‡[p]å¹»ç¯[f]æ»šåŠ¨[s]è·³è½¬[j]å›¾æ–‡[a]åŠ ç²—[b]</iterm>
-    <iterm>subday:è¡¨ç¤ºåœ¨å¤šå°‘å¤©ä»¥å†…çš„æ–‡æ¡£</iterm>
+    <iterm>row:·µ»ØÎÄµµÁĞ±í×ÜÊı</iterm> 
+    <iterm>typeid:À¸Ä¿ID,ÔÚÁĞ±íÄ£°åºÍµµ°¸Ä£°åÖĞÒ»°ã²»ĞèÒªÖ¸¶¨£¬ÔÚ·âÃæÄ£°åÖĞÔÊĞíÓÃ","·Ö¿ª±íÊ¾¶à¸öÀ¸Ä¿</iterm>
+    <iterm>titlelen:±êÌâ³¤¶È µÈÍ¬ÓÚtitlelength</iterm>
+    <iterm>orderwey:ÅÅĞò·½Ïò</iterm>
+    <iterm>keyword:º¬ÓĞÖ¸¶¨¹Ø¼ü×ÖµÄÎÄµµÁĞ±í£¬¶à¸ö¹Ø¼ü×ÖÓÃ","·Ö</iterm>
+    <iterm>innertext:µ¥Ìõ¼ÇÂ¼ÑùÊ½(innertextÊÇ·ÅÔÚ±êÇ©Ö®¼äµÄ´úÂë)</iterm>
+    <iterm>arcid:Ö¸¶¨ÎÄµµID</iterm>
+    <iterm>idlist:ÌáÈ¡ÌØ¶¨ÎÄµµ£¨ÎÄµµID£©</iterm>
+    <iterm>channelid: ÆµµÀID</iterm>
+    <iterm>limit:±íÊ¾ÏŞ¶¨µÄ¼ÇÂ¼·¶Î§</iterm>
+    <iterm>flag:×Ô¶¨ÒåÊôĞÔÖµ£ºÍ·Ìõ[h]ÍÆ¼ö[c]Í¼Æ¬[p]»ÃµÆ[f]¹ö¶¯[s]Ìø×ª[j]Í¼ÎÄ[a]¼Ó´Ö[b]</iterm>
+    <iterm>subday:±íÊ¾ÔÚ¶àÉÙÌìÒÔÄÚµÄÎÄµµ</iterm>
 </attributes> 
 >>dede>>*/
 
@@ -48,7 +48,7 @@ function lib_arclistsg(&$ctag,&$refObj)
 {
     global $dsql,$PubFields,$cfg_keyword_like,$cfg_index_cache,$_arclistEnv,$envs,$_sys_globals;
 
-    //å±æ€§å¤„ç†
+    //ÊôĞÔ´¦Àí
     $attlist="typeid|0,row|10,col|1,flag|,titlelen|30,sort|default,keyword|,innertext|,arcid|0,idlist|,channelid|0,limit|,orderway|desc,subday|0";
     FillAttsDefault($ctag->CAttribute->Items,$attlist);
     extract($ctag->CAttribute->Items, EXTR_SKIP);
@@ -87,7 +87,7 @@ function lib_arclistsg(&$ctag,&$refObj)
         return "No addtable info!";
     }
 
-    //åˆ—è¡¨è°ƒç”¨å­—æ®µ
+    //ÁĞ±íµ÷ÓÃ×Ö¶Î
     $listarcs = array('aid', 'typeid');
     if(!empty($row['listfields']))
     {
@@ -100,14 +100,14 @@ function lib_arclistsg(&$ctag,&$refObj)
     $arclistquery = join(',', $listarcs);
     $arclistquery .= ",arc.aid AS id,arc.senddate AS pubdate";
 
-    //æŒ‰ä¸åŒæƒ…å†µè®¾å®šSQLæ¡ä»¶ æ’åºæ–¹å¼
+    //°´²»Í¬Çé¿öÉè¶¨SQLÌõ¼ş ÅÅĞò·½Ê½
     if($idlist=='')
     {
         if($orderby=='near' && $cfg_keyword_like=='N'){ $keyword=''; }
-        //æ—¶é—´é™åˆ¶(ç”¨äºè°ƒç”¨æœ€è¿‘çƒ­é—¨æ–‡ç« ã€çƒ­é—¨è¯„è®ºä¹‹ç±»)
+        //Ê±¼äÏŞÖÆ(ÓÃÓÚµ÷ÓÃ×î½üÈÈÃÅÎÄÕÂ¡¢ÈÈÃÅÆÀÂÛÖ®Àà)
         if($subday>0)
         {
-            //è¿™é‡Œçš„æ—¶é—´åªèƒ½è®¡ç®—åˆ°å¤©ï¼Œå¦åˆ™ç¼“å­˜åŠŸèƒ½å°†æ— æ•ˆ
+            //ÕâÀïµÄÊ±¼äÖ»ÄÜ¼ÆËãµ½Ìì£¬·ñÔò»º´æ¹¦ÄÜ½«ÎŞĞ§
             $ntime = gmmktime(0, 0, 0, gmdate('m'), gmdate('d'), gmdate('Y'));
             $limitday = $ntime - ($subday * 24 * 3600);
             $orwheres[] = " arc.senddate > $limitday ";
@@ -121,11 +121,11 @@ function lib_arclistsg(&$ctag,&$refObj)
 
         if(!empty($typeid))
         {
-            //æŒ‡å®šäº†å¤šä¸ªæ ç›®æ—¶ï¼Œä¸å†è·å–å­ç±»çš„id
+            //Ö¸¶¨ÁË¶à¸öÀ¸Ä¿Ê±£¬²»ÔÙ»ñÈ¡×ÓÀàµÄid
             if(preg_match('#,#',$typeid)) $orwheres[] = " typeid IN ($typeid) ";
             else
             {
-                //å¤„ç†äº¤å‰æ ç›®
+                //´¦Àí½»²æÀ¸Ä¿
                 $CrossID = '';
                 if((isset($envs['cross']) || $ctag->GetAtt('cross')=='1' ) && $ctag->GetAtt('nocross')!='1')
                 {
@@ -157,21 +157,21 @@ function lib_arclistsg(&$ctag,&$refObj)
                 else $orwheres[] = ' typeid IN ('.GetSonIds($typeid).','.$CrossID.')';
             }
         }
-        //é¢‘é“ID
+        //ÆµµÀID
 
         if(!empty($channelid)) $orwheres[] = " AND arc.channel = '$channelid' ";
 
-        //ç”±äºè¿™ä¸ªæ¡ä»¶ä¼šå¯¼è‡´ç¼“å­˜åŠŸèƒ½å¤±å»æ„ä¹‰ï¼Œå› æ­¤å–æ¶ˆ
+        //ÓÉÓÚÕâ¸öÌõ¼ş»áµ¼ÖÂ»º´æ¹¦ÄÜÊ§È¥ÒâÒå£¬Òò´ËÈ¡Ïû
         //if($arcid!=0) $orwheres[] = " arc.id<>'$arcid' ";
     }
-    //æ–‡æ¡£æ’åºçš„æ–¹å¼
+    //ÎÄµµÅÅĞòµÄ·½Ê½
     $ordersql = '';
     if($orderby=='hot'||$orderby=='click') $ordersql = " ORDER BY arc.click $orderway";
     else if($orderby=='id') $ordersql = "  ORDER BY arc.aid $orderway";
     else if($orderby=='near') $ordersql = " ORDER BY ABS(arc.id - ".$arcid.")";
     else if($orderby=='rand') $ordersql = "  ORDER BY rand()";
     else $ordersql=" ORDER BY arc.aid $orderway";
-    //limitæ¡ä»¶
+    //limitÌõ¼ş
     $limit = trim(preg_replace('#limit#i', '', $limit));
     if($limit!='') $limitsql = " LIMIT $limit ";
     else $limitsql = " LIMIT 0,$line ";
@@ -196,7 +196,7 @@ function lib_arclistsg(&$ctag,&$refObj)
         $idlist = GetArclistSgCache($md5hash);
         if($idlist!='') $needcache = FALSE;
     }
-    //æŒ‡å®šäº†idæˆ–ä½¿ç”¨ç¼“å­˜ä¸­çš„id
+    //Ö¸¶¨ÁËid»òÊ¹ÓÃ»º´æÖĞµÄid
     if($idlist!='' && $_arclistEnv != 'index')
     {
         $query = "SELECT $arclistquery,tp.typedir,tp.typename,tp.isdefault,tp.defaultname,tp.namerule,tp.namerule2,tp.ispart,
@@ -255,7 +255,7 @@ function lib_arclistsg(&$ctag,&$refObj)
                     {
                         if($ctag->GetName()=='array')
                         {
-                            //ä¼ é€’æ•´ä¸ªæ•°ç»„ï¼Œåœ¨runphpæ¨¡å¼ä¸­æœ‰ç‰¹æ®Šä½œç”¨
+                            //´«µİÕû¸öÊı×é£¬ÔÚrunphpÄ£Ê½ÖĞÓĞÌØÊâ×÷ÓÃ
                             $dtp2->Assign($k,$row);
                         }
                         else
@@ -277,7 +277,7 @@ function lib_arclistsg(&$ctag,&$refObj)
         if($col>1) $i += $col - 1;
     }//loop line
     $dsql->FreeResult("al");
-    //ä¿å­˜IDç¼“å­˜
+    //±£´æID»º´æ
     $idsstr = join(',',$ids);
     if($idsstr!='' && $needcache && $cfg_index_cache>0)
     {
@@ -289,20 +289,20 @@ function lib_arclistsg(&$ctag,&$refObj)
     return $artlist;
 }
 
-//æŸ¥è¯¢ç¼“å­˜
+//²éÑ¯»º´æ
 function GetArclistSgCache($md5hash)
 {
     global $dsql,$envs,$cfg_makesign_cache,$cfg_index_cache;
-    //æ²¡å¯ç”¨ç¼“å­˜
+    //Ã»ÆôÓÃ»º´æ
     if($cfg_index_cache<=0) return '';
-    //å°‘é‡æ›´æ–°ç¦ç”¨ç¼“å­˜
+    //ÉÙÁ¿¸üĞÂ½ûÓÃ»º´æ
     if(isset($envs['makesign']) && $cfg_makesign_cache=='N') return '';
-    //æ­£å¸¸æƒ…å†µ
+    //Õı³£Çé¿ö
     $mintime = time() - ($cfg_index_cache * 3600);
     $arr = $dsql->GetOne("SELECT cachedata,uptime FROM `#@__arccache` WHERE md5hash = '$md5hash' AND uptime > $mintime ");
-    //æ²¡æ•°æ®
+    //Ã»Êı¾İ
     if(!is_array($arr)) return '';
-    //è¿”å›ç¼“å­˜idæ•°æ®
+    //·µ»Ø»º´æidÊı¾İ
     else return $arr['cachedata'];
 }
 

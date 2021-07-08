@@ -1,8 +1,8 @@
 <?php  if(!defined('DEDEINC')) exit('dedecms');
 /**
- * Cookieå¤„ç†å°åŠ©æ‰‹
+ * Cookie´¦ÀíÐ¡ÖúÊÖ
  *
- * @version        $Id: file.helper.php 1 13:58 2010å¹´7æœˆ5æ—¥Z tianya $
+ * @version        $Id: file.helper.php 1 13:58 2010Äê7ÔÂ5ÈÕZ tianya $
  * @package        DedeCMS.Helpers
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -10,12 +10,12 @@
  */
 
 /**
- *  è®¾ç½®Cookieè®°å½•
+ *  ÉèÖÃCookie¼ÇÂ¼
  *
- * @param     string  $key    é”®
- * @param     string  $value  å€¼
- * @param     string  $kptime  ä¿æŒæ—¶é—´
- * @param     string  $pa     ä¿å­˜è·¯å¾„
+ * @param     string  $key    ¼ü
+ * @param     string  $value  Öµ
+ * @param     string  $kptime  ±£³ÖÊ±¼ä
+ * @param     string  $pa     ±£´æÂ·¾¶
  * @return    void
  */
 if ( ! function_exists('PutCookie'))
@@ -30,9 +30,9 @@ if ( ! function_exists('PutCookie'))
 
 
 /**
- *  æ¸…é™¤Cookieè®°å½•
+ *  Çå³ýCookie¼ÇÂ¼
  *
- * @param     $key   é”®å
+ * @param     $key   ¼üÃû
  * @return    void
  */
 if ( ! function_exists('DropCookie'))
@@ -46,9 +46,9 @@ if ( ! function_exists('DropCookie'))
 }
 
 /**
- *  èŽ·å–Cookieè®°å½•
+ *  »ñÈ¡Cookie¼ÇÂ¼
  *
- * @param     $key   é”®å
+ * @param     $key   ¼üÃû
  * @return    string
  */
 if ( ! function_exists('GetCookie'))

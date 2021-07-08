@@ -1,11 +1,11 @@
 <?php
 /**
- * Unicodeç¼–ç è¯å…¸çš„phpåˆ†è¯å™¨
+ * Unicode±àÂë´ÊµäµÄphp·Ö´ÊÆ÷
  *
- *  1ã€åªé€‚ç”¨äºphp5ï¼Œå¿…è¦å‡½æ•° iconv
- *  2ã€æœ¬ç¨‹åºæ˜¯ä½¿ç”¨RMMé€†å‘åŒ¹é…ç®—æ³•è¿›è¡Œåˆ†è¯çš„ï¼Œè¯åº“éœ€è¦ç‰¹åˆ«ç¼–è¯‘ï¼Œæœ¬ç±»é‡Œæä¾›äº† MakeDict() æ–¹æ³•
- *  3ã€ç®€å•æ“ä½œæµç¨‹ï¼š SetSource -> StartAnalysis -> Get***Result
- *  4ã€å¯¹ä¸»è¯å…¸ä½¿ç”¨ç‰¹æ®Šæ ¼å¼è¿›è¡Œç¼–ç , ä¸éœ€è¦è½½å…¥è¯å…¸åˆ°å†…å­˜æ“ä½œ
+ *  1¡¢Ö»ÊÊÓÃÓÚphp5£¬±ØÒªº¯Êı iconv
+ *  2¡¢±¾³ÌĞòÊÇÊ¹ÓÃRMMÄæÏòÆ¥ÅäËã·¨½øĞĞ·Ö´ÊµÄ£¬´Ê¿âĞèÒªÌØ±ğ±àÒë£¬±¾ÀàÀïÌá¹©ÁË MakeDict() ·½·¨
+ *  3¡¢¼òµ¥²Ù×÷Á÷³Ì£º SetSource -> StartAnalysis -> Get***Result
+ *  4¡¢¶ÔÖ÷´ÊµäÊ¹ÓÃÌØÊâ¸ñÊ½½øĞĞ±àÂë, ²»ĞèÒªÔØÈë´Êµäµ½ÄÚ´æ²Ù×÷
  *
  * @version        $Id: splitword.class.php 2 11:45 2011-2-14 itplato $
  * @package        DedeCMS.Libraries
@@ -14,75 +14,75 @@
  * @link           http://www.dedecms.com
  */
 
-//å¸¸é‡å®šä¹‰
+//³£Á¿¶¨Òå
 define('_SP_', chr(0xFF).chr(0xFE)); 
 define('UCS2', 'ucs-2be');
 class SplitWord
 {
     
-    //hashç®—æ³•é€‰é¡¹
+    //hashËã·¨Ñ¡Ïî
     var $mask_value = 0xFFFF;
     
-    //è¾“å…¥å’Œè¾“å‡ºçš„å­—ç¬¦ç¼–ç ï¼ˆåªå…è®¸ utf-8ã€gbk/gb2312/gb18030ã€big5 ä¸‰ç§ç±»å‹ï¼‰  
+    //ÊäÈëºÍÊä³öµÄ×Ö·û±àÂë£¨Ö»ÔÊĞí utf-8¡¢gbk/gb2312/gb18030¡¢big5 ÈıÖÖÀàĞÍ£©  
     var $sourceCharSet = 'utf-8';
     var $targetCharSet = 'utf-8';
     
-    //ç”Ÿæˆçš„åˆ†è¯ç»“æœæ•°æ®ç±»å‹ 1 ä¸ºå…¨éƒ¨ï¼Œ 2ä¸º è¯å…¸è¯æ±‡åŠå•ä¸ªä¸­æ—¥éŸ©ç®€ç¹å­—ç¬¦åŠè‹±æ–‡ï¼Œ 3 ä¸ºè¯å…¸è¯æ±‡åŠè‹±æ–‡
+    //Éú³ÉµÄ·Ö´Ê½á¹ûÊı¾İÀàĞÍ 1 ÎªÈ«²¿£¬ 2Îª ´Êµä´Ê»ã¼°µ¥¸öÖĞÈÕº«¼ò·±×Ö·û¼°Ó¢ÎÄ£¬ 3 Îª´Êµä´Ê»ã¼°Ó¢ÎÄ
     var $resultType = 1;
     
-    //å¥å­é•¿åº¦å°äºè¿™ä¸ªæ•°å€¼æ—¶ä¸æ‹†åˆ†ï¼ŒnotSplitLen = n(ä¸ªæ±‰å­—) * 2 + 1
+    //¾ä×Ó³¤¶ÈĞ¡ÓÚÕâ¸öÊıÖµÊ±²»²ğ·Ö£¬notSplitLen = n(¸öºº×Ö) * 2 + 1
     var $notSplitLen = 5;
     
-    //æŠŠè‹±æ–‡å•è¯å…¨éƒ¨è½¬å°å†™
+    //°ÑÓ¢ÎÄµ¥´ÊÈ«²¿×ªĞ¡Ğ´
     var $toLower = FALSE;
     
-    //ä½¿ç”¨æœ€å¤§åˆ‡åˆ†æ¨¡å¼å¯¹äºŒå…ƒè¯è¿›è¡Œæ¶ˆå²
+    //Ê¹ÓÃ×î´óÇĞ·ÖÄ£Ê½¶Ô¶şÔª´Ê½øĞĞÏûáª
     var $differMax = FALSE;
     
-    //å°è¯•åˆå¹¶å•å­—
+    //³¢ÊÔºÏ²¢µ¥×Ö
     var $unitWord = TRUE;
     
-    //åˆå§‹åŒ–ç±»æ—¶ç›´æ¥åŠ è½½è¯å…¸
+    //³õÊ¼»¯ÀàÊ±Ö±½Ó¼ÓÔØ´Êµä
     var $loadInit = TRUE;
     
-    //ä½¿ç”¨çƒ­é—¨è¯ä¼˜å…ˆæ¨¡å¼è¿›è¡Œæ¶ˆå²
+    //Ê¹ÓÃÈÈÃÅ´ÊÓÅÏÈÄ£Ê½½øĞĞÏûáª
     var $differFreq = FALSE;
     
-    //è¢«è½¬æ¢ä¸ºunicodeçš„æºå­—ç¬¦ä¸²
+    //±»×ª»»ÎªunicodeµÄÔ´×Ö·û´®
     var $sourceString = '';
     
-    //é™„åŠ è¯å…¸
+    //¸½¼Ó´Êµä
     var $addonDic = array();
     var $addonDicFile = 'data/words_addons.dic';
     
-    //ä¸»è¯å…¸ 
+    //Ö÷´Êµä 
     var $dicStr = '';
     var $mainDic = array();
     var $mainDicHand = FALSE;
     var $mainDicInfos = array();
     var $mainDicFile = 'data/base_dic_full.dic';
-    //æ˜¯å¦ç›´æ¥è½½å…¥è¯å…¸ï¼ˆé€‰æ˜¯è½½å…¥é€Ÿåº¦è¾ƒæ…¢ï¼Œä½†è§£æè¾ƒå¿«ï¼›é€‰å¦è½½å…¥è¾ƒå¿«ï¼Œä½†è§£æè¾ƒæ…¢ï¼Œéœ€è¦æ—¶æ‰ä¼šè½½å…¥ç‰¹å®šçš„è¯æ¡ï¼‰
+    //ÊÇ·ñÖ±½ÓÔØÈë´Êµä£¨Ñ¡ÊÇÔØÈëËÙ¶È½ÏÂı£¬µ«½âÎö½Ï¿ì£»Ñ¡·ñÔØÈë½Ï¿ì£¬µ«½âÎö½ÏÂı£¬ĞèÒªÊ±²Å»áÔØÈëÌØ¶¨µÄ´ÊÌõ£©
     var $mainDicFileZip = 'data/base_dic_full.zip';
     var $isLoadAll = FALSE;
     var $isUnpacked = FALSE;
     
-    //ä¸»è¯å…¸è¯è¯­æœ€å¤§é•¿åº¦ x / 2
+    //Ö÷´Êµä´ÊÓï×î´ó³¤¶È x / 2
     var $dicWordMax = 14;
-    //ç²—åˆ†åçš„æ•°ç»„ï¼ˆé€šå¸¸æ˜¯æˆªå–å¥å­ç­‰ç”¨é€”ï¼‰
+    //´Ö·ÖºóµÄÊı×é£¨Í¨³£ÊÇ½ØÈ¡¾ä×ÓµÈÓÃÍ¾£©
     var $simpleResult = array();
-    //æœ€ç»ˆç»“æœ(ç”¨ç©ºæ ¼åˆ†å¼€çš„è¯æ±‡åˆ—è¡¨)
+    //×îÖÕ½á¹û(ÓÃ¿Õ¸ñ·Ö¿ªµÄ´Ê»ãÁĞ±í)
     var $finallyResult = '';
     
-    //æ˜¯å¦å·²ç»è½½å…¥è¯å…¸
+    //ÊÇ·ñÒÑ¾­ÔØÈë´Êµä
     var $isLoadDic = FALSE;
-    //ç³»ç»Ÿè¯†åˆ«æˆ–åˆå¹¶çš„æ–°è¯
+    //ÏµÍ³Ê¶±ğ»òºÏ²¢µÄĞÂ´Ê
     var $newWords = array();
     var $foundWordStr = '';
-    //è¯åº“è½½å…¥æ—¶é—´
+    //´Ê¿âÔØÈëÊ±¼ä
     var $loadTime = 0;
     
     /**
-     * æ„é€ å‡½æ•°
+     * ¹¹Ôìº¯Êı
      * @param $source_charset
      * @param $target_charset
      * @param $load_alldic 
@@ -104,7 +104,7 @@ class SplitWord
     }
     
    /**
-    * ææ„å‡½æ•°
+    * Îö¹¹º¯Êı
     */
     function __destruct()
     {
@@ -115,7 +115,7 @@ class SplitWord
     }
     
     /**
-     * æ ¹æ®å­—ç¬¦ä¸²è®¡ç®—keyç´¢å¼•
+     * ¸ù¾İ×Ö·û´®¼ÆËãkeyË÷Òı
      * @param $key
      * @return short int
      */
@@ -133,9 +133,9 @@ class SplitWord
     }
     
     /**
-     * ä»æ–‡ä»¶è·å¾—è¯
+     * ´ÓÎÄ¼ş»ñµÃ´Ê
      * @param $key
-     * @param $type (ç±»å‹ word æˆ– key_groups)
+     * @param $type (ÀàĞÍ word »ò key_groups)
      * @return short int
      */
     function GetWordInfos( $key, $type='word' )
@@ -173,7 +173,7 @@ class SplitWord
     }
     
     /**
-     * è®¾ç½®æºå­—ç¬¦ä¸²
+     * ÉèÖÃÔ´×Ö·û´®
      * @param $source
      * @param $source_charset
      * @param $target_charset
@@ -211,8 +211,8 @@ class SplitWord
     }
     
     /**
-     * è®¾ç½®ç»“æœç±»å‹(åªåœ¨è·å–finallyResultæ‰æœ‰æ•ˆ)
-     * @param $rstype 1 ä¸ºå…¨éƒ¨ï¼Œ 2å»é™¤ç‰¹æ®Šç¬¦å·
+     * ÉèÖÃ½á¹ûÀàĞÍ(Ö»ÔÚ»ñÈ¡finallyResult²ÅÓĞĞ§)
+     * @param $rstype 1 ÎªÈ«²¿£¬ 2È¥³ıÌØÊâ·ûºÅ
      *
      * @return void
      */
@@ -222,7 +222,7 @@ class SplitWord
     }
     
     /**
-     * è½½å…¥è¯å…¸
+     * ÔØÈë´Êµä
      *
      * @return void
      */
@@ -232,7 +232,7 @@ class SplitWord
 		$this->mainDicFile = DEDEINC.'/'.$this->mainDicFile;
 		$this->mainDicFileZip = DEDEINC.'/'.$this->mainDicFileZip;
         $startt = microtime(TRUE);
-        //æ­£å¸¸è¯»å–æ–‡ä»¶
+        //Õı³£¶ÁÈ¡ÎÄ¼ş
         $dicAddon = $this->addonDicFile;
         if($maindic=='' || !file_exists($maindic) )
         {
@@ -244,14 +244,14 @@ class SplitWord
             $this->mainDicFile = $maindic;
         }
         
-        //åŠ è½½ä¸»è¯å…¸ï¼ˆåªæ‰“å¼€ï¼‰
+        //¼ÓÔØÖ÷´Êµä£¨Ö»´ò¿ª£©
         if($this->isUnpacked){
         	$this->mainDicHand = fopen($dicWords, 'r');
         }else{
         	$this->InportDict($this->mainDicFileZip);
         }
         
-        //è½½å…¥å‰¯è¯å…¸
+        //ÔØÈë¸±´Êµä
         $hw = '';
         $ds = file($dicAddon);
         foreach($ds as $d)
@@ -280,7 +280,7 @@ class SplitWord
     }
     
    /**
-    * æ£€æµ‹æŸä¸ªè¯æ˜¯å¦å­˜åœ¨
+    * ¼ì²âÄ³¸ö´ÊÊÇ·ñ´æÔÚ
     */
     function IsWord( $word )
     {
@@ -289,8 +289,8 @@ class SplitWord
     }
     
     /**
-     * è·å¾—æŸä¸ªè¯çš„è¯æ€§åŠè¯é¢‘ä¿¡æ¯
-     * @parem $word unicodeç¼–ç çš„è¯
+     * »ñµÃÄ³¸ö´ÊµÄ´ÊĞÔ¼°´ÊÆµĞÅÏ¢
+     * @parem $word unicode±àÂëµÄ´Ê
      * @return void
      */
      function GetWordProperty($word)
@@ -304,9 +304,9 @@ class SplitWord
      }
     
     /**
-     * æŒ‡å®šæŸè¯çš„è¯æ€§ä¿¡æ¯ï¼ˆé€šå¸¸æ˜¯æ–°è¯ï¼‰
-     * @parem $word unicodeç¼–ç çš„è¯
-     * @parem $infos array('c' => è¯é¢‘, 'm' => è¯æ€§);
+     * Ö¸¶¨Ä³´ÊµÄ´ÊĞÔĞÅÏ¢£¨Í¨³£ÊÇĞÂ´Ê£©
+     * @parem $word unicode±àÂëµÄ´Ê
+     * @parem $infos array('c' => ´ÊÆµ, 'm' => ´ÊĞÔ);
      * @return void;
      */
     function SetWordInfos($word, $infos)
@@ -328,8 +328,8 @@ class SplitWord
     }
     
     /**
-     * å¼€å§‹æ‰§è¡Œåˆ†æ
-     * @parem bool optimize æ˜¯å¦å¯¹ç»“æœè¿›è¡Œä¼˜åŒ–
+     * ¿ªÊ¼Ö´ĞĞ·ÖÎö
+     * @parem bool optimize ÊÇ·ñ¶Ô½á¹û½øĞĞÓÅ»¯
      * @return bool
      */
     function StartAnalysis($optimize=TRUE)
@@ -343,16 +343,16 @@ class SplitWord
         $slen = strlen($this->sourceString);
         $sbcArr = array();
         $j = 0;
-        //å…¨è§’ä¸åŠè§’å­—ç¬¦å¯¹ç…§è¡¨
+        //È«½ÇÓë°ë½Ç×Ö·û¶ÔÕÕ±í
         for($i=0xFF00; $i < 0xFF5F; $i++)
         {
             $scb = 0x20 + $j;
             $j++;
             $sbcArr[$i] = $scb;
         }
-        //å¯¹å­—ç¬¦ä¸²è¿›è¡Œç²—åˆ†
+        //¶Ô×Ö·û´®½øĞĞ´Ö·Ö
         $onstr = '';
-        $lastc = 1; //1 ä¸­/éŸ©/æ—¥æ–‡, 2 è‹±æ–‡/æ•°å­—/ç¬¦å·('.', '@', '#', '+'), 3 ANSIç¬¦å· 4 çº¯æ•°å­— 5 éANSIç¬¦å·æˆ–ä¸æ”¯æŒå­—ç¬¦
+        $lastc = 1; //1 ÖĞ/º«/ÈÕÎÄ, 2 Ó¢ÎÄ/Êı×Ö/·ûºÅ('.', '@', '#', '+'), 3 ANSI·ûºÅ 4 ´¿Êı×Ö 5 ·ÇANSI·ûºÅ»ò²»Ö§³Ö×Ö·û
         $s = 0;
         $ansiWordMatch = "[0-9a-z@#%\+\.-]";
         $notNumberMatch = "[a-z@#%\+]";
@@ -361,7 +361,7 @@ class SplitWord
             $c = $this->sourceString[$i].$this->sourceString[++$i];
             $cn = hexdec(bin2hex($c));
             $cn = isset($sbcArr[$cn]) ? $sbcArr[$cn] : $cn;
-            //ANSIå­—ç¬¦
+            //ANSI×Ö·û
             if($cn < 0x80)
             {
                 if( preg_match('/'.$ansiWordMatch.'/i', chr($cn)) )
@@ -403,10 +403,10 @@ class SplitWord
                     }
                 }
             }
-            //æ™®é€šå­—ç¬¦
+            //ÆÕÍ¨×Ö·û
             else
             {
-                //æ­£å¸¸æ–‡å­—
+                //Õı³£ÎÄ×Ö
                 if( ($cn>0x3FFF && $cn < 0x9FA6) || ($cn>0xF8FF && $cn < 0xFA2D)
                     || ($cn>0xABFF && $cn < 0xD7A4) || ($cn>0x3040 && $cn < 0x312B) )
                 {
@@ -425,7 +425,7 @@ class SplitWord
                     $lastc = 1;
                     $onstr .= $c;
                 }
-                //ç‰¹æ®Šç¬¦å·
+                //ÌØÊâ·ûºÅ
                 else
                 {
                     if( $onstr != '' )
@@ -440,7 +440,7 @@ class SplitWord
                         $s++;
                     }
                     
-                    //æ£€æµ‹ä¹¦å
+                    //¼ì²âÊéÃû
                     if( $cn == 0x300A )
                     {
                         $tmpw = '';
@@ -469,7 +469,7 @@ class SplitWord
                                 
                                 $s++;
 
-                                //æœ€å¤§åˆ‡åˆ†æ¨¡å¼å¯¹ä¹¦åç»§ç»­åˆ†è¯
+                                //×î´óÇĞ·ÖÄ£Ê½¶ÔÊéÃû¼ÌĞø·Ö´Ê
                                 if( $this->differMax )
                                 {
                                     $this->simpleResult[$s]['w'] = $tmpw;
@@ -527,25 +527,25 @@ class SplitWord
         
         }//end for
         
-        //å¤„ç†åˆ†è¯åçš„ç»“æœ
+        //´¦Àí·Ö´ÊºóµÄ½á¹û
         $this->_sort_finally_result();
     }
     
     /**
-     * æ·±å…¥åˆ†è¯
+     * ÉîÈë·Ö´Ê
      * @parem $str
-     * @parem $ctype (2 è‹±æ–‡ç±»ï¼Œ 3 ä¸­/éŸ©/æ—¥æ–‡ç±»)
-     * @parem $spos   å½“å‰ç²—åˆ†ç»“æœæ¸¸æ ‡
+     * @parem $ctype (2 Ó¢ÎÄÀà£¬ 3 ÖĞ/º«/ÈÕÎÄÀà)
+     * @parem $spos   µ±Ç°´Ö·Ö½á¹ûÓÎ±ê
      * @return bool
      */
     function _deep_analysis( &$str, $ctype, $spos, $optimize=TRUE )
     {
 
-        //ä¸­æ–‡å¥å­
+        //ÖĞÎÄ¾ä×Ó
         if( $ctype==1 )
         {
             $slen = strlen($str);
-            //å°äºç³»ç»Ÿé…ç½®åˆ†è¯è¦æ±‚é•¿åº¦çš„å¥å­
+            //Ğ¡ÓÚÏµÍ³ÅäÖÃ·Ö´ÊÒªÇó³¤¶ÈµÄ¾ä×Ó
             if( $slen < $this->notSplitLen )
             {
                 $tmpstr = '';
@@ -586,13 +586,13 @@ class SplitWord
                       $this->_deep_analysis_cn( $str, $ctype, $spos, $slen, $optimize );
                 }
             }
-            //æ­£å¸¸é•¿åº¦çš„å¥å­ï¼Œå¾ªç¯è¿›è¡Œåˆ†è¯å¤„ç†
+            //Õı³£³¤¶ÈµÄ¾ä×Ó£¬Ñ­»·½øĞĞ·Ö´Ê´¦Àí
             else
             {
                 $this->_deep_analysis_cn( $str, $ctype, $spos, $slen, $optimize );
             }
         }
-        //è‹±æ–‡å¥å­ï¼Œè½¬ä¸ºå°å†™
+        //Ó¢ÎÄ¾ä×Ó£¬×ªÎªĞ¡Ğ´
         else
         {
             if( $this->toLower ) {
@@ -605,7 +605,7 @@ class SplitWord
     }
     
     /**
-     * ä¸­æ–‡çš„æ·±å…¥åˆ†è¯
+     * ÖĞÎÄµÄÉîÈë·Ö´Ê
      * @parem $str
      * @return void
      */
@@ -614,7 +614,7 @@ class SplitWord
         $quote1 = chr(0x20).chr(0x1C);
         $tmparr = array();
         $hasw = 0;
-        //å¦‚æœå‰ä¸€ä¸ªè¯ä¸º â€œ ï¼Œ å¹¶ä¸”å­—ç¬¦ä¸²å°äº3ä¸ªå­—ç¬¦å½“æˆä¸€ä¸ªè¯å¤„ç†ã€‚
+        //Èç¹ûÇ°Ò»¸ö´ÊÎª ¡° £¬ ²¢ÇÒ×Ö·û´®Ğ¡ÓÚ3¸ö×Ö·ûµ±³ÉÒ»¸ö´Ê´¦Àí¡£
         if( $spos > 0 && $slen < 11 && $this->simpleResult[$spos-1]['w']==$quote1 )
         {
             $tmparr[] = $str;
@@ -629,12 +629,12 @@ class SplitWord
                 return ;
             }
         }
-        //è¿›è¡Œåˆ‡åˆ†
+        //½øĞĞÇĞ·Ö
         for($i=$slen-1; $i > 0; $i -= 2)
         {
-            //å•ä¸ªè¯
+            //µ¥¸ö´Ê
             $nc = $str[$i-1].$str[$i];
-            //æ˜¯å¦å·²ç»åˆ°æœ€åä¸¤ä¸ªå­—
+            //ÊÇ·ñÒÑ¾­µ½×îºóÁ½¸ö×Ö
             if( $i <= 2 )
             {
                 $tmparr[] = $nc;
@@ -661,13 +661,13 @@ class SplitWord
                 }
             }
             //echo '<hr />';
-            //æ²¡é€‚åˆè¯
+            //Ã»ÊÊºÏ´Ê
             if(!$isok) $tmparr[] = $nc;
         }
         $wcount = count($tmparr);
         if( $wcount==0 ) return ;
         $this->finallyResult[$spos] = array_reverse($tmparr);
-        //ä¼˜åŒ–ç»“æœ(å²ä¹‰å¤„ç†ã€æ–°è¯ã€æ•°è¯ã€äººåè¯†åˆ«ç­‰)
+        //ÓÅ»¯½á¹û(áªÒå´¦Àí¡¢ĞÂ´Ê¡¢Êı´Ê¡¢ÈËÃûÊ¶±ğµÈ)
         if( $optimize )
         {
             $this->_optimize_result( $this->finallyResult[$spos], $spos );
@@ -675,18 +675,18 @@ class SplitWord
     }
     
     /**
-    * å¯¹æœ€ç»ˆåˆ†è¯ç»“æœè¿›è¡Œä¼˜åŒ–ï¼ˆæŠŠsimpleresultç»“æœåˆå¹¶ï¼Œå¹¶å°è¯•æ–°è¯è¯†åˆ«ã€æ•°è¯åˆå¹¶ç­‰ï¼‰
-    * @parem $optimize æ˜¯å¦ä¼˜åŒ–åˆå¹¶çš„ç»“æœ
+    * ¶Ô×îÖÕ·Ö´Ê½á¹û½øĞĞÓÅ»¯£¨°Ñsimpleresult½á¹ûºÏ²¢£¬²¢³¢ÊÔĞÂ´ÊÊ¶±ğ¡¢Êı´ÊºÏ²¢µÈ£©
+    * @parem $optimize ÊÇ·ñÓÅ»¯ºÏ²¢µÄ½á¹û
     * @return bool
     */
-    //t = 1 ä¸­/éŸ©/æ—¥æ–‡, 2 è‹±æ–‡/æ•°å­—/ç¬¦å·('.', '@', '#', '+'), 3 ANSIç¬¦å· 4 çº¯æ•°å­— 5 éANSIç¬¦å·æˆ–ä¸æ”¯æŒå­—ç¬¦
+    //t = 1 ÖĞ/º«/ÈÕÎÄ, 2 Ó¢ÎÄ/Êı×Ö/·ûºÅ('.', '@', '#', '+'), 3 ANSI·ûºÅ 4 ´¿Êı×Ö 5 ·ÇANSI·ûºÅ»ò²»Ö§³Ö×Ö·û
     function _optimize_result( &$smarr, $spos )
     {
         $newarr = array();
         $prePos = $spos - 1;
         $arlen = count($smarr);
         $i = $j = 0;
-        //æ£€æµ‹æ•°é‡è¯
+        //¼ì²âÊıÁ¿´Ê
         if( $prePos > -1 && !isset($this->finallyResult[$prePos]) )
         {
             $lastw = $this->simpleResult[$prePos]['w'];
@@ -715,10 +715,10 @@ class SplitWord
             $cw = $smarr[$i];
             $nw = $smarr[$i+1];
             $ischeck = FALSE;
-            //æ£€æµ‹æ•°é‡è¯
+            //¼ì²âÊıÁ¿´Ê
             if( isset( $this->addonDic['c'][$cw] ) && isset( $this->addonDic['u'][$nw] ) )
             {
-                //æœ€å¤§åˆ‡åˆ†æ—¶ä¿ç•™åˆå¹¶å‰çš„è¯
+                //×î´óÇĞ·ÖÊ±±£ÁôºÏ²¢Ç°µÄ´Ê
                 if($this->differMax)
                 {
                         $newarr[$j] = chr(0).chr(0x28);
@@ -738,11 +738,11 @@ class SplitWord
                 }
                 $j++; $i++; $ischeck = TRUE;
             }
-            //æ£€æµ‹å‰å¯¼è¯(é€šå¸¸æ˜¯å§“)
+            //¼ì²âÇ°µ¼´Ê(Í¨³£ÊÇĞÕ)
             else if( isset( $this->addonDic['n'][ $smarr[$i] ] ) )
             {
                 $is_rs = FALSE;
-                //è¯è¯­æ˜¯å‰¯è¯æˆ–ä»‹è¯æˆ–é¢‘ç‡å¾ˆé«˜çš„è¯ä¸ä½œä¸ºäººå
+                //´ÊÓïÊÇ¸±´Ê»ò½é´Ê»òÆµÂÊºÜ¸ßµÄ´Ê²»×÷ÎªÈËÃû
                 if( strlen($nw)==4 )
                 {
                     $winfos = $this->GetWordInfos($nw);
@@ -755,7 +755,7 @@ class SplitWord
                 {
                     $newarr[$j] = $cw.$nw;
                     //echo iconv(UCS2, 'utf-8', $newarr[$j])."<br />";
-                    //å°è¯•æ£€æµ‹ç¬¬ä¸‰ä¸ªè¯
+                    //³¢ÊÔ¼ì²âµÚÈı¸ö´Ê
                     if( strlen($nw)==2 && isset($smarr[$i+2]) && strlen($smarr[$i+2])==2 && !isset( $this->addonDic['s'][$smarr[$i+2]] ) )
                     {
                         $newarr[$j] .= $smarr[$i+2];
@@ -766,7 +766,7 @@ class SplitWord
                         $this->SetWordInfos($newarr[$j], array('c'=>1, 'm'=>'nr'));
                         $this->foundWordStr .= $this->_out_string_encoding($newarr[$j]).'/nr, ';
                     }
-                    //ä¸ºäº†é˜²æ­¢é”™è¯¯ï¼Œä¿ç•™åˆå¹¶å‰çš„å§“å
+                    //ÎªÁË·ÀÖ¹´íÎó£¬±£ÁôºÏ²¢Ç°µÄĞÕÃû
                     if(strlen($nw)==4)
                     {
                         $j++;
@@ -782,11 +782,11 @@ class SplitWord
                     $j++; $i++; $ischeck = TRUE;
                 }
             }
-            //æ£€æµ‹åç¼€è¯(åœ°åç­‰)
+            //¼ì²âºó×º´Ê(µØÃûµÈ)
             else if( isset($this->addonDic['a'][$nw]) )
             {
                 $is_rs = FALSE;
-                //è¯è¯­æ˜¯å‰¯è¯æˆ–ä»‹è¯ä¸ä½œä¸ºå‰ç¼€
+                //´ÊÓïÊÇ¸±´Ê»ò½é´Ê²»×÷ÎªÇ°×º
                 if( strlen($cw)>2 )
                 {
                     $winfos = $this->GetWordInfos($cw);
@@ -806,7 +806,7 @@ class SplitWord
                     $i++; $j++; $ischeck = TRUE;
                 }
             }
-            //æ–°è¯è¯†åˆ«ï¼ˆæš‚æ— è§„åˆ™ï¼‰
+            //ĞÂ´ÊÊ¶±ğ£¨ÔİÎŞ¹æÔò£©
             else if($this->unitWord)
             {
                 if(strlen($cw)==2 && strlen($nw)==2 
@@ -814,7 +814,7 @@ class SplitWord
                 && !isset($this->addonDic['s'][$nw]) && !isset($this->addonDic['c'][$nw]))
                 {
                     $newarr[$j] = $cw.$nw;
-                    //å°è¯•æ£€æµ‹ç¬¬ä¸‰ä¸ªè¯
+                    //³¢ÊÔ¼ì²âµÚÈı¸ö´Ê
                     if( isset($smarr[$i+2]) && strlen($smarr[$i+2])==2 && (isset( $this->addonDic['a'][$smarr[$i+2]] ) || isset( $this->addonDic['u'][$smarr[$i+2]] )) )
                     {
                         $newarr[$j] .= $smarr[$i+2];
@@ -829,11 +829,11 @@ class SplitWord
                 }
             }
             
-            //ä¸ç¬¦åˆè§„åˆ™
+            //²»·ûºÏ¹æÔò
             if( !$ischeck )
             {
                 $newarr[$j] = $cw;
-                  //äºŒå…ƒæ¶ˆå²å¤„ç†â€”â€”æœ€å¤§åˆ‡åˆ†æ¨¡å¼
+                  //¶şÔªÏûáª´¦Àí¡ª¡ª×î´óÇĞ·ÖÄ£Ê½
                 if( $this->differMax && !isset($this->addonDic['s'][$cw]) && strlen($cw) < 5 && strlen($nw) < 7)
                 {
                     $slen = strlen($nw);
@@ -858,7 +858,7 @@ class SplitWord
     }
     
     /**
-    * è½¬æ¢æœ€ç»ˆåˆ†è¯ç»“æœåˆ° finallyResult æ•°ç»„
+    * ×ª»»×îÖÕ·Ö´Ê½á¹ûµ½ finallyResult Êı×é
     * @return void
     */
     function _sort_finally_result()
@@ -892,7 +892,7 @@ class SplitWord
       }
     
     /**
-     * æŠŠuncodeå­—ç¬¦ä¸²è½¬æ¢ä¸ºè¾“å‡ºå­—ç¬¦ä¸²
+     * °Ñuncode×Ö·û´®×ª»»ÎªÊä³ö×Ö·û´®
      * @parem str
      * return string
      */
@@ -912,7 +912,7 @@ class SplitWord
      }
     
     /**
-     * è·å–æœ€ç»ˆç»“æœå­—ç¬¦ä¸²ï¼ˆç”¨ç©ºæ ¼åˆ†å¼€åçš„åˆ†è¯ç»“æœï¼‰
+     * »ñÈ¡×îÖÕ½á¹û×Ö·û´®£¨ÓÃ¿Õ¸ñ·Ö¿ªºóµÄ·Ö´Ê½á¹û£©
      * @return string
      */
      function GetFinallyResult($spword=' ', $word_meanings=FALSE)
@@ -944,7 +944,7 @@ class SplitWord
      }
      
     /**
-     * è·å–ç²—åˆ†ç»“æœï¼Œä¸åŒ…å«ç²—åˆ†å±æ€§
+     * »ñÈ¡´Ö·Ö½á¹û£¬²»°üº¬´Ö·ÖÊôĞÔ
      * @return array()
      */
      function GetSimpleResult()
@@ -960,7 +960,7 @@ class SplitWord
      }
      
     /**
-     * è·å–ç²—åˆ†ç»“æœï¼ŒåŒ…å«ç²—åˆ†å±æ€§ï¼ˆ1ä¸­æ–‡è¯å¥ã€2 ANSIè¯æ±‡ï¼ˆåŒ…æ‹¬å…¨è§’ï¼‰ï¼Œ3 ANSIæ ‡ç‚¹ç¬¦å·ï¼ˆåŒ…æ‹¬å…¨è§’ï¼‰ï¼Œ4æ•°å­—ï¼ˆåŒ…æ‹¬å…¨è§’ï¼‰ï¼Œ5 ä¸­æ–‡æ ‡ç‚¹æˆ–æ— æ³•è¯†åˆ«å­—ç¬¦ï¼‰
+     * »ñÈ¡´Ö·Ö½á¹û£¬°üº¬´Ö·ÖÊôĞÔ£¨1ÖĞÎÄ´Ê¾ä¡¢2 ANSI´Ê»ã£¨°üÀ¨È«½Ç£©£¬3 ANSI±êµã·ûºÅ£¨°üÀ¨È«½Ç£©£¬4Êı×Ö£¨°üÀ¨È«½Ç£©£¬5 ÖĞÎÄ±êµã»òÎŞ·¨Ê¶±ğ×Ö·û£©
      * @return array()
      */
      function GetSimpleResultAll()
@@ -979,7 +979,7 @@ class SplitWord
      }
      
     /**
-     * è·å–ç´¢å¼•hashæ•°ç»„
+     * »ñÈ¡Ë÷ÒıhashÊı×é
      * @return array('word'=>count,...)
      */
      function GetFinallyIndex()
@@ -1009,7 +1009,7 @@ class SplitWord
      }
      
     /**
-     * è·å¾—ä¿å­˜ç›®æ ‡ç¼–ç 
+     * »ñµÃ±£´æÄ¿±ê±àÂë
      * @return int
      */
      function _source_result_charset()
@@ -1030,9 +1030,9 @@ class SplitWord
      }
      
      /**
-     * ç¼–è¯‘è¯å…¸
-     * @parem $sourcefile utf-8ç¼–ç çš„æ–‡æœ¬è¯å…¸æ•°æ®æ–‡ä»¶<å‚è§èŒƒä¾‹dict/not-build/base_dic_full.txt>
-     * æ³¨æ„, éœ€è¦PHPå¼€æ”¾è¶³å¤Ÿçš„å†…å­˜æ‰èƒ½å®Œæˆæ“ä½œ
+     * ±àÒë´Êµä
+     * @parem $sourcefile utf-8±àÂëµÄÎÄ±¾´ÊµäÊı¾İÎÄ¼ş<²Î¼û·¶Àıdict/not-build/base_dic_full.txt>
+     * ×¢Òâ, ĞèÒªPHP¿ª·Å×ã¹»µÄÄÚ´æ²ÅÄÜÍê³É²Ù×÷
      * @return void
      */
      function MakeDict( $source_file, $target_file='' )
@@ -1083,8 +1083,8 @@ class SplitWord
      }
      
      /**
-     * å¯¼å‡ºè¯å…¸çš„è¯æ¡
-     * @parem $targetfile ä¿å­˜ä½ç½®
+     * µ¼³ö´ÊµäµÄ´ÊÌõ
+     * @parem $targetfile ±£´æÎ»ÖÃ
      * @return void
      */
      function ExportDict( $targetfile )
@@ -1120,7 +1120,7 @@ class SplitWord
 	function InportDict( $targetfile )
      {
      	if(!ini_set('memory_limit', '128M'))
-			exit('è®¾ç½®å†…å­˜é”™è¯¯ï¼Œè¯·åˆ°dedeå®˜ç½‘ä¸‹è½½è§£å‹ç‰ˆçš„base_dic_full.dic!');
+			exit('ÉèÖÃÄÚ´æ´íÎó£¬Çëµ½dede¹ÙÍøÏÂÔØ½âÑ¹°æµÄbase_dic_full.dic!');
      	require_once(DEDEINC.'/zip.class.php');
      	$zip = new zip();
      	//echo $targetfile;

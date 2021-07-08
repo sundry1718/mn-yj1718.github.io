@@ -1,1 +1,0 @@
-<dd> <a href="[field:typedir function='str_replace("{cmspath}","",@me)'/]">[field:typename/]</a></dd>

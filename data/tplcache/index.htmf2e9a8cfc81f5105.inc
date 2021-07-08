@@ -1,0 +1,42 @@
+<?php
+$z[0]=Array("global","",258,284);
+$z[0][4]=array();
+$z[0][4]['name']="cfg_webname";
+$z[1]=Array("global","",328,358);
+$z[1][4]=array();
+$z[1][4]['name']="cfg_description";
+$z[2]=Array("global","",395,422);
+$z[2][4]=array();
+$z[2][4]['name']="cfg_keywords";
+$z[3]=Array("include","",866,903);
+$z[3][4]=array();
+$z[3][4]['filename']="header.htm";
+$z[4]=Array("arclist","\r\n          <li><a href=\"[field:arcurl/]\" target=\"_blank\"><span>[field:title/]</span><img src=\"[field:picname/]\" alt=\"[field:title/]\" width=\"310\" height=\"240\" /></a>水质在线监测系统水质在线检测仪水质测试测定仪</li>\r\n          ",2132,2437);
+$z[4][4]=array();
+$z[4][4]['row']="6";
+$z[4][4]['titlelen']="100";
+$z[4][4]['orderby']="click";
+$z[4][4]['typeid']="1";
+$z[5]=Array("arclist","\r\n        <li><span class=\"dt\">[field:senddate function=\"MyDate('m-d',@me)\"/]</span><a href=\"[field:arcurl/]\" target=\"_blank\" title=\"[field:title/]\">[field:title/]</a></li>\r\n        ",2816,3074);
+$z[5][4]=array();
+$z[5][4]['row']="5";
+$z[5][4]['titlelen']="100";
+$z[5][4]['orderby']="id";
+$z[5][4]['typeid']="2";
+$z[6]=Array("arclist","\r\n        <li><span class=\"dt\">[field:senddate function=\"MyDate('m-d',@me)\"/]</span><a href=\"[field:arcurl/]\" target=\"_blank\" title=\"[field:title/]\">[field:title/]</a></li>\r\n        ",3389,3647);
+$z[6][4]=array();
+$z[6][4]['row']="5";
+$z[6][4]['titlelen']="100";
+$z[6][4]['orderby']="id";
+$z[6][4]['typeid']="3";
+$z[7]=Array("arclist","\r\n        <li><span class=\"dt\">[field:senddate function=\"MyDate('m-d',@me)\"/]</span><a href=\"[field:arcurl/]\" target=\"_blank\" title=\"[field:title/]\">[field:title/]</a></li>\r\n        ",3955,4213);
+$z[7][4]=array();
+$z[7][4]['row']="5";
+$z[7][4]['titlelen']="100";
+$z[7][4]['orderby']="id";
+$z[7][4]['typeid']="4";
+$z[8]=Array("include","",9187,9230);
+$z[8][4]=array();
+$z[8][4]['filename']="footer_index.htm";
+
+?>

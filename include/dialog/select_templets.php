@@ -1,8 +1,8 @@
 <?php
 /**
- * æ¨¡æ¿é€‰æ‹©æ¡†
+ * Ä£°åÑ¡Ôñ¿ò
  *
- * @version        $Id: select_templets.php 1 9:43 2010å¹´7æœˆ8æ—¥Z tianya $
+ * @version        $Id: select_templets.php 1 9:43 2010Äê7ÔÂ8ÈÕZ tianya $
  * @package        DedeCMS.Dialog
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -39,7 +39,7 @@ if(empty($comeback))
 <html>
 <head>
 <meta http-equiv='Content-Type' content='text/html; charset=<?php echo $cfg_soft_lang; ?>'>
-<title>æ¨¡æ¿ç®¡ç†å™¨</title>
+<title>Ä£°å¹ÜÀíÆ÷</title>
 <link href='../../plus/img/base.css' rel='stylesheet' type='text/css'>
 <style>
 .linerow {border-bottom: 1px solid #CBD8AC;}
@@ -61,19 +61,19 @@ function ReturnValue(reimg)
 <table width='100%' border='0' cellpadding='0' cellspacing='1' bgcolor='#CBD8AC' align="center">
 <tr bgcolor='#FFFFFF'>
 <td colspan='3'>
-<!-- å¼€å§‹æ–‡ä»¶åˆ—è¡¨  -->
+<!-- ¿ªÊ¼ÎÄ¼şÁĞ±í  -->
 <table width='100%' border='0' cellspacing='0' cellpadding='2'>
 <tr bgcolor="#CCCCCC">
-<td width="55%" align="center" background="img/wbg.gif" class='linerow'><strong>ç‚¹å‡»åç§°é€‰æ‹©æ–‡ä»¶</strong></td>
-<td width="15%" align="center" bgcolor='#EEF4EA' class='linerow'><strong>æ–‡ä»¶å¤§å°</strong></td>
-<td width="30%" align="center" background="img/wbg.gif" class='linerow'><strong>æœ€åä¿®æ”¹æ—¶é—´</strong></td>
+<td width="55%" align="center" background="img/wbg.gif" class='linerow'><strong>µã»÷Ãû³ÆÑ¡ÔñÎÄ¼ş</strong></td>
+<td width="15%" align="center" bgcolor='#EEF4EA' class='linerow'><strong>ÎÄ¼ş´óĞ¡</strong></td>
+<td width="30%" align="center" background="img/wbg.gif" class='linerow'><strong>×îºóĞŞ¸ÄÊ±¼ä</strong></td>
 </tr>
 <?php
 $dh = dir($inpath);
 $ty1="";
 $ty2="";
 while($file = $dh->read()) {
-    //-----è®¡ç®—æ–‡ä»¶å¤§å°å’Œåˆ›å»ºæ—¶é—´
+    //-----¼ÆËãÎÄ¼ş´óĞ¡ºÍ´´½¨Ê±¼ä
     if($file!="." && $file!=".." && !is_dir("$inpath/$file")){
         $filesize = filesize("$inpath/$file");
         $filesize = $filesize / 1024;
@@ -90,21 +90,21 @@ while($file = $dh->read()) {
         $filetime = MyDate("Y-m-d H:i:s", $filetime);
     }
 
-     //------åˆ¤æ–­æ–‡ä»¶ç±»å‹å¹¶ä½œå¤„ç†
+     //------ÅĞ¶ÏÎÄ¼şÀàĞÍ²¢×÷´¦Àí
      if($file == ".") continue;
      else if($file == "..")
      {
         if($activepath == "") continue;
         $tmp = preg_replace("#[\/][^\/]*$#", "", $activepath);
         $line = "\n<tr>
-        <td class='linerow'> <a href='select_templets.php?f=$f&activepath=".urlencode($tmp)."'><img src=img/dir2.gif border=0 width=16 height=16 align=absmiddle>ä¸Šçº§ç›®å½•</a></td>
-        <td colspan='2' class='linerow'> å½“å‰ç›®å½•:$activepath</td>
+        <td class='linerow'> <a href='select_templets.php?f=$f&activepath=".urlencode($tmp)."'><img src=img/dir2.gif border=0 width=16 height=16 align=absmiddle>ÉÏ¼¶Ä¿Â¼</a></td>
+        <td colspan='2' class='linerow'> µ±Ç°Ä¿Â¼:$activepath</td>
         </tr>\r\n";
         echo $line;
     }
     else if(is_dir("$inpath/$file"))
     {
-        if(preg_match("#^_(.*)$#i", $file)) continue; #å±è”½FrontPageæ‰©å±•ç›®å½•å’Œlinuxéšè”½ç›®å½•
+        if(preg_match("#^_(.*)$#i", $file)) continue; #ÆÁ±ÎFrontPageÀ©Õ¹Ä¿Â¼ºÍlinuxÒş±ÎÄ¿Â¼
         if(preg_match("#^\.(.*)$#i", $file)) continue;
         $line = "\n<tr>
        <td bgcolor='#F9FBF0' class='linerow'>
@@ -230,7 +230,7 @@ while($file = $dh->read()) {
 }//End Loop
 $dh->close();
 ?>
-<!-- æ–‡ä»¶åˆ—è¡¨å®Œ -->
+<!-- ÎÄ¼şÁĞ±íÍê -->
 <tr>
 <td colspan='3' bgcolor='#E8F1DE'>
 
@@ -241,9 +241,9 @@ $dh->close();
 <input type='hidden' name='job' value='upload'>
 <tr>
 <td background="img/tbg.gif" bgcolor="#99CC00">
-  &nbsp;ä¸Šã€€ä¼ ï¼š <input type='file' name='uploadfile' style='width:320px'>
-  æ”¹åï¼š<input type='text' name='filename' value='' style='width:100px'>
-  <input type='submit' name='sb1' value='ç¡®å®š'>
+  &nbsp;ÉÏ¡¡´«£º <input type='file' name='uploadfile' style='width:320px'>
+  ¸ÄÃû£º<input type='text' name='filename' value='' style='width:100px'>
+  <input type='submit' name='sb1' value='È·¶¨'>
 </td>
 </tr>
 </form>

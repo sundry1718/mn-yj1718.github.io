@@ -1,9 +1,9 @@
 <?php
-define("DE_ItemEcode",'Shop_De_');//è¯†åˆ«è´­ç‰©è½¦Cookieå‰ç¼€,éžå¼€å‘äººå‘˜è¯·ä¸è¦éšæ„æ›´æ”¹!
+define("DE_ItemEcode",'Shop_De_');//Ê¶±ð¹ºÎï³µCookieÇ°×º,·Ç¿ª·¢ÈËÔ±Çë²»ÒªËæÒâ¸ü¸Ä!
 /**
- * è´­ç‰©è½¦ç±»
+ * ¹ºÎï³µÀà
  *
- * @version        $Id: shopcar.class.php 2 20:58 2010å¹´7æœˆ7æ—¥Z tianya $
+ * @version        $Id: shopcar.class.php 2 20:58 2010Äê7ÔÂ7ÈÕZ tianya $
  * @package        DedeCMS.Libraries
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -11,7 +11,7 @@ define("DE_ItemEcode",'Shop_De_');//è¯†åˆ«è´­ç‰©è½¦Cookieå‰ç¼€,éžå¼€å‘äººå‘˜è
  */
  // ------------------------------------------------------------------------
  /**
- * ä¼šå‘˜è´­ç‰©è½¦ç±»
+ * »áÔ±¹ºÎï³µÀà
  *
  * @package          MemberShops
  * @subpackage       DedeCMS.Libraries
@@ -37,7 +37,7 @@ class MemberShops
     }
 
     /**
-     *  åˆ›å»ºä¸€ä¸ªä¸“æœ‰è®¢å•ç¼–å·
+     *  ´´½¨Ò»¸ö×¨ÓÐ¶©µ¥±àºÅ
      *
      * @return    string
      */
@@ -49,10 +49,10 @@ class MemberShops
     }
 
     /**
-     *  æ·»åŠ ä¸€ä¸ªå•†å“ç¼–å·åŠä¿¡æ¯
+     *  Ìí¼ÓÒ»¸öÉÌÆ·±àºÅ¼°ÐÅÏ¢
      *
-     * @param     string  $id  è´­ç‰©è½¦ID
-     * @param     string  $value  å€¼
+     * @param     string  $id  ¹ºÎï³µID
+     * @param     string  $value  Öµ
      * @return    void
      */
     function addItem($id, $value)
@@ -62,9 +62,9 @@ class MemberShops
     }
 
     /**
-     *  åˆ åŽ»ä¸€ä¸ªå¸¦ç¼–å·çš„å•†å“
+     *  É¾È¥Ò»¸ö´ø±àºÅµÄÉÌÆ·
      *
-     * @param     string  $id  è´­ç‰©è½¦ID
+     * @param     string  $id  ¹ºÎï³µID
      * @return    void
      */
     function delItem($id)
@@ -74,7 +74,7 @@ class MemberShops
     }
 
     /**
-     *  æ¸…ç©ºè´­ç‰©è½¦å•†å“
+     *  Çå¿Õ¹ºÎï³µÉÌÆ·
      *
      * @return    string
      */
@@ -91,7 +91,7 @@ class MemberShops
     }
 
     /**
-     *  å¾—åˆ°è®¢å•è®°å½•
+     *  µÃµ½¶©µ¥¼ÇÂ¼
      *
      * @return    array
      */
@@ -120,9 +120,9 @@ class MemberShops
     }
 
     /**
-     *  å¾—åˆ°æŒ‡å®šå•†å“ä¿¡æ¯
+     *  µÃµ½Ö¸¶¨ÉÌÆ·ÐÅÏ¢
      *
-     * @param     string  $id  è´­ç‰©è½¦ID
+     * @param     string  $id  ¹ºÎï³µID
      * @return    array
      */
     function getOneItem($id)
@@ -139,7 +139,7 @@ class MemberShops
     }
 
     /**
-     *  èŽ·å¾—è´­ç‰©è½¦ä¸­çš„å•†å“æ•°
+     *  »ñµÃ¹ºÎï³µÖÐµÄÉÌÆ·Êý
      *
      * @return    int
      */
@@ -160,7 +160,7 @@ class MemberShops
     }
 
     /**
-     *  èŽ·å¾—è´­ç‰©è½¦ä¸­çš„æ€»é‡‘é¢
+     *  »ñµÃ¹ºÎï³µÖÐµÄ×Ü½ð¶î
      *
      * @return    string
      */
@@ -182,13 +182,13 @@ class MemberShops
         return sprintf("%01.2f", $price);
     }
 
-    //åŠ å¯†æŽ¥å£å­—ç¬¦
+    //¼ÓÃÜ½Ó¿Ú×Ö·û
     function enCrypt($txt)
     {
         return $this->mchStrCode($txt);
     }
 
-    //è§£å¯†æŽ¥å£å­—ç¬¦ä¸²
+    //½âÃÜ½Ó¿Ú×Ö·û´®
     function deCrypt($txt)
     {
         return $this->mchStrCode($txt,'DECODE');
@@ -221,7 +221,7 @@ class MemberShops
         }
     }
 
-    //ä¸²è¡ŒåŒ–æ•°ç»„
+    //´®ÐÐ»¯Êý×é
     function enCode($array)
     {
         $arrayenc = array();
@@ -232,7 +232,7 @@ class MemberShops
         return implode('&', $arrayenc);
     }
 
-    //åˆ›å»ºåŠ å¯†çš„_cookie
+    //´´½¨¼ÓÃÜµÄ_cookie
     function saveCookie($key,$value)
     {
         if(is_array($value))
@@ -246,7 +246,7 @@ class MemberShops
         setcookie($key,$value,time()+36000,'/');
     }
 
-    //èŽ·å¾—è§£å¯†çš„_cookie
+    //»ñµÃ½âÃÜµÄ_cookie
     function getCookie($key)
     {
         if(isset($_COOKIE[$key]) && !empty($_COOKIE[$key]))

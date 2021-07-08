@@ -1,8 +1,8 @@
 <?php   if(!defined('DEDEINC')) exit("Request Error!");
 /**
- * ç»‡æ¢¦HTTPä¸‹è½½ç±»
+ * Ö¯ÃÎHTTPÏÂÔØÀà
  *
- * @version        $Id: dedehttpdown.class.php 1 11:42 2010å¹´7æœˆ6æ—¥Z tianya $
+ * @version        $Id: dedehttpdown.class.php 1 11:42 2010Äê7ÔÂ6ÈÕZ tianya $
  * @package        DedeCMS.Libraries
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -34,10 +34,10 @@ class DedeHttpDown
     var $JumpCount = 0;
 
     /**
-     *  åˆå§‹åŒ–ç³»ç»Ÿ
+     *  ³õÊ¼»¯ÏµÍ³
      *
      * @access    public
-     * @param     string    $url   éœ€è¦ä¸‹è½½çš„åœ°å€
+     * @param     string    $url   ĞèÒªÏÂÔØµÄµØÖ·
      * @return    string
      */
     function PrivateInit($url)
@@ -85,7 +85,7 @@ class DedeHttpDown
     }
 
     /**
-     *  é‡è®¾å„å‚æ•°
+     *  ÖØÉè¸÷²ÎÊı
      *
      * @access    public
      * @return    void
@@ -107,11 +107,11 @@ class DedeHttpDown
     }
 
     /**
-     *  æ‰“å¼€æŒ‡å®šç½‘å€
+     *  ´ò¿ªÖ¸¶¨ÍøÖ·
      *
      * @access    public
-     * @param     string    $url   åœ°å€
-     * @param     string    $requestType   è¯·æ±‚ç±»å‹
+     * @param     string    $url   µØÖ·
+     * @param     string    $requestType   ÇëÇóÀàĞÍ
      * @return    string
      */
     function OpenUrl($url,$requestType="GET")
@@ -123,16 +123,16 @@ class DedeHttpDown
         $this->reTry = 0;
         $this->Close();
 
-        //åˆå§‹åŒ–ç³»ç»Ÿ
+        //³õÊ¼»¯ÏµÍ³
         $this->PrivateInit($url);
         $this->PrivateStartSession($requestType);
     }
 
     /**
-     *  è½¬åˆ°303é‡å®šå‘ç½‘å€
+     *  ×ªµ½303ÖØ¶¨ÏòÍøÖ·
      *
      * @access    public
-     * @param     string   $url   åœ°å€
+     * @param     string   $url   µØÖ·
      * @return    string
      */
     function JumpOpenUrl($url)
@@ -143,26 +143,26 @@ class DedeHttpDown
         $this->m_html = "";
         $this->Close();
 
-        //åˆå§‹åŒ–ç³»ç»Ÿ
+        //³õÊ¼»¯ÏµÍ³
         $this->PrivateInit($url);
         $this->PrivateStartSession('GET');
     }
 
     /**
-     *  è·å¾—æŸæ“ä½œé”™è¯¯çš„åŸå› 
+     *  »ñµÃÄ³²Ù×÷´íÎóµÄÔ­Òò
      *
      * @access    public
      * @return    void
      */
     function printError()
     {
-        echo "é”™è¯¯ä¿¡æ¯ï¼š".$this->m_error;
-        echo "<br/>å…·ä½“è¿”å›å¤´ï¼š<br/>";
+        echo "´íÎóĞÅÏ¢£º".$this->m_error;
+        echo "<br/>¾ßÌå·µ»ØÍ·£º<br/>";
         foreach($this->m_httphead as $k=>$v){ echo "$k => $v <br/>\r\n"; }
     }
 
     /**
-     *  åˆ¤åˆ«ç”¨Getæ–¹æ³•å‘é€çš„å¤´çš„åº”ç­”ç»“æœæ˜¯å¦æ­£ç¡®
+     *  ÅĞ±ğÓÃGet·½·¨·¢ËÍµÄÍ·µÄÓ¦´ğ½á¹ûÊÇ·ñÕıÈ·
      *
      * @access    public
      * @return    bool
@@ -181,7 +181,7 @@ class DedeHttpDown
     }
 
     /**
-     *  çœ‹çœ‹è¿”å›çš„ç½‘é¡µæ˜¯å¦æ˜¯textç±»å‹
+     *  ¿´¿´·µ»ØµÄÍøÒ³ÊÇ·ñÊÇtextÀàĞÍ
      *
      * @access    public
      * @return    bool
@@ -194,16 +194,16 @@ class DedeHttpDown
         }
         else
         {
-            $this->m_error .= "å†…å®¹ä¸ºéæ–‡æœ¬ç±»å‹æˆ–ç½‘å€é‡å®šå‘<br/>";
+            $this->m_error .= "ÄÚÈİÎª·ÇÎÄ±¾ÀàĞÍ»òÍøÖ·ÖØ¶¨Ïò<br/>";
             return FALSE;
         }
     }
 
     /**
-     *  åˆ¤æ–­è¿”å›çš„ç½‘é¡µæ˜¯å¦æ˜¯ç‰¹å®šçš„ç±»å‹
+     *  ÅĞ¶Ï·µ»ØµÄÍøÒ³ÊÇ·ñÊÇÌØ¶¨µÄÀàĞÍ
      *
      * @access    public
-     * @param     string   $ctype   å†…å®¹ç±»å‹
+     * @param     string   $ctype   ÄÚÈİÀàĞÍ
      * @return    string
      */
     function IsContentType($ctype)
@@ -213,16 +213,16 @@ class DedeHttpDown
         {    return TRUE; }
         else
         {
-            $this->m_error .= "ç±»å‹ä¸å¯¹ ".$this->GetHead("content-type")."<br/>";
+            $this->m_error .= "ÀàĞÍ²»¶Ô ".$this->GetHead("content-type")."<br/>";
             return FALSE;
         }
     }
 
     /**
-     *  ç”¨Httpåè®®ä¸‹è½½æ–‡ä»¶
+     *  ÓÃHttpĞ­ÒéÏÂÔØÎÄ¼ş
      *
      * @access    public
-     * @param     string    $savefilename  ä¿å­˜æ–‡ä»¶åç§°
+     * @param     string    $savefilename  ±£´æÎÄ¼şÃû³Æ
      * @return    string
      */
     function SaveToBin($savefilename)
@@ -238,7 +238,7 @@ class DedeHttpDown
 
         if(@feof($this->m_fp))
         {
-            $this->m_error = "è¿æ¥å·²ç»å…³é—­ï¼"; return FALSE;
+            $this->m_error = "Á¬½ÓÒÑ¾­¹Ø±Õ£¡"; return FALSE;
         }
         $fp = fopen($savefilename,"w");
         while(!feof($this->m_fp))
@@ -251,10 +251,10 @@ class DedeHttpDown
     }
 
     /**
-     *  ä¿å­˜ç½‘é¡µå†…å®¹ä¸ºTextæ–‡ä»¶
+     *  ±£´æÍøÒ³ÄÚÈİÎªTextÎÄ¼ş
      *
      * @access    public
-     * @param     string    $savefilename  ä¿å­˜æ–‡ä»¶åç§°
+     * @param     string    $savefilename  ±£´æÎÄ¼şÃû³Æ
      * @return    string
      */
     function SaveToText($savefilename)
@@ -270,7 +270,7 @@ class DedeHttpDown
     }
 
     /**
-     *  ç”¨Httpåè®®è·å¾—ä¸€ä¸ªç½‘é¡µçš„å†…å®¹
+     *  ÓÃHttpĞ­Òé»ñµÃÒ»¸öÍøÒ³µÄÄÚÈİ
      *
      * @access    public
      * @return    string
@@ -298,10 +298,10 @@ class DedeHttpDown
     }
 
     /**
-     *  å¼€å§‹HTTPä¼šè¯
+     *  ¿ªÊ¼HTTP»á»°
      *
      * @access    public
-     * @param     string    $requestType    è¯·æ±‚ç±»å‹
+     * @param     string    $requestType    ÇëÇóÀàĞÍ
      * @return    string
      */
     function PrivateStartSession($requestType="GET")
@@ -330,7 +330,7 @@ class DedeHttpDown
             $this->m_puthead = array();
             $this->m_puthead["Host"] = $this->m_host;
 
-            //å‘é€ç”¨æˆ·è‡ªå®šä¹‰çš„è¯·æ±‚å¤´
+            //·¢ËÍÓÃ»§×Ô¶¨ÒåµÄÇëÇóÍ·
             if(!isset($this->m_puthead["Accept"]))
             {
                 $this->m_puthead["Accept"] = "*/*";
@@ -377,7 +377,7 @@ class DedeHttpDown
         }
         if(!$this->PrivateOpenHost())
         {
-            $this->m_error .= "æ‰“å¼€è¿œç¨‹ä¸»æœºå‡ºé”™!";
+            $this->m_error .= "´ò¿ªÔ¶³ÌÖ÷»ú³ö´í!";
             return FALSE;
         }
         $this->reTry++;
@@ -393,7 +393,7 @@ class DedeHttpDown
 
         $headString = '';
 
-        //å‘é€å›ºå®šçš„èµ·å§‹è¯·æ±‚å¤´GETã€Hostä¿¡æ¯
+        //·¢ËÍ¹Ì¶¨µÄÆğÊ¼ÇëÇóÍ·GET¡¢HostĞÅÏ¢
         if($requestType=="GET")
         {
             $headString .= "GET ".$this->m_urlpath." $httpv\r\n";
@@ -404,7 +404,7 @@ class DedeHttpDown
         }
         $this->m_puthead["Host"] = $this->m_host;
 
-        //å‘é€ç”¨æˆ·è‡ªå®šä¹‰çš„è¯·æ±‚å¤´
+        //·¢ËÍÓÃ»§×Ô¶¨ÒåµÄÇëÇóÍ·
         if(!isset($this->m_puthead["Accept"]))
         {
             $this->m_puthead["Accept"] = "*/*";
@@ -447,8 +447,8 @@ class DedeHttpDown
             fputs($this->m_fp,"Content-Length: $plen\r\n");
         }
 
-        //å‘é€å›ºå®šçš„ç»“æŸè¯·æ±‚å¤´
-        //HTTP1.1åè®®å¿…é¡»æŒ‡å®šæ–‡æ¡£ç»“æŸåå…³é—­é“¾æ¥,å¦åˆ™è¯»å–æ–‡æ¡£æ—¶æ— æ³•ä½¿ç”¨feofåˆ¤æ–­ç»“æŸ
+        //·¢ËÍ¹Ì¶¨µÄ½áÊøÇëÇóÍ·
+        //HTTP1.1Ğ­Òé±ØĞëÖ¸¶¨ÎÄµµ½áÊøºó¹Ø±ÕÁ´½Ó,·ñÔò¶ÁÈ¡ÎÄµµÊ±ÎŞ·¨Ê¹ÓÃfeofÅĞ¶Ï½áÊø
         if($httpv=="HTTP/1.1")
         {
             fputs($this->m_fp,"Connection: Close\r\n\r\n");
@@ -462,7 +462,7 @@ class DedeHttpDown
             fputs($this->m_fp,$postdata);
         }
 
-        //è·å–åº”ç­”å¤´çŠ¶æ€ä¿¡æ¯
+        //»ñÈ¡Ó¦´ğÍ·×´Ì¬ĞÅÏ¢
         $httpstas = explode(" ",fgets($this->m_fp,256));
         $this->m_httphead["http-edition"] = trim($httpstas[0]);
         $this->m_httphead["http-state"] = trim($httpstas[1]);
@@ -472,7 +472,7 @@ class DedeHttpDown
             $this->m_httphead["http-describe"] .= " ".trim($httpstas[$i]);
         }
 
-        //è·å–è¯¦ç»†åº”ç­”å¤´
+        //»ñÈ¡ÏêÏ¸Ó¦´ğÍ·
         while(!feof($this->m_fp))
         {
             $line = trim(fgets($this->m_fp,256));
@@ -505,7 +505,7 @@ class DedeHttpDown
             }
         }
 
-        //å¦‚æœè¿æ¥è¢«ä¸æ­£å¸¸å…³é—­ï¼Œé‡è¯•
+        //Èç¹ûÁ¬½Ó±»²»Õı³£¹Ø±Õ£¬ÖØÊÔ
         if(feof($this->m_fp))
         {
             if($this->reTry > 10)
@@ -515,7 +515,7 @@ class DedeHttpDown
             $this->PrivateStartSession($requestType);
         }
 
-        //åˆ¤æ–­æ˜¯å¦æ˜¯3xxå¼€å¤´çš„åº”ç­”
+        //ÅĞ¶ÏÊÇ·ñÊÇ3xx¿ªÍ·µÄÓ¦´ğ
         if(preg_match("/^3/",$this->m_httphead["http-state"]))
         {
             if($this->JumpCount > 3)
@@ -537,16 +537,16 @@ class DedeHttpDown
             }
             else
             {
-                $this->m_error = "æ— æ³•è¯†åˆ«çš„ç­”å¤ï¼";
+                $this->m_error = "ÎŞ·¨Ê¶±ğµÄ´ğ¸´£¡";
             }
         }
     }
 
     /**
-     *  è·å¾—ä¸€ä¸ªHttpå¤´çš„å€¼
+     *  »ñµÃÒ»¸öHttpÍ·µÄÖµ
      *
      * @access    public
-     * @param     string    $headname   å¤´æ–‡ä»¶åç§°
+     * @param     string    $headname   Í·ÎÄ¼şÃû³Æ
      * @return    string
      */
     function GetHead($headname)
@@ -561,11 +561,11 @@ class DedeHttpDown
     }
 
     /**
-     *  è®¾ç½®Httpå¤´çš„å€¼
+     *  ÉèÖÃHttpÍ·µÄÖµ
      *
      * @access    public
-     * @param     string   $skey  é”®
-     * @param     string   $svalue  å€¼
+     * @param     string   $skey  ¼ü
+     * @param     string   $svalue  Öµ
      * @return    string
      */
     function SetHead($skey,$svalue)
@@ -574,7 +574,7 @@ class DedeHttpDown
     }
 
     /**
-     *  æ‰“å¼€è¿æ¥
+     *  ´ò¿ªÁ¬½Ó
      *
      * @access    public
      * @return    bool
@@ -601,7 +601,7 @@ class DedeHttpDown
     }
 
     /**
-     *  å…³é—­è¿æ¥
+     *  ¹Ø±ÕÁ¬½Ó
      *
      * @access    public
      * @return    void
@@ -615,10 +615,10 @@ class DedeHttpDown
     }
 
     /**
-     *  è¡¥å…¨ç›¸å¯¹ç½‘å€
+     *  ²¹È«Ïà¶ÔÍøÖ·
      *
      * @access    public
-     * @param     string   $surl  éœ€è¦ä¸å…¨çš„åœ°å€
+     * @param     string   $surl  ĞèÒª²»È«µÄµØÖ·
      * @return    string
      */
     function FillUrl($surl)

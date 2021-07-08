@@ -10,8 +10,8 @@ if(file_exists($insLockfile))
 	echo <<<EOT
 <link href="style.css" rel="stylesheet" type="text/css" />
 <div class="over-link fs-14" style="padding:0px;">
-    <a href="../index.php?upcache=1" target='_top'>è®¿é—®ç½‘ç«™é¦–é¡µ</a>
-    <a href="../dede" target='_top'>ç™»å½•ç½‘ç«™åå°</a>
+    <a href="../index.php?upcache=1" target='_top'>·ÃÎÊÍøÕ¾Ê×Ò³</a>
+    <a href="../dede" target='_top'>µÇÂ¼ÍøÕ¾ºóÌ¨</a>
 </div>
 EOT;
 	exit();
@@ -20,7 +20,7 @@ EOT;
 $module_autos=array(
     '606c658db048ea7328ffe1c7ae2a732f'=>array(
         'name'=>'changyan_autoreg',
-        'title'=>'ç•…è¨€æ¨¡å—'
+        'title'=>'³©ÑÔÄ£¿é'
     )
 );
 $logs = '';
@@ -33,8 +33,8 @@ foreach($module_autos as $hh=>$module_auto)
     else continue;
     $clsname = ucfirst($module_auto['name']);
     $macls = new $clsname();
-    if(!$macls->run()) $logs .= "åˆå§‹åŒ–{$module_auto['title']}å‡ºé”™ï¼š".$macls->errmsg."<br/>";
-    else $logs .= "æˆåŠŸåˆå§‹åŒ–{$module_auto['title']}<br/>";
+    if(!$macls->run()) $logs .= "³õÊ¼»¯{$module_auto['title']}³ö´í£º".$macls->errmsg."<br/>";
+    else $logs .= "³É¹¦³õÊ¼»¯{$module_auto['title']}<br/>";
 }
 
 $fp = fopen($insLockfile,'w');
@@ -45,8 +45,8 @@ fclose($fp);
 echo <<<EOT
 <link href="style.css" rel="stylesheet" type="text/css" />
 <div class="over-link fs-14" style="padding:0px;">
-    <a href="../index.php?upcache=1" target='_top'>è®¿é—®ç½‘ç«™é¦–é¡µ</a>
-    <a href="../dede" target='_top'>ç™»å½•ç½‘ç«™åå°</a>
+    <a href="../index.php?upcache=1" target='_top'>·ÃÎÊÍøÕ¾Ê×Ò³</a>
+    <a href="../dede" target='_top'>µÇÂ¼ÍøÕ¾ºóÌ¨</a>
 </div>
 EOT;
 ?>

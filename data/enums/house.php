@@ -1,8 +1,8 @@
 <?php
 global $em_houses;
 $em_houses = array();
-$em_houses['1'] = 'ç§Ÿæˆ¿';
-$em_houses['2'] = 'ä¸€æˆ¿ä»¥ä¸Š';
-$em_houses['3'] = 'ä¸¤æˆ¿ä»¥ä¸Š';
-$em_houses['4'] = 'å¤§æˆ·/åˆ«å¢…';
+$em_houses['1'] = '×â·¿';
+$em_houses['2'] = 'Ò»·¿ÒÔÉÏ';
+$em_houses['3'] = 'Á½·¿ÒÔÉÏ';
+$em_houses['4'] = '´ó»§/±ðÊû';
 ?>

@@ -1,15 +1,15 @@
 <?php  if(!defined('DEDEINC')) exit('dedecms');
 /**
- * ä»…ç”¨äºŽæµ‹è¯•
+ * ½öÓÃÓÚ²âÊÔ
  *
- * @version        $Id: test.helper.php 5 15:01 2010å¹´7æœˆ5æ—¥Z tianya $
+ * @version        $Id: test.helper.php 5 15:01 2010Äê7ÔÂ5ÈÕZ tianya $
  * @package        DedeCMS.Helpers
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
  * @link           http://www.dedecms.com
  */
 
-//é‚®ç®±æ ¼å¼æ£€æŸ¥
+//ÓÊÏä¸ñÊ½¼ì²é
 if ( ! function_exists('HelloDede'))
 {
     function HelloDede()

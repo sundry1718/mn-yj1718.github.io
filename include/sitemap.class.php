@@ -1,8 +1,8 @@
 <?php    if(!defined('DEDEINC')) exit("Request Error!");
 /**
- * ç½‘ç«™åœ°å›¾(sitemapç±»)
+ * ÍøÕ¾µØÍ¼(sitemapÀà)
  *
- * @version        $Id: sitemap.class.php 1 15:21 2010å¹´7æœˆ5æ—¥Z tianya $
+ * @version        $Id: sitemap.class.php 1 15:21 2010Äê7ÔÂ5ÈÕZ tianya $
  * @package        DedeCMS.Libraries
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -12,7 +12,7 @@
 require_once(DEDEINC."/channelunit.func.php");
 
 /**
- * ç½‘ç«™åœ°å›¾(sitemapç±»)
+ * ÍøÕ¾µØÍ¼(sitemapÀà)
  *
  * @package          TypeLink
  * @subpackage       DedeCMS.Libraries
@@ -24,7 +24,7 @@ class SiteMap
     var $artDir;
     var $baseDir;
 
-    //php5æ„é€ å‡½æ•°
+    //php5¹¹Ôìº¯Êı
     function __construct()
     {
         $this->idCounter = 0;
@@ -39,16 +39,16 @@ class SiteMap
         $this->__construct();
     }
 
-    //æ¸…ç†ç±»
+    //ÇåÀíÀà
     function Close()
     {
     }
 
     /**
-     *  è·å–ç½‘ç«™åœ°å›¾
+     *  »ñÈ¡ÍøÕ¾µØÍ¼
      *
      * @access    public
-     * @param     string  $maptype  åœ°å›¾ç±»å‹  site:ç«™ç‚¹  rss:rss
+     * @param     string  $maptype  µØÍ¼ÀàĞÍ  site:Õ¾µã  rss:rss
      * @return    string
      */
     function GetSiteMap($maptype="site")
@@ -87,11 +87,11 @@ class SiteMap
     }
 
     /**
-     *  è·å¾—å­ç±»ç›®çš„é€’å½’è°ƒç”¨
+     *  »ñµÃ×ÓÀàÄ¿µÄµİ¹éµ÷ÓÃ
      *
      * @access    public
-     * @param     int  $id  æ ç›®ID
-     * @param     string  $maptype  åœ°å›¾ç±»å‹
+     * @param     int  $id  À¸Ä¿ID
+     * @param     string  $maptype  µØÍ¼ÀàĞÍ
      * @return    string
      */
     function LogicListAllSunType($id, $maptype)

@@ -1,9 +1,9 @@
 <?php
 /**
  *
- * 友情链接
+ * ��������
  *
- * @version        $Id: flink.php 1 15:38 2010年7月8日Z tianya $
+ * @version        $Id: flink.php 1 15:38 2010��7��8��Z tianya $
  * @package        DedeCMS.Site
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -19,7 +19,7 @@ if($dopost=='save')
     $svali = GetCkVdValue();
     if($validate=='' || $validate!=$svali)
     {
-        ShowMsg('验证码不正确!','-1');
+        ShowMsg('��֤�벻��ȷ!','-1');
         exit();
     }
     $msg = dede_htmlspecialchars($msg);
@@ -32,8 +32,8 @@ if($dopost=='save')
     $query = "INSERT INTO `#@__flink`(sortrank,url,webname,logo,msg,email,typeid,dtime,ischeck)
                     VALUES('50','$url','$webname','$logo','$msg','$email','$typeid','$dtime','0')";
     $dsql->ExecuteNoneQuery($query);
-    ShowMsg('成功增加一个链接，但需要审核后才能显示!','-1',1);
+    ShowMsg('�ɹ�����һ�����ӣ�����Ҫ��˺������ʾ!','-1',1);
 }
 
-//显示模板(简单PHP文件)
+//��ʾģ��(��PHP�ļ�)
 include_once(DEDETEMPLATE.'/plus/flink-list.htm');

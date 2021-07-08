@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * æ–‡æ¡£diggå¤„ç†ajaxæ–‡ä»¶
+ * ÎÄµµdigg´¦ÀíajaxÎÄ¼þ
  *
  * @version        $Id: digg_ajax.php 2 13:00 2011/11/25 tianya $
  * @package        DedeCMS.Plus
@@ -93,7 +93,7 @@ else
     $row['goodper'] = trim(sprintf("%4.2f", $row['goodper']));
     $row['badper'] = trim(sprintf("%4.2f", $row['badper']));
     $digg = '<div class="diggbox digg_good" onmousemove="this.style.backgroundPosition=\'left bottom\';" onmouseout="this.style.backgroundPosition=\'left top\';" onclick="postDigg(\'good\','.$id.')">
-            <div class="digg_act">é¡¶ä¸€ä¸‹</div>
+            <div class="digg_act">¶¥Ò»ÏÂ</div>
             <div class="digg_num">('.$row['goodpost'].')</div>
             <div class="digg_percent">
                 <div class="digg_percent_bar"><span style="width:'.$row['goodper'].'%"></span></div>
@@ -101,7 +101,7 @@ else
             </div>
         </div>
         <div class="diggbox digg_bad" onmousemove="this.style.backgroundPosition=\'right bottom\';" onmouseout="this.style.backgroundPosition=\'right top\';" onclick="postDigg(\'bad\','.$id.')">
-            <div class="digg_act">è¸©ä¸€ä¸‹</div>
+            <div class="digg_act">²ÈÒ»ÏÂ</div>
             <div class="digg_num">('.$row['badpost'].')</div>
             <div class="digg_percent">
                 <div class="digg_percent_bar"><span style="width:'.$row['badper'].'%"></span></div>

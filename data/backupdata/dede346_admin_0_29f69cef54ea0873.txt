@@ -1,0 +1,1 @@
+INSERT INTO `dede346_admin` VALUES('1','10','yianjian','0ee164cd3796b7e996c2','admin','','','0','1617510426','112.10.164.13');

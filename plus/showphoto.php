@@ -1,9 +1,9 @@
 <?php
 /**
  *
- * æ˜¾ç¤ºå›¾ç‰‡
+ * ÏÔÊ¾Í¼Æ¬
  *
- * @version        $Id: showphoto.php 1 15:38 2010å¹´7æœˆ8æ—¥Z tianya $
+ * @version        $Id: showphoto.php 1 15:38 2010Äê7ÔÂ8ÈÕZ tianya $
  * @package        DedeCMS.Site
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -16,7 +16,7 @@ if(isset($arcID)) $aid = $arcID;
 $arcID = $aid = (isset($aid) && is_numeric($aid)) ? $aid : 0;
 if($aid==0) die(" Request Error! ");
 
-//è¯»å–æ–‡æ¡£ä¿¡æ¯
+//¶ÁÈ¡ÎÄµµÐÅÏ¢
 $arctitle = '';
 $arcurl = '';
 $topid = 0;
@@ -31,12 +31,12 @@ if(is_array($arcRow))
 }
 else
 {
-    ShowMsg('æ— æ³•æµè§ˆæœªçŸ¥æ–‡æ¡£!','-1');
+    ShowMsg('ÎÞ·¨ä¯ÀÀÎ´ÖªÎÄµµ!','-1');
     exit();
 }
 if(empty($mx)) $mx = $cfg_album_width;
 $pageGuide = "";
-//èŽ·å–ä¸Šä¸‹å¹…å›¾ç‰‡é“¾æŽ¥
+//»ñÈ¡ÉÏÏÂ·ùÍ¼Æ¬Á´½Ó
 $row = $dsql->GetOne("SELECT imgurls FROM `#@__addonimages` WHERE aid='{$aid}'");
 $i = 0;
 $nextSrc = '';
@@ -59,22 +59,22 @@ if($cfg_multi_site == 'Y'){
 }
 if($preSrc!='')
 {
-    $pageGuide .= "<a href='showphoto.php?aid={$aid}&src=".urlencode($preSrc)."&npos=".($npos-1)."'>&lt;&lt;ä¸Šä¸€å¹…å›¾ç‰‡</a> ";
+    $pageGuide .= "<a href='showphoto.php?aid={$aid}&src=".urlencode($preSrc)."&npos=".($npos-1)."'>&lt;&lt;ÉÏÒ»·ùÍ¼Æ¬</a> ";
 }
 else
 {
-    $pageGuide .= "è¿™æ˜¯å¼€å§‹";
+    $pageGuide .= "ÕâÊÇ¿ªÊ¼";
 }
 $nextlink = 'javascript:;';
 if($nextSrc!='')
 {
   $nextlink = "showphoto.php?aid={$aid}&src=".urlencode($nextSrc)."&npos=".($npos+1);
   if($pageGuide!="") $pageGuide .= " | ";
-  $pageGuide .= "<a href='showphoto.php?aid={$aid}&src=".urlencode($nextSrc)."&npos=".($npos+1)."'>ä¸‹ä¸€å¹…å›¾ç‰‡&gt;&gt;</a>";
+  $pageGuide .= "<a href='showphoto.php?aid={$aid}&src=".urlencode($nextSrc)."&npos=".($npos+1)."'>ÏÂÒ»·ùÍ¼Æ¬&gt;&gt;</a>";
 }
 else
 {
-    $pageGuide .= " | æ²¡æœ‰äº†";
+    $pageGuide .= " | Ã»ÓÐÁË";
 }
 require_once(DEDETEMPLATE.'/plus/showphoto.htm');
 exit();

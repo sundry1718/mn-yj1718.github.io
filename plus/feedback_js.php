@@ -1,16 +1,16 @@
 <?php
 /**
  *
- * è¯„è®ºjsè°ƒç”¨
+ * ÆÀÂÛjsµ÷ÓÃ
  *
- * @version        $Id: freelist.php 1 15:38 2010å¹´7æœˆ8æ—¥Z tianya $
+ * @version        $Id: freelist.php 1 15:38 2010Äê7ÔÂ8ÈÕZ tianya $
  * @package        DedeCMS.Site
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
  * @link           http://www.dedecms.com
  */
 require_once(dirname(__FILE__)."/../include/common.inc.php");
-if($cfg_feedback_forbid=='Y') exit("document.write('ç³»ç»Ÿå·²ç»ç¦æ­¢è¯„è®ºåŠŸèƒ½ï¼');\r\n");
+if($cfg_feedback_forbid=='Y') exit("document.write('ÏµÍ³ÒÑ¾­½ûÖ¹ÆÀÂÛ¹¦ÄÜ£¡');\r\n");
 require_once(DEDEINC."/datalistcp.class.php");
 if(isset($arcID)) $aid = $arcID;
 

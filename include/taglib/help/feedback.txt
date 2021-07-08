@@ -1,12 +1,12 @@
-è°ƒç”¨æœ€æ–°è¯„è®º
+µ÷ÓÃ×îĞÂÆÀÂÛ
 >>dede>>
 {dede:feedback}
 <ul>
-<li class='fbtitle'>[field:username function="(@me=='guest' ? 'æ¸¸å®¢' : @me)"/] å¯¹ [field:title/] çš„è¯„è®ºï¼š</li>
+<li class='fbtitle'>[field:username function="(@me=='guest' ? 'ÓÎ¿Í' : @me)"/] ¶Ô [field:title/] µÄÆÀÂÛ£º</li>
 <li class='fbmsg'>&nbsp;&nbsp;<a href="plus/feedback.php?aid=[field:aid/]" class='fbmsg'>[field:msg /]</a></li>
 </ul>
 {/dede:feedback}
 >>dede>>
-row='12' è°ƒç”¨è¯„è®ºæ¡æ•°
-titlelen='24' æ ‡é¢˜é•¿åº¦
-infolen='100' è¯„è®ºé•¿åº¦
+row='12' µ÷ÓÃÆÀÂÛÌõÊı
+titlelen='24' ±êÌâ³¤¶È
+infolen='100' ÆÀÂÛ³¤¶È

@@ -1,8 +1,8 @@
 <?php   if(!defined('DEDEINC')) exit('Request Error!');
 /**
- * æŒ‰æ’åºä½ç½®çš„è·å–å•ä¸ªæ ç›®çš„é“¾æ¥ä¿¡æ¯
+ * °´ÅÅĞòÎ»ÖÃµÄ»ñÈ¡µ¥¸öÀ¸Ä¿µÄÁ´½ÓĞÅÏ¢
  *
- * @version        $Id: autochannel.lib.php 1 9:29 2010å¹´7æœˆ6æ—¥Z tianya $
+ * @version        $Id: autochannel.lib.php 1 9:29 2010Äê7ÔÂ6ÈÕZ tianya $
  * @package        DedeCMS.Taglib
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -10,16 +10,16 @@
  */
  
  /*>>dede>>
-<name>æŒ‡å®šæ ç›®</name>
-<type>å…¨å±€æ ‡è®°</type>
+<name>Ö¸¶¨À¸Ä¿</name>
+<type>È«¾Ö±ê¼Ç</type>
 <for>V55,V56,V57</for>
-<description>æŒ‡å®šæ’åºä½ç½®çš„å•ä¸ªæ ç›®çš„é“¾æ¥</description>
+<description>Ö¸¶¨ÅÅĞòÎ»ÖÃµÄµ¥¸öÀ¸Ä¿µÄÁ´½Ó</description>
 <demo>
-{dede:autochannel partsort='' typeid=â€™â€™}{/dede:autochannel}
+{dede:autochannel partsort='' typeid=¡¯¡¯}{/dede:autochannel}
 </demo>
 <attributes>
-    <iterm>partsort:æ ç›®æ‰€åœ¨çš„æ’åºä½ç½®</iterm> 
-    <iterm>typeid:è·å–å•ä¸ªæ ç›®çš„é¡¶çº§æ ç›®</iterm>
+    <iterm>partsort:À¸Ä¿ËùÔÚµÄÅÅĞòÎ»ÖÃ</iterm> 
+    <iterm>typeid:»ñÈ¡µ¥¸öÀ¸Ä¿µÄ¶¥¼¶À¸Ä¿</iterm>
 </attributes> 
 >>dede>>*/
  

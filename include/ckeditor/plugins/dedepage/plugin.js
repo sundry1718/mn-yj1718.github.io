@@ -11,14 +11,14 @@
                 {
                     // Create the element that represents a print break.
                     // alert('dedepageCmd!');
-                    editor.insertHtml("#p#å‰¯æ ‡é¢˜#e#");
+                    editor.insertHtml("#p#¸±±êÌâ#e#");
                 }
             });
             // alert('dedepage!');
             // Register the toolbar button.
             editor.ui.addButton( 'MyPage',
             {
-                label : 'æ’å…¥åˆ†é¡µç¬¦',
+                label : '²åÈë·ÖÒ³·û',
                 command : 'dedepage',
                 icon: 'images/dedepage.gif'
             });

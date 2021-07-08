@@ -1,9 +1,9 @@
 <?php
 /**
  *
- * 错误提交
+ * �����ύ
  *
- * @version        $Id: erraddsave.php 1 15:38 2010年7月8日Z tianya $
+ * @version        $Id: erraddsave.php 1 15:38 2010��7��8��Z tianya $
  * @package        DedeCMS.Site
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -12,7 +12,7 @@
 require_once(dirname(__FILE__)."/../include/common.inc.php");
 require_once(DEDEINC.'/memberlogin.class.php');
 
-$htmltitle = "错误提交";
+$htmltitle = "�����ύ";
 $aid = isset($aid) && is_numeric($aid) ? $aid : 0;
 if(empty($dopost))
 {
@@ -32,6 +32,6 @@ elseif($dopost == "saveedit")
     $query = "INSERT INTO `#@__erradd`(aid,mid,title,type,errtxt,oktxt,sendtime)
                   VALUES ('$aid','$mid','$title','$type','$err','$oktxt','$time'); ";
     $dsql->ExecuteNoneQuery($query);
-    ShowMsg("谢谢您对本网站的支持，我们会尽快处理您的建议！","javascript:window.close();");
+    ShowMsg("лл���Ա���վ��֧�֣����ǻᾡ�촦�����Ľ��飡","javascript:window.close();");
     exit();
 }

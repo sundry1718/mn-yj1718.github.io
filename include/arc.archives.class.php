@@ -1,9 +1,9 @@
 <?php
 if(!defined('DEDEINC')) exit("Request Error!");
 /**
- * æ–‡æ¡£ç±»
+ * ÎÄµµÀà
  *
- * @version        $Id: arc.archives.class.php 4 15:13 2010å¹´7æœˆ7æ—¥Z tianya $
+ * @version        $Id: arc.archives.class.php 4 15:13 2010Äê7ÔÂ7ÈÕZ tianya $
  * @package        DedeCMS.Libraries
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -16,7 +16,7 @@ require_once(DEDEINC.'/ftp.class.php');
 
 @set_time_limit(0);
 /**
- * ä¸»æ–‡æ¡£ç±»(Archivesç±»)
+ * Ö÷ÎÄµµÀà(ArchivesÀà)
  *
  * @package          TypeLink
  * @subpackage       DedeCMS.Libraries
@@ -46,10 +46,10 @@ class Archives
     var $remoteDir;
 
     /**
-     *  php5æ„é€ å‡½æ•°
+     *  php5¹¹Ôìº¯Êı
      *
      * @access    public
-     * @param     int  $aid  æ–‡æ¡£ID
+     * @param     int  $aid  ÎÄµµID
      * @return    string
      */
     function __construct($aid)
@@ -73,7 +73,7 @@ class Archives
             $this->TypeLink = new TypeLink($arr['typeid']);
             if($this->ChannelUnit->ChannelInfos['issystem']!=-1)
             {
-                // å¦‚æœå½“å‰æ–‡æ¡£ä¸æ˜¯ç³»ç»Ÿæ¨¡å‹,ä¸ºå•è¡¨æ¨¡å‹
+                // Èç¹ûµ±Ç°ÎÄµµ²»ÊÇÏµÍ³Ä£ĞÍ,Îªµ¥±íÄ£ĞÍ
                 $query = "SELECT arc.*,tp.reid,tp.typedir,ch.addtable
                 FROM `#@__archives` arc
                          LEFT JOIN #@__arctype tp on tp.id=arc.typeid
@@ -116,26 +116,26 @@ class Archives
                 $this->NowPage = $GLOBALS['pageno'];
             }
 
-            //ç‰¹æ®Šçš„å­—æ®µæ•°æ®å¤„ç†
+            //ÌØÊâµÄ×Ö¶ÎÊı¾İ´¦Àí
             $this->Fields['aid'] = $aid;
             $this->Fields['id'] = $aid;
             $this->Fields['position'] = $this->TypeLink->GetPositionLink(TRUE);
             $this->Fields['typeid'] = $arr['typeid'];
 
-            //è®¾ç½®ä¸€äº›å…¨å±€å‚æ•°çš„å€¼
+            //ÉèÖÃÒ»Ğ©È«¾Ö²ÎÊıµÄÖµ
             foreach($GLOBALS['PubFields'] as $k=>$v)
             {
                 $this->Fields[$k] = $v;
             }
 
-            //ä¸ºäº†å‡å°‘é‡å¤æŸ¥è¯¢ï¼Œè¿™é‡Œç›´æ¥æŠŠé™„åŠ è¡¨æŸ¥è¯¢è®°å½•æ”¾åœ¨ $this->addTableRow ä¸­ï¼Œåœ¨ ParAddTable() ä¸å†æŸ¥è¯¢
+            //ÎªÁË¼õÉÙÖØ¸´²éÑ¯£¬ÕâÀïÖ±½Ó°Ñ¸½¼Ó±í²éÑ¯¼ÇÂ¼·ÅÔÚ $this->addTableRow ÖĞ£¬ÔÚ ParAddTable() ²»ÔÙ²éÑ¯
             if($this->ChannelUnit->ChannelInfos['addtable']!='')
             {
                 $query = "SELECT * FROM `{$this->ChannelUnit->ChannelInfos['addtable']}` WHERE `aid` = '$aid'";
                 $this->addTableRow = $this->dsql->GetOne($query);
             }
 
-            //issystem==-1 è¡¨ç¤ºå•è¡¨æ¨¡å‹ï¼Œå•è¡¨æ¨¡å‹ä¸æ”¯æŒredirecturlè¿™ç±»å‚æ•°ï¼Œå› æ­¤é™å®šå†…å®¹æ™®é€šæ¨¡å‹æ‰è¿›è¡Œä¸‹é¢æŸ¥è¯¢
+            //issystem==-1 ±íÊ¾µ¥±íÄ£ĞÍ£¬µ¥±íÄ£ĞÍ²»Ö§³ÖredirecturlÕâÀà²ÎÊı£¬Òò´ËÏŞ¶¨ÄÚÈİÆÕÍ¨Ä£ĞÍ²Å½øĞĞÏÂÃæ²éÑ¯
             if($this->ChannelUnit->ChannelInfos['addtable']!='' && $this->ChannelUnit->ChannelInfos['issystem']!=-1)
             {
                 if(is_array($this->addTableRow))
@@ -155,21 +155,21 @@ class Archives
         }//!error
     }
 
-    //php4æ„é€ å‡½æ•°
+    //php4¹¹Ôìº¯Êı
     function Archives($aid)
     {
         $this->__construct($aid);
     }
 
     /**
-     *  è§£æé™„åŠ è¡¨çš„å†…å®¹
+     *  ½âÎö¸½¼Ó±íµÄÄÚÈİ
      *
      * @access    public
      * @return    void
      */
     function ParAddTable()
     {
-        //è¯»å–é™„åŠ è¡¨ä¿¡æ¯ï¼Œå¹¶æŠŠé™„åŠ è¡¨çš„èµ„æ–™ç»è¿‡ç¼–è¯‘å¤„ç†åå¯¼å…¥åˆ°$this->Fieldsä¸­ï¼Œä»¥æ–¹ä¾¿åœ¨æ¨¡æ¿ä¸­ç”¨ {dede:field name='fieldname' /} æ ‡è®°ç»Ÿä¸€è°ƒç”¨
+        //¶ÁÈ¡¸½¼Ó±íĞÅÏ¢£¬²¢°Ñ¸½¼Ó±íµÄ×ÊÁÏ¾­¹ı±àÒë´¦Àíºóµ¼Èëµ½$this->FieldsÖĞ£¬ÒÔ·½±ãÔÚÄ£°åÖĞÓÃ {dede:field name='fieldname' /} ±ê¼ÇÍ³Ò»µ÷ÓÃ
         if($this->ChannelUnit->ChannelInfos['addtable']!='')
         {
             $row = $this->addTableRow;
@@ -209,15 +209,15 @@ class Archives
                             {
                                 if($ctag->GetTagName()=='field' && $ctag->GetAtt('name')==$k)
                                 {
-                                    //å¸¦æ ‡è¯†çš„ä¸“é¢˜èŠ‚ç‚¹
+                                    //´ø±êÊ¶µÄ×¨Ìâ½Úµã
                                     if($ctag->GetAtt('noteid') != '') {
                                         $this->Fields[$k.'_'.$ctag->GetAtt('noteid')] = $this->ChannelUnit->MakeField($k, $row[$k], $ctag);
                                     }
-                                    //å¸¦ç±»å‹çš„å­—æ®µèŠ‚ç‚¹
+                                    //´øÀàĞÍµÄ×Ö¶Î½Úµã
                                     else if($ctag->GetAtt('type') != '') {
                                         $this->Fields[$k.'_'.$ctag->GetAtt('type')] = $this->ChannelUnit->MakeField($k, $row[$k], $ctag);
                                     }
-                                    //å…¶å®ƒå­—æ®µ
+                                    //ÆäËü×Ö¶Î
                                     else {
                                         $this->Fields[$nk] = $this->ChannelUnit->MakeField($k, $row[$k], $ctag);
                                     }
@@ -235,14 +235,14 @@ class Archives
                     }
                 }//End foreach
             }
-            //è®¾ç½®å…¨å±€ç¯å¢ƒå˜é‡
+            //ÉèÖÃÈ«¾Ö»·¾³±äÁ¿
             $this->Fields['typename'] = $this->TypeLink->TypeInfos['typename'];
             @SetSysEnv($this->Fields['typeid'],$this->Fields['typename'],$this->Fields['id'],$this->Fields['title'],'archives');
         }
-        //å®Œæˆé™„åŠ è¡¨ä¿¡æ¯è¯»å–
+        //Íê³É¸½¼Ó±íĞÅÏ¢¶ÁÈ¡
         unset($row);
 
-        //å¤„ç†è¦åˆ†é¡µæ˜¾ç¤ºçš„å­—æ®µ
+        //´¦ÀíÒª·ÖÒ³ÏÔÊ¾µÄ×Ö¶Î
         $this->SplitTitles = Array();
         if($this->SplitPageField!='' && $GLOBALS['cfg_arcsptitle']='Y'
         && isset($this->Fields[$this->SplitPageField]))
@@ -256,7 +256,7 @@ class Archives
                 if($pos>0)
                 {
                     $st = trim(cn_substr($tmpv,$pos));
-                    if($st==""||$st=="å‰¯æ ‡é¢˜"||$st=="åˆ†é¡µæ ‡é¢˜")
+                    if($st==""||$st=="¸±±êÌâ"||$st=="·ÖÒ³±êÌâ")
                     {
                         $this->SplitFields[$k] = preg_replace("/^(.*)#e#/is","",$v);
                         continue;
@@ -277,7 +277,7 @@ class Archives
             $this->Fields['totalpage'] = $this->TotalPage;
         }
 
-        //å¤„ç†é»˜è®¤ç¼©ç•¥å›¾ç­‰
+        //´¦ÀíÄ¬ÈÏËõÂÔÍ¼µÈ
         if (isset($this->Fields['litpic']))
         {
             if($this->Fields['litpic'] == '-' || $this->Fields['litpic'] == '')
@@ -290,10 +290,10 @@ class Archives
             }
             $this->Fields['picname'] = $this->Fields['litpic'];
 
-            //æ¨¡æ¿é‡Œç›´æ¥ä½¿ç”¨{dede:field name='image'/}è·å–ç¼©ç•¥å›¾
+            //Ä£°åÀïÖ±½ÓÊ¹ÓÃ{dede:field name='image'/}»ñÈ¡ËõÂÔÍ¼
             $this->Fields['image'] = (!preg_match('/jpg|gif|png/i', $this->Fields['picname']) ? '' : "<img src='{$this->Fields['picname']}' />");
         }
-        // å¤„ç†æŠ•ç¥¨é€‰é¡¹
+        // ´¦ÀíÍ¶Æ±Ñ¡Ïî
         if (isset($this->Fields['voteid']) && !empty($this->Fields['voteid']))
         {
             $this->Fields['vote'] = '';
@@ -320,7 +320,7 @@ class Archives
         }
     }
 
-    //è·å¾—å½“å‰å­—æ®µå‚æ•°
+    //»ñµÃµ±Ç°×Ö¶Î²ÎÊı
     function GetCurTag($fieldname)
     {
         if(!isset($this->dtp->CTags))
@@ -342,10 +342,10 @@ class Archives
     }
 
     /**
-     *  ç”Ÿæˆé™æ€HTML
+     *  Éú³É¾²Ì¬HTML
      *
      * @access    public
-     * @param     int    $isremote  æ˜¯å¦è¿œç¨‹
+     * @param     int    $isremote  ÊÇ·ñÔ¶³Ì
      * @return    string
      */
     function MakeHtml($isremote=0)
@@ -356,7 +356,7 @@ class Archives
             return '';
         }
         $this->Fields["displaytype"] = "st";
-        //é¢„ç¼–è¯‘$th
+        //Ô¤±àÒë$th
         $this->LoadTemplet();
         $this->ParAddTable();
         $this->ParseTempletsFirst();
@@ -367,7 +367,7 @@ class Archives
         $this->Fields['money'] = empty($this->Fields['money'])? 0 : $this->Fields['money'];
         $this->Fields['filename'] = empty($this->Fields['filename'])? '' : $this->Fields['filename'];
 
-        //åˆ†æè¦åˆ›å»ºçš„æ–‡ä»¶åç§°
+        //·ÖÎöÒª´´½¨µÄÎÄ¼şÃû³Æ
         $filename = GetFileNewName(
             $this->ArcID,$this->Fields['typeid'],$this->Fields['senddate'],
             $this->Fields['title'],$this->Fields['ismake'],$this->Fields['arcrank'],
@@ -386,7 +386,7 @@ class Archives
             $this->NameFirst = $this->arcID;
         }
 
-        //è·å¾—å½“å‰æ–‡æ¡£çš„å…¨å
+        //»ñµÃµ±Ç°ÎÄµµµÄÈ«Ãû
         $filenameFull = GetFileUrl(
             $this->ArcID,$this->Fields['typeid'],$this->Fields["senddate"],
             $this->Fields["title"],$this->Fields["ismake"],
@@ -395,13 +395,13 @@ class Archives
         );
         $this->Fields['arcurl'] = $this->Fields['fullname'] = $filenameFull;
 
-        //å¯¹äºå·²è®¾ç½®ä¸ç”ŸæˆHTMLçš„æ–‡ç« ç›´æ¥è¿”å›ç½‘å€
+        //¶ÔÓÚÒÑÉèÖÃ²»Éú³ÉHTMLµÄÎÄÕÂÖ±½Ó·µ»ØÍøÖ·
         if($this->Fields['ismake']==-1 || $this->Fields['arcrank']!=0 || $this->Fields['money']>0
            || ($this->Fields['typeid']==0 && $this->Fields['channel'] != -1) )
         {
             return $this->GetTrueUrl($filename);
         }
-        //å¾ªç¯ç”ŸæˆHTMLæ–‡ä»¶
+        //Ñ­»·Éú³ÉHTMLÎÄ¼ş
         else
         {
             for($i=1;$i<=$this->TotalPage;$i++)
@@ -420,14 +420,14 @@ class Archives
                 }
                 $this->ParseDMFields($i,1);
                 $this->dtp->SaveTo($TRUEfilename);
-                //å¦‚æœå¯ç”¨è¿œç¨‹å‘å¸ƒåˆ™éœ€è¦è¿›è¡Œåˆ¤æ–­
+                //Èç¹ûÆôÓÃÔ¶³Ì·¢²¼ÔòĞèÒª½øĞĞÅĞ¶Ï
                 if($cfg_remote_site=='Y' && $isremote == 1)
                 {
 
-                    //åˆ†æè¿œç¨‹æ–‡ä»¶è·¯å¾„
+                    //·ÖÎöÔ¶³ÌÎÄ¼şÂ·¾¶
                     $remotefile = str_replace(DEDEROOT, '', $TRUEfilename);
                     $localfile = '..'.$remotefile;
-                    //åˆ›å»ºè¿œç¨‹æ–‡ä»¶å¤¹
+                    //´´½¨Ô¶³ÌÎÄ¼ş¼Ğ
                     $remotedir = preg_replace("#[^\/]*\.html#", '', $remotefile);
                     $this->ftp->rmkdir($remotedir);
                     $this->ftp->upload($localfile, $remotefile, 'ascii');
@@ -439,10 +439,10 @@ class Archives
     }
 
     /**
-     *  è·å¾—çœŸå®è¿æ¥è·¯å¾„
+     *  »ñµÃÕæÊµÁ¬½ÓÂ·¾¶
      *
      * @access    public
-     * @param     string    $nurl  è¿æ¥
+     * @param     string    $nurl  Á¬½Ó
      * @return    string
      */
     function GetTrueUrl($nurl)
@@ -466,7 +466,7 @@ class Archives
     }
 
     /**
-     *  è·å¾—ç«™ç‚¹çš„çœŸå®æ ¹è·¯å¾„
+     *  »ñµÃÕ¾µãµÄÕæÊµ¸ùÂ·¾¶
      *
      * @access    public
      * @return    string
@@ -478,21 +478,21 @@ class Archives
     }
 
     /**
-     *  è·å¾—æŒ‡å®šé”®å€¼çš„å­—æ®µ
+     *  »ñµÃÖ¸¶¨¼üÖµµÄ×Ö¶Î
      *
      * @access    public
-     * @param     string  $fname  é”®åç§°
-     * @param     string  $ctag  æ ‡è®°
+     * @param     string  $fname  ¼üÃû³Æ
+     * @param     string  $ctag  ±ê¼Ç
      * @return    string
      */
     function GetField($fname, $ctag)
     {
-        //æ‰€æœ‰Fieldæ•°ç»„ OR æ™®é€šField
+        //ËùÓĞFieldÊı×é OR ÆÕÍ¨Field
         if($fname=='array')
         {
             return $this->Fields;
         }
-        //æŒ‡å®šäº†IDçš„èŠ‚ç‚¹
+        //Ö¸¶¨ÁËIDµÄ½Úµã
         else if($ctag->GetAtt('noteid') != '')
         {
             if( isset($this->Fields[$fname.'_'.$ctag->GetAtt('noteid')]) )
@@ -500,7 +500,7 @@ class Archives
                 return $this->Fields[$fname.'_'.$ctag->GetAtt('noteid')];
             }
         }
-        //æŒ‡å®šäº†typeçš„èŠ‚ç‚¹
+        //Ö¸¶¨ÁËtypeµÄ½Úµã
         else if($ctag->GetAtt('type') != '')
         {
             if( isset($this->Fields[$fname.'_'.$ctag->GetAtt('type')]) )
@@ -516,7 +516,7 @@ class Archives
     }
 
     /**
-     *  è·å¾—æ¨¡æ¿æ–‡ä»¶ä½ç½®
+     *  »ñµÃÄ£°åÎÄ¼şÎ»ÖÃ
      *
      * @access    public
      * @return    string
@@ -566,7 +566,7 @@ class Archives
     }
 
     /**
-     *  åŠ¨æ€è¾“å‡ºç»“æœ
+     *  ¶¯Ì¬Êä³ö½á¹û
      *
      * @access    public
      * @return    void
@@ -580,13 +580,13 @@ class Archives
         }
         $this->Fields["displaytype"] = "dm";
         if($this->NowPage > 1) $this->Fields["title"] = $this->Fields["title"]."({$this->NowPage})";
-        //é¢„ç¼–è¯‘
+        //Ô¤±àÒë
         $this->LoadTemplet();
         $this->ParAddTable();
 
         $this->ParseTempletsFirst();
 
-        //è·³è½¬ç½‘å€
+        //Ìø×ªÍøÖ·
         $this->Fields['flag']=empty($this->Fields['flag'])? "" : $this->Fields['flag'];
         if(preg_match("#j#", $this->Fields['flag']) && $this->Fields['redirecturl'] != '')
         {
@@ -594,7 +594,7 @@ class Archives
             {
                 $pageHtml = "<html>\r\n<head>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=".$GLOBALS['cfg_soft_lang']."\">\r\n<title>".$this->Fields['title']."</title>\r\n";
                 $pageHtml .= "<meta http-equiv=\"refresh\" content=\"3;URL=".$this->Fields['redirecturl']."\">\r\n</head>\r\n<body>\r\n";
-                $pageHtml .= "ç°åœ¨æ­£åœ¨è½¬å‘ï¼š".$this->Fields['title']."ï¼Œè¯·ç¨å€™...<br/><br/>\r\nè½¬å‘å†…å®¹ç®€ä»‹:".$this->Fields['description']."\r\n</body>\r\n</html>\r\n";
+                $pageHtml .= "ÏÖÔÚÕıÔÚ×ªÏò£º".$this->Fields['title']."£¬ÇëÉÔºò...<br/><br/>\r\n×ªÏòÄÚÈİ¼ò½é:".$this->Fields['description']."\r\n</body>\r\n</html>\r\n";
                 echo $pageHtml;
             }
             else
@@ -609,7 +609,7 @@ class Archives
     }
 
     /**
-     *  è½½å…¥æ¨¡æ¿
+     *  ÔØÈëÄ£°å
      *
      * @access    public
      * @return    void
@@ -621,8 +621,8 @@ class Archives
             $tempfile = $this->GetTempletFile();
             if(!file_exists($tempfile) || !is_file($tempfile))
             {
-                echo "æ–‡æ¡£IDï¼š{$this->Fields['id']} - {$this->TypeLink->TypeInfos['typename']} - {$this->Fields['title']}<br />";
-                echo "æ¨¡æ¿æ–‡ä»¶ä¸å­˜åœ¨ï¼Œæ— æ³•è§£ææ–‡æ¡£ï¼";
+                echo "ÎÄµµID£º{$this->Fields['id']} - {$this->TypeLink->TypeInfos['typename']} - {$this->Fields['title']}<br />";
+                echo "Ä£°åÎÄ¼ş²»´æÔÚ£¬ÎŞ·¨½âÎöÎÄµµ£¡";
                 exit();
             }
             $this->dtp->LoadTemplate($tempfile);
@@ -635,7 +635,7 @@ class Archives
     }
 
     /**
-     *  è§£ææ¨¡æ¿ï¼Œå¯¹å›ºå®šçš„æ ‡è®°è¿›è¡Œåˆå§‹ç»™å€¼
+     *  ½âÎöÄ£°å£¬¶Ô¹Ì¶¨µÄ±ê¼Ç½øĞĞ³õÊ¼¸øÖµ
      *
      * @access    public
      * @return    void
@@ -680,11 +680,11 @@ class Archives
     }
 
     /**
-     *  è§£ææ¨¡æ¿ï¼Œå¯¹å†…å®¹é‡Œçš„å˜åŠ¨è¿›è¡Œèµ‹å€¼
+     *  ½âÎöÄ£°å£¬¶ÔÄÚÈİÀïµÄ±ä¶¯½øĞĞ¸³Öµ
      *
      * @access    public
-     * @param     string  $pageNo  é¡µç æ•°
-     * @param     string  $ismake  æ˜¯å¦ç”Ÿæˆ
+     * @param     string  $pageNo  Ò³ÂëÊı
+     * @param     string  $ismake  ÊÇ·ñÉú³É
      * @return    string
      */
     function ParseDMFields($pageNo, $ismake=1)
@@ -697,7 +697,7 @@ class Archives
             if($pageNo>1) $this->Fields['description'] = trim(preg_replace("/[\r\n\t]/", ' ', cn_substr(html2text($this->Fields[$this->SplitPageField]), 200)));
         }
 
-        //è§£ææ¨¡æ¿
+        //½âÎöÄ£°å
         if(is_array($this->dtp->CTags))
         {
             foreach($this->dtp->CTags as $i=>$ctag)
@@ -774,13 +774,13 @@ class Archives
                     $this->dtp->Assign($i,$res);
                 }//end case
 
-            }//ç»“æŸæ¨¡æ¿å¾ªç¯
+            }//½áÊøÄ£°åÑ­»·
 
         }
     }
 
     /**
-     *  å…³é—­æ‰€å ç”¨çš„èµ„æº
+     *  ¹Ø±ÕËùÕ¼ÓÃµÄ×ÊÔ´
      *
      * @access    public
      * @return    void
@@ -792,11 +792,11 @@ class Archives
     }
 
     /**
-     *  è·å–ä¸Šä¸€ç¯‡ï¼Œä¸‹ä¸€ç¯‡é“¾æ¥
+     *  »ñÈ¡ÉÏÒ»Æª£¬ÏÂÒ»ÆªÁ´½Ó
      *
      * @access    public
-     * @param     string  $gtype  è·å–ç±»å‹
-     *                    pre:ä¸Šä¸€ç¯‡  preimg:ä¸Šä¸€ç¯‡å›¾ç‰‡  next:ä¸‹ä¸€ç¯‡  nextimg:ä¸‹ä¸€ç¯‡å›¾ç‰‡
+     * @param     string  $gtype  »ñÈ¡ÀàĞÍ
+     *                    pre:ÉÏÒ»Æª  preimg:ÉÏÒ»ÆªÍ¼Æ¬  next:ÏÂÒ»Æª  nextimg:ÏÂÒ»ÆªÍ¼Æ¬
      * @return    string
      */
     function GetPreNext($gtype='')
@@ -824,15 +824,13 @@ class Archives
                 $preRow['namerule'],$preRow['typedir'],$preRow['money'],$preRow['filename'],$preRow['moresite'],$preRow['siteurl'],$preRow['sitepath']);
                 }
                 
-                $this->PreNext['pre'] = "ä¸Šä¸€ç¯‡ï¼š<a href='$mlink'>{$preRow['title']}</a> ";
-				$this->PreNext['prewap'] = "ä¸Šä¸€ç¯‡ï¼š<a href=\"view.php?aid={$preRow['id']}\">{$preRow['title']}</a>  ";
+                $this->PreNext['pre'] = "ÉÏÒ»Æª£º<a href='$mlink'>{$preRow['title']}</a> ";
                 $this->PreNext['preimg'] = "<a href='$mlink'><img src=\"{$preRow['litpic']}\" alt=\"{$preRow['title']}\"/></a> ";
             }
             else
             {
-                $this->PreNext['pre'] = "ä¸Šä¸€ç¯‡ï¼šæ²¡æœ‰äº† ";
-				$this->PreNext['prewap'] = "ä¸Šä¸€ç¯‡ï¼š<a href=\"javascript:;\">æ²¡æœ‰äº†</a>  ";
-                $this->PreNext['preimg'] ="<img src=\"/templets/default/images/nophoto.jpg\" alt=\"å¯¹ä¸èµ·ï¼Œæ²¡æœ‰ä¸Šä¸€å›¾é›†äº†ï¼\"/>";
+                $this->PreNext['pre'] = "ÉÏÒ»Æª£ºÃ»ÓĞÁË ";
+                $this->PreNext['preimg'] ="<img src=\"/templets/default/images/nophoto.jpg\" alt=\"¶Ô²»Æğ£¬Ã»ÓĞÉÏÒ»Í¼¼¯ÁË£¡\"/>";
             }
             if(is_array($nextRow))
             {
@@ -844,24 +842,18 @@ class Archives
                     $nextRow['namerule'],$nextRow['typedir'],$nextRow['money'],$nextRow['filename'],$nextRow['moresite'],$nextRow['siteurl'],$nextRow['sitepath']);
                 }
     
-                $this->PreNext['next'] = "ä¸‹ä¸€ç¯‡ï¼š<a href='$mlink'>{$nextRow['title']}</a> ";
-				$this->PreNext['nextwap'] = "ä¸‹ä¸€ç¯‡ï¼š<a href=\"view.php?aid={$nextRow['id']}\">{$nextRow['title']}</a> ";
+                $this->PreNext['next'] = "ÏÂÒ»Æª£º<a href='$mlink'>{$nextRow['title']}</a> ";
                 $this->PreNext['nextimg'] = "<a href='$mlink'><img src=\"{$nextRow['litpic']}\" alt=\"{$nextRow['title']}\"/></a> ";
             }
             else
             {
-                $this->PreNext['next'] = "ä¸‹ä¸€ç¯‡ï¼šæ²¡æœ‰äº† ";
-				$this->PreNext['nextwap'] = "ä¸‹ä¸€ç¯‡ï¼š<a href=\"javascript:;\">æ²¡æœ‰äº†</a> ";
-                $this->PreNext['nextimg'] ="<a href='javascript:void(0)' alt=\"\"><img src=\"/templets/default/images/nophoto.jpg\" alt=\"å¯¹ä¸èµ·ï¼Œæ²¡æœ‰ä¸‹ä¸€å›¾é›†äº†ï¼\"/></a>";
+                $this->PreNext['next'] = "ÏÂÒ»Æª£ºÃ»ÓĞÁË ";
+                $this->PreNext['nextimg'] ="<a href='javascript:void(0)' alt=\"\"><img src=\"/templets/default/images/nophoto.jpg\" alt=\"¶Ô²»Æğ£¬Ã»ÓĞÏÂÒ»Í¼¼¯ÁË£¡\"/></a>";
             }
         }
         if($gtype=='pre')
         {
             $rs =  $this->PreNext['pre'];
-        }
-		else if($gtype=='prewap'){
-            
-            $rs =  $this->PreNext['prewap'];
         }
         else if($gtype=='preimg'){
 
@@ -870,10 +862,6 @@ class Archives
         else if($gtype=='next')
         {
             $rs =  $this->PreNext['next'];
-        }
-		else if($gtype=='nextwap')
-        {
-            $rs =  $this->PreNext['nextwap'];
         }
         else if($gtype=='nextimg'){
 
@@ -887,12 +875,12 @@ class Archives
     }
 
     /**
-     *  è·å¾—åŠ¨æ€é¡µé¢åˆ†é¡µåˆ—è¡¨
+     *  »ñµÃ¶¯Ì¬Ò³Ãæ·ÖÒ³ÁĞ±í
      *
      * @access    public
-     * @param     int   $totalPage  æ€»é¡µæ•°
-     * @param     int   $nowPage  å½“å‰é¡µæ•°
-     * @param     int   $aid  æ–‡æ¡£id
+     * @param     int   $totalPage  ×ÜÒ³Êı
+     * @param     int   $nowPage  µ±Ç°Ò³Êı
+     * @param     int   $aid  ÎÄµµid
      * @return    string
      */
     function GetPagebreakDM($totalPage, $nowPage, $aid)
@@ -902,18 +890,18 @@ class Archives
         {
             return "";
         }
-        $PageList = "<li><a>å…±".$totalPage."é¡µ: </a></li>";
+        $PageList = "<li><a>¹²".$totalPage."Ò³: </a></li>";
         $nPage = $nowPage-1;
         $lPage = $nowPage+1;
         if($nowPage==1)
         {
-            $PageList.="<li><a href='#'>ä¸Šä¸€é¡µ</a></li>";
+            $PageList.="<li><a href='#'>ÉÏÒ»Ò³</a></li>";
         }
         else
         {
             if($nPage==1)
             {
-                $PageList.="<li><a href='view.php?aid=$aid'>ä¸Šä¸€é¡µ</a></li>";
+                $PageList.="<li><a href='view.php?aid=$aid'>ÉÏÒ»Ò³</a></li>";
                 if($cfg_rewrite == 'Y')
                 {
                     $PageList = preg_replace("#.php\?aid=(\d+)#i", '-\\1-1.html', $PageList);
@@ -921,7 +909,7 @@ class Archives
             }
             else
             {
-                $PageList.="<li><a href='view.php?aid=$aid&pageno=$nPage'>ä¸Šä¸€é¡µ</a></li>";
+                $PageList.="<li><a href='view.php?aid=$aid&pageno=$nPage'>ÉÏÒ»Ò³</a></li>";
                 if($cfg_rewrite == 'Y')
                 {
                     $PageList = str_replace(".php?aid=", "-", $PageList);
@@ -966,7 +954,7 @@ class Archives
         }
         if($lPage <= $totalPage)
         {
-            $PageList.="<li><a href='view.php?aid=$aid&pageno=$lPage'>ä¸‹ä¸€é¡µ</a></li>";
+            $PageList.="<li><a href='view.php?aid=$aid&pageno=$lPage'>ÏÂÒ»Ò³</a></li>";
             if($cfg_rewrite == 'Y')
             {
                 $PageList = str_replace(".php?aid=", "-", $PageList);
@@ -975,18 +963,18 @@ class Archives
         }
         else
         {
-            $PageList.= "<li><a href='#'>ä¸‹ä¸€é¡µ</a></li>";
+            $PageList.= "<li><a href='#'>ÏÂÒ»Ò³</a></li>";
         }
         return $PageList;
     }
 
     /**
-     *  è·å¾—é™æ€é¡µé¢åˆ†é¡µåˆ—è¡¨
+     *  »ñµÃ¾²Ì¬Ò³Ãæ·ÖÒ³ÁĞ±í
      *
      * @access    public
-     * @param     int   $totalPage  æ€»é¡µæ•°
-     * @param     int   $nowPage  å½“å‰é¡µæ•°
-     * @param     int   $aid  æ–‡æ¡£id
+     * @param     int   $totalPage  ×ÜÒ³Êı
+     * @param     int   $nowPage  µ±Ç°Ò³Êı
+     * @param     int   $aid  ÎÄµµid
      * @return    string
      */
     function GetPagebreak($totalPage, $nowPage, $aid)
@@ -995,22 +983,22 @@ class Archives
         {
             return "";
         }
-        $PageList = "<li><a>å…±".$totalPage."é¡µ: </a></li>";
+        $PageList = "<li><a>¹²".$totalPage."Ò³: </a></li>";
         $nPage = $nowPage-1;
         $lPage = $nowPage+1;
         if($nowPage==1)
         {
-            $PageList.="<li><a href='#'>ä¸Šä¸€é¡µ</a></li>";
+            $PageList.="<li><a href='#'>ÉÏÒ»Ò³</a></li>";
         }
         else
         {
             if($nPage==1)
             {
-                $PageList.="<li><a href='".$this->NameFirst.".".$this->ShortName."'>ä¸Šä¸€é¡µ</a></li>";
+                $PageList.="<li><a href='".$this->NameFirst.".".$this->ShortName."'>ÉÏÒ»Ò³</a></li>";
             }
             else
             {
-                $PageList.="<li><a href='".$this->NameFirst."_".$nPage.".".$this->ShortName."'>ä¸Šä¸€é¡µ</a></li>";
+                $PageList.="<li><a href='".$this->NameFirst."_".$nPage.".".$this->ShortName."'>ÉÏÒ»Ò³</a></li>";
             }
         }
         for($i=1;$i<=$totalPage;$i++)
@@ -1041,21 +1029,21 @@ class Archives
         }
         if($lPage <= $totalPage)
         {
-            $PageList.="<li><a href='".$this->NameFirst."_".$lPage.".".$this->ShortName."'>ä¸‹ä¸€é¡µ</a></li>";
+            $PageList.="<li><a href='".$this->NameFirst."_".$lPage.".".$this->ShortName."'>ÏÂÒ»Ò³</a></li>";
         }
         else
         {
-            $PageList.= "<li><a href='#'>ä¸‹ä¸€é¡µ</a></li>";
+            $PageList.= "<li><a href='#'>ÏÂÒ»Ò³</a></li>";
         }
         return $PageList;
     }
 
     /**
-     *  è·å¾—åŠ¨æ€é¡µé¢å°æ ‡é¢˜
+     *  »ñµÃ¶¯Ì¬Ò³ÃæĞ¡±êÌâ
      *
      * @access    public
-     * @param     string  $styleName  ç±»å‹åç§°
-     * @param     string  $pageNo  é¡µç æ•°
+     * @param     string  $styleName  ÀàĞÍÃû³Æ
+     * @param     string  $pageNo  Ò³ÂëÊı
      * @return    string
      */
     function GetPageTitlesDM($styleName, $pageNo)
@@ -1100,17 +1088,17 @@ class Archives
             {
                 if($i==1)
                 {
-                    $revalue .= "<option value='".$this->Fields['phpurl']."/view.php?aid=$aid&pageno=$i'>{$i}ã€{$v}</option>\r\n";
+                    $revalue .= "<option value='".$this->Fields['phpurl']."/view.php?aid=$aid&pageno=$i'>{$i}¡¢{$v}</option>\r\n";
                 }
                 else
                 {
                     if($pageNo==$i)
                     {
-                        $revalue .= "<option value='".$this->Fields['phpurl']."/view.php?aid=$aid&pageno=$i' selected>{$i}ã€{$v}</option>\r\n";
+                        $revalue .= "<option value='".$this->Fields['phpurl']."/view.php?aid=$aid&pageno=$i' selected>{$i}¡¢{$v}</option>\r\n";
                     }
                     else
                     {
-                        $revalue .= "<option value='".$this->Fields['phpurl']."/view.php?aid=$aid&pageno=$i'>{$i}ã€{$v}</option>\r\n";
+                        $revalue .= "<option value='".$this->Fields['phpurl']."/view.php?aid=$aid&pageno=$i'>{$i}¡¢{$v}</option>\r\n";
                     }
                 }
                 $i++;
@@ -1121,11 +1109,11 @@ class Archives
     }
 
     /**
-     *  è·å¾—é™æ€é¡µé¢å°æ ‡é¢˜
+     *  »ñµÃ¾²Ì¬Ò³ÃæĞ¡±êÌâ
      *
      * @access    public
-     * @param     string  $styleName  ç±»å‹åç§°
-     * @param     string  $pageNo  é¡µç æ•°
+     * @param     string  $styleName  ÀàĞÍÃû³Æ
+     * @param     string  $pageNo  Ò³ÂëÊı
      * @return    string
      */
     function GetPageTitlesST($styleName, $pageNo)
@@ -1169,17 +1157,17 @@ class Archives
             {
                 if($i==1)
                 {
-                    $revalue .= "<option value='".$this->NameFirst.".".$this->ShortName."'>{$i}ã€{$v}</option>\r\n";
+                    $revalue .= "<option value='".$this->NameFirst.".".$this->ShortName."'>{$i}¡¢{$v}</option>\r\n";
                 }
                 else
                 {
                     if($pageNo==$i)
                     {
-                        $revalue .= "<option value='".$this->NameFirst."_".$i.".".$this->ShortName."' selected>{$i}ã€{$v}</option>\r\n";
+                        $revalue .= "<option value='".$this->NameFirst."_".$i.".".$this->ShortName."' selected>{$i}¡¢{$v}</option>\r\n";
                     }
                     else
                     {
-                        $revalue .= "<option value='".$this->NameFirst."_".$i.".".$this->ShortName."'>{$i}ã€{$v}</option>\r\n";
+                        $revalue .= "<option value='".$this->NameFirst."_".$i.".".$this->ShortName."'>{$i}¡¢{$v}</option>\r\n";
                     }
                 }
                 $i++;
@@ -1190,7 +1178,7 @@ class Archives
     }
 
     /**
-     * é«˜äº®é—®é¢˜ä¿®æ­£, æ’é™¤alt title <a></a>ç›´æ¥çš„å­—ç¬¦æ›¿æ¢
+     * ¸ßÁÁÎÊÌâĞŞÕı, ÅÅ³ıalt title <a></a>Ö±½ÓµÄ×Ö·ûÌæ»»
      *
      * @param string $kw
      * @param string $body
@@ -1200,11 +1188,11 @@ class Archives
     {
         global $cfg_cmspath;
         $maxkey = 5;
-        $kws = explode(",",trim($kw));    //ä»¥åˆ†å¥½ä¸ºé—´éš”ç¬¦
+        $kws = explode(",",trim($kw));    //ÒÔ·ÖºÃÎª¼ä¸ô·û
         $i=0;
         $karr = $kaarr = $GLOBALS['replaced'] = array();
 
-        //æš‚æ—¶å±è”½è¶…é“¾æ¥
+        //ÔİÊ±ÆÁ±Î³¬Á´½Ó
         $body = preg_replace("#(<a(.*))(>)(.*)(<)(\/a>)#isU", '\\1-]-\\4-[-\\6', $body);
 
         /*
@@ -1239,7 +1227,7 @@ class Archives
             $kaarr[] = "<a href='$key_url' target='_blank'><u>$key</u></a>";
         }
 
-        // è¿™é‡Œå¯èƒ½ä¼šæœ‰é”™è¯¯
+        // ÕâÀï¿ÉÄÜ»áÓĞ´íÎó
         if (version_compare(PHP_VERSION, '5.5.0', '>='))
         {
             $body = @preg_replace_callback("#(^|>)([^<]+)(?=<|$)#sU", "_highlight('\\2', \$karr, \$kaarr, '\\1')", $body);
@@ -1247,7 +1235,7 @@ class Archives
             $body = @preg_replace("#(^|>)([^<]+)(?=<|$)#sUe", "_highlight('\\2', \$karr, \$kaarr, '\\1')", $body);
         }
 
-        //æ¢å¤è¶…é“¾æ¥
+        //»Ö¸´³¬Á´½Ó
         $body = preg_replace("#(<a(.*))-\]-(.*)-\[-(\/a>)#isU", '\\1>\\3<\\4', $body);
         return $body;
     }
@@ -1255,7 +1243,7 @@ class Archives
 
 }//End Archives
 
-//é«˜äº®ä¸“ç”¨, æ›¿æ¢å¤šæ¬¡æ˜¯å¯èƒ½ä¸èƒ½è¾¾åˆ°æœ€å¤šæ¬¡
+//¸ßÁÁ×¨ÓÃ, Ìæ»»¶à´ÎÊÇ¿ÉÄÜ²»ÄÜ´ïµ½×î¶à´Î
 function _highlight($string, $words, $result, $pre)
 {
     global $cfg_replace_num;

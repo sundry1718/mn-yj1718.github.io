@@ -1,9 +1,9 @@
 <?php
 /**
  *
- * æ˜¾ç¤ºè´­ç‰©è½¦çš„å•†å“
+ * ÏÔÊ¾¹ºÎï³µµÄÉÌÆ·
  *
- * @version        $Id: car.php 1 20:43 2010å¹´7æœˆ8æ—¥Z tianya $
+ * @version        $Id: car.php 1 20:43 2010Äê7ÔÂ8ÈÕZ tianya $
  * @package        DedeCMS.Site
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -24,11 +24,11 @@ if(isset($dopost) && $dopost=='makeid')
     exit;
 }
 $cfg_ml = new MemberLogin();
-//èŽ·å¾—è´­ç‰©è½¦å†…å•†å“,è¿”å›žæ•°ç»„
+//»ñµÃ¹ºÎï³µÄÚÉÌÆ·,·µ»ØÊý×é
 $Items = $cart->getItems();
 if($cart->cartCount() < 1)
 {
-    ShowMsg("è´­ç‰©è½¦ä¸­ä¸å­˜åœ¨ä»»ä½•å•†å“ï¼", "javascript:window.close();", false, 5000);
+    ShowMsg("¹ºÎï³µÖÐ²»´æÔÚÈÎºÎÉÌÆ·£¡", "javascript:window.close();", false, 5000);
     exit;
 }
 @sort($Items);

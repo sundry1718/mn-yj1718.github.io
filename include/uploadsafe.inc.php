@@ -3,9 +3,9 @@ if(!defined('DEDEINC')) exit('Request Error!');
 
 if(isset($_FILES['GLOBALS'])) exit('Request not allow!');
 
-//ä¸ºäº†é˜²æ­¢ç”¨æˆ·é€šè¿‡æ³¨å…¥çš„å¯èƒ½æ€§æ”¹åŠ¨äº†æ•°æ®åº“
-//è¿™é‡Œå¼ºåˆ¶é™å®šçš„æŸäº›æ–‡ä»¶ç±»åž‹ç¦æ­¢ä¸Šä¼ 
-$cfg_not_allowall = "php|pl|cgi|asp|aspx|jsp|php3|shtm|shtml|htm|html";
+//ÎªÁË·ÀÖ¹ÓÃ»§Í¨¹ý×¢ÈëµÄ¿ÉÄÜÐÔ¸Ä¶¯ÁËÊý¾Ý¿â
+//ÕâÀïÇ¿ÖÆÏÞ¶¨µÄÄ³Ð©ÎÄ¼þÀàÐÍ½ûÖ¹ÉÏ´«
+$cfg_not_allowall = "php|pl|cgi|asp|aspx|jsp|php3|shtm|shtml";
 $keyarr = array('name', 'type', 'tmp_name', 'size');
 if ($GLOBALS['cfg_html_editor']=='ckeditor' && isset($_FILES['upload']))
 {
@@ -41,14 +41,6 @@ foreach($_FILES as $_key=>$_value)
     {
         ${$_key.'_size'} = @filesize($$_key);
     }
-	$imtypes = array("image/pjpeg", "image/jpeg", "image/gif", "image/png", "image/xpng", "image/wbmp", "image/bmp");
-	if(in_array(strtolower(trim(${$_key.'_type'})), $imtypes)){
-		$image_dd = @getimagesize($$_key); 
-		if($image_dd == false){continue;}
-		if (!is_array($image_dd)) {
-			exit('Upload filetype not allow !');
-		}
-	}
     
     $imtypes = array
     (

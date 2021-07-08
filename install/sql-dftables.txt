@@ -1,4 +1,4 @@
-ï»¿DROP TABLE IF EXISTS `#@__addonarticle`;
+?DROP TABLE IF EXISTS `#@__addonarticle`;
 CREATE TABLE `#@__addonarticle` (
   `aid` mediumint(8) unsigned NOT NULL default '0',
   `typeid` smallint(5) unsigned NOT NULL default '0',
@@ -319,7 +319,7 @@ CREATE TABLE `#@__channeltype` (
   `isdefault` smallint(6) NOT NULL default '0',
   `needdes` tinyint(1) NOT NULL default '1',
   `needpic` tinyint(1) NOT NULL default '1',
-  `titlename` varchar(20) NOT NULL default 'æ ‡é¢˜',
+  `titlename` varchar(20) NOT NULL default '±êÌâ',
   `onlyone` smallint(6) NOT NULL default '0',
   `dfcid` smallint(5) unsigned NOT NULL default '0',
   PRIMARY KEY  (`id`),
@@ -515,11 +515,11 @@ CREATE TABLE `#@__log` (
 DROP TABLE IF EXISTS `#@__member`;
 CREATE TABLE `#@__member` (
   `mid` mediumint(8) unsigned NOT NULL auto_increment,
-  `mtype` varchar(20) NOT NULL default 'ä¸ªäºº',
+  `mtype` varchar(20) NOT NULL default '¸öÈË',
   `userid` char(20) NOT NULL default '',
   `pwd` char(32) NOT NULL default '',
   `uname` char(36) NOT NULL default '',
-  `sex` enum('ç”·','å¥³','ä¿å¯†') NOT NULL default 'ä¿å¯†',
+  `sex` enum('ÄĞ','Å®','±£ÃÜ') NOT NULL default '±£ÃÜ',
   `rank` smallint(5) unsigned NOT NULL default '0',
   `uptime` int(11) NOT NULL default '0',
   `exptime` smallint(6) NOT NULL default '0',
@@ -674,7 +674,7 @@ DROP TABLE IF EXISTS `#@__member_person`;
 CREATE TABLE `#@__member_person` (
   `mid` mediumint(8) unsigned NOT NULL default '0',
   `onlynet` tinyint(1) unsigned NOT NULL default '1',
-  `sex` enum('ç”·','å¥³','ä¿å¯†') NOT NULL default 'ç”·',
+  `sex` enum('ÄĞ','Å®','±£ÃÜ') NOT NULL default 'ÄĞ',
   `uname` char(30) NOT NULL default '',
   `qq` char(12) NOT NULL default '',
   `msn` char(50) NOT NULL default '',
@@ -695,8 +695,8 @@ CREATE TABLE `#@__member_person` (
   `house` smallint(6) NOT NULL default '0',
   `drink` smallint(6) NOT NULL default '0',
   `datingtype` smallint(6) NOT NULL default '0',
-  `language` set('æ™®é€šè¯','ä¸Šæµ·è¯','å¹¿ä¸œè¯','è‹±è¯­','æ—¥è¯­','éŸ©è¯­','æ³•è¯­','æ„å¤§åˆ©è¯­','å¾·è¯­','è¥¿ç­ç‰™è¯­','ä¿„è¯­','é˜¿æ‹‰ä¼¯è¯­') default NULL,
-  `nature` set('æ€§æ ¼å¤–å‘','æ€§æ ¼å†…å‘','æ´»æ³¼å¼€æœ—','è±ªæ”¾ä¸ç¾','æ‚£å¾—æ‚£å¤±','å†²åŠ¨','å¹½é»˜','ç¨³é‡','è½»æµ®','æ²‰é»˜å¯¡è¨€','å¤šæ„å–„æ„Ÿ','æ—¶å–œæ—¶æ‚²','é™„åº¸é£é›…','èƒ½è¯´ä¼šé“','åšå¼º','è„†å¼±','å¹¼ç¨š','æˆç†Ÿ','å¿«è¨€å¿«è¯­','æŸäººåˆ©å·±','ç‹¡çŒ¾å–„å˜','äº¤é™…å¹¿æ³›','ä¼˜æŸ”å¯¡æ–­','è‡ªç§','çœŸè¯š','ç‹¬ç«‹','ä¾èµ–','éš¾ä»¥ç¢ç£¨','æ‚²è§‚æ¶ˆæ','éƒéƒå¯¡æ¬¢','èƒ†å°æ€•äº‹','ä¹è§‚å‘ä¸Š','ä»»æ€§','è‡ªè´Ÿ','è‡ªå‘','æ‹œé‡‘','æ¸©æŸ”ä½“è´´','å°å¿ƒç¿¼ç¿¼','æš´åŠ›å€¾å‘','é€†æ¥é¡ºå—','ä¸æ‹˜å°èŠ‚','æš´èº','å€”å¼º','è±ªçˆ½','å®³ç¾','å©†å©†å¦ˆå¦ˆ','æ•¢åšæ•¢å½“','åŠ©äººä¸ºä¹','è€¿ç›´','è™šä¼ª','å­¤åƒ»','è€å®','å®ˆæ—§','æ•æ„Ÿ','è¿Ÿé’','å©†å©†å¦ˆå¦ˆ','æ­¦æ–­','æœæ–­','åˆ»è–„') default NULL,
+  `language` set('ÆÕÍ¨»°','ÉÏº£»°','¹ã¶«»°','Ó¢Óï','ÈÕÓï','º«Óï','·¨Óï','Òâ´óÀûÓï','µÂÓï','Î÷°àÑÀÓï','¶íÓï','°¢À­²®Óï') default NULL,
+  `nature` set('ĞÔ¸ñÍâÏò','ĞÔ¸ñÄÚÏò','»îÆÃ¿ªÀÊ','ºÀ·Å²»î¿','»¼µÃ»¼Ê§','³å¶¯','ÓÄÄ¬','ÎÈÖØ','Çá¸¡','³ÁÄ¬¹ÑÑÔ','¶à³îÉÆ¸Ğ','Ê±Ï²Ê±±¯','¸½Ó¹·çÑÅ','ÄÜËµ»áµÀ','¼áÇ¿','´àÈõ','Ó×ÖÉ','³ÉÊì','¿ìÑÔ¿ìÓï','ËğÈËÀû¼º','½Æ»«ÉÆ±ä','½»¼Ê¹ã·º','ÓÅÈá¹Ñ¶Ï','×ÔË½','Õæ³Ï','¶ÀÁ¢','ÒÀÀµ','ÄÑÒÔ×ÁÄ¥','±¯¹ÛÏû¼«','ÓôÓô¹Ñ»¶','µ¨Ğ¡ÅÂÊÂ','ÀÖ¹ÛÏòÉÏ','ÈÎĞÔ','×Ô¸º','×Ô±°','°İ½ğ','ÎÂÈáÌåÌù','Ğ¡ĞÄÒíÒí','±©Á¦ÇãÏò','ÄæÀ´Ë³ÊÜ','²»¾ĞĞ¡½Ú','±©Ôê','¾óÇ¿','ºÀË¬','º¦Ğß','ÆÅÆÅÂèÂè','¸Ò×ö¸Òµ±','ÖúÈËÎªÀÖ','¹¢Ö±','ĞéÎ±','¹ÂÆ§','ÀÏÊµ','ÊØ¾É','Ãô¸Ğ','³Ù¶Û','ÆÅÆÅÂèÂè','Îä¶Ï','¹û¶Ï','¿Ì±¡') default NULL,
   `lovemsg` varchar(100) NOT NULL default '',
   `address` varchar(50) NOT NULL default '',
   `uptime` int(10) unsigned NOT NULL default '0',
@@ -739,7 +739,7 @@ CREATE TABLE `#@__member_space` (
   `spacename` varchar(50) NOT NULL default '',
   `spacelogo` varchar(50) NOT NULL default '',
   `spacestyle` varchar(20) NOT NULL default '',
-  `sign` varchar(100) NOT NULL default 'æ²¡ç­¾å',
+  `sign` varchar(100) NOT NULL default 'Ã»Ç©Ãû',
   `spacenews` text,
   PRIMARY KEY  (`mid`)
 ) TYPE=MyISAM;
@@ -1119,7 +1119,7 @@ CREATE TABLE `#@__sys_task` (
   `description` varchar(250) NOT NULL,
   `parameter` text,
   `settime` int(10) unsigned NOT NULL default '0',
-  `sta` enum('è¿è¡Œ','æˆåŠŸ','å¤±è´¥') default NULL,
+  `sta` enum('ÔËĞĞ','³É¹¦','Ê§°Ü') default NULL,
   PRIMARY KEY  (`id`)
 ) TYPE=MyISAM;
 

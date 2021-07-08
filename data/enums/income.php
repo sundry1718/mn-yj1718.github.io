@@ -1,10 +1,10 @@
 <?php
 global $em_incomes;
 $em_incomes = array();
-$em_incomes['1'] = 'ä½ŽäºŽ1000å…ƒ';
-$em_incomes['2'] = '1000å…ƒä»¥ä¸Š';
-$em_incomes['3'] = '2000å…ƒä»¥ä¸Š';
-$em_incomes['4'] = '4000å…ƒä»¥ä¸Š';
-$em_incomes['5'] = '8000å…ƒä»¥ä¸Š';
-$em_incomes['6'] = '15000ä»¥ä¸Š';
+$em_incomes['1'] = 'µÍÓÚ1000Ôª';
+$em_incomes['2'] = '1000ÔªÒÔÉÏ';
+$em_incomes['3'] = '2000ÔªÒÔÉÏ';
+$em_incomes['4'] = '4000ÔªÒÔÉÏ';
+$em_incomes['5'] = '8000ÔªÒÔÉÏ';
+$em_incomes['6'] = '15000ÒÔÉÏ';
 ?>

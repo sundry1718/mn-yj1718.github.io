@@ -2,7 +2,7 @@
 /**
  
  *
- * @version        $Id: arcpagelist.lib.php 1 9:29 2010å¹´7æœˆ6æ—¥Z tianya $
+ * @version        $Id: arcpagelist.lib.php 1 9:29 2010Äê7ÔÂ6ÈÕZ tianya $
  * @package        DedeCMS.Taglib
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -27,48 +27,48 @@ function lib_arcpagelist(&$ctag, &$refObj)
       {
         $pagestr .= multipage($totalnum, 1, $row['pagesize'], $tagid);
       } else {
-          $pagestr .= 'å…±1é¡µ';
+          $pagestr .= '¹²1Ò³';
       }
       $pagestr .= '</div>';
       return $pagestr;
     } else {
       $pagestr = '<div id="page_'.$tagid.'">';
-      $pagestr .= 'æ²¡æœ‰æ£€ç´¢åˆ°å¯¹åº”åˆ†é¡µ';
+      $pagestr .= 'Ã»ÓĞ¼ìË÷µ½¶ÔÓ¦·ÖÒ³';
       $pagestr .= '</div>';
         return $pagestr;
     }
 }
 
 /**
- *  åˆ†é¡µå‡½æ•°
+ *  ·ÖÒ³º¯Êı
  *
  * @access    public
- * @param     string  $allItemTotal  æ‰€æœ‰è®°å½•
- * @param     string  $currPageNum  å½“å‰é¡µé¢æ•°
- * @param     string  $pageSize  æ˜¾ç¤ºæ¡æ•°
- * @param     string  $tagid  æ ‡ç­¾ID
+ * @param     string  $allItemTotal  ËùÓĞ¼ÇÂ¼
+ * @param     string  $currPageNum  µ±Ç°Ò³ÃæÊı
+ * @param     string  $pageSize  ÏÔÊ¾ÌõÊı
+ * @param     string  $tagid  ±êÇ©ID
  * @return    string
  */
 function multipage($allItemTotal, $currPageNum, $pageSize, $tagid='')
 {
     if ($allItemTotal == 0) return "";
 
-    //è®¡ç®—æ€»é¡µæ•°
+    //¼ÆËã×ÜÒ³Êı
     $pagesNum = ceil($allItemTotal/$pageSize);
 
-    //ç¬¬ä¸€é¡µæ˜¾ç¤º
-    $firstPage = ($currPageNum <= 1) ? $currPageNum ."</b>&lt;&lt;" : "<a href='javascript:multi(1,\"{$tagid}\")' title='ç¬¬1é¡µ'>1&lt;&lt;</a>";
+    //µÚÒ»Ò³ÏÔÊ¾
+    $firstPage = ($currPageNum <= 1) ? $currPageNum ."</b>&lt;&lt;" : "<a href='javascript:multi(1,\"{$tagid}\")' title='µÚ1Ò³'>1&lt;&lt;</a>";
 
-    //æœ€åä¸€é¡µæ˜¾ç¤º
-    $lastPage = ($currPageNum >= $pagesNum)? "&gt;&gt;". $currPageNum : "<a href='javascript:multi(". $pagesNum . ",\"{$tagid}\")' title='ç¬¬". $pagesNum ."é¡µ'>&gt;&gt;". $pagesNum ."</a>";
+    //×îºóÒ»Ò³ÏÔÊ¾
+    $lastPage = ($currPageNum >= $pagesNum)? "&gt;&gt;". $currPageNum : "<a href='javascript:multi(". $pagesNum . ",\"{$tagid}\")' title='µÚ". $pagesNum ."Ò³'>&gt;&gt;". $pagesNum ."</a>";
 
-    //ä¸Šä¸€é¡µæ˜¾ç¤º
-    $prePage  = ($currPageNum <= 1) ? "ä¸Šé¡µ" : "<a href='javascript:multi(". ($currPageNum-1) . ",\"{$tagid}\")'  accesskey='p'  title='ä¸Šä¸€é¡µ'>[ä¸Šä¸€é¡µ]</a>";
+    //ÉÏÒ»Ò³ÏÔÊ¾
+    $prePage  = ($currPageNum <= 1) ? "ÉÏÒ³" : "<a href='javascript:multi(". ($currPageNum-1) . ",\"{$tagid}\")'  accesskey='p'  title='ÉÏÒ»Ò³'>[ÉÏÒ»Ò³]</a>";
 
-    //ä¸‹ä¸€é¡µæ˜¾ç¤º
-    $nextPage = ($currPageNum >= $pagesNum) ? "ä¸‹é¡µ" : "<a href='javascript:multi(". ($currPageNum+1) .",\"{$tagid}\")' title='ä¸‹ä¸€é¡µ'>[ä¸‹ä¸€é¡µ]</a>";
+    //ÏÂÒ»Ò³ÏÔÊ¾
+    $nextPage = ($currPageNum >= $pagesNum) ? "ÏÂÒ³" : "<a href='javascript:multi(". ($currPageNum+1) .",\"{$tagid}\")' title='ÏÂÒ»Ò³'>[ÏÂÒ»Ò³]</a>";
 
-    //æŒ‰é¡µæ˜¾ç¤º
+    //°´Ò³ÏÔÊ¾
     $listNums = "";
     for ($i=($currPageNum-4); $i<($currPageNum+9); $i++) {
         if ($i < 1 || $i > $pagesNum) continue;

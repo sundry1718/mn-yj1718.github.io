@@ -1,5 +1,5 @@
-鍗曢〉鏂囨。璋冪敤鏍囩
+单页文档调用标签
 >>dede>>
 {dede:likespage row=''/}
 >>dede>>
-row = '' 璋冪敤鏉℃暟
+row = '' 调用条数

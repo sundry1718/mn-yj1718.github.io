@@ -1,8 +1,8 @@
 <?php   if(!defined('DEDEINC')) exit("Request Error!");
 /**
- * æ ç›®å°åŠ©æ‰‹,æœ¬æ–‡ä»¶ä»…åšä¸€ä¸ªæ˜ å°„
+ * À¸Ä¿Ð¡ÖúÊÖ,±¾ÎÄ¼þ½ö×öÒ»¸öÓ³Éä
  *
- * @version        $Id: channelunit.func.php 2 16:46 2010å¹´7æœˆ6æ—¥Z tianya $
+ * @version        $Id: channelunit.func.php 2 16:46 2010Äê7ÔÂ6ÈÕZ tianya $
  * @package        DedeCMS.Helpers
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html

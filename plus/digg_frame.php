@@ -1,9 +1,9 @@
 <?php
 /**
  *
- * æ–‡æ¡£diggå¤„ç†iframeæ–‡ä»¶
+ * ÎÄµµdigg´¦ÀíiframeÎÄ¼þ
  *
- * @version        $Id: digg_frame.php 1 21:17 2010å¹´7æœˆ8æ—¥Z tianya $
+ * @version        $Id: digg_frame.php 1 21:17 2010Äê7ÔÂ8ÈÕZ tianya $
  * @package        DedeCMS.Plus
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -35,7 +35,7 @@ else
     $row['badper'] = 100-$row['goodper'];
 }
 $digg = '<div class="diggbox digg_good" onmousemove="this.style.backgroundPosition=\'left bottom\';" onmouseout="this.style.backgroundPosition=\'left top\';" onclick="postDigg(\'good\','.$id.')">
-            <div class="digg_act">é¡¶ä¸€ä¸‹</div>
+            <div class="digg_act">¶¥Ò»ÏÂ</div>
             <div class="digg_num">('.$row['goodpost'].')</div>
             <div class="digg_percent">
                 <div class="digg_percent_bar"><span style="width:'.$row['goodper'].'%"></span></div>
@@ -43,7 +43,7 @@ $digg = '<div class="diggbox digg_good" onmousemove="this.style.backgroundPositi
             </div>
         </div>
         <div class="diggbox digg_bad" onmousemove="this.style.backgroundPosition=\'right bottom\';" onmouseout="this.style.backgroundPosition=\'right top\';" onclick="postDigg(\'bad\','.$id.')">
-            <div class="digg_act">è¸©ä¸€ä¸‹</div>
+            <div class="digg_act">²ÈÒ»ÏÂ</div>
             <div class="digg_num">('.$row['badpost'].')</div>
             <div class="digg_percent">
                 <div class="digg_percent_bar"><span style="width:'.$row['badper'].'%"></span></div>

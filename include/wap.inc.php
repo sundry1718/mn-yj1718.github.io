@@ -4,48 +4,48 @@ if(!defined('DEDEINC')) exit('Request Error!');
 require_once(DEDEINC.'/channelunit.class.php');
 
 //---------------------------------------
-// Html æ ‡è®°WAPè¯­è¨€
+// Html ±ê¼ÇWAPÓïÑÔ
 //----------------------------------------
 function html2wml($content)
 {
-     //ä¿ç•™å›¾ç‰‡
+     //±£ÁôÍ¼Æ¬
      preg_match_all("/<img([^>]*)>/isU", $content, $imgarr);
      if(isset($imgarr[0]) && count($imgarr[0])>0 )
      {
          foreach($imgarr[0] as $k=>$v) $content = str_replace($v, "WAP-IMG::{$k}", $content);
      }
-     // è¿‡æ»¤æ‰æ ·å¼è¡¨å’Œè„šæœ¬
+     // ¹ıÂËµôÑùÊ½±íºÍ½Å±¾
      $content = preg_replace("/<style .*?<\/style>/is", "", $content);
      $content = preg_replace("/<script .*?<\/script>/is", "", $content);
-     // é¦–å…ˆå°†å„ç§å¯ä»¥å¼•èµ·æ¢è¡Œçš„æ ‡ç­¾ï¼ˆå¦‚<br />ã€<p> ä¹‹ç±»ï¼‰æ›¿æ¢æˆæ¢è¡Œç¬¦"\n"
+     // Ê×ÏÈ½«¸÷ÖÖ¿ÉÒÔÒıÆğ»»ĞĞµÄ±êÇ©£¨Èç<br />¡¢<p> Ö®Àà£©Ìæ»»³É»»ĞĞ·û"\n"
      $content = preg_replace("/<br \s*\/?\/>/i", "\n", $content);
      $content = preg_replace("/<\/?p>/i", "\n", $content);
      $content = preg_replace("/<\/?td>/i", "\n", $content);
      $content = preg_replace("/<\/?div>/i", "\n", $content);
      $content = preg_replace("/<\/?blockquote>/i", "\n", $content);
      $content = preg_replace("/<\/?li>/i", "\n", $content);
-     // å°†"&nbsp;"æ›¿æ¢ä¸ºç©ºæ ¼
+     // ½«"&nbsp;"Ìæ»»Îª¿Õ¸ñ
      $content = preg_replace("/\&nbsp\;/i", " ", $content);
      $content = preg_replace("/\&nbsp/i", " ", $content);
-     // è¿‡æ»¤æ‰å‰©ä¸‹çš„ HTML æ ‡ç­¾
+     // ¹ıÂËµôÊ£ÏÂµÄ HTML ±êÇ©
      $content = strip_tags($content);
-     // å°† HTML ä¸­çš„å®ä½“ï¼ˆentityï¼‰è½¬åŒ–ä¸ºå®ƒæ‰€å¯¹åº”çš„å­—ç¬¦
+     // ½« HTML ÖĞµÄÊµÌå£¨entity£©×ª»¯ÎªËüËù¶ÔÓ¦µÄ×Ö·û
      $content = html_entity_decode($content, ENT_QUOTES, "GB2312");
-     // è¿‡æ»¤æ‰ä¸èƒ½è½¬åŒ–çš„å®ä½“ï¼ˆentityï¼‰
+     // ¹ıÂËµô²»ÄÜ×ª»¯µÄÊµÌå£¨entity£©
      $content = preg_replace('/\&\#.*?\;/i', '', $content);
-     // ä¸Šé¢æ˜¯å°† HTML ç½‘é¡µå†…å®¹è½¬åŒ–ä¸ºå¸¦æ¢è¡Œçš„çº¯æ–‡æœ¬ï¼Œä¸‹é¢æ˜¯å°†è¿™äº›çº¯æ–‡æœ¬è½¬åŒ–ä¸º WMLã€‚
+     // ÉÏÃæÊÇ½« HTML ÍøÒ³ÄÚÈİ×ª»¯Îª´ø»»ĞĞµÄ´¿ÎÄ±¾£¬ÏÂÃæÊÇ½«ÕâĞ©´¿ÎÄ±¾×ª»¯Îª WML¡£
      $content = str_replace('$', '$$', $content);
      $content = str_replace("\r\n", "\n", dede_htmlspecialchars($content));
      $content = explode("\n", $content);
      for ($i = 0; $i < count($content); $i++)
      {
         $content[$i] = trim($content[$i]);
-        // å¦‚æœå»æ‰å…¨è§’ç©ºæ ¼ä¸ºç©ºè¡Œï¼Œåˆ™è®¾ä¸ºç©ºè¡Œï¼Œå¦åˆ™ä¸å¯¹å…¨è§’ç©ºæ ¼è¿‡æ»¤ã€‚
-        if (str_replace('ã€€', '', $content[$i]) == '') $content[$i] = '';
+        // Èç¹ûÈ¥µôÈ«½Ç¿Õ¸ñÎª¿ÕĞĞ£¬ÔòÉèÎª¿ÕĞĞ£¬·ñÔò²»¶ÔÈ«½Ç¿Õ¸ñ¹ıÂË¡£
+        if (str_replace('¡¡', '', $content[$i]) == '') $content[$i] = '';
      }
      $content = str_replace("<p><br /></p>\n", "", '<p>'.implode("<br /></p>\n<p>", $content)."<br /></p>\n");
      
-     //è¿˜åŸå›¾ç‰‡
+     //»¹Ô­Í¼Æ¬
      if(isset($imgarr[0]) && count($imgarr[0])>0 )
      {
                 foreach($imgarr[0] as $k=>$v)
@@ -67,18 +67,18 @@ function text2wml($content)
      $content = explode("\n", $content);
      for ($i = 0; $i < count($content); $i++)
      {
-        // è¿‡æ»¤é¦–å°¾ç©ºæ ¼
+        // ¹ıÂËÊ×Î²¿Õ¸ñ
         $content[$i] = trim($content[$i]);
-        // å¦‚æœå»æ‰å…¨è§’ç©ºæ ¼ä¸ºç©ºè¡Œï¼Œåˆ™è®¾ä¸ºç©ºè¡Œï¼Œå¦åˆ™ä¸å¯¹å…¨è§’ç©ºæ ¼è¿‡æ»¤ã€‚
-        if (str_replace("ã€€", "", $content[$i]) == "") $content[$i] = "";
+        // Èç¹ûÈ¥µôÈ«½Ç¿Õ¸ñÎª¿ÕĞĞ£¬ÔòÉèÎª¿ÕĞĞ£¬·ñÔò²»¶ÔÈ«½Ç¿Õ¸ñ¹ıÂË¡£
+        if (str_replace("¡¡", "", $content[$i]) == "") $content[$i] = "";
      }
-     //åˆå¹¶å„è¡Œï¼Œè½¬åŒ–ä¸º WMLï¼Œå¹¶è¿‡æ»¤æ‰ç©ºè¡Œ
+     //ºÏ²¢¸÷ĞĞ£¬×ª»¯Îª WML£¬²¢¹ıÂËµô¿ÕĞĞ
      $content = str_replace("<p><br /></p>\n", "", "<p>".implode("<br /></p>\n<p>", $content)."<br /></p>\n");
      return $content;
 }
 
 //----------------------
-//æŠŠGBKå­—ç¬¦è½¬æ¢æˆUTF8
+//°ÑGBK×Ö·û×ª»»³ÉUTF8
 //----------------------
 function ConvertCharset($varlist)
 {
@@ -97,7 +97,7 @@ function ConvertCharset($varlist)
 }
 
 //----------------------
-//å¤„ç†ç‰¹æ®Šå­—ç¬¦
+//´¦ÀíÌØÊâ×Ö·û
 //----------------------
 function ConvertStr($str)
 {

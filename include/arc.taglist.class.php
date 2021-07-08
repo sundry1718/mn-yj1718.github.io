@@ -1,8 +1,8 @@
 <?php   if(!defined('DEDEINC')) exit('Request Error!');
 /**
- * Tagåˆ—è¡¨ç±»
+ * TagÁĞ±íÀà
  *
- * @version        $Id: arc.taglist.class.php 1 18:17 2010å¹´7æœˆ7æ—¥Z tianya $
+ * @version        $Id: arc.taglist.class.php 1 18:17 2010Äê7ÔÂ7ÈÕZ tianya $
  * @package        DedeCMS.Libraries
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -14,7 +14,7 @@ require_once(DEDEINC.'/typelink.class.php');
 
 @set_time_limit(0);
 /**
- * Tagåˆ—è¡¨ç±»
+ * TagÁĞ±íÀà
  *
  * @package          TagList
  * @subpackage       DedeCMS.Libraries
@@ -38,11 +38,11 @@ class TagList
     var $TempletsFile;
 
     /**
-     *  php5æ„é€ å‡½æ•°
+     *  php5¹¹Ôìº¯Êı
      *
      * @access    public
-     * @param     string  $keyword  å…³é”®è¯
-     * @param     string  $templet  æ¨¡æ¿
+     * @param     string  $keyword  ¹Ø¼ü´Ê
+     * @param     string  $templet  Ä£°å
      * @return    void
      */
     function __construct($keyword, $templet)
@@ -61,27 +61,27 @@ class TagList
         $this->Fields['title'] = $keyword;
         $this->TempletsFile = '';
 
-        //è®¾ç½®ä¸€äº›å…¨å±€å‚æ•°çš„å€¼
+        //ÉèÖÃÒ»Ğ©È«¾Ö²ÎÊıµÄÖµ
         foreach($GLOBALS['PubFields'] as $k=>$v) $this->Fields[$k] = $v;
 
-        //è¯»å–Tagä¿¡æ¯
+        //¶ÁÈ¡TagĞÅÏ¢
         if($this->Tag!='')
         {
             $this->TagInfos = $this->dsql->GetOne("Select * From `#@__tagindex` where tag like '{$this->Tag}' ");
             if(!is_array($this->TagInfos))
             {
                 $fullsearch = $GLOBALS['cfg_phpurl']."/search.php?keyword=".$this->Tag."&searchtype=titlekeyword";
-                $msg = "ç³»ç»Ÿæ— æ­¤æ ‡ç­¾ï¼Œå¯èƒ½å·²ç»ç§»é™¤ï¼<br /><br />ä½ è¿˜å¯ä»¥å°è¯•é€šè¿‡æœç´¢ç¨‹åºå»æœç´¢è¿™ä¸ªå…³é”®å­—ï¼š<a href='$fullsearch'>å‰å¾€æœç´¢&gt;&gt;</a>";
+                $msg = "ÏµÍ³ÎŞ´Ë±êÇ©£¬¿ÉÄÜÒÑ¾­ÒÆ³ı£¡<br /><br />Äã»¹¿ÉÒÔ³¢ÊÔÍ¨¹ıËÑË÷³ÌĞòÈ¥ËÑË÷Õâ¸ö¹Ø¼ü×Ö£º<a href='$fullsearch'>Ç°ÍùËÑË÷&gt;&gt;</a>";
                 ShowMsg($msg,"-1");
                 exit();
             }
         }
 
-        //åˆå§‹åŒ–æ¨¡æ¿
+        //³õÊ¼»¯Ä£°å
         $tempfile = $GLOBALS['cfg_basedir'].$GLOBALS['cfg_templets_dir']."/".$GLOBALS['cfg_df_style'].'/'.$this->Templet;
         if(!file_exists($tempfile)||!is_file($tempfile))
         {
-            echo "æ¨¡æ¿æ–‡ä»¶ä¸å­˜åœ¨ï¼Œæ— æ³•è§£ææ–‡æ¡£ï¼";
+            echo "Ä£°åÎÄ¼ş²»´æÔÚ£¬ÎŞ·¨½âÎöÎÄµµ£¡";
             exit();
         }
         $this->dtp->LoadTemplate($tempfile);
@@ -89,13 +89,13 @@ class TagList
 
     }
 
-    //php4æ„é€ å‡½æ•°
+    //php4¹¹Ôìº¯Êı
     function TagList($keyword,$templet)
     {
         $this->__construct($keyword,$templet);
     }
 
-    //å…³é—­ç›¸å…³èµ„æº
+    //¹Ø±ÕÏà¹Ø×ÊÔ´
     function Close()
     {
         @$this->dsql->Close();
@@ -103,14 +103,14 @@ class TagList
     }
 
     /**
-     *  ç»Ÿè®¡åˆ—è¡¨é‡Œçš„è®°å½•
+     *  Í³¼ÆÁĞ±íÀïµÄ¼ÇÂ¼
      *
      * @access    private
      * @return    void
      */
     function CountRecord()
     {
-        //ç»Ÿè®¡æ•°æ®åº“è®°å½•
+        //Í³¼ÆÊı¾İ¿â¼ÇÂ¼
         $this->TotalResult = -1;
         if(isset($GLOBALS['TotalResult']))
         {
@@ -130,21 +130,21 @@ class TagList
             $row = $this->dsql->GetOne($cquery);
             $this->TotalResult = $row['dd'];
 
-            //æ›´æ–°Tagä¿¡æ¯
+            //¸üĞÂTagĞÅÏ¢
             $ntime = time();
 
-            //æ›´æ–°æµè§ˆé‡å’Œè®°å½•æ•°
+            //¸üĞÂä¯ÀÀÁ¿ºÍ¼ÇÂ¼Êı
             $upquery = "UPDATE `#@__tagindex` SET total='{$row['dd']}',count=count+1,weekcc=weekcc+1,monthcc=monthcc+1 WHERE tag LIKE '{$this->Tag}' ";
             $this->dsql->ExecuteNoneQuery($upquery);
             $oneday = 24 * 3600;
 
-            //å‘¨ç»Ÿè®¡
+            //ÖÜÍ³¼Æ
             if(ceil( ($ntime - $this->TagInfos['weekup'])/$oneday ) > 7)
             {
                 $this->dsql->ExecuteNoneQuery("UPDATE `#@__tagindex` SET weekcc=0,weekup='{$ntime}' WHERE tag LIKE '{$this->Tag}' ");
             }
 
-            //æœˆç»Ÿè®¡
+            //ÔÂÍ³¼Æ
             if(ceil( ($ntime - $this->TagInfos['monthup'])/$oneday ) > 30)
             {
                 $this->dsql->ExecuteNoneQuery("UPDATE `#@__tagindex` SET monthcc=0,monthup='{$ntime}' WHERE tag LIKE '{$this->Tag}' ");
@@ -174,7 +174,7 @@ class TagList
     }
 
     /**
-     *  æ˜¾ç¤ºåˆ—è¡¨
+     *  ÏÔÊ¾ÁĞ±í
      *
      * @access    public
      * @return    void
@@ -195,7 +195,7 @@ class TagList
     }
 
     /**
-     *  è§£ææ¨¡æ¿ï¼Œå¯¹å›ºå®šçš„æ ‡è®°è¿›è¡Œåˆå§‹ç»™å€¼
+     *  ½âÎöÄ£°å£¬¶Ô¹Ì¶¨µÄ±ê¼Ç½øĞĞ³õÊ¼¸øÖµ
      *
      * @access    private
      * @return    void
@@ -206,11 +206,11 @@ class TagList
     }
 
     /**
-     *  è§£ææ¨¡æ¿ï¼Œå¯¹å†…å®¹é‡Œçš„å˜åŠ¨è¿›è¡Œèµ‹å€¼
+     *  ½âÎöÄ£°å£¬¶ÔÄÚÈİÀïµÄ±ä¶¯½øĞĞ¸³Öµ
      *
      * @access    public
-     * @param     int  $PageNo  é¡µç 
-     * @param     int  $ismake  æ˜¯å¦ç¼–è¯‘
+     * @param     int  $PageNo  Ò³Âë
+     * @param     int  $ismake  ÊÇ·ñ±àÒë
      * @return    string
      */
     function ParseDMFields($PageNo, $ismake=1)
@@ -271,22 +271,22 @@ class TagList
     }
 
     /**
-     *  è·å¾—ä¸€ä¸ªå•åˆ—çš„æ–‡æ¡£åˆ—è¡¨
+     *  »ñµÃÒ»¸öµ¥ÁĞµÄÎÄµµÁĞ±í
      *
      * @access    public
-     * @param     int  $limitstart  é™åˆ¶å¼€å§‹  
-     * @param     int  $row  è¡Œæ•° 
-     * @param     int  $col  åˆ—æ•°
-     * @param     int  $titlelen  æ ‡é¢˜é•¿åº¦
-     * @param     int  $infolen  æè¿°é•¿åº¦
-     * @param     int  $imgwidth  å›¾ç‰‡å®½åº¦
-     * @param     int  $imgheight  å›¾ç‰‡é«˜åº¦
-     * @param     string  $listtype  åˆ—è¡¨ç±»å‹
-     * @param     string  $orderby  æ’åˆ—é¡ºåº
-     * @param     string  $innertext  åº•å±‚æ¨¡æ¿
-     * @param     string  $tablewidth  è¡¨æ ¼å®½åº¦
-     * @param     string  $ismake  æ˜¯å¦ç¼–è¯‘
-     * @param     string  $orderWay  æ’åºæ–¹å¼
+     * @param     int  $limitstart  ÏŞÖÆ¿ªÊ¼  
+     * @param     int  $row  ĞĞÊı 
+     * @param     int  $col  ÁĞÊı
+     * @param     int  $titlelen  ±êÌâ³¤¶È
+     * @param     int  $infolen  ÃèÊö³¤¶È
+     * @param     int  $imgwidth  Í¼Æ¬¿í¶È
+     * @param     int  $imgheight  Í¼Æ¬¸ß¶È
+     * @param     string  $listtype  ÁĞ±íÀàĞÍ
+     * @param     string  $orderby  ÅÅÁĞË³Ğò
+     * @param     string  $innertext  µ×²ãÄ£°å
+     * @param     string  $tablewidth  ±í¸ñ¿í¶È
+     * @param     string  $ismake  ÊÇ·ñ±àÒë
+     * @param     string  $orderWay  ÅÅĞò·½Ê½
      * @return    string
      */
     function GetArcList($limitstart=0,$row=10,$col=1,$titlelen=30,$infolen=250,
@@ -318,10 +318,10 @@ class TagList
         }
         if($idlists=='') return '';
 
-        //æŒ‰ä¸åŒæƒ…å†µè®¾å®šSQLæ¡ä»¶
+        //°´²»Í¬Çé¿öÉè¶¨SQLÌõ¼ş
         $orwhere = " se.id IN($idlists) ";
 
-        //æ’åºæ–¹å¼
+        //ÅÅĞò·½Ê½
         if($orderby=="sortrank")
         {
             $ordersql = "  ORDER BY se.sortrank $orderWay";
@@ -352,7 +352,7 @@ class TagList
                     $GLOBALS['autoindex']++;
                     $ids[$row['id']] = $row['id'];
 
-                    //å¤„ç†ä¸€äº›ç‰¹æ®Šå­—æ®µ
+                    //´¦ÀíÒ»Ğ©ÌØÊâ×Ö¶Î
                     $row['infos'] = cn_substr($row['description'],$infolen);
                     $row['id'] =  $row['id'];
                     $row['arcurl'] = GetFileUrl($row['id'],$row['typeid'],$row['senddate'],$row['title'],
@@ -394,7 +394,7 @@ class TagList
                         {
                             if($ctag->GetName()=='array')
                             {
-                                //ä¼ é€’æ•´ä¸ªæ•°ç»„ï¼Œåœ¨runphpæ¨¡å¼ä¸­æœ‰ç‰¹æ®Šä½œç”¨
+                                //´«µİÕû¸öÊı×é£¬ÔÚrunphpÄ£Ê½ÖĞÓĞÌØÊâ×÷ÓÃ
                                 $this->dtp2->Assign($k,$row);
                             }
                             else
@@ -427,11 +427,11 @@ class TagList
     }
 
     /**
-     *  è·å–åŠ¨æ€çš„åˆ†é¡µåˆ—è¡¨
+     *  »ñÈ¡¶¯Ì¬µÄ·ÖÒ³ÁĞ±í
      *
      * @access    public
-     * @param     int  $list_len  åˆ—è¡¨å®½åº¦
-     * @param     string  $listitem  åˆ—è¡¨æ ·å¼
+     * @param     int  $list_len  ÁĞ±í¿í¶È
+     * @param     string  $listitem  ÁĞ±íÑùÊ½
      * @return    string
      */
     function GetPageListDM($list_len,$listitem="info,index,end,pre,next,pageno")
@@ -447,37 +447,37 @@ class TagList
         $totalpage = $this->TotalPage;
         if($totalpage <= 1 && $this->TotalResult > 0)
         {
-            return "<span class=\"pageinfo\">å…±1é¡µ/".$this->TotalResult."æ¡</span>";
+            return "<span class=\"pageinfo\">¹²1Ò³/".$this->TotalResult."Ìõ</span>";
         }
         if($this->TotalResult == 0)
         {
-            return "<span class=\"pageinfo\">å…±0é¡µ/".$this->TotalResult."æ¡</span>";
+            return "<span class=\"pageinfo\">¹²0Ò³/".$this->TotalResult."Ìõ</span>";
         }
-        $maininfo = "<span class=\"pageinfo\">å…±{$totalpage}é¡µ/".$this->TotalResult."æ¡</span>\r\n";
+        $maininfo = "<span class=\"pageinfo\">¹²{$totalpage}Ò³/".$this->TotalResult."Ìõ</span>\r\n";
         $purl = $this->GetCurUrl();
         $purl .= "?/".urlencode($this->Tag);
 
-        //è·å¾—ä¸Šä¸€é¡µå’Œä¸‹ä¸€é¡µçš„é“¾æ¥
+        //»ñµÃÉÏÒ»Ò³ºÍÏÂÒ»Ò³µÄÁ´½Ó
         if($this->PageNo != 1)
         {
-            $prepage.="<li><a href='".$purl."/$prepagenum/'>ä¸Šä¸€é¡µ</a></li>\r\n";
-            $indexpage="<li><a href='".$purl."/1/'>é¦–é¡µ</a></li>\r\n";
+            $prepage.="<li><a href='".$purl."/$prepagenum/'>ÉÏÒ»Ò³</a></li>\r\n";
+            $indexpage="<li><a href='".$purl."/1/'>Ê×Ò³</a></li>\r\n";
         }
         else
         {
-            $indexpage="<li><a>é¦–é¡µ</a></li>\r\n";
+            $indexpage="<li><a>Ê×Ò³</a></li>\r\n";
         }
         if($this->PageNo!=$totalpage && $totalpage>1)
         {
-            $nextpage.="<li><a href='".$purl."/$nextpagenum/'>ä¸‹ä¸€é¡µ</a></li>\r\n";
-            $endpage="<li><a href='".$purl."/$totalpage/'>æœ«é¡µ</a></li>\r\n";
+            $nextpage.="<li><a href='".$purl."/$nextpagenum/'>ÏÂÒ»Ò³</a></li>\r\n";
+            $endpage="<li><a href='".$purl."/$totalpage/'>Ä©Ò³</a></li>\r\n";
         }
         else
         {
-            $endpage="<li><a>æœ«é¡µ</a></li>\r\n";
+            $endpage="<li><a>Ä©Ò³</a></li>\r\n";
         }
 
-        //è·å¾—æ•°å­—é“¾æ¥
+        //»ñµÃÊı×ÖÁ´½Ó
         $listdd="";
         $total_list = $list_len * 2 + 1;
         if($this->PageNo >= $total_list)
@@ -537,16 +537,16 @@ class TagList
     }
 
     /**
-     *  è·å¾—ä¸€ä¸ªæŒ‡å®šçš„é¢‘é“çš„é“¾æ¥
+     *  »ñµÃÒ»¸öÖ¸¶¨µÄÆµµÀµÄÁ´½Ó
      *
      * @access    private
-     * @param     int  $typeid  æ ç›®ID
-     * @param     string  $typedir  æ ç›®ç›®å½•
-     * @param     int  $isdefault  æ˜¯å¦ä¸ºé»˜è®¤
-     * @param     string  $defaultname  é»˜è®¤åç§°
-     * @param     int  $ispart  æ ç›®å±æ€§
-     * @param     string  $namerule2  æ ç›®è§„åˆ™
-     * @param     string  $siteurl  ç«™ç‚¹åœ°å€
+     * @param     int  $typeid  À¸Ä¿ID
+     * @param     string  $typedir  À¸Ä¿Ä¿Â¼
+     * @param     int  $isdefault  ÊÇ·ñÎªÄ¬ÈÏ
+     * @param     string  $defaultname  Ä¬ÈÏÃû³Æ
+     * @param     int  $ispart  À¸Ä¿ÊôĞÔ
+     * @param     string  $namerule2  À¸Ä¿¹æÔò
+     * @param     string  $siteurl  Õ¾µãµØÖ·
      * @return    string
      */
     function GetListUrl($typeid,$typedir,$isdefault,$defaultname,$ispart,$namerule2,$siteurl="")
@@ -555,19 +555,19 @@ class TagList
     }
 
     /**
-     *  è·å¾—ä¸€ä¸ªæŒ‡å®šæ¡£æ¡ˆçš„é“¾æ¥
+     *  »ñµÃÒ»¸öÖ¸¶¨µµ°¸µÄÁ´½Ó
      *
      * @access    private
-     * @param     int  $aid  æ–‡æ¡£ID
-     * @param     int  $typeid  æ ç›®ID
-     * @param     int  $timetag  æ—¶é—´æˆ³
-     * @param     string  $title  æ ‡é¢˜
-     * @param     int  $ismake  æ˜¯å¦ç”Ÿæˆé™æ€
-     * @param     int  $rank  æµè§ˆæƒé™
-     * @param     string  $namerule  å‘½åè§„åˆ™
-     * @param     string  $artdir  æ–‡æ¡£è·¯å¾„
-     * @param     int  $money  éœ€è¦é‡‘å¸
-     * @param     string  $filename  æ–‡ä»¶åç§°
+     * @param     int  $aid  ÎÄµµID
+     * @param     int  $typeid  À¸Ä¿ID
+     * @param     int  $timetag  Ê±¼ä´Á
+     * @param     string  $title  ±êÌâ
+     * @param     int  $ismake  ÊÇ·ñÉú³É¾²Ì¬
+     * @param     int  $rank  ä¯ÀÀÈ¨ÏŞ
+     * @param     string  $namerule  ÃüÃû¹æÔò
+     * @param     string  $artdir  ÎÄµµÂ·¾¶
+     * @param     int  $money  ĞèÒª½ğ±Ò
+     * @param     string  $filename  ÎÄ¼şÃû³Æ
      * @return    string
      */
     function GetArcUrl($aid,$typeid,$timetag,$title,$ismake=0,$rank=0,$namerule="",$artdir="",$money=0,$filename='')
@@ -576,7 +576,7 @@ class TagList
     }
 
     /**
-     *  è·å¾—å½“å‰çš„é¡µé¢æ–‡ä»¶çš„url
+     *  »ñµÃµ±Ç°µÄÒ³ÃæÎÄ¼şµÄurl
      *
      * @access    private
      * @return    string

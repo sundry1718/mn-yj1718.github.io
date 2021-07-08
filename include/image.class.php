@@ -1,8 +1,8 @@
 <?php   if(!defined('DEDEINC')) exit('dedecms');
 /**
- * å›¾åƒå¤„ç†ç±»
+ * Í¼Ïñ´¦ÀíÀà
  *
- * @version        $Id: image.class.php 1 18:10 2010å¹´7æœˆ5æ—¥Z tianya $
+ * @version        $Id: image.class.php 1 18:10 2010Äê7ÔÂ5ÈÕZ tianya $
  * @package        DedeCMS.Libraries
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -11,7 +11,7 @@
 class image
 {
     var $attachinfo;
-    var $targetfile;    //å›¾ç‰‡è·¯å¾„
+    var $targetfile;    //Í¼Æ¬Â·¾¶
     var $imagecreatefromfunc;
     var $imagefunc;
     var $attach;
@@ -21,13 +21,13 @@ class image
     var $thumbstatus;
     var $watermarkstatus;
     
-    // ææ„å‡½æ•°,å…¼å®¹PHP4
+    // Îö¹¹º¯Êı,¼æÈİPHP4
     function image($targetfile, $cfg_thumb, $cfg_watermarktext, $photo_waterpos, $photo_diaphaneity, $photo_wheight, $photo_wwidth, $cfg_watermarktype, $photo_marktrans,$trueMarkimg, $attach = array())
     {
         $this->__construct($targetfile, $cfg_thumb, $cfg_watermarktext, $photo_waterpos, $photo_diaphaneity, $photo_wheight, $photo_wwidth, $cfg_watermarktype, $photo_marktrans,$trueMarkimg, $attach);
     }
 
-    // ææ„å‡½æ•°
+    // Îö¹¹º¯Êı
     function __construct($targetfile, $cfg_thumb, $cfg_watermarktext, $photo_waterpos, $photo_diaphaneity, $photo_wheight, $photo_wwidth, $cfg_watermarktype, $photo_marktrans,$trueMarkimg, $attach = array())
     {
         $this->thumbstatus = $cfg_thumb;
@@ -58,7 +58,7 @@ class image
                 $this->imagecreatefromfunc = function_exists('imagecreatefrompng') ? 'imagecreatefrompng' : '';
                 $this->imagefunc = function_exists('imagepng') ? 'imagepng' : '';
                 break;
-        }//ä¸ºç©ºåˆ™åŒ¹é…ç±»å‹çš„å‡½æ•°ä¸å­˜åœ¨
+        }//Îª¿ÕÔòÆ¥ÅäÀàĞÍµÄº¯Êı²»´æÔÚ
 
         $this->attach['size'] = empty($this->attach['size']) ? @filesize($targetfile) : $this->attach['size'];
         if($this->attachinfo['mime'] == 'image/gif')
@@ -71,12 +71,12 @@ class image
     }
 
     /**
-     *  ç”Ÿæˆç¼©ç•¥å›¾
+     *  Éú³ÉËõÂÔÍ¼
      *
      * @access    public
-     * @param     int  $thumbwidth  å›¾ç‰‡å®½åº¦
-     * @param     int  $thumbheight  å›¾ç‰‡é«˜åº¦
-     * @param     int  $preview  æ˜¯å¦é¢„è§ˆ
+     * @param     int  $thumbwidth  Í¼Æ¬¿í¶È
+     * @param     int  $thumbheight  Í¼Æ¬¸ß¶È
+     * @param     int  $preview  ÊÇ·ñÔ¤ÀÀ
      * @return    void
      */
     function thumb($thumbwidth, $thumbheight, $preview = 0)
@@ -91,10 +91,10 @@ class image
     }
 
     /**
-     *  å›¾ç‰‡æ°´å°
+     *  Í¼Æ¬Ë®Ó¡
      *
      * @access    public
-     * @param     int   $preview  æ˜¯å¦é¢„è§ˆ
+     * @param     int   $preview  ÊÇ·ñÔ¤ÀÀ
      * @return    void
      */
     function watermark($preview = 0)
@@ -107,12 +107,12 @@ class image
     }
 
     /**
-     *  ä½¿ç”¨gdç”Ÿæˆç¼©ç•¥å›¾
+     *  Ê¹ÓÃgdÉú³ÉËõÂÔÍ¼
      *
      * @access    public
-     * @param     int  $thumbwidth  å›¾ç‰‡å®½åº¦
-     * @param     int  $thumbheight  å›¾ç‰‡é«˜åº¦
-     * @param     int  $preview  æ˜¯å¦é¢„è§ˆ
+     * @param     int  $thumbwidth  Í¼Æ¬¿í¶È
+     * @param     int  $thumbheight  Í¼Æ¬¸ß¶È
+     * @param     int  $preview  ÊÇ·ñÔ¤ÀÀ
      * @return    void
      */
     function thumb_gd($thumbwidth, $thumbheight, $preview = 0)
@@ -155,10 +155,10 @@ class image
     }
 
     /**
-     *  ä½¿ç”¨gdè¿›è¡Œæ°´å°
+     *  Ê¹ÓÃgd½øĞĞË®Ó¡
      *
      * @access    public
-     * @param     int   $preview  æ˜¯å¦é¢„è§ˆ
+     * @param     int   $preview  ÊÇ·ñÔ¤ÀÀ
      * @return    void
      */
     function watermark_gd($preview = 0)

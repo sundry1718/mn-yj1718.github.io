@@ -1,8 +1,8 @@
 <?php   if(!defined('DEDEINC')) exit('Request Error!');
 /**
- * è§†å›¾ç±»
+ * ÊÓÍ¼Àà
  *
- * @version        $Id: arc.partview.class.php 1 14:17 2010å¹´7æœˆ7æ—¥Z tianya $
+ * @version        $Id: arc.partview.class.php 1 14:17 2010Äê7ÔÂ7ÈÕZ tianya $
  * @package        DedeCMS.Libraries
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -13,7 +13,7 @@ require_once(DEDEINC.'/typelink.class.php');
 require_once(DEDEINC.'/ftp.class.php');
 
 /**
- * è§†å›¾ç±»
+ * ÊÓÍ¼Àà
  *
  * @package          PartView
  * @subpackage       DedeCMS.Libraries
@@ -32,11 +32,11 @@ class PartView
     var $remoteDir;
 
     /**
-     *  php5æ„é€ å‡½æ•°
+     *  php5¹¹Ôìº¯Êı
      *
      * @access    public
-     * @param     int  $typeid  æ ç›®ID
-     * @param     int  $needtypelink  æ˜¯å¦éœ€è¦æ ç›®è¿æ¥
+     * @param     int  $typeid  À¸Ä¿ID
+     * @param     int  $needtypelink  ÊÇ·ñĞèÒªÀ¸Ä¿Á¬½Ó
      * @return    void
      */
     function __construct($typeid=0,$needtypelink=TRUE)
@@ -66,30 +66,30 @@ class PartView
             $_sys_globals['curfile'] = 'partview';
             $_sys_globals['typename'] = $this->Fields['typename'];
 
-            //è®¾ç½®ç¯å¢ƒå˜é‡
+            //ÉèÖÃ»·¾³±äÁ¿
             SetSysEnv($this->TypeID,$this->Fields['typename'],0,'','partview');
         }
         SetSysEnv($this->TypeID,'',0,'','partview');
         $this->Fields['typeid'] = $this->TypeID;
 
-        //è®¾ç½®ä¸€äº›å…¨å±€å‚æ•°çš„å€¼
+        //ÉèÖÃÒ»Ğ©È«¾Ö²ÎÊıµÄÖµ
         foreach($GLOBALS['PubFields'] as $k=>$v)
         {
             $this->Fields[$k] = $v;
         }
     }
     
-    //php4æ„é€ å‡½æ•°
+    //php4¹¹Ôìº¯Êı
     function PartView($typeid=0,$needtypelink=TRUE)
     {
         $this->__construct($typeid,$needtypelink);
     }
 
     /**
-     *  é‡æ–°æŒ‡å®šå¼•å…¥çš„å¯¹è±¡
+     *  ÖØĞÂÖ¸¶¨ÒıÈëµÄ¶ÔÏó
      *
      * @access    private
-     * @param     object  $refObj  å¼•ç”¨å¯¹è±¡
+     * @param     object  $refObj  ÒıÓÃ¶ÔÏó
      * @return    void
      */
     function SetRefObj(&$refObj)
@@ -102,10 +102,10 @@ class PartView
     }
 
     /**
-     *  æŒ‡å®štypelinkå¯¹è±¡ç»™å½“å‰ç±»å®ä¾‹
+     *  Ö¸¶¨typelink¶ÔÏó¸øµ±Ç°ÀàÊµÀı
      *
      * @access    public
-     * @param     string  $typelink  æ ç›®é“¾æ¥
+     * @param     string  $typelink  À¸Ä¿Á´½Ó
      * @return    string
      */
     function SetTypeLink(&$typelink)
@@ -124,11 +124,11 @@ class PartView
     }
 
     /**
-     *  è®¾ç½®è¦è§£æçš„æ¨¡æ¿
+     *  ÉèÖÃÒª½âÎöµÄÄ£°å
      *
      * @access    public
-     * @param     string  $temp  æ¨¡æ¿
-     * @param     string  $stype  è®¾ç½®ç±»å‹
+     * @param     string  $temp  Ä£°å
+     * @param     string  $stype  ÉèÖÃÀàĞÍ
      * @return    string
      */
     function SetTemplet($temp,$stype="file")
@@ -150,7 +150,7 @@ class PartView
     }
 
     /**
-     *  æ˜¾ç¤ºå†…å®¹
+     *  ÏÔÊ¾ÄÚÈİ
      *
      * @access    public
      * @return    void
@@ -161,7 +161,7 @@ class PartView
     }
 
     /**
-     *  è·å–å†…å®¹
+     *  »ñÈ¡ÄÚÈİ
      *
      * @access    public
      * @return    string
@@ -172,23 +172,23 @@ class PartView
     }
 
     /**
-     *  ä¿å­˜ç»“æœä¸ºæ–‡ä»¶
+     *  ±£´æ½á¹ûÎªÎÄ¼ş
      *
      * @access    public
-     * @param     string  $filename  æ–‡ä»¶å
-     * @param     string  $isremote  æ˜¯å¦è¿œç¨‹
+     * @param     string  $filename  ÎÄ¼şÃû
+     * @param     string  $isremote  ÊÇ·ñÔ¶³Ì
      * @return    string
      */
     function SaveToHtml($filename,$isremote=0)
     {
         global $cfg_remote_site;
-        //å¦‚æœå¯ç”¨è¿œç¨‹å‘å¸ƒåˆ™éœ€è¦è¿›è¡Œåˆ¤æ–­
+        //Èç¹ûÆôÓÃÔ¶³Ì·¢²¼ÔòĞèÒª½øĞĞÅĞ¶Ï
         if($cfg_remote_site=='Y' && $isremote == 1)
         {
-            //åˆ†æè¿œç¨‹æ–‡ä»¶è·¯å¾„
+            //·ÖÎöÔ¶³ÌÎÄ¼şÂ·¾¶
             $remotefile = str_replace(DEDEROOT, '', $filename);
             $localfile = '..'.$remotefile;
-            //åˆ›å»ºè¿œç¨‹æ–‡ä»¶å¤¹
+            //´´½¨Ô¶³ÌÎÄ¼ş¼Ğ
             $remotedir = preg_replace('/[^\/]*\.js/', '', $remotefile);
             $this->ftp->rmkdir($remotedir);
             $this->ftp->upload($localfile, $remotefile, 'ascii');
@@ -197,7 +197,7 @@ class PartView
     }
 
     /**
-     *  è§£ææ¨¡æ¿é‡Œçš„æ ‡ç­¾
+     *  ½âÎöÄ£°åÀïµÄ±êÇ©
      *
      * @access    private
      * @return    void
@@ -221,12 +221,12 @@ class PartView
         {
           $GLOBALS['envs']['channelid'] = $this->TypeLink->TypeInfos['channeltype'];
         }
-        MakeOneTag($this->dtp,$this); //è¿™ä¸ªå‡½æ•°æ”¾åœ¨ channelunit.func.php æ–‡ä»¶ä¸­
+        MakeOneTag($this->dtp,$this); //Õâ¸öº¯Êı·ÅÔÚ channelunit.func.php ÎÄ¼şÖĞ
     }
 
     /**
-     * è·å¾—é™å®šæ¨¡å‹æˆ–æ ç›®çš„ä¸€ä¸ªæŒ‡å®šæ–‡æ¡£åˆ—è¡¨
-     * è¿™ä¸ªæ ‡è®°ç”±äºä½¿ç”¨äº†ç¼“å­˜ï¼Œå¹¶ä¸”å¤„ç†æ•°æ®æ˜¯æ”¯æŒåˆ†è¡¨æ¨¡å¼çš„ï¼Œå› æ­¤é€Ÿåº¦æ›´å¿«ï¼Œä½†ä¸èƒ½è¿›è¡Œæ•´ç«™çš„æ•°æ®è°ƒç”¨
+     * »ñµÃÏŞ¶¨Ä£ĞÍ»òÀ¸Ä¿µÄÒ»¸öÖ¸¶¨ÎÄµµÁĞ±í
+     * Õâ¸ö±ê¼ÇÓÉÓÚÊ¹ÓÃÁË»º´æ£¬²¢ÇÒ´¦ÀíÊı¾İÊÇÖ§³Ö·Ö±íÄ£Ê½µÄ£¬Òò´ËËÙ¶È¸ü¿ì£¬µ«²»ÄÜ½øĞĞÕûÕ¾µÄÊı¾İµ÷ÓÃ
      * @param string $templets
      * @param int $typeid
      * @param int $row
@@ -284,7 +284,7 @@ class PartView
         $order,$subday,$ismember,$maintable,$ctag);
     }
 
-    //å…³é—­æ‰€å ç”¨çš„èµ„æº
+    //¹Ø±ÕËùÕ¼ÓÃµÄ×ÊÔ´
     function Close()
     {
     }

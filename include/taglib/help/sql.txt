@@ -1,7 +1,7 @@
-SQL鏍囩
+SQL标签
 >>dede>>
 {dede:sql sql=''}
 [field:title/]
 {/dede}
 >>dede>>
-sql='' 瀹屾暣鐨凷QL璇彞
+sql='' 完整的SQL语句

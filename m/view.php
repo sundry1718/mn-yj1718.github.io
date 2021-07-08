@@ -1,13 +1,13 @@
 <?php
 /**
  *
- * å…³äºæ–‡ç« æƒé™è®¾ç½®çš„è¯´æ˜
- * æ–‡ç« æƒé™è®¾ç½®é™åˆ¶å½¢å¼å¦‚ä¸‹ï¼š
- * å¦‚æœæŒ‡å®šäº†ä¼šå‘˜ç­‰çº§ï¼Œé‚£ä¹ˆå¿…é¡»åˆ°è¾¾è¿™ä¸ªç­‰çº§æ‰èƒ½æµè§ˆ
- * å¦‚æœæŒ‡å®šäº†é‡‘å¸ï¼Œæµè§ˆæ—¶ä¼šæ‰£æŒ‡ç‚¹çš„ç‚¹æ•°ï¼Œå¹¶ä¿å­˜è®°å½•åˆ°ç”¨æˆ·ä¸šåŠ¡è®°å½•ä¸­
- * å¦‚æœä¸¤è€…åŒæ—¶æŒ‡å®šï¼Œé‚£ä¹ˆå¿…é¡»åŒæ—¶æ»¡è¶³ä¸¤ä¸ªæ¡ä»¶
+ * ¹ØÓÚÎÄÕÂÈ¨ÏŞÉèÖÃµÄËµÃ÷
+ * ÎÄÕÂÈ¨ÏŞÉèÖÃÏŞÖÆĞÎÊ½ÈçÏÂ£º
+ * Èç¹ûÖ¸¶¨ÁË»áÔ±µÈ¼¶£¬ÄÇÃ´±ØĞëµ½´ïÕâ¸öµÈ¼¶²ÅÄÜä¯ÀÀ
+ * Èç¹ûÖ¸¶¨ÁË½ğ±Ò£¬ä¯ÀÀÊ±»á¿ÛÖ¸µãµÄµãÊı£¬²¢±£´æ¼ÇÂ¼µ½ÓÃ»§ÒµÎñ¼ÇÂ¼ÖĞ
+ * Èç¹ûÁ½ÕßÍ¬Ê±Ö¸¶¨£¬ÄÇÃ´±ØĞëÍ¬Ê±Âú×ãÁ½¸öÌõ¼ş
  *
- * @version        $Id: view.php 1 15:38 2010å¹´7æœˆ8æ—¥Z tianya $
+ * @version        $Id: view.php 1 15:38 2010Äê7ÔÂ8ÈÕZ tianya $
  * @package        DedeCMS.Site
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -33,7 +33,7 @@ $arc = new Archives($aid);
 if($arc->IsError) ParamError();
 
 
-//æ£€æŸ¥é˜…è¯»æƒé™
+//¼ì²éÔÄ¶ÁÈ¨ÏŞ
 $needMoney = $arc->Fields['money'];
 $needRank = $arc->Fields['arcrank'];
 
@@ -42,11 +42,11 @@ $cfg_ml = new MemberLogin();
 
 if($needRank < 0 && $arc->Fields['mid'] != $cfg_ml->M_ID)
 {
-    ShowMsg('æ–‡ç« å°šæœªå®¡æ ¸,éä½œè€…æœ¬äººæ— æƒæŸ¥çœ‹!', 'javascript:;');
+    ShowMsg('ÎÄÕÂÉĞÎ´ÉóºË,·Ç×÷Õß±¾ÈËÎŞÈ¨²é¿´!', 'javascript:;');
     exit();
 }
 
-//è®¾ç½®äº†æƒé™é™åˆ¶çš„æ–‡ç« 
+//ÉèÖÃÁËÈ¨ÏŞÏŞÖÆµÄÎÄÕÂ
 //arctitle msgtitle moremsg
 if($needMoney>0 || $needRank>1)
 {
@@ -61,7 +61,7 @@ if($needMoney>0 || $needRank>1)
     $description =  $arc->Fields["description"];
     $pubdate = GetDateTimeMk($arc->Fields["pubdate"]);
     
-    //ä¼šå‘˜çº§åˆ«ä¸è¶³
+    //»áÔ±¼¶±ğ²»×ã
     if(($needRank>1 && $cfg_ml->M_Rank < $needRank && $arc->Fields['mid']!=$cfg_ml->M_ID))
     {
         $dsql->Execute('me' , "SELECT * FROM `#@__arcrank` ");
@@ -69,25 +69,25 @@ if($needMoney>0 || $needRank>1)
         {
             $memberTypes[$row->rank] = $row->membername;
         }
-        $memberTypes[0] = "æ¸¸å®¢æˆ–æ²¡æƒé™ä¼šå‘˜";
-        $msgtitle = "ä½ æ²¡æœ‰æƒé™æµè§ˆæ–‡æ¡£ï¼š{$arctitle} ï¼";
-        $moremsg = "è¿™ç¯‡æ–‡æ¡£éœ€è¦ <font color='red'>".$memberTypes[$needRank]."</font> æ‰èƒ½è®¿é—®ï¼Œä½ ç›®å‰æ˜¯ï¼š<font color='red'>".$memberTypes[$cfg_ml->M_Rank]."</font> ï¼";
+        $memberTypes[0] = "ÓÎ¿Í»òÃ»È¨ÏŞ»áÔ±";
+        $msgtitle = "ÄãÃ»ÓĞÈ¨ÏŞä¯ÀÀÎÄµµ£º{$arctitle} £¡";
+        $moremsg = "ÕâÆªÎÄµµĞèÒª <font color='red'>".$memberTypes[$needRank]."</font> ²ÅÄÜ·ÃÎÊ£¬ÄãÄ¿Ç°ÊÇ£º<font color='red'>".$memberTypes[$cfg_ml->M_Rank]."</font> £¡";
         include_once(DEDETEMPLATE.'/plus/view_msg.htm');
         exit();
     }
 
-    //éœ€è¦é‡‘å¸çš„æƒ…å†µ
+    //ĞèÒª½ğ±ÒµÄÇé¿ö
     if($needMoney > 0  && $arc->Fields['mid'] != $cfg_ml->M_ID)
     {
         $sql = "SELECT aid,money FROM `#@__member_operation` WHERE buyid='ARCHIVE".$aid."' AND mid='".$cfg_ml->M_ID."'";
         $row = $dsql->GetOne($sql);
-        //æœªè´­ä¹°è¿‡æ­¤æ–‡ç« 
+        //Î´¹ºÂò¹ı´ËÎÄÕÂ
         if(!is_array($row))
         {
             if($cfg_ml->M_Money=='' || $needMoney > $cfg_ml->M_Money)
             {
-                    $msgtitle = "ä½ æ²¡æœ‰æƒé™æµè§ˆæ–‡æ¡£ï¼š{$arctitle} ï¼";
-                    $moremsg = "è¿™ç¯‡æ–‡æ¡£éœ€è¦ <font color='red'>".$needMoney." é‡‘å¸</font> æ‰èƒ½è®¿é—®ï¼Œä½ ç›®å‰æ‹¥æœ‰é‡‘å¸ï¼š<font color='red'>".$cfg_ml->M_Money." ä¸ª</font> ï¼";
+                    $msgtitle = "ÄãÃ»ÓĞÈ¨ÏŞä¯ÀÀÎÄµµ£º{$arctitle} £¡";
+                    $moremsg = "ÕâÆªÎÄµµĞèÒª <font color='red'>".$needMoney." ½ğ±Ò</font> ²ÅÄÜ·ÃÎÊ£¬ÄãÄ¿Ç°ÓµÓĞ½ğ±Ò£º<font color='red'>".$cfg_ml->M_Money." ¸ö</font> £¡";
                     include_once(DEDETEMPLATE.'/plus/view_msg.htm');
                     $arc->Close();
                     exit();
@@ -103,7 +103,7 @@ if($needMoney>0 || $needRank>1)
                         $inquery = "UPDATE `#@__member` SET money=money-$needMoney WHERE mid='".$cfg_ml->M_ID."'";
                         if(!$dsql->ExecuteNoneQuery($inquery))
                         {
-                            showmsg('è´­ä¹°å¤±è´¥, è¯·è¿”å›', -1);
+                            showmsg('¹ºÂòÊ§°Ü, Çë·µ»Ø', -1);
                             exit;
                         }
                         #api{{
@@ -115,22 +115,22 @@ if($needMoney>0 || $needRank>1)
                         }
                         #/aip}}
     
-                        showmsg('è´­ä¹°æˆåŠŸï¼Œè´­ä¹°æ‰£ç‚¹ä¸ä¼šé‡æ‰£é‡‘å¸ï¼Œè°¢è°¢ï¼', '/plus/view.php?aid='.$aid);
+                        showmsg('¹ºÂò³É¹¦£¬¹ºÂò¿Ûµã²»»áÖØ¿Û½ğ±Ò£¬Ğ»Ğ»£¡', '/plus/view.php?aid='.$aid);
                         exit;
                     } else {
-                        showmsg('è´­ä¹°å¤±è´¥, è¯·è¿”å›', -1);
+                        showmsg('¹ºÂòÊ§°Ü, Çë·µ»Ø', -1);
                         exit;
                     }
                 }
                 
-                $msgtitle = "æ‰£é‡‘å¸è´­ä¹°é˜…è¯»ï¼";
-                $moremsg = "é˜…è¯»è¯¥æ–‡æ¡£å†…å®¹éœ€è¦ä»˜è´¹ï¼<br>è¿™ç¯‡æ–‡æ¡£éœ€è¦ <font color='red'>".$needMoney." é‡‘å¸</font> æ‰èƒ½è®¿é—®ï¼Œä½ ç›®å‰æ‹¥æœ‰é‡‘å¸ <font color='red'>".$cfg_ml->M_Money." </font>ä¸ªï¼<br>ç¡®è®¤é˜…è¯»è¯·ç‚¹ [<a href='/plus/view.php?aid=".$aid."&dopost=buy' target='_blank'>ç¡®è®¤ä»˜ç‚¹é˜…è¯»</a>]" ;
+                $msgtitle = "¿Û½ğ±Ò¹ºÂòÔÄ¶Á£¡";
+                $moremsg = "ÔÄ¶Á¸ÃÎÄµµÄÚÈİĞèÒª¸¶·Ñ£¡<br>ÕâÆªÎÄµµĞèÒª <font color='red'>".$needMoney." ½ğ±Ò</font> ²ÅÄÜ·ÃÎÊ£¬ÄãÄ¿Ç°ÓµÓĞ½ğ±Ò <font color='red'>".$cfg_ml->M_Money." </font>¸ö£¡<br>È·ÈÏÔÄ¶ÁÇëµã [<a href='/plus/view.php?aid=".$aid."&dopost=buy' target='_blank'>È·ÈÏ¸¶µãÔÄ¶Á</a>]" ;
                 include_once($cfg_basedir.$cfg_templets_dir."/plus/view_msg.htm");
                 $arc->Close();
                 exit();
             }
         }
-    }//é‡‘å¸å¤„ç†ä»˜å¤„ç†
+    }//½ğ±Ò´¦Àí¸¶´¦Àí
 }
 
 $arc->Display();

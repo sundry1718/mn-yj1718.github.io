@@ -1,8 +1,8 @@
 <?php   if(!defined('DEDEINC')) exit('dedecms');
 /**
- * ç®¡ç†å‘˜åå°åŸºæœ¬å‡½æ•°
+ * ¹ÜÀíÔ±ºóÌ¨»ù±¾º¯Êı
  *
- * @version        $Id:inc_fun_funAdmin.php 1 13:58 2010å¹´7æœˆ5æ—¥Z tianya $
+ * @version        $Id:inc_fun_funAdmin.php 1 13:58 2010Äê7ÔÂ5ÈÕZ tianya $
  * @package        DedeCMS.Libraries
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -10,12 +10,12 @@
  */
 
 /**
- *  è·å–æ‹¼éŸ³ä¿¡æ¯
+ *  »ñÈ¡Æ´ÒôĞÅÏ¢
  *
  * @access    public
- * @param     string  $str  å­—ç¬¦ä¸²
- * @param     int  $ishead  æ˜¯å¦ä¸ºé¦–å­—æ¯
- * @param     int  $isclose  è§£æåæ˜¯å¦é‡Šæ”¾èµ„æº
+ * @param     string  $str  ×Ö·û´®
+ * @param     int  $ishead  ÊÇ·ñÎªÊ××ÖÄ¸
+ * @param     int  $isclose  ½âÎöºóÊÇ·ñÊÍ·Å×ÊÔ´
  * @return    string
  */
 function SpGetPinyin($str, $ishead=0, $isclose=1)
@@ -76,10 +76,10 @@ function SpGetPinyin($str, $ishead=0, $isclose=1)
 
 
 /**
- *  åˆ›å»ºç›®å½•
+ *  ´´½¨Ä¿Â¼
  *
  * @access    public
- * @param     string  $spath ç›®å½•åç§°
+ * @param     string  $spath Ä¿Â¼Ãû³Æ
  * @return    string
  */
 function SpCreateDir($spath)
@@ -114,7 +114,7 @@ function SpCreateDir($spath)
             }
             if(!$isok)
             {
-                echo "åˆ›å»ºæˆ–ä¿®æ”¹ç›®å½•ï¼š".$truepath." å¤±è´¥ï¼<br>";
+                echo "´´½¨»òĞŞ¸ÄÄ¿Â¼£º".$truepath." Ê§°Ü£¡<br>";
                 CloseFtp();
                 return false;
             }
@@ -136,15 +136,15 @@ function jsScript($js)
 }
 
 /**
- *  è·å–ç¼–è¾‘å™¨
+ *  »ñÈ¡±à¼­Æ÷
  *
  * @access    public
- * @param     string  $fname è¡¨å•åç§°
- * @param     string  $fvalue è¡¨å•å€¼
- * @param     string  $nheight å†…å®¹é«˜åº¦
- * @param     string  $etype ç¼–è¾‘å™¨ç±»å‹
- * @param     string  $gtype è·å–å€¼ç±»å‹
- * @param     string  $isfullpage æ˜¯å¦å…¨å±
+ * @param     string  $fname ±íµ¥Ãû³Æ
+ * @param     string  $fvalue ±íµ¥Öµ
+ * @param     string  $nheight ÄÚÈİ¸ß¶È
+ * @param     string  $etype ±à¼­Æ÷ÀàĞÍ
+ * @param     string  $gtype »ñÈ¡ÖµÀàĞÍ
+ * @param     string  $isfullpage ÊÇ·ñÈ«ÆÁ
  * @return    string
  */
 function SpGetEditor($fname,$fvalue,$nheight="350",$etype="Basic",$gtype="print",$isfullpage="false",$bbcode=false)
@@ -196,7 +196,7 @@ function SpGetEditor($fname,$fvalue,$nheight="350",$etype="Basic",$gtype="print"
 			$config['fontSize_sizes'] = '30/30%;50/50%;100/100%;120/120%;150/150%;200/200%;300/300%';
 			$config['disableObjectResizing'] = 'true';
 			$config['smiley_path'] = $GLOBALS['cfg_cmspath'].'/images/smiley/';
-			// è·å–è¡¨æƒ…ä¿¡æ¯
+			// »ñÈ¡±íÇéĞÅÏ¢
 			require_once(DEDEDATA.'/smiley.data.php');
 			$jsscript = array();
 			foreach($GLOBALS['cfg_smileys'] as $key=>$val)
@@ -227,7 +227,7 @@ function SpGetEditor($fname,$fvalue,$nheight="350",$etype="Basic",$gtype="print"
     else { 
         /*
         // ------------------------------------------------------------------------
-        // å½“å‰ç‰ˆæœ¬,æš‚æ—¶å–æ¶ˆdedehtmlç¼–è¾‘å™¨çš„æ”¯æŒ
+        // µ±Ç°°æ±¾,ÔİÊ±È¡Ïûdedehtml±à¼­Æ÷µÄÖ§³Ö
         // ------------------------------------------------------------------------
         require_once(DEDEINC.'/htmledit/dede_editor.php');
         $ded = new DedeEditor($fname);
@@ -249,7 +249,7 @@ function SpGetEditor($fname,$fvalue,$nheight="350",$etype="Basic",$gtype="print"
 }
 
 /**
- *  è·å–æ›´æ–°ä¿¡æ¯
+ *  »ñÈ¡¸üĞÂĞÅÏ¢
  *
  * @return    void
  */

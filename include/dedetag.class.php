@@ -1,15 +1,15 @@
 <?php   if(!defined('DEDEINC')) exit("Request Error!");
 /**
- * Dedeç»‡æ¢¦æ¨¡æ¿ç±»
+ * DedeÖ¯ÃÎÄ£°åÀà
  *
- * @version        $Id: dedetag.class.php 1 10:33 2010å¹´7æœˆ6æ—¥Z tianya $
+ * @version        $Id: dedetag.class.php 1 10:33 2010Äê7ÔÂ6ÈÕZ tianya $
  * @package        DedeCMS.Libraries
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
  * @link           http://www.dedecms.com
  */
 /**
- * class DedeTag æ ‡è®°çš„æ•°æ®ç»“æ„æè¿°
+ * class DedeTag ±ê¼ÇµÄÊı¾İ½á¹¹ÃèÊö
  * function c____DedeTag();
  *
  * @package          DedeTag
@@ -18,17 +18,17 @@
  */
 class DedeTag
 {
-    var $IsReplace=FALSE; //æ ‡è®°æ˜¯å¦å·²è¢«æ›¿ä»£ï¼Œä¾›è§£æå™¨ä½¿ç”¨
-    var $TagName="";      //æ ‡è®°åç§°
-    var $InnerText="";    //æ ‡è®°ä¹‹é—´çš„æ–‡æœ¬
-    var $StartPos=0;      //æ ‡è®°èµ·å§‹ä½ç½®
-    var $EndPos=0;        //æ ‡è®°ç»“æŸä½ç½®
-    var $CAttribute="";   //æ ‡è®°å±æ€§æè¿°,å³æ˜¯class DedeAttribute
-    var $TagValue="";     //æ ‡è®°çš„å€¼
+    var $IsReplace=FALSE; //±ê¼ÇÊÇ·ñÒÑ±»Ìæ´ú£¬¹©½âÎöÆ÷Ê¹ÓÃ
+    var $TagName="";      //±ê¼ÇÃû³Æ
+    var $InnerText="";    //±ê¼ÇÖ®¼äµÄÎÄ±¾
+    var $StartPos=0;      //±ê¼ÇÆğÊ¼Î»ÖÃ
+    var $EndPos=0;        //±ê¼Ç½áÊøÎ»ÖÃ
+    var $CAttribute="";   //±ê¼ÇÊôĞÔÃèÊö,¼´ÊÇclass DedeAttribute
+    var $TagValue="";     //±ê¼ÇµÄÖµ
     var $TagID = 0;
 
     /**
-     *  è·å–æ ‡è®°çš„åç§°å’Œå€¼
+     *  »ñÈ¡±ê¼ÇµÄÃû³ÆºÍÖµ
      *
      * @access    public
      * @return    string
@@ -39,7 +39,7 @@ class DedeTag
     }
 
     /**
-     *  è·å–å€¼
+     *  »ñÈ¡Öµ
      *
      * @access    public
      * @return    string
@@ -49,7 +49,7 @@ class DedeTag
         return $this->TagValue;
     }
 
-    //ä¸‹é¢ä¸¤ä¸ªæˆå‘˜å‡½æ•°ä»…æ˜¯ä¸ºäº†å…¼å®¹æ—§ç‰ˆ
+    //ÏÂÃæÁ½¸ö³ÉÔ±º¯Êı½öÊÇÎªÁË¼æÈİ¾É°æ
     function GetTagName()
     {
         return strtolower($this->TagName);
@@ -60,7 +60,7 @@ class DedeTag
         return $this->TagValue;
     }
 
-    //è·å–æ ‡è®°çš„æŒ‡å®šå±æ€§
+    //»ñÈ¡±ê¼ÇµÄÖ¸¶¨ÊôĞÔ
     function IsAttribute($str)
     {
         return $this->CAttribute->IsAttribute($str);
@@ -83,7 +83,7 @@ class DedeTag
 }
 
 /**
- * DedeTagParse Dedeç»‡æ¢¦æ¨¡æ¿ç±»
+ * DedeTagParse DedeÖ¯ÃÎÄ£°åÀà
  * function c____DedeTagParse();
  *
  * @package          DedeTagParse
@@ -92,18 +92,18 @@ class DedeTag
  */
 class DedeTagParse
 {
-    var $NameSpace = 'dede';   //æ ‡è®°çš„åå­—ç©ºé—´
-    var $TagStartWord = '{';   //æ ‡è®°èµ·å§‹
-    var $TagEndWord = '}';     //æ ‡è®°ç»“æŸ
-    var $TagMaxLen = 64;       //æ ‡è®°åç§°çš„æœ€å¤§å€¼
-    var $CharToLow = TRUE;     // TRUEè¡¨ç¤ºå¯¹å±æ€§å’Œæ ‡è®°åç§°ä¸åŒºåˆ†å¤§å°å†™
-    var $IsCache = FALSE;      //æ˜¯å¦ä½¿ç”¨ç¼“å†²
+    var $NameSpace = 'dede';   //±ê¼ÇµÄÃû×Ö¿Õ¼ä
+    var $TagStartWord = '{';   //±ê¼ÇÆğÊ¼
+    var $TagEndWord = '}';     //±ê¼Ç½áÊø
+    var $TagMaxLen = 64;       //±ê¼ÇÃû³ÆµÄ×î´óÖµ
+    var $CharToLow = TRUE;     // TRUE±íÊ¾¶ÔÊôĞÔºÍ±ê¼ÇÃû³Æ²»Çø·Ö´óĞ¡Ğ´
+    var $IsCache = FALSE;      //ÊÇ·ñÊ¹ÓÃ»º³å
     var $TempMkTime = 0;
     var $CacheFile = '';
-    var $SourceString = '';    //æ¨¡æ¿å­—ç¬¦ä¸²
-    var $CTags = array();           //æ ‡è®°é›†åˆ
-    var $Count = -1;           //$Tagsæ ‡è®°ä¸ªæ•°
-    var $refObj = '';          //å¼•ç”¨å½“å‰æ¨¡æ¿ç±»çš„å¯¹è±¡
+    var $SourceString = '';    //Ä£°å×Ö·û´®
+    var $CTags = array();           //±ê¼Ç¼¯ºÏ
+    var $Count = -1;           //$Tags±ê¼Ç¸öÊı
+    var $refObj = '';          //ÒıÓÃµ±Ç°Ä£°åÀàµÄ¶ÔÏó
     var $taghashfile = '';
 
     function __construct()
@@ -142,12 +142,12 @@ class DedeTagParse
     }
 
     /**
-     *  è®¾ç½®æ ‡è®°çš„å‘½åç©ºé—´ï¼Œé»˜è®¤ä¸ºdede
+     *  ÉèÖÃ±ê¼ÇµÄÃüÃû¿Õ¼ä£¬Ä¬ÈÏÎªdede
      *
      * @access    public
-     * @param     string   $str   å­—ç¬¦ä¸²
-     * @param     string   $s   å¼€å§‹æ ‡è®°
-     * @param     string   $e   ç»“æŸæ ‡è®°
+     * @param     string   $str   ×Ö·û´®
+     * @param     string   $s   ¿ªÊ¼±ê¼Ç
+     * @param     string   $e   ½áÊø±ê¼Ç
      * @return    void
      */
     function SetNameSpace($str, $s="{", $e="}")
@@ -158,7 +158,7 @@ class DedeTagParse
     }
 
     /**
-     *  é‡ç½®æˆå‘˜å˜é‡æˆ–Clear
+     *  ÖØÖÃ³ÉÔ±±äÁ¿»òClear
      *
      * @access    public
      * @return    void
@@ -171,10 +171,10 @@ class DedeTagParse
     }
     
     /**
-     *  å¼ºåˆ¶å¼•ç”¨
+     *  Ç¿ÖÆÒıÓÃ
      *
      * @access    public
-     * @param     object  $refObj  éš¶å±å¯¹è±¡
+     * @param     object  $refObj  Á¥Êô¶ÔÏó
      * @return    void
      */
     function SetRefObj(&$refObj)
@@ -197,7 +197,7 @@ class DedeTagParse
     /**
      * CheckDisabledFunctions
      *
-     * COMMENT : CheckDisabledFunctions : æ£€æŸ¥æ˜¯å¦å­˜åœ¨ç¦æ­¢çš„å‡½æ•°
+     * COMMENT : CheckDisabledFunctions : ¼ì²éÊÇ·ñ´æÔÚ½ûÖ¹µÄº¯Êı
      *
      * @access    public
      * @param    string
@@ -207,7 +207,7 @@ class DedeTagParse
     {
         global $cfg_disable_funs;
         $cfg_disable_funs = isset($cfg_disable_funs)? $cfg_disable_funs : 'phpinfo,eval,exec,passthru,shell_exec,system,proc_open,popen,curl_exec,curl_multi_exec,parse_ini_file,show_source,file_put_contents,fsockopen,fopen,fwrite';
-        // æ¨¡æ¿å¼•æ“å¢åŠ disable_functions
+        // Ä£°åÒıÇæÔö¼Ódisable_functions
         if (defined('DEDEDISFUN')) {
             $tokens = token_get_all_nl('<?php'.$str."\n\r?>");
             $disabled_functions = explode(',', $cfg_disable_funs);
@@ -227,10 +227,10 @@ class DedeTagParse
     }
 
     /**
-     *  æ£€æµ‹æ¨¡æ¿ç¼“å­˜
+     *  ¼ì²âÄ£°å»º´æ
      *
      * @access    public
-     * @param     string   $filename  æ–‡ä»¶åç§°
+     * @param     string   $filename  ÎÄ¼şÃû³Æ
      * @return    string
      */
     function LoadCache($filename)
@@ -252,7 +252,7 @@ class DedeTagParse
             return FALSE;
         }
 
-        //æ£€æµ‹æ¨¡æ¿æœ€åæ›´æ–°æ—¶é—´
+        //¼ì²âÄ£°å×îºó¸üĞÂÊ±¼ä
         $fp = fopen($ckfullfile_t,'r');
         $time_info = trim(fgets($fp,64));
         fclose($fp);
@@ -261,11 +261,11 @@ class DedeTagParse
             return FALSE;
         }
 
-        //å¼•å…¥ç¼“å†²æ•°ç»„
+        //ÒıÈë»º³åÊı×é
         include($this->CacheFile);
         $errmsg = '';
 
-        //æŠŠç¼“å†²æ•°ç»„å†…å®¹è¯»å…¥ç±»
+        //°Ñ»º³åÊı×éÄÚÈİ¶ÁÈëÀà
         if( isset($z) && is_array($z) )
         {
             foreach($z as $k=>$v)
@@ -295,7 +295,7 @@ class DedeTagParse
         }
         else
         {
-            //æ¨¡æ¿æ²¡æœ‰ç¼“å†²æ•°ç»„
+            //Ä£°åÃ»ÓĞ»º³åÊı×é
             $this->CTags = '';
             $this->Count = -1;
         }
@@ -303,7 +303,7 @@ class DedeTagParse
     }
 
     /**
-     *  å†™å…¥ç¼“å­˜
+     *  Ğ´Èë»º´æ
      *
      * @access    public
      * @param     string
@@ -359,10 +359,10 @@ class DedeTagParse
     }
     
     /**
-     *  è½½å…¥æ¨¡æ¿æ–‡ä»¶
+     *  ÔØÈëÄ£°åÎÄ¼ş
      *
      * @access    public
-     * @param     string   $filename  æ–‡ä»¶åç§°
+     * @param     string   $filename  ÎÄ¼şÃû³Æ
      * @return    string
      */
     function LoadTemplate($filename)
@@ -392,23 +392,23 @@ class DedeTagParse
         }
     }
 
-    // ä»…ç”¨äºå…¼å®¹æ—§ç‰ˆæœ¬
+    // ½öÓÃÓÚ¼æÈİ¾É°æ±¾
     function LoadTemplet($filename)
     {
         $this->LoadTemplate($filename);
     }
 
-    // ä»…ç”¨äºå…¼å®¹æ—§ç‰ˆæœ¬
+    // ½öÓÃÓÚ¼æÈİ¾É°æ±¾
     function LoadFile($filename)
     {
         $this->LoadTemplate($filename);
     }
 
     /**
-     *  è½½å…¥æ¨¡æ¿å­—ç¬¦ä¸²
+     *  ÔØÈëÄ£°å×Ö·û´®
      *
      * @access    public
-     * @param     string  $str  å­—ç¬¦ä¸²
+     * @param     string  $str  ×Ö·û´®
      * @return    void
      */
     function LoadSource($str)
@@ -419,7 +419,7 @@ class DedeTagParse
         $this->IsCache = FALSE;
         $this->ParseTemplet();
         */
-        //ä¼˜åŒ–æ¨¡æ¿å­—ç¬¦ä¸²å­˜å–è¯»å–æ–¹å¼
+        //ÓÅ»¯Ä£°å×Ö·û´®´æÈ¡¶ÁÈ¡·½Ê½
         $this->taghashfile = $filename = DEDEDATA.'/tplcache/'.md5($str).'.inc';
         if( !is_file($filename) )
         {
@@ -434,10 +434,10 @@ class DedeTagParse
     }
 
     /**
-     *  è·å¾—æŒ‡å®šåç§°çš„Tagçš„ID(å¦‚æœæœ‰å¤šä¸ªåŒåçš„Tag,åˆ™å–æ²¡æœ‰è¢«å–ä»£ä¸ºå†…å®¹çš„ç¬¬ä¸€ä¸ªTag)
+     *  »ñµÃÖ¸¶¨Ãû³ÆµÄTagµÄID(Èç¹ûÓĞ¶à¸öÍ¬ÃûµÄTag,ÔòÈ¡Ã»ÓĞ±»È¡´úÎªÄÚÈİµÄµÚÒ»¸öTag)
      *
      * @access    public
-     * @param     string  $str  å­—ç¬¦ä¸²
+     * @param     string  $str  ×Ö·û´®
      * @return    int
      */
     function GetTagID($str)
@@ -462,10 +462,10 @@ class DedeTagParse
     }
 
     /**
-     *  è·å¾—æŒ‡å®šåç§°çš„CTagæ•°æ®ç±»(å¦‚æœæœ‰å¤šä¸ªåŒåçš„Tag,åˆ™å–æ²¡æœ‰è¢«åˆ†é…å†…å®¹çš„ç¬¬ä¸€ä¸ªTag)
+     *  »ñµÃÖ¸¶¨Ãû³ÆµÄCTagÊı¾İÀà(Èç¹ûÓĞ¶à¸öÍ¬ÃûµÄTag,ÔòÈ¡Ã»ÓĞ±»·ÖÅäÄÚÈİµÄµÚÒ»¸öTag)
      *
      * @access    public
-     * @param     string  $str  å­—ç¬¦ä¸²
+     * @param     string  $str  ×Ö·û´®
      * @return    string
      */
     function GetTag($str)
@@ -490,10 +490,10 @@ class DedeTagParse
     }
 
     /**
-     *  é€šè¿‡åç§°è·å–æ ‡è®°
+     *  Í¨¹ıÃû³Æ»ñÈ¡±ê¼Ç
      *
      * @access    public
-     * @param     string  $str  å­—ç¬¦ä¸²
+     * @param     string  $str  ×Ö·û´®
      * @return    string
      */
     function GetTagByName($str)
@@ -502,10 +502,10 @@ class DedeTagParse
     }
 
     /**
-     *  è·å¾—æŒ‡å®šIDçš„CTagæ•°æ®ç±»
+     *  »ñµÃÖ¸¶¨IDµÄCTagÊı¾İÀà
      *
      * @access    public
-     * @param     string  æ ‡ç­¾id
+     * @param     string  ±êÇ©id
      * @return    string
      */
     function GetTagByID($id)
@@ -521,11 +521,11 @@ class DedeTagParse
     }
 
     /**
-     *  ç»™_varsæ•°ç»„ä¼ é€’ä¸€ä¸ªå…ƒç´ 
+     *  ¸ø_varsÊı×é´«µİÒ»¸öÔªËØ
      *
      * @access    public
-     * @param     string   $vname  æ ‡ç­¾å
-     * @param     string   $vvalue  æ ‡ç­¾å€¼
+     * @param     string   $vname  ±êÇ©Ãû
+     * @param     string   $vvalue  ±êÇ©Öµ
      * @return    string
      */
     function AssignVar($vname, $vvalue)
@@ -538,12 +538,12 @@ class DedeTagParse
     }
 
     /**
-     *  åˆ†é…æŒ‡å®šIDçš„æ ‡è®°çš„å€¼
+     *  ·ÖÅäÖ¸¶¨IDµÄ±ê¼ÇµÄÖµ
      *
      * @access    public
-     * @param     string   $i  æ ‡ç­¾id
-     * @param     string  $str  å­—ç¬¦ä¸²
-     * @param     string  $runfunc  è¿è¡Œå‡½æ•°
+     * @param     string   $i  ±êÇ©id
+     * @param     string  $str  ×Ö·û´®
+     * @param     string  $runfunc  ÔËĞĞº¯Êı
      * @return    void
      */
     function Assign($i, $str, $runfunc = TRUE)
@@ -561,11 +561,11 @@ class DedeTagParse
     }
 
     /**
-     *  åˆ†é…æŒ‡å®šåç§°çš„æ ‡è®°çš„å€¼ï¼Œå¦‚æœæ ‡è®°åŒ…å«å±æ€§ï¼Œè¯·ä¸è¦ç”¨æ­¤å‡½æ•°
+     *  ·ÖÅäÖ¸¶¨Ãû³ÆµÄ±ê¼ÇµÄÖµ£¬Èç¹û±ê¼Ç°üº¬ÊôĞÔ£¬Çë²»ÒªÓÃ´Ëº¯Êı
      *
      * @access    public
-     * @param     string  $tagname  æ ‡ç­¾åç§°
-     * @param     string  $str  å­—ç¬¦ä¸²
+     * @param     string  $tagname  ±êÇ©Ãû³Æ
+     * @param     string  $str  ×Ö·û´®
      * @return    void
      */
     function AssignName($tagname, $str)
@@ -580,7 +580,7 @@ class DedeTagParse
     }
 
     /**
-     *  å¤„ç†ç‰¹æ®Šæ ‡è®°
+     *  ´¦ÀíÌØÊâ±ê¼Ç
      *
      * @access    public
      * @return    void
@@ -593,7 +593,7 @@ class DedeTagParse
             $CTag = $this->CTags[$i];
             $str = '';
 
-            //è·å–ä¸€ä¸ªå¤–éƒ¨å˜é‡
+            //»ñÈ¡Ò»¸öÍâ²¿±äÁ¿
             if( $CTag->TagName == 'global' )
             {
                 $str = $this->GetGlobals($CTag->GetAtt('name'));
@@ -606,7 +606,7 @@ class DedeTagParse
                 $this->CTags[$i]->TagValue = $str;
             }
 
-            //å¼•å…¥é™æ€æ–‡ä»¶
+            //ÒıÈë¾²Ì¬ÎÄ¼ş
             else if( $CTag->TagName == 'include' )
             {
                 $filename = ($CTag->GetAtt('file')=='' ? $CTag->GetAtt('filename') : $CTag->GetAtt('file') );
@@ -615,7 +615,7 @@ class DedeTagParse
                 $this->CTags[$i]->TagValue = $str;
             }
 
-            //å¾ªç¯ä¸€ä¸ªæ™®é€šæ•°ç»„
+            //Ñ­»·Ò»¸öÆÕÍ¨Êı×é
             else if( $CTag->TagName == 'foreach' )
             {
                 $arr = $this->CTags[$i]->GetAtt('array');
@@ -632,7 +632,7 @@ class DedeTagParse
                 $this->CTags[$i]->TagValue = $str;
             }
 
-            //è®¾ç½®/è·å–å˜é‡å€¼
+            //ÉèÖÃ/»ñÈ¡±äÁ¿Öµ
             else if( $CTag->TagName == 'var' )
             {
                 $vname = $this->CTags[$i]->GetAtt('name');
@@ -652,7 +652,7 @@ class DedeTagParse
                 $this->CTags[$i]->TagValue = $str;
             }
 
-            //è¿è¡ŒPHPæ¥å£
+            //ÔËĞĞPHP½Ó¿Ú
             if( $CTag->GetAtt('runphp') == 'yes' )
             {
                 $this->RunPHP($CTag, $i);
@@ -664,7 +664,7 @@ class DedeTagParse
         }
     }
 
-    //è¿è¡ŒPHPä»£ç 
+    //ÔËĞĞPHP´úÂë
     function RunPHP(&$refObj, $i)
     {
         $DedeMeValue = $phpcode = '';
@@ -685,8 +685,8 @@ class DedeTagParse
     }
 
     /**
-     *  æŠŠåˆ†ææ¨¡æ¿è¾“å‡ºåˆ°ä¸€ä¸ªå­—ç¬¦ä¸²ä¸­
-     *  ä¸æ›¿æ¢æ²¡è¢«å¤„ç†çš„å€¼
+     *  °Ñ·ÖÎöÄ£°åÊä³öµ½Ò»¸ö×Ö·û´®ÖĞ
+     *  ²»Ìæ»»Ã»±»´¦ÀíµÄÖµ
      *
      * @access    public
      * @return    string
@@ -723,7 +723,7 @@ class DedeTagParse
     }
 
     /**
-     *  æŠŠåˆ†ææ¨¡æ¿è¾“å‡ºåˆ°ä¸€ä¸ªå­—ç¬¦ä¸²ä¸­,å¹¶è¿”å›
+     *  °Ñ·ÖÎöÄ£°åÊä³öµ½Ò»¸ö×Ö·û´®ÖĞ,²¢·µ»Ø
      *
      * @access    public
      * @return    string
@@ -753,7 +753,7 @@ class DedeTagParse
     }
 
     /**
-     *  ç›´æ¥è¾“å‡ºè§£ææ¨¡æ¿
+     *  Ö±½ÓÊä³ö½âÎöÄ£°å
      *
      * @access    public
      * @return    void
@@ -764,10 +764,10 @@ class DedeTagParse
     }
 
     /**
-     *  æŠŠè§£ææ¨¡æ¿è¾“å‡ºä¸ºæ–‡ä»¶
+     *  °Ñ½âÎöÄ£°åÊä³öÎªÎÄ¼ş
      *
      * @access    public
-     * @param     string   $filename  è¦ä¿å­˜åˆ°çš„æ–‡ä»¶
+     * @param     string   $filename  Òª±£´æµ½µÄÎÄ¼ş
      * @return    string
      */
     function SaveTo($filename)
@@ -778,7 +778,7 @@ class DedeTagParse
     }
 
     /**
-     *  è§£ææ¨¡æ¿
+     *  ½âÎöÄ£°å
      *
      * @access    public
      * @return    string
@@ -801,12 +801,12 @@ class DedeTagParse
         $cAtt = new DedeAttributeParse();
         $cAtt->charToLow = $this->CharToLow;
 
-        //éå†æ¨¡æ¿å­—ç¬¦ä¸²ï¼Œè¯·å–æ ‡è®°åŠå…¶å±æ€§ä¿¡æ¯
+        //±éÀúÄ£°å×Ö·û´®£¬ÇëÈ¡±ê¼Ç¼°ÆäÊôĞÔĞÅÏ¢
         for($i=0; $i < $sourceLen; $i++)
         {
             $tTagName = '';
 
-            //å¦‚æœä¸è¿›è¡Œæ­¤åˆ¤æ–­ï¼Œå°†æ— æ³•è¯†åˆ«ç›¸è¿çš„ä¸¤ä¸ªæ ‡è®°
+            //Èç¹û²»½øĞĞ´ËÅĞ¶Ï£¬½«ÎŞ·¨Ê¶±ğÏàÁ¬µÄÁ½¸ö±ê¼Ç
             if($i-1 >= 0)
             {
                 $ss = $i-1;
@@ -829,7 +829,7 @@ class DedeTagParse
             {
                 break;
             }
-            //åˆ¤æ–­æ˜¯å¦å·²ç»åˆ°å€’æ•°ç¬¬ä¸‰ä¸ªå­—ç¬¦(å¯èƒ½æ€§å‡ ç‡æå°ï¼Œå–æ¶ˆæ­¤é€»è¾‘)
+            //ÅĞ¶ÏÊÇ·ñÒÑ¾­µ½µ¹ÊıµÚÈı¸ö×Ö·û(¿ÉÄÜĞÔ¼¸ÂÊ¼«Ğ¡£¬È¡Ïû´ËÂß¼­)
             /*
             if($sPos > ($sourceLen-$tsLen-3) )
             {
@@ -882,7 +882,7 @@ class DedeTagParse
                 //found '/}' and found '{/dede:'
                 else
                 {
-                    //if '/}' more near '{dede:'ã€'{/dede:' , end tag is '/}', else is '{/dede:'
+                    //if '/}' more near '{dede:'¡¢'{/dede:' , end tag is '/}', else is '{/dede:'
                     if($e1 < $e2 &&  $e1 < $e3 )
                     {
                         $endPos = $e1;
@@ -898,13 +898,13 @@ class DedeTagParse
                 //not found end tag , error
                 if($endPos==-1)
                 {
-                    echo "Tag Character postion $sPos, '$tTagName' Errorï¼<br />\r\n";
+                    echo "Tag Character postion $sPos, '$tTagName' Error£¡<br />\r\n";
                     break;
                 }
                 $i = $elen;
                 $ePos = $endPos;
 
-                //åˆ†ææ‰€æ‰¾åˆ°çš„æ ‡è®°ä½ç½®ç­‰ä¿¡æ¯
+                //·ÖÎöËùÕÒµ½µÄ±ê¼ÇÎ»ÖÃµÈĞÅÏ¢
                 $attStr = '';
                 $innerText = '';
                 $startInner = 0;
@@ -945,7 +945,7 @@ class DedeTagParse
                 $i = $sPos+$tsLen;
                 break;
             }
-        }//ç»“æŸéå†æ¨¡æ¿å­—ç¬¦ä¸²
+        }//½áÊø±éÀúÄ£°å×Ö·û´®
 
         if($this->IsCache)
         {
@@ -954,12 +954,12 @@ class DedeTagParse
     }
 
     /**
-     *  å¤„ç†æŸå­—æ®µçš„å‡½æ•°
+     *  ´¦ÀíÄ³×Ö¶ÎµÄº¯Êı
      *
      * @access    public
-     * @param     string   $fieldvalue  å­—æ®µå€¼
-     * @param     string   $functionname  å‡½æ•°åç§°
-     * @param     object  $refObj  éš¶å±å¯¹è±¡
+     * @param     string   $fieldvalue  ×Ö¶ÎÖµ
+     * @param     string   $functionname  º¯ÊıÃû³Æ
+     * @param     object  $refObj  Á¥Êô¶ÔÏó
      * @return    string
      */
     function EvalFunc($fieldvalue,$functionname,&$refObj)
@@ -981,23 +981,23 @@ class DedeTagParse
     }
 
     /**
-     *  è·å¾—ä¸€ä¸ªå¤–éƒ¨å˜é‡
+     *  »ñµÃÒ»¸öÍâ²¿±äÁ¿
      *
      * @access    public
-     * @param     string   $varname  å˜é‡åç§°
+     * @param     string   $varname  ±äÁ¿Ãû³Æ
      * @return    string
      */
     function GetGlobals($varname)
     {
         $varname = trim($varname);
 
-        //ç¦æ­¢åœ¨æ¨¡æ¿æ–‡ä»¶è¯»å–æ•°æ®åº“å¯†ç 
+        //½ûÖ¹ÔÚÄ£°åÎÄ¼ş¶ÁÈ¡Êı¾İ¿âÃÜÂë
         if($varname=="dbuserpwd"||$varname=="cfg_dbpwd")
         {
             return "";
         }
 
-        //æ­£å¸¸æƒ…å†µ
+        //Õı³£Çé¿ö
         if(isset($GLOBALS[$varname]))
         {
             return $GLOBALS[$varname];
@@ -1009,11 +1009,11 @@ class DedeTagParse
     }
 
     /**
-     *  å¼•å…¥æ–‡ä»¶
+     *  ÒıÈëÎÄ¼ş
      *
      * @access    public
-     * @param     string  $filename  æ–‡ä»¶å
-     * @param     string  $ismake  æ˜¯å¦éœ€è¦ç¼–è¯‘
+     * @param     string  $filename  ÎÄ¼şÃû
+     * @param     string  $ismake  ÊÇ·ñĞèÒª±àÒë
      * @return    string
      */
     function IncludeFile($filename, $ismake='no')
@@ -1034,10 +1034,10 @@ class DedeTagParse
         }
         else
         {
-            return "æ— æ³•åœ¨è¿™ä¸ªä½ç½®æ‰¾åˆ°ï¼š $filename";
+            return "ÎŞ·¨ÔÚÕâ¸öÎ»ÖÃÕÒµ½£º $filename";
         }
 
-        //ç¼–è¯‘
+        //±àÒë
         if($ismake!="no")
         {
             require_once(DEDEINC."/channelunit.func.php");
@@ -1057,15 +1057,15 @@ class DedeTagParse
 }
 
 /**********************************************
-//class DedeAttribute Dedeæ¨¡æ¿æ ‡è®°å±æ€§é›†åˆ
+//class DedeAttribute DedeÄ£°å±ê¼ÇÊôĞÔ¼¯ºÏ
 function c____DedeAttribute();
 **********************************************/
-//å±æ€§çš„æ•°æ®æè¿°
+//ÊôĞÔµÄÊı¾İÃèÊö
 class DedeAttribute
 {
     var $Count = -1;
-    var $Items = ""; //å±æ€§å…ƒç´ çš„é›†åˆ
-    //è·å¾—æŸä¸ªå±æ€§
+    var $Items = ""; //ÊôĞÔÔªËØµÄ¼¯ºÏ
+    //»ñµÃÄ³¸öÊôĞÔ
     function GetAtt($str)
     {
         if($str=="")
@@ -1082,26 +1082,26 @@ class DedeAttribute
         }
     }
 
-    //åŒä¸Š
+    //Í¬ÉÏ
     function GetAttribute($str)
     {
         return $this->GetAtt($str);
     }
 
-    //åˆ¤æ–­å±æ€§æ˜¯å¦å­˜åœ¨
+    //ÅĞ¶ÏÊôĞÔÊÇ·ñ´æÔÚ
     function IsAttribute($str)
     {
         if(isset($this->Items[$str])) return TRUE;
         else return FALSE;
     }
 
-    //è·å¾—æ ‡è®°åç§°
+    //»ñµÃ±ê¼ÇÃû³Æ
     function GetTagName()
     {
         return $this->GetAtt("tagname");
     }
 
-    // è·å¾—å±æ€§ä¸ªæ•°
+    // »ñµÃÊôĞÔ¸öÊı
     function GetCount()
     {
         return $this->Count+1;
@@ -1109,7 +1109,7 @@ class DedeAttribute
 }
 
 /*******************************
-//å±æ€§è§£æå™¨(æœ¬ç‰ˆæœ¬ä¸­å·²ç»æ”¯æŒä½¿ç”¨\'è¿™ç§è¯­æ³•,å’Œç”¨.é—´éš”è¡¨ç¤ºnameå±æ€§,å¦‚ field.body)
+//ÊôĞÔ½âÎöÆ÷(±¾°æ±¾ÖĞÒÑ¾­Ö§³ÖÊ¹ÓÃ\'ÕâÖÖÓï·¨,ºÍÓÃ.¼ä¸ô±íÊ¾nameÊôĞÔ,Èç field.body)
 function c____DedeAttributeParse();
 ********************************/
 class DedeAttributeParse
@@ -1124,7 +1124,7 @@ class DedeAttributeParse
         $strLen = 0;
         $this->sourceString = trim(preg_replace("/[ \r\n\t]{1,}/"," ",$str));
         
-        //ä¸ºäº†åœ¨functionå†…èƒ½ä½¿ç”¨æ•°ç»„ï¼Œè¿™é‡Œå…è®¸å¯¹[ ]è¿›è¡Œè½¬ä¹‰ä½¿ç”¨
+        //ÎªÁËÔÚfunctionÄÚÄÜÊ¹ÓÃÊı×é£¬ÕâÀïÔÊĞí¶Ô[ ]½øĞĞ×ªÒåÊ¹ÓÃ
         $this->sourceString = str_replace('\]',']',$this->sourceString);
         $this->sourceString = str_replace('[','[',$this->sourceString);
         /*
@@ -1141,7 +1141,7 @@ class DedeAttributeParse
         }
     }
 
-    //è§£æå±æ€§
+    //½âÎöÊôĞÔ
     function ParseAttribute()
     {
         $d = '';
@@ -1153,7 +1153,7 @@ class DedeAttributeParse
         $strLen = strlen($this->sourceString);
         $this->cAttributes->Items = array();
 
-        // è·å¾—Tagçš„åç§°ï¼Œè§£æåˆ° cAtt->GetAtt('tagname') ä¸­
+        // »ñµÃTagµÄÃû³Æ£¬½âÎöµ½ cAtt->GetAtt('tagname') ÖĞ
         for($i=0; $i<$strLen; $i++)
         {
             if($this->sourceString[$i]==' ')
@@ -1175,7 +1175,7 @@ class DedeAttributeParse
             }
         }
 
-        //ä¸å­˜åœ¨å±æ€§åˆ—è¡¨çš„æƒ…å†µ
+        //²»´æÔÚÊôĞÔÁĞ±íµÄÇé¿ö
         if(!$hasAttribute)
         {
             $this->cAttributes->Count++;
@@ -1189,11 +1189,11 @@ class DedeAttributeParse
         }
         $tmpvalue = '';
 
-        //å¦‚æœå­—ç¬¦ä¸²å«æœ‰å±æ€§å€¼ï¼Œéå†æºå­—ç¬¦ä¸²,å¹¶è·å¾—å„å±æ€§
+        //Èç¹û×Ö·û´®º¬ÓĞÊôĞÔÖµ£¬±éÀúÔ´×Ö·û´®,²¢»ñµÃ¸÷ÊôĞÔ
         for($i; $i<$strLen; $i++)
         {
             $d = $this->sourceString[$i];
-            //æŸ¥æ‰¾å±æ€§åç§°
+            //²éÕÒÊôĞÔÃû³Æ
             if($startdd==-1)
             {
                 if($d != '=')
@@ -1214,7 +1214,7 @@ class DedeAttributeParse
                 }
             }
 
-            //æŸ¥æ‰¾å±æ€§çš„é™å®šæ ‡å¿—
+            //²éÕÒÊôĞÔµÄÏŞ¶¨±êÖ¾
             else if($startdd==0)
             {
                 switch($d)
@@ -1253,7 +1253,7 @@ class DedeAttributeParse
             }
         }//for
 
-        //æœ€åä¸€ä¸ªå±æ€§çš„ç»™å€¼
+        //×îºóÒ»¸öÊôĞÔµÄ¸øÖµ
         if($tmpatt != '')
         {
             $this->cAttributes->Count++;

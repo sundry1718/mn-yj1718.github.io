@@ -1,8 +1,8 @@
 <?php if(!defined('DEDEINC')) exit('Request Error!');
 /**
- * é—®ç­”è°ƒç”¨æ ‡ç­¾
+ * ÎÊ´ğµ÷ÓÃ±êÇ©
  *
- * @version        $Id: ask.lib.php 1 9:29 2010å¹´7æœˆ6æ—¥Z tianya $
+ * @version        $Id: ask.lib.php 1 9:29 2010Äê7ÔÂ6ÈÕZ tianya $
  * @package        DedeCMS.Taglib
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -11,14 +11,14 @@
 function lib_ask(&$ctag,&$refObj)
 {
     global $dsql, $envs, $cfg_dbprefix, $cfg_cmsurl,$cfg_ask_directory,$cfg_ask_isdomain,$cfg_ask_domain;
-    //å±æ€§å¤„ç†
+    //ÊôĞÔ´¦Àí
     $attlist="row|6,qtype|new,tid|0,titlelen|24";
     FillAttsDefault($ctag->CAttribute->Items,$attlist);
     extract($ctag->CAttribute->Items, EXTR_SKIP);
     
-    if( !$dsql->IsTable("{$cfg_dbprefix}ask") ) return 'æ²¡å®‰è£…é—®ç­”æ¨¡å—';
+    if( !$dsql->IsTable("{$cfg_dbprefix}ask") ) return 'Ã»°²×°ÎÊ´ğÄ£¿é';
     
-    //å¯ç”¨äºŒçº§åŸŸå
+    //ÆôÓÃ¶ş¼¶ÓòÃû
     if($cfg_ask_isdomain == 'Y')
     {
         $weburl = $cfg_ask_domain.'/';  
@@ -32,13 +32,13 @@ function lib_ask(&$ctag,&$refObj)
     $qtypeQuery = '';
     if($tid > 0) $tid = " (tid=$tid Or tid2='$tid') AND ";
     else $tid = '';
-    //æ¨èé—®é¢˜
+    //ÍÆ¼öÎÊÌâ
     if($qtype=='commend') $qtypeQuery = " $tid digest=1 ORDER BY dateline DESC ";
-    //æ–°è§£å†³é—®é¢˜
+    //ĞÂ½â¾öÎÊÌâ
     else if($qtype=='ok') $qtypeQuery = " $tid status=1 ORDER BY solvetime DESC ";
-    //é«˜åˆ†é—®é¢˜
+    //¸ß·ÖÎÊÌâ
     else if($qtype=='high') $qtypeQuery = " $tid status=0 ORDER BY reward DESC ";
-    //æ–°é—®é¢˜
+    //ĞÂÎÊÌâ
     else $qtypeQuery = " $tid status=0 ORDER BY disorder DESC, dateline DESC ";
 
     $ctp = new DedeTagParse();

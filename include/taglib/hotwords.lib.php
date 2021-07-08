@@ -1,8 +1,8 @@
 <?php
 /**
- * è·å–ç½‘ç«™æœç´¢çš„çƒ­é—¨å…³é”®å­—
+ * »ñÈ¡ÍøÕ¾ËÑË÷µÄÈÈÃÅ¹Ø¼ü×Ö
  *
- * @version        $Id: hotwords.lib.php 1 9:29 2010å¹´7æœˆ6æ—¥Z tianya $
+ * @version        $Id: hotwords.lib.php 1 9:29 2010Äê7ÔÂ6ÈÕZ tianya $
  * @package        DedeCMS.Taglib
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -10,17 +10,17 @@
  */
  
 /*>>dede>>
-<name>çƒ­é—¨å…³é”®è¯</name>
-<type>å…¨å±€æ ‡è®°</type>
+<name>ÈÈÃÅ¹Ø¼ü´Ê</name>
+<type>È«¾Ö±ê¼Ç</type>
 <for>V55,V56,V57</for>
-<description>è·å–ç½‘ç«™æœç´¢çš„çƒ­é—¨å…³é”®å­—</description>
+<description>»ñÈ¡ÍøÕ¾ËÑË÷µÄÈÈÃÅ¹Ø¼ü×Ö</description>
 <demo>
 {dede:hotwords /}
 </demo>
 <attributes>
-    <iterm>num:å…³é”®è¯æ•°ç›®</iterm> 
-    <iterm>subday:å¤©æ•°</iterm>
-    <iterm>maxlength:å…³é”®è¯æœ€å¤§é•¿åº¦</iterm>
+    <iterm>num:¹Ø¼ü´ÊÊıÄ¿</iterm> 
+    <iterm>subday:ÌìÊı</iterm>
+    <iterm>maxlength:¹Ø¼ü´Ê×î´ó³¤¶È</iterm>
 </attributes> 
 >>dede>>*/
  
@@ -38,12 +38,12 @@ function lib_hotwords(&$ctag,&$refObj)
     if(empty($maxlength)) $maxlength = 20;
     $maxlength = $maxlength+1;
     $mintime = $nowtime - ($subday * 24 * 3600);
-	// 2011-6-28 æ ¹æ®è®ºå›åé¦ˆ(http://bbs.dedecms.com/371416.html)ï¼Œä¿®æ­£SQLå¤§å°å†™é—®é¢˜(by:ç»‡æ¢¦çš„é±¼)
+	// 2011-6-28 ¸ù¾İÂÛÌ³·´À¡(http://bbs.dedecms.com/371416.html)£¬ĞŞÕıSQL´óĞ¡Ğ´ÎÊÌâ(by:Ö¯ÃÎµÄÓã)
     $dsql->SetQuery("SELECT keyword FROM `#@__search_keywords` WHERE lasttime>$mintime AND length(keyword)<$maxlength ORDER BY count DESC LIMIT 0,$num");
     $dsql->Execute('hw');
     $hotword = '';
     while($row=$dsql->GetArray('hw')){
-        $hotword .= "ã€€<a href='".$cfg_phpurl."/search.php?keyword=".urlencode($row['keyword'])."'>".$row['keyword']."</a> ";
+        $hotword .= "¡¡<a href='".$cfg_phpurl."/search.php?keyword=".urlencode($row['keyword'])."'>".$row['keyword']."</a> ";
     }
     return $hotword;
 }

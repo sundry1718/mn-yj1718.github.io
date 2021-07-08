@@ -1,8 +1,8 @@
 <?php   if(!defined('DEDEINC')) exit("Request Error!");
 /**
- * ç»‡æ¢¦æŽ§åˆ¶å™¨åŸºç±»
+ * Ö¯ÃÎ¿ØÖÆÆ÷»ùÀà
  *
- * @version        $Id: control.class.php 1 10:33 2010å¹´7æœˆ6æ—¥Z tianya $
+ * @version        $Id: control.class.php 1 10:33 2010Äê7ÔÂ6ÈÕZ tianya $
  * @package        DedeCMS.Libraries
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -24,7 +24,7 @@ class Control
         $this->Control();
     }
     
-    // æžæž„å‡½æ•°
+    // Îö¹¹º¯Êý
     function Control()
     {
         global $dsql;
@@ -35,8 +35,8 @@ class Control
         $this->dsql = isset($dsql)? $dsql : new $sqltype(FALSE);
     }
     
-    //è®¾ç½®æ¨¡æ¿
-    //å¦‚æžœæƒ³è¦ä½¿ç”¨æ¨¡æ¿ä¸­æŒ‡å®šçš„pagesizeï¼Œå¿…é¡»åœ¨è°ƒç”¨æ¨¡æ¿åŽæ‰è°ƒç”¨ SetSource($sql)
+    //ÉèÖÃÄ£°å
+    //Èç¹ûÏëÒªÊ¹ÓÃÄ£°åÖÐÖ¸¶¨µÄpagesize£¬±ØÐëÔÚµ÷ÓÃÄ£°åºó²Åµ÷ÓÃ SetSource($sql)
     function SetTemplate($tplfile)
     {
         $tplfile = DEDEAPPTPL.'/'.$this->style.'/'.$tplfile;
@@ -48,7 +48,7 @@ class Control
         $this->tpl->LoadTemplate($tplfile);
     }
     
-    //è®¾ç½®/èŽ·å–æ–‡æ¡£ç›¸å…³çš„å„ç§å˜é‡
+    //ÉèÖÃ/»ñÈ¡ÎÄµµÏà¹ØµÄ¸÷ÖÖ±äÁ¿
     function SetVar($k, $v)
     {
         $this->tpl->Assign($k, $v);
@@ -100,7 +100,7 @@ class Control
 	 }
     }  
     
-    //è½½å…¥helper
+    //ÔØÈëhelper
     function helper($helper = "",$path)
     {   
         $help_path = $path.'/data/helper/'.$helper.".helper.php";
@@ -112,21 +112,21 @@ class Control
         }  
     }
     
-    //æ˜¾ç¤ºæ•°æ®
+    //ÏÔÊ¾Êý¾Ý
     function Display()
     {
         $this->tpl->SetObject($this);
         $this->tpl->Display();
     }
     
-    //ä¿å­˜ä¸ºHTML
+    //±£´æÎªHTML
     function SaveTo($filename)
     {
         $this->tpl->SetObject($this);
         $this->tpl->SaveTo($filename);
     }
     
-    // é‡Šæ”¾èµ„æº
+    // ÊÍ·Å×ÊÔ´
     function __destruct() {
         unset($this->tpl);
         $this->dsql->Close(TRUE);

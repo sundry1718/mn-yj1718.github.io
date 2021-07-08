@@ -1,5 +1,5 @@
 <?php
-//æ•°æ®åº“è¿žæŽ¥ä¿¡æ¯
+//Êý¾Ý¿âÁ¬½ÓÐÅÏ¢
 $cfg_dbtype = '~dbtype~';
 $cfg_dbhost = '~dbhost~';
 $cfg_dbname = '~dbname~';

@@ -6,7 +6,7 @@ helper('cache');
 function lib_mda(&$ctag,&$refObj)
 {
     global $dsql, $envs, $cfg_soft_lang;
-    //å±æ€§å¤„ç†
+    //ÊôĞÔ´¦Àí
     $type = empty($type)? 'code' : $type;
     $class = empty($class)? '_DEDECY' : $class;
     $version = MDA_VER;
@@ -14,18 +14,18 @@ function lib_mda(&$ctag,&$refObj)
     FillAttsDefault($ctag->CAttribute->Items,$attlist);
     extract($ctag->CAttribute->Items, EXTR_SKIP);
 
-    if ( empty($uuid) AND empty($name) ) return 'å¡«å†™æ­£ç¡®çš„uuid æˆ– name';
+    if ( empty($uuid) AND empty($name) ) return 'ÌîĞ´ÕıÈ·µÄuuid »ò name';
     
     $reval="";
     
-    //if( !$dsql->IsTable("#@__plus_mda_setting") ) return 'æ²¡å®‰è£…<a href="'.MDA_APIHOST.'" target="_blank">å¾·å¾—å¹¿å‘Šæ¨¡å—</a>';
+    //if( !$dsql->IsTable("#@__plus_mda_setting") ) return 'Ã»°²×°<a href="'.MDA_APIHOST.'" target="_blank">µÂµÃ¹ã¸æÄ£¿é</a>';
     
     $email = mda_get_setting('email');
     $channel_uuid = mda_get_setting('channel_uuid');
     
     $channel_secret = mda_get_setting('channel_secret');
         
-    //if(empty($channel_uuid)) return 'å°šæœªç»‘å®šå¾·å¾—å¹¿å‘Šè´¦å·ï¼Œè¯·<a href="'.MDA_APIHOST.'/home/register" target="_blank">æ³¨å†Œ</a>å¹¶åˆ°ç³»ç»Ÿåå°ç»‘å®š';
+    //if(empty($channel_uuid)) return 'ÉĞÎ´°ó¶¨µÂµÃ¹ã¸æÕËºÅ£¬Çë<a href="'.MDA_APIHOST.'/home/register" target="_blank">×¢²á</a>²¢µ½ÏµÍ³ºóÌ¨°ó¶¨';
     
     $prefix = 'mda';
     $key = 'code'.md5($uuid.$name);
@@ -51,7 +51,7 @@ function lib_mda(&$ctag,&$refObj)
         
         if (!isset($place['data']['place_code']) )
         {
-            return 'å¹¿å‘Šä½APIæ¥å£é€šä¿¡é”™è¯¯ï¼ŒæŸ¥çœ‹<a href="'.MDA_APIHOST.'/help/apicode/'.$place['code'].'" target="_blank">å¾·å¾—å¹¿å‘Š</a>è·å–å¸®åŠ©';
+            return '¹ã¸æÎ»API½Ó¿ÚÍ¨ĞÅ´íÎó£¬²é¿´<a href="'.MDA_APIHOST.'/help/apicode/'.$place['code'].'" target="_blank">µÂµÃ¹ã¸æ</a>»ñÈ¡°ïÖú';
         }
     
         $row['reval'] = htmlspecialchars($place['data']['place_code']);

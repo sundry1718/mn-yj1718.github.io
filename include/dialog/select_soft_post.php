@@ -1,8 +1,8 @@
 <?php
 /**
- * è½¯ä»¶å‘é€
+ * Èí¼ş·¢ËÍ
  *
- * @version        $Id: select_soft_post.php 1 9:43 2010å¹´7æœˆ8æ—¥Z tianya $
+ * @version        $Id: select_soft_post.php 1 9:43 2010Äê7ÔÂ8ÈÕZ tianya $
  * @package        DedeCMS.Dialog
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -13,24 +13,24 @@ if(!isset($cfg_basedir))
     include_once(dirname(__FILE__).'/config.php');
 }
 if(empty($uploadfile)) $uploadfile = '';
-if(empty($uploadmbtype)) $uploadmbtype = 'è½¯ä»¶ç±»å‹';
+if(empty($uploadmbtype)) $uploadmbtype = 'Èí¼şÀàĞÍ';
 if(empty($bkurl)) $bkurl = 'select_soft.php';
 $CKEditorFuncNum = (isset($CKEditorFuncNum))? $CKEditorFuncNum : 1;
 $newname = ( empty($newname) ? '' : preg_replace("#[\\ \"\*\?\t\r\n<>':\/|]#", "", $newname) );
 
 if(!is_uploaded_file($uploadfile))
 {
-    ShowMsg("ä½ æ²¡æœ‰é€‰æ‹©ä¸Šä¼ çš„æ–‡ä»¶æˆ–é€‰æ‹©çš„æ–‡ä»¶å¤§å°è¶…å‡ºé™åˆ¶!", "-1");
+    ShowMsg("ÄãÃ»ÓĞÑ¡ÔñÉÏ´«µÄÎÄ¼ş»òÑ¡ÔñµÄÎÄ¼ş´óĞ¡³¬³öÏŞÖÆ!", "-1");
     exit();
 }
 
-//è½¯ä»¶ç±»å‹æ‰€æœ‰æ”¯æŒçš„é™„ä»¶
+//Èí¼şÀàĞÍËùÓĞÖ§³ÖµÄ¸½¼ş
 $cfg_softtype = $cfg_softtype;
 $cfg_softtype = str_replace('||', '|', $cfg_softtype);
 $uploadfile_name = trim(preg_replace("#[ \r\n\t\*\%\\\/\?><\|\":]{1,}#", '', $uploadfile_name));
 if(!preg_match("#\.(".$cfg_softtype.")#i", $uploadfile_name))
 {
-    ShowMsg("ä½ æ‰€ä¸Šä¼ çš„{$uploadmbtype}ä¸åœ¨è®¸å¯åˆ—è¡¨ï¼Œè¯·æ›´æ”¹ç³»ç»Ÿå¯¹æ‰©å±•åé™å®šçš„é…ç½®ï¼","");
+    ShowMsg("ÄãËùÉÏ´«µÄ{$uploadmbtype}²»ÔÚĞí¿ÉÁĞ±í£¬Çë¸ü¸ÄÏµÍ³¶ÔÀ©Õ¹ÃûÏŞ¶¨µÄÅäÖÃ£¡","");
     exit();
 }
 
@@ -46,7 +46,7 @@ if($activepath==$cfg_soft_dir)
     }
 }
 
-//æ–‡ä»¶åï¼ˆå‰ä¸ºæ‰‹å·¥æŒ‡å®šï¼Œ åè€…è‡ªåŠ¨å¤„ç†ï¼‰
+//ÎÄ¼şÃû£¨Ç°ÎªÊÖ¹¤Ö¸¶¨£¬ ºóÕß×Ô¶¯´¦Àí£©
 if(!empty($newname))
 {
     $filename = $newname;
@@ -54,7 +54,7 @@ if(!empty($newname))
     else $fs = explode('.', $filename);
     if(preg_match("#".$cfg_not_allowall."#", $fs[count($fs)-1]))
     {
-        ShowMsg("ä½ æŒ‡å®šçš„æ–‡ä»¶åè¢«ç³»ç»Ÿç¦æ­¢ï¼",'javascript:;');
+        ShowMsg("ÄãÖ¸¶¨µÄÎÄ¼şÃû±»ÏµÍ³½ûÖ¹£¡",'javascript:;');
         exit();
     }
     if(!preg_match("#\.#", $filename)) $filename = $filename.'.'.$fs[count($fs)-1];
@@ -63,26 +63,22 @@ if(!empty($newname))
     $fs = explode('.', $uploadfile_name);
     if(preg_match("#".$cfg_not_allowall."#", $fs[count($fs)-1]))
     {
-        ShowMsg("ä½ ä¸Šä¼ äº†æŸäº›å¯èƒ½å­˜åœ¨ä¸å®‰å…¨å› ç´ çš„æ–‡ä»¶ï¼Œç³»ç»Ÿæ‹’ç»æ“ä½œï¼",'javascript:;');
+        ShowMsg("ÄãÉÏ´«ÁËÄ³Ğ©¿ÉÄÜ´æÔÚ²»°²È«ÒòËØµÄÎÄ¼ş£¬ÏµÍ³¾Ü¾ø²Ù×÷£¡",'javascript:;');
         exit();
     }
     $filename = $filename.'.'.$fs[count($fs)-1];
 }
 
-if (preg_match('#.(php|pl|cgi|asp|aspx|jsp|php5|php4|php3|shtm|shtml)[^a-zA-Z0-9]+$#i', trim($filename))) {
-	ShowMsg("ä½ æŒ‡å®šçš„æ–‡ä»¶åè¢«ç³»ç»Ÿç¦æ­¢ï¼",'javascript:;');
-	exit();
-}
 $fullfilename = $cfg_basedir.$activepath.'/'.$filename;
 $fullfileurl = $activepath.'/'.$filename;
-move_uploaded_file($uploadfile,$fullfilename) or die("ä¸Šä¼ æ–‡ä»¶åˆ° $fullfilename å¤±è´¥ï¼");
+move_uploaded_file($uploadfile,$fullfilename) or die("ÉÏ´«ÎÄ¼şµ½ $fullfilename Ê§°Ü£¡");
 @unlink($uploadfile);
 if($cfg_remote_site=='Y' && $remoteuploads == 1)
 {
-    //åˆ†æè¿œç¨‹æ–‡ä»¶è·¯å¾„
+    //·ÖÎöÔ¶³ÌÎÄ¼şÂ·¾¶
     $remotefile = str_replace(DEDEROOT, '', $fullfilename);
     $localfile = '../..'.$remotefile;
-    //åˆ›å»ºè¿œç¨‹æ–‡ä»¶å¤¹
+    //´´½¨Ô¶³ÌÎÄ¼ş¼Ğ
     $remotedir = preg_replace('/[^\/]*\.('.$cfg_softtype.')/', '', $remotefile);
     $ftp->rmkdir($remotedir);
     $ftp->upload($localfile, $remotefile);
@@ -112,5 +108,5 @@ $dsql->ExecuteNoneQuery($inquery);
 $fid = $dsql->GetLastID();
 AddMyAddon($fid, $fullfileurl);
 
-ShowMsg("æˆåŠŸä¸Šä¼ æ–‡ä»¶ï¼",$bkurl."?comeback=".urlencode($filename)."&f=$f&CKEditorFuncNum=$CKEditorFuncNum&activepath=".urlencode($activepath)."&d=".time());
+ShowMsg("³É¹¦ÉÏ´«ÎÄ¼ş£¡",$bkurl."?comeback=".urlencode($filename)."&f=$f&CKEditorFuncNum=$CKEditorFuncNum&activepath=".urlencode($activepath)."&d=".time());
 exit();

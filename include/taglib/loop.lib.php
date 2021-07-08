@@ -4,9 +4,9 @@ if(!defined('DEDEINC'))
     exit("Request Error!");
 }
 /**
- * è°ƒç”¨ä»»æ„è¡¨çš„æ•°æ®æ ‡ç­¾
+ * µ÷ÓÃÈÎÒâ±íµÄÊý¾Ý±êÇ©
  *
- * @version        $Id: loop.lib.php 1 9:29 2010å¹´7æœˆ6æ—¥Z tianya $
+ * @version        $Id: loop.lib.php 1 9:29 2010Äê7ÔÂ6ÈÕZ tianya $
  * @package        DedeCMS.Taglib
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -14,20 +14,20 @@ if(!defined('DEDEINC'))
  */
  
 /*>>dede>>
-<name>ä¸‡èƒ½å¾ªçŽ¯</name>
-<type>å…¨å±€æ ‡è®°</type>
+<name>ÍòÄÜÑ­»·</name>
+<type>È«¾Ö±ê¼Ç</type>
 <for>V55,V56,V57</for>
-<description>è°ƒç”¨ä»»æ„è¡¨çš„æ•°æ®æ ‡ç­¾</description>
+<description>µ÷ÓÃÈÎÒâ±íµÄÊý¾Ý±êÇ©</description>
 <demo>
 {dede:loop table='dede_archives' sort='' row='4' if=''}
 <a href='[field:arcurl/]'>[field:title/]</a>
 {/dede:loop}
 </demo>
 <attributes>
-    <iterm>table:æŸ¥è¯¢è¡¨å</iterm> 
-    <iterm>sort:ç”¨äºŽæŽ’åºçš„å­—æ®µ</iterm>
-    <iterm>row:è¿”å›žç»“æžœçš„æ¡æ•°</iterm>
-    <iterm>if:æŸ¥è¯¢çš„æ¡ä»¶</iterm>
+    <iterm>table:²éÑ¯±íÃû</iterm> 
+    <iterm>sort:ÓÃÓÚÅÅÐòµÄ×Ö¶Î</iterm>
+    <iterm>row:·µ»Ø½á¹ûµÄÌõÊý</iterm>
+    <iterm>if:²éÑ¯µÄÌõ¼þ</iterm>
 </attributes> 
 >>dede>>*/
  
@@ -35,7 +35,7 @@ require_once(DEDEINC.'/dedevote.class.php');
 function lib_loop(&$ctag,&$refObj)
 {
     global $dsql;
-    $attlist="table|,tablename|,row|8,sort|,if|,ifcase|,orderway|desc";//(2011.7.22 å¢žåŠ loopæ ‡ç­¾orderwayå±žæ€§ by:ç»‡æ¢¦çš„é±¼)
+    $attlist="table|,tablename|,row|8,sort|,if|,ifcase|,orderway|desc";//(2011.7.22 Ôö¼Óloop±êÇ©orderwayÊôÐÔ by:Ö¯ÃÎµÄÓã)
     FillAttsDefault($ctag->CAttribute->Items,$attlist);
     extract($ctag->CAttribute->Items, EXTR_SKIP);
 

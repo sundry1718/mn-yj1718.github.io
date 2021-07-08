@@ -3,7 +3,7 @@
 /**
  * 
  *
- * @version        $Id: productimagelist.lib.php 1 9:29 2010å¹´7æœˆ6æ—¥Z tianya $
+ * @version        $Id: productimagelist.lib.php 1 9:29 2010Äê7ÔÂ6ÈÕZ tianya $
  * @package        DedeCMS.Taglib
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -46,7 +46,6 @@ function lib_productimagelist(&$ctag, &$refObj)
     $ctp = new DedeTagParse();
     $ctp->SetNameSpace('field','[',']');
     $ctp->LoadSource($innerText);
-	$GLOBALS['autoindex'] = 0;
 
     foreach($images as $row)
     {
@@ -55,7 +54,6 @@ function lib_productimagelist(&$ctag, &$refObj)
             if(isset($row[$ctag->GetName()])){ $ctp->Assign($tagid,$row[$ctag->GetName()]); }
         }
         $revalue .= $ctp->GetResult();
-		$GLOBALS['autoindex']++;
     }
     return $revalue;
 }

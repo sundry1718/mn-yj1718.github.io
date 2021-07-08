@@ -1,9 +1,9 @@
 <?php
-$lang_pre_page = 'ä¸Šé¡µ';
-$lang_next_page = 'ä¸‹é¡µ';
-$lang_index_page = 'é¦–é¡µ';
-$lang_end_page = 'æœ«é¡µ';
-$lang_record_number = 'æ¡è®°å½•';
-$lang_page = 'é¡µ';
-$lang_total = 'å…±';
+$lang_pre_page = 'ÉÏÒ³';
+$lang_next_page = 'ÏÂÒ³';
+$lang_index_page = 'Ê×Ò³';
+$lang_end_page = 'Ä©Ò³';
+$lang_record_number = 'Ìõ¼ÇÂ¼';
+$lang_page = 'Ò³';
+$lang_total = '¹²';
 ?>

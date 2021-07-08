@@ -1,9 +1,9 @@
 <?php
 /**
  *
- * å¹¿å‘ŠJSè°ƒç”¨æ–¹å¼
+ * ¹ã¸æJSµ÷ÓÃ·½Ê½
  *
- * @version        $Id: ad_js.php 1 20:30 2010å¹´7æœˆ8æ—¥Z tianya $
+ * @version        $Id: ad_js.php 1 20:30 2010Äê7ÔÂ8ÈÕZ tianya $
  * @package        DedeCMS.Site
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html

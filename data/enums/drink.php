@@ -1,7 +1,7 @@
 <?php
 global $em_drinks;
 $em_drinks = array();
-$em_drinks['1'] = 'ä¸å–é…’';
-$em_drinks['2'] = 'å¶å°”å–ä¸€ç‚¹';
-$em_drinks['3'] = 'å–å¾—å¾ˆå‡¶';
+$em_drinks['1'] = '²»ºÈ¾Æ';
+$em_drinks['2'] = 'Å¼¶ûºÈÒ»µã';
+$em_drinks['3'] = 'ºÈµÃºÜÐ×';
 ?>

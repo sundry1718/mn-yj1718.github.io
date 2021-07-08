@@ -1,12 +1,12 @@
-è·å–æ ç›®åˆ—è¡¨æ ‡ç­¾
+»ñÈ¡À¸Ä¿ÁĞ±í±êÇ©
 >>dede>>
 {dede:channel type='top' row='8' currentstyle="<li><a href='~typelink~' class='thisclass'>~typename~</a> </li>"}
  <li><a href='[field:typelink/]'>[field:typename/]</a> </li>
 {/dede:channel}
 >>dede>>
-typeid = '0' æ ç›®ID
-reid = '0' ä¸Šçº§æ ç›®ID
-row = '100' è°ƒç”¨æ ç›®æ•° 
-col = '1'  åˆ†å¤šå°‘åˆ—æ˜¾ç¤ºï¼ˆé»˜è®¤ä¸ºå•åˆ—ï¼‰
-type = 'son' sonè¡¨ç¤ºä¸‹çº§æ ç›®,selfè¡¨ç¤ºåŒçº§æ ç›®,topé¡¶çº§æ ç›®
-currentstyle = '' åº”ç”¨æ ·å¼
+typeid = '0' À¸Ä¿ID
+reid = '0' ÉÏ¼¶À¸Ä¿ID
+row = '100' µ÷ÓÃÀ¸Ä¿Êı 
+col = '1'  ·Ö¶àÉÙÁĞÏÔÊ¾£¨Ä¬ÈÏÎªµ¥ÁĞ£©
+type = 'son' son±íÊ¾ÏÂ¼¶À¸Ä¿,self±íÊ¾Í¬¼¶À¸Ä¿,top¶¥¼¶À¸Ä¿
+currentstyle = '' Ó¦ÓÃÑùÊ½

@@ -1,9 +1,9 @@
 <?php
 //function GetTags($num,$ltype='new',$InnerText='')
 /**
- * TAGè°ƒç”¨æ ‡ç­¾
+ * TAGµ÷ÓÃ±êÇ©
  *
- * @version        $Id: tag.lib.php 1 9:29 2010å¹´7æœˆ6æ—¥Z tianya $
+ * @version        $Id: tag.lib.php 1 9:29 2010Äê7ÔÂ6ÈÕZ tianya $
  * @package        DedeCMS.Taglib
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -11,26 +11,26 @@
  */
  
 /*>>dede>>
-<name>TAGè°ƒç”¨</name>
-<type>å…¨å±€æ ‡è®°</type>
+<name>TAGµ÷ÓÃ</name>
+<type>È«¾Ö±ê¼Ç</type>
 <for>V55,V56,V57</for>
-<description>TAGè°ƒç”¨æ ‡ç­¾</description>
+<description>TAGµ÷ÓÃ±êÇ©</description>
 <demo>
 {dede:tag sort='new' getall='0'}
 <a href='[field:link/]'>[field:tag /]</a>
 {/dede:tag}
 </demo>
 <attributes>
-    <iterm>row:è°ƒç”¨æ¡æ•°</iterm> 
-    <iterm>sort:æ’åºæ–¹å¼ monthï¼Œrandï¼Œweek</iterm>
-    <iterm>getall:è·å–ç±»å‹ 0 ä¸ºå½“å‰å†…å®¹é¡µTAGæ ‡è®°ï¼Œ1ä¸ºè·å–å…¨éƒ¨TAGæ ‡è®°</iterm>
+    <iterm>row:µ÷ÓÃÌõÊı</iterm> 
+    <iterm>sort:ÅÅĞò·½Ê½ month£¬rand£¬week</iterm>
+    <iterm>getall:»ñÈ¡ÀàĞÍ 0 Îªµ±Ç°ÄÚÈİÒ³TAG±ê¼Ç£¬1Îª»ñÈ¡È«²¿TAG±ê¼Ç</iterm>
 </attributes> 
 >>dede>>*/
  
 function lib_tag(&$ctag,&$refObj)
 {
     global $dsql,$envs,$cfg_cmsurl;
-    //å±æ€§å¤„ç†
+    //ÊôĞÔ´¦Àí
     $attlist="row|30,sort|new,getall|0,typeid|0";
     FillAttsDefault($ctag->CAttribute->Items,$attlist);
     extract($ctag->CAttribute->Items, EXTR_SKIP);

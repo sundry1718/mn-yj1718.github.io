@@ -1,8 +1,8 @@
 <?php   if(!defined('DEDEINC')) exit('Request Error!');
 /**
- * è·å–å½“å‰é¢‘é“çš„ä¸‹çº§æ ç›®çš„å†…å®¹åˆ—è¡¨æ ‡ç­¾
+ * »ñÈ¡µ±Ç°ÆµµÀµÄÏÂ¼¶À¸Ä¿µÄÄÚÈİÁĞ±í±êÇ©
  *
- * @version        $Id: channelartlist.lib.php 1 9:29 2010å¹´7æœˆ6æ—¥Z tianya $
+ * @version        $Id: channelartlist.lib.php 1 9:29 2010Äê7ÔÂ6ÈÕZ tianya $
  * @package        DedeCMS.Taglib
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -10,10 +10,10 @@
  */
 
 /*>>dede>>
-<name>é¢‘é“æ–‡æ¡£</name>
-<type>å…¨å±€æ ‡è®°</type>
+<name>ÆµµÀÎÄµµ</name>
+<type>È«¾Ö±ê¼Ç</type>
 <for>V55,V56,V57</for>
-<description>è·å–å½“å‰é¢‘é“çš„ä¸‹çº§æ ç›®çš„å†…å®¹åˆ—è¡¨æ ‡ç­¾</description>
+<description>»ñÈ¡µ±Ç°ÆµµÀµÄÏÂ¼¶À¸Ä¿µÄÄÚÈİÁĞ±í±êÇ©</description>
 <demo>
 {dede:channelartlist row=6}
 <dl>
@@ -28,8 +28,8 @@
 {/dede:channelartlist}
 </demo>
 <attributes>
-    <iterm>typeid:é¢‘é“ID</iterm> 
-    <iterm>row:è·å–çš„æ ç›®è¿”å›å€¼</iterm>
+    <iterm>typeid:ÆµµÀID</iterm> 
+    <iterm>row:»ñÈ¡µÄÀ¸Ä¿·µ»ØÖµ</iterm>
 </attributes> 
 >>dede>>*/
  
@@ -39,13 +39,13 @@ function lib_channelartlist(&$ctag,&$refObj)
 {
     global $dsql,$envs,$_sys_globals;
 
-    //å¤„ç†æ ‡è®°å±æ€§ã€innertext
+    //´¦Àí±ê¼ÇÊôĞÔ¡¢innertext
     $attlist = 'typeid|0,row|20,cacheid|';
     FillAttsDefault($ctag->CAttribute->Items,$attlist);
     extract($ctag->CAttribute->Items, EXTR_SKIP);
     $innertext = trim($ctag->GetInnerText());
     $artlist = '';
-    //è¯»å–å›ºå®šçš„ç¼“å­˜å—
+    //¶ÁÈ¡¹Ì¶¨µÄ»º´æ¿é
     $cacheid = trim($cacheid);
     if($cacheid !='') {
         $artlist = GetCacheBlock($cacheid);
@@ -61,10 +61,10 @@ function lib_channelartlist(&$ctag,&$refObj)
     $totalnum = $row;
     if(empty($totalnum)) $totalnum = 20;
 
-    //è·å¾—ç±»åˆ«IDæ€»æ•°çš„ä¿¡æ¯
+    //»ñµÃÀà±ğID×ÜÊıµÄĞÅÏ¢
     $typeids = array();
     if($typeid==0 || $typeid=='top') {
-		$tpsql = " reid=0 AND ishidden<>1 AND channeltype>0 ";
+        $tpsql = " reid=0 AND ispart<>2 AND ishidden<>1 AND channeltype>0 ";
     }
     else
     {
@@ -75,7 +75,7 @@ function lib_channelartlist(&$ctag,&$refObj)
             $tpsql = " id IN($typeid) AND ispart<>2 AND ishidden<>1 ";
         }
     }
-    $dsql->SetQuery("SELECT id,typename,typedir,isdefault,description,content,ispart,defaultname,namerule2,moresite,siteurl,sitepath 
+    $dsql->SetQuery("SELECT id,typename,typedir,isdefault,ispart,defaultname,namerule2,moresite,siteurl,sitepath 
                                             FROM `#@__arctype` WHERE $tpsql ORDER BY sortrank ASC LIMIT $totalnum");
     $dsql->Execute();
     while($row = $dsql->GetArray()) {
@@ -95,7 +95,7 @@ function lib_channelartlist(&$ctag,&$refObj)
         $artlist .= $pv->GetResult();
         $GLOBALS['itemparity'] = ($GLOBALS['itemparity']==1 ? 2 : 1);
     }
-    //æ³¨é”€ç¯å¢ƒå˜é‡ï¼Œä»¥é˜²æ­¢åç»­è°ƒç”¨ä¸­è¢«ä½¿ç”¨
+    //×¢Ïú»·¾³±äÁ¿£¬ÒÔ·ÀÖ¹ºóĞøµ÷ÓÃÖĞ±»Ê¹ÓÃ
     $GLOBALS['envs']['typeid'] = $_sys_globals['typeid'];
     $GLOBALS['envs']['reid'] = '';
     if($cacheid !='') {

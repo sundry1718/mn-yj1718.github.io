@@ -1,6 +1,6 @@
 <?php  if(!defined('DEDEINC')) exit('dedecms');
 /**
- * ä¸Šä¼ å¤„ç†å°åŠ©æ‰‹
+ * ÉÏ´«´¦ÀíĞ¡ÖúÊÖ
  *
  * @version        $Id: upload.helper.php 1 2010-07-05 11:43:09Z tianya $
  * @package        DedeCMS.Helpers
@@ -10,16 +10,16 @@
  */
 
 /**
- *  ç®¡ç†å‘˜ä¸Šä¼ æ–‡ä»¶çš„é€šç”¨å‡½æ•°
+ *  ¹ÜÀíÔ±ÉÏ´«ÎÄ¼şµÄÍ¨ÓÃº¯Êı
  *
  * @access    public
- * @param     string  $uploadname  ä¸Šä¼ åç§°
- * @param     string  $ftype  æ–‡ä»¶ç±»å‹
- * @param     string  $rnddd  åç¼€æ•°å­—
- * @param     bool  $watermark  æ˜¯å¦æ°´å°
- * @param     string  $filetype  imageã€mediaã€addon
- *      $file_type='' å¯¹äºswfuploadä¸Šä¼ çš„æ–‡ä»¶ï¼Œ å› ä¸ºæ²¡æœ‰filetypeï¼Œæ‰€ä»¥éœ€æŒ‡å®šï¼Œå¹¶ä¸”æœ‰äº›ç‰¹æ®Šä¹‹å¤„ä¸åŒ
- * @return    int   -1 æ²¡é€‰å®šä¸Šä¼ æ–‡ä»¶ï¼Œ0 æ–‡ä»¶ç±»å‹ä¸å…è®¸, -2 ä¿å­˜å¤±è´¥ï¼Œå…¶å®ƒï¼šè¿”å›ä¸Šä¼ åçš„æ–‡ä»¶å
+ * @param     string  $uploadname  ÉÏ´«Ãû³Æ
+ * @param     string  $ftype  ÎÄ¼şÀàĞÍ
+ * @param     string  $rnddd  ºó×ºÊı×Ö
+ * @param     bool  $watermark  ÊÇ·ñË®Ó¡
+ * @param     string  $filetype  image¡¢media¡¢addon
+ *      $file_type='' ¶ÔÓÚswfuploadÉÏ´«µÄÎÄ¼ş£¬ ÒòÎªÃ»ÓĞfiletype£¬ËùÒÔĞèÖ¸¶¨£¬²¢ÇÒÓĞĞ©ÌØÊâÖ®´¦²»Í¬
+ * @return    int   -1 Ã»Ñ¡¶¨ÉÏ´«ÎÄ¼ş£¬0 ÎÄ¼şÀàĞÍ²»ÔÊĞí, -2 ±£´æÊ§°Ü£¬ÆäËü£º·µ»ØÉÏ´«ºóµÄÎÄ¼şÃû
  */
 if ( ! function_exists('AdminUpload'))
 {
@@ -98,7 +98,7 @@ if ( ! function_exists('AdminUpload'))
             WaterImg($cfg_basedir.$fileurl, 'up');
         }
         
-        //ä¿å­˜ä¿¡æ¯åˆ°æ•°æ®åº“
+        //±£´æĞÅÏ¢µ½Êı¾İ¿â
         $title = $filename.'.'.$file_sname;
         $inquery = "INSERT INTO `#@__uploads`(title,url,mediatype,width,height,playtime,filesize,uptime,mid)
             VALUES ('$title','$fileurl','$filetype','0','0','0','".filesize($cfg_basedir.$fileurl)."','".time()."','".$cuserLogin->getUserID()."'); ";
@@ -110,73 +110,73 @@ if ( ! function_exists('AdminUpload'))
 }
 
 
-//å‰å°ä¼šå‘˜é€šç”¨ä¸Šä¼ å‡½æ•°
-//$upname æ˜¯æ–‡ä»¶ä¸Šä¼ æ¡†çš„è¡¨å•åï¼Œè€Œä¸æ˜¯è¡¨å•çš„å˜é‡
-//$handname å…è®¸ç”¨æˆ·æ‰‹å·¥æŒ‡å®šç½‘å€æƒ…å†µä¸‹çš„ç½‘å€
+//Ç°Ì¨»áÔ±Í¨ÓÃÉÏ´«º¯Êı
+//$upname ÊÇÎÄ¼şÉÏ´«¿òµÄ±íµ¥Ãû£¬¶ø²»ÊÇ±íµ¥µÄ±äÁ¿
+//$handname ÔÊĞíÓÃ»§ÊÖ¹¤Ö¸¶¨ÍøÖ·Çé¿öÏÂµÄÍøÖ·
 if ( ! function_exists('MemberUploads'))
 {
     function MemberUploads($upname,$handname,$userid=0,$utype='image',$exname='',$maxwidth=0,$maxheight=0,$water=false,$isadmin=false)
     {
         global $cfg_imgtype,$cfg_mb_addontype,$cfg_mediatype,$cfg_user_dir,$cfg_basedir,$cfg_dir_purview;
         
-        //å½“ä¸ºæ¸¸å®¢æŠ•ç¨¿çš„æƒ…å†µä¸‹ï¼Œè¿™ä¸ª id ä¸º 0
+        //µ±ÎªÓÎ¿ÍÍ¶¸åµÄÇé¿öÏÂ£¬Õâ¸ö id Îª 0
         if(empty($userid) ) $userid = 0;
         if(!is_dir($cfg_basedir.$cfg_user_dir."/$userid"))
         {
                 MkdirAll($cfg_basedir.$cfg_user_dir."/$userid", $cfg_dir_purview);
                 CloseFtp();
         }
-        //æœ‰ä¸Šä¼ æ–‡ä»¶
+        //ÓĞÉÏ´«ÎÄ¼ş
         $allAllowType = str_replace('||', '|', $cfg_imgtype.'|'.$cfg_mediatype.'|'.$cfg_mb_addontype);
         if(!empty($GLOBALS[$upname]) && is_uploaded_file($GLOBALS[$upname]))
         {
             $nowtme = time();
 
             $GLOBALS[$upname.'_name'] = trim(preg_replace("#[ \r\n\t\*\%\\\/\?><\|\":]{1,}#",'',$GLOBALS[$upname.'_name']));
-            //æºæ–‡ä»¶ç±»å‹æ£€æŸ¥
+            //Ô´ÎÄ¼şÀàĞÍ¼ì²é
             if($utype=='image')
             {
                 if(!preg_match("/\.(".$cfg_imgtype.")$/", $GLOBALS[$upname.'_name']))
                 {
-                    ShowMsg("ä½ æ‰€ä¸Šä¼ çš„å›¾ç‰‡ç±»å‹ä¸åœ¨è®¸å¯åˆ—è¡¨ï¼Œè¯·ä¸Šä¼ {$cfg_imgtype}ç±»å‹ï¼",'-1');
+                    ShowMsg("ÄãËùÉÏ´«µÄÍ¼Æ¬ÀàĞÍ²»ÔÚĞí¿ÉÁĞ±í£¬ÇëÉÏ´«{$cfg_imgtype}ÀàĞÍ£¡",'-1');
                     exit();
                 }
                 $sparr = Array("image/pjpeg","image/jpeg","image/gif","image/png","image/xpng","image/wbmp");
                 $imgfile_type = strtolower(trim($GLOBALS[$upname.'_type']));
                 if(!in_array($imgfile_type, $sparr))
                 {
-                    ShowMsg('ä¸Šä¼ çš„å›¾ç‰‡æ ¼å¼é”™è¯¯ï¼Œè¯·ä½¿ç”¨JPEGã€GIFã€PNGã€WBMPæ ¼å¼çš„å…¶ä¸­ä¸€ç§ï¼', '-1');
+                    ShowMsg('ÉÏ´«µÄÍ¼Æ¬¸ñÊ½´íÎó£¬ÇëÊ¹ÓÃJPEG¡¢GIF¡¢PNG¡¢WBMP¸ñÊ½µÄÆäÖĞÒ»ÖÖ£¡', '-1');
                     exit();
                 }
             }
             else if($utype=='flash' && !preg_match("/\.swf$/", $GLOBALS[$upname.'_name']))
             {
-                ShowMsg('ä¸Šä¼ çš„æ–‡ä»¶å¿…é¡»ä¸ºflashæ–‡ä»¶ï¼', '-1');
+                ShowMsg('ÉÏ´«µÄÎÄ¼ş±ØĞëÎªflashÎÄ¼ş£¡', '-1');
                 exit();
             }
             else if($utype=='media' && !preg_match("/\.(".$cfg_mediatype.")$/",$GLOBALS[$upname.'_name']))
             {
-                ShowMsg('ä½ æ‰€ä¸Šä¼ çš„æ–‡ä»¶ç±»å‹å¿…é¡»ä¸ºï¼š'.$cfg_mediatype, '-1');
+                ShowMsg('ÄãËùÉÏ´«µÄÎÄ¼şÀàĞÍ±ØĞëÎª£º'.$cfg_mediatype, '-1');
                 exit();
             }
             else if(!preg_match("/\.(".$allAllowType.")$/", $GLOBALS[$upname.'_name']))
             {
-                ShowMsg("ä½ æ‰€ä¸Šä¼ çš„æ–‡ä»¶ç±»å‹ä¸è¢«å…è®¸ï¼",'-1');
+                ShowMsg("ÄãËùÉÏ´«µÄÎÄ¼şÀàĞÍ²»±»ÔÊĞí£¡",'-1');
                 exit();
             }
-            //å†æ¬¡ä¸¥æ ¼æ£€æµ‹æ–‡ä»¶æ‰©å±•åæ˜¯å¦ç¬¦åˆç³»ç»Ÿå®šä¹‰çš„ç±»å‹
+            //ÔÙ´ÎÑÏ¸ñ¼ì²âÎÄ¼şÀ©Õ¹ÃûÊÇ·ñ·ûºÏÏµÍ³¶¨ÒåµÄÀàĞÍ
             $fs = explode('.', $GLOBALS[$upname.'_name']);
             $sname = $fs[count($fs)-1];
             $alltypes = explode('|', $allAllowType);
             if(!in_array(strtolower($sname), $alltypes))
             {
-                ShowMsg('ä½ æ‰€ä¸Šä¼ çš„æ–‡ä»¶ç±»å‹ä¸è¢«å…è®¸ï¼', '-1');
+                ShowMsg('ÄãËùÉÏ´«µÄÎÄ¼şÀàĞÍ²»±»ÔÊĞí£¡', '-1');
                 exit();
             }
-            //å¼ºåˆ¶ç¦æ­¢çš„æ–‡ä»¶ç±»å‹
+            //Ç¿ÖÆ½ûÖ¹µÄÎÄ¼şÀàĞÍ
             if(preg_match("/(asp|php|pl|cgi|shtm|js)$/", $sname))
             {
-                ShowMsg('ä½ ä¸Šä¼ çš„æ–‡ä»¶ä¸ºç³»ç»Ÿç¦æ­¢çš„ç±»å‹ï¼', '-1');
+                ShowMsg('ÄãÉÏ´«µÄÎÄ¼şÎªÏµÍ³½ûÖ¹µÄÀàĞÍ£¡', '-1');
                 exit();
             }
             if($exname=='')
@@ -187,17 +187,17 @@ if ( ! function_exists('MemberUploads'))
             {
                 $filename = $cfg_user_dir."/{$userid}/{$exname}.".$sname;
             }
-            move_uploaded_file($GLOBALS[$upname], $cfg_basedir.$filename) or die("ä¸Šä¼ æ–‡ä»¶åˆ° {$filename} å¤±è´¥ï¼");
+            move_uploaded_file($GLOBALS[$upname], $cfg_basedir.$filename) or die("ÉÏ´«ÎÄ¼şµ½ {$filename} Ê§°Ü£¡");
             @unlink($GLOBALS[$upname]);
             
             if(@filesize($cfg_basedir.$filename) > $GLOBALS['cfg_mb_upload_size'] * 1024)
             {
                 @unlink($cfg_basedir.$filename);
-                ShowMsg('ä½ ä¸Šä¼ çš„æ–‡ä»¶è¶…å‡ºç³»ç»Ÿå¤§å°é™åˆ¶ï¼', '-1');
+                ShowMsg('ÄãÉÏ´«µÄÎÄ¼ş³¬³öÏµÍ³´óĞ¡ÏŞÖÆ£¡', '-1');
                 exit();
             }
             
-            //åŠ æ°´å°æˆ–ç¼©å°å›¾ç‰‡
+            //¼ÓË®Ó¡»òËõĞ¡Í¼Æ¬
             if($utype=='image')
             {
                 include_once(DEDEINC.'/image.func.php');
@@ -212,10 +212,10 @@ if ( ! function_exists('MemberUploads'))
             }
             return $filename;
         }
-        //æ²¡æœ‰ä¸Šä¼ æ–‡ä»¶
+        //Ã»ÓĞÉÏ´«ÎÄ¼ş
         else
         {
-            //å¼ºåˆ¶ç¦æ­¢çš„æ–‡ä»¶ç±»å‹
+            //Ç¿ÖÆ½ûÖ¹µÄÎÄ¼şÀàĞÍ
             if($handname=='')
             {
                 return $handname;
@@ -228,7 +228,7 @@ if ( ! function_exists('MemberUploads'))
             {
                 exit('Not allow filename for filetype!');
             }
-            // 2011-4-10 ä¿®å¤ä¼šå‘˜ä¸­å¿ƒä¿®æ”¹ç›¸å†Œæ—¶å€™é”™è¯¯(by:jason123j)
+            // 2011-4-10 ĞŞ¸´»áÔ±ÖĞĞÄĞŞ¸ÄÏà²áÊ±ºò´íÎó(by:jason123j)
             else if( !preg_match('#^http:#', $handname) && !preg_match('#^'.$cfg_user_dir.'/'.$userid."#", $handname) && !$isadmin )
             {
                 exit('Not allow filename for not userdir!');

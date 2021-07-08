@@ -1,10 +1,10 @@
 <?php
 global $em_cosizes;
 $em_cosizes = array();
-$em_cosizes['1'] = '50äººä»¥ä¸‹';
-$em_cosizes['2'] = '50-200äºº';
-$em_cosizes['3'] = '200-500äºº';
-$em_cosizes['4'] = '500-2000äºº';
-$em_cosizes['5'] = '2000-5000äºº';
-$em_cosizes['6'] = '5000äººä»¥ä¸Š';
+$em_cosizes['1'] = '50ÈËÒÔÏÂ';
+$em_cosizes['2'] = '50-200ÈË';
+$em_cosizes['3'] = '200-500ÈË';
+$em_cosizes['4'] = '500-2000ÈË';
+$em_cosizes['5'] = '2000-5000ÈË';
+$em_cosizes['6'] = '5000ÈËÒÔÉÏ';
 ?>

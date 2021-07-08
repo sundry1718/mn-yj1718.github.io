@@ -1,8 +1,8 @@
 <?php   if(!defined('DEDEINC')) exit('Request Error!');
 /**
- * åœˆå­ä¸»é¢˜è°ƒç”¨æ ‡ç­¾
+ * È¦×ÓÖ÷Ìâµ÷ÓÃ±êÇ©
  *
- * @version        $Id: groupthread.lib.php 1 9:29 2010å¹´7æœˆ6æ—¥Z tianya $
+ * @version        $Id: groupthread.lib.php 1 9:29 2010Äê7ÔÂ6ÈÕZ tianya $
  * @package        DedeCMS.Taglib
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -10,10 +10,10 @@
  */
  
 /*>>dede>>
-<name>åœˆå­ä¸»é¢˜</name>
-<type>å…¨å±€æ ‡è®°</type>
+<name>È¦×ÓÖ÷Ìâ</name>
+<type>È«¾Ö±ê¼Ç</type>
 <for>V55,V56,V57</for>
-<description>åœˆå­ä¸»é¢˜è°ƒç”¨æ ‡ç­¾</description>
+<description>È¦×ÓÖ÷Ìâµ÷ÓÃ±êÇ©</description>
 <demo>
 {dede:groupthread gid='0' orderby='dateline' orderway='desc' row='12' titlelen='30'}
  <li>
@@ -23,23 +23,23 @@
 {/dede:groupthread} 
 </demo>
 <attributes>
-    <iterm>gid:åœˆå­idï¼Œé»˜è®¤ä¸ºå…¨éƒ¨</iterm> 
-    <iterm>orderby:æ’åºï¼Œé»˜è®¤ä¸ºæ—¶é—´</iterm>
-    <iterm>orderway:æ’åºæ–¹å‘ï¼Œé»˜è®¤æ˜¯æœ€æ–°ä¸»é¢˜åœ¨å‰</iterm>
-    <iterm>row:è®°å½•æ•°</iterm>
-    <iterm>titlelen:ä¸»é¢˜æ ‡é¢˜(subject)æœ€å¤§é•¿åº¦</iterm>
+    <iterm>gid:È¦×Óid£¬Ä¬ÈÏÎªÈ«²¿</iterm> 
+    <iterm>orderby:ÅÅĞò£¬Ä¬ÈÏÎªÊ±¼ä</iterm>
+    <iterm>orderway:ÅÅĞò·½Ïò£¬Ä¬ÈÏÊÇ×îĞÂÖ÷ÌâÔÚÇ°</iterm>
+    <iterm>row:¼ÇÂ¼Êı</iterm>
+    <iterm>titlelen:Ö÷Ìâ±êÌâ(subject)×î´ó³¤¶È</iterm>
 </attributes> 
 >>dede>>*/
  
 function lib_groupthread(&$ctag,&$refObj)
 {
     global $dsql, $envs, $cfg_dbprefix, $cfg_cmsurl;
-    //å±æ€§å¤„ç†
+    //ÊôĞÔ´¦Àí
     $attlist="gid|0,orderby|dateline,orderway|desc,row|12,titlelen|30";
     FillAttsDefault($ctag->CAttribute->Items,$attlist);
     extract($ctag->CAttribute->Items, EXTR_SKIP);
     
-    if( !$dsql->IsTable("{$cfg_dbprefix}groups") ) return 'æ²¡å®‰è£…åœˆå­æ¨¡å—';
+    if( !$dsql->IsTable("{$cfg_dbprefix}groups") ) return 'Ã»°²×°È¦×ÓÄ£¿é';
 
     if(!preg_match("#\/$#", $cfg_cmsurl)) $cfg_group_url = $cfg_cmsurl."/group";
     else $cfg_group_url = $cfg_cmsurl."group";

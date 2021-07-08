@@ -21,7 +21,7 @@
 							mpic.style.display='none';
 						}
 					}else {
-						alert('æœ¬ç¼–è¾‘å™¨ä¸æ”¯æŒå¤šå›¾å‘å¸ƒåŠŸèƒ½!');
+						alert('±¾±à¼­Æ÷²»Ö§³Ö¶àÍ¼·¢²¼¹¦ÄÜ!');
 					}
                 }
             });
@@ -29,7 +29,7 @@
             // Register the toolbar button.
             editor.ui.addButton( 'MultiPic',
             {
-                label : 'å¤šå›¾å‘å¸ƒ',
+                label : '¶àÍ¼·¢²¼',
                 command : 'multipic',
                 icon: 'images/multipic.gif'
             });

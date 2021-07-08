@@ -1,9 +1,9 @@
 <?php
 /**
  *
- * 发送到购物车
+ * ���͵����ﳵ
  *
- * @version        $Id: posttocar.php 1 15:38 2010年7月8日Z tianya $
+ * @version        $Id: posttocar.php 1 15:38 2010��7��8��Z tianya $
  * @package        DedeCMS.Site
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -26,20 +26,20 @@ if($do == 'add')
     $rs = $dsql->GetOne("SELECT id,channel,title FROM #@__archives WHERE id='$id'");
     if(!is_array($rs))
     {
-        ShowMsg("该商品已不存在！","-1");
+        ShowMsg("����Ʒ�Ѳ����ڣ�","-1");
         exit();
     }
     $cts = GetChannelTable($rs['channel']);
     $rows = $dsql->GetOne("SELECT aid as id,trueprice as price,units FROM `$cts[addtable]` WHERE aid='$id'");
     if(!is_array($rows))
     {
-        ShowMsg("该商品已不存在！","-1");
+        ShowMsg("����Ʒ�Ѳ����ڣ�","-1");
         exit();
     }
     $rows['buynum'] = $buynum;
     $rows['title']     = $rs['title'];
     $cart->addItem($id, $rows);
-    ShowMsg("已添加加到购物车,<a href='car.php'>查看购物车</a>","car.php");
+    ShowMsg("�����Ӽӵ����ﳵ,<a href='car.php'>�鿴���ﳵ</a>","car.php");
     exit();
 }
 elseif($do == 'del')
@@ -49,7 +49,7 @@ elseif($do == 'del')
     */
     if(!isset($ids))
     {
-        ShowMsg("请选择要删除的商品！","-1");
+        ShowMsg("��ѡ��Ҫɾ������Ʒ��","-1");
         exit;
     }
     if(is_array($ids))
@@ -65,7 +65,7 @@ elseif($do == 'del')
         $ids = intval($ids);
         $cart->delItem($ids);
     }
-    ShowMsg("已成功删除购物车中的商品,<a href='car.php'>查看购物车</a>","car.php");
+    ShowMsg("�ѳɹ�ɾ�����ﳵ�е���Ʒ,<a href='car.php'>�鿴���ﳵ</a>","car.php");
     exit;
 }
 elseif($do == 'clear')
@@ -74,7 +74,7 @@ elseif($do == 'clear')
     function clearItem();        clear car products all!
     */
     $cart->clearItem();
-    ShowMsg("购物车中商品已全部清空！","car.php");
+    ShowMsg("���ﳵ����Ʒ��ȫ����գ�","car.php");
     exit;
 }
 elseif($do == 'update')
@@ -94,7 +94,7 @@ elseif($do == 'update')
             $rows['buynum'] = intval(${'buynum'.$id});
             if($rows['buynum'] < 1)
             {
-                //如果设单位数量小于1个时更新,则移出购物车
+                //����赥λ����С��1��ʱ����,���Ƴ����ﳵ
                 $cart->delItem($id);
                 continue;
             }
@@ -102,6 +102,6 @@ elseif($do == 'update')
             $cart->addItem($id, $rows);
         }
     }
-    ShowMsg("购物车中商品已全部更新！","car.php");
+    ShowMsg("���ﳵ����Ʒ��ȫ�����£�","car.php");
     exit;
 }

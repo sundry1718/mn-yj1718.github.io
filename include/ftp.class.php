@@ -1,9 +1,9 @@
 <?php   if(!defined('DEDEINC')) exit('dedecms');
 /**
- * FTP æ“ä½œç±»
- * ä¸æ”¯æŒ SFTP å’Œ SSL FTP åè®®, ä»…æ”¯æŒæ ‡å‡† FTP åè®®.
- * éœ€è¦ä¼ é€’ä¸€ä¸ªæ•°ç»„é…ç½®
- * ç¤ºä¾‹:
+ * FTP ²Ù×÷Àà
+ * ²»Ö§³Ö SFTP ºÍ SSL FTP Ğ­Òé, ½öÖ§³Ö±ê×¼ FTP Ğ­Òé.
+ * ĞèÒª´«µİÒ»¸öÊı×éÅäÖÃ
+ * Ê¾Àı:
  * $config['hostname'] = 'ftp.example.com';
  * $config['username'] = 'your-username';
  * $config['password'] = 'your-password';
@@ -31,9 +31,9 @@ class FTP {
     }
 
     /**
-     * ææ„å‡½æ•° - è®¾ç½®å‚æ•°
+     * Îö¹¹º¯Êı - ÉèÖÃ²ÎÊı
      *
-     * æ„é€ å‡½æ•°åˆ™ä¼ é€’ä¸€ä¸ªé…ç½®æ•°ç»„
+     * ¹¹Ôìº¯ÊıÔò´«µİÒ»¸öÅäÖÃÊı×é
      */
     function FTP($config = array())
     {
@@ -44,7 +44,7 @@ class FTP {
     }
 
     /**
-     * åˆå§‹åŒ–è®¾ç½®
+     * ³õÊ¼»¯ÉèÖÃ
      *
      * @access    public
      * @param    array
@@ -60,15 +60,15 @@ class FTP {
             }
         }
 
-        // å‡†å¤‡ä¸»æœºå
+        // ×¼±¸Ö÷»úÃû
         $this->hostname = preg_replace('|.+?://|', '', $this->hostname);
     }
 
     /**
-     * FTP é“¾æ¥
+     * FTP Á´½Ó
      *
      * @access    public
-     * @param    array     é“¾æ¥å€¼
+     * @param    array     Á´½ÓÖµ
      * @return    bool
      */
     function connect($config = array())
@@ -82,7 +82,7 @@ class FTP {
         {
             if ($this->debug == TRUE)
             {
-                $this->_error('æ— æ³•é“¾æ¥');
+                $this->_error('ÎŞ·¨Á´½Ó');
             }
             return FALSE;
         }
@@ -91,12 +91,12 @@ class FTP {
         {
             if ($this->debug == TRUE)
             {
-                $this->_error('æ— æ³•ç™»å½•');
+                $this->_error('ÎŞ·¨µÇÂ¼');
             }
             return FALSE;
         }
 
-        // å¦‚æœéœ€è¦åˆ™è®¾ç½®ä¼ è¾“æ¨¡å¼
+        // Èç¹ûĞèÒªÔòÉèÖÃ´«ÊäÄ£Ê½
         if ($this->passive == TRUE)
         {
             ftp_pasv($this->conn_id, TRUE);
@@ -106,7 +106,7 @@ class FTP {
     }
 
     /**
-     * FTP ç™»å½•
+     * FTP µÇÂ¼
      *
      * @access    private
      * @return    bool
@@ -117,7 +117,7 @@ class FTP {
     }
 
     /**
-     * éªŒè¯è¿æ¥ID
+     * ÑéÖ¤Á¬½ÓID
      *
      * @access    private
      * @return    bool
@@ -128,7 +128,7 @@ class FTP {
         {
             if ($this->debug == TRUE)
             {
-                $this->_error('æ— æ³•é“¾æ¥');
+                $this->_error('ÎŞ·¨Á´½Ó');
             }
             return FALSE;
         }
@@ -136,11 +136,11 @@ class FTP {
     }
 
     /**
-     * æ›´æ”¹ç›®å½•
-     * ç¬¬äºŒä¸ªå‚æ•°å¯ä»¥è®©æˆ‘ä»¬æš‚æ—¶å…³é—­ï¼Œä»¥ä¾¿è°ƒè¯•
-     * æ­¤åŠŸèƒ½å¯ç”¨äºæ£€æµ‹æ˜¯å¦å­˜åœ¨ä¸€ä¸ªæ–‡ä»¶å¤¹
-     * æŠ›å‡ºä¸€ä¸ªé”™è¯¯ã€‚æ²¡æœ‰ä»€ä¹ˆçš„FTPç›¸å½“äºis_dir()
-     * å› æ­¤ï¼Œæˆ‘ä»¬è¯•å›¾æ”¹å˜æŸä¸€ç‰¹å®šç›®å½•ã€‚
+     * ¸ü¸ÄÄ¿Â¼
+     * µÚ¶ş¸ö²ÎÊı¿ÉÒÔÈÃÎÒÃÇÔİÊ±¹Ø±Õ£¬ÒÔ±ãµ÷ÊÔ
+     * ´Ë¹¦ÄÜ¿ÉÓÃÓÚ¼ì²âÊÇ·ñ´æÔÚÒ»¸öÎÄ¼ş¼Ğ
+     * Å×³öÒ»¸ö´íÎó¡£Ã»ÓĞÊ²Ã´µÄFTPÏàµ±ÓÚis_dir()
+     * Òò´Ë£¬ÎÒÃÇÊÔÍ¼¸Ä±äÄ³Ò»ÌØ¶¨Ä¿Â¼¡£
      *
      * @access    public
      * @param    string
@@ -160,7 +160,7 @@ class FTP {
         {
             if ($this->debug == TRUE AND $supress_debug == FALSE)
             {
-                $this->_error('æ— æ³•æ›´æ”¹ç›®å½•');
+                $this->_error('ÎŞ·¨¸ü¸ÄÄ¿Â¼');
             }
             return FALSE;
         }
@@ -169,7 +169,7 @@ class FTP {
     }
 
     /**
-     * åˆ›å»ºä¸€ä¸ªç›®å½•
+     * ´´½¨Ò»¸öÄ¿Â¼
      *
      * @access    public
      * @param    string
@@ -188,12 +188,12 @@ class FTP {
         {
             if ($this->debug == TRUE)
             {
-                $this->_error('æ— æ³•åˆ›å»ºæ–‡ä»¶å¤¹');
+                $this->_error('ÎŞ·¨´´½¨ÎÄ¼ş¼Ğ');
             }
             return FALSE;
         }
 
-        // å¦‚æœéœ€è¦è®¾ç½®æƒé™
+        // Èç¹ûĞèÒªÉèÖÃÈ¨ÏŞ
         if ( ! is_null($permissions))
         {
             $this->chmod($path, (int)$permissions);
@@ -203,7 +203,7 @@ class FTP {
     }
 
     /**
-     * åˆ›å»ºæ·±çº§ç›®å½•
+     * ´´½¨Éî¼¶Ä¿Â¼
      *
      * @access    public
      * @param    string
@@ -217,7 +217,7 @@ class FTP {
         {
             if(!empty($val))
             {
-                //æ„å»ºæ–‡ä»¶å¤¹è·¯å¾„
+                //¹¹½¨ÎÄ¼ş¼ĞÂ·¾¶
                 $pathstr = $pathstr.$val.$pathsymbol;
                 if (! $this->_is_conn())
                 {
@@ -226,7 +226,7 @@ class FTP {
                 $result = @ftp_chdir($this->conn_id, $pathstr);
                 if($result === FALSE)
                 {
-                    //å¦‚æœä¸å­˜åœ¨è¿™ä¸ªç›®å½•åˆ™åˆ›å»º
+                    //Èç¹û²»´æÔÚÕâ¸öÄ¿Â¼Ôò´´½¨
                     if(!$this->mkdir($pathstr))
                     {
                         return FALSE;
@@ -238,7 +238,7 @@ class FTP {
     }
 
     /**
-     * ä¸Šä¼ ä¸€ä¸ªæ–‡ä»¶åˆ°æœåŠ¡å™¨
+     * ÉÏ´«Ò»¸öÎÄ¼şµ½·şÎñÆ÷
      *
      * @access    public
      * @param    string
@@ -255,14 +255,14 @@ class FTP {
 
         if (!file_exists($locpath))
         {
-            $this->_error('ä¸å­˜åœ¨æºæ–‡ä»¶');
+            $this->_error('²»´æÔÚÔ´ÎÄ¼ş');
             return FALSE;
         }
 
-        // æœªæŒ‡å®šåˆ™è®¾ç½®æ¨¡å¼
+        // Î´Ö¸¶¨ÔòÉèÖÃÄ£Ê½
         if ($mode == 'auto')
         {
-            // è·å–æ–‡ä»¶æ‰©å±•åï¼Œä»¥ä¾¿æœ¬ç±»ä¸Šä¼ ç±»å‹
+            // »ñÈ¡ÎÄ¼şÀ©Õ¹Ãû£¬ÒÔ±ã±¾ÀàÉÏ´«ÀàĞÍ
             $ext = $this->_getext($locpath);
             $mode = $this->_settype($ext);
         }
@@ -275,12 +275,12 @@ class FTP {
         {
             if ($this->debug == TRUE)
             {
-                $this->_error('æ— æ³•ä¸Šä¼ ');
+                $this->_error('ÎŞ·¨ÉÏ´«');
             }
             return FALSE;
         }
 
-        // å¦‚æœéœ€è¦è®¾ç½®æ–‡ä»¶æƒé™
+        // Èç¹ûĞèÒªÉèÖÃÎÄ¼şÈ¨ÏŞ
         if ( ! is_null($permissions))
         {
             $this->chmod($rempath, (int)$permissions);
@@ -290,7 +290,7 @@ class FTP {
     }
 
     /**
-     * é‡å‘½å(æˆ–è€…ç§»åŠ¨)ä¸€ä¸ªæ–‡ä»¶
+     * ÖØÃüÃû(»òÕßÒÆ¶¯)Ò»¸öÎÄ¼ş
      *
      * @access    public
      * @param    string
@@ -311,7 +311,7 @@ class FTP {
         {
             if ($this->debug == TRUE)
             {
-                $msg = ($move == FALSE) ? 'æ— æ³•é‡å‘½å' : 'æ— æ³•ç§»åŠ¨';
+                $msg = ($move == FALSE) ? 'ÎŞ·¨ÖØÃüÃû' : 'ÎŞ·¨ÒÆ¶¯';
 
                 $this->_error($msg);
             }
@@ -322,7 +322,7 @@ class FTP {
     }
 
     /**
-     * ç§»åŠ¨ä¸€ä¸ªæ–‡ä»¶
+     * ÒÆ¶¯Ò»¸öÎÄ¼ş
      *
      * @access    public
      * @param    string
@@ -335,7 +335,7 @@ class FTP {
     }
 
     /**
-     * é‡å‘½åæˆ–è€…ç§»åŠ¨ä¸€ä¸ªæ–‡ä»¶
+     * ÖØÃüÃû»òÕßÒÆ¶¯Ò»¸öÎÄ¼ş
      *
      * @access    public
      * @param    string
@@ -354,7 +354,7 @@ class FTP {
         {
             if ($this->debug == TRUE)
             {
-                $this->_error('æ— æ³•åˆ é™¤');
+                $this->_error('ÎŞ·¨É¾³ı');
             }
             return FALSE;
         }
@@ -363,7 +363,7 @@ class FTP {
     }
 
     /**
-     * åˆ é™¤ä¸€ä¸ªæ–‡ä»¶å¤¹ï¼Œé€’å½’åˆ é™¤ä¸€åˆ‡ï¼ˆåŒ…æ‹¬å­æ–‡ä»¶å¤¹ï¼‰ä¸­å†…å®¹
+     * É¾³ıÒ»¸öÎÄ¼ş¼Ğ£¬µİ¹éÉ¾³ıÒ»ÇĞ£¨°üÀ¨×ÓÎÄ¼ş¼Ğ£©ÖĞÄÚÈİ
      *
      * @access    public
      * @param    string
@@ -376,7 +376,7 @@ class FTP {
             return FALSE;
         }
 
-        // å¦‚æœéœ€è¦åœ¨å°¾éƒ¨åŠ ä¸Šå°¾éš"/"
+        // Èç¹ûĞèÒªÔÚÎ²²¿¼ÓÉÏÎ²Ëæ"/"
         $filepath = preg_replace("/(.+?)\/*$/", "\\1/",  $filepath);
 
         $list = $this->list_files($filepath);
@@ -385,8 +385,8 @@ class FTP {
         {
             foreach ($list as $item)
             {
-                // å¦‚æœæˆ‘ä»¬ä¸èƒ½åˆ é™¤è¯¥é¡¹ç›®,å®ƒåˆ™å¯èƒ½æ˜¯ä¸€ä¸ªæ–‡ä»¶å¤¹
-                // å°†è°ƒç”¨ delete_dir()
+                // Èç¹ûÎÒÃÇ²»ÄÜÉ¾³ı¸ÃÏîÄ¿,ËüÔò¿ÉÄÜÊÇÒ»¸öÎÄ¼ş¼Ğ
+                // ½«µ÷ÓÃ delete_dir()
                 if ( ! @ftp_delete($this->conn_id, $item))
                 {
                     $this->delete_dir($item);
@@ -400,7 +400,7 @@ class FTP {
         {
             if ($this->debug == TRUE)
             {
-                $this->_error('æ— æ³•åˆ é™¤');
+                $this->_error('ÎŞ·¨É¾³ı');
             }
             return FALSE;
         }
@@ -409,11 +409,11 @@ class FTP {
     }
 
     /**
-     * è®¾ç½®æ–‡ä»¶æƒé™
+     * ÉèÖÃÎÄ¼şÈ¨ÏŞ
      *
      * @access    public
-     * @param    string     æ–‡ä»¶åœ°å€
-     * @param    string    æƒé™
+     * @param    string     ÎÄ¼şµØÖ·
+     * @param    string    È¨ÏŞ
      * @return    bool
      */
     function chmod($path, $perm)
@@ -423,12 +423,12 @@ class FTP {
             return FALSE;
         }
 
-        // ä»…PHP5æ‰èƒ½è¿è¡Œ
+        // ½öPHP5²ÅÄÜÔËĞĞ
         if ( ! function_exists('ftp_chmod'))
         {
             if ($this->debug == TRUE)
             {
-                $this->_error('æ— æ³•æ›´æ”¹æƒé™');
+                $this->_error('ÎŞ·¨¸ü¸ÄÈ¨ÏŞ');
             }
             return FALSE;
         }
@@ -439,7 +439,7 @@ class FTP {
         {
             if ($this->debug == TRUE)
             {
-                $this->_error('æ— æ³•æ›´æ”¹æƒé™');
+                $this->_error('ÎŞ·¨¸ü¸ÄÈ¨ÏŞ');
             }
             return FALSE;
         }
@@ -448,7 +448,7 @@ class FTP {
     }
 
     /**
-     * åœ¨æŒ‡å®šçš„ç›®å½•çš„FTPæ–‡ä»¶åˆ—è¡¨
+     * ÔÚÖ¸¶¨µÄÄ¿Â¼µÄFTPÎÄ¼şÁĞ±í
      *
      * @access    public
      * @return    array
@@ -464,7 +464,7 @@ class FTP {
     }
 
     /**
-     * è¿”å›æŒ‡å®šç›®å½•ä¸‹æ–‡ä»¶çš„è¯¦ç»†åˆ—è¡¨
+     * ·µ»ØÖ¸¶¨Ä¿Â¼ÏÂÎÄ¼şµÄÏêÏ¸ÁĞ±í
      *
      * @access    public
      * @return    array
@@ -508,12 +508,12 @@ class FTP {
     }
 
     /**
-     * æ£€ç´¢ä¸€ä¸ªæœ¬åœ°ç›®å½•ä¸‹çš„æ‰€æœ‰å†…å®¹(åŒ…æ‹¬å­ç›®å½•å’Œæ‰€æœ‰æ–‡ä»¶)ï¼Œå¹¶é€šè¿‡FTPä¸ºè¿™ä¸ªç›®å½•åˆ›å»ºä¸€ä»½é•œåƒã€‚
-     * æºè·¯å¾„ä¸‹çš„ä»»ä½•ç»“æ„éƒ½ä¼šè¢«åˆ›å»ºåˆ°æœåŠ¡å™¨ä¸Šã€‚ä½ å¿…é¡»ç»™å‡ºæºè·¯å¾„å’Œç›®æ ‡è·¯å¾„
+     * ¼ìË÷Ò»¸ö±¾µØÄ¿Â¼ÏÂµÄËùÓĞÄÚÈİ(°üÀ¨×ÓÄ¿Â¼ºÍËùÓĞÎÄ¼ş)£¬²¢Í¨¹ıFTPÎªÕâ¸öÄ¿Â¼´´½¨Ò»·İ¾µÏñ¡£
+     * Ô´Â·¾¶ÏÂµÄÈÎºÎ½á¹¹¶¼»á±»´´½¨µ½·şÎñÆ÷ÉÏ¡£Äã±ØĞë¸ø³öÔ´Â·¾¶ºÍÄ¿±êÂ·¾¶
      *
      * @access    public
-     * @param    string    å«æœ‰å°¾éš"/"çš„æºè·¯å¾„
-     * @param    string    ç›®æ ‡è·¯å¾„ - å«æœ‰å°¾éš"/"çš„æ–‡ä»¶å¤¹
+     * @param    string    º¬ÓĞÎ²Ëæ"/"µÄÔ´Â·¾¶
+     * @param    string    Ä¿±êÂ·¾¶ - º¬ÓĞÎ²Ëæ"/"µÄÎÄ¼ş¼Ğ
      * @return    bool
      */
     function mirror($locpath, $rempath)
@@ -523,20 +523,20 @@ class FTP {
             return FALSE;
         }
 
-        // æ‰“å¼€æœ¬åœ°æ–‡ä»¶è·¯å¾„
+        // ´ò¿ª±¾µØÎÄ¼şÂ·¾¶
         if ($fp = @opendir($locpath))
         {
-            // å°è¯•æ‰“å¼€è¿œç¨‹æ–‡ä»¶çš„è·¯å¾„.
+            // ³¢ÊÔ´ò¿ªÔ¶³ÌÎÄ¼şµÄÂ·¾¶.
             if ( ! $this->changedir($rempath, TRUE))
             {
-                // å¦‚æœä¸èƒ½æ‰“å¼€åˆ™åˆ›å»º
+                // Èç¹û²»ÄÜ´ò¿ªÔò´´½¨
                 if ( ! $this->rmkdir($rempath) OR ! $this->changedir($rempath))
                 {
                     return FALSE;
                 }
             }
 
-            // é€’å½’è¯»å–æœ¬åœ°ç›®å½•
+            // µİ¹é¶ÁÈ¡±¾µØÄ¿Â¼
             while (FALSE !== ($file = readdir($fp)))
             {
                 if (@is_dir($locpath.$file) && substr($file, 0, 1) != '.')
@@ -545,7 +545,7 @@ class FTP {
                 }
                 elseif (substr($file, 0, 1) != ".")
                 {
-                    // è·å–æ–‡ä»¶æ‰©å±•åï¼Œä»¥ä¾¿æœ¬ç±»ä¸Šä¼ ç±»å‹
+                    // »ñÈ¡ÎÄ¼şÀ©Õ¹Ãû£¬ÒÔ±ã±¾ÀàÉÏ´«ÀàĞÍ
                     $ext = $this->_getext($file);
                     $mode = $this->_settype($ext);
 
@@ -559,7 +559,7 @@ class FTP {
     }
 
     /**
-     * å–å‡ºæ–‡ä»¶æ‰©å±•å
+     * È¡³öÎÄ¼şÀ©Õ¹Ãû
      *
      * @access    private
      * @param    string
@@ -577,7 +577,7 @@ class FTP {
     }
 
     /**
-     * è®¾ç½®ä¸Šä¼ ç±»å‹
+     * ÉèÖÃÉÏ´«ÀàĞÍ
      *
      * @access    private
      * @param    string
@@ -606,11 +606,11 @@ class FTP {
     }
 
     /**
-     * å…³é—­è¿æ¥
+     * ¹Ø±ÕÁ¬½Ó
      *
      * @access    public
-     * @param    string    æºè·¯å¾„
-     * @param    string    ç›®çš„åœ°è·¯å¾„
+     * @param    string    Ô´Â·¾¶
+     * @param    string    Ä¿µÄµØÂ·¾¶
      * @return    bool
      */
     function close()
@@ -624,7 +624,7 @@ class FTP {
     }
 
     /**
-     * æ˜¾ç¤ºé”™è¯¯ä¿¡æ¯
+     * ÏÔÊ¾´íÎóĞÅÏ¢
      *
      * @access    private
      * @param    string
@@ -644,14 +644,14 @@ class FTP {
         echo $emsg;
 
         $savemsg = 'Page: '.$this->GetCurUrl()."\r\nError: ".$msg;
-        //ä¿å­˜é”™è¯¯æ—¥å¿—
+        //±£´æ´íÎóÈÕÖ¾
         $fp = @fopen($errorTrackFile, 'a');
         @fwrite($fp, '<'.'?php  exit();'."\r\n/*\r\n{$savemsg}\r\n*/\r\n?".">\r\n");
         @fclose($fp);
     }
 
     /**
-     * è·å¾—å½“å‰çš„è„šæœ¬ç½‘å€
+     * »ñµÃµ±Ç°µÄ½Å±¾ÍøÖ·
      *
      * @access    public
      * @return    string

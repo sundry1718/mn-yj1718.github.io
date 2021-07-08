@@ -2,9 +2,9 @@
 if(!defined('DEDEINC')) exit('Request Error!');
 require_once(DEDEINC.'/channelunit.func.php');
 /**
- * åŠ¨æ€æ¨¡æ¿channelæ ‡ç­¾
+ * ¶¯Ì¬Ä£°åchannel±êÇ©
  *
- * @version        $Id: plus_ask.php 1 13:58 2010å¹´7æœˆ5æ—¥Z tianya $
+ * @version        $Id: plus_ask.php 1 13:58 2010Äê7ÔÂ5ÈÕZ tianya $
  * @package        DedeCMS.Tpllib
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -25,7 +25,7 @@ function plus_channel(&$atts, &$refObj, &$fields)
     $reid = 0;
     $topid = 0;
     
-    //å¦‚æœå±æ€§é‡Œæ²¡æŒ‡å®šæ ç›®idï¼Œä»å¼•ç”¨ç±»é‡Œè·å–æ ç›®ä¿¡æ¯
+    //Èç¹ûÊôĞÔÀïÃ»Ö¸¶¨À¸Ä¿id£¬´ÓÒıÓÃÀàÀï»ñÈ¡À¸Ä¿ĞÅÏ¢
     if(empty($typeid))
     {
         if( isset($refObj->TypeLink->TypeInfos['id']) )
@@ -38,7 +38,7 @@ function plus_channel(&$atts, &$refObj, &$fields)
           $typeid = 0;
       }
     }
-    //å¦‚æœæŒ‡å®šäº†æ ç›®idï¼Œä»æ•°æ®åº“è·å–æ ç›®ä¿¡æ¯
+    //Èç¹ûÖ¸¶¨ÁËÀ¸Ä¿id£¬´ÓÊı¾İ¿â»ñÈ¡À¸Ä¿ĞÅÏ¢
     else
     {
         $row2 = $dsql->GetOne("SELECT * FROM `#@__arctype` WHERE id='$typeid' ");
@@ -68,7 +68,7 @@ function plus_channel(&$atts, &$refObj, &$fields)
             FROM `#@__arctype` WHERE reid='$reid' AND ishidden<>1 ORDER BY sortrank ASC LIMIT 0, $line ";
     }
 
-    //æ£€æŸ¥æ˜¯å¦æœ‰å­æ ç›®ï¼Œå¹¶è¿”å›relæç¤ºï¼ˆç”¨äºäºŒçº§èœå•ï¼‰
+    //¼ì²éÊÇ·ñÓĞ×ÓÀ¸Ä¿£¬²¢·µ»ØrelÌáÊ¾£¨ÓÃÓÚ¶ş¼¶²Ëµ¥£©
     $needRel = true;
     
     if(empty($sql)) return $reArray;
@@ -76,7 +76,7 @@ function plus_channel(&$atts, &$refObj, &$fields)
     $dsql->Execute('me',$sql);
     $totalRow = $dsql->GetTotalRow('me');
     
-    //å¦‚æœç”¨å­æ ç›®æ¨¡å¼ï¼Œå½“æ²¡æœ‰å­æ ç›®æ—¶æ˜¾ç¤ºåŒçº§æ ç›®
+    //Èç¹ûÓÃ×ÓÀ¸Ä¿Ä£Ê½£¬µ±Ã»ÓĞ×ÓÀ¸Ä¿Ê±ÏÔÊ¾Í¬¼¶À¸Ä¿
     if($type=='son' && $reid!=0 && $totalRow==0)
     {
         $sql = "SELECT id,typename,typedir,isdefault,ispart,defaultname,namerule2,moresite,siteurl,sitepath
@@ -93,7 +93,7 @@ function plus_channel(&$atts, &$refObj, &$fields)
             if($row['sonids']=='') $row['rel'] = '';
             else $row['rel'] = " rel='dropmenu{$row['id']}'";
         }
-        //å¤„ç†åŒçº§æ ç›®ä¸­ï¼Œå½“å‰æ ç›®çš„æ ·å¼
+        //´¦ÀíÍ¬¼¶À¸Ä¿ÖĞ£¬µ±Ç°À¸Ä¿µÄÑùÊ½
         if( ($row['id']==$typeid || ($topid==$row['id'] && $type=='top') ) && $currentstyle!='' )
         {
             $row['currentstyle'] = $currentstyle;

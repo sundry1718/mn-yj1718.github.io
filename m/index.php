@@ -12,7 +12,7 @@ if ( preg_match("#PHP (.*) Development Server#",$_SERVER['SERVER_SOFTWARE']) )
         header('Location:'.$_SERVER['REQUEST_URI'].'/');
     }
 }
-//è‡ªåŠ¨ç”ŸæˆHTMLç‰ˆ
+//×Ô¶¯Éú³ÉHTML°æ
 if(isset($_GET['upcache']) || !file_exists('index.html'))
 {
     require_once (dirname(__FILE__) . "/../include/common.inc.php");
@@ -25,7 +25,7 @@ if(isset($_GET['upcache']) || !file_exists('index.html'))
     $row['templet'] =str_replace('.htm','_m.htm',$row['templet']);
     if ( !file_exists($cfg_basedir . $cfg_templets_dir . "/" . $row['templet']) )
     {
-        echo "æ¨¡æ¿æ–‡ä»¶ä¸å­˜åœ¨ï¼Œæ— æ³•è§£æžæ–‡æ¡£ï¼";
+        echo "Ä£°åÎÄ¼þ²»´æÔÚ£¬ÎÞ·¨½âÎöÎÄµµ£¡";
         exit();
     }
     $pv->SetTemplet($cfg_basedir . $cfg_templets_dir . "/" . $row['templet']);

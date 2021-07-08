@@ -1,8 +1,8 @@
 <?php   if(!defined('DEDEINC')) exit("Request Error!");
 /**
- * æ ç›®å•å…ƒ,ä¸»è¦ç”¨æˆ·ç®¡ç†åå°ç®¡ç†èœå•å¤„
+ * À¸Ä¿µ¥Ôª,Ö÷ÒªÓÃ»§¹ÜÀíºóÌ¨¹ÜÀí²Ëµ¥´¦
  *
- * @version        $Id: typeunit.class.menu.php 1 15:21 2010å¹´7æœˆ5æ—¥Z tianya $
+ * @version        $Id: typeunit.class.menu.php 1 15:21 2010Äê7ÔÂ5ÈÕZ tianya $
  * @package        DedeCMS.Libraries
  * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
  * @license        http://help.dedecms.com/usersguide/license.html
@@ -11,7 +11,7 @@
 require_once(DEDEDATA."/cache/inc_catalog_base.inc");
 
 /**
- * æ ç›®å•å…ƒ,ä¸»è¦ç”¨æˆ·ç®¡ç†åå°ç®¡ç†èœå•å¤„
+ * À¸Ä¿µ¥Ôª,Ö÷ÒªÓÃ»§¹ÜÀíºóÌ¨¹ÜÀí²Ëµ¥´¦
  *
  * @package          TypeUnit
  * @subpackage       DedeCMS.Libraries
@@ -23,7 +23,7 @@ class TypeUnit
     var $aChannels;
     var $isAdminAll;
 
-    //php5æ„é€ å‡½æ•°
+    //php5¹¹Ôìº¯Êı
     function __construct($catlogs='')
     {
         global $cfg_Cs;
@@ -58,17 +58,17 @@ class TypeUnit
         $this->__construct($catlogs);
     }
 
-    //æ¸…ç†ç±»
+    //ÇåÀíÀà
     function Close()
     {
     }
 
     /**
-     *  è¯»å‡ºæ‰€æœ‰åˆ†ç±»,åœ¨ç±»ç›®ç®¡ç†é¡µ(list_type)ä¸­ä½¿ç”¨
+     *  ¶Á³öËùÓĞ·ÖÀà,ÔÚÀàÄ¿¹ÜÀíÒ³(list_type)ÖĞÊ¹ÓÃ
      *
      * @access    public
-     * @param     int   $channel  é¢‘é“ID
-     * @param     int   $nowdir  å½“å‰æ“ä½œID
+     * @param     int   $channel  ÆµµÀID
+     * @param     int   $nowdir  µ±Ç°²Ù×÷ID
      * @return    string
      */
     function ListAllType($channel=0, $nowdir=0)
@@ -76,7 +76,7 @@ class TypeUnit
 
         global $cfg_admin_channel, $admin_catalogs;
         
-        //æ£€æµ‹ç”¨æˆ·æœ‰æƒé™çš„é¡¶çº§æ ç›®
+        //¼ì²âÓÃ»§ÓĞÈ¨ÏŞµÄ¶¥¼¶À¸Ä¿
         if($cfg_admin_channel=='array')
         {
             $admin_catalog = join(',', $admin_catalogs);
@@ -110,22 +110,22 @@ class TypeUnit
             $id = $row->id;
             $channeltype = $row->channeltype;
 
-            //æ™®é€šæ ç›®
+            //ÆÕÍ¨À¸Ä¿
             if($ispart==0)
             {
                 $smenu = " oncontextmenu=\"CommonMenu(event,this,$id,'".urlencode($typeName)."')\"";
             }
-            //å°é¢é¢‘é“
+            //·âÃæÆµµÀ
             else if($ispart==1)
             {
                 $smenu = " oncontextmenu=\"CommonMenuPart(event,this,$id,'".urlencode($typeName)."')\"";
             }
-            //ç‹¬ç«‹é¡µé¢
+            //¶ÀÁ¢Ò³Ãæ
             //else if($ispart==2)
             //{
                     //$smenu = " oncontextmenu=\"SingleMenu(event,this,$id,'".urlencode($typeName)."')\"";
             //}
-            //è·³è½¬ç½‘å€
+            //Ìø×ªÍøÖ·
             else
             {
                 continue;
@@ -138,19 +138,19 @@ class TypeUnit
             echo "<div id='suns".$id."' class='sunct'>";
             if($lastid==$id || $cfg_admin_channel=='array')
             {
-                $this->LogicListAllSunType($id, "ã€€");
+                $this->LogicListAllSunType($id, "¡¡");
             }
             echo "</div>\r\n";
         }
     }
 
     /**
-     *  è·å¾—å­ç±»ç›®çš„é€’å½’è°ƒç”¨
+     *  »ñµÃ×ÓÀàÄ¿µÄµİ¹éµ÷ÓÃ
      *
      * @access    public
-     * @param     int  $id  æ ç›®ID
-     * @param     string  $step  å±‚çº§æ ‡å¿—
-     * @param     bool  $needcheck  æƒé™
+     * @param     int  $id  À¸Ä¿ID
+     * @param     string  $step  ²ã¼¶±êÖ¾
+     * @param     bool  $needcheck  È¨ÏŞ
      * @return    string
      */
     function LogicListAllSunType($id,$step,$needcheck=true)
@@ -173,7 +173,7 @@ class TypeUnit
                 $id = $row->id;
                 $ispart = $row->ispart;
                 $channeltype = $row->channeltype;
-                if($step=="ã€€")
+                if($step=="¡¡")
                 {
                     $stepdd = 2;
                 }
@@ -182,31 +182,31 @@ class TypeUnit
                     $stepdd = 3;
                 }
 
-                //æœ‰æƒé™æ ç›®
+                //ÓĞÈ¨ÏŞÀ¸Ä¿
                 if(in_array($id,$this->aChannels) || $needcheck===false || $this->isAdminAll===true)
                 {
-                    //æ™®é€šåˆ—è¡¨
+                    //ÆÕÍ¨ÁĞ±í
                     if($ispart==0||empty($ispart))
                     {
                         $smenu = " oncontextmenu=\"CommonMenu(event,this,$id,'".urlencode($typeName)."')\"";
                         $timg = " <img src='images/tree_page.gif'> ";
                     }
 
-                    //å°é¢é¢‘é“
+                    //·âÃæÆµµÀ
                     else if($ispart==1)
                     {
                         $smenu = " oncontextmenu=\"CommonMenuPart(event,this,$id,'".urlencode($typeName)."')\"";
                         $timg = " <img src='images/tree_part.gif'> ";
                     }
 
-                    //ç‹¬ç«‹é¡µé¢
+                    //¶ÀÁ¢Ò³Ãæ
                     //else if($ispart==2)
                     //{
                         //$timg = " <img src='img/tree_page.gif'> ";
                         //$smenu = " oncontextmenu=\"SingleMenu(event,this,$id,'".urlencode($typeName)."')\" ";
                     //}
 
-                    //è·³è½¬ç½‘å€
+                    //Ìø×ªÍøÖ·
                     else
                     {
                         continue;
@@ -218,7 +218,7 @@ class TypeUnit
                     echo "     <td align='left'>".$step.$timg."<a href='catalog_do.php?cid=".$id."&dopost=listArchives'{$smenu}>".$typeName."</a></td>\r\n";
                     echo "   </tr>\r\n";
                     echo "  </table>\r\n";
-                    $this->LogicListAllSunType($id,$step."ã€€",false);
+                    $this->LogicListAllSunType($id,$step."¡¡",false);
                 }
             }
         }
