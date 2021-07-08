@@ -1,0 +1,194 @@
+<!--顶部 -->
+
+<div class="header_top">
+  <div class="main">
+    <div class="header_top_title fl">
+      <h6>{dede:global.cfg_gg/}</h6>
+    </div>
+    <div class="header_top_right fr">
+      <ul>
+        <li class="weixin"><a href="#">手机查看</a>
+          <div class="weixin_img"> <img src="/style/images/wx.jpg" alt="手机网站" />
+            <p>扫一扫关注</p>
+          </div>
+        </li>
+        <li class="shoucang"><a href="javascript:void(0);" onClick="AddFavorite('AB模版网',location.href)">收藏本站</a></li>
+        <li class="kefu"><a href="http://wpa.qq.com/msgrd?V=3&uin={dede:global.cfg_qq/}&Site=联系客服&Menu=yes" target="blank">联系客服</a></li>
+      </ul>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+<!-- 头部 -->
+<div class="logo">
+  <div class="main">
+    <div class="logo_img fl"> <a href="/"><img src="/style/images/logo.png"></a> </div>
+    <div class="logo_by fl">
+      <div class="search">
+        <form action="/plus/search.php" name="formsearch">
+          <input type="hidden" name="kwtype" value="0">
+          <div class="search-wrap">
+            <input class="keyWord" type="text" name="q" value="请输入您想要的关键词" onkeyup="STip(this.value, event);" autocomplete="off" onfocus="this.value=''">
+          </div>
+          <input type="submit" name="submit" class="submit sub-btn mod_search_btn" tabindex="9" value="搜 索">
+        </form>
+      </div>
+    </div>
+    <div class="logo_tel fr"> <span><i></i><em>在线咨询</em></span> <b>{dede:global.cfg_tel/}</b> </div>
+    <div class="clear"></div>
+    <div class="nav">
+      <ul class="fl">
+        <li ><a href="/">网站首页</a></li>
+        {dede:channel type='top' row='6'}
+        <li><a href="[field:typelink/]">[field:typename/]</a></li>
+        {/dede:channel}
+      </ul>
+      <div class="nav_ls fr"> <a href="/m">手机访问</a> </div>
+      <div class="clear"></div>
+    </div>
+  </div>
+</div>
+<div class="jiaodian" id="main"> 
+  <!-- 菜单 -->
+  <div class="main1" id="main1">
+    <div class="menu-box"></div>
+    <div class="menu-content" id="menu-content"> <span class="menu-title">
+      <h4>产品相关分类</h4>
+      </span>
+      {dede:channel type='top' row='6'}
+      <div class="menu-item" data-index="[field:global name=autoindex runphp="yes"]@me=@me;[/field:global]" style="background: none;"> <a href="[field:typeurl/]" class="ico[field:global name=autoindex runphp="yes"]@me=@me+1;[/field:global]"> <span> <strong>[field:typename/]仪器</strong></span> <i class="icon"></i></a> </div>
+      {/dede:channel}
+    </div>
+    <!--内容-->
+    <div class="sub-menu hide" id="sub-menu">
+      <div class="inner-box" style="display: none;">
+        {dede:channelartlist typeid='1'  row='50'}
+        <dl>
+          <dt> <a href="{dede:field name='typeurl'/}"> <strong>{dede:field name='typename'/}</strong></a> </dt>
+          {dede:sql sql='Select * from dede_arctype where reid=~id~'}
+          <dd> <a href="[field:typedir function='str_replace("{cmspath}","",@me)'/]">[field:typename/]</a></dd>
+          {/dede:sql}
+        </dl>
+        {/dede:channelartlist}
+      </div>
+      <div class="inner-box" style="display: none;">
+        {dede:channelartlist typeid='6'  row='50'}
+        <dl>
+          <dt> <a href="{dede:field name='typeurl'/}"> <strong>{dede:field name='typename'/}</strong></a> </dt>
+          {dede:sql sql='Select * from dede_arctype where reid=~id~'}
+          <dd> <a href="[field:typedir function='str_replace("{cmspath}","",@me)'/]">[field:typename/]</a></dd>
+          {/dede:sql}
+        </dl>
+        {/dede:channelartlist}
+      </div>
+      <div class="inner-box" style="display: none;">
+        {dede:channelartlist typeid='10'  row='50'}
+        <dl>
+          <dt> <a href="{dede:field name='typeurl'/}"> <strong>{dede:field name='typename'/}</strong></a> </dt>
+          {dede:sql sql='Select * from dede_arctype where reid=~id~'}
+          <dd> <a href="[field:typedir function='str_replace("{cmspath}","",@me)'/]">[field:typename/]</a></dd>
+          {/dede:sql}
+        </dl>
+        {/dede:channelartlist}
+      </div>
+      <div class="inner-box" style="display: none;">
+        {dede:channelartlist typeid='15'  row='50'}
+        <dl>
+          <dt> <a href="{dede:field name='typeurl'/}"> <strong>{dede:field name='typename'/}</strong></a> </dt>
+          {dede:sql sql='Select * from dede_arctype where reid=~id~'}
+          <dd> <a href="[field:typedir function='str_replace("{cmspath}","",@me)'/]">[field:typename/]</a></dd>
+          {/dede:sql}
+        </dl>
+        {/dede:channelartlist}
+      </div>
+      <div class="inner-box" style="display: none;">
+        {dede:channelartlist typeid='126'  row='50'}
+        <dl>
+          <dt> <a href="{dede:field name='typeurl'/}"> <strong>{dede:field name='typename'/}</strong></a> </dt>
+          {dede:sql sql='Select * from dede_arctype where reid=~id~'}
+          <dd> <a href="[field:typedir function='str_replace("{cmspath}","",@me)'/]">[field:typename/]</a></dd>
+          {/dede:sql}
+        </dl>
+        {/dede:channelartlist}
+      </div>
+      <div class="inner-box" style="display: none;">
+        {dede:channelartlist typeid='112'  row='50'}
+        <dl>
+          <dt> <a href="{dede:field name='typeurl'/}"> <strong>{dede:field name='typename'/}</strong></a> </dt>
+          {dede:sql sql='Select * from dede_arctype where reid=~id~'}
+          <dd> <a href="[field:typedir function='str_replace("{cmspath}","",@me)'/]">[field:typename/]</a></dd>
+          {/dede:sql}
+        </dl>
+        {/dede:channelartlist}
+      </div>
+    </div>
+  </div>
+  <div class="biaodan">
+    <form action="/plus/diy.php" enctype="multipart/form-data" method="post">
+      <input type="hidden" name="action" value="post" />
+      <input type="hidden" name="diyid" value="1" />
+      <input type="hidden" name="do" value="2" />
+      <div class="biaodan-title">
+        <h5>需求快捷提交</h5>
+        <p>即可为你快速分配解决方案</p>
+      </div>
+      <div class="biaodan-input biaodan-ico1">
+        <input type="text" id="name" name="name"  placeholder="请输入您的姓名">
+      </div>
+      <div class="biaodan-input biaodan-ico2">
+        <input type="text" id="tel" name="tel" placeholder="您的电话">
+      </div>
+      <div class="biaodan-submit">
+        <input type="submit" name="" value="技术咨询" id="tj">
+      </div>
+      <input type="hidden" name="dede_fields" value="name,text;tel,text" />
+      <input type="hidden" name="dede_fieldshash" value="fc1d0bfd16d34e0da6edc10406ecc269" />
+    </form>
+  </div>
+  <script>
+	$(function(){
+		$('#tj').click(function(){
+			//alert(1)
+			if($('#name').val()==''){alert('请输入您的姓名！'); $("#name").focus(); return false;}
+			if ($("#tel").val() == "") { alert("请输入你的手机！"); $("#tel").focus(); return false; } 
+			if (!$("#tel").val().match(/^(((13[0-9]{1})|(14[0-9]{1})|(15[0-9]{1})|(16[0-9]{1})|(17[0-9]{1})|(18[0-9]{1})|(19[0-9]{1}))+\d{8})$/)) { alert("手机号码格式不正确！"); $("#tel").focus(); return false;} 
+		})
+	})
+</script> 
+  <script src="/style/js/script.js"></script> 
+  <!-- Start 焦点图 -->
+  <div class="index_focus"> <a href="javascript:;" class="index_focus_pre" title="上一张">上一张</a> <a href="javascript:;" class="index_focus_next" title="下一张">下一张</a>
+    <div class="bd">
+      <ul style="margin:auto;">
+        {dede:arclist typeid='155' row='3'}
+        <li style="background:url([field:picname/]) no-repeat center top;"></li>
+        {/dede:arclist}
+      </ul>
+    </div>
+    <div class="slide_nav"> <a href="javascript:;">●</a> <a href="javascript:;">●</a> <a href="javascript:;">●</a> </div>
+  </div>
+  <!-- End 焦点图 --> 
+  <script type="text/javascript">
+		jQuery(".index_focus").hover(function(){
+		jQuery(this).find(".index_focus_pre,.index_focus_next").stop(true, true).fadeTo("show", 1)
+		},function(){
+		jQuery(this).find(".index_focus_pre,.index_focus_next").fadeOut()
+		});
+		jQuery(".index_focus").slide({
+		titCell: ".slide_nav a ",
+		mainCell: ".bd ul",
+		delayTime: 500,
+		interTime: 3500,
+		prevCell:".index_focus_pre",
+		nextCell:".index_focus_next",
+		effect: "fold",
+		autoPlay: true,
+		trigger: "click",
+		startFun:function(i){
+			jQuery(".index_focus_info").eq(i).find("h3").css("display","block").fadeTo(1000,1);
+			jQuery(".index_focus_info").eq(i).find(".text").css("display","block").fadeTo(1000,1);
+		}
+		});
+		</script> 
+  <!-- flash_end --> 
+</div>

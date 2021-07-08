@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{dede:field name="title"/}_{dede:global.cfg_webname/}</title>
+<meta name="keywords" content="{dede:field.keywords/}" />
+<meta name="description" content="{dede:field.description function='html2text(@me)'/}" />
+<link href="/style/css/common.css" rel="stylesheet" type="text/css" />
+<link href="/style/css/style.css" rel="stylesheet" type="text/css" />
+<link href="/style/css/index.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/style/js/jquery.min.js"></script>
+<link rel="alternate" media="only screen and(max-width: 640px)" href="{dede:global.cfg_mobileurl/}/view.php?aid={dede:field.id/}">
+<link rel="canonical"href="{dede:global.cfg_mobileurl/}/{dede:field.idrunphp='yes'}$id=@me;@me='';$url=GetOneArchive($id);@me=$url['arcurl'];{/dede:field.id}"/>
+<meta http-equiv="mobile-agent" content="format=xhtml;url={dede:global.cfg_mobileurl/}/view.php?aid={dede:field.id/}">
+<script type="text/javascript">if(window.location.toString().indexOf('pref=padindex') != -1){}else{if(/AppleWebKit.*Mobile/i.test(navigator.userAgent) || (/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/.test(navigator.userAgent))){if(window.location.href.indexOf("?mobile")<0){try{if(/Android|Windows Phone|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)){window.location.href="{dede:global.cfg_mobileurl/}/view.php?aid={dede:field.id/}";}else if(/iPad/i.test(navigator.userAgent)){}else{}}catch(e){}}}}</script>
+</head>
+<body>
+{dede:include filename="head2.htm"/}
+<div class="weizhi-box">
+  <div class="main">
+    <div class="weizhi">您当前位置：{dede:field name='position'/}</div>
+    <div class="clear"></div>
+  </div>
+</div>
+<div class="main">
+  <div class="main_left"> 
+    <!--子栏目-->
+    <div class="ngw-box">
+      <div class="ngw-left">
+        <div class="ngw-left-img">
+          <div align="center"><img src="{dede:field name="litpic"/}" border="0" alt="{dede:field name="title"/}"/></div>
+        </div>
+        <p>{dede:field name="title"/}<em>{dede:field name='typename'/}</em></p>
+      </div>
+      <div class="ngw-right">
+        <ul>
+          <li><span>顾 问：</span>{dede:field name="title"/}</li>
+          <li><span>工作年限：</span>{dede:field name="gongling"/}</li>
+          <li><span>浏  览  量：</span><script src="{dede:field name='phpurl'/}/count.php?view=yes&aid={dede:field name='id'/}&mid={dede:field name='mid'/}" type='text/javascript' language="javascript"></script></li>
+          <li class="tel"><span>顾问电话：</span>{dede:field name="tel"/}</li>
+          <div class="clear"></div>
+        </ul>
+        <p><b>个人简介</b>{dede:field.description /}....</p>
+        <a href="http://wpa.qq.com/msgrd?V=3&uin={dede:global.cfg_qq/}&Site=联系客服&Menu=yes">立即咨询</a> </div>
+      <div class="clear"></div>
+    </div>
+    <div class="ngw-title">
+      <p>我的服务</p>
+    </div>
+    <div class="neirong">
+      <div id="MyContent">
+        <p>{dede:field name='guwenbody'/}</p>
+      </div>
+    </div>
+    <div class="clear blank20"></div>
+  </div>
+  <div class="main_right">
+    <div class="right_title">快速申请办理</div>
+    <div style="" class="right-line">
+      <form action="/plus/diy.php" enctype="multipart/form-data" method="post">
+        <input type="hidden" name="action" value="post" />
+        <input type="hidden" name="diyid" value="1" />
+        <input type="hidden" name="do" value="2" />
+        称呼：
+        <input type="text" maxlength="255" class="upfile" style="width:160px" id="name" name="name" value="" placeholder="请输入您的称呼">
+        <font color="red"> * </font><br />
+        电话：
+        <input type="text" maxlength="255" class="upfile" style="width:160px" id="tel" name="tel" value=""  placeholder="请输入你的联系方式">
+        <font color="red"> * </font> <br />
+        <textarea style="width:236px;height:80px" rows="5" id="contxt" name="contxt" class="upfile" placeholder="备注内容"></textarea>
+        <input type="submit" value="确认提交" name="submit1" class="btn" id="tj">
+        <input type="hidden" name="dede_fields" value="name,text;tel,text;contxt,multitext" />
+        <input type="hidden" name="dede_fieldshash" value="8d53bf48f35a084bb874e7dfe2a0939a" />
+      </form>
+      <p style="line-height:20px; margin:10px 0;">订单提交后，10分钟内，我们将安排工作人员和您联系！</p>
+      <script>
+	$(function(){
+		$('#tj').click(function(){
+			//alert(1)
+			if($('#name').val()==''){alert('请输入您的姓名！'); $("#name").focus(); return false;}
+			if ($("#tel").val() == "") { alert("请输入你的手机！"); $("#tel").focus(); return false; } 
+			if (!$("#tel").val().match(/^(((13[0-9]{1})|(14[0-9]{1})|(15[0-9]{1})|(16[0-9]{1})|(17[0-9]{1})|(18[0-9]{1})|(19[0-9]{1}))+\d{8})$/)) { alert("手机号码格式不正确！"); $("#tel").focus(); return false;} 
+		})
+	})
+	</script>
+    </div>
+    <div class="right_title" style="margin-top:20px;">其他顾问</div>
+    <div class="news_list2">
+      <ul>
+        {dede:arclist titlelen='45' row='5'  addfields='gongling' channelid='17'}
+        <li><a href="[field:arcurl/]" title="[field:title /]" title="[field:title /]">
+          <div class="news_list2-img"><img src="[field:litpic/]" alt="[field:title /]"></div>
+          <p>[field:title /]<em>[field:typename/]</em></p>
+          <p>工作年限：[field:gongling /]年</p>
+          </a></li>
+        {/dede:arclist}
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="clear blank30"></div>
+{dede:include filename="foot.htm"/}
+</body>
+</html>

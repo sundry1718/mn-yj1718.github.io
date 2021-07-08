@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="telephone=no" name="format-detection">
+<title>{dede:global.cfg_webname/}</title>
+<meta name="keywords" content="{dede:global.cfg_keywords/}">
+<meta name="description" content="{dede:global.cfg_description/}">
+<link rel="stylesheet" type="text/css" href="/m/style/css/css.css">
+<script src="/m/style/js/touchslide.1.1.js"></script>
+<script type="text/javascript" language="javascript" src="/m/style/js/jq.js"></script>
+<script language="javascript" src="/m/style/js/ntab.js"></script>
+</head>
+<body>
+{dede:include filename="head_m.htm"/}
+<div class="boxbg"></div>
+<div class="box clearfix"> {dede:include filename="banner_m.htm"/}
+  <div class="an-box clearfix">
+    <h1>服务项目</h1>
+    <h2>20年经验，专人专办，注册公司快一点</h2>
+    <ul>
+      {dede:type typeid='1' }
+      <li><a href="list.php?tid=[field:id/]"><img src="/m/style/images/a1.png" alt=""/>[field:typename /]</a></li>
+      {/dede:type}
+      {dede:type typeid='6' }
+      <li><a href="list.php?tid=[field:id/]"><img src="/m/style/images/a2.png" alt=""/>[field:typename /]</a></li>
+      {/dede:type}
+      {dede:type typeid='10' }
+      <li><a href="list.php?tid=[field:id/]"><img src="/m/style/images/a3.png" alt=""/>[field:typename /]</a></li>
+      {/dede:type}
+      {dede:type typeid='15' }
+      <li><a href="list.php?tid=[field:id/]"><img src="/m/style/images/a4.png" alt=""/>[field:typename /]</a></li>
+      {/dede:type}
+    </ul>
+  </div>
+  <div class="zixun"><a href="tel:{dede:global.cfg_tel/}"><img src="/m/style/images/yjkq.png"></a></div>
+  <div class="zhuce">
+    <h1>注册公司流程</h1>
+    <h2>专人专办、上门服务、一步搞定</h2>
+    <div class="lc"><img src="/m/style/images/liucheng.jpg"></div>
+    <h1>我们的优势</h1>
+    <h2>努力打造创业企业服务一体化互联网品牌</h2>
+    <div class="duo">
+      <li>
+        <div class="duo1">
+          <h1>项目多一点</h1>
+          <h2>不仅仅只是注册公司<br>
+            再这里我们还为您提供公司<br>
+            成立的各种后续服务</h2>
+        </div>
+        <div class="duo2">
+          <h1>速度快一点</h1>
+          <h2>预留信息后快速与您进行联系<br>
+            全程专属客服服务<br>
+            快速出证</h2>
+        </div>
+      </li>
+      <li>
+        <div class="duo3">
+          <h1>服务好一点</h1>
+          <h2>轻松网上申请<br>
+            一站式服务体系 足不出户<br>
+            即可轻松开公司</h2>
+        </div>
+        <div class="duo4">
+          <h1>金钱少一点</h1>
+          <h2>全程透明化消费<br>
+            无隐形收费项目<br>
+            让您省时省心更省钱</h2>
+        </div>
+      </li>
+    </div>
+  </div>
+  <div class="dljz">
+    <h1>代理记账流程</h1>
+    <h2>全程专属会计服务、标准化流程每月按时记账报税</h2>
+    <div class="wmlc"><img  src="/m/style/images/liucheng2.jpg"></div>
+    <a href="http://wpa.qq.com/msgrd?v=3&uin={dede:global.cfg_qq/}&site=qq&menu=yes">
+    <div class="tu"> <img  src="/m/style/images/jizhang.jpg"> </div>
+    </a> </div>
+  <div class="kc-box">
+    <h1>知识宝库</h1>
+    <h2>全程专属会计服务、标准化流程每月按时记账报税</h2>
+    <div class="a_tab">
+      <ul id="Tab1">
+        <li class="active" onMouseover="nTabs(this,0);"><a href="javascript:void();">公司注册</a></li>
+        <li onMouseover="nTabs(this,1);"><a href="javascript:void();">代理记账</a></li>
+        <li onMouseover="nTabs(this,2);"><a href="javascript:void();">资质代办</a></li>
+        <li onMouseover="nTabs(this,3);"><a href="javascript:void();">人才培训</a></li>
+      </ul>
+    </div>
+    <div class="kc-con" id="Tab1_Content0">
+      <ul>
+        {dede:arclist titlelen='25' row='4' typeid='1' flag='p'}
+        <li class="h30">
+          <div class="kc-tu"><img src="[field:litpic/]" alt="[field:title /]"/></div>
+          <span><a href="view.php?aid=[field:id/]" title="[field:title /]">
+          <p>[field:title /]</p>
+          <font>[field:description function="cn_substr(@me,90)"/]...</font></a></span></li>
+        {/dede:arclist}
+      </ul>
+    </div>
+    <div class="kc-con" id="Tab1_Content1"  style="display:none;">
+      <ul>
+        {dede:arclist titlelen='25' row='4' typeid='6' flag='p'}
+        <li class="h30">
+          <div class="kc-tu"><img src="[field:litpic/]" alt="[field:title /]"/></div>
+          <span><a href="view.php?aid=[field:id/]" title="[field:title /]">
+          <p>[field:title /]</p>
+          <font>[field:description function="cn_substr(@me,90)"/]...</font></a></span></li>
+        {/dede:arclist}
+      </ul>
+    </div>
+    <div class="kc-con" id="Tab1_Content2"  style="display:none;">
+      <ul>
+        {dede:arclist titlelen='25' row='4' typeid='10' flag='p'}
+        <li class="h30">
+          <div class="kc-tu"><img src="[field:litpic/]" alt="[field:title /]"/></div>
+          <span><a href="view.php?aid=[field:id/]" title="[field:title /]">
+          <p>[field:title /]</p>
+          <font>[field:description function="cn_substr(@me,90)"/]...</font></a></span></li>
+        {/dede:arclist}
+      </ul>
+    </div>
+    <div class="kc-con" id="Tab1_Content3"  style="display:none;">
+      <ul>
+        {dede:arclist titlelen='25' row='4' typeid='15' flag='p'}
+        <li class="h30">
+          <div class="kc-tu"><img src="[field:litpic/]" alt="[field:title /]"/></div>
+          <span><a href="view.php?aid=[field:id/]" title="[field:title /]">
+          <p>[field:title /]</p>
+          <font>[field:description function="cn_substr(@me,90)"/]...</font></a></span></li>
+        {/dede:arclist}
+      </ul>
+    </div>
+  </div>
+  <div class="bq" style=" width:80%; height:25px;"></div>
+  <!-- 底部 -->
+  <div class="wihtesd clearfix"> </div>
+</div>
+{dede:include filename="foot_m.htm"/}
+</body>
+</html>

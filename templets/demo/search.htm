@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<TITLE>搜索页_{dede:global.cfg_webname/}</TITLE>
+<META content="{dede:field name='keywords'/}" name=keywords>
+<META content="{dede:field name='description' function='html2text(@me)'/}" name=description>
+<link href="/style/css/common.css" rel="stylesheet" type="text/css" />
+<link href="/style/css/style.css" rel="stylesheet" type="text/css" />
+<link href="/style/css/index.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/style/js/jquery.min.js"></script>
+</head>
+<body>
+{dede:include filename="head2.htm"/}
+<div class="weizhi-box">
+  <div class="main">
+    <div class="weizhi">您当前位置：搜索 <strong style="color:#F00">{dede:global name='keyword' function='RemoveXSS(@me)'/}</strong> 的结果</div>
+    <div class="clear"></div>
+  </div>
+</div>
+<div class="main">
+  <div class="main_right" style="float: left; ">
+    <div class="list-box">
+      <div class="nav-list">
+        <div class="nav-list-title">
+          <h3>菜单</h3>
+        </div>
+        <ul>
+          {dede:channel type='top' currentstyle="
+          <li class='currclass'><a  href='~typelink~' >~typename~</a> </li>
+          "}
+          <li><a href='[field:typelink/]'>[field:typename/]</a></li>
+          {/dede:channel}
+        </ul>
+      </div>
+      <div class="main_right__img"><img src="/style/images/j1.jpg" alt="{dede:field name="title"/}_{dede:global.cfg_webname/}" /></div>
+      <div class="nav-list">
+        <div class="nav-list-title">
+          <h3>联系方式</h3>
+        </div>
+        <div class="nav-list-text">
+          <p><b>{dede:global.cfg_mc/}</b></p>
+          <p>电话：{dede:global.cfg_tel/}</p>
+          <p>手机：{dede:global.cfg_telz/}</p>
+          <p>地址：{dede:global.cfg_addz/}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main_left" style="float: right;width: 910px;">
+    <div class="pic_art_list"> {dede:list pagesize='8'}
+      <dl>
+        <dt class="picShow"><a href="[field:arcurl/]" title="[field:title /]" target="_blank"><img src="[field:litpic/]" alt="[field:title /]"/></a></dt>
+        <dd>
+          <h5><a href="[field:arcurl/]" title="[field:title /]" target="_blank">[field:title /]</a></h5>
+          <p>[field:description function="cn_substr(@me,230)"/]...</p>
+          <div class="link_1"> <a href="[field:arcurl/]" title="[field:title /]"  target="_blank" class="ckgd">查看更多</a> <span class="question"><a href='[field:typeurl/]' target="_blank">[field:typename/]</a></span> <span class="stars">[field:click/]</span> <span class="date2">[field:pubdate function="GetDateMK(@me)"/]</span> </div>
+        </dd>
+      </dl>
+      {/dede:list} </div>
+    <div class="clear blank20"></div>
+    <div class="pagess">
+<ul>
+ {dede:pagelist listitem="index,end,pre,next,pageno" listsize="3"/}
+</ul>
+</div>
+  </div>
+</div>
+<div class="clear blank30"></div>
+{dede:include filename="foot.htm"/}
+</body>
+</html>
